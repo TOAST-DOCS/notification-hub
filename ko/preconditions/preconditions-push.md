@@ -37,7 +37,7 @@ iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Develop
 1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
 2. **Keys** 선택합니다.
 3. **Create a key** 선택합니다.
-4. **Register a New Key**에서 키 이름 입력, **ENABLE** 항목에서 **Apple Push Notifictions service (APNs)** 선택 후 **Continue**로 계속 진행합니다.
+4. **Register a New Key**에서 키 이름 입력, **ENABLE** 항목에서 **Apple Push Notification service (APNs)** 선택 후 **Continue**로 계속 진행합니다.
 5. 내용 확인 후 **Register** 선택합니다.
 6. **Download** 선택해 암호 키 파일을 받습니다.
 
