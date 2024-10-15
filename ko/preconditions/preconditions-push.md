@@ -21,7 +21,7 @@ Notification Hub에서 지원하는 푸시 서비스는 다음과 같습니다.
 3. 생성된 프로젝트로 이동합니다.
 4. 페이지 왼쪽 상단 프로젝트 개요 옆 **톱니바퀴 > 프로젝트 설정**을 클릭합니다.
 5. **서비스 계정**을 선택합니다.
-6. Firbase Admin SDK 항목에서 **새 비공개 키 생성**을 클릭해 새로운 **Service Account Credential** JSON 파일을 다운로드합니다.
+6. Firebase Admin SDK 항목에서 **새 비공개 키 생성**을 클릭해 새로운 **Service Account Credential** JSON 파일을 다운로드합니다.
 
 #### FCM Service Account Credential JSON 파일 등록
 1. 콘솔에서 **Notification > Push > 인증서**를 클릭합니다.
