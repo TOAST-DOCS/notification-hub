@@ -23,7 +23,7 @@ Notification Hub > 개요
 * 설정된 메시지 채널 전체로 발송하는 동시 발송과 설정된 우선 순위에 따라 발송하는 우선 순위 발송이 있습니다.
 * 메시지 채널의 우선 순위 설정 방법에 따라 수신율을 높이거나 발송 비용을 절약 등 다양한 목적으로 사용할 수 있습니다.
 
-## Notification 상품들과 설정, 리소스 공유
+## Notification 상품들과 설정, 자원 공유
 NHN Cloud Notification의 개별 상품인 푸시, 이메일, SMS, RCS Bizmessage, KakaoTalk Bizmessage 설정과 자원이 Notification Hub에 공유됩니다. 기존 NHN Cloud Notification 고객은 빠르게 Notification Hub로 전환할 수 있습니다.
 
 ### 공유되는 설정과 자원
