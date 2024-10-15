@@ -6,7 +6,7 @@ Notification Hub 최초 사용자는 어뷰징 방지를 위해 최초 사용자
 ## SMS 월 발송량 제한 안내
 * SMS 서비스는 월 발송량을 제한하고 있습니다.
 * SMS 발송량 제한은 조직 단위로 초기 월 5,000건으로 제한됩니다. 발송 건수 조정이 필요한 경우 [[고객 센터](https://www.nhncloud.com/kr/support/inquiry)]로 문의 바랍니다.
-* 발송량 제한은 SMS/LMS/MMS/국제SMS 종류와 상관 없이 전체 문자 메시지 발송 건수를 포함한 한도입니다.
+* 발송량 제한은 SMS/LMS/MMS/국제SMS 종류와 상관 없이 전체 문자 메시지 발송 건수를 포함한 한도입니다. Notification Hub와 SMS에서 발송된 건수를 모두 합산해 계산됩니다.
 * 월 발송량 쿼터 및 사용량은 [콘솔 > 조직 > 프로젝트 > 쿼터 관리] 메뉴에서 확인 가능합니다. [[리소스 제공 정책 가이드 바로가기](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/#sms)]
 * 발송 성공 기준으로 건수가 집계되기 때문에 발송에 성공한 건들은 단말기 수신에 실패하더라도 포함됩니다.
 
