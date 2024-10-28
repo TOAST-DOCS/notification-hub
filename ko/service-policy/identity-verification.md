@@ -1,6 +1,6 @@
 # 본인 인증
 
-**Notification Hub > 서비스 정책 > 본인 인증**
+**Notification Hub > 이용 정책 및 사전 설정 안내 > 본인 인증**
 
 <span id="identity-verification"></span>
 

@@ -846,6 +846,23 @@ NHN Cloud는 어뷰징으로 발송된 국제 SMS에 대해 일체의 책임을 
 첨부 파일 보관 기한은 7일이며, 템플릿에서 사용 중인 첨부 파일은 템플릿 삭제 전 까지 보관됩니다.
 템플릿 등록 및 메시지 발송 시 업로드한 첨부 파일도 관리할 수 있습니다.
 
+
+### 메시지 채널별 첨부 파일 명세
+
+| 메시지 채널 | 유형             | 파일 형식                                               | 파일 최대 크기 | 해상도                           | 비율                          |
+| ----------- | ---------------- | ------------------------------------------------------- | ------------- | -------------------------------- | ----------------------------- |
+| SMS         | MMS              | .jpg, .jpeg                                             | 300KB         | 가로 1000px, 세로 1000px 이하    |                               |
+| RCS         | MMS              | .jpg, .jpeg, .png, .gif, .bmp                           | 1MB           |                                  |                               |
+| 알림톡      | 이미지           | .jpg, .png                                              | 500KB         | 가로 500px 이상                  | (2:1)                         |
+| 알림톡      | 아이템 리스트    | .jpg, .png                                              | 500KB         | 가로 108px 이상                  | (1:1)                         |
+| 친구톡      | 이미지           | .jpg, .png                                              | 5MB           | 가로 500px 이상                  | (2:1) 이상 (3:4) 이하         |
+| 친구톡      | 와이드 이미지    | .jpg, .png                                              | 5MB           | 가로 800px, 세로 600px           |                               |
+| 친구톡      | 와이드 아이템 리스트 | .jpg, .png                                          | 5MB           | 가로 400px 이상 800px 이하, 세로 400px |                               |
+| 친구톡      | 캐러셀 피드      | .jpg, .png                                              | 5MB           | 가로 500px 이상                  | (2:1) 이상 (3:4) 이하         |
+| Email       | -                | .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr 제외한 모든 형식 | 30MB          |                                  |                               |
+
+
+
 # 통계
 
 Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 데이터로 조회할 수 있습니다.
@@ -866,18 +883,18 @@ Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 �
 
 ### 메시지 채널, 통계 기준에 따른 통계 이벤트
 
-| 메시지 채널 | 통계 기준 | 이벤트 | 비고 |
-| - | - | - | - |
-| 전체 | 메시지 | 요청됨(REQUESTED), 취소됨(CANCELED), 발송 성공(SENT), 발송 실패(SEND_FAILED), 수신 성공(DELIVERED), 수신 실패(DELIVERY_FAILED) | 발송 과정에서 발생한 이벤트입니다. |
-| SMS | 메시지 | 요청됨(REQUESTED), 취소됨(CANCELED), 발송 성공(SENT), 발송 실패(SEND_FAILED), 수신 성공(DELIVERED), 수신 실패(DELIVERY_FAILED) | |
-| RCS | 메시지 | 요청됨(REQUESTED), 취소됨(CANCELED), 발송 성공(SENT), 발송 실패(SEND_FAILED), 수신 성공(DELIVERED), 수신 실패(DELIVERY_FAILED) | |
-| 알림톡 | 메시지 | 요청됨(REQUESTED), 취소됨(CANCELED), 발송 성공(SENT), 발송 실패(SEND_FAILED), 수신 성공(DELIVERED), 수신 실패(DELIVERY_FAILED) | |
-| 친구톡 | 메시지 | 요청됨(REQUESTED), 취소됨(CANCELED), 발송 성공(SENT), 발송 실패(SEND_FAILED), 수신 성공(DELIVERED), 수신 실패(DELIVERY_FAILED) | |
-| Push | 메시지 | 요청됨(REQUESTED), 취소됨(CANCELED), 발송 성공(SENT), 발송 실패(SEND_FAILED), 수신 성공(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED) | 메시지 열람에 대한 이벤트도 수집됩니다. |
-| Email | 메시지 | 요청됨(REQUESTED), 취소됨(CANCELED), 발송 성공(SENT), 발송 실패(SEND_FAILED), 수신 성공(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED) | 메시지 열람에 대한 이벤트도 수집됩니다. |
-| SMS | 국제 SMS 메시지 | 요청됨(REQUESTED), 취소됨(CANCELED), 발송 성공(SENT), 발송 실패(SEND_FAILED), 수신 성공(DELIVERED), 수신 실패(DELIVERY_FAILED) | |
-| Push | 토큰 등록 | 등록됨(REGISTERED), 삭제(UNREGISTERED) | 주소록에 토큰이 등록되거나 삭제될 때 발생한 이벤트입니다. |
-| Push | 수신 거부 | 전체 수신 거부(ALL_UNSUBSCRIBED), 야간 광고 수신 거부(NIGHT_AD_UNSUBSCRIBED), 광고 수신 거부(AD_UNSUBSCRIBED) | |
+| 메시지 채널 | 통계 기준 | 이벤트                                                                                                      | 비고 |
+| - | - |----------------------------------------------------------------------------------------------------------| - |
+| 전체 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | 발송 과정에서 발생한 이벤트입니다. |
+| SMS | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | |
+| RCS | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | |
+| 알림톡 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | |
+| 친구톡 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | |
+| Push | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED) | 메시지 열람에 대한 이벤트도 수집됩니다. |
+| Email | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED) | 메시지 열람에 대한 이벤트도 수집됩니다. |
+| SMS | 국제 SMS 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)  | |
+| Push | 토큰 등록 | 등록(REGISTERED), 삭제(UNREGISTERED)                                                                         | 주소록에 토큰이 등록되거나 삭제될 때 발생한 이벤트입니다. |
+| Push | 수신 거부 | 전체 수신 거부(ALL_UNSUBSCRIBED), 야간 광고 수신 거부(NIGHT_AD_UNSUBSCRIBED), 광고 수신 거부(AD_UNSUBSCRIBED)                | |
 
 ## 통계 키 관리
 
