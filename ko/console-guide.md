@@ -4,7 +4,7 @@ Notification Hub > 콘솔 사용 가이드
 
 Notification Hub 사용을 위해서는 본인 인증이 필요합니다. 본인 인증에 대한 자세한 내용은 '사용 전 준비 사항 > 본인 인증' 항목을 참고 부탁드립니다.
 
-* [본인 인증 바로가기](./preconditions#identity-verification)
+* [본인 인증 바로 가기](./preconditions#identity-verification)
 
 
 # 발신 정보
