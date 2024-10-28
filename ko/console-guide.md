@@ -23,7 +23,7 @@ SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 
 
 ## 브랜드 관리
 
-RCS 메시지를 발송하기 위해서는 브랜드 연동이 완료되어야 합니다. RCS Biz Center에서 사전 등록 사항이 완료(브랜드 승인)되었다면, NHN Cloud 콘솔과 연동을 진행합니다. RCS Biz Center에서 브랜드 생성은 **사용 전 준비 사항** > **RCS** 항목을 참고 부탁드립니다.
+RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS Biz Center에서 사전 등록 사항이 완료(브랜드 승인)되었다면, NHN Cloud 콘솔과 연동을 진행합니다. RCS Biz Center에서 브랜드 생성은 **사용 전 준비 사항** > **RCS**를 참고하세요.
 
 * [사용 전 준비 및 제한 사항 > RCS 바로가기](./preconditions/preconditions-rcs)
 * [RCS Biz Center 바로가기](https://www.rcsbizcenter.com/main)
