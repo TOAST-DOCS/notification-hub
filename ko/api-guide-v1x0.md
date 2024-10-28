@@ -417,7 +417,7 @@ X-NHN-Authorization: {{accessToken}}
         "linkMo": "모바일_링크",
         "linkPc": "PC_링크",
         "schemeIos": "iOS_앱_링크",
-        "schemeAndroid": "Android_앱_링크",
+        "schemeAndroid": "Android_앱_링크"
       }
     }
 }
