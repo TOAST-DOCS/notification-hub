@@ -58,7 +58,7 @@ DKIM(domainkeys identified mail, 도메인 키 식별 메일)은 이메일 발�
 1. 도메인 소유 인증 완료 후 목록에서 도메인을 체크하고 **DKIM 설정** 버튼을 클릭합니다. 
 2. DKIM 인증을 위해 제공된 DNS 호스트 이름에 TXT 레코드 값을 설정하고 아래 **인증** 버튼을 클릭합니다.
     * 등록한 도메인이 `example.com`인 경우, `toast._domainkey.example.com` TXT 레코드에 값을 설정해야 합니다.
-3. 인증이 완료 후 사용 설정을 하고 **저장** 버튼을 클릭해 DKIM 인증을 완료합니다.
+3. 인증이 완료 후 사용 설정을 하고 **저장**을 클릭해 DKIM 인증을 완료합니다.
 
 DKIM에 대한 자세한 설명은 아래 문서 참고 부탁드립니다.
 * [이메일 보안 강화 기능 소개 - 도메인 보호, DKIM, DMARC 바로가기](https://meetup.nhncloud.com/posts/248)
