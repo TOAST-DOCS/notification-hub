@@ -19,7 +19,7 @@ SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 
 
 발신번호 사전 등록제에 대한 자세한 내용은 **사용 전 준비 사항 > 발신번호 사전 등록제**를 참고하세요.
 
-* [발신번호 사전 등록제 바로가기](./preconditions#sender-phone-number-pre-registration)
+* [발신번호 사전 등록제 바로 가기](./preconditions#sender-phone-number-pre-registration)
 
 ## 브랜드 관리
 
