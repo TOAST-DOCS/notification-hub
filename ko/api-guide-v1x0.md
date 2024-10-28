@@ -60,14 +60,14 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 ### 날짜와 시간 형식
 
 * 날짜와 시간은 **ISO 8601 확장 형식**을 사용합니다.
-  * [ISO 8601 - 날짜와 시간 표기법](https://ko.wikipedia.org/wiki/ISO_8601)
+    * [ISO 8601 - 날짜와 시간 표기법](https://ko.wikipedia.org/wiki/ISO_8601)
 * 사용 가능한 **ISO 8601** 형식은 다음과 같습니다.
-  * YYYY-MM-DDThh:mm+hh:mm
-  * YYYY-MM-DDThh:mmZ
-  * YYYY-MM-DDThh:mm:ss+hh:mm
-  * YYYY-MM-DDThh:mm:ssZ
-  * YYYY-MM-DDThh:mm:ss.sss+hh:mm
-  * YYYY-MM-DDThh:mm:ss.sssZ
+    * YYYY-MM-DDThh:mm+hh:mm
+    * YYYY-MM-DDThh:mmZ
+    * YYYY-MM-DDThh:mm:ss+hh:mm
+    * YYYY-MM-DDThh:mm:ssZ
+    * YYYY-MM-DDThh:mm:ss.sss+hh:mm
+    * YYYY-MM-DDThh:mm:ss.sssZ
 * **T**는 날짜와 시간을 구분하는 구분자입니다.
 * **+hh:mm** 또는 **Z**는 표준 시간대 지정자(Time Zone Designator) 를 나타냅니다.
 * Notification Hub API 및 기능에서 초와 밀리초 단위는 사용되지 않습니다.
@@ -235,10 +235,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <span id="free-form-by-sms"></span>
 
-#### SMS
-
-<details>
-  <summary><strong>SMS 요청 본문</strong></summary>
+#### SMS 요청 본문
 
 ```json
 {
@@ -269,6 +266,7 @@ X-NHN-Authorization: {{accessToken}}
 }
 ```
 
+
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
 | sender | Body | Object | N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
@@ -279,15 +277,10 @@ X-NHN-Authorization: {{accessToken}}
 | content.body | Body | Object | Y | 내용 |
 | content.attachmentIds | Body | Object | Y | 첨부 파일 아이디 |
 
-</details>
-
 
 <span id="free-form-by-rcs"></span>
 
 #### RCS
-
-<details>
-  <summary><strong>RCS 요청 본문</strong></summary>
 
 ```json
 {
@@ -342,6 +335,7 @@ X-NHN-Authorization: {{accessToken}}
 }
 ```
 
+
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
 | sender | Body | Object | N | 발신자 |
@@ -366,8 +360,6 @@ X-NHN-Authorization: {{accessToken}}
 | content.buttons[].buttonJson | Body | String | Y | 버튼 Json |
 | content.attachmentIds | Body | Body | Array<String> | Y | 첨부 파일 아이디 배열 |
 
-</details>
-
 <span id="free-form-by-alimtalk"></span>
 
 #### 알림톡
@@ -378,12 +370,9 @@ X-NHN-Authorization: {{accessToken}}
 
 <span id="free-form-by-friendtalk"></span>
 
-#### 친구톡
+#### 친구톡 요청 본문 - 텍스트형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
-
-<details>
-  <summary><strong>친구톡 요청 본문 - 텍스트형</strong></summary>
 
 ```json
 {
@@ -451,14 +440,9 @@ X-NHN-Authorization: {{accessToken}}
 | content.coupon.schemeIos | Body | String | Y  | iOS 앱 링크                                            |
 | content.coupon.schemeAndroid | Body | String | Y  | Android 앱 링크                         |
 
-</details>
-
 <span id="free-form-by-email"></span>
 
-#### Email
-
-<details>
-  <summary><strong>이메일 요청 본문</strong></summary>
+#### Email 요청 본문
 
 ```json
 {
@@ -499,14 +483,9 @@ X-NHN-Authorization: {{accessToken}}
 * 첨부 파일의 **총합은 30MB**를 넘어갈 수 없습니다.
 * 최대 **30MB**까지 첨부 가능하지만 수신하는 이메일 시스템(gmail.com, naver.com 등)의 첨부 파일 제한 정책에 따라 **제한 초과**로 거부되거나 스팸 판정률이 높아질 수 있으므로 **10MB 이내로 첨부**할 것을 권장합니다.
 
-</details>
-
 <span id="free-form-by-push"></span>
 
-#### 푸시
-
-<details>
-  <summary><strong>푸시 요청 본문</strong></summary>
+#### 푸시 요청 본문
 
 ```json
 {
@@ -598,8 +577,6 @@ X-NHN-Authorization: {{accessToken}}
 
 * 푸시는 **sender** 필드가 필요 없습니다.
 * 푸시는 사용자가 정의한 키와 값을 추가해 **content** 필드를 작성할 수 있습니다.
-
-</details>
 
 ### 응답 본문
 
@@ -1324,6 +1301,7 @@ X-NHN-Authorization: {{accessToken}}
 #### sender 필드
 
 | 메시지 채널 | 필드 | 비고 |
+| --- | --- | --- |
 | SMS | sender.senderPhoneNumber | 발신자 번호 |
 | RCS | sender.brandId | 브랜드 아이디 |
 | RCS | sender.chatbotId | 대화방 아이디 |
