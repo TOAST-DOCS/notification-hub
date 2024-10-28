@@ -28,7 +28,7 @@ RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS
 * [사용 전 준비 및 제한 사항 > RCS 바로 가기](./preconditions/preconditions-rcs)
 * [RCS Biz Center 바로 가기](https://www.rcsbizcenter.com/main)
 
-RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신번호) 등록, 템플릿 등록이 완료(승인)되었으면 콘솔에서 브랜드를 연동합니다.
+RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번호) 등록, 템플릿 등록이 완료(승인)되었으면 콘솔에서 브랜드를 연동합니다.
 
 * **+브랜드 연동** 버튼을 누르면 동기화가 완료됩니다.
 
