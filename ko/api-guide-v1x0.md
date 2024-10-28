@@ -150,7 +150,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="post-free-form-message"></span>
 
-## 전문 메시지 발송
+## 전문 메시지 발송 요청
 
 요청 본문에 메시지 내용을 입력해 메시지를 발송 요청합니다.
 
@@ -183,7 +183,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-메시지 채널에 따른 요청 본문의 자세한 내용은 아래 **메시지 채널 별 상세 요청 본문**을 확인 부탁드립니다.
+메시지 채널에 따른 요청 본문의 자세한 내용은 아래 **메시지 채널별 상세 요청 본문**을 확인 부탁드립니다.
 
 ```json
 {
@@ -225,358 +225,9 @@ X-NHN-Authorization: {{accessToken}}
 
 * 메시지 채널에 따라 다른 **sender**, **content** 필드 형식을 가집니다.
 * 메시지 채널에 따라 **recipients.contact.contactType**, **recipients.contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
-* 예약 발송의 경우 **scheduledDateTime**를 설정합니다. 발송이 시작되기 전의 예약 발송은 발송 취소가 가능합니다. 발송 취소 API를 호출하거나 **Notification Hub 콘솔** > **발송 조회**에서 취소할 수 있습니다.
+* 예약 발송의 경우 **scheduledDateTime**를 설정합니다. 발송이 시작되기 전의 예약 발송은 요청 취소가 가능합니다. 요청 취소 API를 호출하거나 **Notification Hub 콘솔** > **발송 조회**에서 취소할 수 있습니다.
 * 승인 후 발송의 경우 **confirmBeforeSend**를 **true**로 설정합니다. 승인 후 발송인 메시지는 **Notification Hub 콘솔** > **발송 조회**에서 승인을 하면 발송이 진행됩니다.
 * 예약 발송과 승인 후 발송은 동시에 설정할 수 없습니다.
-
-<span id="free-form-by-message-channel"></span>
-
-### 메시지 채널 별 상세 요청 본문
-
-<span id="free-form-by-sms"></span>
-
-#### SMS 요청 본문
-
-```json
-{
-  "statsKeyId": "통계_키_아이디",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "senderPhoneNumber": "01012341234"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
-    "attachmentIds": [
-      "첨부_파일_아이디"
-    ]
-  }
-}
-```
-
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| sender | Body | Object | N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
-| sender.senderPhoneNumber | Body | Object | N | 발신자 번호 |
-| content | Body | Object | Y | 메시지 내용 |
-| content.messageType | Body | String | Y | SMS, LMS, MMS |
-| content.title | Body | Object | Y | 제목 |
-| content.body | Body | Object | Y | 내용 |
-| content.attachmentIds | Body | Object | Y | 첨부 파일 아이디 |
-
-
-<span id="free-form-by-rcs"></span>
-
-#### RCS
-
-```json
-{
-  "statsKeyId": "통계_키_아이디",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "brandId": "브랜드_이이디",
-    "chatbotId": "대화방_아이디"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "messageType": "SMS",
-    "unsubscribePhoneNumber": "08012341234",
-    "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
-    "mmsType": "HORIZONTAL",
-    "messagebaseId": "44o4SUjpqnjDuUcH+uHvPg==",
-    "cards": [
-        {
-          "title":"testTitle",
-          "description":"testBody",
-          "media":"fileId",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
-            },
-            {
-              "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
-            }
-          ]
-        }
-    ],
-    "buttons": [
-        {
-            "buttonType": "URL",
-            "buttonJson": "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
-        }
-    ]
-  }
-}
-```
-
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| sender | Body | Object | N | 발신자 |
-| sender.brandId | Body | Object | N | 브랜드 아이디 |
-| sender.chatbotId | Body | Object | N | 대화방 아이디 |
-| content | Body | Object | Y | 메시지 내용 |
-| content.messageType | Body | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RCS_TEMPLATE |
-| content.unsubscribePhoneNumber | Body | String | Y | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수 |
-| content.title | Body | Object | Y | 제목 |
-| content.body | Body | Object | Y | 내용 |
-| content.mmsType | Body | Object | N | MMS 타입, 메시지 유형이 MMS인 경우 필수, HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMAL |
-| content.messagebaseId | Body | Object | N | 메시지 유형이 RCS_TEMPLATE인 경우 필수, RCS Biz Center에 등록된 템플릿 아이디 |
-| content.cards | Body | Array | Y | 카드 |
-| content.cards[].title | Body | String | Y | 제목 |
-| content.cards[].description | Body | String | Y | 내용 |
-| content.cards[].media | Body | String | Y | 첨부파일 ID |
-| content.cards[].buttons | Body | Array<Object> | Y | 버튼 |
-| content.cards[].button.buttonType | Body | String | Y | 버튼 타입<br>대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 |
-| content.cards[].button.buttonJson | Body | String | Y | 버튼 Json | 버튼 타입에 맞는 포맷 확인 |
-| content.buttons | Body | Array<Object> | Y | 버튼 |
-| content.buttons[].buttonType | Body | String | Y | 버튼 타입<br><ul><li>대화방 열기(COMPOSE)</li><li>복사하기(CLIPBOARD)</li><li>전화 걸기(DIALER)</li><li>지도 보여주기(MAP_SHOW)</li><li>지도 검색하기(MAP_QUERY)</li><li>현재 위치 공유하기(MAP_SHARE)</li><li>URL 연결하기(URL)</li><li>일정 등록하기(CALENDAR)</li><ul> |
-| content.buttons[].buttonJson | Body | String | Y | 버튼 Json |
-| content.attachmentIds | Body | Body | Array<String> | Y | 첨부 파일 아이디 배열 |
-
-<span id="free-form-by-alimtalk"></span>
-
-#### 알림톡
-
-* 알림톡은 템플릿 등록 후 승인을 받은 상태에서 발송 가능하기 때문에 템플릿, 플로우 메시지 발송만 가능합니다.
-* 알림톡의 **sender**, **content** 필드는 **템플릿 메시지 발송**의 **요청 본문**을 확인하세요.
-
-
-<span id="free-form-by-friendtalk"></span>
-
-#### 친구톡 요청 본문 - 텍스트형
-
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
-
-```json
-{
-    "statsKeyId": "통계_키_아이디",
-    "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-    "confirmBeforeSend": false,
-    "sender": {
-        "senderKey": "발신프로필_발신키"
-    },
-    "content": {
-      "messageType": "TEXT",
-      "content": "#{이름}님의 주문이 완료되었습니다.",
-      "buttons": [
-        {
-          "ordering": 0,
-          "type": "WL",
-          "name": "버튼_이름",
-          "linkMo": "모바일_링크",
-          "linkPc": "PC_링크",
-          "schemeIos": "iOS_앱_링크",
-          "schemeAndroid": "Android_앱_링크",
-          "chatExtra": "메타_정보",
-          "chatEvent": "봇_이벤트_이름",
-          "bizFormKey": "비즈폼_키",
-          "target": "아웃_링크_또는_인앱_링크"
-        }
-      ],
-      "coupon": {
-        "title": "쿠폰_제목",
-        "description": "쿠폰_상제_설명",
-        "linkMo": "모바일_링크",
-        "linkPc": "PC_링크",
-        "schemeIos": "iOS_앱_링크",
-        "schemeAndroid": "Android_앱_링크"
-      }
-    }
-}
-```
-
-
-| 이름 | 구분 | 타입 | 필수 | 설명                                                            |
-| --- | --- | --- |----|---------------------------------------------------------------|
-| sender | Body | Object | Y  | 발신자                                                           |
-| sender.senderKey | Body | Object | Y  | 발신프로필_발신키                                                     |
-| content | Body | Object | Y  | 메시지 내용                                                        |
-| content.messageType | Body | String | Y  | 메시지 유형                                                        |
-| content.content | Body | String | Y  | 내용                                                            |
-| content.buttons | Body | Array | Y  | 버튼                                                            |
-| content.buttons[].ordering | Body | Number | Y  | 버튼 순서                                                         |
-| content.buttons[].type | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
-| content.buttons[].name | Body | String | Y  | 버튼 이름                                                         |
-| content.buttons[].linkMo | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                        |
-| content.buttons[].linkPc | Body | String | N  | 링크 PC, 버튼 타입이 WL이면 tjsxor                                     |
-| content.buttons[].schemeIos | Body | String | Y  | iOS 앱 링크, 버튼 타입이 AL이면 필수                                      |
-| content.buttons[].schemeAndroid | Body | String | Y  | Android 앱 링크, 버튼 타입이 AL이면 필수                                  |
-| content.buttons[].chatExtra | Body | String | Y  | 메타 정보, 버튼 타입이 BC, BT이면 전달할 메타 정보                              |
-| content.buttons[].chatEvent | Body | String | Y  | 봇 이벤트 이름, 버튼 타입이 BT일 때 연결할 봇 이벤트 이름                           |
-| content.buttons[].bizFormKey | Body | String | Y  | 비즈폼 키, 버튼 타입이 BF이면 필수                                         |
-| content.buttons[].target | Body | String | Y  | 웹 링크 버튼일 경우 "target":"out" 속성 추가 시 아웃 링크<br>기본 인앱 링크로 발송      |
-| content.coupon | Body | Object | Y  | 쿠폰                                                            |
-| content.coupon.title | Body | String | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰"                                                          |
-| content.coupon.description | Body | String | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
-| content.coupon.linkMo | Body | String | Y  | 링크 모바일                                                        |
-| content.coupon.linkPc | Body | String | Y  | 링크 PC                                                         |
-| content.coupon.schemeIos | Body | String | Y  | iOS 앱 링크                                            |
-| content.coupon.schemeAndroid | Body | String | Y  | Android 앱 링크                         |
-
-<span id="free-form-by-email"></span>
-
-#### Email 요청 본문
-
-```json
-{
-  "sender": {
-    "senderMailAddress": "sender@example.com"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
-    "attachmentIds": [
-      "첨부_파일_아이디"
-    ]
-  }
-}
-```
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| sender | Body | Object | N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
-| sender.senderMailAddress | Body | Object | N | 발신자 이메일 주소 |
-| content | Body | Object | Y | 메시지 내용 |
-| content.title | Body | Object | Y | 제목 |
-| content.body | Body | Object | Y | 내용 |
-| content.attachmentIds | Body | Object | Y | 첨부 파일 아이디 |
-
-* 발신자 이메일 주소의 도메인은 소유 인증이 완료되어야 합니다.
-* 첨부 파일은 **최대 10개**까지 업로드 가능하며, **30MB 이하의 파일**만 가능합니다.
-* 첨부 파일의 **총합은 30MB**를 넘어갈 수 없습니다.
-* 최대 **30MB**까지 첨부 가능하지만 수신하는 이메일 시스템(gmail.com, naver.com 등)의 첨부 파일 제한 정책에 따라 **제한 초과**로 거부되거나 스팸 판정률이 높아질 수 있으므로 **10MB 이내로 첨부**할 것을 권장합니다.
-
-<span id="free-form-by-push"></span>
-
-#### 푸시 요청 본문
-
-```json
-{
-  "statsId": "통계_아이디",
-  "scheduledDateTime": "2024-10-29T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "TOKEN_FCM",
-          "contact": "토큰"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "unsubscribePhoneNumber": "1234-1234",
-    "unsubscribeGuide": "설정 > 메뉴",
-    "style": {
-      "useHtmlStyle": true
-    },
-    "title" : "<b>NHN Cloud </b> Notification",
-    "body" : "<b>출시 이벤트</b> <i>공지 사항 확인</i>",
-    "richMessage" : {
-      "buttons" : [{
-        "name" : "버튼 이름",
-        "submitName": "전송 버튼 이름",
-        "buttonType" : "REPLY",
-        "link" : "myapp://product_detail?product_id=1234",
-        "hint" : "버튼에대한 힌트"
-      }
-      ],
-      "media" : {
-        "source" : "URL",
-        "mediaType" : "IMAGE",
-        "expandable" : true
-      },
-      "androidMedia": {
-        "source" : "URL",
-        "mediaType" : "IMAGE",
-        "expandable" : true
-      },
-      "iosMedia": {
-        "source" : "URL",
-        "mediaType" : "IMAGE",
-        "expandable" : true
-      },
-      "largeIcon" : {
-        "source" : "URL"
-      },
-      "group" : {
-        "key" : "그룹의 키",
-        "description" : "그룹에대한 설명"
-      }
-    },
-    "customKey" : "customValue"
-  }
-}
-```
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| content | Body | Object | Y | 메시지 내용 |
-| content.unsubscribePhoneNumber | Body | String | 푸시 메시지 수신 거부를 위한 대표 번호 |
-| content.unsubscribeGuide | Body | String | 푸시 메시지 수신 거부를 위한 안내 |
-| content.title | Body | String | Y | 제목 |
-| content.body | Body | String | Y | 내용 |
-| content.style.useHtmlStyle | Body | Boolean | Y | HTML 스타일 사용(Android에서만 가능) |
-| content.richMessage | Body | Object| 리치 메시지 |
-| content.richMessage | Body | Optional, Object | N | 리치 메시지 사용시 필요 |
-| content.richMessage.buttons | Body | Optional, Object Array | N |  리치 메시지에 추가되는 버튼, 최대 3개까지 가능 |
-| content.richMessage.button.name | Body | Required, String | 버튼 이름 |
-| content.richMessage.button.buttonType | Body | Required, String | 버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
-| content.richMessage.button.link | Body | Required, String | 버튼을 눌렀을때, 연결되는 링크 |
-| content.richMessage.button.hint | Body | Required, String | 버튼에대한 힌트 |
-| content.richMessage.media | Body | Optional, Object | N |  리치 메시지에 추가되는 미디어 |
-| content.richMessage.media.source | Body | Required, String | 미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE 가능 |
-| content.richMessage.media.mediaType | Body | Optional, String | N |  미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원 |
-| content.richMessage.media.expandable | Body | Required, Boolean | N | Android에서 미디어를 클릭 시 펼침 기능 사용 여부 |
-| content.richMessage.androidMedia | Body | Optional, Object | N |  Android 기기에 사용되는 미디어. 형식은 media와 동일 |
-| content.richMessage.iosMedia | Body | Optional, Object | N |  iOS 기기에 사용되는 미디어. 형식은 media와 동일 |
-| content.richMessage.largeIcon | Body | Optional, Object | N |  리치 메시지에 추가되는 큰 아이콘, Android에서만 지원 |
-| content.richMessage.largeIcon.source | Body | Required, String | Y | 미디어의 위치한 곳의 주소 |
-| content.richMessage.group | Body | Optional, Object | N |  여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원 |
-| content.richMessage.group.key | Body | String | Y |  그룹의 키 |
-| content.richMessage.group.description | Body | String | Y |  그룹에대한 설명 |
-| content.customKey | Body | Object, Array, String | N | 사용자 정의 키와 값 |
-
-* 푸시는 **sender** 필드가 필요 없습니다.
-* 푸시는 사용자가 정의한 키와 값을 추가해 **content** 필드를 작성할 수 있습니다.
 
 ### 응답 본문
 
@@ -670,9 +321,359 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 
 </details>
 
+<span id="free-form-by-message-channel"></span>
+
+## 메시지 채널별 상세 요청 본문
+
+<span id="free-form-by-sms"></span>
+
+## * SMS 요청 본문 예시
+
+```json
+{
+  "statsKeyId": "통계_키_아이디",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "senderPhoneNumber": "01012341234"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "MMS",
+    "title": "[NHN Cloud Notification Hub] 공지사항",
+    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "attachmentIds": [
+      "첨부_파일_아이디"
+    ]
+  }
+}
+```
+
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| sender | Body | Object | N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
+| sender.senderPhoneNumber | Body | Object | N | 발신자 번호 |
+| content | Body | Object | Y | 메시지 내용 |
+| content.messageType | Body | String | Y | SMS, LMS, MMS |
+| content.title | Body | Object | Y | 제목 |
+| content.body | Body | Object | Y | 내용 |
+| content.attachmentIds | Body | Object | Y | 첨부 파일 아이디 |
+
+
+<span id="free-form-by-rcs"></span>
+
+## * RCS 요청 본문 예시
+
+```json
+{
+  "statsKeyId": "통계_키_아이디",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "브랜드_이이디",
+    "chatbotId": "대화방_아이디"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "SMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "title": "[NHN Cloud Notification Hub] 공지사항",
+    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "mmsType": "HORIZONTAL",
+    "messagebaseId": "44o4SUjpqnjDuUcH+uHvPg==",
+    "cards": [
+        {
+          "title":"testTitle",
+          "description":"testBody",
+          "media":"fileId",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+            },
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+            }
+          ]
+        }
+    ],
+    "buttons": [
+        {
+            "buttonType": "URL",
+            "buttonJson": "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+        }
+    ]
+  }
+}
+```
+
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| sender | Body | Object | N | 발신자 |
+| sender.brandId | Body | Object | N | 브랜드 아이디 |
+| sender.chatbotId | Body | Object | N | 대화방 아이디 |
+| content | Body | Object | Y | 메시지 내용 |
+| content.messageType | Body | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RCS_TEMPLATE |
+| content.unsubscribePhoneNumber | Body | String | Y | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수 |
+| content.title | Body | Object | Y | 제목 |
+| content.body | Body | Object | Y | 내용 |
+| content.mmsType | Body | Object | N | MMS 타입, 메시지 유형이 MMS인 경우 필수, HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMAL |
+| content.messagebaseId | Body | Object | N | 메시지 유형이 RCS_TEMPLATE인 경우 필수, RCS Biz Center에 등록된 템플릿 아이디 |
+| content.cards | Body | Array | Y | 카드 |
+| content.cards[].title | Body | String | Y | 제목 |
+| content.cards[].description | Body | String | Y | 내용 |
+| content.cards[].media | Body | String | Y | 첨부파일 ID |
+| content.cards[].buttons | Body | Array<Object> | Y | 버튼 |
+| content.cards[].button.buttonType | Body | String | Y | 버튼 타입<br>대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 |
+| content.cards[].button.buttonJson | Body | String | Y | 버튼 Json | 버튼 타입에 맞는 포맷 확인 |
+| content.buttons | Body | Array<Object> | Y | 버튼 |
+| content.buttons[].buttonType | Body | String | Y | 버튼 타입<br><ul><li>대화방 열기(COMPOSE)</li><li>복사하기(CLIPBOARD)</li><li>전화 걸기(DIALER)</li><li>지도 보여주기(MAP_SHOW)</li><li>지도 검색하기(MAP_QUERY)</li><li>현재 위치 공유하기(MAP_SHARE)</li><li>URL 연결하기(URL)</li><li>일정 등록하기(CALENDAR)</li><ul> |
+| content.buttons[].buttonJson | Body | String | Y | 버튼 Json |
+| content.attachmentIds | Body | Body | Array<String> | Y | 첨부 파일 아이디 배열 |
+
+<span id="free-form-by-alimtalk"></span>
+
+### 알림톡
+
+* 알림톡은 템플릿 등록 후 승인을 받은 상태에서 발송 가능하기 때문에 템플릿, 플로우 메시지 발송만 가능합니다.
+* 알림톡의 **sender**, **content** 필드는 **템플릿 메시지 발송**의 **요청 본문**을 확인하세요.
+
+
+<span id="free-form-by-friendtalk"></span>
+
+## * 친구톡 요청 본문 예시 - 텍스트형
+
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+
+```json
+{
+    "statsKeyId": "통계_키_아이디",
+    "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+    "confirmBeforeSend": false,
+    "sender": {
+        "senderKey": "발신프로필_발신키"
+    },
+    "content": {
+      "messageType": "TEXT",
+      "content": "#{이름}님의 주문이 완료되었습니다.",
+      "buttons": [
+        {
+          "ordering": 0,
+          "type": "WL",
+          "name": "버튼_이름",
+          "linkMo": "모바일_링크",
+          "linkPc": "PC_링크",
+          "schemeIos": "iOS_앱_링크",
+          "schemeAndroid": "Android_앱_링크",
+          "chatExtra": "메타_정보",
+          "chatEvent": "봇_이벤트_이름",
+          "bizFormKey": "비즈폼_키",
+          "target": "아웃_링크_또는_인앱_링크"
+        }
+      ],
+      "coupon": {
+        "title": "쿠폰_제목",
+        "description": "쿠폰_상제_설명",
+        "linkMo": "모바일_링크",
+        "linkPc": "PC_링크",
+        "schemeIos": "iOS_앱_링크",
+        "schemeAndroid": "Android_앱_링크"
+      }
+    }
+}
+```
+
+
+| 이름 | 구분 | 타입 | 필수 | 설명                                                            |
+| --- | --- | --- |----|---------------------------------------------------------------|
+| sender | Body | Object | Y  | 발신자                                                           |
+| sender.senderKey | Body | Object | Y  | 발신프로필_발신키                                                     |
+| content | Body | Object | Y  | 메시지 내용                                                        |
+| content.messageType | Body | String | Y  | 메시지 유형                                                        |
+| content.content | Body | String | Y  | 내용                                                            |
+| content.buttons | Body | Array | Y  | 버튼                                                            |
+| content.buttons[].ordering | Body | Number | Y  | 버튼 순서                                                         |
+| content.buttons[].type | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
+| content.buttons[].name | Body | String | Y  | 버튼 이름                                                         |
+| content.buttons[].linkMo | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                        |
+| content.buttons[].linkPc | Body | String | N  | 링크 PC, 버튼 타입이 WL이면 tjsxor                                     |
+| content.buttons[].schemeIos | Body | String | Y  | iOS 앱 링크, 버튼 타입이 AL이면 필수                                      |
+| content.buttons[].schemeAndroid | Body | String | Y  | Android 앱 링크, 버튼 타입이 AL이면 필수                                  |
+| content.buttons[].chatExtra | Body | String | Y  | 메타 정보, 버튼 타입이 BC, BT이면 전달할 메타 정보                              |
+| content.buttons[].chatEvent | Body | String | Y  | 봇 이벤트 이름, 버튼 타입이 BT일 때 연결할 봇 이벤트 이름                           |
+| content.buttons[].bizFormKey | Body | String | Y  | 비즈폼 키, 버튼 타입이 BF이면 필수                                         |
+| content.buttons[].target | Body | String | Y  | 웹 링크 버튼일 경우 "target":"out" 속성 추가 시 아웃 링크<br>기본 인앱 링크로 발송      |
+| content.coupon | Body | Object | Y  | 쿠폰                                                            |
+| content.coupon.title | Body | String | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰"                                                          |
+| content.coupon.description | Body | String | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
+| content.coupon.linkMo | Body | String | Y  | 링크 모바일                                                        |
+| content.coupon.linkPc | Body | String | Y  | 링크 PC                                                         |
+| content.coupon.schemeIos | Body | String | Y  | iOS 앱 링크                                            |
+| content.coupon.schemeAndroid | Body | String | Y  | Android 앱 링크                         |
+
+<span id="free-form-by-email"></span>
+
+## * Email 요청 본문 예시
+
+```json
+{
+  "sender": {
+    "senderMailAddress": "sender@example.com"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "title": "[NHN Cloud Notification Hub] 공지사항",
+    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "attachmentIds": [
+      "첨부_파일_아이디"
+    ]
+  }
+}
+```
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| sender | Body | Object | N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
+| sender.senderMailAddress | Body | Object | N | 발신자 이메일 주소 |
+| content | Body | Object | Y | 메시지 내용 |
+| content.title | Body | Object | Y | 제목 |
+| content.body | Body | Object | Y | 내용 |
+| content.attachmentIds | Body | Object | Y | 첨부 파일 아이디 |
+
+* 발신자 이메일 주소의 도메인은 소유 인증이 완료되어야 합니다.
+* 첨부 파일은 **최대 10개**까지 업로드 가능하며, **30MB 이하의 파일**만 가능합니다.
+* 첨부 파일의 **총합은 30MB**를 넘어갈 수 없습니다.
+* 최대 **30MB**까지 첨부 가능하지만 수신하는 이메일 시스템(gmail.com, naver.com 등)의 첨부 파일 제한 정책에 따라 **제한 초과**로 거부되거나 스팸 판정률이 높아질 수 있으므로 **10MB 이내로 첨부**할 것을 권장합니다.
+
+<span id="free-form-by-push"></span>
+
+## * 푸시 요청 본문 예시
+
+```json
+{
+  "statsId": "통계_아이디",
+  "scheduledDateTime": "2024-10-29T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "TOKEN_FCM",
+          "contact": "토큰"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "unsubscribePhoneNumber": "1234-1234",
+    "unsubscribeGuide": "설정 > 메뉴",
+    "style": {
+      "useHtmlStyle": true
+    },
+    "title" : "<b>NHN Cloud </b> Notification",
+    "body" : "<b>출시 이벤트</b> <i>공지 사항 확인</i>",
+    "richMessage" : {
+      "buttons" : [{
+        "name" : "버튼 이름",
+        "submitName": "전송 버튼 이름",
+        "buttonType" : "REPLY",
+        "link" : "myapp://product_detail?product_id=1234",
+        "hint" : "버튼에대한 힌트"
+      }
+      ],
+      "media" : {
+        "source" : "URL",
+        "mediaType" : "IMAGE",
+        "expandable" : true
+      },
+      "androidMedia": {
+        "source" : "URL",
+        "mediaType" : "IMAGE",
+        "expandable" : true
+      },
+      "iosMedia": {
+        "source" : "URL",
+        "mediaType" : "IMAGE",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "source" : "URL"
+      },
+      "group" : {
+        "key" : "그룹의 키",
+        "description" : "그룹에대한 설명"
+      }
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| content | Body | Object | Y | 메시지 내용 |
+| content.unsubscribePhoneNumber | Body | String | 푸시 메시지 수신 거부를 위한 대표 번호 |
+| content.unsubscribeGuide | Body | String | 푸시 메시지 수신 거부를 위한 안내 |
+| content.title | Body | String | Y | 제목 |
+| content.body | Body | String | Y | 내용 |
+| content.style.useHtmlStyle | Body | Boolean | Y | HTML 스타일 사용(Android에서만 가능) |
+| content.richMessage | Body | Object| 리치 메시지 |
+| content.richMessage | Body | Optional, Object | N | 리치 메시지 사용시 필요 |
+| content.richMessage.buttons | Body | Optional, Object Array | N |  리치 메시지에 추가되는 버튼, 최대 3개까지 가능 |
+| content.richMessage.button.name | Body | Required, String | 버튼 이름 |
+| content.richMessage.button.buttonType | Body | Required, String | 버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
+| content.richMessage.button.link | Body | Required, String | 버튼을 눌렀을때, 연결되는 링크 |
+| content.richMessage.button.hint | Body | Required, String | 버튼에대한 힌트 |
+| content.richMessage.media | Body | Optional, Object | N |  리치 메시지에 추가되는 미디어 |
+| content.richMessage.media.source | Body | Required, String | 미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE 가능 |
+| content.richMessage.media.mediaType | Body | Optional, String | N |  미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원 |
+| content.richMessage.media.expandable | Body | Required, Boolean | N | Android에서 미디어를 클릭 시 펼침 기능 사용 여부 |
+| content.richMessage.androidMedia | Body | Optional, Object | N |  Android 기기에 사용되는 미디어. 형식은 media와 동일 |
+| content.richMessage.iosMedia | Body | Optional, Object | N |  iOS 기기에 사용되는 미디어. 형식은 media와 동일 |
+| content.richMessage.largeIcon | Body | Optional, Object | N |  리치 메시지에 추가되는 큰 아이콘, Android에서만 지원 |
+| content.richMessage.largeIcon.source | Body | Required, String | Y | 미디어의 위치한 곳의 주소 |
+| content.richMessage.group | Body | Optional, Object | N |  여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원 |
+| content.richMessage.group.key | Body | String | Y |  그룹의 키 |
+| content.richMessage.group.description | Body | String | Y |  그룹에대한 설명 |
+| content.customKey | Body | Object, Array, String | N | 사용자 정의 키와 값 |
+
+* 푸시는 **sender** 필드가 필요 없습니다.
+* 푸시는 사용자가 정의한 키와 값을 추가해 **content** 필드를 작성할 수 있습니다.
+
+
 <span id="post-template-message"></span>
 
-## 템플릿 메시지 발송
+## 템플릿 메시지 발송 요청
 
 ### 요청
 
@@ -855,7 +856,7 @@ curl -X POST "{endpoint}/message/v1.0/SMS/template-messages/NORMAL" \
 
 <span id="post-flow-message"></span>
 
-## 플로우 메시지 발송
+## 플로우 메시지 발송 요청
 
 ### 요청
 
@@ -939,7 +940,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <span id="get-contact-delivery-results"></span>
 
-## 연락처 별 수신 결과 목록 조회
+## 연락처별 수신 결과 목록 조회
 
 발송 요청된 메시지의 발송과 수신 결과를 수신자의 연락처 단위로 조회합니다.
 
@@ -972,7 +973,7 @@ X-NHN-Authorization: {{accessToken}}
 | statsKeyId | Query | String | N | 통계 키 아이디 |
 | sender | Query | String | N | 발신자 |
 | contact | Query | String | N | 연락처 |
-| messageChannel | Query | String | N | 메시지 채널 |
+| messageChannel | Query | String | N | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 | messagePurpose | Query | String | N | 메시지 목적 |
 | status | Query | String | N | 상태 |
 | scheduled | Query | Boolean | N | 예약 발송 여부 |
@@ -1199,9 +1200,9 @@ curl -X GET "{endpoint}/message/v1.0/contact-delivery-results" \
 
 <span id="post-message-do-cancel"></span>
 
-## 메시지 발송 취소
+## 메시지 요청 취소
 
-발송 전 예약 메시지, 승인 후 발송 메시지의 발송을 취소합니다.
+발송 전 예약 메시지, 승인 후 발송 메시지의 발송 요청을 취소합니다. 요청 취소된 메시지는 연락처별 수신 결과 조회에서 조회할 수 있습니다.
 
 ### 요청
 
@@ -2194,6 +2195,614 @@ curl -X GET "{endpoint}/template/v1.0/ALIMTALK/templates/{templateId}/modificati
 
 ---
 
+## 템플릿 카테고리 생성
+
+### 요청
+
+```
+POST /template/v1.0/{messageChannel}/categories
+Content-Type: application/json
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: {accessToken}
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| appKey | Header | String | Y | 앱키 |
+| accessToken | Header | String | Y | 인증 토큰 |
+| messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+
+### 요청 본문
+
+```json
+{
+  "parentCategoryId": "상위_카테고리_아이디",
+  "name": "카테고리_이름"
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 이름 | 타입 | 필수 | 설명                |
+| --- | --- | --- |-------------------|
+| parentCategoryId | String | 선택 | 상위 카테고리 아이디 |
+| name | String | 필수 | 카테고리 이름(최대 50자) |
+
+* 최상위 카테고리는 기본적으로 생성되어 있습니다. 최상위 카테고리아이디는 **ROOT**입니다.
+* 새로운 카테고리는 최상위 카테고리를 하위부터 생성할 수 있습니다.
+
+### 응답 본문
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "categoryId": "카테고리_아이디"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+### 요청 예시
+
+<details>
+  <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 카테고리 생성
+POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{authorization}}
+
+{
+  "parentCategoryId": "상위_카테고리_아이디",
+  "name": "카테고리_이름"
+}
+```
+
+</details>
+
+<details>
+  <summary><strong>cURL</strong></summary>
+
+```curl
+curl -X POST "{endpoint}/template/v1.0/{messageChannel}/categories" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: {appKey}" \
+     -H "X-NHN-Authorization: {accessToken}"
+     -d '{
+         "parentCategoryId": "상위_카테고리_아이디",
+         "name": "카테고리_이름"
+     }'
+```
+
+</details>
+
+## 템플릿 카테고리 목록 조회
+
+### 요청
+
+```
+GET /template/v1.0/{messageChannel}/categories
+Content-Type: application/json
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: {accessToken}
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| appKey | Header | String | Y | 앱키 |
+| accessToken | Header | String | Y | 인증 토큰 |
+| messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+
+### 요청 본문
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+### 응답 본문
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "categories": [
+    {
+      "categoryId": "카테고리_아이디",
+      "name": "카테고리_이름",
+      "parentCategoryId": "상위_카테고리_아이디",
+      "categoryIds": [
+        "하위_카테고리_아이디"
+      ],
+      "templateIds": [
+        "카테고리에 속한 템플릿_아이디"
+      ]
+    }
+  ]
+}
+```
+
+<!--TODO: categoryIds => childCategoryIds로 이름 변경 필요-->
+<!--TODO: totalCount 추가 필요-->
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+### 요청 예시
+
+<details>
+  <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 카테고리 목록 조회
+GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{authorization}}
+```
+
+</details>
+
+<details>
+  <summary><strong>cURL</strong></summary>
+
+```curl
+curl -X GET "{endpoint}/template/v1.0/{messageChannel}/categories" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: {appKey}" \
+     -H "X-NHN-Authorization: {accessToken}"
+```
+
+</details>
+
+## 템플릿 카테고리 트리 조회
+
+### 요청
+
+```
+GET /template/v1.0/{messageChannel}/category-tree
+Content-Type: application/json
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: {accessToken}
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명                                                     |
+| --- | --- | --- | --- |--------------------------------------------------------|
+| appKey | Header | String | Y | 앱키                                                     |
+| accessToken | Header | String | Y | 인증 토큰                                                  |
+| messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH  |
+| categoryTemplateName | Query | String | N | 카테고리 또는 템플릿 이름, 접두사(Prefix) 검색 가능                      |
+| senderProfileType | Query | String | N | 발신자 프로필 타입 (GROUP, USER), 알림톡과 친구톡만 해당됨                |
+| senderKey | Query | String | N | 발신자 키, 알림톡과 친구톡만 해당됨                                   |
+
+<!--TODO: status 필드가 없는데 필요한지 확인 필요-->
+
+### 요청 본문
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+### 응답 본문
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "categories": [
+    {
+      "categoryId": "ROOT",
+      "categoryName": "Root Category",
+      "parentCategoryId": null,
+      "messageChannel": "SMS",
+      "categories": [
+        {
+          "categoryId": "카테고리_아이디",
+          "categoryName": "카테고리_이름",
+          "parentCategoryId": "ROOT",
+          "messageChannel": "SMS",
+          "categories": [
+            {
+              "categoryId": "카테고리_아이디",
+              "categoryName": "카테고리_이름",
+              "parentCategoryId": "6XAeH2yo",
+              "messageChannel": "SMS",
+              "categories": [],
+              "templates": [
+                {
+                  "templateId": "템플릿_아이디",
+                  "templateName": "템플릿_이름"
+                },
+                {
+                  "templateId": "템플릿_아이디",
+                  "templateName": "템플릿_이름"
+                }
+              ]
+            }
+          ],
+          "templates": []
+        }
+      ],
+      "templates": []
+    }
+  ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 이름                      | 타입            | 필수 | 설명                |
+|-------------------------|---------------| --- |-------------------|
+| categories.[]categoryId | String        | 필수 | 카테고리 아이디 |
+| categories.[]categoryName            | String        | 필수 | 카테고리 이름 |
+| categories.[]parentCategoryId        | String        | 선택 | 상위 카테고리 아이디 |
+| categories.[]messageChannel          | String        | 필수 | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| categories.[]categories              | Array<Object> | 선택 | 하위 카테고리 목록 |
+| categories.[]templates               | Array<Object>         | 선택 | 템플릿 목록 |
+| categories.[]templates.[]templateId  | String        | 필수 | 템플릿 아이디 |
+| categories.[]templates.[]templateName| String        | 필수 | 템플릿 이름 |
+
+### 요청 예시
+
+<details>
+  <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 템플릿 카테고리 트리 조회
+GET {{endpoint}}/template/v1.0/{{messageChannel}}/category-tree
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{authorization}}
+```
+
+</details>
+
+<details>
+  <summary><strong>cURL</strong></summary>
+
+```curl
+curl -X GET "{endpoint}/template/v1.0/{messageChannel}/category-tree" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: {appKey}" \
+     -H "X-NHN-Authorization: {accessToken}"
+```
+
+</details>
+
+### 템플릿 카테고리 조회
+
+### 요청
+
+```
+GET /template/v1.0/{messageChannel}/categories/{categoryId}
+Content-Type: application/json
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: {accessToken}
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| appKey | Header | String | Y | 앱키 |
+| accessToken | Header | String | Y | 인증 토큰 |
+| messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| categoryId | Path | String | Y | 카테고리 아이디 |
+
+### 요청 본문
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+### 응답 본문
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  },
+  "category": {
+    "categoryId": "카테고리_아이디",
+    "categoryName": "카테고리_이름",
+    "parentCategoryId": "상위_카테고리_아이디",
+    "messageChannel": "SMS",
+    "categoryIds": [
+      "하위_카테고리_아이디"
+    ],
+    "templateIds": [
+      "카테고리에_속한_템플릿_아이디"
+    ]
+  }
+}
+```
+
+<!--TODO: 카테고리 이름을 name or categoryName으로 할지 통일 필요, name으로 변경 필요-->
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+### 요청 예시
+
+
+<details>
+  <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 메시지 채널별 카테고리 조회
+GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{authorization}}
+```
+
+</details>
+
+<details>
+  <summary><strong>cURL</strong></summary>
+
+```curl
+curl -X GET "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: {appKey}" \
+     -H "X-NHN-Authorization: {accessToken}"
+```
+
+</details>
+
+### 템플릿 카테고리 수정
+
+### 요청
+
+```
+PUT /template/v1.0/{messageChannel}/categories/{categoryId}
+Content-Type: application/json
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: {accessToken}
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| appKey | Header | String | Y | 앱키 |
+| accessToken | Header | String | Y | 인증 토큰 |
+| messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| categoryId | Path | String | Y | 카테고리 아이디 |
+
+### 요청 본문
+
+```json
+{
+  "parentCategoryId": "상위_카테고리_아이디",
+  "name": "카테고리_이름"
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 이름 | 타입 | 필수 | 설명                |
+| --- | --- | --- |-------------------|
+| parentCategoryId | String | 선택 | 상위 카테고리 아이디 |
+| name | String | 필수 | 카테고리 이름(최대 50자) |
+
+### 응답 본문
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+### 요청 예시
+
+<details>
+  <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 템플릿 카테고리 수정
+PUT {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{authorization}}
+
+{
+  "parentCategoryId": "상위_카테고리_아이디",
+  "name": "카테고리_이름"
+}
+```
+
+</details>
+
+<details>
+  <summary><strong>cURL</strong></summary>
+
+```curl
+curl -X PUT "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: {appKey}" \
+     -H "X-NHN-Authorization: {accessToken}" \
+     -d '{
+         "parentCategoryId": "상위_카테고리_아이디",
+         "name": "카테고리_이름"
+     }'
+```
+
+</details>
+
+### 템플릿 카테고리에 템플릿 추가
+
+### 요청
+
+```
+POST /template/v1.0/{messageChannel}/categories/{categoryId}/templates
+Content-Type: application/json
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: {accessToken}
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| appKey | Header | String | Y | 앱키 |
+| accessToken | Header | String | Y | 인증 토큰 |
+| messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+
+### 요청 본문
+
+```json
+{
+  "templateId": "템플릿_아이디"
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 이름 | 타입 | 필수 | 설명                |
+| --- | --- | --- |-------------------|
+| templateId | String | 필수 | 템플릿 아이디 |
+
+### 응답 본문
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+### 요청 예시
+
+<details>
+  <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 템플릿 카테고리에 템플릿 추가
+POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}/templates
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{authorization}}
+
+{
+  "templateId": "템플릿_아이디"
+}
+```
+
+</details>
+
+<details>
+  <summary><strong>cURL</strong></summary>
+
+```curl
+curl -X POST "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}/templates" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: {appKey}" \
+     -H "X-NHN-Authorization: {accessToken}" \
+     -d '{
+         "templateId": "템플릿_아이디"
+     }'
+```
+
+</details>
+
+### 템플릿 카테고리 삭제
+
+### 요청
+
+```
+DELETE /template/v1.0/{messageChannel}/categories/{categoryId}
+Content-Type: application/json
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: {accessToken}
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- | --- |
+| appKey | Header | String | Y | 앱키 |
+| accessToken | Header | String | Y | 인증 토큰 |
+| messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| categoryId | Path | String | Y | 카테고리 아이디 |
+
+### 요청 본문
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+이 API는 요청 본문을 요구하지 않습니다.
+
+### 응답 본문
+
+```json
+{
+  "header": {
+    "isSuccessful": true,
+    "resultCode": 0,
+    "resultMessage": "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+### 요청 예시
+
+<details>
+  <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 템플릿 카테고리 삭제
+DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{authorization}}
+```
+
+</details>
+
+<details>
+  <summary><strong>cURL</strong></summary>
+
+```curl
+curl -X DELETE "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: {appKey}" \
+     -H "X-NHN-Authorization: {accessToken}"
+```
+
+</details>
+
+---
+
+
 <span id="post-flow"></span>
 
 ## 플로우 생성
@@ -2332,616 +2941,6 @@ curl -X POST "{endpoint}/flow/v1.0/flows" \
 
 </details>
 
----
-
-## 카테고리 생성
-
-### 요청
-
-```
-POST /template/v1.0/{messageChannel}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
-```
-
-### 요청 파라미터
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널 |
-
-### 요청 본문
-
-```json
-{
-  "parentCategoryId": "상위_카테고리_아이디",
-  "name": "카테고리_이름"
-}
-```
-
-<!--요청 본문의 필드를 설명합니다.-->
-
-| 이름 | 타입 | 필수 | 설명                |
-| --- | --- | --- |-------------------|
-| parentCategoryId | String | 선택 | 상위 카테고리 아이디 |
-| name | String | 필수 | 카테고리 이름(최대 50자) |
-
-* 최상위 카테고리는 기본적으로 생성되어 있습니다. 최상위 카테고리아이디는 **ROOT**입니다.
-* 새로운 카테고리는 최상위 카테고리를 하위부터 생성할 수 있습니다.
-
-### 응답 본문
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categoryId": "카테고리_아이디"
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-### 요청 예시
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 카테고리 생성
-POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-
-{
-  "parentCategoryId": "상위_카테고리_아이디",
-  "name": "카테고리_이름"
-}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X POST "{endpoint}/template/v1.0/{messageChannel}/categories" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: {appKey}" \
-     -H "X-NHN-Authorization: {accessToken}"
-     -d '{
-         "parentCategoryId": "상위_카테고리_아이디",
-         "name": "카테고리_이름"
-     }'
-```
-
-</details>
-
-## 메시지 채널 별 템플릿 카테고리 목록 조회
-
-### 요청
-
-```
-GET /template/v1.0/{messageChannel}/categories****
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
-```
-
-### 요청 파라미터
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널 |
-
-### 요청 본문
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-
-이 API는 요청 본문을 요구하지 않습니다.
-
-### 응답 본문
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categories": [
-    {
-      "categoryId": "카테고리_아이디",
-      "name": "카테고리_이름",
-      "parentCategoryId": "상위_카테고리_아이디",
-      "categoryIds": [
-        "하위_카테고리_아이디"
-      ],
-      "templateIds": [
-        "카테고리에 속한 템플릿_아이디"
-      ]
-    }
-  ]
-}
-```
-
-<!--TODO: categoryIds => childCategoryIds로 이름 변경 필요-->
-<!--TODO: totalCount 추가 필요-->
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-### 요청 예시
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 카테고리 목록 조회
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "{endpoint}/template/v1.0/{messageChannel}/categories" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: {appKey}" \
-     -H "X-NHN-Authorization: {accessToken}"
-```
-
-</details>
-
-## 메시지 채널 별 템플릿 카테고리 트리 조회
-
-### 요청
-
-```
-GET /template/v1.0/{messageChannel}/category-tree
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
-```
-
-### 요청 파라미터
-
-| 이름 | 구분 | 타입 | 필수 | 설명                                                     |
-| --- | --- | --- | --- |--------------------------------------------------------|
-| appKey | Header | String | Y | 앱키                                                     |
-| accessToken | Header | String | Y | 인증 토큰                                                  |
-| messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH  |
-| categoryTemplateName | Query | String | N | 카테고리 또는 템플릿 이름, 접두사(Prefix) 검색 가능                      |
-| senderProfileType | Query | String | N | 발신자 프로필 타입 (GROUP, USER), 알림톡과 친구톡만 해당됨                |
-| senderKey | Query | String | N | 발신자 키, 알림톡과 친구톡만 해당됨                                   |
-
-<!--TODO: status 필드가 없는데 필요한지 확인 필요-->
-
-### 요청 본문
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-
-이 API는 요청 본문을 요구하지 않습니다.
-
-### 응답 본문
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categories": [
-    {
-      "categoryId": "ROOT",
-      "categoryName": "Root Category",
-      "parentCategoryId": null,
-      "messageChannel": "SMS",
-      "categories": [
-        {
-          "categoryId": "카테고리_아이디",
-          "categoryName": "카테고리_이름",
-          "parentCategoryId": "ROOT",
-          "messageChannel": "SMS",
-          "categories": [
-            {
-              "categoryId": "카테고리_아이디",
-              "categoryName": "카테고리_이름",
-              "parentCategoryId": "6XAeH2yo",
-              "messageChannel": "SMS",
-              "categories": [],
-              "templates": [
-                {
-                  "templateId": "템플릿_아이디",
-                  "templateName": "템플릿_이름"
-                },
-                {
-                  "templateId": "템플릿_아이디",
-                  "templateName": "템플릿_이름"
-                }
-              ]
-            }
-          ],
-          "templates": []
-        }
-      ],
-      "templates": []
-    }
-  ]
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-| 이름                      | 타입            | 필수 | 설명                |
-|-------------------------|---------------| --- |-------------------|
-| categories.[]categoryId | String        | 필수 | 카테고리 아이디 |
-| categories.[]categoryName            | String        | 필수 | 카테고리 이름 |
-| categories.[]parentCategoryId        | String        | 선택 | 상위 카테고리 아이디 |
-| categories.[]messageChannel          | String        | 필수 | 메시지 채널 |
-| categories.[]categories              | Array<Object> | 선택 | 하위 카테고리 목록 |
-| categories.[]templates               | Array<Object>         | 선택 | 템플릿 목록 |
-| categories.[]templates.[]templateId  | String        | 필수 | 템플릿 아이디 |
-| categories.[]templates.[]templateName| String        | 필수 | 템플릿 이름 |
-
-### 요청 예시
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 메시지 채널 별 카테고리 트리 조회
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/category-tree
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "{endpoint}/template/v1.0/{messageChannel}/category-tree" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: {appKey}" \
-     -H "X-NHN-Authorization: {accessToken}"
-```
-
-</details>
-
-### 메시지 채널 별 템플릿 카테고리 조회
-
-### 요청
-
-```
-GET /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
-```
-
-### 요청 파라미터
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널 |
-| categoryId | Path | String | Y | 카테고리 아이디 |
-
-### 요청 본문
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-
-이 API는 요청 본문을 요구하지 않습니다.
-
-### 응답 본문
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "category": {
-    "categoryId": "카테고리_아이디",
-    "categoryName": "카테고리_이름",
-    "parentCategoryId": "상위_카테고리_아이디",
-    "messageChannel": "SMS",
-    "categoryIds": [
-      "하위_카테고리_아이디"
-    ],
-    "templateIds": [
-      "카테고리에_속한_템플릿_아이디"
-    ]
-  }
-}
-```
-
-<!--TODO: 카테고리 이름을 name or categoryName으로 할지 통일 필요, name으로 변경 필요-->
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-### 요청 예시
-
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 메시지 채널 별 카테고리 조회
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: {appKey}" \
-     -H "X-NHN-Authorization: {accessToken}"
-```
-
-</details>
-
-### 템플릿 카테고리 수정
-
-### 요청
-
-```
-PUT /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
-```
-
-### 요청 파라미터
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널 |
-| categoryId | Path | String | Y | 카테고리 아이디 |
-
-### 요청 본문
-
-```json
-{
-  "parentCategoryId": "상위_카테고리_아이디",
-  "name": "카테고리_이름"
-}
-```
-
-<!--요청 본문의 필드를 설명합니다.-->
-
-| 이름 | 타입 | 필수 | 설명                |
-| --- | --- | --- |-------------------|
-| parentCategoryId | String | 선택 | 상위 카테고리 아이디 |
-| name | String | 필수 | 카테고리 이름(최대 50자) |
-
-### 응답 본문
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-### 요청 예시
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 템플릿 카테고리 수정
-PUT {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-
-{
-  "parentCategoryId": "상위_카테고리_아이디",
-  "name": "카테고리_이름"
-}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X PUT "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: {appKey}" \
-     -H "X-NHN-Authorization: {accessToken}" \
-     -d '{
-         "parentCategoryId": "상위_카테고리_아이디",
-         "name": "카테고리_이름"
-     }'
-```
-
-</details>
-
-### 템플릿 카테고리에 템플릿 추가
-
-### 요청
-
-```
-POST /template/v1.0/{messageChannel}/categories/{categoryId}/templates
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
-```
-
-### 요청 파라미터
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널 |
-
-### 요청 본문
-
-```json
-{
-  "templateId": "템플릿_아이디"
-}
-```
-
-<!--요청 본문의 필드를 설명합니다.-->
-
-| 이름 | 타입 | 필수 | 설명                |
-| --- | --- | --- |-------------------|
-| templateId | String | 필수 | 템플릿 아이디 |
-
-### 응답 본문
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-### 요청 예시
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 템플릿 카테고리에 템플릿 추가
-POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}/templates
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-
-{
-  "templateId": "템플릿_아이디"
-}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X POST "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}/templates" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: {appKey}" \
-     -H "X-NHN-Authorization: {accessToken}" \
-     -d '{
-         "templateId": "템플릿_아이디"
-     }'
-```
-
-</details>
-
-### 템플릿 카테고리 삭제
-
-### 요청
-
-```
-DELETE /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
-```
-
-### 요청 파라미터
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널 |
-| categoryId | Path | String | Y | 카테고리 아이디 |
-
-### 요청 본문
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-이 API는 요청 본문을 요구하지 않습니다.
-
-### 응답 본문
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-### 요청 예시
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 템플릿 카테고리 삭제
-DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X DELETE "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: {appKey}" \
-     -H "X-NHN-Authorization: {accessToken}"
-```
-
-</details>
-
----
-
-
 <span id="get-flows"></span>
 
 ## 플로우 목록 조회
@@ -2956,10 +2955,14 @@ X-NHN-Authorization: {{accessToken}}
 
 ### 요청 파라미터
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
+| 이름 | 구분 | 타입 | 필수 | 설명         |
+| --- | --- | --- | --- |------------|
+| appKey | Header | String | Y | 앱키         |
+| accessToken | Header | String | Y | 인증 토큰      |
+| flowId | Query | String | N | 플로우 아이디    |
+| flowName | Query | String | N | 플로우 이름, 접두사(Prefix) 검색 가능 |
+| limit | Query | Integer | N | 페이지당 조회 개수 |
+| offset | Query | Integer | N | 페이지 오프셋    |
 
 ### 요청 본문
 
