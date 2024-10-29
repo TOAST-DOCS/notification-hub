@@ -1,4 +1,4 @@
-# 콘솔 사용 가이드
+<p style="font-size:2em; font-weight:bold;">콘솔 사용 가이드</p>
 
 **Notification Hub > 콘솔 사용 가이드**
 
