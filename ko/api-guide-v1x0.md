@@ -471,7 +471,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
     },
     "content": {
       "messageType": "TEXT",
-      "content": "#{이름}님의 주문이 완료되었습니다.",
+      "content": "발송_내용",
       "buttons": [
         {
           "type": "WL",
@@ -480,7 +480,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
           "linkPc": "PC_링크",
           "schemeIos": "iOS_앱_링크",
           "schemeAndroid": "Android_앱_링크",
-          "bizFormKey": "비즈폼_키",
+          "bizFormKey": "비즈폼_키"
         }
       ],
       "coupon": {
@@ -503,21 +503,21 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 | content | Body | Object | Y  | 메시지 내용                                                        |
 | content.messageType | Body | String | Y  | 메시지 유형                                                        |
 | content.content | Body | String | Y  | 내용                                                            |
-| content.buttons | Body | Array | Y  | 버튼                                                            |
-| content.buttons[].type | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
-| content.buttons[].name | Body | String | Y  | 버튼 이름                                                         |
-| content.buttons[].linkMo | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                        |
-| content.buttons[].linkPc | Body | String | N  | 링크 PC, 버튼 타입이 WL이면 tjsxor                                     |
-| content.buttons[].schemeIos | Body | String | Y  | iOS 앱 링크, 버튼 타입이 AL이면 필수                                      |
-| content.buttons[].schemeAndroid | Body | String | Y  | Android 앱 링크, 버튼 타입이 AL이면 필수                                  |
-| content.buttons[].bizFormKey | Body | String | Y  | 비즈폼 키, 버튼 타입이 BF이면 필수                                         |
-| content.coupon | Body | Object | Y  | 쿠폰                                                            |
+| content.buttons                   | Body | Array  | N  | 버튼                                                                                                                                                        |
+| content.buttons[].type            | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼)                                                                                             |
+| content.buttons[].name            | Body | String | Y  | 버튼 이름                                                                                                                                                     |
+| content.buttons[].linkMo          | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                                                                                                                    |
+| content.buttons[].linkPc          | Body | String | N  | 링크 PC                                                                                                                                                     |
+| content.buttons[].schemeIos       | Body | String | N  | iOS 앱 링크                                                                                                                                                  |
+| content.buttons[].schemeAndroid   | Body | String | N  | Android 앱 링크                                                                                                                                              |
+| content.buttons[].bizFormKey      | Body | String | N  | 비즈폼 키, 버튼 타입이 BF이면 필수                                                                                                                                     |
+| content.coupon | Body | Object | N  | 쿠폰                                                            |
 | content.coupon.title | Body | String | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰"                                                          |
 | content.coupon.description | Body | String | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
-| content.coupon.linkMo | Body | String | Y  | 링크 모바일                                                        |
-| content.coupon.linkPc | Body | String | Y  | 링크 PC                                                         |
-| content.coupon.schemeIos | Body | String | Y  | iOS 앱 링크                                            |
-| content.coupon.schemeAndroid | Body | String | Y  | Android 앱 링크                         |
+| content.coupon.linkMo | Body | String | N  | 링크 모바일                                                        |
+| content.coupon.linkPc | Body | String | N  | 링크 PC                                                         |
+| content.coupon.schemeIos | Body | String | N  | iOS 앱 링크                                            |
+| content.coupon.schemeAndroid | Body | String | N  | Android 앱 링크                         |
 
 ## * 친구톡 요청 본문 예시 - 이미지형 / 와이드 이미지형
 
@@ -532,8 +532,10 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
         "senderKey": "발신프로필_발신키"
     },
     "content": {
-      "messageType": "TEXT",
-      "content": "#{이름}님의 주문이 완료되었습니다.",
+      "messageType": "WIDE_IMAGE",
+      "content": "발송_내용",
+      "attachmentId": "첨부_파일_ID",
+      "imageLink": "이미지_링크_URL",
       "buttons": [
         {
           "type": "WL",
@@ -542,7 +544,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
           "linkPc": "PC_링크",
           "schemeIos": "iOS_앱_링크",
           "schemeAndroid": "Android_앱_링크",
-          "bizFormKey": "비즈폼_키",
+          "bizFormKey": "비즈폼_키"
         }
       ],
       "coupon": {
@@ -557,28 +559,244 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 }
 ```
 
-| 이름 | 구분 | 타입 | 필수 | 설명                                                            |
-| --- | --- | --- |----|---------------------------------------------------------------|
+| 이름 | 구분   | 타입     | 필수 | 설명                                                            |
+| --- |------|--------|----|---------------------------------------------------------------|
 | sender | Body | Object | Y  | 발신자                                                           |
 | sender.senderKey | Body | Object | Y  | 발신프로필_발신키                                                     |
 | content | Body | Object | Y  | 메시지 내용                                                        |
 | content.messageType | Body | String | Y  | 메시지 유형                                                        |
 | content.content | Body | String | Y  | 내용                                                            |
-| content.buttons | Body | Array | Y  | 버튼                                                            |
-| content.buttons[].type | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
-| content.buttons[].name | Body | String | Y  | 버튼 이름                                                         |
-| content.buttons[].linkMo | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                        |
-| content.buttons[].linkPc | Body | String | N  | 링크 PC, 버튼 타입이 WL이면 tjsxor                                     |
-| content.buttons[].schemeIos | Body | String | Y  | iOS 앱 링크, 버튼 타입이 AL이면 필수                                      |
-| content.buttons[].schemeAndroid | Body | String | Y  | Android 앱 링크, 버튼 타입이 AL이면 필수                                  |
-| content.buttons[].bizFormKey | Body | String | Y  | 비즈폼 키, 버튼 타입이 BF이면 필수                                         |
-| content.coupon | Body | Object | Y  | 쿠폰                                                            |
+| content.attachmentId | Body  | String  | Y  | 첨부 파일 아이디 |
+| content.imageLink | Body | String | N  | 이미지 링크 |
+| content.buttons                   | Body | Array  | N  | 버튼                                                                                                                                                        |
+| content.buttons[].type            | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼)                                                                                             |
+| content.buttons[].name            | Body | String | Y  | 버튼 이름                                                                                                                                                     |
+| content.buttons[].linkMo          | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                                                                                                                    |
+| content.buttons[].linkPc          | Body | String | N  | 링크 PC                                                                                                                                                     |
+| content.buttons[].schemeIos       | Body | String | N  | iOS 앱 링크                                                                                                                                                  |
+| content.buttons[].schemeAndroid   | Body | String | N  | Android 앱 링크                                                                                                                                              |
+| content.buttons[].bizFormKey      | Body | String | N  | 비즈폼 키, 버튼 타입이 BF이면 필수                                                                                                                                     |
+| content.coupon | Body | Object | N  | 쿠폰                                                            |
 | content.coupon.title | Body | String | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰"                                                          |
 | content.coupon.description | Body | String | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
-| content.coupon.linkMo | Body | String | Y  | 링크 모바일                                                        |
-| content.coupon.linkPc | Body | String | Y  | 링크 PC                                                         |
-| content.coupon.schemeIos | Body | String | Y  | iOS 앱 링크                                            |
-| content.coupon.schemeAndroid | Body | String | Y  | Android 앱 링크                         |
+| content.coupon.linkMo | Body | String | N  | 링크 모바일                                                        |
+| content.coupon.linkPc | Body | String | N  | 링크 PC                                                         |
+| content.coupon.schemeIos | Body | String | N  | iOS 앱 링크                                            |
+| content.coupon.schemeAndroid | Body | String | N  | Android 앱 링크                         |
+
+## * 친구톡 요청 본문 예시 - 와이드 아이템리스트형
+
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+
+```json
+{
+    "statsKeyId": "통계_키_아이디",
+    "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+    "confirmBeforeSend": false,
+    "sender": {
+        "senderKey": "발신프로필_발신키"
+    },
+    "content": {
+      "messageType": "WIDE_ITEMLIST",
+      "buttons": [
+        {
+          "type": "WL",
+          "name": "버튼_이름",
+          "linkMo": "모바일_링크",
+          "linkPc": "PC_링크",
+          "schemeIos": "iOS_앱_링크",
+          "schemeAndroid": "Android_앱_링크",
+          "bizFormKey": "비즈폼_키"
+        }
+      ],
+      "header": "헤더",
+      "item": {
+          "list": [{
+            "title": "아이템_제목",
+            "attachmentId": "첨부_파일_아이디",
+            "linkMo": "모바일_링크",
+            "linkPc": "PC_링크",
+            "schemeIos": "iOS_앱_링크",
+            "schemeAndroid": "Android_앱_링크"
+          },
+          {
+            "title": "아이템_제목",
+            "attachmentId": "첨부_파일_아이디",
+            "linkMo": "모바일_링크",
+            "linkPc": "PC_링크",
+            "schemeIos": "iOS_앱_링크",
+            "schemeAndroid": "Android_앱_링크"
+          },
+          {
+          "title": "아이템_제목",
+          "attachmentId": "첨부_파일_아이디",
+          "linkMo": "모바일_링크",
+          "linkPc": "PC_링크",
+          "schemeIos": "iOS_앱_링크",
+          "schemeAndroid": "Android_앱_링크"
+          }
+        ]
+      },
+      "coupon": {
+        "title": "쿠폰_제목",
+        "description": "쿠폰_상제_설명",
+        "linkMo": "모바일_링크",
+        "linkPc": "PC_링크",
+        "schemeIos": "iOS_앱_링크",
+        "schemeAndroid": "Android_앱_링크"
+      }
+    }
+}
+```
+
+| 이름                                | 구분   | 타입     | 필수 | 설명                                                                                                                                                        |
+|-----------------------------------|------|--------|----|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sender                            | Body | Object | Y  | 발신자                                                                                                                                                       |
+| sender.senderKey                  | Body | Object | Y  | 발신프로필_발신키                                                                                                                                                 |
+| content                           | Body | Object | Y  | 메시지 내용                                                                                                                                                    |
+| content.messageType               | Body | String | Y  | 메시지 유형                                                                                                                                                    |
+| content.buttons                   | Body | Array  | N  | 버튼                                                                                                                                                        |
+| content.buttons[].type            | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼)                                                                                             |
+| content.buttons[].name            | Body | String | Y  | 버튼 이름                                                                                                                                                     |
+| content.buttons[].linkMo          | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                                                                                                                    |
+| content.buttons[].linkPc          | Body | String | N  | 링크 PC                                                                                                                                                     |
+| content.buttons[].schemeIos       | Body | String | N  | iOS 앱 링크                                                                                                                                                  |
+| content.buttons[].schemeAndroid   | Body | String | N  | Android 앱 링크                                                                                                                                              |
+| content.buttons[].bizFormKey      | Body | String | N  | 비즈폼 키, 버튼 타입이 BF이면 필수                                                                                                                                     |
+| content.header                    | Body | String | Y  | 헤더                                                                                                                                                        |
+| content.item                      | Body | Object | Y  | 와이드 아이템                                                                                                                                                   |
+| content.item.list                 | Body | Array  | Y  | 와이드 아이템 리스트(최소 3개, 최대 4개)                                                                                                                                 |
+| content.item.list[].title         | Body | String | Y  | 아이템 제목(첫 번째 아이템의 경우 최대 25자, 2~4번째 아이템의 경우 최대 30자)                                                                                                         |
+| content.item.list[].attachmentId  | Body | String | Y  | 첨부 파일 아이디                                                                                                                                                 |
+| content.item.list[].linkMo        | Body | String | Y  | 모바일 웹 링크                                                                                                                                                  |
+| content.item.list[].linkPc        | Body | String | Y  | PC 웹 링크                                                                                                                                                   |
+| content.item.list[].schemeIos     | Body | String | Y  | IOS 앱 링크                                                                                                                                                  |
+| content.item.list[].schemeAndroid | Body | String | Y  | 안드로이 앱 링크                                                                                                                                                 |
+| content.coupon                    | Body | Object | N  | 쿠폰                                                                                                                                                        |
+| content.coupon.title              | Body | String | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰" |
+| content.coupon.description        | Body | String | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자)                                                                                   |
+| content.coupon.linkMo             | Body | String | N  | 링크 모바일                                                                                                                                                    |
+| content.coupon.linkPc             | Body | String | N  | 링크 PC                                                                                                                                                     |
+| content.coupon.schemeIos          | Body | String | N  | iOS 앱 링크                                                                                                                                                  |
+| content.coupon.schemeAndroid      | Body | String | N  | Android 앱 링크                                                                                                                                              |
+
+## * 친구톡 요청 본문 예시 - 캐러셀 피드형
+
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+
+```json
+{
+    "statsKeyId": "통계_키_아이디",
+    "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+    "confirmBeforeSend": false,
+    "sender": {
+        "senderKey": "발신프로필_발신키"
+    },
+    "content": {
+      "messageType": "CAROUSEL_FEED",
+      "carousel": {
+        "list": [
+          {
+            "header": "캐러셀_아이템_제목",
+            "message": "캐러셀_아이템_메시지",
+            "attachment": {
+              "buttons": [
+                {
+                  "type": "WL",
+                  "name": "버튼_이름",
+                  "linkMo": "모바일_링크",
+                  "linkPc": "PC_링크",
+                  "schemeIos": "iOS_앱_링크",
+                  "schemeAndroid": "Android_앱_링크"
+                }
+              ],
+              "image": {
+                "attachmentId": "첨부_파일_아이디",
+                "imageLink": "이미지_링크_URL"
+              },
+              "coupon": {
+                "title": "쿠폰_제목",
+                "description": "쿠폰_상제_설명",
+                "linkMo": "모바일_링크",
+                "linkPc": "PC_링크",
+                "schemeIos": "iOS_앱_링크",
+                "schemeAndroid": "Android_앱_링크"
+              }
+            }
+          },
+          {
+            "header": "캐러셀_아이템_제목",
+            "message": "캐러셀_아이템_메시지",
+            "attachment": {
+              "buttons": [
+                {
+                  "type": "WL",
+                  "name": "버튼_이름",
+                  "linkMo": "모바일_링크",
+                  "linkPc": "PC_링크",
+                  "schemeIos": "iOS_앱_링크",
+                  "schemeAndroid": "Android_앱_링크"
+                }
+              ],
+              "image": {
+                "attachmentId": "첨부_파일_아이디",
+                "imageLink": "이미지_링크_URL"
+              },
+              "coupon": {
+                "title": "쿠폰_제목",
+                "description": "쿠폰_상제_설명",
+                "linkMo": "모바일_링크",
+                "linkPc": "PC_링크",
+                "schemeIos": "iOS_앱_링크",
+                "schemeAndroid": "Android_앱_링크"
+              }
+            }
+          }
+        ],
+        "tail": {
+          "linkMo": "모바일_링크",
+          "linkPc": "PC_링크",
+          "schemeAndroid": "Android_앱_링크",
+          "schemeIos": "iOS_앱_링크"
+        }
+      }
+    }
+}
+```
+
+| 이름                                                         | 구분   | 타입     | 필수 | 설명                                                                                                                                                       |
+|------------------------------------------------------------|------|--------|----|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sender                                                     | Body | Object | Y  | 발신자                                                                                                                                                      |
+| sender.senderKey                                           | Body | Object | Y  | 발신프로필_발신키                                                                                                                                                |
+| content                                                    | Body | Object | Y  | 메시지 내용                                                                                                                                                   |
+| content.messageType                                        | Body | String | Y  | 메시지 유형                                                                                                                                                   |
+| content.carousel                                           | Body | Object | Y  | 캐러셀                                                                                                                                                      |
+| content.carousel.list                                      | Body | Array  | Y  | 캐러셀 리스트(최소 2개, 최대 10개)                                                                                                                                   |
+| content.carousel.list[].header                             | Body | String | Y  | 캐러셀 아이템 제목(최대 20자), 캐러셀 피드형에서만 사용 가능                                                                                                                     |
+| content.carousel.list[].message                            | Body | String | Y  | 캐러셀 아이템 메시지(최대 180자), 캐러셀 피드형에서만 사용 가능                                                                                                                   |
+| content.carousel.list[].attachment                         | Body | Object | N  | 캐러셀 아이템 이미지, 버튼 정보                                                                                                                                       |
+| content.carousel.list[].attachment.buttons                 | Body | Array  | N  | 버튼 리스트 (최대 2개)                                                                                                                                           |
+| content.carousel.list[].attachment.buttons[].type          | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼)                                                                                            |
+| content.carousel.list[].attachment.buttons[].name          | Body | String | Y  | 버튼 이름                                                                                                                                                    |
+| content.carousel.list[].attachment.buttons[].linkMo        | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                                                                                                                   |
+| content.carousel.list[].attachment.buttons[].linkPc        | Body | String | N  | 링크 PC                                                                                                                                                    |
+| content.carousel.list[].attachment.buttons[].schemeIos     | Body | String | N  | iOS 앱 링크                                                                                                                                                 |
+| content.carousel.list[].attachment.buttons[].schemeAndroid | Body | String | N  | Android 앱 링크                                                                                                                                             |
+| content.carousel.list[].attachment.image                   | Body | Object | Y  | 캐러셀 이미지                                                                                                                                                  |
+| content.carousel.list[].attachment.image.attachmentId      | Body | String | Y  | 첨부 파일 id                                                                                                                                                 |
+| content.carousel.list[].attachment.image.imageLink         | Body | String | N  | 이미지 링크 URL                                                                                                                                               |
+| content.carousel.list[].attachment.coupon                  | Body | Object | N  | 쿠폰                                                                                                                                                       |
+| content.carousel.list[].attachment.coupon.title            | Body | String | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰" |
+| content.carousel.list[].attachment.coupon.description      | Body | String | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자)                                                                                  |
+| content.carousel.list[].attachment.coupon.linkMo           | Body | String | N  | 링크 모바일                                                                                                                                                   |
+| content.carousel.list[].attachment.coupon.linkPc           | Body | String | N  | 링크 PC                                                                                                                                                    |
+| content.carousel.list[].attachment.coupon.schemeIos        | Body | String | N  | iOS 앱 링크                                                                                                                                                 |
+| content.carousel.list[].attachment.coupon.schemeAndroid    | Body | String | N  | Android 앱 링크                                                                                                                                             |
+| content.carousel.tail                                      | Body | Object | N  | 캐러셀 더보기 버튼 정보                                                                                                                                           |
+| content.carousel.tail.linkMo                               | Body | String | Y  | 모바일 웹 링크                                                                                                                                           |
+| content.carousel.tail.linkPc                               | Body | String | N  | 모바일 웹 링크                                                                                                                                           |
+| content.carousel.tail.schemeIos                            | Body | String | N  | 모바일 웹 링크                                                                                                                                           |
+| content.carousel.tail.schemeAndroid                        | Body | String | N  | 모바일 웹 링크                                                                                                                                           |
 
 <span id="free-form-by-email"></span>
 
