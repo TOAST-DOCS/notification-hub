@@ -4,15 +4,11 @@
 
 <span id="basic-information"></span>
 
-<!-- 
-## 
--->
-
 ## Notification Hub API 공통 정보
 
-### Notification Hub 베타(Beta) 상태, API 사용 시 주의 사항
-* Notification Hub v1.0 API는 현재 베타 상태로, API는 변경될 수 있으며, 변경 시 사전 공지 없이 변경될 수 있습니다.
-* 베타 버전의 API는 안정화되지 않았으며, 실험적인 기능이 추가되거나 제거될 수 있습니다.
+### 주의 사항
+* Notification Hub v1.0 API는 현재 알파(alpha) 상태로, API는 변경될 수 있으며, 변경 시 사전 공지 없이 변경될 수 있습니다.
+* 알파 버전의 API는 안정화되지 않았으며, 실험적인 기능이 추가되거나 제거될 수 있습니다.
 * Notification Hub가 GA(General Availability) 상태로 전환 후 공식 버전으로 변경됩니다.
 * 변경 가능한 부분은 이 문서에서 설명하는 API 엔드포인트, 인증, 요청 제한, 요청, 응답, 필드 등 모든 항목이 포함됩니다.
 
@@ -126,7 +122,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="rate-limit"></span>
 
-### 요청 수 제한
+**요청** 수 제한
 * Notification Hub에서는 특정 클라이언트가 과도한 리소스 점유를 막고 서비스의 안정성을 보장하기 위해 API 요청 수를 제한합니다.
 * API 요청 수는 초당 요청 수. 300RPS(Requests Per Second)으로 제한됩니다.
 
@@ -138,7 +134,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="example-guide"></span>
 
-### 요청 예시
+**요청 예시**
 * 본 API 가이드 문서에서 API를 호출하는 예시를 IntelliJ HTTP, cURL로 제공합니다.
 * IntelliJ HTTP는 IntelliJ IDEA의 HTTP 클라이언트 플러그인으로 JetBrains IDEs 또는 명령줄에서 실행할 수 있습니다.
   * [JetBrains - IntelliJ HTTP Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
@@ -166,7 +162,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 <!-- !!! warning "주의"-->
 <!--API를 사용할 때 따르지 않을 경우 서비스의 비정상 또는 비효율적 동작이 발생할 수 있는 주의 사항을 표기할 때 사용합니다.-->
 
-### 요청
+**요청**
 
 ```
 POST /message/v1.0/{{messageChannel}}/free-form-messages/{messagePurpose}
@@ -174,7 +170,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -183,7 +179,7 @@ X-NHN-Authorization: {{accessToken}}
 | appKey | Header | String | Y | 앱키 |
 | accessToken | Header | String | Y | 인증 토큰 |
 
-### 공통 요청 본문
+**공통 요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -233,7 +229,7 @@ X-NHN-Authorization: {{accessToken}}
 * 승인 후 발송의 경우 **confirmBeforeSend**를 **true**로 설정합니다. 승인 후 발송인 메시지는 **Notification Hub 콘솔** > **발송 조회**에서 승인을 하면 발송이 진행됩니다.
 * 예약 발송과 승인 후 발송은 동시에 설정할 수 없습니다.
 
-### 응답 본문
+**응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -257,7 +253,7 @@ X-NHN-Authorization: {{accessToken}}
 | header.resultMessage | String | 결과 메시지 |
 | messageId | String | 요청 성공한 메시지 아이디 |
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -331,7 +327,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 
 <span id="free-form-by-sms"></span>
 
-## * SMS 요청 본문 예시
+### SMS 요청 본문 예시
 
 ```json
 {
@@ -376,7 +372,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 
 <span id="free-form-by-rcs"></span>
 
-## * RCS 요청 본문 예시
+### RCS 요청 본문 예시
 
 ```json
 {
@@ -456,18 +452,13 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 | content.buttons[].buttonJson | Body | String | Y | 버튼 Json |
 | content.attachmentIds | Body | Body | Array<String> | Y | 첨부 파일 아이디 배열 |
 
-<span id="free-form-by-alimtalk"></span>
-
-### 알림톡
-
-* 알림톡은 템플릿 등록 후 승인을 받은 상태에서 발송 가능하기 때문에 템플릿, 플로우 메시지 발송만 가능합니다.
-* 알림톡의 **sender**, **content** 필드는 **템플릿 메시지 발송**의 **요청 본문**을 확인하세요.
-
 
 <span id="free-form-by-friendtalk"></span>
 
-## * 친구톡 요청 본문 예시 - 텍스트형
+### 친구톡 요청 본문 예시 - 텍스트형
 
+* 알림톡은 템플릿 등록 후 승인을 받은 상태에서 발송 가능하기 때문에 템플릿, 플로우 메시지 발송만 가능합니다.
+* 알림톡의 **sender**, **content** 필드는 **템플릿 메시지 발송**의 **요청 본문**을 확인하세요.
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
 ```json
@@ -538,7 +529,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 
 <span id="free-form-by-email"></span>
 
-## * Email 요청 본문 예시
+### Email 요청 본문 예시
 
 ```json
 {
@@ -581,7 +572,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 
 <span id="free-form-by-push"></span>
 
-## * 푸시 요청 본문 예시
+### 푸시 요청 본문 예시
 
 ```json
 {
@@ -677,9 +668,9 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 
 <span id="post-template-message"></span>
 
-## 템플릿 메시지 발송 요청
+### 템플릿 메시지 발송 요청
 
-### 요청
+**요청**
 
 ```
 POST /message/v1.0/{{messageChannel}}/template-messages/{messagePurpose}
@@ -687,7 +678,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -696,7 +687,7 @@ X-NHN-Authorization: {{accessToken}}
 | messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 | messagePurpose | Path | String | Y | 메시지 목적<br>NORMAL, AD, AUTH |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -753,7 +744,7 @@ X-NHN-Authorization: {{accessToken}}
 * 수신자 템플릿 파라미터가 없는 경우 공통 템플릿 파라미터만 적용됩니다. 공통 템플릿 파라미터와 수신자 템플릿 파라미터가 중복되는 경우 수신자 템플릿 파라미터가 우선 적용됩니다.
 * 템플릿 파라미터의 값의 타입은 문자열 또는 배열, 객체가 될 수 있습니다. 배열이나 객체 타입은 FREE_MARKER 템플릿에서 사용할 수 있습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -768,7 +759,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -860,9 +851,9 @@ curl -X POST "{endpoint}/message/v1.0/SMS/template-messages/NORMAL" \
 
 <span id="post-flow-message"></span>
 
-## 플로우 메시지 발송 요청
+### 플로우 메시지 발송 요청
 
-### 요청
+**요청**
 
 ```
 POST /message/v1.0/flow-messages/{messagePurpose}
@@ -870,7 +861,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -878,7 +869,7 @@ X-NHN-Authorization: {{accessToken}}
 | appKey | Header | String | Y | 앱키 |
 | accessToken | Header | String | Y | 인증 토큰 |
 
-### 요청 본문
+**요청 본문**
 
 
 ```json
@@ -944,7 +935,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <span id="get-contact-delivery-results"></span>
 
-## 연락처별 수신 결과 목록 조회
+### 연락처별 수신 결과 목록 조회
 
 발송 요청된 메시지의 발송과 수신 결과를 수신자의 연락처 단위로 조회합니다.
 
@@ -957,7 +948,7 @@ X-NHN-Authorization: {{accessToken}}
 <!-- !!! warning "주의"-->
 <!--API를 사용할 때 따르지 않을 경우 서비스의 비정상 또는 비효율적 동작이 발생할 수 있는 주의 사항을 표기할 때 사용합니다.-->
 
-### 요청
+**요청**
 
 ```
 GET /message/v1.0/contact-delivery-results
@@ -965,7 +956,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -988,7 +979,7 @@ X-NHN-Authorization: {{accessToken}}
 
 
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -1048,7 +1039,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--요청 본문의 필드를 설명합니다.-->
 
-### 응답 본문
+**응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -1152,7 +1143,7 @@ X-NHN-Authorization: {{accessToken}}
 
 
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -1204,11 +1195,11 @@ curl -X GET "{endpoint}/message/v1.0/contact-delivery-results" \
 
 <span id="post-message-do-cancel"></span>
 
-## 메시지 요청 취소
+### 메시지 요청 취소
 
 발송 전 예약 메시지, 승인 후 발송 메시지의 발송 요청을 취소합니다. 요청 취소된 메시지는 연락처별 수신 결과 조회에서 조회할 수 있습니다.
 
-### 요청
+**요청**
 
 ```
 POST /message/v1.0/messages/{messageId}/do-cancel
@@ -1216,7 +1207,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -1225,13 +1216,13 @@ X-NHN-Authorization: {{accessToken}}
 | messageId | Path | String | Y | 메시지 아이디 |
 
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -1245,11 +1236,13 @@ X-NHN-Authorization: {{accessToken}}
 
 ---
 
+## 템플릿
+
 <span id="post-template"></span>
 
-## 템플릿 생성
+### 템플릿 생성
 
-### 요청
+**요청**
 
 ```
 POST /template/v1.0/{messageChannel}/templates
@@ -1258,14 +1251,14 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | 앱키 |
 | accessToken | Header | String | Y | 인증 토큰 |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -1391,7 +1384,7 @@ X-NHN-Authorization: {{accessToken}}
 
 
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -1406,7 +1399,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -1470,9 +1463,9 @@ curl -X POST "{endpoint}/template/v1.0/{messageChannel}/templates" \
 
 <span id="get-templates"></span>
 
-## 템플릿 목록 조회
+### 템플릿 목록 조회
 
-### 요청
+**요청**
 
 ```
 GET /template/v1.0/{messageChannel}/templates
@@ -1480,7 +1473,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름           | 구분 | 타입 | 필수 | 설명                        |
 |--------------| --- | --- | --- |---------------------------|
@@ -1490,13 +1483,13 @@ X-NHN-Authorization: {{accessToken}}
 | limit        | Query | Number | N | 조회 개수(기본값: 20)            |
 | offset       | Query | Number | N | 조회 시작 위치(기본값: 0)          |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -1533,7 +1526,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -1561,9 +1554,9 @@ curl -X GET "{endpoint}/template/v1.0/{messageChannel}/templates" \
 
 <span id="get-template"></span>
 
-## 템플릿 조회
+### 템플릿 조회
 
-### 요청
+**요청**
 
 ```
 GET /template/v1.0/{messageChannel}/templates/{templateId}
@@ -1571,7 +1564,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -1579,13 +1572,13 @@ X-NHN-Authorization: {{accessToken}}
 | accessToken | Header | String | Y | 인증 토큰 |
 | templateId | Path | String | Y | 템플릿 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -1619,7 +1612,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -1647,9 +1640,9 @@ curl -X GET "{endpoint}/template/v1.0/{messageChannel}/templates/{templateId}" \
 
 <span id="put-template"></span>
 
-## 템플릿 수정
+### 템플릿 수정
 
-### 요청
+**요청**
 
 ```
 PUT /template/v1.0/{messageChannel}/templates/{templateId}
@@ -1658,7 +1651,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -1666,7 +1659,7 @@ X-NHN-Authorization: {{accessToken}}
 | accessToken | Header | String | Y | 인증 토큰 |
 | templateId | Path | String | Y | 템플릿 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -1690,7 +1683,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--요청 본문의 필드를 설명합니다.-->
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -1704,7 +1697,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -1768,9 +1761,9 @@ curl -X PUT "{endpoint}/template/v1.0/{messageChannel}/templates/{templateId}" \
 
 <span id="delete-template"></span>
 
-## 템플릿 삭제
+### 템플릿 삭제
 
-### 요청
+**요청**
 
 ```
 DELETE /template/v1.0/{messageChannel}/templates/{templateId}
@@ -1778,7 +1771,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -1786,13 +1779,13 @@ X-NHN-Authorization: {accessToken}
 | accessToken | Header | String | Y | 인증 토큰 |
 | templateId | Path | String | Y | 템플릿 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -1806,7 +1799,7 @@ X-NHN-Authorization: {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -1832,9 +1825,9 @@ curl -X DELETE "{endpoint}/template/v1.0/{messageChannel}/templates/{templateId}
 
 </details>
 
-## 알림톡 템플릿 문의하기
+### 알림톡 템플릿 문의하기
 
-### 요청
+**요청**
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/inquiries
@@ -1843,7 +1836,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -1851,7 +1844,7 @@ X-NHN-Authorization: {accessToken}
 | accessToken | Header | String | Y | 인증 토큰 |
 | templateId | Path | String | Y | 템플릿 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -1865,7 +1858,7 @@ X-NHN-Authorization: {accessToken}
 | --- | --- | --- |-------------------|
 | comment | String | Y | 문의 내용(최대 길이: 500) |
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -1879,7 +1872,7 @@ X-NHN-Authorization: {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -1913,9 +1906,9 @@ curl -X POST "{endpoint}/template/v1.0/ALIMTALK/templates/{templateId}/inquiries
 
 </details>
 
-## 알림톡 템플릿 파일 첨부 문의하기
+### 알림톡 템플릿 파일 첨부 문의하기
 
-### 요청
+**요청**
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/inquiries/do-with-file
@@ -1924,7 +1917,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -1933,7 +1926,7 @@ X-NHN-Authorization: {accessToken}
 | templateId | Path | String | Y | 템플릿 아이디 |
 | comment | Query | String | Y | 문의 내용(최대 길이: 500) |
 
-### 요청 본문
+**요청 본문**
 
 * 파일 첨부는 **multipart/form-data**로 요청합니다.
 * **form-data**에 **file** 필드에 파일 데이터를 설정합니다.
@@ -1947,7 +1940,7 @@ Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -1959,7 +1952,7 @@ Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 }
 ```
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -1995,9 +1988,9 @@ curl -X POST "{endpoint}/template/v1.0/ALIMTALK/templates/{templateId}/inquiries
 
 </details>
 
-## 알림톡 템플릿 수정 내역 조회
+### 알림톡 템플릿 수정 내역 조회
 
-### 요청
+**요청**
 
 ```
 GET /template/v1.0/ALIMTALK/templates/{templateId}/modifications
@@ -2006,7 +1999,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -2014,13 +2007,13 @@ X-NHN-Authorization: {accessToken}
 | accessToken | Header | String | Y | 인증 토큰 |
 | templateId | Path | String | Y | 템플릿 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2170,7 +2163,7 @@ X-NHN-Authorization: {accessToken}
 * 채널 추가형(AD) 또는 복합형(MI) 메시지 유형 템플릿 등록 시 채널 추가(AC) 버튼이 첫 번째 순서에 위치해야 합니다.
 * 채널 추가(AC) 버튼의 버튼명은 "채널 추가"로 고정하여 등록해야 합니다.
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -2199,9 +2192,9 @@ curl -X GET "{endpoint}/template/v1.0/ALIMTALK/templates/{templateId}/modificati
 
 ---
 
-## 템플릿 카테고리 생성
+### 템플릿 카테고리 생성
 
-### 요청
+**요청**
 
 ```
 POST /template/v1.0/{messageChannel}/categories
@@ -2210,7 +2203,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -2218,7 +2211,7 @@ X-NHN-Authorization: {accessToken}
 | accessToken | Header | String | Y | 인증 토큰 |
 | messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -2237,7 +2230,7 @@ X-NHN-Authorization: {accessToken}
 * 최상위 카테고리는 기본적으로 생성되어 있습니다. 최상위 카테고리아이디는 **ROOT**입니다.
 * 새로운 카테고리는 최상위 카테고리를 하위부터 생성할 수 있습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2252,7 +2245,7 @@ X-NHN-Authorization: {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -2288,9 +2281,9 @@ curl -X POST "{endpoint}/template/v1.0/{messageChannel}/categories" \
 
 </details>
 
-## 템플릿 카테고리 목록 조회
+### 카테고리 목록 조회
 
-### 요청
+**요청**
 
 ```
 GET /template/v1.0/{messageChannel}/categories
@@ -2299,7 +2292,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -2307,13 +2300,13 @@ X-NHN-Authorization: {accessToken}
 | accessToken | Header | String | Y | 인증 토큰 |
 | messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2343,7 +2336,7 @@ X-NHN-Authorization: {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -2370,9 +2363,9 @@ curl -X GET "{endpoint}/template/v1.0/{messageChannel}/categories" \
 
 </details>
 
-## 템플릿 카테고리 트리 조회
+### 카테고리 트리 조회
 
-### 요청
+**요청**
 
 ```
 GET /template/v1.0/{messageChannel}/category-tree
@@ -2381,7 +2374,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명                                                     |
 | --- | --- | --- | --- |--------------------------------------------------------|
@@ -2394,13 +2387,13 @@ X-NHN-Authorization: {accessToken}
 
 <!--TODO: status 필드가 없는데 필요한지 확인 필요-->
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2462,13 +2455,13 @@ X-NHN-Authorization: {accessToken}
 | categories.[]templates.[]templateId  | String        | 필수 | 템플릿 아이디 |
 | categories.[]templates.[]templateName| String        | 필수 | 템플릿 이름 |
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 트리 조회
+### 카테고리 트리 조회
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/category-tree
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
@@ -2489,9 +2482,9 @@ curl -X GET "{endpoint}/template/v1.0/{messageChannel}/category-tree" \
 
 </details>
 
-### 템플릿 카테고리 조회
+### 카테고리 조회
 
-### 요청
+**요청**
 
 ```
 GET /template/v1.0/{messageChannel}/categories/{categoryId}
@@ -2500,7 +2493,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -2509,13 +2502,13 @@ X-NHN-Authorization: {accessToken}
 | messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | 카테고리 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2543,7 +2536,7 @@ X-NHN-Authorization: {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 
 <details>
@@ -2571,9 +2564,9 @@ curl -X GET "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}" 
 
 </details>
 
-### 템플릿 카테고리 수정
+### 카테고리 수정
 
-### 요청
+**요청**
 
 ```
 PUT /template/v1.0/{messageChannel}/categories/{categoryId}
@@ -2582,7 +2575,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -2591,7 +2584,7 @@ X-NHN-Authorization: {accessToken}
 | messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | 카테고리 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -2607,7 +2600,7 @@ X-NHN-Authorization: {accessToken}
 | parentCategoryId | String | 선택 | 상위 카테고리 아이디 |
 | name | String | 필수 | 카테고리 이름(최대 50자) |
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2621,13 +2614,13 @@ X-NHN-Authorization: {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 수정
+### 카테고리 수정
 PUT {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
@@ -2659,7 +2652,7 @@ curl -X PUT "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}" 
 
 ### 템플릿 카테고리에 템플릿 추가
 
-### 요청
+**요청**
 
 ```
 POST /template/v1.0/{messageChannel}/categories/{categoryId}/templates
@@ -2668,7 +2661,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -2676,7 +2669,7 @@ X-NHN-Authorization: {accessToken}
 | accessToken | Header | String | Y | 인증 토큰 |
 | messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -2690,7 +2683,7 @@ X-NHN-Authorization: {accessToken}
 | --- | --- | --- |-------------------|
 | templateId | String | 필수 | 템플릿 아이디 |
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2704,7 +2697,7 @@ X-NHN-Authorization: {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -2738,9 +2731,9 @@ curl -X POST "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId}/
 
 </details>
 
-### 템플릿 카테고리 삭제
+### 카테고리 삭제
 
-### 요청
+**요청**
 
 ```
 DELETE /template/v1.0/{messageChannel}/categories/{categoryId}
@@ -2749,7 +2742,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -2758,12 +2751,12 @@ X-NHN-Authorization: {accessToken}
 | messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | 카테고리 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2777,13 +2770,13 @@ X-NHN-Authorization: {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 삭제
+### 카테고리 삭제
 DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
@@ -2806,12 +2799,13 @@ curl -X DELETE "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId
 
 ---
 
+## 플로우
 
 <span id="post-flow"></span>
 
-## 플로우 생성
+### 플로우 생성
 
-### 요청
+**요청**
 
 ```
 POST /flow/v1.0/flows
@@ -2820,14 +2814,14 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | 앱키 |
 | accessToken | Header | String | Y | 인증 토큰 |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -2859,7 +2853,7 @@ X-NHN-Authorization: {{accessToken}}
 * 한 단계는 여러 개의 다음 단계를 가질 수 있습니다.
 * 순서 없이 동시 발송을 원하는 겨우 첫 번째 단계인 **steps**에 모든 메시지 채널을 추가합니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -2874,7 +2868,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -2947,9 +2941,9 @@ curl -X POST "{endpoint}/flow/v1.0/flows" \
 
 <span id="get-flows"></span>
 
-## 플로우 목록 조회
+### 플로우 목록 조회
 
-### 요청
+**요청**
 
 ```
 GET /flow/v1.0/flows
@@ -2957,7 +2951,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명         |
 | --- | --- | --- | --- |------------|
@@ -2968,12 +2962,12 @@ X-NHN-Authorization: {{accessToken}}
 | limit | Query | Integer | N | 페이지당 조회 개수 |
 | offset | Query | Integer | N | 페이지 오프셋    |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -3014,7 +3008,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -3043,9 +3037,9 @@ curl -X GET "{endpoint}/flow/v1.0/flows" \
 
 <span id="get-flow"></span>
 
-## 플로우 조회
+### 플로우 조회
 
-### 요청
+**요청**
 
 ```
 GET /flow/v1.0/flows/{flowId}
@@ -3053,7 +3047,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -3061,13 +3055,13 @@ X-NHN-Authorization: {{accessToken}}
 | accessToken | Header | String | Y | 인증 토큰 |
 | flowId | Path | String | Y | 플로우 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -3106,7 +3100,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -3135,9 +3129,9 @@ curl -X GET "{endpoint}/flow/v1.0/flows/플로우_아이디" \
 
 <span id="put-flow"></span>
 
-## 플로우 수정
+### 플로우 수정
 
-### 요청
+**요청**
 
 ```
 PUT /flow/v1.0/flows/{flowId}
@@ -3146,7 +3140,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -3154,7 +3148,7 @@ X-NHN-Authorization: {{accessToken}}
 | accessToken | Header | String | Y | 인증 토큰 |
 | flowId | Path | String | Y | 플로우 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 ```json
 {
@@ -3183,7 +3177,7 @@ X-NHN-Authorization: {{accessToken}}
 
 * 플로우 수정은 플로우 생성과 동일한 요청 본문을 사용합니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -3197,7 +3191,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
@@ -3271,9 +3265,9 @@ curl -X PUT "{endpoint}/flow/v1.0/flows/플로우_아이디" \
 
 <span id="delete-flow"></span>
 
-## 플로우 삭제
+### 플로우 삭제
 
-### 요청
+**요청**
 
 ```
 DELETE /flow/v1.0/flows/{flowId}
@@ -3281,7 +3275,7 @@ X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{accessToken}}
 ```
 
-### 요청 파라미터
+**요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -3289,13 +3283,13 @@ X-NHN-Authorization: {{accessToken}}
 | accessToken | Header | String | Y | 인증 토큰 |
 | flowId | Path | String | Y | 플로우 아이디 |
 
-### 요청 본문
+**요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 이 API는 요청 본문을 요구하지 않습니다.
 
-### 응답 본문
+**응답 본문**
 
 ```json
 {
@@ -3309,7 +3303,7 @@ X-NHN-Authorization: {{accessToken}}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-### 요청 예시
+**요청 예시**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
