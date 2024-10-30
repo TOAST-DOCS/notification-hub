@@ -474,17 +474,13 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
       "content": "#{이름}님의 주문이 완료되었습니다.",
       "buttons": [
         {
-          "ordering": 0,
           "type": "WL",
           "name": "버튼_이름",
           "linkMo": "모바일_링크",
           "linkPc": "PC_링크",
           "schemeIos": "iOS_앱_링크",
           "schemeAndroid": "Android_앱_링크",
-          "chatExtra": "메타_정보",
-          "chatEvent": "봇_이벤트_이름",
           "bizFormKey": "비즈폼_키",
-          "target": "아웃_링크_또는_인앱_링크"
         }
       ],
       "coupon": {
@@ -508,17 +504,74 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 | content.messageType | Body | String | Y  | 메시지 유형                                                        |
 | content.content | Body | String | Y  | 내용                                                            |
 | content.buttons | Body | Array | Y  | 버튼                                                            |
-| content.buttons[].ordering | Body | Number | Y  | 버튼 순서                                                         |
 | content.buttons[].type | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
 | content.buttons[].name | Body | String | Y  | 버튼 이름                                                         |
 | content.buttons[].linkMo | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                        |
 | content.buttons[].linkPc | Body | String | N  | 링크 PC, 버튼 타입이 WL이면 tjsxor                                     |
 | content.buttons[].schemeIos | Body | String | Y  | iOS 앱 링크, 버튼 타입이 AL이면 필수                                      |
 | content.buttons[].schemeAndroid | Body | String | Y  | Android 앱 링크, 버튼 타입이 AL이면 필수                                  |
-| content.buttons[].chatExtra | Body | String | Y  | 메타 정보, 버튼 타입이 BC, BT이면 전달할 메타 정보                              |
-| content.buttons[].chatEvent | Body | String | Y  | 봇 이벤트 이름, 버튼 타입이 BT일 때 연결할 봇 이벤트 이름                           |
 | content.buttons[].bizFormKey | Body | String | Y  | 비즈폼 키, 버튼 타입이 BF이면 필수                                         |
-| content.buttons[].target | Body | String | Y  | 웹 링크 버튼일 경우 "target":"out" 속성 추가 시 아웃 링크<br>기본 인앱 링크로 발송      |
+| content.coupon | Body | Object | Y  | 쿠폰                                                            |
+| content.coupon.title | Body | String | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰"                                                          |
+| content.coupon.description | Body | String | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
+| content.coupon.linkMo | Body | String | Y  | 링크 모바일                                                        |
+| content.coupon.linkPc | Body | String | Y  | 링크 PC                                                         |
+| content.coupon.schemeIos | Body | String | Y  | iOS 앱 링크                                            |
+| content.coupon.schemeAndroid | Body | String | Y  | Android 앱 링크                         |
+
+## * 친구톡 요청 본문 예시 - 이미지형 / 와이드 이미지형
+
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+
+```json
+{
+    "statsKeyId": "통계_키_아이디",
+    "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+    "confirmBeforeSend": false,
+    "sender": {
+        "senderKey": "발신프로필_발신키"
+    },
+    "content": {
+      "messageType": "TEXT",
+      "content": "#{이름}님의 주문이 완료되었습니다.",
+      "buttons": [
+        {
+          "type": "WL",
+          "name": "버튼_이름",
+          "linkMo": "모바일_링크",
+          "linkPc": "PC_링크",
+          "schemeIos": "iOS_앱_링크",
+          "schemeAndroid": "Android_앱_링크",
+          "bizFormKey": "비즈폼_키",
+        }
+      ],
+      "coupon": {
+        "title": "쿠폰_제목",
+        "description": "쿠폰_상제_설명",
+        "linkMo": "모바일_링크",
+        "linkPc": "PC_링크",
+        "schemeIos": "iOS_앱_링크",
+        "schemeAndroid": "Android_앱_링크"
+      }
+    }
+}
+```
+
+| 이름 | 구분 | 타입 | 필수 | 설명                                                            |
+| --- | --- | --- |----|---------------------------------------------------------------|
+| sender | Body | Object | Y  | 발신자                                                           |
+| sender.senderKey | Body | Object | Y  | 발신프로필_발신키                                                     |
+| content | Body | Object | Y  | 메시지 내용                                                        |
+| content.messageType | Body | String | Y  | 메시지 유형                                                        |
+| content.content | Body | String | Y  | 내용                                                            |
+| content.buttons | Body | Array | Y  | 버튼                                                            |
+| content.buttons[].type | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
+| content.buttons[].name | Body | String | Y  | 버튼 이름                                                         |
+| content.buttons[].linkMo | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                        |
+| content.buttons[].linkPc | Body | String | N  | 링크 PC, 버튼 타입이 WL이면 tjsxor                                     |
+| content.buttons[].schemeIos | Body | String | Y  | iOS 앱 링크, 버튼 타입이 AL이면 필수                                      |
+| content.buttons[].schemeAndroid | Body | String | Y  | Android 앱 링크, 버튼 타입이 AL이면 필수                                  |
+| content.buttons[].bizFormKey | Body | String | Y  | 비즈폼 키, 버튼 타입이 BF이면 필수                                         |
 | content.coupon | Body | Object | Y  | 쿠폰                                                            |
 | content.coupon.title | Body | String | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰"                                                          |
 | content.coupon.description | Body | String | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
