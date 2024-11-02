@@ -77,31 +77,31 @@ Kindle Fire 앱에 푸시 알림 메시지를 전송하기 위해서는 앱의 C
 1. **Security Profiles** 탭을 클릭한 후 중간에 있는 **Android/Kindle Setting** 탭을 클릭합니다.
 2. App Key Name, Package, MD5 Signature, SHA256 Signature 정보를 입력합니다.
 3. 아래와 같은 명령어로 MD5, SHA256 정보를 조회할 수 있습니다.
-```
-> keytool -list -v -keystore {keystoreFileName}
-
-키 저장소 비밀번호 입력:
-키 저장소 유형: JKS
-키 저장소 제공자: SUN
-
-키 저장소에 1개의 항목이 포함되어 있습니다.
-
-별칭 이름: androiddebugkey
-생성 날짜: 2018. 5. 9
-항목 유형: PrivateKeyEntry
-인증서 체인 길이: 1
-인증서[1]:
-소유자: C=US, O=Android, CN=Android Debug
-발행자: C=US, O=Android, CN=Android Debug
-일련 번호: 1
-적합한 시작 날짜: Wed May 09 19:59:46 KST 2018 종료 날짜: Fri May 01 19:59:46 KST 2048
-인증서 지문:
-         MD5:  xxxx
-         SHA1: xxxx
-         SHA256: xxxx
-서명 알고리즘 이름: SHA1withRSA
-주체 공용 키 알고리즘: 1024비트 RSA 키
-버전: 1
-```
-* 등록 완료 후 **Show**를 클릭하면 API key 정보를 조회할 수 있습니다.
+    ```
+    > keytool -list -v -keystore {keystoreFileName}
+    
+    키 저장소 비밀번호 입력:
+    키 저장소 유형: JKS
+    키 저장소 제공자: SUN
+    
+    키 저장소에 1개의 항목이 포함되어 있습니다.
+    
+    별칭 이름: androiddebugkey
+    생성 날짜: 2018. 5. 9
+    항목 유형: PrivateKeyEntry
+    인증서 체인 길이: 1
+    인증서[1]:
+    소유자: C=US, O=Android, CN=Android Debug
+    발행자: C=US, O=Android, CN=Android Debug
+    일련 번호: 1
+    적합한 시작 날짜: Wed May 09 19:59:46 KST 2018 종료 날짜: Fri May 01 19:59:46 KST 2048
+    인증서 지문:
+             MD5:  xxxx
+             SHA1: xxxx
+             SHA256: xxxx
+    서명 알고리즘 이름: SHA1withRSA
+    주체 공용 키 알고리즘: 1024비트 RSA 키
+    버전: 1
+    ```
+4. 등록 완료 후 **Show**를 클릭하면 API key 정보를 조회할 수 있습니다.
 
