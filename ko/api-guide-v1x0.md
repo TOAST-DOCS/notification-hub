@@ -4,9 +4,7 @@
 
 <span id="basic-information"></span>
 
-<h2></h2>
-
-## Notification Hub API 공통 정보
+<h2>Notification Hub API 공통 정보</h2>
 
 ### 주의 사항
 * Notification Hub v1.0 API는 현재 알파(alpha) 상태로, API는 변경될 수 있으며, 변경 시 사전 공지 없이 변경될 수 있습니다.
@@ -152,7 +150,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="post-free-form-message"></span>
 
-## 전문 메시지 발송 요청
+<h2>전문 메시지 발송 요청</h2>
 
 요청 본문에 메시지 내용을 입력해 메시지를 발송 요청합니다.
 
@@ -325,7 +323,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 
 <span id="free-form-by-message-channel"></span>
 
-## 메시지 채널별 상세 요청 본문
+<h2>메시지 채널별 상세 요청 본문</h2>
 
 <span id="free-form-by-sms"></span>
 
@@ -521,7 +519,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 | content.coupon.schemeIos | Body | String | N  | iOS 앱 링크                                            |
 | content.coupon.schemeAndroid | Body | String | N  | Android 앱 링크                         |
 
-## * 친구톡 요청 본문 예시 - 이미지형 / 와이드 이미지형
+### 친구톡 요청 본문 예시 - 이미지형 / 와이드 이미지형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -586,7 +584,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 | content.coupon.schemeIos | Body | String | N  | iOS 앱 링크                                            |
 | content.coupon.schemeAndroid | Body | String | N  | Android 앱 링크                         |
 
-## * 친구톡 요청 본문 예시 - 와이드 아이템리스트형
+### 친구톡 요청 본문 예시 - 와이드 아이템리스트형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -682,7 +680,7 @@ curl -X POST "https://api.example.com/message/v1.0/PUSH/free-form-messages/{mess
 | content.coupon.schemeIos          | Body | String | N  | iOS 앱 링크                                                                                                                                                  |
 | content.coupon.schemeAndroid      | Body | String | N  | Android 앱 링크                                                                                                                                              |
 
-## * 친구톡 요청 본문 예시 - 캐러셀 피드형
+### 친구톡 요청 본문 예시 - 캐러셀 피드형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -1509,7 +1507,7 @@ X-NHN-Authorization: {{accessToken}}
 
 ---
 
-## 템플릿
+<h2>템플릿</h2>
 
 <span id="post-template"></span>
 
@@ -3072,7 +3070,7 @@ curl -X DELETE "{endpoint}/template/v1.0/{messageChannel}/categories/{categoryId
 
 ---
 
-## 플로우
+<h2>플로우</h2>
 
 <span id="post-flow"></span>
 
