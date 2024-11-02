@@ -122,7 +122,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="rate-limit"></span>
 
-**요청** 수 제한
+### 요청 수 제한
 * Notification Hub에서는 특정 클라이언트가 과도한 리소스 점유를 막고 서비스의 안정성을 보장하기 위해 API 요청 수를 제한합니다.
 * API 요청 수는 초당 요청 수. 300RPS(Requests Per Second)으로 제한됩니다.
 
