@@ -4,6 +4,8 @@
 
 <span id="basic-information"></span>
 
+<h2></h2>
+
 ## Notification Hub API 공통 정보
 
 ### 주의 사항
