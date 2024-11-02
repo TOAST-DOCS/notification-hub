@@ -1,6 +1,6 @@
 # Notification Hub 개요
 
-**Notification Hub > 개요**
+**Notification > Notification Hub > 개요**
 
 푸시, 이메일, SMS, RCS, 알림톡, 친구톡 메시지를 발송하고 관리하는 클라우드 기반 통합 메시징 플랫폼입니다.
 
@@ -76,7 +76,7 @@ NHN Cloud Notification의 개별 서비스인 푸시, 이메일, SMS, RCS Bizmes
 
 ## 리소스 제공 정책
 
-**Notification Hub > 서비스 정책 > 최초 사용자 제한 사항**
+**Notification > Notification Hub > 서비스 정책 > 최초 사용자 제한 사항**
 
 Notification Hub 최초 사용자는 어뷰징 방지를 위해 최초 사용자 제한이 적용되어 일부 기능에 제약을 받게 됩니다.
 
@@ -98,7 +98,7 @@ Notification Hub 최초 사용자는 어뷰징 방지를 위해 최초 사용자
 
 ## 개인정보 처리에 대한 안내
 
-**Notification Hub > 서비스 정책 > 개인정보 처리 안내**
+**Notification > Notification Hub > 서비스 정책 > 개인정보 처리 안내**
 
 Notification Hub 서비스를 이용하는 과정에서 고객은 이용자의 개인정보를 수집할 수 있습니다. 따라서 본 서비스를 이용하는 고객은 개인정보보호법에 따라 이용자에게 법적 고지사항을 알리고 동의를 받아야 합니다.
 또한, 이 과정에서 고객과 NHN Cloud 간 개인정보 처리에 관한 업무 위수탁 관계가 발생할 수 있습니다. 위탁자의 지위에 있는 고객은 수탁사인 NHN Cloud와 별도 서면에 의한 위탁 계약을 체결할 수 있으며 고객이 운영하는 개인정보처리방침에 아래 내용을 참고하여 고지할 수 있습니다.

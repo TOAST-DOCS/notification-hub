@@ -1,6 +1,6 @@
 # 오류 코드
 
-**Notification Hub > 오류 코드**
+**Notification > Notification Hub > 오류 코드**
 
 ## 오류 코드 목록
 

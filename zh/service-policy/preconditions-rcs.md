@@ -1,6 +1,6 @@
 # 이용 정책 및 사전 설정 안내 - RCS
 
-**Notification Hub > 사용 전 준비 및 제한 사항 > RCS**
+**Notification > Notification Hub > 사용 전 준비 및 제한 사항 > RCS**
 
 ## 브랜드 생성 및 등록
 

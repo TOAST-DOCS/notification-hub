@@ -1,6 +1,6 @@
 # 이용 정책 및 사전 설정 안내 - 이메일
 
-**Notification Hub > 이용 정책 및 사전 설정 안내 > 이메일**
+**Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 이메일**
 
 ## 발신 도메인과 DNS TXT 레코드 등록
 

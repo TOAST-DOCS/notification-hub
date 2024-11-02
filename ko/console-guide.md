@@ -1,8 +1,9 @@
 <p style="font-size:2em; font-weight:bold;">콘솔 사용 가이드</p>
 
-**Notification Hub > 콘솔 사용 가이드**
+**Notification > Notification Hub > 콘솔 사용 가이드**
 
-## <!-- 첫 번째 h2는 비워두기 -->
+## &#8203;&#8206;&#8207;
+
 
 ## 본인 인증
 

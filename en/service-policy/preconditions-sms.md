@@ -1,6 +1,6 @@
 # 이용 정책 및 사전 설정 안내 - SMS 
 
-**Notification Hub > 사용 전 준비 및 제한 사항 > SMS**
+**Notification > Notification Hub > 사용 전 준비 및 제한 사항 > SMS**
 
 ## 발신 번호 사전등록제 시행
 

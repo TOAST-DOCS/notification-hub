@@ -1,6 +1,6 @@
 # 이용 정책 및 사전 설정 안내 - 이메일
 
-**Notification Hub > 이용 정책 및 사전 설정 안내 > 이메일**
+**Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 이메일**
 
 ## 발신 도메인과 DNS TXT 레코드 등록
 
@@ -55,11 +55,9 @@ Gmail은 도메인 평판을 스팸 메일 판정의 주요 기준으로 삼고 
 
 수신자의 메일이 Gmail인 경우 이메일의 열람 여부를 수집할 수 없습니다. 일반적으로 수신자의 이메일 열람을 확인하기 위해 이메일 본문에 이미지 태그를 삽입하는 방식을 사용하는데, Gmail에서는 이미지 프록시 서버가 이미지를 캐싱해 추적할 수 없도록 이메일 본문을 수정합니다. 이는 Gmail에서 의도적으로 막아 놓은 것으로 기술적으로 열람에 대한 이벤트를 수집하는 것은 현재 불가능합니다.
 
-```
-Gmail Image Proxy
+!!! tip "알아두기 - Gmail Image Proxy"
+    Because the Gmail Image Proxy service does not forward users' cookies, you can't use the measurement protocol to track Gmail users. The Gmail Image Proxy service prevents this by having the measurement protocol requests passed through an intermediate server.
 
-Because the Gmail Image Proxy service does not forward users' cookies, you can't use the measurement protocol to track Gmail users. The Gmail Image Proxy service prevents this by having the measurement protocol requests passed through an intermediate server.
-```
 
 * [Google Analytics > Email Tracking * Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/email)
 

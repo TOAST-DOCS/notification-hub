@@ -1,6 +1,6 @@
 # 이용 정책 및 사전 설정 안내 - 국제 SMS
 
-**Notification Hub > 이용 정책 및 사전 설정 안내 > 국제 SMS**
+**Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 국제 SMS**
 
 ## 주요 안내
 

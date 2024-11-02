@@ -1,6 +1,6 @@
 # 이용 정책 및 사전 설정 안내 - 푸시
 
-**Notification Hub > 이용 정책 및 사전 설정 안내 > 푸시**
+**Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 푸시**
 
 Notification Hub에서 푸시 메시지를 발송하기 위해서는 푸시 서비스에서 발급하는 인증 정보가 필요합니다.
 
