@@ -112,7 +112,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 | 이름 | 타입 | 설명 |
 | --- | --- | --- |
 | header.isSuccessful | Boolean | API 호출 성공 여부입니다. |
-| header.resultCode | Number | 결과 코드입니다. 성공은 0, 실패는 400000 이상의 값을 가집니다. |
+| header.resultCode | Integer | 결과 코드입니다. 성공은 0, 실패는 400000 이상의 값을 가집니다. |
 | header.resultMessage | String | 결과 메시지입니다. 실패에 대한 정보를 담고 있습니다. |
 
 * **resultCode** 앞자리 3자리는 HTTP 상태 코드와 동일하며, 뒷자리 3자리는 상세 코드입니다.
@@ -432,7 +432,7 @@ X-NHN-Authorization: {{accessToken}}
 | content.messageType | Body | String | Y  | 메시지 유형                                                        |
 | content.content | Body | String | Y  | 내용                                                            |
 | content.buttons | Body | Array | Y  | 버튼                                                            |
-| content.buttons[].ordering | Body | Number | Y  | 버튼 순서                                                         |
+| content.buttons[].ordering | Body | Integer | Y  | 버튼 순서                                                         |
 | content.buttons[].type | Body | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
 | content.buttons[].name | Body | String | Y  | 버튼 이름                                                         |
 | content.buttons[].linkMo | Body | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                        |
@@ -621,7 +621,7 @@ X-NHN-Authorization: {{accessToken}}
 | 이름 | 타입 | 설명 |
 | --- | --- | --- |
 | header.isSuccessful | Boolean | API 요청 성공 여부 |
-| header.resultCode | Number | 결과 코드 |
+| header.resultCode | Integer | 결과 코드 |
 | header.resultMessage | String | 결과 메시지 |
 | messageId | String | 요청 성공한 메시지 아이디 |
 
@@ -1001,8 +1001,8 @@ X-NHN-Authorization: {{accessToken}}
 | scheduled | Query | Boolean | N | 예약 발송 여부 |
 | confirmBeforeSend | Query | Boolean | N | 발송 전 확인 여부 |
 | createdDateTime | Query | DateTime(ISO 8601) | N | 생성 일시 |
-| limit | Query | Number | N | 조회 개수 |
-| offset | Query | Number | N | 조회 시작 위치 |
+| limit | Query | Integer | N | 조회 개수 |
+| offset | Query | Integer | N | 조회 시작 위치 |
 
 
 
@@ -1131,7 +1131,7 @@ X-NHN-Authorization: {{accessToken}}
 | 이름 | 타입 | 설명 |
 | --- | --- | --- |
 | header.isSuccessful | Boolean | API 요청 성공 여부 |
-| header.resultCode | Number | 결과 코드 |
+| header.resultCode | Integer | 결과 코드 |
 | header.resultMessage | String | 결과 메시지 |
 | contactDeliveryResults | Array<Object> | 연락처 별 수신 결과 목록 |
 | contactDeliveryResults.messageId | String| 메시지의 아이디 |
@@ -1504,8 +1504,8 @@ X-NHN-Authorization: {{accessToken}}
 | appKey       | Header | String | Y | 앱키                        |
 | accessToken  | Header | String | Y | 인증 토큰                     |
 | templateName | Query | String | N | 템플릿 이름, 접두사(Prefix) 검색 가능 |
-| limit        | Query | Number | N | 조회 개수(기본값: 20)            |
-| offset       | Query | Number | N | 조회 시작 위치(기본값: 0)          |
+| limit        | Query | Integer | N | 조회 개수(기본값: 20)            |
+| offset       | Query | Integer | N | 조회 시작 위치(기본값: 0)          |
 
 ### 요청 본문
 

@@ -1,4 +1,9 @@
-# 오류 코드
+<style>
+    .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
+        display: inline !important;
+    }
+</style>
+<h1>오류 코드</h1>
 
 **Notification > Notification Hub > 오류 코드**
 

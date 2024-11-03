@@ -11,10 +11,12 @@
 * 고객이 설정한 발신 번호는 수신 단말기에 노출을 보장할 수 없으며, 국제 SMS 메시지를 정상적으로 발송하기 위해 임의의 숫자나 문자, NHNcorp 등으로 변경되어 발송될 수 있습니다.
 
 ### 국제 SMS 발송
-* 국가별 상세 정책은 [[국가별 SMS 발송 상세 가이드](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)]를 참고하세요.
+* 국가별 상세 정책은 아래 **국가별 SMS 발송 상세 가이드**를 참고하세요.
+  * [국가별 SMS 발송 상세 가이드 바로 가기](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)
 * 중국, 베트남과 같이 국제 SMS 메시지 정책이 엄격한 국가의 경우, 메시지 발송 내용이 인증 번호(OTP)인 경우에 대해서만 정상적으로 발송될 수 있습니다.
 * 메시지를 정상적으로 발송하기 위해 인증 번호(OTP) 발송 내용을 예시와 같이 입력할 것을 권장합니다. (예시: Your verification code is 00000)
-* 마케팅 메시지 발송을 희망할 경우 사전에 [[고객 센터](https://www.nhncloud.com/kr/support/inquiry)]로 문의하세요.
+* 마케팅 메시지 발송을 희망할 경우 사전에 **고객 센터** > **1:1 문의**로 문의하세요.
+  * [1:1 문의 바로 가기](https://www.nhncloud.com/kr/support/inquiry)
 * 국제 SMS 메시지를 정상적으로 발송하기 위해 국가별 정책에 따른 문구가 최대 12자까지 메시지에 추가되어 발송될 수 있으며, 해당 문구는 과금 글자 수에 포함됩니다.
 * 해외 통신 사업자의 경우 일반적으로 7일 이내의 발송 로그만 보관하므로 문의 시점에 따라 정확한 미수신 원인 등의 확인이 어려우며 시간이 다소 소요될 수 있습니다.
 * 국가별 전송 품질은 해당 국가의 네트워크 및 인프라 환경의 영향을 받으며, 국내 환경과 차이가 있을 수 있습니다.

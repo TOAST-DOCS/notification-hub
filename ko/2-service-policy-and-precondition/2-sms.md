@@ -71,9 +71,7 @@
 | LMS | 80 시간 | 재시도하지 않음. 수신 실패 결과 업데이트(결과 코드: 2000) |
 | MMS | 80 시간 | 재시도하지 않음. 수신 실패 결과 업데이트(결과 코드: 2000) |
 
-## 발송 및 수신 문제 해결
-
-<span id="fraud-number"></span>
+<span id="about-phone-scam-blocking-services"></span>
 
 ### 번호 도용 문자 차단 서비스 안내
 ‘번호 도용 문자 차단 서비스’ 서비스는 타인이 임의로 내 휴대전화 번호를 문자 범죄에 악용하거나 스팸을 발송할 수 없게 지켜주는 서비스입니다. 발신 번호가 이 서비스에 가입되어 있다면 발송이 실패할 수 있습니다. 문제가 되는 번호를 발신 번호로 사용하기 위해서는 통신사를 통해 해지가 필요합니다.
@@ -86,14 +84,14 @@
 
 #### 해지 안내
 * 통신사 홈페이지
-    * SKT 번호 도용 문자 차단 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)]
-    * KT 번호 도용 문자 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)]
-    * LG U+ 번호 도용 문자 차단 [[해지 바로 가기](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0002297)]
+    * [SKT 번호 도용 문자 차단 해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)
+    * [KT 번호 도용 문자 차단 해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=1047)
+    * [LG U+ 번호 도용 문자 차단 해지 바로 가기](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0002297)
 * 통신사 고객 센터
     * 휴대폰 114 * 통화 버튼
     * SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
 
-<span id="spam-number"></span>
+<span id="about-carrier-spam-text-blocking-services"></span>
 
 ### 통신사 스팸 차단 서비스 안내
 귀찮은 광고성 스팸 문자를 이동통신사에서 자동으로 차단해주는 서비스입니다. 이동통신사별 조합 기준에 따라 스팸으로 판단되는 문자를 휴대폰 문자 수신함이 아닌 스팸 보관함으로 전송합니다. 정상적으로 발송이 되었지만 수신에 실패한 경우 수신 번호가 통신사 스팸 차단 서비스에 가입되어 있을 수 있습니다.
@@ -106,9 +104,9 @@
 
 #### 해지 안내
 * 통신사 홈페이지
-    * SKT 스팸 필터링 [[해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)]
-    * KT 스팸 차단 [[해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=479)]
-    * LG U+ 스팸 차단 [[해지 바로 가기](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0000277)]
+    * [SKT 스팸 필터링 해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)
+    * [KT 스팸 차단 해지 바로 가기](https://product.kt.com/wDic/productDetail.do?ItemCode=479)
+    * [LG U+ 스팸 차단 해지 바로 가기](https://www.lguplus.com/plan/addon/addon-call-msg/LRZ0000277)
 * 통신사 고객 센터
     * 휴대폰 114 * 통화 버튼
     * SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
