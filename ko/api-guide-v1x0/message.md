@@ -1,7 +1,4 @@
 <style>
-.gnb_inner {
-    position: fixed !important;
-}
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
 }
@@ -27,7 +24,7 @@
 **요청**
 
 ```
-POST /message/v1.0/{{messageChannel}}/free-form-messages/{messagePurpose}
+POST /message/v1.0/{messageChannel}/free-form-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
@@ -204,7 +201,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-sms"></span>
 
-### SMS 요청 본문 예시
+### SMS
 
 ```json
 {
@@ -248,7 +245,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-rcs"></span>
 
-### RCS 요청 본문 예시
+### RCS
 
 ```json
 {
@@ -331,7 +328,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-friendtalk-text"></span>
 
-### 친구톡 요청 본문 예시 - 텍스트형
+### 친구톡 - 텍스트형
 
 * 알림톡은 템플릿 등록 후 승인을 받은 상태에서 발송 가능하기 때문에 템플릿, 플로우 메시지 발송만 가능합니다.
 * 알림톡의 **sender**, **content** 필드는 **템플릿 메시지 발송**의 **요청 본문**을 확인하세요.
@@ -397,7 +394,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-friendtalk-image"></span>
 
-### 친구톡 요청 본문 예시 - 이미지형 / 와이드 이미지형
+### 친구톡 - 이미지형 / 와이드 이미지형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -464,7 +461,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-friendtalk-wide-itemlist"></span>
 
-### 친구톡 요청 본문 예시 - 와이드 아이템리스트형
+### 친구톡 - 와이드 아이템리스트형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -562,7 +559,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-friendtalk-carousel"></span>
 
-### 친구톡 요청 본문 예시 - 캐러셀 피드형
+### 친구톡 - 캐러셀 피드형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -682,7 +679,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-email"></span>
 
-### Email 요청 본문 예시
+### Email
 
 ```json
 {
@@ -725,7 +722,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-push"></span>
 
-### 푸시 요청 본문 예시
+### Push
 
 ```json
 {
@@ -821,12 +818,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="template-message-sending-request"></span>
 
-### 템플릿 메시지 발송 요청
+## 템플릿 메시지 발송 요청
 
 **요청**
 
 ```
-POST /message/v1.0/{{messageChannel}}/template-messages/{messagePurpose}
+POST /message/v1.0/{messageChannel}/template-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
@@ -1004,7 +1001,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 
 <span id="flow-message-sending-request"></span>
 
-### 플로우 메시지 발송 요청
+## 플로우 메시지 발송 요청
 
 **요청**
 
@@ -1201,7 +1198,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 
 <span id="cancel-message-sending-request"></span>
 
-### 메시지 요청 취소
+## 메시지 요청 취소
 
 발송 전 예약 메시지, 승인 후 발송 메시지의 발송 요청을 취소합니다. 요청 취소된 메시지는 연락처별 수신 결과 조회에서 조회할 수 있습니다.
 

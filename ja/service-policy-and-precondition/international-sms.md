@@ -1,7 +1,4 @@
 <style>
-.gnb_inner {
-    position: fixed !important;
-}
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
 }

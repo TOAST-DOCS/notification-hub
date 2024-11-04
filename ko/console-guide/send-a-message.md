@@ -1,7 +1,4 @@
 <style>
-.gnb_inner {
-    position: fixed !important;
-}
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
 }
@@ -234,7 +231,7 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
 | BLOCK_RECEIVER_LINK_URL | - | If you no longer wish to receive these emails, please `<a href='##BLOCK_RECEIVER_LINK_URL##' target='_blank'>click here</a>`. |
 
 
-### 푸시
+### Push
 
 1. 발송 목적을 선택합니다.
 2. 발송 목적을 광고로 선택한 경우, 추가 입력이 필요합니다.

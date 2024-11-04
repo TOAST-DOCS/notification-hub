@@ -1,7 +1,4 @@
 <style>
-.gnb_inner {
-    position: fixed !important;
-}
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
 }
@@ -159,7 +156,7 @@ Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 AP
     * [JetBrains - Define environment variables](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#environment-variables)
         * IntelliJ HTTP Client 환경 변수 설정 방법에 대한 가이드 문서입니다.
         * 다음 Notification Hub API 호출 예시에서 사용하는 기본적인 환경 변수입니다.
-          ```json
+        ```json
           {
             "default": {
               "endpoint": "https://notification-hub.api.nhncloudservice.com",
@@ -167,7 +164,7 @@ Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 AP
               "accessToken": "인증 토큰"
             }
           }
-          ```
+        ```
 
 #### cURL
 
