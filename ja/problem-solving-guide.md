@@ -24,8 +24,8 @@ Notification Hub에서 사업자 회원의 기준은 활성화한 프로젝트�
 
 수신자 단말기에서 문자가 수신되지 않는 경우, 수신자의 번호가 **번호 도용 문자 차단 서비스** 또는 **통신사 스팸 차단 서비스**에 가입되어 있을 수 있습니다.서비스 해지 후 문자를 재발송하세요. **번호 도용 문자 차단 서비스**와 **통신사 스팸 차단 서비스**에 대한 자세한 내용은 아래 링크를 확인하세요.
 
-* [번호 도용 문자 차단 서비스 안내](2-service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
-* [통신사 스팸 차단 서비스 안내](2-service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
+* [번호 도용 문자 차단 서비스 안내](service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
+* [통신사 스팸 차단 서비스 안내](service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
 
 ## 아이폰에서 푸시 메시지가 수신되지 않고, 등록된 토큰이 삭제됩니다.
 
