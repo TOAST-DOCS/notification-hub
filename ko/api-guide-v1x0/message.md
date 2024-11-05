@@ -342,6 +342,16 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "sender": {
         "senderKey": "발신프로필_발신키"
     },
+    "recipients": [
+        {
+          "contacts": [
+            {
+              "contactType": "PHONE_NUMBER",
+              "contact": "01012345678"
+            }
+          ]
+        }
+    ],
     "content": {
       "messageType": "TEXT",
       "content": "발송_내용",
@@ -406,6 +416,16 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "sender": {
         "senderKey": "발신프로필_발신키"
     },
+    "recipients": [
+        {
+          "contacts": [
+            {
+              "contactType": "PHONE_NUMBER",
+              "contact": "01012345678"
+            }
+          ]
+        }
+    ],
     "content": {
       "messageType": "WIDE_IMAGE",
       "content": "발송_내용",
@@ -473,6 +493,16 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "sender": {
         "senderKey": "발신프로필_발신키"
     },
+    "recipients": [
+        {
+          "contacts": [
+            {
+              "contactType": "PHONE_NUMBER",
+              "contact": "01012345678"
+            }
+          ]
+        }
+    ],
     "content": {
       "messageType": "WIDE_ITEMLIST",
       "buttons": [
@@ -571,6 +601,16 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "sender": {
         "senderKey": "발신프로필_발신키"
     },
+    "recipients": [
+        {
+          "contacts": [
+            {
+              "contactType": "PHONE_NUMBER",
+              "contact": "01012345678"
+            }
+          ]
+        }
+    ],
     "content": {
       "messageType": "CAROUSEL_FEED",
       "carousel": {
