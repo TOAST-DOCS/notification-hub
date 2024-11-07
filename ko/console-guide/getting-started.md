@@ -1,11 +1,13 @@
 <style>
-.page__rnb .lst_rnb_item .rnb_item:first-of-type a {
+.page__rnb .lst_rnb_item .rnb_item:first-of-type a { 
     display: inline !important;
 }
 </style>
 <h1>Notification Hub 시작하기</h1>
 
 **Notification > Notification Hub > 콘솔 사용 가이드 > Notification Hub 시작하기**
+
+<span id="identity-verification"></span>
 
 ## 본인 인증 하기
 

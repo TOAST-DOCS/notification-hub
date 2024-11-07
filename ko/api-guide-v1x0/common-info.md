@@ -42,7 +42,7 @@ X-NHN-Authorization: {accessToken}
 ##### IntelliJ HTTP
 
 ```http
-POST https://oauth.api.gov-nhncloudservice.com/oauth2/token/create
+POST https://oauth.api.nhncloudservice.com/oauth2/token/create
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic {{oauthAuthorization}}
 ```

@@ -3,7 +3,7 @@
     display: inline !important;
 }
 </style>
-<h1>개요</h1>
+<h1>Notification Hub 개요</h1>
 
 **Notification > Notification Hub > 개요**
 
@@ -11,7 +11,7 @@
 
 ![전체 구조](../img/overview_800.png)
 
-<h2>Notification 주요 기능</h2>
+## Notification 주요 기능
 
 ### 콘솔
 
