@@ -1,5 +1,5 @@
 <style>
-.page__rnb .lst_rnb_item .rnb_item:first-of-type a {
+.page__rnb .lst_rnb_item .rnb_item:first-of-type a { 
     display: inline !important;
 }
 </style>
@@ -7,9 +7,9 @@
 
 **Notification > Notification Hub > 콘솔 사용 가이드 > Notification Hub 시작하기**
 
-## 서비스 활성화 하기
+<span id="identity-verification"></span>
 
-## 본인 인증 하기
+## 본인 인증하기
 
 Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 있습니다. 본인 인증에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 본인 인증** 항목을 확인 부탁드립니다.
 
@@ -68,6 +68,30 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 
 도메인 소유 인증에 성공하면 도메인 인증 상태가 '완료'로 변경됩니다.
 
+#### SPF 인증
+
+SPF(sender policy framework, 발신자 정책 프레임워크)는 이메일 발신자와 발송 서버의 신뢰성을 검증하기 위한 메커니즘으로, 이메일 수신 서버가 특정 도메인에서 발송된 메일이 실제로 허가된 이메일 발송 서버에서 왔는지 확인합니다. 메일 수신 서버는 발신자의 이메일 도메인 DNS에 등록된 SPF 레코드를 확인하여 등록되지 않은 IP 주소에서 보낸 메일을 스팸 메일로 처리합니다.
+
+**SPF**
+```
+v=spf1 include:_spfblocka.toast.com ~all
+```
+
+1. 위 **SPF** 항목의 SPF 레코드를 도메인 TXT 레코드에 등록합니다.
+2. 목록에서 도메인을 선택합니다.
+3. **SPF 레코드 인증 상태** 항목의 **상태 확인**을 클릭해 SPF 인증을 완료합니다.
+
+
+!!! danger "주의 사항"
+    * 도메인 TXT 레코드에는 하나의 SPF 레코드만 등록해야 합니다. 도메인 TXT 레코드에 2개 이상 SPF 레코드가 등록된 경우, SPF 인증이 실패해 이메일 수신 서버가 수신을 거부할 수 있습니다.
+    * SPF 레코드를 검사할 때 DNS 조회를 발생시키는 메커니즘(include)과 수정자(redirect)의 사용은 최대 10개로 제한되며, 이를 초과하면 이메일 수신 서버에서 수신을 거부할 수 있습니다.
+    
+SPF에 대한 자세한 설명은 아래 문서를 참고하세요.
+
+* [Email 보안 강화 기능 소개(SPF) 바로 가기](https://meetup.nhncloud.com/posts/244)
+* [RFC 4408  - 4.5 Selecting Records  바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
+* [RFC 4408  - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
+
 #### DKIM 인증
 
 DKIM(domainkeys identified mail, 도메인 키 식별 메일)은 이메일 발송 서버가 이메일을 디지털 서명하고 이메일 수신 서버는 발신자 진위 여부를 확인하여 전송 중에 메시지가 위조, 변조되지 않았는지 확인하는 이메일 검증 방법입니다. DKIM을 통해 스팸 발송자 및 기타 악의적인 공격자가 이메일을 위조, 변조하는 것을 방지할 수 있습니다.
@@ -79,39 +103,15 @@ DKIM(domainkeys identified mail, 도메인 키 식별 메일)은 이메일 발�
 3. 인증이 완료 후 사용 설정을 하고 **저장**을 클릭해 DKIM 인증을 완료합니다.
 
 DKIM에 대한 자세한 설명은 아래 문서를 참고하세요.
+
 * [이메일 보안 강화 기능 소개 - 도메인 보호, DKIM, DMARC 바로 가기](https://meetup.nhncloud.com/posts/248)
-
-#### SPF 인증
-
-SPF(sender policy framework, 발신자 정책 프레임워크)는 이메일 발신자와 발송 서버의 신뢰성을 검증하기 위한 메커니즘으로, 이메일 수신 서버가 특정 도메인에서 발송된 메일이 실제로 허가된 이메일 발송 서버에서 왔는지 확인합니다. 메일 수신 서버는 발신자의 이메일 도메인 DNS에 등록된 SPF 레코드를 확인하여 등록되지 않은 IP 주소에서 보낸 메일을 스팸 메일로 처리합니다.
-
-##### SPF
-```
-v=spf1 include:_spfblocka.toast.com ~all
-```
-
-1. 위 **SPF** 항목의 SPF 레코드를 도메인 TXT 레코드에 등록합니다.
-2. 목록에서 도메인을 선택합니다.
-3. **SPF 레코드 인증 상태** 항목의 **상태 확인**을 클릭해 SPF 인증을 완료합니다.
-
-
-##### 주의 사항
-* 도메인 TXT 레코드에는 하나의 SPF 레코드만 등록해야 합니다. 도메인 TXT 레코드에 2개 이상 SPF 레코드가 등록된 경우, SPF 인증이 실패해 이메일 수신 서버가 수신을 거부할 수 있습니다.
-    * [RFC 4408  - 4.5 Selecting Records  바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
-* SPF 레코드를 검사할 때 DNS 조회를 발생시키는 메커니즘(include)과 수정자(redirect)의 사용은 최대 10개로 제한되며, 이를 초과하면 이메일 수신 서버에서 수신을 거부할 수 있습니다.
-    * [RFC 4408  - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
-
-
-
-SPF에 대한 자세한 설명은 아래 문서를 참고하세요.
-* [Email 보안 강화 기능 소개(SPF) 바로 가기](https://meetup.nhncloud.com/posts/244)
 
 
 #### DMARC 인증
 
 DMARC(domain-based message authentication reporting and conformance)는 이메일 보안 강화 가능의 마지막 단계입니다. 이메일 스푸핑을 이용한 피싱, 사기 등을 막기 위한 도메인 기반 메시지 인증에 대한 보고 및 준수 정책입니다. 이메일 수신 서버는 발송자 주소 (From) 도메인의 DNS에서 DMARC 레코드를 조회합니다. DMARC 레코드에 정의된 정책에 따라 수신 서버는 수신된 메일을 인증합니다.
 
-#### DMARC
+**DMARC**
 ```
 "v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:${보고서를_수신할_이메일_주소}"
 ```
@@ -122,23 +122,23 @@ DMARC(domain-based message authentication reporting and conformance)는 이메�
 3.  **DMARC 인증 상태** 항목의 **상태 확인**을 클릭해 DMARC 인증을 완료합니다.
 
 DMARC에 대한 자세한 설명은 아래 문서를 참고하세요.
+
 * [이메일 보안 강화 기능 소개 - 도메인 보호, DKIM, DMARC 바로 가기](https://meetup.nhncloud.com/posts/248)
 
 ##### 도메인 보호
 
 도메인 보호가 활성화된 도메인은 다른 프로젝트에서 사용할 수 없습니다. 보호가 된 도메인을 다른 프로젝트에서 사용하기 위해서는 동일하게 도메인 등록과 소유 인증을 받아야 합니다.
 
-###### 주의 사항
-
-도메인 보호를 비활성화하면 다른 프로젝트에서 임의로 도메인을 사용할 수 있습니다. 모든 인증을 완료한 도메인의 경우 다른 프로젝트에서 발송하는 이메일도 동일하게 이메일 수신 서버에서 정상적으로 수신됩니다. 이렇게 발송된 이메일이 스팸이거나 피싱인 경우 수신자에게 피해가 발생할 수 있고 도메인의 평판이 하락해 수신 이메일 서버에서 수신을 거부할 수 있습니다.
+!!! danger "주의 사항"
+    도메인 보호를 비활성화하면 다른 프로젝트에서 임의로 도메인을 사용할 수 있습니다. 모든 인증을 완료한 도메인의 경우 다른 프로젝트에서 발송하는 이메일도 동일하게 이메일 수신 서버에서 정상적으로 수신됩니다. 이렇게 발송된 이메일이 스팸이거나 피싱인 경우 수신자에게 피해가 발생할 수 있고 도메인의 평판이 하락해 수신 이메일 서버에서 수신을 거부할 수 있습니다.
 
 <span id="manage-sender-push-authorization"></span>
 
-### 푸시 인증 관리
+### Push 인증 관리
 
-푸시 인증 정보 발급 방법은 **사용 전 준비 및 제한 사항 > 푸시**를 확인하세요.
+Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > Push**를 확인하세요.
 
-* [사용 전 준비 및 제한 사항 > 푸시](./preconditions/preconditions-push)
+* [사용 전 준비 및 제한 사항 > Push](./preconditions/preconditions-push)
 
 #### FCM 인증 설정
 1. **서비스 계정 키 등록**을 활성화합니다.

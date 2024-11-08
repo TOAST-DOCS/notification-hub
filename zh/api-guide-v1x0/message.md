@@ -13,7 +13,7 @@
 
 요청 본문에 메시지 내용을 입력해 메시지를 발송 요청합니다.
 
-각 메시지 채널로 메시지를 발송하기 위해서는 각 메시지 채널의 발신 정보가 등록되어야 있어야 합니다. 발신 정보 등록은 **Notification Hub 콘솔** > **발신 정보** 탭에서 진행할 수 있습니다. 메시지 채널의 발신 정보에 대한 자세한 설명은 **사용자 가이드** > **Notification Hub** > **사용 전 준비 및 제한 사항**에서 확인할 수 있습니다.
+각 메시지 채널로 메시지를 발송하기 위해서는 각 메시지 채널의 발신 정보가 등록되어야 있어야 합니다. 발신 정보 등록은 **Notification Hub 콘솔** > **발신 정보** 탭에서 진행할 수 있습니다. 메시지 채널의 발신 정보에 대한 자세한 설명은 **Notification** > **Notification Hub** > **이용 정책 및 사전 설정 안내**에서 확인할 수 있습니다.
 
 <!-- !!! tip "알아두기"-->
 <!-- API를 사용할 때 사용자가 알아 두면 좋을 참고 사항이나 추가 정보를 제공할 때 사용합니다.-->
@@ -24,7 +24,7 @@
 **요청**
 
 ```
-POST /message/v1.0/{{messageChannel}}/free-form-messages/{messagePurpose}
+POST /message/v1.0/{messageChannel}/free-form-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
@@ -88,7 +88,7 @@ X-NHN-Authorization: {accessToken}
 * 승인 후 발송의 경우 **confirmBeforeSend**를 **true**로 설정합니다. 승인 후 발송인 메시지는 **Notification Hub 콘솔** > **발송 조회**에서 승인을 하면 발송이 진행됩니다.
 * 예약 발송과 승인 후 발송은 동시에 설정할 수 없습니다.
 
-#### 메시지 채널별 sender 필드
+### 메시지 채널별 sender 필드
 
 | 메시지 채널 | 필드 | 설명 |
 | --- | --- | --- |
@@ -197,11 +197,11 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body"></span>
 
-## 메시지 채널별 상세 요청 본문
+## 메시지 채널별 상세 요청 본문 예시
 
 <span id="free-form-message-request-body-sms"></span>
 
-### SMS 요청 본문 예시
+### SMS
 
 ```json
 {
@@ -245,7 +245,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-rcs"></span>
 
-### RCS 요청 본문 예시
+### RCS
 
 ```json
 {
@@ -320,7 +320,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].buttons | Object Array | Y | 버튼                                                                                                                                                       |
 | content.cards[].button.buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.cards[].button.buttonJson | String | Y | 버튼 Json,  버튼 타입에 맞는 포맷 확인                                                                                                                                |
-| content.buttons | Object Array | Y | 버튼                                                                                                                                                       |
+| content.buttons | Object Array | Y | 버튼 |
 | content.buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.buttons[].buttonJson | String | Y | 버튼 JSON 형식의 문자열                                                                                                                                          |
 | content.attachmentIds | String Array | N | 첨부 파일 아이디 배열                                                                                                                                             |
@@ -328,7 +328,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-friendtalk-text"></span>
 
-### 친구톡 요청 본문 예시 - 텍스트형
+### 친구톡 - 텍스트형
 
 * 알림톡은 템플릿 등록 후 승인을 받은 상태에서 발송 가능하기 때문에 템플릿, 플로우 메시지 발송만 가능합니다.
 * 알림톡의 **sender**, **content** 필드는 **템플릿 메시지 발송**의 **요청 본문**을 확인하세요.
@@ -342,6 +342,16 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "sender": {
         "senderKey": "발신프로필_발신키"
     },
+    "recipients": [
+        {
+          "contacts": [
+            {
+              "contactType": "PHONE_NUMBER",
+              "contact": "01012345678"
+            }
+          ]
+        }
+    ],
     "content": {
       "messageType": "TEXT",
       "content": "발송_내용",
@@ -394,7 +404,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-friendtalk-image"></span>
 
-### 친구톡 요청 본문 예시 - 이미지형 / 와이드 이미지형
+### 친구톡 - 이미지형 / 와이드 이미지형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -406,6 +416,16 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "sender": {
         "senderKey": "발신프로필_발신키"
     },
+    "recipients": [
+        {
+          "contacts": [
+            {
+              "contactType": "PHONE_NUMBER",
+              "contact": "01012345678"
+            }
+          ]
+        }
+    ],
     "content": {
       "messageType": "WIDE_IMAGE",
       "content": "발송_내용",
@@ -461,7 +481,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-friendtalk-wide-itemlist"></span>
 
-### 친구톡 요청 본문 예시 - 와이드 아이템리스트형
+### 친구톡 - 와이드 아이템리스트형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -473,6 +493,16 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "sender": {
         "senderKey": "발신프로필_발신키"
     },
+    "recipients": [
+        {
+          "contacts": [
+            {
+              "contactType": "PHONE_NUMBER",
+              "contact": "01012345678"
+            }
+          ]
+        }
+    ],
     "content": {
       "messageType": "WIDE_ITEMLIST",
       "buttons": [
@@ -559,7 +589,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-friendtalk-carousel"></span>
 
-### 친구톡 요청 본문 예시 - 캐러셀 피드형
+### 친구톡 - 캐러셀 피드형
 
 * 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
@@ -571,6 +601,16 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "sender": {
         "senderKey": "발신프로필_발신키"
     },
+    "recipients": [
+        {
+          "contacts": [
+            {
+              "contactType": "PHONE_NUMBER",
+              "contact": "01012345678"
+            }
+          ]
+        }
+    ],
     "content": {
       "messageType": "CAROUSEL_FEED",
       "carousel": {
@@ -679,7 +719,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-email"></span>
 
-### Email 요청 본문 예시
+### Email
 
 ```json
 {
@@ -722,7 +762,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-push"></span>
 
-### 푸시 요청 본문 예시
+### Push
 
 ```json
 {
@@ -818,12 +858,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="template-message-sending-request"></span>
 
-### 템플릿 메시지 발송 요청
+## 템플릿 메시지 발송 요청
 
 **요청**
 
 ```
-POST /message/v1.0/{{messageChannel}}/template-messages/{messagePurpose}
+POST /message/v1.0/{messageChannel}/template-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
@@ -1001,7 +1041,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 
 <span id="flow-message-sending-request"></span>
 
-### 플로우 메시지 발송 요청
+## 플로우 메시지 발송 요청
 
 **요청**
 
@@ -1198,7 +1238,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 
 <span id="cancel-message-sending-request"></span>
 
-### 메시지 요청 취소
+## 메시지 요청 취소
 
 발송 전 예약 메시지, 승인 후 발송 메시지의 발송 요청을 취소합니다. 요청 취소된 메시지는 연락처별 수신 결과 조회에서 조회할 수 있습니다.
 

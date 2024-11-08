@@ -33,25 +33,26 @@ X-NHN-Authorization: {accessToken}
 **요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| messageId | Query | String | Y | 메시지 아이디 |
-| templateId | Query | String | N | 템플릿 아이디 |
-| flowId | Query | String | N | 플로우 아이디 |
-| statsKeyId | Query | String | N | 통계 키 아이디 |
-| sender | Query | String | N | 발신자 |
-| contact | Query | String | N | 연락처 |
-| messageChannel | Query | String | N | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
-| messagePurpose | Query | String | N | 메시지 목적 |
-| status | Query | String | N | 상태 |
-| scheduled | Query | Boolean | N | 예약 발송 여부 |
-| confirmBeforeSend | Query | Boolean | N | 발송 전 확인 여부 |
-| createdDateTime | Query | DateTime(ISO 8601) | N | 생성 일시 |
-| limit | Query | Integer | N | 조회 개수 |
-| offset | Query | Integer | N | 조회 시작 위치 |
+| --- | --- | --- |----| --- |
+| appKey | Header | String | Y  | 앱키 |
+| accessToken | Header | String | Y  | 인증 토큰 |
+| createdDateTimeFrom | Query | DateTime(ISO 8601) | Y  | 생성 일시 시작 범위 |
+| createdDateTimeTo | Query | DateTime(ISO 8601) | Y  | 생성 일시 종료 범위 |
+| messageId | Query | String | N  | 메시지 아이디 |
+| templateId | Query | String | N  | 템플릿 아이디 |
+| flowId | Query | String | N  | 플로우 아이디 |
+| statsKeyId | Query | String | N  | 통계 키 아이디 |
+| sender | Query | String | N  | 발신자 |
+| contact | Query | String | N  | 연락처 |
+| messageChannel | Query | String | N  | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messagePurpose | Query | String | N  | 메시지 목적 |
+| status | Query | String | N  | 상태 |
+| scheduled | Query | Boolean | N  | 예약 발송 여부 |
+| confirmBeforeSend | Query | Boolean | N  | 발송 전 확인 여부 |
+| limit | Query | Integer | N  | 조회 개수 |
+| offset | Query | Integer | N  | 조회 시작 위치 |
 
-
+* **createdDateTimeFrom**과 **createdDateTimeTo**의 최대 조회 기간은 7일입니다.
 
 **요청 본문**
 

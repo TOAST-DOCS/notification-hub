@@ -42,7 +42,7 @@
 
 ## Notification 서비스 간 리소스 및 기능 설정 공유 안내
 
-* NHN Cloud Notification의 Push, SMS, RCS Bizmessage, KakaoTalk Bizmessage, Email 서비스의 리소스 및 기능 설정 내역이 Notification Hub 서비스와 공유됩니다. (예, SMS 서비스에서 발신번호 등록 시, Notification Hub 서비스에서 해당 발신번호가 공유됨)
+* NHN Cloud Notification의 Push, SMS, RCS Bizmessage, KakaoTalk Bizmessage, Email 서비스의 리소스 및 기능 설정 내역이 Notification Hub 서비스와 공유됩니다. (예, SMS 서비스에서 발신번호 등록 시, Notification Hub 서비스에서 해당 발신번호가 공유됨)
   기존 NHN Cloud Notification 사용자는 Notification Hub 서비스로 손쉽게 전환하여 이용할 수 있습니다.
   * 공유 항목
     * 리소스

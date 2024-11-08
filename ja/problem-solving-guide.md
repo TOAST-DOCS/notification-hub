@@ -46,14 +46,16 @@ Notification Hub에서 사업자 회원의 기준은 활성화한 프로젝트�
 
 * **FCM 서비스 계정 키(JSON)와 앱의 발신자 아이디(Sender ID) 불일치**
   * Notification Hub에 등록된 FCM 서비스 계정 키(JSON)와 앱의 발신자 아이디(Sender ID)가 불일치 하면 푸시 메시지가 수신되지 않습니다. FCM 서비스 계정 키(JSON)와 앱의 발신자 아이디(Sender ID)를 함께 사용할 수 있는지 확인하세요.
-    * [FCM 발신자 이이디](https://firebase.google.com/docs/cloud-messaging/concept-options#credentials)
-    * [FCM 서비스 계정 키(JSON) 생성](https://firebase.google.com/docs/cloud-messaging/http-server-ref)
+    * [FCM - 발신자 이이디에 대한 설명 바로 가기](https://firebase.google.com/docs/cloud-messaging/concept-options#credentials)
+    * [FCM - 서비스 계정 키(JSON) 생성 가이드 바로 가기](https://firebase.google.com/docs/cloud-messaging/http-server-ref)
         ```
         A registration token is tied to a certain group of senders. 
-      When a client app registers for FCM, it must specify which senders are allowed to send messages. You should use one of those sender IDs when sending messages to the client app. If you switch to a different sender, the existing registration tokens won't work.
+        When a client app registers for FCM, it must specify which senders are allowed to send messages. 
+        You should use one of those sender IDs when sending messages to the client app. 
+        If you switch to a different sender, the existing registration tokens won't work.
         ```
 
 
 !!! tip "문제가 해결되지 않을 경우"
-* 온라인 1:1 문의: [https://www.nhncloud.com/kr/support/inquiry?alias=tab5_03](https://www.nhncloud.com/kr/support/inquiry?alias=tab5_03)
-* 대표 전화: 1588-7967 (운영 시간: 월\~금 10:00-19:00)
+    * 온라인 1:1 문의: [https://www.nhncloud.com/kr/support/inquiry?alias=tab5_03](https://www.nhncloud.com/kr/support/inquiry?alias=tab5_03)
+    * 대표 전화: 1588-7967 (운영 시간: 월\~금 10:00-19:00)
