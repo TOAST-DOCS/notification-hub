@@ -76,8 +76,8 @@ X-NHN-Authorization: {accessToken}
 | scheduledDateTime | DateTime(ISO 8601) | N   | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00) |
 | confirmBeforeSend | Boolean | N   | 발송 전 확인 여부(기본값 false) |
 | sender | Object | Y/N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
-| recipients | Array<Object> | Y   | 수신자 배열 |
-| recipients[].contacts | Array<Object> | Y   | 수신자의 연락처 배열 |
+| recipients | Object Array | Y   | 수신자 배열 |
+| recipients[].contacts | Object Array | Y   | 수신자의 연락처 배열 |
 | recipients[].contacts[].contactType | String | Y   | 연락처 유형 |
 | recipients[].contacts[].contact | String | Y   | 연락처 |
 | content | Object | Y   | 메시지 내용 |
@@ -240,7 +240,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.messageType | String | Y | 메시지 타입<br>SMS(단문), LMS(장문), MMS(미디어 장문) |
 | content.title | String | Y | 제목 |
 | content.body | String | Y | 내용 |
-| content.attachmentIds | Array<String> | N | 첨부 파일 아이디 |
+| content.attachmentIds | String Array | N | 첨부 파일 아이디 |
 
 
 <span id="free-form-message-request-body-rcs"></span>
@@ -313,17 +313,17 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.Object | Y | 내용 |
 | content.mmsType | Object | N | MMS 타입, 메시지 유형이 MMS인 경우 필수, HORIZONTAL(수평), VERTICAL(수직), CAROUSEL_MEDIUM(캐러셀 중간), CAROUSEL_SMALL(캐러셀 작게)                                                |
 | content.messagebaseId | Object | N | 메시지 유형이 RCS_TEMPLATE인 경우 필수, RCS Biz Center에 등록된 템플릿 아이디                                                                                                 |
-| content.cards | Array<Object> | Y | 카드                                                                                                                                                       |
+| content.cards | Object Array | Y | 카드                                                                                                                                                       |
 | content.cards[].title | String | Y | 제목                                                                                                                                                       |
 | content.cards[].description | String | Y | 내용                                                                                                                                                       |
 | content.cards[].media | String | Y | 첨부파일 ID                                                                                                                                                  |
-| content.cards[].buttons | Array<Object> | Y | 버튼                                                                                                                                                       |
+| content.cards[].buttons | Object Array | Y | 버튼                                                                                                                                                       |
 | content.cards[].button.buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.cards[].button.buttonJson | String | Y | 버튼 Json,  버튼 타입에 맞는 포맷 확인                                                                                                                                |
-| content.buttons | Array<Object> | Y | 버튼                                                                                                                                                       |
+| content.buttons | Object Array | Y | 버튼                                                                                                                                                       |
 | content.buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.buttons[].buttonJson | String | Y | 버튼 JSON 형식의 문자열                                                                                                                                          |
-| content.attachmentIds | Array<String> | N | 첨부 파일 아이디 배열                                                                                                                                             |
+| content.attachmentIds | String Array | N | 첨부 파일 아이디 배열                                                                                                                                             |
 
 
 <span id="free-form-message-request-body-friendtalk-text"></span>
@@ -376,7 +376,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content | Object | Y  | 메시지 내용                                                        |
 | content.messageType | String | Y  | 메시지 유형                                                        |
 | content.content | String | Y  | 내용                                                            |
-| content.buttons                   | Array<Object>  | N  | 버튼                                                                                                                                                        |
+| content.buttons                   | Object Array  | N  | 버튼                                                                                                                                                        |
 | content.buttons[].type            | String | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼)                                                                                             |
 | content.buttons[].name            | String | Y  | 버튼 이름                                                                                                                                                     |
 | content.buttons[].linkMo          | String | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                                                                                                                    |
@@ -443,7 +443,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.content | String        | Y  | 내용                                                            |
 | content.attachmentId | String        | Y  | 첨부 파일 아이디 |
 | content.imageLink | String        | N  | 이미지 링크 |
-| content.buttons                   | Array<Object> | N  | 버튼                                                                                                                                                        |
+| content.buttons                   | Object Array | N  | 버튼                                                                                                                                                        |
 | content.buttons[].type            | String        | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼)                                                                                             |
 | content.buttons[].name            | String        | Y  | 버튼 이름                                                                                                                                                     |
 | content.buttons[].linkMo          | String        | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                                                                                                                    |
@@ -532,7 +532,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | sender.senderKey                  | Object        | Y  | 발신프로필_발신키                                                                                                                                                 |
 | content                           | Object        | Y  | 메시지 내용                                                                                                                                                    |
 | content.messageType               | String        | Y  | 메시지 유형                                                                                                                                                    |
-| content.buttons                   | Array<Object> | N  | 버튼                                                                                                                                                        |
+| content.buttons                   | Object Array | N  | 버튼                                                                                                                                                        |
 | content.buttons[].type            | String        | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼)                                                                                             |
 | content.buttons[].name            | String        | Y  | 버튼 이름                                                                                                                                                     |
 | content.buttons[].linkMo          | String        | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                                                                                                                    |
@@ -542,7 +542,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.buttons[].bizFormKey      | String        | N  | 비즈폼 키, 버튼 타입이 BF이면 필수                                                                                                                                     |
 | content.header                    | String        | Y  | 헤더                                                                                                                                                        |
 | content.item                      | Object        | Y  | 와이드 아이템                                                                                                                                                   |
-| content.item.list                 | Array<Object> | Y  | 와이드 아이템 리스트(최소 3개, 최대 4개)                                                                                                                                 |
+| content.item.list                 | Object Array | Y  | 와이드 아이템 리스트(최소 3개, 최대 4개)                                                                                                                                 |
 | content.item.list[].title         | String        | Y  | 아이템 제목(첫 번째 아이템의 경우 최대 25자, 2~4번째 아이템의 경우 최대 30자)                                                                                                         |
 | content.item.list[].attachmentId  | String        | Y  | 첨부 파일 아이디                                                                                                                                                 |
 | content.item.list[].linkMo        | String        | Y  | 모바일 웹 링크                                                                                                                                                  |
@@ -650,11 +650,11 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content                                                    | Object        | Y  | 메시지 내용                                                                                                                                                   |
 | content.messageType                                        | String        | Y  | 메시지 유형                                                                                                                                                   |
 | content.carousel                                           | Object        | Y  | 캐러셀                                                                                                                                                      |
-| content.carousel.list                                      | Array<Object> | Y  | 캐러셀 리스트(최소 2개, 최대 10개)                                                                                                                                   |
+| content.carousel.list                                      | Object Array | Y  | 캐러셀 리스트(최소 2개, 최대 10개)                                                                                                                                   |
 | content.carousel.list[].header                             | String        | Y  | 캐러셀 아이템 제목(최대 20자), 캐러셀 피드형에서만 사용 가능                                                                                                                     |
 | content.carousel.list[].message                            | String        | Y  | 캐러셀 아이템 메시지(최대 180자), 캐러셀 피드형에서만 사용 가능                                                                                                                   |
 | content.carousel.list[].attachment                         | Object        | N  | 캐러셀 아이템 이미지, 버튼 정보                                                                                                                                       |
-| content.carousel.list[].attachment.buttons                 | Array<Object> | N  | 버튼 리스트 (최대 2개)                                                                                                                                           |
+| content.carousel.list[].attachment.buttons                 | Object Array | N  | 버튼 리스트 (최대 2개)                                                                                                                                           |
 | content.carousel.list[].attachment.buttons[].type          | String        | Y  | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼)                                                                                            |
 | content.carousel.list[].attachment.buttons[].name          | String        | Y  | 버튼 이름                                                                                                                                                    |
 | content.carousel.list[].attachment.buttons[].linkMo        | String        | N  | 링크 모바일, 버튼 타입이 WL이면 필수                                                                                                                                   |
@@ -713,7 +713,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content | Object        | Y  | 메시지 내용 |
 | content.title | Object        | Y  | 제목 |
 | content.Object | Y             | 내용 |
-| content.attachmentIds | Array<String> | N  | 첨부 파일 아이디 |
+| content.attachmentIds | String Array | N  | 첨부 파일 아이디 |
 
 * 발신자 이메일 주소의 도메인은 소유 인증이 완료되어야 합니다.
 * 첨부 파일은 **최대 10개**까지 업로드 가능하며, **30MB 이하의 파일**만 가능합니다.
@@ -794,7 +794,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.style.useHtmlStyle | Boolean               | Y | HTML 스타일 사용(Android에서만 가능) |
 | content.richMessage | Object                | 리치 메시지 |
 | content.richMessage | Object                | N | 리치 메시지 사용시 필요 |
-| content.richMessage.buttons | Array<Object>         | N |  리치 메시지에 추가되는 버튼, 최대 3개까지 가능 |
+| content.richMessage.buttons | Object Array         | N |  리치 메시지에 추가되는 버튼, 최대 3개까지 가능 |
 | content.richMessage.button.name | String                | 버튼 이름 |
 | content.richMessage.button.buttonType | String                | 버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
 | content.richMessage.button.link | String                | 버튼을 눌렀을때, 연결되는 링크 |
@@ -810,7 +810,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.richMessage.group | Object                | N |  여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원 |
 | content.richMessage.group.key | String                | Y |  그룹의 키 |
 | content.richMessage.group.description | String                | Y |  그룹에대한 설명 |
-| content.customKey | Array<Object, String> | N | 사용자 정의 키와 값 |
+| content.customKey | Object Array or String Array | N | 사용자 정의 키와 값 |
 
 * 푸시는 **sender** 필드가 필요 없습니다.
 * 푸시는 사용자가 정의한 키와 값을 추가해 **content** 필드를 작성할 수 있습니다.
@@ -882,8 +882,8 @@ X-NHN-Authorization: {accessToken}
 | confirmBeforeSend | Boolean            | N | 발송 전 확인 여부(기본값 false) |
 | templateId | String             | Y | 템플릿 아이디 |
 | templateParameters | Object             | N | 템플릿 파라미터 |
-| recipients | Array<Object>      | Y | 수신자 배열 |
-| recipients[].contacts | Array<Object>              | Y | 수신자의 연락처 배열 |
+| recipients | Object Array      | Y | 수신자 배열 |
+| recipients[].contacts | Object Array              | Y | 수신자의 연락처 배열 |
 | recipients[].contacts[].contactType | String             | Y | 연락처 유형 |
 | recipients[].contacts[].contact | String             | Y | 연락처 |
 | recipients[].templateParameters | Object             | N | 템플릿 파라미터 |
@@ -1073,8 +1073,8 @@ X-NHN-Authorization: {accessToken}
 | confirmBeforeSend  | Boolean        | N | 발송 전 확인 여부(기본값 false)                  |
 | flowId             | String         | Y | 템플릿 아이디                                |
 | templateParameters | Object         | N | 메시지 공통 템플릿 파라미터                        |
-| recipients         | Array<Object>          | Y | 수신자 배열                                 |
-| recipients[].contacts | Array<Object>          | Y | 수신자의 연락처 배열                            |
+| recipients         | Object Array          | Y | 수신자 배열                                 |
+| recipients[].contacts | Object Array          | Y | 수신자의 연락처 배열                            |
 | recipients[].contacts[].contactType | String         | Y | 연락처 유형                                 |
 | recipients[].contacts[].contact | String         | Y | 연락처                                    |
 | recipients[].templateParameters | Object         | N | 수신자 별 템플릿 파라미터                         |

@@ -9,7 +9,7 @@
 
 <span id="identity-verification"></span>
 
-## 본인 인증 하기
+## 본인 인증하기
 
 Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 있습니다. 본인 인증에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 본인 인증** 항목을 확인 부탁드립니다.
 
@@ -82,17 +82,15 @@ v=spf1 include:_spfblocka.toast.com ~all
 3. **SPF 레코드 인증 상태** 항목의 **상태 확인**을 클릭해 SPF 인증을 완료합니다.
 
 
-##### 주의 사항
-* 도메인 TXT 레코드에는 하나의 SPF 레코드만 등록해야 합니다. 도메인 TXT 레코드에 2개 이상 SPF 레코드가 등록된 경우, SPF 인증이 실패해 이메일 수신 서버가 수신을 거부할 수 있습니다.
-    * [RFC 4408  - 4.5 Selecting Records  바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
-* SPF 레코드를 검사할 때 DNS 조회를 발생시키는 메커니즘(include)과 수정자(redirect)의 사용은 최대 10개로 제한되며, 이를 초과하면 이메일 수신 서버에서 수신을 거부할 수 있습니다.
-    * [RFC 4408  - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
-
-
-
+!!! danger "주의 사항"
+    * 도메인 TXT 레코드에는 하나의 SPF 레코드만 등록해야 합니다. 도메인 TXT 레코드에 2개 이상 SPF 레코드가 등록된 경우, SPF 인증이 실패해 이메일 수신 서버가 수신을 거부할 수 있습니다.
+    * SPF 레코드를 검사할 때 DNS 조회를 발생시키는 메커니즘(include)과 수정자(redirect)의 사용은 최대 10개로 제한되며, 이를 초과하면 이메일 수신 서버에서 수신을 거부할 수 있습니다.
+    
 SPF에 대한 자세한 설명은 아래 문서를 참고하세요.
 
 * [Email 보안 강화 기능 소개(SPF) 바로 가기](https://meetup.nhncloud.com/posts/244)
+* [RFC 4408  - 4.5 Selecting Records  바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
+* [RFC 4408  - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
 #### DKIM 인증
 
@@ -131,9 +129,8 @@ DMARC에 대한 자세한 설명은 아래 문서를 참고하세요.
 
 도메인 보호가 활성화된 도메인은 다른 프로젝트에서 사용할 수 없습니다. 보호가 된 도메인을 다른 프로젝트에서 사용하기 위해서는 동일하게 도메인 등록과 소유 인증을 받아야 합니다.
 
-###### 주의 사항
-
-도메인 보호를 비활성화하면 다른 프로젝트에서 임의로 도메인을 사용할 수 있습니다. 모든 인증을 완료한 도메인의 경우 다른 프로젝트에서 발송하는 이메일도 동일하게 이메일 수신 서버에서 정상적으로 수신됩니다. 이렇게 발송된 이메일이 스팸이거나 피싱인 경우 수신자에게 피해가 발생할 수 있고 도메인의 평판이 하락해 수신 이메일 서버에서 수신을 거부할 수 있습니다.
+!!! danger "주의 사항"
+    도메인 보호를 비활성화하면 다른 프로젝트에서 임의로 도메인을 사용할 수 있습니다. 모든 인증을 완료한 도메인의 경우 다른 프로젝트에서 발송하는 이메일도 동일하게 이메일 수신 서버에서 정상적으로 수신됩니다. 이렇게 발송된 이메일이 스팸이거나 피싱인 경우 수신자에게 피해가 발생할 수 있고 도메인의 평판이 하락해 수신 이메일 서버에서 수신을 거부할 수 있습니다.
 
 <span id="manage-sender-push-authorization"></span>
 

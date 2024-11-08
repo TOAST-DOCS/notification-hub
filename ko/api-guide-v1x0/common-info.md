@@ -3,13 +3,11 @@
     display: inline !important;
 }
 </style>
-<h1>Notification Hub API 공통 정보</h1>
+<h1>Notification Hub API v1.0 공통 정보</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > Notification Hub API 공통 정보**
+**Notification > Notification Hub > API v1.0 사용 가이드 > 공통 정보**
 
 <span id="notification-hub-api-common-information"></span>
-
-## Notification Hub API 공통 정보
 
 !!! danger "주의 사항"
     * Notification Hub v1.0 API는 현재 알파(alpha) 상태로, 안정화되지 않았으며, 실험적인 기능이 추가되거나 제거될 수 있습니다. 
@@ -19,7 +17,7 @@
 
 <span id="api-endpoint"></span>
 
-### API 엔드포인트
+## API 엔드포인트
 
 | 리전     | 엔드포인트 |
 |--------| ----- |
@@ -29,7 +27,7 @@
 
 <span id="authentication-and-permissions"></span>
 
-### 인증 및 권한
+## 인증 및 권한
 
 ```
 X-NHN-Authorization: {accessToken}
@@ -37,9 +35,9 @@ X-NHN-Authorization: {accessToken}
 
 * 인증 토큰을 발급 받아 Notification Hub API 호출 시 **X-NHN-Authorization** 요청 헤더에 인증 토큰을 설정합니다.
 
-#### 인증 토큰 발급 예시
+### 인증 토큰 발급 예시
 
-##### IntelliJ HTTP
+#### IntelliJ HTTP
 
 ```http
 POST https://oauth.api.nhncloudservice.com/oauth2/token/create
@@ -47,7 +45,7 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: Basic {{oauthAuthorization}}
 ```
 
-##### cURL
+#### cURL
 
 ```curl
 curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
@@ -61,7 +59,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="date-time-format"></span>
 
-### 날짜와 시간 형식
+## 날짜와 시간 형식
 
 * 날짜와 시간은 **ISO 8601 확장 형식**을 사용합니다.
     * [ISO 8601 - 날짜와 시간 표기법](https://ko.wikipedia.org/wiki/ISO_8601)
@@ -79,11 +77,11 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="response"></span>
 
-### 응답 공통 정보
+## 응답 공통 정보
 
 <span id="succeed-response"></span>
 
-#### 실패 응답 본문
+### 실패 응답 본문
 
 성공 응답의 HTTP 상태 코드는 **200 OK**입니다.
 
@@ -99,7 +97,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="failed-response"></span>
 
-#### 실패 응답 본문
+### 실패 응답 본문
 
 실패 응답의 HTTP 상태 코드는 **4xx**와 **5xx**입니다.
 
@@ -126,7 +124,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="rate-limit"></span>
 
-### 요청 수 제한
+## 요청 수 제한
 * Notification Hub에서는 특정 클라이언트가 과도한 리소스 점유를 막고 서비스의 안정성을 보장하기 위해 API 요청 수를 제한합니다.
 * API 요청 수는 초당 요청 수. 300RPS(Requests Per Second)으로 제한됩니다.
 
@@ -138,12 +136,11 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="example-api-calls"></span>
 
-### API 호출 예시
+## 호출 예시
 
 Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 API 호출 예시를 제공합니다.
 
-#### IntelliJ HTTP
-* 본 API 가이드 문서에서 API를 호출하는 예시를 IntelliJ HTTP, cURL로 제공합니다.
+### IntelliJ HTTP
 * IntelliJ HTTP는 IntelliJ IDEA의 HTTP 클라이언트 플러그인으로 JetBrains IDEs 또는 명령줄에서 실행할 수 있습니다.
     * [JetBrains - IntelliJ HTTP Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
         * IntelliJ HTTP Client 사용 방법, 문법에 대한 가이드 문서입니다.
@@ -155,25 +152,30 @@ Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 AP
         * IntelliJ HTTP Client 도커 이미지 링크입니다.
     * [JetBrains - Define environment variables](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#environment-variables)
         * IntelliJ HTTP Client 환경 변수 설정 방법에 대한 가이드 문서입니다.
-        * 다음 Notification Hub API 호출 예시에서 사용하는 기본적인 환경 변수입니다.
-        ```json
-          {
-            "default": {
-              "endpoint": "https://notification-hub.api.nhncloudservice.com",
-              "appKey": "앱키",
-              "accessToken": "인증 토큰"
-            }
-          }
-        ```
+      
 
-#### cURL
+**IntelliJ HTTP 환경 변수 설정 파일 예시(htt-client.env.json)**
+
+```json
+{
+   "default": {
+     "endpoint": "https://notification-hub.api.nhncloudservice.com",
+     "appKey": "앱키",
+     "accessToken": "인증 토큰"
+   }
+}
+```
+
+### cURL
 
 * cURL은 명령줄에서 실행할 수 있는 커맨드 라인 도구로, 다양한 프로토콜을 지원합니다.
     * [cURL](https://curl.se/)
         * cURL 공식 홈페이지입니다.
     * [cURL - Wikipedia](https://ko.wikipedia.org/wiki/CURL)
         * cURL에 대한 Wikipedia 문서입니다.
-* 다음 Notification Hub API 호출 예시에서 사용하는 기본적인 환경 변수입니다.
+
+**cURL 환경 변수 설정 예시**
+
 ```
 ENDPOINT=https://notification-hub.api.nhncloudservice.com
 APP_KEY=앱키

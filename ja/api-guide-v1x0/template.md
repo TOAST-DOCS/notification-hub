@@ -891,7 +891,7 @@ X-NHN-Authorization: {accessToken}
 | templateSubtitle     | String        | 템플릿 보조 문구(최대 50자)<br>Android: 18자 이상일 때 말줄임 처리<br>iOS: 21자 이상일 때 말줄임 처리 |
 | templateHeader       | String        | 템플릿 헤더(최대 16자) |
 | templateItem         | Object        | 아이템 |
-| templateItem.list    | Array<Object> | 아이템 리스트(최소 2개, 최대 10개) |
+| templateItem.list    | Object Array | 아이템 리스트(최소 2개, 최대 10개) |
 | templateItem.list.title | String        | 타이틀(최대 6자) |
 | templateItem.list.description | String        | 디스크립션(최대 23자) |
 | templateItem.summary | Object        | 아이템 요약 정보 |
@@ -910,7 +910,7 @@ X-NHN-Authorization: {accessToken}
 | templateImageUrl    | String        | 이미지 URL |
 | securityFlag        | Boolean       | 보안 템플릿 여부<br>OTP 등 보안 메시지일 경우 설정<br>발신 당시 메인 디바이스 외 다른 디바이스에 메시지 텍스트 미노출 (기본값: false) |
 | categoryCode        | String        | 템플릿 카테고리 코드 (템플릿 카테고리 조회 API 참고, 기본값: 999999)<br>카테고리 기타일 경우 최하위 우선순위로 심사 |
-| buttons             | Array<Object> | 버튼 리스트(최대 5개) |
+| buttons             | Object Array | 버튼 리스트(최대 5개) |
 | buttons[].ordering    | Integer       | 버튼 순서(1~5) |
 | buttons[].type        | String        | 버튼 타입<br>WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비즈니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID |
 | buttons[].name        | String        | 버튼 이름 (버튼이 있는 경우 필수, 최대 14자) |
@@ -920,7 +920,7 @@ X-NHN-Authorization: {accessToken}
 | buttons[].schemeAndroid | String        | 안드로이드 앱 링크 (AL 타입일 경우 필수 필드, 최대 500자) |
 | buttons[].bizFormId   | Integer       | 비즈니스폼 ID (BF 타입일 경우 필수) |
 | buttons[].pluginId    | String        | 플러그인 ID (최대 24자) |
-| quickReplies        | Array<Object>         | 바로연결 리스트 (최대 5개) |
+| quickReplies        | Object Array         | 바로연결 리스트 (최대 5개) |
 | quickReplies[].ordering | Integer       | 바로연결 순서 (바로연결이 있는 경우 필수) |
 | quickReplies[].type   | String        | 바로연결 타입<br>WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비즈니스폼 |
 | quickReplies[].name   | String        | 바로연결 이름 (바로연결이 있는 경우 필수, 최대 14자) |
@@ -1221,8 +1221,8 @@ X-NHN-Authorization: {accessToken}
 | categories.[]categoryName            | String        | 카테고리 이름 |
 | categories.[]parentCategoryId        | String        | 상위 카테고리 아이디 |
 | categories.[]messageChannel          | String        | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
-| categories.[]categories              | Array<Object> | 하위 카테고리 목록 |
-| categories.[]templates               | Array<Object>         | 템플릿 목록 |
+| categories.[]categories              | Object Array | 하위 카테고리 목록 |
+| categories.[]templates               | Object Array         | 템플릿 목록 |
 | categories.[]templates.[]templateId  | String        | 템플릿 아이디 |
 | categories.[]templates.[]templateName| String        | 템플릿 이름 |
 

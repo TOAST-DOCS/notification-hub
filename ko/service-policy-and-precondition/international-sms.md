@@ -3,7 +3,7 @@
     display: inline !important;
 }
 </style>
-<h1>이용 정책 및 사전 설정 안내 - 국제 SMS</h1> 
+<h1>국제 SMS</h1> 
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 국제 SMS**
 

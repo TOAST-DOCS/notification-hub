@@ -3,7 +3,7 @@
     display: inline !important;
 }
 </style>
-<h1>이용 정책 및 사전 설정 안내 - RCS</h1> 
+<h1>RCS</h1> 
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > RCS**
 

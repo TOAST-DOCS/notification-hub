@@ -64,7 +64,7 @@ X-NHN-Authorization: {accessToken}
 | steps | Object        | Y | 플로우 단계                                  |
 | steps.messageChannel | String        | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 | steps.templateId | String        | Y | 템플릿 아이디                               |
-| steps.nextSteps | Array<Object> | N | 다음 단계                                   |
+| steps.nextSteps | Object Array | N | 다음 단계                                   |
 
 * 위 예시는 이메일, 알림톡, SMS 템플릿을 사용하는 플로우를 생성하는 예시입니다.
 * 한번 사용된 메시지 채널은 다음 단계에서 사용할 수 없습니다.

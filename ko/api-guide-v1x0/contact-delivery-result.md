@@ -181,7 +181,7 @@ X-NHN-Authorization: {accessToken}
 | header.isSuccessful | Boolean | API 요청 성공 여부 |
 | header.resultCode | Integer | 결과 코드 |
 | header.resultMessage | String | 결과 메시지 |
-| contactDeliveryResults | Array<Object> | 연락처 별 수신 결과 목록 |
+| contactDeliveryResults | Object Array | 연락처 별 수신 결과 목록 |
 | contactDeliveryResults[].messageId | String| 메시지의 아이디 |
 | contactDeliveryResults[].recipientIndex | Number| 수신자 인덱스|
 | contactDeliveryResults[].contactIndex | Number| 연락처 인덱스|

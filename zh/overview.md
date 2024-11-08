@@ -11,7 +11,7 @@
 
 ![전체 구조](../img/overview_800.png)
 
-<h2>Notification 주요 기능</h2>
+## Notification 주요 기능
 
 ### 콘솔
 
