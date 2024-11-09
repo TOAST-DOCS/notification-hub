@@ -7,6 +7,9 @@
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > SMS**
 
+
+<span id="sender-phone-number-pre-registration"></span>
+
 ## 발신 번호 사전등록제 시행
 
 <b>전기통신사업법 관련 고시에 따라 발신 번호 등록 시 발신 번호에 대한 명의자 인증이 필요합니다.</b>

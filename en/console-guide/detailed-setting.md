@@ -12,7 +12,7 @@
 ## SMS
 
 ### 국제 SMS 메시지 발송 설정
-* 국제 SMS 발송 기능 이용 전 반드시 [[국제 SMS 서비스 정책]](./preconditions/preconditions-international-sms)을 확인합니다.
+* 국제 SMS 발송 기능 이용 전 반드시 [[국제 SMS 서비스 정책]](../service-policy-and-precondition/international-sms)을 확인합니다.
 * 국제 SMS 발송 기능을 사용하지 않으려면 **사용 안 함**으로 설정합니다. **사용**으로 되어 있는 경우 국제 SMS 물량 펌핑으로 인한 사고가 발생해 추가적인 요금이 청구될 수 있습니다.
 * 국제 SMS 월 발송 건수는 최소 1건에서 최대 10,000건까지 설정할 수 있습니다.  10,000건 초과 발송이 필요한 경우 [[고객 센터]](https://www.nhncloud.com/kr/support/inquiry)로 문의하세요.
 * 발송 허용 국가 관리

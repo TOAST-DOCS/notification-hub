@@ -13,7 +13,7 @@
 
 Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 있습니다. 본인 인증에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 본인 인증** 항목을 확인 부탁드립니다.
 
-* [본인 인증 가이드 바로 가기](./2-service-policy#identity-verification)
+* [본인 인증 가이드 바로 가기](../service-policy-and-precondition/identity-verification)
 
 
 <span id="manage-sender-info"></span>
@@ -32,7 +32,7 @@ SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 
 
 발신번호 사전 등록제에 대한 자세한 내용은 **사용 전 준비 사항 > 발신번호 사전 등록제**를 참고하세요.
 
-* [발신번호 사전 등록제 바로 가기](./preconditions#sender-phone-number-pre-registration)
+* [발신번호 사전 등록제 바로 가기](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
 
 <span id="manage-sender-brand"></span>
 
@@ -40,7 +40,7 @@ SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 
 
 RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS Biz Center에서 사전 등록 사항이 완료(브랜드 승인)되었다면, NHN Cloud 콘솔과 연동을 진행합니다. RCS Biz Center에서 브랜드 생성은 **사용 전 준비 사항** > **RCS**를 참고하세요.
 
-* [사용 전 준비 및 제한 사항 > RCS 바로 가기](./preconditions/preconditions-rcs)
+* [사용 전 준비 및 제한 사항 > RCS 바로 가기](../service-policy-and-precondition/rcs)
 * [RCS Biz Center 바로 가기](https://www.rcsbizcenter.com/main)
 
 RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번호) 등록, 템플릿 등록이 완료(승인)되었으면 콘솔에서 브랜드를 연동합니다.
@@ -55,7 +55,7 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 
 발신 도메인 및 SPF, DKIM, DMARC에 대한 자세한 내용은 **사용 전 준비 및 제한 사항 > 이메일**을 확인하세요.
 
-* [사용 전 준비 및 제한 사항 > 이메일](./preconditions/preconditions-email)
+* [사용 전 준비 및 제한 사항 > 이메일](../service-policy-and-precondition/email)
 
 #### 이메일 도메인 등록 및 소유권 인증
 
@@ -138,7 +138,7 @@ DMARC에 대한 자세한 설명은 아래 문서를 참고하세요.
 
 Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > Push**를 확인하세요.
 
-* [사용 전 준비 및 제한 사항 > Push](./preconditions/preconditions-push)
+* [사용 전 준비 및 제한 사항 > Push](../service-policy-and-precondition/push)
 
 #### FCM 인증 설정
 1. **서비스 계정 키 등록**을 활성화합니다.
@@ -165,7 +165,7 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 
 발신 프로필 생성은 카카오 비즈니스에서 진행할 수 있습니다.
 
-* [발신 프로필 생성 가이드 바로 가기](./preconditions#ktb-sender-profile)
+* [발신 프로필 생성 가이드 바로 가기](../service-policy-and-precondition/alimtalk-and-friendtalk)
 
 
 카카오 비즈니스에서 발신 프로필이 생성 완료되면 다음 순서에 따라 등록합니다.

@@ -79,9 +79,9 @@
 * LMS와 MMS는 최대 2,000bytes로, 한글 1,000자, 영문 2,000자까지 입력할 수 있습니다.
 * MMS는 이미지를 첨부할 수 있습니다.
 * 발신 번호 차단으로 문자 전송에 실패한 경우에는 '번호 도용 문자 차단 서비스'를 확인하세요.
-    * [번호 도용 문자 차단 서비스 가이드 바로 가기](./preconditions/preconditions-sms#fraud-number)
+    * [번호 도용 문자 차단 서비스 가이드 바로 가기](../service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 * 전송 결과는 성공이지만 문자를 수신하지 못하는 경우는 '통신사 스팸 차단 서비스'를 확인하세요.
-    * [통신사 스팸 차단 서비스 가이드 바로 가기](./preconditions/preconditions-sms#spam-number)
+    * [통신사 스팸 차단 서비스 가이드 바로 가기](../service-policy-and-precondition/sms#about-carrier-spam-text-blocking-services)
 
 ##### MMS 첨부 가능한 이미지 규격
 
@@ -154,7 +154,7 @@ SMS, LMS, MMS, RCS Biz Center 템플릿 모두 버튼을 추가할 수 있습니
 
 #### 친구톡
 1. 전송할 내용에 광고성 정보(특가, 할인, 이벤트, 프로모션 홍보 등)가 있을 경우 발송 목적을 '광고'로 설정합니다.
-2. 메시지 타입을 선택합니다. 타입별 상세 가이드는 [친구톡 발송 지원 타입](./preconditions/preconditions-ktb#ktb-supported-types)에서 확인하세요.
+2. 메시지 타입을 선택합니다. 타입별 상세 가이드는 [친구톡 발송 지원 타입](../service-policy-and-precondition/alimtalk-and-friendtalk#friendtalk-supported-types)에서 확인하세요.
     * 기본형(텍스트/이미지/와이드 이미지)
         * 텍스트: 한/영 구분 없이 띄어쓰기 포함 1,000자 텍스트+링크 버튼 최대 5(세로 배열)
         * 이미지: 한/영 구분 없이 띄어쓰기 포함 400자 텍스트+이미지 1장+링크 버튼 최대 5(세로 배열)

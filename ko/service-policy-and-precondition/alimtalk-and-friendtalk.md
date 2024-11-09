@@ -49,6 +49,7 @@
   * 발신자의 연락처(고객센터 등)를 통하여 발신자에게 수신 거부 의사를 전달할 수 있도록 안내해야 합니다.
   * 알림톡이 수신된 채팅방의 상단 레이어에서 [알림톡 차단]을 선택하여 발신자를 차단할 수 있습니다.
 
+<span id="alimtalk-and-firendtlak-comparison"></span>
 
 ## 알림톡과 친구톡 비교
 
@@ -60,7 +61,7 @@
 | 특이 사항 | - 정보형 비즈 메시지에 국한<br />- 승인된 템플릿 기반으로 발송 | - 야간 발송 제한(20:50~다음 날 08:00)                                                        |
 
 
-<span id="ktb-supported-types"></span>
+<span id="friendtalk-supported-types"></span>
 
 ### 친구톡 발송 지원 타입
 

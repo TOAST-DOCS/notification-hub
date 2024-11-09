@@ -13,7 +13,7 @@
 
 Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 있습니다. 본인 인증에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 본인 인증** 항목을 확인 부탁드립니다.
 
-* [본인 인증 가이드 바로 가기](./2-service-policy#identity-verification)
+* [본인 인증 가이드 바로 가기](../service-policy-and-precondition/identity-verification)
 
 
 <span id="manage-sender-info"></span>
