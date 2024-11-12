@@ -7,7 +7,7 @@
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > SMS**
 
-
+dfafae
 <span id="sender-phone-number-pre-registration"></span>
 
 ## 발신 번호 사전등록제 시행
