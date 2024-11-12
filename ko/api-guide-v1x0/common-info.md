@@ -81,7 +81,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="succeed-response"></span>
 
-### 실패 응답 본문
+### 성공 응답 본문
 
 성공 응답의 HTTP 상태 코드는 **200 OK**입니다.
 
