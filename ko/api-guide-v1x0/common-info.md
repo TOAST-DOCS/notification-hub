@@ -10,7 +10,7 @@
 <span id="notification-hub-api-common-information"></span>
 
 !!! danger "주의 사항"
-    * Notification Hub v1.0 API는 현재 알파(alpha) 상태로, 안정화되지 않았으며, 실험적인 기능이 추가되거나 제거될 수 있습니다. 
+    * Notification Hub v1.0 API는 현재 베타(beta) 상태로, 안정화되지 않았으며, 실험적인 기능이 추가되거나 제거될 수 있습니다.
     * API는 언제든지 변경될 수 있으며, 변경 시 사전 공지 없이 변경될 수 있습니다.
     * Notification Hub가 GA(General Availability) 상태로 전환 후 공식 버전으로 변경됩니다.
     * 변경 가능한 부분은 이 문서에서 설명하는 API 엔드포인트, 인증, 요청 제한, 요청, 응답, 필드 등 모든 항목이 포함됩니다.
@@ -81,7 +81,7 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="succeed-response"></span>
 
-### 실패 응답 본문
+### 성공 응답 본문
 
 성공 응답의 HTTP 상태 코드는 **200 OK**입니다.
 
