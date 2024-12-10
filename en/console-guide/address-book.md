@@ -3,70 +3,70 @@
     display: inline !important;
 }
 </style>
-<h1>주소록</h1>
+<h1>Address Book</h1>
 
-**Notification > Notification Hub > 콘솔 사용 가이드 > 주소록**
-
-
-
-## 주소록
-
-수신자의 연락처를 등록하고 관리할 수 있습니다.
-
-### 연락처
-
-* **+ 연락처 추가**를 클릭합니다.
-* 연락처는 직접 입력하거나 파일을 업로드해 등록할 수 있습니다.
-* 수신자 별칭은 수신자를 식별할 수 있는 값입니다. 일반적으로 Notification Hub와 연동된 고객에서 관리하는 수신자(회원)의 식별자를 사용합니다.
-    * 주소록 내부적으로 관리되는 수신자 아이디와 다릅니다.
-    * 예: 고객 서비스 회원 시스템에 `recipient@example.com` 사용자의 식별자가 `638f11af-5e34-4803-9682-49265b690f69`이면 주소록에서 `638f11af-5e34-4803-9682-49265b690f69`를 수신자 별칭으로 사용할 수 있습니다.
-* 토큰은 최대 6개까지 등록할 수 있습니다.
-* 그룹은 최대 16개까지 등록할 수 있습니다.
-
-#### 연락처 다운로드
-저장된 모든 연락처를 파일로 다운로드할 수 있습니다.
-
-* **연락처 다운로드 요청**을 클릭해 연락처 수신 결과 데이터 추출을 요청합니다.
-* **다운로드 요청 목록**을 클릭해 요청한 목록을 확인하고 추출이 끝나 완성된 파일을 다운로드합니다.
-
-### 그룹
-
-그룹을 생성해 수신자를 추가하고 수신자들을 그룹화할 수 있습니다.
-
-* **+그룹 추가**를 클릭합니다.
-* 그룹 이름을 입력하고 **확인**을 클릭해 그룹을 생성합니다.
-* 생성된 그룹을 클릭하고 **그룹 연락처 관리** 탭에서 **+ 그룹 연락처 추가**를 클릭해 수신자를 그룹에 추가할 수 있습니다.
-
-#### 그룹 연락처 다운로드
-그룹에 속한 연락처를 파일로 다운로드할 수 있습니다.
-
-* **그룹 연락처 다운로드 요청**을 클릭해 연락처 수신 결과 데이터 추출을 요청합니다.
-* **다운로드 요청 목록**을 클릭해 요청한 목록을 확인하고 추출이 끝나 완성된 파일을 다운로드합니다.
+**Notification > Notification Hub > Console User Guide > Address book**
 
 
-### 수신 거부 관리
 
-수신 거부된 휴대폰 번호, 이메일 주소, 토큰을 조회하고 관리할 수 있습니다.
+## Address Book
 
-#### 휴대폰 번호
+You can register and manage the receiver's contacts.
 
-* **+ 수신 거부 번호 추가** 버튼 아래 드롭다운 목록을 클릭해 080 수신 거부 번호를 선택하고, 선택된 080 수신 거부 번호로 수신 거부된 휴대폰 번호를 조회합니다.
-* **+ 수신 거부 번호 추가**를 클릭해 수동으로 수신 거부 목록에 추가할 수 있습니다.
+### Contact
 
-#### 이메일
+* Click **+ Add Contacts**.
+* You can enter your contact information directly or upload a file to register it.
+* receiver aliases are values that identify receivers. Typically, it uses the identifier of the receiver (members) managed by the customer that is associated with Notification Hub.
+    * It is different from the internally managed receiver ID of the address book.
+    * For example, if the identifier of user `receiver@example.com ` in the customer service member system is `638f11af-5e34-4803-9682-49265b690f69`, you can use `638f11af-5e34-4803-9682-49265b690f69` as the receiver alias in your address book.
+* You can register up to 6 tokens.
+* You can register up to 16 groups.
 
-* **+ 수신 거부 이메일 추가** 버튼 드롭다운 목록을 클릭해 이메일 도메인을 선택하고, 선택된 이메일 도메인으로 수신 거부된 이메일 주소를 조회합니다.
-* **+ 수신 거부 이메일 추가**를 클릭해 수동으로 수신 거부 목록에 추가할 수 있습니다.
+#### Download contacts
+All saved contacts can be downloaded as a file.
+
+* Click **Request Contact Download** to request extracting contact reception result data.
+* Click **Download Request List** to view the requested list and download the completed file.
+
+### Groups
+
+You can create groups to add group receivers.
+
+* Click **+ Add Group**.
+* Enter a group name and click **Confirm** to create a group.
+* You can add receivers to a group by clicking the created group and clicking **+ Add Group Contacts** on the **Manage Group Contacts** tab.
+
+#### Download Group Contact
+You can download a contact that belongs to a group as a file.
+
+* Click **Request Group Contact Download** to request extracting contact reception result data.
+* Click **Download Request List** to view the requested list and download the completed file.
 
 
-#### 토큰
+### Manage Unsubscribes
 
-* 토큰은 바로 수신 거부한 토큰 목록을 조회할 수 있습니다.
-* **+ 수신 거부 토큰 추가** 버튼 아래 드롭다운 목록을 클릭해 이메일 도메인을 선택하고, 선택된 이메일 도메인으로 수신 거부된 이메일 주소를 조회합니다.
-* **+ 수신 거부 토큰 추가**를 클릭해 수동으로 수신 거부 목록에 추가할 수 있습니다.
+You can look up and manage mobile phone numbers, email addresses, and tokens that have unsubscribed.
 
-#### 수신 거부 번호/이메일/토큰 다운로드
-수신 거부된 연락처를 파일로 다운로드할 수 있습니다.
+#### Mobile Phone Number
 
-* **수신 거부 번호/이메일/토큰 다운로드 요청**을 클릭해 연락처 수신 결과 데이터 추출을 요청합니다.
-* **다운로드 요청 목록**을 클릭해 요청한 목록을 확인하고 추출이 끝나 완성된 파일을 다운로드합니다.
+* Click the drop-down list under the **+ Add Unsubscribed Number** button to select the 080 Unsubscribed Number and query the unsubscribed mobile phone number with the selected 080 Unsubscribed Number.
+* Click **+ Add Unsubscribed Number** to manually add it to the Unsubscription List.
+
+#### Email
+
+* Click the drop-down list under the **+ Add Unsubscribed Email** button to select email domain and query the unsubscribed email address with the selected Unsubscribed email domain.
+* Click **+ Add Unsubscribed Email ** to manually add it to the Unsubscription List.
+
+
+#### Token
+
+* You can immediately look up the list of tokens that you have refused to receive immediately.
+* Click the drop-down list under the **+ Add Unsubscribed token** button to select email domain and query the unsubscribed email address with the selected Unsubscribed email domain.
+* Click **+ Add Unsubscribed token** to manually add it to the Unsubscription List.
+
+#### Unsubscribed Number/Email/Token Download
+You can download a Unsubscription List as a file.
+
+* Click **Request Unsubscribed Number/Email/Token Download** to request extracting contact reception result data.
+* Click **Download Request List** to view the requested list and download the completed file.

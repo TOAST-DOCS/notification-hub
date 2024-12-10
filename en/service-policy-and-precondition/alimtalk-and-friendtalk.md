@@ -3,76 +3,76 @@
     display: inline !important;
 }
 </style>
-<h1>알림톡, 친구톡</h1> 
+<h1>AlimTalk, FriendTalk</h1> 
 
-**Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 알림톡, 친구톡**
+**Notification > Notification Hub > Usage Policy and Preset Guide > AlimTalk, FriendTalk**
 
-## 발신 프로필 생성
-카카오 정책에 따라 카카오톡 비즈 메시지를 발송하려면 먼저 카카오톡채널 관리자센터에서 비즈니스 인증을 받은 채널을 개설해야 합니다.
+## Create Sender Profile
+In accordance with the Kakao policy, you must first open a business-authentication channel at the KakaoTalk Channel Manager Center to send KakaoTalk Biz messages.
 
-* [카카오 비즈니스 바로 가기](https://business.kakao.com/)
-* [카카오 비즈니스 - 카카오 채널 생성 및 비즈니스 인증 가이드 바로 가기](https://kakaobusiness.gitbook.io/main/channel/start)
+* [Kakao Business Shortcut](https://business.kakao.com/)
+* [Kakao Business - Kakao Channel Creation and Business Certification Guide Shortcut](https://kakaobusiness.gitbook.io/main/channel/start)
 
-### 계정 및 채널 생성
+### Creating Accounts and Channels
 
-다음 항목을 참고해 계정 생성 및 로그인을 진행합니다.
+Refer to the following topics to create and log in to your account.
 
-* 카카오 비즈니스에 접속해 로그인 페이지로 이동 후 계정을 생성합니다.
-* 기업 대표 또는 공용 이메일로 가입하는 것을 권장합니다. (담당자 개인 카카오톡 계정 이메일로 로그인 가능하나, 담당자 부재/퇴사 시 채널 이관이 필요한 경우가 발생)
+* Access Kakao Business, go to the login page and create an account.
+* It is recommended to sign up as a corporate representative or by public email. (You can log in to the person in charge's personal KakaoTalk account email, but there are cases where channel transfer is required when the person in charge is absent/resigned.)
 
-다음 항목을 참고해 채널을 생성합니다.
+Create a channel by referring to the following items.
 
-* 채널 이름은 채널 홈에 노출되는 이름으로, 채널명과 사업자등록증의 법인명이 동일하게 설정합니다. 사업 분야와 관련없는 이름은 ‘비즈니스 채널’ 전환의 심사 단계에서 반려 사유가 될 수 있습니다.
-* 검색용 아이디는 카카오톡 앱에서 검색 시 표시되는 아이디입니다. 한 번 설정된 검색용 아이디는 변경이 불가합니다.
-* 프로필 사진은 채널 등록 이후에도 설정하실 수 있습니다.
+* The channel name is a name that is exposed on channel home and the channel name and the corporate name on the business registration document are set the same. Names that are not related to the business sector may be reasons for rejection during the screening stage of the ‘business channel’ review.
+* Search ID is the ID displayed when searching on KakaoTalk app. Once set, the search ID cannot be changed.
+* You can also set up your profile picture after channel registration.
 
-### 카카오톡 채널 설정
-채널 개설 완료 후 아래 항목을 참고해 채널 정보를 설정하고 비즈니스 채널을 신청합니다.
+### Set Kakao talk Channel 
+After the channel is opened, set up the channel information and apply for the business channel by referring to the items below.
 
-1. 카카오톡 채널 관리자센터에서 개설된 채널을 선택합니다. 채널 공개와 검색 허용을 'ON'으로 설정합니다.
+1. Select the channel opened in KakaoTalk Channel Management Center. Set channel disclosure and allow to search to ‘ON.’
 
-2. 비즈니스 채널 전환을 신청합니다. 모든 내용을 첨부/ 입력한 뒤 신청을 완료하면, 심사를 통해 전환 여부가 결정됩니다. (카카오에서 심사하며 영업일 기준 2~3일 소요됩니다.)
-    * 사업자등록증 및 재직증명서(대표자 신분증), 업종별 제출 서류 등이 필요합니다.
-    * 서류 제출 시 반드시 개인정보 마스킹 가이드를 참고하시기 바랍니다. 마스킹 누락 시 심사가 반려됩니다.
-    * 통신판매업, 의료기기판매업, 건강기능식품판매업의 경우 신고증을 첨부합니다.
-    * 입력한 비즈니스 정보의 기업명과 채널 이름이 다를 경우 심사에 참고할 자료를 첨부합니다.
-
-
-### 카카오톡 채널 등록
-비즈니스 채널 전환이 완료(승인)되었다면, **Notification Hub** > **발신 정보** > **발신 프로필 관리** 탭에서 발신 프로필(카카오톡 채널)을 등록합니다. 발신 프로필 등록에 대한 자세한 내용은 **콘솔 사용 가이드** > **발신 정보** > **발신 프로필 관리**에서 확인할 수 있습니다.
-
-## 주의 사항
-알림톡 이용 시 고객사는 다음과 같은 서비스 이용 유의 사항을 수신자에게 안내해야 합니다.
-
-* 알림톡을 수신하는 과정에서 와이파이 환경이 아닌 경우, 데이터 통신 요금이 발생할 수 있습니다.
-* 알림톡 수신을 원하지 않을 경우에 대해 다음의 내용을 참고하세요.
-  * 발신자의 연락처(고객센터 등)를 통하여 발신자에게 수신 거부 의사를 전달할 수 있도록 안내해야 합니다.
-  * 알림톡이 수신된 채팅방의 상단 레이어에서 [알림톡 차단]을 선택하여 발신자를 차단할 수 있습니다.
+2. Request to switch to a business channel. Once all information has been attached/ entered and the application is complete, the transition will be decided through a review. (It will be reviewed by Kakao and will take 2-3 business days.)
+    * Business registration card and employment certificate (representative ID card). Documents will be required for submission by industry.
+    * Please refer to the personal information masking guide when submitting documents. If masking is omitted, the review will be rejected.
+    * In the case of mail order sales, medical device sales, and health functional food sales, a declaration certificate needs to be attached.
+    * If the company name and channel name of business information entered are different, please attach additional information for review.
 
 
-## 알림톡과 친구톡 비교
+### Register Kakaotalk Channel 
+If the business channel conversion has been completed (approved), register the sender profile (Kakao Talk Channel) on the **Notification Hub** >**Sender Information** >**Sender Profile Management** tab. More information about registering Sender Profiles can be found in the ** Console User Guide**>**Sender Information** >**Sender Profile Management**
 
-| 구분    | 알림톡                                    | 친구톡                                                                                 |
+## Precautions
+When using AlimTalk, the customer should inform the receiver of the following precautions for using the service.
+
+* In the process of receiving AlimTalk, data communication charges may be incurred if it is not in a Wi-Fi environment.
+* If you do not want to receive AlimTalk, please refer to the following.
+  * The sender's contact information (customer center, etc.) should be provided to inform the caller that he/she can unsubscribe.
+  * You can block senders by selecting [Block AlimTalk] in top layer of the chat room where the notification talk was received.
+
+
+## Comparison of AlimTalk and FriendTalk
+
+| Classification    | AlimTalk                                    | FriendTalk                                                                                 |
 | ----- |----------------------------------------|-------------------------------------------------------------------------------------|
-| 발송 내용 | 정보성 메시지 발송 가능                          | 광고성 메시지 발송 가능                                                                       |
-| 발송 대상 | 친구 여부 관계없음(전화번호 정보 필요)                 | 카카오톡 채널과 친구를 맺은 이용자(전화번호 정보 필요)                                                     |
-| 발송 형식 | 텍스트형<br>이미지형                           | 텍스트형<br>이미지형<br>와이드 이미지형<br>와이드 아이템 리스트형<br>캐러셀피드형<br>프리미엄 동영상형<br>커머스형<br>캐러셀 커머스형 |
-| 특이 사항 | - 정보형 비즈 메시지에 국한<br />- 승인된 템플릿 기반으로 발송 | - 야간 발송 제한(20:50~다음 날 08:00)                                                        |
+| Send contents | Able to send informational messages                          | Able to send advertising messages                                                                       |
+| Send To | Doesn’t matter if friend or not (needs phone number information)                 | Users who made friends with the KakaoTalk channel (need phone number information)                                                     |
+| Send type | Text type<br>Image Type                           | Text type<br>Image Type<br>Wide image type<br>Wide item list type<br>Carousel feed type<br>Premium video type<br>Commerce type<br>Carousel Commerce type |
+| Considerations | - Limited to informational Biz messages<br />- Send based on approved templates | - Delivery restricted during night (20:50~08:00 on the following day)                                                        |
 
 
 <span id="ktb-supported-types"></span>
 
-### 친구톡 발송 지원 타입
+### FriendTalk Sending support type
 
-|구분	| 설명                                                                                                                                                                                                                                                                                                 | 카카오 이미지 업로드 규격 |
+|Classification	| Description                                                                                                                                                                                                                                                                                                 | Kakao Image Upload Specification |
 |-- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --|
-|텍스트	| 최대 1,000자 텍스트+링크 버튼 최대 5개                                                                                                                                                                                                                                                                        | 해당 없음 |
-|이미지	| 최대 400자 텍스트+이미지 1장+링크 버튼 최대 5개                                                                                                                                                                                                                                                                 | </li><li> 제한 사이즈 - 가로 500px 이상, 가로:세로 비율 2:1 이상 3:4 이하</li><li>파일 형식 및 크기: JPG, PNG/최대 5MB |
-|와이드 이미지	| 최대 76자 텍스트+와이드 이미지 1장+링크 버튼 최대 2개                                                                                                                                                                                                                                                              | </li><li> 제한 사이즈 - 가로 800px, 세로 600px</li><li>파일 형식 및 크기: JPG, PNG/최대 5MB |
-|와이드 아이템 리스트| 	텍스트+아이템 리스트 이미지+링크 버튼 최대 2개(가로 정렬)<br><li>최대 4개/최소 3개의 아이템 리스트가 필요합니다.</li><li>텍스트 문구는 첫 번째 아이템은 25자, 2~4번째 아이템은 30자로 제한됩니다.</li><li>광고 발송만 가능합니다.</li>                                                                                                                                       | </li><li> 아이템 리스트 개수에 맞춰 최소 3장, 최대 4장 이미지를 업로드해 사용합니다.</li><li>제한 사이즈 - 가로 400px, 세로 400px~가로 800px, 세로 400px</li><li>비율 및 가로 픽셀 확인 X. 섬네일 크기에 맞추어 중앙 기준으로 크롭하여 노출</li><li>파일 형식 및 크기: JPG, PNG/각 파일 최대 5MB |
-|캐러셀 피드| 	캐러셀 1개당: 제목(헤더)+텍스트 문구+링크 버튼(2개/가로 배열)+캐러셀용 이미지 발송<li>최대 10개/최소 2개의 캐러셀 리스트가 필요합니다.</li><li>제목(헤더)은 20자, 텍스트 문구는 180자로 제한됩니다.</li><li>캐러셀 하나당 버튼은 최대 2개까지 가능하며 가로 정렬되어 발송됩니다.</li><li>광고 발송만 가능합니다.</li>                                                                                         | </li><li>캐러셀 리스트 개수에 맞춰 최소 2장, 최대 10장 이미지를 업로드해 사용합니다. </li><li>제한 사이즈 - 가로 500px 이상, 가로:세로 비율 2:1 이상 3:4 이하</li><li>파일 형식 및 크기: JPG, PNG/각 파일 최대 5MB |
-|프리미엄 동영상| 	제목(헤더)+텍스트 문구+카카오TV에 업로드된 영상 1개+링크 버튼 최대 1개<li>동영상 링크는 카카오TV에 업로드된 영상만 사용 가능합니다(예시: https://tv.kakao.com/v/#{숫자} / https://tv.kakao.com/channel/#{숫자}/cliplink/#{숫자}).</li><li>헤더는 20자, 텍스트는 76자로 제한됩니다.</li><li>헤더와 텍스트는 선택 사항으로 없어도 발송 가능합니다.</li><li>버튼은 1개까지 발송 가능합니다.</li>                | </li><li>제한 사이즈 - 가로 500px 이상, 가로:세로 비율 2:1 이상 3:4 이하 </li><li>파일 형식 및 크기: JPG, PNG/최대 5MB |
-|커머스| 	상품 제목+가격 정보+부가 정보+링크 버튼(2개/가로 배열)+커머스용 이미지 발송<li>부가 정보는 34자로 제한됩니다.</li><li>버튼은 최소 1개 이상 포함되어야 하며, 최대 2개까지 포함 가능하며 가로 정렬되어 발송됩니다.</li>                                                                                                                                                      | </li><li>제한 사이즈 - 가로 500px 이상, 가로:세로 비율 2:1 이상 3:4 이하 </li><li>파일 형식 및 크기: JPG, PNG/최대 5MB |
-|캐러셀 커머스| 	캐러셀 1개당: 상품 제목+가격 정보+부가 정보+링크 버튼(2개/가로 배열)+캐러셀 커머스용 이미지 발송<br><li>여러 커머스 말풍선을 캐러셀로 발송 가능합니다.</li><li>캐러셀 인트로가 존재하는 경우 캐러셀은 최소 1개 이상, 최대 10개 이하 발송 가능합니다.</li><li>캐러셀 인트로가 존재하지 않는 경우 캐러셀은 최소 2개 이상, 최대 10개 이하 발송 가능합니다.</li><li>각 캐러셀마다 버튼은 1개 필수이며 최대 2개까지 지원합니다.</li><li>광고 발송만 가능합니다.</li> | </li><li> 캐러셀 인트로+캐러셀 리스트 개수에 맞춰 최소 1장, 최대 10장 이미지를 업로드해 사용합니다.</li><li>전체 이미지 비율이 동일해야 합니다.</li><li>제한 사이즈 - 가로 500px 이상, 가로:세로 비율 2:1 이상 3:4 이하</li><li>파일 형식 및 크기: JPG, PNG/각 파일 최대 5MB |
+|Text	| Up to 1,000 characters of text + up to 5 link buttons                                                                                                                                                                                                                                                                        | Not available  |
+|Image	| Up to 400 characters of text + 1 image + up to 5 link buttons                                                                                                                                                                                                                                                                 | </li><li> Size Limit- Width 500px or more, Width: Length ratio 2:1 or more and 3:4 or less</li><li>File format and size: JPG, PNG/max 5 MB |
+|Wide image	| Up to 76 characters of text + 1 wide image + up to 2 link buttons                                                                                                                                                                                                                                                              | </li><li> Size limit – width 800px, length 600px</li><li>File format and size: JPG, PNG/max 5 MB |
+|Wide item list| 	Text + item list image + up to 2 link buttons (horizontally aligned)<br><li>Requires a list of maximum 4 items / minimum 3 items.</li><li>Text phrases are limited to 25 characters for the first item and 30 characters for items 2-4.</li><li>You can only send ads.</li>                                                                                                                                       | </li><li> Upload a minimum of 3 images and a maximum of 4 images to match the number of items in the list.</li><li>Size limits - 400px wide, 400px tall to 800px wide, 400px tall</li><li>Check proportions and horizontal pixels X. Center and crop to fit the thumbnail size</li><li>File format and size: JPG, PNG/up to 5 MB each file |
+|Carousel feeds| 	Per 1 carousel: title (header) + text copy + link buttons (2/arranged horizontally) + send image for carousel<li>Requires a list of maximum 10 / minimum 2 carousel.</li><li>The title (header) is limited to 20 characters and the text copy to 180 characters.</li><li>Each carousel can have a maximum of 2 buttons and is sent horizontally aligned.</li><li>You can only send ads.</li>                                                                                         | </li><li>Upload a minimum of 2 images and a maximum of 10 images to match the number of carousel listings. </li><li>Size Limit- Width 500px or more, Width: Length ratio 2:1 or more and 3:4 or less</li><li>File format and size: JPG, PNG/up to 5 MB each file |
+|Premium videos| 	Title (header) + text phrase + 1 video uploaded to Kakao TV + up to 1 link button<li>The video link can only be used for videos uploaded to Kakao TV (e.g. https://tv.kakao.com/v/#{숫자} / https://tv.kakao.com/channel/#{숫자}/cliplink/#{숫자}).</li><li>Headers are limited to 20 characters and text to 76 characters.</li><li>The header and text are optional and can be sent without them.</li><li>You can send up to 1 button.</li>                | </li><li>Size Limit- Width 500px or more, Width: Length ratio 2:1 or more and 3:4 or less </li><li>File format and size: JPG, PNG/max 5 MB |
+|Commerce| 	Product title+price info+additional info+link buttons (arranged in 2/price) + send commerce-ready image<li>Additional information is limited to 34 characters.</li><li>Buttons must contain a minimum of one button, with a maximum of 2, and are sent horizontally aligned.</li>                                                                                                                                                      | </li><li>Size Limit- Width 500px or more, Width: Length ratio 2:1 or more and 3:4 or less </li><li>File format and size: JPG, PNG/max 5 MB |
+|Carousel commerce| 	Per 1 carousel: product title + pricing info + additional info + link buttons (arranged in 2 rows/column) + send image for carousel commerce<br><li>You can send multiple commerce speech bubbles as a carousel.</li><li>If a carousel intro exists, you can send at least 1 carousel and no more than 10 carousels.</li><li>If the carousel intro doesn't exist, then you can send at least 2 carousels and no more than 10 carousels.</li><li>One button is required for each carousel, with a maximum of 2 supported.</li><li>You can only send ads.</li> | </li><li> Upload and use a minimum of 1 image and a maximum of 10 images, depending on the number of carousel intros + carousel lists.</li><li>The entire image must have the same proportions.</li><li>Size Limit- Width 500px or more, Width: Length ratio 2:1 or more and 3:4 or less</li><li>File format and size: JPG, PNG/up to 5 MB each file |
 
-![친구톡 발송 지원 타입](../../img/friendtalk-img-types.png)
+![FriendTalk Sending support type](../../img/friendtalk-img-types.png)
