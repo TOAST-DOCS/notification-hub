@@ -3,133 +3,133 @@
     display: inline !important;
 }
 </style>
-<h1>상세 설정</h1>
+<h1>Detail setting</h1>
 
-**Notification > Notification Hub > 콘솔 사용 가이드 > 상세 설정**
+**Notification > Notification Hub > Console User Guide > Detail setting**
 
-각 메시지 채널의 설정과 첨부 파일을 관리합니다. 설정 후 실제 반영까지 대략 수분이 걸릴 수 있습니다.
+Manage the settings and attachments for each message channel, which may take approximately a few minutes to reflect after setup.
 
 ## SMS
 
-### 국제 SMS 메시지 발송 설정
-* 국제 SMS 발송 기능 이용 전 반드시 [[국제 SMS 서비스 정책]](../service-policy-and-precondition/international-sms)을 확인합니다.
-* 국제 SMS 발송 기능을 사용하지 않으려면 **사용 안 함**으로 설정합니다. **사용**으로 되어 있는 경우 국제 SMS 물량 펌핑으로 인한 사고가 발생해 추가적인 요금이 청구될 수 있습니다.
-* 국제 SMS 월 발송 건수는 최소 1건에서 최대 10,000건까지 설정할 수 있습니다.  10,000건 초과 발송이 필요한 경우 [[고객 센터]](https://www.nhncloud.com/kr/support/inquiry)로 문의하세요.
-* 발송 허용 국가 관리
-    * 최초 사용 설정 시 지정된 주요 국가만 발송 가능하도록 설정됩니다. **발송 허용 국가** 입력란을 클릭해 발송 허용 국가를 선택합니다.
-* 월 발송 건수 및 임계치 알림
-    * **월 발송 건수**는 월 1,000건이 기본이며, 최대 10,000건까지 적용 가능합니다.
-    * **월 발송 건수**는 보조 기능으로 임계치 초과에 대한 탐지가 실시간으로 반영되지 않을 수 있습니다. 보조 기능의 일부 오차에 대해 NHN Cloud는 책임을 지지 않습니다.
-    * **국제 SMS 발송**을 **사용**으로 설정하면 **월 발송 건수**로 설정한 값의 70%, 100% 도달 시 프로젝트 멤버 전체에게 알림 메일이 발송됩니다.
+### International SMS Send Settings
+* Make sure to check [[International SMS Service Policy]](./preconditions/preconditions-international-sms) before using the international SMS delivery feature.
+* If you do not want to use the international SMS delivery feature, set **Disable**. If it is set to **enable**, an incident may occur due to international SMS volume pumping and additional charges may be incurred.
+* You can set a minimum of 1 to a maximum of 10,000 international SMS delivery monthly. If you need to deliver more than 10,000, contact [[Customer Center]](https://www.nhncloud.com/kr/support/inquiry).
+* Manage countries allowed to send
+    * For initial use, only the specified major countries will be allowed to deliver. Click **Countries Allowed to deliver** box to select the countries to deliver.
+* Notification of Monthly Delivery Count and Threshold
+    * Default of ** Monthly Delivery Count ** is 1,000 per month and can be applied up to 10,000.
+    * **Monthly Delivery Count ** is a secondary feature, and detection of thresholds may not be reflected in real time. NHN Cloud is not responsible for some errors in the secondary feature.
+    * If set **International SMS Delivery** to **Enable**, notification mail will be sent to all project members upon reaching 70% and 100% of the value set to ** Monthly Delivery Count **.
 
-> [주의]
-전 세계적으로 국제 SMS에 대한 어뷰징 사례가 증가하고 있습니다.
-월 제한 건수와 발송 국가 지정에 대해서는 반드시 필요한 만큼만 설정하는 것을 권장합니다.
-NHN Cloud는 어뷰징으로 발송된 국제 SMS에 대해 일체의 책임을 지지 않습니다.
+> [Caution]
+We're seeing an increase in abuse cases for international SMS globally.
+We recommend that you set the monthly limit and the country of origin only as much as necessary.
+NHN Cloud is not responsible for any international SMS sent through abusing.
 
 
-### 메시지 설정
+### Message Settings
 
-#### 메시지 중복 발송 차단 시간 설정
-* 설정한 시간동안 같은 내용의 메시지가 발송되지 않도록 설정할 수 있습니다.
-* 중복 발송 차단 설정을 한 경우 설정된 시간(단위:분) 동안 동일한 요청에 대해 발송 실패 처리됩니다.
-* 차단 가능한 최대 시간은 1시간입니다.
-* 중복 판단 기준은 다음과 같습니다.
-    * 메시지 타입(SMS/LMS/MMS/AUTH), 발신 번호, 수신번호, 제목, 본문, 첨부 파일
+#### Set time to block message delivery in duplication
+* You can set the same message so it is not sent during the set time.
+* When the duplicate delivery setting is blocked, delivery is processed as failure for same requests during specified period (unit:minute).
+* The maximum available block time is 1 hour.
+* Criteria for deciding duplicate messages are as follows.
+    * Message type (SMS/LMS/MMS/AUTH), sender number, receiving number, title, body, attachment
 
-#### 대체 문자 설정
-* 발송 요청의 본문/제목에 EUC-KR 문자 집합에 포함되지 않은, 발송 불가능한 문자가 포함된 경우 발송 가능한 문자로 변환하도록 설정할 수 있습니다.
-    * 대표적으로 이모지 문자는 EUC-KR 문자 집합에 포함되지 않습니다.
-* 대체 문자로 물음표 '?'와 공백 ' '을 선택할 수 있습니다.
-* 대체 문자 설정을 사용으로 설정하면 발송 불가능한 문자가 설정한 대체 문자로 변환되어 표시됩니다.
+#### Alternative Characters Settings
+* If the body/header of the delivery request contains non-deliverable characters that are not included in the EUC-KR character set, you can set it to convert to deliverable characters.
+    * Typically, emoji characters are not included in the EUC-KR character set.
+* You can select question marks '?' and 'spaces' as alternative characters.
+* If you enable Alternate Character Settings, undeliverable characters are converted and displayed as the alternative characters that you set.
 
-### 광고성 메시지 설정
-#### 광고성 메시지 발송 시간 제한 설정
-* 광고 메시지의 발송 시간을 제한할 수 있습니다.
-* 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.
-    * 광고 발송 제한 시작 설정 가능 시간: 18:00~21:00
-    * 광고 발송 제한 종료 설정 가능 시간: 08:00~12:00
-* 미발송 메시지 처리 방식을 설정할 수 있습니다.
-    * 실패 처리
-    * 제한 시간 해제 후 재발송
-* SMS, RCS의 광고성 메시지 발송 시간 제한 설정은 개별 설정이 필요합니다.
+### Ad Message Settings
+#### Set time to restrict to deliver Ad Message
+* You can limit the sending time of advertising messages.
+* Ad Message will not be sent during the set restricted Ad Message delivery time.
+    * Start Time for Ad Delivery Restriction: 18:00~21:00
+    * End Time for Ad Delivery Restriction: 08:00~12:00
+* You can set how undelivered messages are handled.
+    * Handle Failure
+    * Resend after time restriction release
+* The time limit setting for sending advertising messages in SMS and RCS requires individual settings.
 
-## 친구톡
+## FriendTalk
 
-### 메시지 설정
+### Message Settings
 
-#### 비즈니스폼 키 발급
+#### Issuance Business Form Keys
 
-친구톡에서 비즈니스폼(예약, 설문, 응모 등의 이벤트) 메시지를 발송하기 위한 키를 발급합니다.
+Issue a key to send a business form message (event such as reservation, questionnaire, application, etc.) from FriendTalk.
 
-* 비즈니스폼 키 값을 발급 받을 수 있습니다.
-* 친구톡 메시지 발송 시 비즈니스폼 버튼을 추가할 수 있습니다. 비즈니스폼 버튼 추가 시 비즈니스폼 키 값을 입력해야 합니다.
-* 발신 프로필을 선택하고 카카오 비즈니스에서 생성한 비즈니스폼 아이디를 입력하고 **발급**을 클릭해 비즈니스폼 키를 발급합니다.
+* Business form key values can be issued.
+* You can add a business form button when you send a Friendtalk. If you add a business form button, you must enter the value of the business form key.
+* Select the sender profile, enter the business form ID generated by Kakao Business, and click **Issue** to issue the business form key.
 
 ## RCS
 
-### 광고성 메시지 설정
-#### 광고성 메시지 발송 시간 제한 설정
-* 광고 메시지의 발송 시간을 제한할 수 있습니다.
-* 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.
-    * 광고 발송 제한 시작 설정 가능 시간: 18:00~21:00
-    * 광고 발송 제한 종료 설정 가능 시간: 08:00~12:00
-* 미발송 메시지 처리 방식을 설정할 수 있습니다.
-    * 실패 처리
-* SMS, RCS의 광고성 메시지 발송 시간 제한 설정은 개별 설정이 필요합니다.
+### Ad Message Settings
+#### Set time to restrict to deliver Ad Message
+* You can limit the sending time of advertising messages.
+* Ad Message will not be sent during the set restricted Ad Message delivery time.
+    * Start Time for Ad Delivery Restriction: 18:00~21:00
+    * End Time for Ad Delivery Restriction: 08:00~12:00
+* You can set how undelivered messages are handled.
+    * Handle Failure
+* The time limit setting for sending advertising messages in SMS and RCS requires individual settings.
 
 ## Push
 
-### 토큰 설정
-#### 토큰 만료 기간 설정
-* 설정한 기간 동안 등록 요청이 없는 토큰들을 주소록에서 삭제합니다.
-* 오랜 기간 동안 비활성화된 토큰에 메시지가 수신될 가능성은 극히 낮습니다.
-    * 비활성화 토큰이 발생하는 원인
-        * 앱이 실제로 삭제되었지만 토큰은 남아 있는 상태
-        * 앱이 단말기에서 비활성화 처리되어 메시지 수신은 안 되지만 토큰은 남아 있는 상태
-        * 앱에서 새로운 토큰을 등록했지만 기존 토큰이 남아 있는 상태
-* 기본값은 12개월입니다.
-* 비활성화된 토큰은 발송 대상에서 제외되어 발송 요금을 절약할 수 있습니다.
-* 비활성화된 토큰을 정리해 발송률, 수신율 정확도를 올릴 수 있습니다.
+### Token Settings
+#### Set token expiry period
+* Deletes tokens that have not requested registration for a set period of time from the address book.
+* It is extremely unlikely that messages will be received on tokens that have been disabled for an extended period of time.
+    * Reason why a deactivation token occurs
+        * The case where the App has actually been deleted, but tokens remain
+        * The case where the App is disabled on device and messages have not been received, but tokens remain
+        * The case where the App has registered a new token, but the existing token remains
+* Default setting is 12 months.
+* Disabled tokens can be excluded from the delivery to save shipping charges.
+* You can increase the accuracy of delivery and receiving rates by clearing deactivated tokens.
 
-#### 앱 유형 설정
-* 연동된 앱의 유형에 따라 토큰을 관리합니다.
-* 다중 토큰
-    * 기본 설정입니다. 하나의 수신자 별칭에 여러 개의 토큰이 등록될 수 있습니다.
-    - 앱의 사용자가 여러 기기에 설치된 앱을 동시에 사용할 수 있는 앱이며, 한 사용자는 여러 개의 토큰을 가질 수 있습니다.
-    - 예를 들어 사용자가 휴대폰과 태블릿을 사용한다면, 두 개의 토큰을 가질 수 있고, 휴대폰과 태블릿, 두 곳으로 푸시 메시지를 발송합니다.
-* 단일 토큰
-    - 사용자가 한 번에 한 기기에서만 앱을 사용할 수 있습니다. 한 사용자는 하나의 토큰만 가질 수 있습니다.
-    - 예를 들어 사용자가 휴대폰과 태블릿을 사용한다면, 한 개의 토큰만 가질 수 있고, 둘 중 한 곳으로 푸시 메시지를 발송합니다.
+#### Set App Type
+* Manage tokens according to the type of linked app.
+* Multiple tokens
+    * It is default setting. Multiple tokens can be registered under a single receiver alias.
+    - It is an App that allows app users to use apps installed on multiple devices at the same time, and one user can have multiple tokens.
+    - For example, if a user uses a mobile phone and tablet, he/she can have two tokens, and send push messages to both a mobile phone and a tablet.
+* a single token
+    - Users can only use the App on one device at a time. One user can only have one token.
+    - For example, if a user uses a mobile phone and tablet, he/she can have one token, and send push messages to one destination: either a mobile phone and a tablet.
 
 <span id="attachment-management"></span>
 
-## 첨부 파일 관리
+## Manage Attachments
 
-메시지 발송 시 첨부할 파일을 사전에 등록하여 관리할 수 있습니다.
+When sending a message, you can register the attached file in advance and manage it.
 
-* **+ 첨부 파일 업로드**를 클릭합니다.
-* 첨부 파일 업로드 팝업에서 첨부 파일을 사용할 메시지 채널을 선택합니다.
-* **파일 선택**을 클릭하고 파일을 선택합니다.
-* **저장**을 눌러 파일을 업로드합니다.
-* 업로드하는 파일이 선택한 메시지 채널에 부적합한 경우 업로드가 실패하고 실패 원인이 표시됩니다.
+* Click **+ Upload Attachment**.
+* In the Upload Attachments pop-up, select the message channel on which you want to use the attachments.
+* Click **Choose File** and select a file.
+* Click **Save** to upload the file.
+* If the file you are uploading is invalid for the selected message channel, the upload will fail and the cause of the failure will be displayed.
 
-첨부 파일 보관 기한은 7일이며, 템플릿에서 사용 중인 첨부 파일은 템플릿 삭제 전 까지 보관됩니다.
-템플릿 등록 및 메시지 발송 시 업로드한 첨부 파일도 관리할 수 있습니다.
+The attachment storage period is 7 days, and the attachment in use in the template will be kept until the template is deleted. 
+You can also manage uploaded attachments when registering templates and sending messages.
 
 
-### 메시지 채널별 첨부 파일 명세
+### Specification of attachments by message channel
 
-| 메시지 채널 | 유형             | 파일 형식                                               | 파일 최대 크기 | 해상도                           | 비율                          |
+| Message Channel | Type             | File format                                               | Maximum file size | resolution                           | Percentage                          |
 | ----------- | ---------------- | ------------------------------------------------------- | ------------- | -------------------------------- | ----------------------------- |
-| SMS         | MMS              | .jpg, .jpeg                                             | 300KB         | 가로 1000px, 세로 1000px 이하    |                               |
+| SMS         | MMS              | .jpg, .jpeg                                             | 300KB         | Width 1000px length 1000px and less    |                               |
 | RCS         | MMS              | .jpg, .jpeg, .png, .gif, .bmp                           | 1MB           |                                  |                               |
-| 알림톡      | 이미지           | .jpg, .png                                              | 500KB         | 가로 500px 이상                  | (2:1)                         |
-| 알림톡      | 아이템 리스트    | .jpg, .png                                              | 500KB         | 가로 108px 이상                  | (1:1)                         |
-| 친구톡      | 이미지           | .jpg, .png                                              | 5MB           | 가로 500px 이상                  | (2:1) 이상 (3:4) 이하         |
-| 친구톡      | 와이드 이미지    | .jpg, .png                                              | 5MB           | 가로 800px, 세로 600px           |                               |
-| 친구톡      | 와이드 아이템 리스트 | .jpg, .png                                          | 5MB           | 가로 400px 이상 800px 이하, 세로 400px |                               |
-| 친구톡      | 캐러셀 피드      | .jpg, .png                                              | 5MB           | 가로 500px 이상                  | (2:1) 이상 (3:4) 이하         |
-| Email       | -                | .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr 제외한 모든 형식 | 30MB          |                                  |                               |
+| AlimTalk      | Image           | .jpg, .png                                              | 500KB         | Width 500px and more                  | (2:1)                         |
+| AlimTalk      | Item List    | .jpg, .png                                              | 500KB         | Width 108px and more                  | (1:1)                         |
+| FriendTalk      | Image           | .jpg, .png                                              | 5MB           | Width 500px and more                  | Above (2:1) below (3:4)         |
+| FriendTalk      | Wide image    | .jpg, .png                                              | 5MB           | Width 800px length 600px           |                               |
+| FriendTalk      | Wide item list | .jpg, .png                                          | 5MB           | Width more than 400px less than 800px, length 400px |                               |
+| FriendTalk      | Carousel feeds      | .jpg, .png                                              | 5MB           | Width 500px and more                  | Above (2:1) below (3:4)         |
+| Email       | -                | All format excluding .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr | 30MB          |                                  |                               |
 
 
