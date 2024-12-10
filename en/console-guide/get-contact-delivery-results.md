@@ -3,37 +3,37 @@
     display: inline !important;
 }
 </style>
-<h1>발송 조회</h1>
+<h1>View Delivery</h1>
 
-**Notification > Notification Hub > 콘솔 사용 가이드 > 발송 조회**
+**Notification > Notification Hub > Console User Guide > View Send **
 
 
 <span id="contact-delivery-result"></span>
 
-## 발송 조회
+## View Send
 
-발송된 메시지의 수신 결과를 수신자의 연락처 단위로 조회할 수 있습니다.
+You can view the reception results of the delivered message by receiver contacts.
 
-* 메시지 채널, 발송 시점(즉시, 예약), 발송 목적, 발송/수신/열람 상태를 복합적으로 설정해 연락처 수신 결과를 조회합니다.
-* 조회 시 기간은 요청 일시 기준으로 설정합니다.
-    * 조회 기간 설정 가능 범위는 기본, 최대 7일입니다.
-    * 조회 기간은 최대 180일 전 까지 가능합니다.
-* 상세 조건 중 하나를 추가적으로 선택해 연락처 수신 결과를 조회할 수 있습니다.
-    * 메시지 아이디, 템플릿 이름, 플로우 이름, 통계 키 이름, 발신 정보, 수신자 정보
+* Check contact reception results by setting a combination of message channels, delivery time (immediate, schedule), delivery purpose, and delivered/received/query status.
+* The query period is set as the date and time of the request.
+    * The default range for setting the inquiry period is up to 7 days.
+    * The maximum inquiry period can go back up to 180 days.
+* You can select one of the additional detailed conditions to view the results of receiving of your contact.
+    * message ID, template name, flow name, statistics key name, delivery information, receiver information
 
-### 연락처 수신 결과
+### Contact Receipt Results
 
-* 기본적으로 메시지 아이디, 메시지 채널, 요청 일시, 발송 시점, 발신 정보, 발송 상태, 발송 목적, 수신자 정보, 수신 상태가 표시됩니다.
-* 조회 필드 추가 설정에서 예약 일시, 발송 일시, 수신 일시, 템플릿 이름, 플로우 이름, 통계 키 이름, 열람 상태, 열람 일시를 선택해 확인할 수 있습니다.
-* **발송 목적**의 **확인**을 클릭해 선택된 수신자의 연락처에 대한 발송 결과를 자세히 조회할 수 있습니다.
-* 조회된 연락처 수신 결과의 발송 상태가 발송 예약, 발송 대기, 승인 대기인 경우 **선택 취소**, **일괄 취소**를 클릭해 발송을 취소할 수 있습니다.
-    * 발송 상태가 **발송 예약**인 연락처 수신 결과는 아직 발송 예약 시간이 되지 않아 대기 중인 메시지입니다.
-    * 발송 상태가 **승인 대기**인 연락처 수신 결과는 발송 승인되지 않아 대기 중인 메시지입니다.
-* 조회된 연락처 수신 결과의 발송 상태가 승인 대기인 경우 발송 시점의 **승인**을 클릭해 발송을 승인합니다.
+* By default, message ID, message channel, request date and time, delivery time, delivery information, delivery status, delivery purpose, receiver information, and receiving status are displayed.
+* You can check by selecting the scheduled delivery date, delivery date, receiving date, template name, flow name, statistical key name, query status, and viewing date in the additional settings of the inquiry field.
+* You can click **Confirm** on **Send Purpose** to view the results of the delivery in detail for the selected receiver's contacts.
+* If delivery status of the searched contact reception result is Scheduled for delivery, Waiting for delivery, Waiting for Approval, click **Deselect**, **Deselect all** to cancel the delivery.
+    * Contact received result with delivery status ** scheduled delivery ** is a pending message because scheduled delivery time is not yet reached.
+    * Contact received result with status ** Waiting for Approval ** is pending because it has not been approved for delivery.
+* If delivery status of the searched contact received result is Awaiting Approval, click **Approval** at the time of delivery to approve the delivery.
 
-### 검색 결과 다운로드
-조회된 연락처 수신 결과를 파일로 다운로드할 수 있습니다.
+### Download search results
+You can download the reception results of the searched contacts as a file.
 
-* **검색 결과 다운로드 요청**을 클릭해 연락처 수신 결과 데이터 추출을 요청합니다.
-* **다운로드 요청 목록**을 클릭해 요청한 목록을 확인하고 추출이 끝나 완성된 파일을 다운로드합니다.
-    * 연락처 수신 결과는 개인정보를 포함하고 있기 때문에 다운로드 목적을 입력해야 합니다. 
+* Click **Request to download search results** to request extracting contact reception result data.
+* Click **Download Request List** to view the requested list and download the completed file.
+    * You have to enter the purpose of the download because the contact reception result contains personal information. 
