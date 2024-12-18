@@ -3,39 +3,39 @@
     display: inline !important;
 }
 </style>
-<h1>Notification Hub API v1.0 공통 정보</h1>
+<h1>Notification Hub API v1.0共通情報</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > 공통 정보**
+**Notification > Notification Hub > API v1.0使用ガイド > 共通情報**
 
 <span id="notification-hub-api-common-information"></span>
 
-!!! danger "주의 사항"
-    * Notification Hub v1.0 API는 현재 알파(alpha) 상태로, 안정화되지 않았으며, 실험적인 기능이 추가되거나 제거될 수 있습니다. 
-    * API는 언제든지 변경될 수 있으며, 변경 시 사전 공지 없이 변경될 수 있습니다.
-    * Notification Hub가 GA(General Availability) 상태로 전환 후 공식 버전으로 변경됩니다.
-    * 변경 가능한 부분은 이 문서에서 설명하는 API 엔드포인트, 인증, 요청 제한, 요청, 응답, 필드 등 모든 항목이 포함됩니다.
+!!! danger 「注意事項」
+    * Notification Hub v1.0 APIは現在アルファ(alpha)状態であり、安定しておらず、実験的な機能が追加または削除される可能性があります。
+    * APIはいつでも変更される可能性があり、変更された場合、事前告知なしに変更されることがあります。
+    * Notification HubがGA(General Availability)状態に移行後、公式バージョンに変更されます。
+    * 変更可能な部分は、この文書で説明するAPIエンドポイント、認証、リクエスト制限、リクエスト、レスポンス、フィールドなどの全ての項目が含まれます。
 
 <span id="api-endpoint"></span>
 
-## API 엔드포인트
+## APIエンドポイント
 
-| 리전     | 엔드포인트 |
+| リージョン   | エンドポイント |
 |--------| ----- |
 | Global | https://notification-hub.api.nhncloudservice.com |
 
-* Notification Hub는 리전 구분 없이 Global 엔드포인트를 사용합니다.
+* Notification Hubはリージョン区分なくGlobalエンドポイントを使用します。
 
 <span id="authentication-and-permissions"></span>
 
-## 인증 및 권한
+## 認証及び権限
 
 ```
 X-NHN-Authorization: {accessToken}
 ```
 
-* 인증 토큰을 발급 받아 Notification Hub API 호출 시 **X-NHN-Authorization** 요청 헤더에 인증 토큰을 설정합니다.
+* 認証トークンを発行し、Notification Hub APIを呼び出す際、**X-NHN-Authorization** リクエストヘッダに認証トークンを設定します。
 
-### 인증 토큰 발급 예시
+### 認証トークン発行例
 
 #### IntelliJ HTTP
 
@@ -53,37 +53,37 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
      -H "Authorization: Basic {{oauthAuthorization}}"
 ```
 
-* **oauthAuthorization**은 **User Access Key ID**와 **Secret Access Key**를 **USER_ACCESS_KEY_ID:SECRET_ACCESS_KEY**로 합쳐 Base64 인코딩한 값입니다.
-* **User Access Key ID**와 **Secret Access Key**는 로그인 후 **오른쪽 상단의 메일 주소** > **API 보안 설정**에서 생성 및 관리할 수 있습니다.
-* 인증 토큰 발급에 대한 자세한 내용은 **사용자 가이드** > **NHN Cloud** > **Public API** > **API 인증** > **인증 토큰** 항목을 확인 부탁드립니다.
+* **oauthAuthorization**は**User Access Key ID**と **Secret Access Key**を **USER_ACCESS_KEY_ID:SECRET_ACCESS_KEY**としてBase64エンコードした値です。
+* **User Access Key ID**と**Secret Access Key**はログイン後、**右上のメールアドレス** > **APIセキュリティ設定**で作成・管理できます。
+* 認証トークン発行の詳細については、**ユーザーガイド** > **NHN Cloud** > **Public API** > **API認証** > **認証トークン**の項目をご確認ください。
 
 <span id="date-time-format"></span>
 
-## 날짜와 시간 형식
+## 日付と時間形式
 
-* 날짜와 시간은 **ISO 8601 확장 형식**을 사용합니다.
-    * [ISO 8601 - 날짜와 시간 표기법](https://ko.wikipedia.org/wiki/ISO_8601)
-* 사용 가능한 **ISO 8601** 형식은 다음과 같습니다.
+* 日付と時間は **ISO 8601拡張形式**を使用します。
+    * [ISO 8601 - 日付と時間表記法](https://ko.wikipedia.org/wiki/ISO_8601)
+* 使用可能な**ISO 8601**形式は次のとおりです。
     * YYYY-MM-DDThh:mm+hh:mm
     * YYYY-MM-DDThh:mmZ
     * YYYY-MM-DDThh:mm:ss+hh:mm
     * YYYY-MM-DDThh:mm:ssZ
     * YYYY-MM-DDThh:mm:ss.sss+hh:mm
     * YYYY-MM-DDThh:mm:ss.sssZ
-* **T**는 날짜와 시간을 구분하는 구분자입니다.
-* **+hh:mm** 또는 **Z**는 표준 시간대 지정자(Time Zone Designator) 를 나타냅니다.
-* Notification Hub API 및 기능에서 초와 밀리초 단위는 사용되지 않습니다.
-* API 응답에서 날짜와 시간은 **YYYY-MM-DDThh:mm:ss.sss+09:000** 형식으로 표기합니다.
+* **T**は日付と時間を区分するセパレータです。
+* **+hh:mm** または **Z**は標準タイムゾーン指定子(Time Zone Designator)を表します。
+* Notification Hub API及び機能では、秒とミリ秒単位は使用されません。
+* APIレスポンスで日付と時間は **YYYY-MM-DDThh:mm:ss.sss+09:000**形式で表記します。
 
 <span id="response"></span>
 
-## 응답 공통 정보
+## レスポンス共通情報
 
 <span id="succeed-response"></span>
 
-### 실패 응답 본문
+### 失敗レスポンス本文
 
-성공 응답의 HTTP 상태 코드는 **200 OK**입니다.
+成功レスポンスのHTTPステータスコードは**200 OK**です。
 
 ```json
 {
@@ -97,87 +97,87 @@ curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
 
 <span id="failed-response"></span>
 
-### 실패 응답 본문
+### 失敗レスポンス本文
 
-실패 응답의 HTTP 상태 코드는 **4xx**와 **5xx**입니다.
+失敗レスポンスのHTTPステータスコードは**4xx**と **5xx**です。
 
 ```json
 {
     "header": {
         "isSuccessful": false,
         "resultCode": 400629,
-        "resultMessage": "실패에 대한 정보를 담고 있습니다."
+        "resultMessage": "失敗に関する情報が含まれています。"
     }
 }
 ```
 
-| 이름 | 타입 | 설명 |
+| 名前 | タイプ | 説明 |
 | --- | --- | --- |
-| header.isSuccessful | Boolean | API 호출 성공 여부입니다. |
-| header.resultCode | Integer | 결과 코드입니다. 성공은 0, 실패는 400000 이상의 값을 가집니다. |
-| header.resultMessage | String | 결과 메시지입니다. 실패에 대한 정보를 담고 있습니다. |
+| header.isSuccessful | Boolean | API呼び出し成否です。 |
+| header.resultCode | Integer | 結果コードです。成功は0、失敗は400000以上の値を持ちます。 |
+| header.resultMessage | String | 結果メッセージです。失敗に関する情報が含まれています。 |
 
-* **resultCode** 앞자리 3자리는 HTTP 상태 코드와 동일하며, 뒷자리 3자리는 상세 코드입니다.
-* 결과 메시지는 언제든지 변경될 수 있습니다. 결과 메시지를 비즈니스 로직에 사용하는 것은 권장하지 않습니다.
-* 결과 메시지는 **Accept-Language** 요청 헤더에 따라 한국어, 영어, 일본어로 제공됩니다..
-* API 호출 시 **X-NC-ALWAYS-200-OK** 요청 헤더에 값을 **true**로 설정하면, 실패 응답에도 HTTP 상태 코드 **200 OK**로 응답합니다.
+* **resultCode**前3桁はHTTPステータスコードと同じで、後3桁は詳細コードです。
+* 結果メッセージはいつでも変更できます。結果メッセージをビジネスロジックに使用することは推奨しません。
+* 結果メッセージは**Accept-Language** リクエストヘッダに基づいて韓国語、英語、日本語で提供されます。
+* API呼び出し時、**X-NC-ALWAYS-200-OK** リクエストヘッダに値を**true**に設定すると、失敗レスポンスにもHTTPステータスコード **200 OK**でレスポンスします。
 
 <span id="rate-limit"></span>
 
-## 요청 수 제한
-* Notification Hub에서는 특정 클라이언트가 과도한 리소스 점유를 막고 서비스의 안정성을 보장하기 위해 API 요청 수를 제한합니다.
-* API 요청 수는 초당 요청 수. 300RPS(Requests Per Second)으로 제한됩니다.
+## リクエスト数制限
+* Notification Hubでは、特定のクライアントによる過度のリソース占有を防ぎ、サービスの安定性を確保するため、APIリクエスト数を制限しています。
+* APIリクエスト数は1秒あたりのリクエスト数。300RPS(Requests Per Second)に制限されます。
 
-!!! danger "주의 사항"
-    * 요청 수 계산은 클라이언트, 서버간 시간 차이, 네트워크 지연에 따라 다르게 측정되어 계산된 값이 다를 수 있습니다.
-    * 300RPS가 넘으면 서버는 HTTP 상태 코드 429(Too Many Requests) 응답으로 클라이언트의 요청을 거부합니다.
-    * 요청이 거부되었을 때 클라이언트가 즉시 재시도하면 서버의 요청 거부가 오랜 시간 동안 유지될 수 있습니다.
-    * 클라이언트는 요청이 거부되면 지수 백오프(Exponential Backoff) 처럼 재시도 간격을 늘려가며 호출하는 것을 권장합니다.
+!!! danger 「注意事項」
+    * リクエスト数の計算は、クライアント、サーバー間の時間差、ネットワーク遅延によって異なる測定を行い、計算された値が異なる場合があります。
+    * 300RPSを超えると、サーバーはHTTPステータスコード429(Too Many Requests)レスポンスでクライアントのリクエストを拒否します。
+    * リクエストが拒否された場合、クライアントが即時再試行すると、サーバーのリクエスト拒否が長い時間維持されることがあります。
+    * クライアントは、リクエストが拒否されたら、指数バックオフ(Exponential Backoff)のように再試行間隔を増やして呼び出すことを推奨します。
 
 <span id="example-api-calls"></span>
 
-## 호출 예시
+## 呼び出し例
 
-Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 API 호출 예시를 제공합니다.
+Notification Hub API使用ガイドでは、**IntelliJ HTTP**、**cURL**でのAPI呼び出し例を提供します。
 
 ### IntelliJ HTTP
-* IntelliJ HTTP는 IntelliJ IDEA의 HTTP 클라이언트 플러그인으로 JetBrains IDEs 또는 명령줄에서 실행할 수 있습니다.
+* IntelliJ HTTPはIntelliJ IDEAのHTTPクライアントプラグインで、JetBrains IDEsまたはコマンドラインから実行できます。
     * [JetBrains - IntelliJ HTTP Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
-        * IntelliJ HTTP Client 사용 방법, 문법에 대한 가이드 문서입니다.
+        * IntelliJ HTTP Clientの使い方、文法についてのガイド文書です。
     * [JetBrains Marketplace - IntelliJ HTP Client](https://plugins.jetbrains.com/plugin/13121-http-client)
-        * IntelliJ HTTP Client 플러그인 링크입니다.
+        * IntelliJ HTTP Clientプラグインリンクです。
     * [JetBrains - IntelliJ HTTP Cient CLI](https://blog.jetbrains.com/idea/2022/12/http-client-cli-run-requests-and-tests-on-ci/)
-        * IntelliJ가 없는 환경에서 IntelliJ HTTP(*.http) 파일을 실행시키는 CLI에 대한 소개 문서입니다.
+        * IntelliJがない環境でIntelliJ HTTP(*.http)ファイルを実行させるCLIの紹介記事です。
     * [Docker - IntelliJ HTTP Client Image](https://hub.docker.com/r/jetbrains/intellij-http-client)
-        * IntelliJ HTTP Client 도커 이미지 링크입니다.
+        * IntelliJ HTTP Clientドッカーイメージリンクです。
     * [JetBrains - Define environment variables](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#environment-variables)
-        * IntelliJ HTTP Client 환경 변수 설정 방법에 대한 가이드 문서입니다.
+        * IntelliJ HTTP Client環境変数設定方法についてのガイド文書です。
       
 
-**IntelliJ HTTP 환경 변수 설정 파일 예시(htt-client.env.json)**
+**IntelliJ HTTP環境変数設定ファイル例(htt-client.env.json)**
 
 ```json
 {
    "default": {
      "endpoint": "https://notification-hub.api.nhncloudservice.com",
-     "appKey": "앱키",
-     "accessToken": "인증 토큰"
+     "appKey": "アプリキー",
+     "accessToken": "認証トークン"
    }
 }
 ```
 
 ### cURL
 
-* cURL은 명령줄에서 실행할 수 있는 커맨드 라인 도구로, 다양한 프로토콜을 지원합니다.
+* cURLはコマンドラインで実行できるコマンドラインツールで、様々なプロトコルをサポートします。
     * [cURL](https://curl.se/)
-        * cURL 공식 홈페이지입니다.
+        * cURL公式Webサイトです。
     * [cURL - Wikipedia](https://ko.wikipedia.org/wiki/CURL)
-        * cURL에 대한 Wikipedia 문서입니다.
+        * cURLにういてのWikipedia文書です。
 
-**cURL 환경 변수 설정 예시**
+**cURL環境変数設定例**
 
 ```
 ENDPOINT=https://notification-hub.api.nhncloudservice.com
-APP_KEY=앱키
-ACCESS_TOKEN=인증 토큰
+APP_KEY=アプリキー
+ACCESS_TOKEN=認証トークン
 ```

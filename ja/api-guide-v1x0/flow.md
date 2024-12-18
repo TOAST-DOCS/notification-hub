@@ -3,17 +3,17 @@
     display: inline !important;
 }
 </style>
-<h1>플로우</h1>
+<h1>フロー</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > 플로우**
+**Notification > Notification Hub > API v1.0使用ガイド > フロー**
 
-## 플로우
+## フロー
 
 <span id="post-flow"></span>
 
-### 플로우 생성
+### フロー作成
 
-**요청**
+**リクエスト**
 
 ```
 POST /flow/v1.0/flows
@@ -22,31 +22,31 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
+| appKey | Header | String | Y | アプリキー |
+| accessToken | Header | String | Y | 認証トークン |
 
-**요청 본문**
+**リクエスト本文**
 
 ```json
 {
-  "flowName": "플로우_이름",
-  "description": "플로우_설명",
+  "flowName": "フロー_名前",
+  "description": "フロー_説明",
   "messagePurpose": "NORMAL",
   "steps": {
     "messageChannel": "EMAIL",
-    "templateId": "이메일_템플릿_아이디",
+    "templateId": "メール_テンプレート_ID",
     "nextSteps": [
       {
         "messageChannel": "ALIMTALK",
-        "templateId": "알림톡_템플릿_아이디",
+        "templateId": "お知らせトーク_テンプレート_ID",
         "nextSteps": [
           {
             "messageChannel": "SMS",
-            "templateId": "SMS_템플릿_아이디",
+            "templateId": "SMS_テンプレート_ID",
             "nextSteps": []
           }
         ]
@@ -56,22 +56,22 @@ X-NHN-Authorization: {accessToken}
 }
 ```
 
-| 이름 | 타입            | 필수 | 설명                                     |
+| 名前 | タイプ          | 必須 | 説明                                   |
 | --- |---------------| --- |----------------------------------------|
-| flowName | String        | Y | 플로우 이름                                 |
-| description | String        | N | 플로우 설명                                 |
-| messagePurpose | String        | Y | 메시지 목적<br>NORMAL(일반), AD(광고), AUTH(인증) |
-| steps | Object        | Y | 플로우 단계                                  |
-| steps.messageChannel | String        | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
-| steps.templateId | String        | Y | 템플릿 아이디                               |
-| steps.nextSteps | Object Array | N | 다음 단계                                   |
+| flowName | String        | Y | フロー名                               |
+| description | String        | N | フローの説明                               |
+| messagePurpose | String        | Y | メッセージ目的<br>NORMAL(一般), AD(広告), AUTH(認証) |
+| steps | Object        | Y | フロー段階                                |
+| steps.messageChannel | String        | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| steps.templateId | String        | Y | テンプレートID                               |
+| steps.nextSteps | Object Array | N | 次のステップ                                 |
 
-* 위 예시는 이메일, 알림톡, SMS 템플릿을 사용하는 플로우를 생성하는 예시입니다.
-* 한번 사용된 메시지 채널은 다음 단계에서 사용할 수 없습니다.
-* 한 단계는 여러 개의 다음 단계를 가질 수 있습니다.
-* 순서 없이 동시 발송을 원하는 겨우 첫 번째 단계인 **steps**에 모든 메시지 채널을 추가합니다.
+* 上記の例はメール、お知らせトーク、 SMSテンプレートを使用するフローを作成する例です。
+* 一度使用したメッセージチャンネルは、次のステップでは使用できません。
+* 1つのステップは複数の次のステップを持つことができます。
+* 順序なく同時送信を希望する最初のステップである**steps**に全てのメッセージチャンネルを追加します。
 
-**응답 본문**
+**レスポンス本文**
 
 ```json
 {
@@ -80,39 +80,39 @@ X-NHN-Authorization: {accessToken}
     "resultCode": 0,
     "resultMessage": "SUCCESS"
   },
-  "flowId": "플로우_아이디"
+  "flowId": "フロー_ID"
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-**요청 예시**
+**リクエスト例**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 플로우 생성
+### フロー作成
 POST {{endpoint}}/flow/v1.0/flows
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{authorizationToken}}
 
 {
-  "flowName": "플로우_이름",
-  "description": "플로우_설명",
+  "flowName": "フロー_名前",
+  "description": "フロー_説明",
   "messagePurpose": "NORMAL",
   "steps": {
     "messageChannel": "EMAIL",
-    "templateId": "이메일_템플릿_아이디",
+    "templateId": "メール_テンプレート_ID",
     "nextSteps": [
       {
         "messageChannel": "ALIMTALK",
-        "templateId": "알림톡_템플릿_아이디",
+        "templateId": "お知らせトーク_テンプレート_ID",
         "nextSteps": [
           {
             "messageChannel": "SMS",
-            "templateId": "SMS_템플릿_아이디",
+            "templateId": "SMS_テンプレート_ID",
             "nextSteps": []
           }
         ]
@@ -133,20 +133,20 @@ curl -X POST "${ENDPOINT}/flow/v1.0/flows" \
      -H "X-NC-APP-KEY: ${APP_KEY}" \
      -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
      -d '{
-      "flowName": "플로우_이름",
-      "description": "플로우_설명",
+      "flowName": "フロー_名前",
+      "description": "フロー_説明",
       "messagePurpose": "NORMAL",
       "steps": {
         "messageChannel": "EMAIL",
-        "templateId": "이메일_템플릿_아이디",
+        "templateId": "メール_テンプレート_ID",
         "nextSteps": [
           {
             "messageChannel": "ALIMTALK",
-            "templateId": "알림톡_템플릿_아이디",
+            "templateId": "お知らせトーク_テンプレート_ID",
             "nextSteps": [
               {
                 "messageChannel": "SMS",
-                "templateId": "SMS_템플릿_아이디",
+                "templateId": "SMS_テンプレート_ID",
                 "nextSteps": []
               }
             ]
@@ -159,9 +159,9 @@ curl -X POST "${ENDPOINT}/flow/v1.0/flows" \
 
 <span id="get-flows"></span>
 
-### 플로우 목록 조회
+### フローリスト照会
 
-**요청**
+**リクエスト**
 
 ```
 GET /flow/v1.0/flows
@@ -169,23 +169,23 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명         |
+| 名前 | 区分 | タイプ | 必須 | 説明       |
 | --- | --- | --- | --- |------------|
-| appKey | Header | String | Y | 앱키         |
-| accessToken | Header | String | Y | 인증 토큰      |
-| flowId | Query | String | N | 플로우 아이디    |
-| flowName | Query | String | N | 플로우 이름, 접두사(Prefix) 검색 가능 |
-| limit | Query | Integer | N | 페이지당 조회 개수 |
-| offset | Query | Integer | N | 페이지 오프셋    |
+| appKey | Header | String | Y | アプリキー       |
+| accessToken | Header | String | Y | 認証トークン    |
+| flowId | Query | String | N | フローID    |
+| flowName | Query | String | N | フロー名、プレフィックス(Prefix)検索可能 |
+| limit | Query | Integer | N | 1ページあたりの照会数 |
+| offset | Query | Integer | N | ページオフセット  |
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-이 API는 요청 본문을 요구하지 않습니다.
+<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません。」と入力します。-->
+このAPIはリクエスト本文を要求しません。
 
-**응답 본문**
+**レスポンス本文**
 
 ```json
 {
@@ -196,22 +196,22 @@ X-NHN-Authorization: {accessToken}
   },
   "flows": [
     {
-      "flowId": "플로우_아이디",
-      "flowName": "플로우_이름",
-      "description": "플로우_설명",
+      "flowId": "フロー_ID",
+      "flowName": "フロー_名前",
+      "description": "フロー_説明",
       "messagePurpose": "NORMAL",
       "steps": [
         {
           "messageChannel": "EMAIL",
-          "templateId": "이메일_템플릿_아이디",
+          "templateId": "メール_テンプレート_ID",
           "nextSteps": [
             {
               "messageChannel": "ALIMTALK",
-              "templateId": "알림톡_템플릿_아이디",
+              "templateId": "お知らせトーク_テンプレート_ID",
               "nextSteps": [
                 {
                   "messageChannel": "SMS",
-                  "templateId": "SMS_템플릿_아이디",
+                  "templateId": "SMS_テンプレート_ID",
                   "nextSteps": []
                 }
               ]
@@ -224,15 +224,15 @@ X-NHN-Authorization: {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-**요청 예시**
+**リクエスト例**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 플로우 목록 조회
+### フローリスト照会
 GET {{endpoint}}/flow/v1.0/flows
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
@@ -255,9 +255,9 @@ curl -X GET "${ENDPOINT}/flow/v1.0/flows" \
 
 <span id="get-flow"></span>
 
-### 플로우 조회
+### フロー照会
 
-**요청**
+**リクエスト**
 
 ```
 GET /flow/v1.0/flows/{flowId}
@@ -265,21 +265,21 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| flowId | Path | String | Y | 플로우 아이디 |
+| appKey | Header | String | Y | アプリキー |
+| accessToken | Header | String | Y | 認証トークン |
+| flowId | Path | String | Y | フローID |
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません。」と入力します。-->
 
-이 API는 요청 본문을 요구하지 않습니다.
+このAPIはリクエスト本文を要求しません。
 
-**응답 본문**
+**レスポンス本文**
 
 ```json
 {
@@ -289,22 +289,22 @@ X-NHN-Authorization: {accessToken}
     "resultMessage": "SUCCESS"
   },
   "flow": {
-    "flowId": "플로우_아이디",
-    "flowName": "플로우_이름",
-    "description": "플로우_설명",
+    "flowId": "フロー_ID",
+    "flowName": "フロー_名前",
+    "description": "フロー_説明",
     "messagePurpose": "NORMAL",
     "steps": [
       {
         "messageChannel": "EMAIL",
-        "templateId": "이메일_템플릿_아이디",
+        "templateId": "メール_テンプレート_ID",
         "nextSteps": [
           {
             "messageChannel": "ALIMTALK",
-            "templateId": "알림톡_템플릿_아이디",
+            "templateId": "お知らせトーク_テンプレート_ID",
             "nextSteps": [
               {
                 "messageChannel": "SMS",
-                "templateId": "SMS_템플릿_아이디",
+                "templateId": "SMS_テンプレート_ID",
                 "nextSteps": []
               }
             ]
@@ -316,15 +316,15 @@ X-NHN-Authorization: {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-**요청 예시**
+**リクエスト例**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 플로우 조회
+### フロー照会
 GET {{endpoint}}/flow/v1.0/flows/{{flowId}}
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
@@ -347,9 +347,9 @@ curl -X GET "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
 
 <span id="put-flow"></span>
 
-### 플로우 수정
+### フロー修正
 
-**요청**
+**リクエスト**
 
 ```
 PUT /flow/v1.0/flows/{flowId}
@@ -358,32 +358,32 @@ X-NC-APP-KEY: {{ppKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| flowId | Path | String | Y | 플로우 아이디 |
+| appKey | Header | String | Y | アプリキー |
+| accessToken | Header | String | Y | 認証トークン |
+| flowId | Path | String | Y | フローID |
 
-**요청 본문**
+**リクエスト本文**
 
 ```json
 {
-  "flowName": "플로우_이름",
-  "description": "플로우_설명",
+  "flowName": "フロー_名前",
+  "description": "フロー_説明",
   "messagePurpose": "NORMAL",
   "steps": {
     "messageChannel": "EMAIL",
-    "templateId": "이메일_템플릿_아이디",
+    "templateId": "メール_テンプレート_ID",
     "nextSteps": [
       {
         "messageChannel": "ALIMTALK",
-        "templateId": "알림톡_템플릿_아이디",
+        "templateId": "お知らせトーク_テンプレート_ID",
         "nextSteps": [
           {
             "messageChannel": "SMS",
-            "templateId": "SMS_템플릿_아이디",
+            "templateId": "SMS_テンプレート_ID",
             "nextSteps": []
           }
         ]
@@ -393,9 +393,9 @@ X-NHN-Authorization: {accessToken}
 }
 ```
 
-* 플로우 수정은 플로우 생성과 동일한 요청 본문을 사용합니다.
+* フロー修正はフロー作成と同じリクエスト本文を使用します。
 
-**응답 본문**
+**レスポンス本文**
 
 ```json
 {
@@ -407,35 +407,35 @@ X-NHN-Authorization: {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-**요청 예시**
+**リクエスト例**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 플로우 수정
+### フロー修正
 PUT {{endpoint}}/flow/v1.0/flows/{{flowId}}
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
 X-NHN-Authorization: {{authorizationToken}}
 
 {
-  "flowName": "플로우_이름",
-  "description": "플로우_설명",
+  "flowName": "フロー_名前",
+  "description": "フロー_説明",
   "messagePurpose": "NORMAL",
   "steps": {
     "messageChannel": "EMAIL",
-    "templateId": "이메일_템플릿_아이디",
+    "templateId": "メール_テンプレート_ID",
     "nextSteps": [
       {
         "messageChannel": "ALIMTALK",
-        "templateId": "알림톡_템플릿_아이디",
+        "templateId": "お知らせトーク_テンプレート_ID",
         "nextSteps": [
           {
             "messageChannel": "SMS",
-            "templateId": "SMS_템플릿_아이디",
+            "templateId": "SMS_テンプレート_ID",
             "nextSteps": []
           }
         ]
@@ -456,20 +456,20 @@ curl -X PUT "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
      -H "X-NC-APP-KEY: ${APP_KEY}" \
      -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
      -d '{
-      "flowName": "플로우_이름",
-      "description": "플로우_설명",
+      "flowName": "フロー_名前",
+      "description": "フロー_説明",
       "messagePurpose": "NORMAL",
       "steps": {
         "messageChannel": "EMAIL",
-        "templateId": "이메일_템플릿_아이디",
+        "templateId": "メール_テンプレート_ID",
         "nextSteps": [
           {
             "messageChannel": "ALIMTALK",
-            "templateId": "알림톡_템플릿_아이디",
+            "templateId": "お知らせトーク_テンプレート_ID",
             "nextSteps": [
               {
                 "messageChannel": "SMS",
-                "templateId": "SMS_템플릿_아이디",
+                "templateId": "SMS_テンプレート_ID",
                 "nextSteps": []
               }
             ]
@@ -483,9 +483,9 @@ curl -X PUT "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
 
 <span id="delete-flow"></span>
 
-### 플로우 삭제
+### フロー削除
 
-**요청**
+**リクエスト**
 
 ```
 DELETE /flow/v1.0/flows/{flowId}
@@ -493,21 +493,21 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | 앱키 |
-| accessToken | Header | String | Y | 인증 토큰 |
-| flowId | Path | String | Y | 플로우 아이디 |
+| appKey | Header | String | Y | アプリキー |
+| accessToken | Header | String | Y | 認証トークン |
+| flowId | Path | String | Y | フローID |
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません。」と入力します。-->
 
-이 API는 요청 본문을 요구하지 않습니다.
+このAPIはリクエスト本文を要求しません。
 
-**응답 본문**
+**レスポンス本文**
 
 ```json
 {
@@ -519,15 +519,15 @@ X-NHN-Authorization: {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-**요청 예시**
+**リクエスト例**
 
 <details>
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 플로우 삭제
+### フロー削除
 DELETE {{endpoint}}/flow/v1.0/flows/{{flowId}}
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}

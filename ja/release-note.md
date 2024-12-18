@@ -3,24 +3,23 @@
     display: inline !important;
 }
 </style>
-<h1>Notification Hub 릴리스 노트</h1>
+<h1>Notification Hubリリースノート</h1>
 
-**Notification > Notification Hub > 릴리스 노트**
+**Notification > Notification Hub > リリースノート**
 
 ## 2024. 11. 12.
 
-### Notification Hub 베타(beta) 출시
+### Notification Hubベータ(beta)リリース
 
-### 버그 수정
-* [Console] 콘솔에서 발송한 메시지가 수신자에게 정상적으로 전달되지 않는 문제를 수정했습니다.
-
+### バグ修正
+* [Console] コンソールから送信したメッセージが受信者に正常に配信されない問題を修正しました。
 
 ## 2024. 10. 29.
 
-### Notification Hub 알파(alpha) 출시
-* 사용 방법 안내
-    * 알파로 출시된 상품은 **고객 센터 > 1:1 문의**를 통해 사용하실 수 있습니다.
-* [Console] 콘솔 공개
-    * 발송, 발송 조회, 주소록, 템플릿, 플로우, 상세 설정, 통계, 본인 인증 탭을 추가했습니다.
-* [API] API v1.0 추가
-    * 메시지, 연락처 수신 결과 목록 조회, 템플릿, 플로우 API v1.0을 추가했습니다.
+### Notification Hubアルファ(alpha)リリース
+* 使い方案内
+    * アルファでリリースされた商品は**サポート > 1:1お問い合わせ**を通じて使用できます。
+* [Console]コンソール公開
+    * 送信、送信照会、アドレス帳、テンプレート、フロー、詳細設定、統計、本人認証タブを追加しました。
+* [API] API v1.0追加
+    * メッセージ、連絡先受信結果リスト照会、テンプレート、フローAPI v1.0を追加しました。
