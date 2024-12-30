@@ -188,7 +188,7 @@ X-NHN-Authorization: {accessToken}
 | contactDeliveryResults[].contactType | String| 연락처 타입 |
 | contactDeliveryResults[].contact | String| 연락처|
 | contactDeliveryResults[].sender | Object| 발신자|
-| contactDeliveryResults[].sender.senderKey | String| 발신프로필 발신키, 알림톡과 친구톡만 표시|
+| contactDeliveryResults[].sender.senderKey | String| 발신 프로필 발신키, 알림톡과 친구톡만 표시|
 | contactDeliveryResults[].sender.senderProfileId | String| 발신 프로필 아이디, 알림톡과 친구톡만 표시 |
 | contactDeliveryResults[].sender.senderProfileType | String| 발신 프로필 타입, 알림톡과 친구톡만 표시|
 | contactDeliveryResults[].sender.senderPhoneNumber | String| 발신자 전화번호, SMS만 표시|
