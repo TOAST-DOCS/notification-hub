@@ -48,7 +48,7 @@ Authorization: Basic {{oauthAuthorization}}
 #### cURL
 
 ```curl
-curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
+curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
      -H "Content-Type: application/x-www-form-urlencoded" \
      -H "Authorization: Basic {{oauthAuthorization}}"
 ```
