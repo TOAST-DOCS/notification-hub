@@ -3,26 +3,26 @@
     display: inline !important;
 }
 </style>
-<h1>본인 인증</h1>
+<h1>Identity Verification</h1>
 
-**Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 본인 인증**
+**Notification > Notification Hub > Usage Policy and Preset Guide > Identity verification**
 
 <span id="identity-verification"></span>
 
-Notification Hub를 이용하려면 **Notification Hub** > **본인 인증**에서 본인 인증 후 사용할 수 있습니다. (전기통신사업법 관련 고시 준수)
+To use the Notification Hub, you can use it after Identity verification at **Notification Hub** > ** Identity verification ** (compliance with notification related to the Telecommunications Business Act)
 
-* 사업자 회원은 본인 인증을 통해 Notificaion Hub를 이용할 수 있습니다. 개인 회원은 본인 인증이 제한됩니다.
-  * [전기통신사업법 시행령 제37조의7](https://www.law.go.kr/법령/전기통신사업법시행령/(20240731,34761,20240730)/제37조의7)
-* 본인 인증은 기본적으로 휴대폰 본인 인증과 사업자등록증, 재직증명서에 대한 서류 심사가 필요합니다. 
-* 회원 가입 시 입력한 이름과 휴대폰 번호가 본인 인증 시 입력하는 정보와 일치해야 본인 인증 승인이 됩니다.
-* 사업자 회원이 생성한 조직/프로젝트에 초대된 NHN Cloud 계정 또는 사업자 회원이 생성한 조직에 초대된 IAM 계정은 서비스 이용을 위해 본인 인증을 진행해야 합니다.
-  * 초대된 NHN Cloud 계정, IAM 계정은 본인 인증 승인 시 회원 유형이 사업자로 구분됩니다.
-* 재직증명서는 **발급일이 표기되어 있고, 직인이 날인된 서류**만 가능합니다. 재직증명서 내 주민등록번호 뒤 6자리는 **반드시 마스킹(숨김) 처리**하세요. 예: 000000-0\*\*\*\*\*\*
+* Business members can use the Notification Hub through Identity verification. Individual members are restricted from conducting Identity verification.
+  * [ Article 37-7of the Enforcement Decree of the Telecommunications Business Act](https://www.law.go.kr/법령/전기통신사업법시행령/(20240731,34761,20240730)/제37조의7)
+* Identity verification basically requires a document review of mobile phone self-authentication, business registration certificate, and employment certificate. 
+* The name and mobile phone number entered at the time of membership must match the information entered at the time of identity verification to be approved for identity verification.
+* NHN Cloud accounts invited to organizations/projects created by business members or IAM accounts invited to organizations created by business members must conduct identity verification to use services.
+  * Invited NHN Cloud accounts and IAM accounts are classified as business operators when they approve their Identity verification.
+* The certificate of employment is marked with **issuance date and only documents with seal ** are allowed. The 6 digits after the resident registration number in the certificate of employment **must be masked (hidden)**. For example, 000000-0\*\*\*\*\**
 
-## 본인 인증 상태
+## Identity Verification Status
 
-| 상태       | 설명 |
+| Status       | Description |
 |----------| --- |
-| **심사 중** | 등록한 본인 인증에 대한 인증 서류를 관리자가 검토하고 있는 상태 |
-| **거부**   | 본인 인증이 반려되어 서류 재등록이 필요한 상태 |
-| **승인**   | 본인 인증 승인 완료 상태 |
+| **Approval in progress** | Status where the administrator is reviewing the certification document for the registered Identity verification |
+| **Rejected**   | Status where  re-registration of documents is required as identity verification has been rejected.  |
+| **Approved**   | Status where identity verification is complete |
