@@ -97,10 +97,10 @@ X-NHN-Authorization: {accessToken}
 | RCS | sender.chatbotId | 대화방 아이디 |
 | EMAIL | sender.senderMailAddress | 발신자 이메일 주소 |
 | ALIMTALK, FRIENDTALK | sender.senderKey | 발신키 |
-| ALIMTALK | sender.senderProfileType | 발신프로필 유형<br>GROUP, NORMAL |
+| ALIMTALK | sender.senderProfileType | 발신 프로필 유형<br>GROUP, NORMAL |
 
-* 알림톡(ALIMTALK)은 발신 키(senderKey)와 발신프로필 유형(senderProfileType)을 필수로 입력해야 합니다.
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* 알림톡(ALIMTALK)은 발신 키(senderKey)와 발신 프로필 유형(senderProfileType)을 필수로 입력해야 합니다.
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 * 발신자 프로필 유형은 **GROUP(그룹)**과 **NORMAL(일반)**이 있습니다. **GROUP**은 그룹 발신자 프로필, **NORMAL**은 일반 발신자 프로필입니다.
 
 **응답 본문**
@@ -332,7 +332,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 * 알림톡은 템플릿 등록 후 승인을 받은 상태에서 발송 가능하기 때문에 템플릿, 플로우 메시지 발송만 가능합니다.
 * 알림톡의 **sender**, **content** 필드는 **템플릿 메시지 발송**의 **요청 본문**을 확인하세요.
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
 ```json
 {
@@ -340,7 +340,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신프로필_발신키"
+        "senderKey": "발신 프로필_발신키"
     },
     "recipients": [
         {
@@ -382,7 +382,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | 이름 | 타입 | 필수 | 설명                                                            |
 | --- | --- |----|---------------------------------------------------------------|
 | sender | Object | Y  | 발신자                                                           |
-| sender.senderKey | Object | Y  | 발신프로필_발신키                                                     |
+| sender.senderKey | Object | Y  | 발신 프로필_발신키                                                     |
 | content | Object | Y  | 메시지 내용                                                        |
 | content.messageType | String | Y  | 메시지 유형                                                        |
 | content.content | String | Y  | 내용                                                            |
@@ -406,7 +406,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 ### 친구톡 - 이미지형 / 와이드 이미지형
 
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
 ```json
 {
@@ -414,7 +414,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신프로필_발신키"
+        "senderKey": "발신 프로필_발신키"
     },
     "recipients": [
         {
@@ -457,7 +457,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | 이름 | 타입            | 필수 | 설명                                                            |
 | --- |---------------|----|---------------------------------------------------------------|
 | sender | Object        | Y  | 발신자                                                           |
-| sender.senderKey | Object        | Y  | 발신프로필_발신키                                                     |
+| sender.senderKey | Object        | Y  | 발신 프로필_발신키                                                     |
 | content | Object        | Y  | 메시지 내용                                                        |
 | content.messageType | String        | Y  | 메시지 유형                                                        |
 | content.content | String        | Y  | 내용                                                            |
@@ -483,7 +483,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 ### 친구톡 - 와이드 아이템리스트형
 
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
 ```json
 {
@@ -491,7 +491,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신프로필_발신키"
+        "senderKey": "발신 프로필_발신키"
     },
     "recipients": [
         {
@@ -559,7 +559,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | 이름                                | 타입            | 필수 | 설명                                                                                                                                                        |
 |-----------------------------------|---------------|----|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | sender                            | Object        | Y  | 발신자                                                                                                                                                       |
-| sender.senderKey                  | Object        | Y  | 발신프로필_발신키                                                                                                                                                 |
+| sender.senderKey                  | Object        | Y  | 발신 프로필_발신키                                                                                                                                                 |
 | content                           | Object        | Y  | 메시지 내용                                                                                                                                                    |
 | content.messageType               | String        | Y  | 메시지 유형                                                                                                                                                    |
 | content.buttons                   | Object Array | N  | 버튼                                                                                                                                                        |
@@ -591,7 +591,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 ### 친구톡 - 캐러셀 피드형
 
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 
 ```json
 {
@@ -599,7 +599,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신프로필_발신키"
+        "senderKey": "발신 프로필_발신키"
     },
     "recipients": [
         {
@@ -686,7 +686,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | 이름                                                         | 타입            | 필수 | 설명                                                                                                                                                       |
 |------------------------------------------------------------|---------------|----|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | sender                                                     | Object        | Y  | 발신자                                                                                                                                                      |
-| sender.senderKey                                           | Object        | Y  | 발신프로필_발신키                                                                                                                                                |
+| sender.senderKey                                           | Object        | Y  | 발신 프로필_발신키                                                                                                                                                |
 | content                                                    | Object        | Y  | 메시지 내용                                                                                                                                                   |
 | content.messageType                                        | String        | Y  | 메시지 유형                                                                                                                                                   |
 | content.carousel                                           | Object        | Y  | 캐러셀                                                                                                                                                      |
@@ -730,8 +730,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     {
       "contacts": [
         {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contactType": "EMAIL_ADDRESS",
+          "contact": "recipient@example.com"
         }
       ]
     }

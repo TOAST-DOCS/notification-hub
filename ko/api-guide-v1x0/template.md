@@ -76,10 +76,10 @@ X-NHN-Authorization: {accessToken}
 | RCS | sender.chatbotId | 대화방 아이디                   |
 | EMAIL | sender.senderMailAddress | 발신자 이메일 주소                |
 | ALIMTALK, FRIENDTALK | sender.senderKey | 발신키                       |
-| ALIMTALK | sender.senderProfileType | 발신프로필 유형<br>GROUP, NORMAL |
+| ALIMTALK | sender.senderProfileType | 발신 프로필 유형<br>GROUP, NORMAL |
 
-* 알림톡(ALIMTALK)은 발신 키(senderKey)와 발신프로필 유형(senderProfileType)을 필수로 입력해야 합니다.
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* 알림톡(ALIMTALK)은 발신 키(senderKey)와 발신 프로필 유형(senderProfileType)을 필수로 입력해야 합니다.
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
 * 발신자 프로필 유형은 **GROUP(그룹)**과 **NORMAL(일반)**이 있습니다. **GROUP**은 그룹 발신자 프로필, **NORMAL**은 일반 발신자 프로필입니다.
 
 ### 알림톡 템플릿 상세 요청 본문
