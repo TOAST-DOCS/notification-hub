@@ -70,17 +70,17 @@ X-NHN-Authorization: {accessToken}
 
 <!--요청 본문의 필드를 설명합니다.-->
 
-| 이름 | 타입 | 필수  | 설명 |
-| --- | --- |-----| --- |
-| statsKeyId | String | N   | 통계 키 아이디 |
-| scheduledDateTime | DateTime(ISO 8601) | N   | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00) |
-| confirmBeforeSend | Boolean | N   | 발송 전 확인 여부(기본값 false) |
-| sender | Object | Y/N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
-| recipients | Object Array | Y   | 수신자 배열 |
-| recipients[].contacts | Object Array | Y   | 수신자의 연락처 배열 |
-| recipients[].contacts[].contactType | String | Y   | 연락처 유형 |
-| recipients[].contacts[].contact | String | Y   | 연락처 |
-| content | Object | Y   | 메시지 내용 |
+| 이름 | 타입 | 필수  | 설명                                                                                                                                    |
+| --- | --- |-----|---------------------------------------------------------------------------------------------------------------------------------------|
+| statsKeyId | String | N   | 통계 키 아이디                                                                                                                              |
+| scheduledDateTime | DateTime(ISO 8601) | N   | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00)                                                                                                |
+| confirmBeforeSend | Boolean | N   | 발송 전 확인 여부(기본값 false)                                                                                                                 |
+| sender | Object | Y/N | 발신자, 푸시 외 다른 메시지 채널은 필수                                                                                                               |
+| recipients | Object Array | Y   | 수신자 배열                                                                                                                                |
+| recipients[].contacts | Object Array | Y   | 수신자의 연락처 배열                                                                                                                           |
+| recipients[].contacts[].contactType | String | Y   | 연락처 유형<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_FCM, TOKEN_APNS, TOKEN_ADM, TOKEN_APNS_SANDBOX, TOKEN_APNS_VOIP, TOKEN_APNS_VOIP_SANDBOX |
+| recipients[].contacts[].contact | String | Y   | 연락처                                                                                                                                   |
+| content | Object | Y   | 메시지 내용                                                                                                                                |
 
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
 * 메시지 채널에 따라 **recipients[].contact.contactType**, **recipients[].contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
@@ -159,7 +159,7 @@ X-NHN-Authorization: {{authorizationToken}}
     "body": "안녕하세요. NHN Cloud의 신규 상품 Notification Hub가 출시 되었습니다."
   }
 }
-````
+```
 
 </details>
 
@@ -759,6 +759,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 * 첨부 파일은 **최대 10개**까지 업로드 가능하며, **30MB 이하의 파일**만 가능합니다.
 * 첨부 파일의 **총합은 30MB**를 넘어갈 수 없습니다.
 * 최대 **30MB**까지 첨부 가능하지만 수신하는 이메일 시스템(gmail.com, naver.com 등)의 첨부 파일 제한 정책에 따라 **제한 초과**로 거부되거나 스팸 판정률이 높아질 수 있으므로 **10MB 이내로 첨부**할 것을 권장합니다.
+* **recipients[].contacts[].contactType** 필드에는 **EMAIL_ADDRESS**만 사용 가능합니다. 
+* **recipients[].contacts[].contact** 필드에는 수신자 이메일 주소를 입력합니다.
 
 <span id="free-form-message-request-body-push"></span>
 
@@ -854,6 +856,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 * 푸시는 **sender** 필드가 필요 없습니다.
 * 푸시는 사용자가 정의한 키와 값을 추가해 **content** 필드를 작성할 수 있습니다.
+* **recipients[].contacts[].contactType** 필드는 **TOKEN_FCM**, **TOKEN_APNS**, **TOKEN_ADM**, **TOKEN_APNS_SANDBOX**, **TOKEN_APNS_VOIP**, **TOKEN_APNS_VOIP_SANDBOX** 중 하나여야 합니다.
+* **recipients[].contacts[].contact** 필드에는 **푸시 토큰**을 입력합니다.
 
 
 <span id="template-message-sending-request"></span>

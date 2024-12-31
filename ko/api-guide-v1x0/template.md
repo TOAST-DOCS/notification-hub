@@ -247,13 +247,13 @@ X-NHN-Authorization: {accessToken}
 
 **요청 파라미터**
 
-| 이름           | 구분 | 타입 | 필수 | 설명                        |
-|--------------| --- | --- | --- |---------------------------|
-| appKey       | Header | String | Y | 앱키                        |
-| accessToken  | Header | String | Y | 인증 토큰                     |
-| templateName | Query | String | N | 템플릿 이름, 접두사(Prefix) 검색 가능 |
-| limit        | Query | Integer | N | 조회 개수(기본값: 20)            |
-| offset       | Query | Integer | N | 조회 시작 위치(기본값: 0)          |
+| 이름           | 구분 | 타입 | 필수 | 설명                                                                |
+|--------------| --- | --- | --- |-------------------------------------------------------------------|
+| appKey       | Header | String | Y | 앱키                                                                |
+| accessToken  | Header | String | Y | 인증 토큰                                                             |
+| templateName | Query | String | N | 템플릿 이름, 접두사(Prefix), 단일 문자 와일드카드(Single Character Wildcard) 검색 가능 |
+| limit        | Query | Integer | N | 조회 개수(기본값: 20)                                                    |
+| offset       | Query | Integer | N | 조회 시작 위치(기본값: 0)                                                  |
 
 **요청 본문**
 
@@ -1153,7 +1153,7 @@ X-NHN-Authorization: {accessToken}
 | appKey | Header | String | Y | 앱키                                                     |
 | accessToken | Header | String | Y | 인증 토큰                                                  |
 | messageChannel | Path | String | Y | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH  |
-| categoryTemplateName | Query | String | N | 카테고리 또는 템플릿 이름, 접두사(Prefix) 검색 가능                      |
+| categoryTemplateName | Query | String | N | 카테고리 또는 템플릿 이름, 접두사(Prefix), 단일 문자 와일드카드(Single Character Wildcard) 검색 가능 |
 | senderProfileType | Query | String | N | 발신자 프로필 타입 (GROUP, USER), 알림톡과 친구톡만 해당됨                |
 | senderKey | Query | String | N | 발신자 키, 알림톡과 친구톡만 해당됨                                   |
 
