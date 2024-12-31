@@ -75,6 +75,29 @@ curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
 * Notification Hub API 및 기능에서 초와 밀리초 단위는 사용되지 않습니다.
 * API 응답에서 날짜와 시간은 **YYYY-MM-DDThh:mm:ss.sss+09:000** 형식으로 표기합니다.
 
+## 접두사 및 단일 문자 와일드카드 검색
+
+목록 조회에서는 개인정보가 아닌 조회 조건에 대해서 접두사 및 단일 문자 와일드카드 검색이 지원됩니다.
+
+### 접두사(Prefix) 검색
+
+* **접두사 검색**은 특정 문자열로 시작하는 값을 검색합니다.
+* 요청 예시
+    * 템플릿 이름이 `광고_`로 시작하는 템플릿을 검색합니다.
+      ```
+      GET /message/v1.0/templates?templateName=광고
+      ``` 
+    * 검색 결과: 광고-1, 광고-2, 광고-3 등
+
+### 단일 문자 와일드카드(Single Character Wildcard) 검색
+* **단일 문자 와일드카드 검색**은 특정 위치에 어떤 문자든지 상관없이 검색합니다.
+* 요청 예시
+    * 템플릿 이름이 `-1`로 끝나는 템플릿을 검색합니다.
+      ```
+      GET /message/v1.0/templates?templateName=__-1
+      ``` 
+    * 검색 결과: 광고-1, 일반-1, 공지-1 등
+
 <span id="response"></span>
 
 ## 응답 공통 정보
