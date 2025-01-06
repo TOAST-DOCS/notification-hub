@@ -96,7 +96,7 @@ X-NHN-Authorization: {accessToken}
 | RCS | sender.brandId | 브랜드 아이디 |
 | RCS | sender.chatbotId | 대화방 아이디 |
 | EMAIL | sender.senderMailAddress | 발신자 이메일 주소 |
-| ALIMTALK, FRIENDTALK | sender.senderKey | 발신키 |
+| ALIMTALK, FRIENDTALK | sender.senderKey | 발신 키 |
 | ALIMTALK | sender.senderProfileType | 발신 프로필 유형<br>GROUP, NORMAL |
 
 * 알림톡(ALIMTALK)은 발신 키(senderKey)와 발신 프로필 유형(senderProfileType)을 필수로 입력해야 합니다.
