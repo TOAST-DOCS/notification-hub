@@ -491,7 +491,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신 프로필_발신키"
+        "senderKey": "발신 프로필_발신 키"
     },
     "recipients": [
         {
