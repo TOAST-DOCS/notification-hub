@@ -756,7 +756,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.attachmentIds | String Array | N  | 첨부 파일 아이디 |
 
 * 발신자 이메일 주소의 도메인은 소유 인증이 완료되어야 합니다.
-* 첨부 파일은 **최대 10개**까지 업로드 가능하며, **30MB 이하의 파일**만 가능합니다.
+* 첨부 파일은 30MB 이하로 최대 10개까지 업로드할 수 있습니다.
 * 첨부 파일의 **총합은 30MB**를 넘어갈 수 없습니다.
 * 최대 **30MB**까지 첨부 가능하지만 수신하는 이메일 시스템(gmail.com, naver.com 등)의 첨부 파일 제한 정책에 따라 **제한 초과**로 거부되거나 스팸 판정률이 높아질 수 있으므로 **10MB 이내로 첨부**할 것을 권장합니다.
 * **recipients[].contacts[].contactType** 필드에는 **EMAIL_ADDRESS**만 사용 가능합니다. 
