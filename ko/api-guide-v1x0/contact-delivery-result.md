@@ -13,7 +13,7 @@
 
 발송 요청된 메시지의 발송과 수신 결과를 수신자의 연락처 단위로 조회합니다.
 
-예를 들어, 이메일과 전화번호를 가진 수신자 10명에게 이메일, SMS 템플릿으로 구성된 플로우 메시지 2개를 발송하는 경우, 연락처 별 수신 결과 목록을 조회하면 40개의 항목이 조회됩니다. (연락처 2개 X 수신자 10명 X 플로우 메시지 2개 = 연락처 별 수신 결과 40개)
+예를 들어, 이메일과 전화번호를 가진 수신자 10명에게 이메일, SMS 템플릿으로 구성된 플로우 메시지 2개를 발송하는 경우, 연락처별 수신 결과 목록을 조회하면 40개의 항목이 조회됩니다. (연락처 2개 X 수신자 10명 X 플로우 메시지 2개 = 연락처 별 수신 결과 40개)
 다양한 검색 조건으로 연락처 별 수신 결과를 조회할 수 있습니다.
 
 <!-- !!! tip "알아두기"-->
@@ -58,59 +58,7 @@ X-NHN-Authorization: {accessToken}
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-이 API는 요청 본문을 요구하지 않습니다
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "contactDeliveryResults": [
-    {
-      "messageId": "메시지의 아이디",
-      "recipientIndex": 0,
-      "contactIndex": 0,
-      "contactType": "PHONE_NUMBER",
-      "contact": "01012345678",
-      "sender": {
-        "senderKey": "발신_키",
-        "senderProfileId": "@nhnCloud",
-        "senderProfileType": "GROUP",
-        "senderPhoneNumber": "01012341234",
-        "senderMailAddress": "abcde@nhn.com",
-        "brandId": "AR.lj0eOjEI7Y",
-        "chatbotId": "01012341234"
-      },
-      "templateId": "템플릿의 아이디",
-      "flowId": "플로우의 아이디",
-      "statsKeyId": "통계 키의 아이디",
-      "messageChannel": "SMS",
-      "messagePurpose": "NORMAL",
-      "confirmBeforeSend": false,
-      "confirmedDateTime": "2023-01-01T00:00:00Z",
-      "scheduled": false,
-      "scheduledDateTime": "2024-10-26T07:52:12.728Z",
-      "status": "REQUESTED",
-      "resultCode": "5.0.0",
-      "resultMessage": "Success",
-      "templateParameters": {
-        "key1": "value1",
-        "key2": "value2"
-      },
-      "additionalProperty": {
-      },
-      "createdDateTime": "2023-01-01T00:00:00Z",
-      "sentDateTime": "2023-01-01T00:00:00Z",
-      "deliveredDateTime": "2023-01-01T00:00:00Z",
-      "openedDateTime": "2023-01-01T00:00:00Z",
-      "updatedDateTime": "2023-01-01T00:00:00Z"
-    }
-  ],
-  "totalCount": 1
-}
-```
+이 API는 요청 본문을 요구하지 않습니다.
 
 <!--요청 본문의 필드를 설명합니다.-->
 
@@ -181,14 +129,14 @@ X-NHN-Authorization: {accessToken}
 | header.isSuccessful | Boolean | API 요청 성공 여부 |
 | header.resultCode | Integer | 결과 코드 |
 | header.resultMessage | String | 결과 메시지 |
-| contactDeliveryResults | Object Array | 연락처 별 수신 결과 목록 |
+| contactDeliveryResults | Object Array | 연락처별 수신 결과 목록 |
 | contactDeliveryResults[].messageId | String| 메시지의 아이디 |
 | contactDeliveryResults[].recipientIndex | Number| 수신자 인덱스|
 | contactDeliveryResults[].contactIndex | Number| 연락처 인덱스|
 | contactDeliveryResults[].contactType | String| 연락처 타입 |
 | contactDeliveryResults[].contact | String| 연락처|
 | contactDeliveryResults[].sender | Object| 발신자|
-| contactDeliveryResults[].sender.senderKey | String| 발신프로필 발신키, 알림톡과 친구톡만 표시|
+| contactDeliveryResults[].sender.senderKey | String| 발신 프로필 발신 키, 알림톡과 친구톡만 표시|
 | contactDeliveryResults[].sender.senderProfileId | String| 발신 프로필 아이디, 알림톡과 친구톡만 표시 |
 | contactDeliveryResults[].sender.senderProfileType | String| 발신 프로필 타입, 알림톡과 친구톡만 표시|
 | contactDeliveryResults[].sender.senderPhoneNumber | String| 발신자 전화번호, SMS만 표시|

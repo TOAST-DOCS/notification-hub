@@ -17,12 +17,12 @@ Notification Hub는 사업자 회원만 본인 인증을 통해 사용할 수 �
 
 Notification Hub에서 사업자 회원의 기준은 활성화한 프로젝트의 조직의 소유자(OWNER) 회원의 유형을 따라갑니다. 조직의 소유자 회원이 개인 회원인 경우, 사업자 회원으로 본인 인증을 진행할 수 없습니다. 조직의 소유자 회원을 사업자 회원으로 변경 후 본인 인증을 진행하세요.
 
-## 발송한 문자가 일부 수신자 단말기에서 수신 되지 않습니다.
+## 발송한 문자가 일부 수신자 단말기에서 수신되지 않습니다.
 
-수신자 단말기에서 문자가 수신되지 않는 경우, 수신자의 번호가 **번호 도용 문자 차단 서비스** 또는 **통신사 스팸 차단 서비스**에 가입되어 있을 수 있습니다.서비스 해지 후 문자를 재발송하세요. **번호 도용 문자 차단 서비스**와 **통신사 스팸 차단 서비스**에 대한 자세한 내용은 아래 링크를 확인하세요.
+수신자 단말기에서 문자가 수신되지 않는 경우, 수신자의 번호가 **번호 도용 문자 차단 서비스** 또는 **통신사 스팸 차단 서비스**에 가입되어 있을 수 있습니다. 서비스 해지 후 문자를 재발송하세요. **번호 도용 문자 차단 서비스**와 **통신사 스팸 차단 서비스**에 대한 자세한 내용은 아래 링크를 확인하세요.
 
-* [번호 도용 문자 차단 서비스 안내](service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
-* [통신사 스팸 차단 서비스 안내](service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
+* [번호 도용 문자 차단 서비스 안내](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
+* [통신사 스팸 차단 서비스 안내](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 
 ## 아이폰에서 푸시 메시지가 수신되지 않고, 등록된 토큰이 삭제됩니다.
 
@@ -58,4 +58,4 @@ Notification Hub에서 사업자 회원의 기준은 활성화한 프로젝트�
 
 !!! tip "문제가 해결되지 않을 경우"
     * 온라인 1:1 문의: [https://www.nhncloud.com/kr/support/inquiry?alias=tab5_03](https://www.nhncloud.com/kr/support/inquiry?alias=tab5_03)
-    * 대표 전화: 1588-7967 (운영 시간: 월\~금 10:00-19:00)
+    * 대표 전화: 1588-7967 (운영 시간: 월~금 10:00-19:00)
