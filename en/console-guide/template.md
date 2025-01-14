@@ -3,91 +3,91 @@
     display: inline !important;
 }
 </style>
-<h1>템플릿</h1>
+<h1>Template</h1>
 
-**Notification > Notification Hub > 콘솔 사용 가이드 > 템플릿**
+**Notification > Notification Hub > Console User Guide > Template**
 
 
 <span id="template"></span>
 
-## 템플릿
+## Template
 
-자주 사용하는 메시지나 일정한 형식을 요구하는 메시지를 템플릿으로 저장해 두고 발송 시 저장해 둔 템플릿을 설정해 메시지를 발송할 수 있습니다. 예를 들어, 고객 지원, 공지 사항, 알림 또는 마케팅 메시지와 같이 자주 사용하는 메시지의 형식을 템플릿으로 만들어 놓으면, 매번 같은 내용을 작성할 필요 없이 일부 정보만 수정하여 발송할 수 있습니다.
+You can save frequently used messages or messages that require a certain format as a template and set up the saved template to send messages when you send them. For example, if you template frequently used messages, such as customer support, notice items, notifications, or marketing messages, you only need to modify and send parts of the information without having to write the same thing each time.
 
-### 카테고리
-* 먼저 루트 카테고리를 선택하고 **+ 카테고리 추가**를 클릭해 카테고리를 생성합니다.
-* 카테고리는 선택된 카테고리 하위에 생성됩니다.
+### Category
+* First, select a root category and click **+ Add Category** to create a category.
+* The categories are created under the selected categories.
 
-### 템플릿
-1. 템플릿이 속할 카테고리를 선택하고 **+ 템플릿 등록**을 클릭합니다. 템플릿 작성 페이지로 이동하며, 선택된 메시지 채널의 추가 설정들이 표시됩니다.
-2. 제목과 내용 및 각 메시지 채널에서 요구하는 설정을 마치고 **등록**을 클릭합니다.
+### Template
+1. Select the category to which the template belongs and click **+ Register Template**. Go to the Create Template page and display additional settings for the selected message channel.
+2. Finish the settings required by the subject and content and each message channel and click **Register**.
 
-#### 알림톡 템플릿
+#### AlimTalk Template
 
-알림톡 템플릿은 등록 요청 후 카카오의 검수 승인을 받아야 사용할 수 있습니다.
+AlimTalk template can be used only after receiving approval from Kakao's inspection after requesting registration.
 
-* 등록 가능한 메시지 유형으로는 채널추가형, 기본형, 부가 정보형, 복합형이 있습니다.
-* 등록 가능한 강조 유형으로는 강조표기형, 이미지형, 아이템리스트형이 있습니다.
-* 원하는 유형을 선택하여 템플릿을 작성하세요.
+* Registrable message types include Channel Add type, Basic type, Additional information type, and Complex type.
+* Registrable highlights types include Highlight type, Image type and Item list type .
+* Choose the type you want to create a template.
 
-* 카카오 알림톡 가이드
-    * [[알림톡 제작가이드]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/content-guide), [[알림톡 심사가이드]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit), [[알림톡 화이트리스트]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit/white-list), [[알림톡 블랙리스트]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit/black-list)
-* 발신 프로필/그룹
-    * 템플릿을 등록할 발신 프로필 또는 발신 프로필 그룹을 선택합니다. 그룹에 등록할 경우 그룹에 포함된 모든 발신 프로필이 해당 템플릿을 사용할 수 있습니다.
-    * 발신 프로필/그룹에 동일한 템플릿 코드가 존재할 경우 발신 프로필에 등록된 템플릿이 우선 발송됩니다.
-    * 발신 프로필 그룹의 경우, 메시지 유형 중 '채널추가형', '복합형'으로는 템플릿을 등록할 수 없습니다.
-* 템플릿 코드/템플릿 이름
-    * 하나의 발신 프로필/그룹에 동일한 템플릿 코드와 템플릿 이름을 중복하여 등록할 수 없습니다.
-* 템플릿 내용
-    * 알림톡은 한/영 구분 없이 변수 및 URL, 띄어쓰기, 버튼명 모두 포함하여 1,000자까지 작성 가능합니다. 변수를 입력하여 등록할 경우 치환될 내용도 함께 고려하여 템플릿을 작성하세요.<br/> 글자수 상세 가이드는 [알림톡 템플릿 유의사항](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3)에서 확인하세요.
-    * 변수를 #{변수} 형태로 작성합니다. (예: #{홍길동}님의 택배가 금일 (#{09:50})에 배달될 예정입니다.)
-    * 버튼 등록 시 버튼명은 변수 입력이 불가하며, 버튼 url에는 변수 입력이 가능합니다. (예. http://kakao.com/#{변수})
-    * 버튼 url 등록 시 url_mobile, url_pc 링크에는 'http://', 'https://'가 포함되어야 하며 scheme_ios, scheme_android 링크는 스킴 형태에 맞게 등록해야 합니다. 그렇지 않을 경우 템플릿 등록이 불가합니다.
-* 보안 템플릿 여부
-    * 템플릿 보안 시 모바일 외의 디바이스에서 메시지 내용이 노출되지 않습니다.(‘모바일에서 확인해주세요‘ 문구 노출)
-    * 일반 메시지인 경우 검수 시 설정 값이 변경될 수 있으며 OTP, 인증번호, 비밀번호, 신용정보/등급 변경 안내 템플릿은 반드시 보안을 체크하세요.
+* Kakao AlimTalk Guide
+    * [[ AlimTalk Creation Guide]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/content-guide), [[ AlimTalk Review Guide]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit), [[ AlimTalk Whitelist]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit/white-list), [[ AlimTalk Blacklist]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit/black-list)
+* Sender profile/group
+    * Select sender profile or sender profile group to which you want to register the template. If you register for a group, the template is available to all sender profiles in the group.
+    * If the same template code exists in the sender profile/group, the template registered in the sender profile is sent first.
+    * For sender profile groups,  ‘Channel add type‘ or  'complex type’ message types cannot be registered as templates.
+* Template Code / Template Name
+    * You cannot duplicate the same template code and template name in one outgoing profile/group.
+* Template Content
+    * AlimTalk can be written up to 1,000 characters, including variables, URLs, spaces, and button names, regardless of Korean or English. If you register by entering variables, consider the contents to be replaced and create a template.<br/> See [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3) for a detailed guide on the number of characters.
+    * Create a variable in the form of #{variable}. (Example: #{HongGildong}'s package will be delivered today (#{09:50})
+    * When registering a button, the button name cannot be entered as a variable, and the button url can be entered as a variable. (Example http://kakao.com/#{변수})
+    * When registering a button url, url_mobile, url_pc links must include 'http://' and 'https://'가 and the 'scheme_ios, 'scheme_android links must be registered according to the scheme type. Otherwise, template registration will not be possible.
+* Whether it is a security template
+    * When securing the template, the message content is not exposed on devices other than mobile (expose the phrase 'Please check on mobile')
+    * In the case of general messages, the setting values may change during inspection, and be sure to check the security of OTP, authentication number, password, and credit information/grade change guide template.
 
-#### 알림톡 템플릿 버튼
-* 1개의 템플릿에는 **최대 5개의 버튼**을 등록하실 수 있습니다.
-* 바로연결
-    * 배송 조회 및 플러그인 타입을 사용할 수 없으며, 이밖에 다른 타입은 버튼과 동일하게 사용할 수 있습니다.
-    * 템플릿당 최대 10개까지 사용할 수 있으며, 바로연결 사용 시에는 버튼의 개수는 2개로 제한됩니다.
+#### AlimTalk Template button
+* You can register **up to 5 buttons** on a template.
+* Quick Reply
+    * Tracking and plug-in types are not available and other types can be used the same as buttons.
+    * You can use up to 10 buttons per template, and the number of buttons is limited to 2 when using a direct connection.
 
-| 버튼 종류 | 설명 |
+| Button type | Description |
 | --- | --- |
-| 배송 조회 | - 택배사 배송 조회 페이지로 이동합니다.<br/> - 배송 조회 버튼을 지원하는 택배사, 택배사별 송장 번호 패턴을 확인합니다. [[알림톡 배송조회 송장번호 패턴 안내]](https://www.nhncloud.com/kr/support/notice/detail/1455)|
-| 웹 링크 | - 모바일 또는 PC 웹페이지로 이동합니다.<br/> - URL 링크를 변수로 설정할 수 있습니다. |
-| 앱 링크 | - 커스텀 스킴으로 앱을 실행합니다.<br/> - Android와 iOS에서 실행할 커스텀 스킴을 각각 설정해야 합니다. |
-| 봇 키워드 | - 버튼 이름이 상담원에게 전달됩니다.<br/> - 상담톡을 지원하지 않는 채널이 해당 버튼을 추가하면 알림톡 발송이 불가합니다. |
-| 메시지 전달 | - 버튼 이름, 메시지 본문이 상담원에게 전달됩니다.<br/> - 상담톡을 지원하지 않는 채널이 해당 버튼을 추가하면 알림톡 발송이 불가합니다. |
-| 상담톡 전환 | - 상담톡에 연결됩니다.<br/> - 상담톡을 지원하지 않는 채널이 해당 버튼을 추가하면 알림톡 발송이 불가합니다. |
-| 봇 전환 | - 챗봇이 호출됩니다.<br/> - 상담톡을 지원하지 않는 채널이 해당 버튼을 추가하면 알림톡 발송이 불가합니다. |
-| 채널 추가 | - 알림톡을 발송한 채널을 추가합니다. 노출 위치는 첫 번째 버튼으로만 사용 가능합니다.<br/> - 이미 채널이 추가되어 있을 경우 수신자에게 표시되지 않습니다. |
-| 이미지 보안 전송 플러그인 | - 채팅창 내에서 민감한 정보가 포함된 이미지를 암호화하여 전송합니다.<br/> - 비즈플러그인 생성이 필요합니다. [[비즈플러그인 가이드]](https://business.kakao.com/info/talkbizplugin/) |
-| 개인정보이용 플러그인 | - 채팅창 내에서 회원가입 없이 서비스 제공에 필요한 개인정보 수집 동의를 받습니다.<br/> - 비즈플러그인 생성이 필요합니다. [[비즈플러그인 가이드]](https://business.kakao.com/info/talkbizplugin/) |
-| 원클릭 결제 플러그인 | - 채팅창 내에서 화면 전환 없이 사용자가 상품을 결제할 수 있습니다.<br/> - 결제 플러그인은 플랫폼에서 바로 등록을 지원하지 않아 [카카오 고객센터](https://cs.kakao.com/helps?service=127&category=572&locale=ko)로 문의하세요. | 
-| 비즈니스폼 | - 비즈니스폼을 생성하여 현재 채널과 연결한 경우, 버튼 클릭 시 설정한 비즈니스폼이 호출됩니다.<br/> - 비즈니스폼 생성이 필요합니다. [[비즈니스폼 가이드]](https://business.kakao.com/info/talkbizform/) |
+| View delivery  | - Go to the View delivery page.<br/> - Check the delivery company that supports invoice number pattern and tracking button. [[AlimTalk Tracking Invoice Number Pattern Guide]](https://www.nhncloud.com/kr/support/notice/detail/1455)|
+| Web link | - Go to your mobile or PC webpage.<br/> - You can set URL links as variables. |
+| App link | - Run the app with a custom scheme.<br/> - You must set up custom schemes to run on Android and iOS respectively. |
+| Bot Keyword | - The name of the button is forwarded to consultation agent.<br/> - If a channel that does not support consultation talk adds the corresponding button, AlimTalk cannot be sent. |
+| Message forwarding | - The name of the button, the body of the message, is forwarded to consultation agent.<br/> - If a channel that does not support consultation talk adds the corresponding button, AlimTalk cannot be sent. |
+| Switch to a consultation talk | -Connect to consultation talk<br/> - If a channel that does not support consultation talk adds the corresponding button, AlimTalk cannot be sent. |
+| Switching to Bot | -Chatbot is called<br/> - If a channel that does not support consultation talk adds the corresponding button, AlimTalk cannot be sent. |
+| Add channel | - Add the channel that sent AlimTalk. The exposure location is only available on the first button.<br/> - If a channel is already added, it will not appear to the receiver. |
+| Image Secure Transfer Plugin | - If image contains sensitive information, it encrypts and transfers within the chat window.<br/> - You need to create Bizplugin. [[Bizplugin Guide]](https://business.kakao.com/info/talkbizplugin/) |
+| Personal Information Use Plug-in | - In the chat window, consent is obtained to collect personal information necessary to provide services without signing up for membership.<br/> - You need to create Bizplugin. [[Bizplugin Guide]](https://business.kakao.com/info/talkbizplugin/) |
+| One-Click Payment Plugin | - Users can pay for the product without changing screens within the chat window.<br/> - The payment plug-in does not support registration directly on the platform, so contact [Kakao Customer Center](https://cs.kakao.com/helps?service=127&category=572&locale=ko). | 
+| Business Form | - If you created a business form and connected it to the current channel, the business form you set is called when you click the button.<br/> - Business Form Creation is required: [[Business Form Guide]](https://business.kakao.com/info/talkbizform/) |
 
-#### 템플릿 검수
-알림톡 템플릿의 검수 및 심사는 카카오에서 직접 진행하며, 검수 요청 후 영업일 기준 2일 이내 순차적으로 처리됩니다.
+#### Template inspection
+The inspection and review of AlimTalk template will be conducted directly by Kakao, and will be processed sequentially within 2 business days after the inspection request.
 
-* 템플릿 문의 등록
-    * 검수 요청 전 카카오 검수 담당자에게 전달할 의견이 있을 경우 문의 등록란에 내용을 입력합니다. 요청/승인 상태의 템플릿은 문의할 수 없습니다.(**검수중/반려** 상태의 템플릿만 문의 등록할 수 있습니다.)
-    * 등록한 문의는 검수 결과에 추가되며, 카카오 검수 담당자가 이를 확인합니다.
-    * 검수 결과에 템플릿 용도에 관한 문의, 반려 사유 내용이 추가됩니다.
-    * 템플릿 반려 시 **문의 등록** 및 **수정**을 클릭해 재검수할 수 있습니다.
+* Register a template inquiry
+    * If you have an opinion to convey to the Kakao inspection officer before requesting an inspection, enter the information in the Enquiry Registration box. You cannot inquire about templates in the Request/Approval status. (Only templates in the **Inquiry/Return** status can be registered.)
+    * Enquiries registered will be added to the inspection results, which will be confirmed by the Kakao inspection representative.
+    * Inquiries about the purpose of the template and reasons for return will be added to the inspection results.
+    * If you reject the template, you can re-examine it by clicking **Register** and **Modify**.
 
-#### 템플릿 상태
-* 템플릿 등록 시, **요청 > 검수 중 > 승인/반려** 상태의 순서로 업데이트됩니다.
-* 템플릿 등록 후, 1년간 동일한 상태로 유지되거나 추가 발송이 없는 경우 **휴면** 상태로 전환됩니다. 관련 가이드는 [알림톡 템플릿 유의사항](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3)에서 확인하세요.
+#### Template status
+* When registering a template, it is updated in the order of **Request > Under Inspection > Approval/Return** status.
+* After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3).
 
-#### 템플릿 수정
-* **승인/반려** 상태의 템플릿만 수정할 수 있습니다.
-* 승인된 템플릿을 수정한 뒤 검수가 완료되면 기존 템플릿 내용이 수정한 내용으로 대체됩니다.
-* 발신 프로필/그룹 및 템플릿 코드는 수정할 수 없습니다.
-* 수정한 템플릿은 **검수 중** 상태부터 다시 검수가 진행됩니다.
+#### Modify Templates
+* You can modify only templates in ** Approval/Return ** state.
+* When re-inspection is complete after modifying the approved template, the existing template contents will be replaced with the modified one.
+* Sender profiles/groups and template codes cannot be modified.
+* Modified templates will be inspected again from ** Under Inspection** status.
 
-#### 템플릿 삭제
-* 요청/반려 상태의 템플릿만 삭제할 수 있습니다.
-* 반려된 템플릿은 **삭제** 후 재등록할 수 있습니다.
-* 삭제된 템플릿 코드는 재사용할 수 있습니다.
+#### Delete Templates
+* You can delete only templates with Request/Return status.
+* The returned template can be re-registered after **Delete**.
+* Deleted template code can be reused.

@@ -176,7 +176,7 @@ X-NHN-Authorization: {accessToken}
 | appKey | Header | String | Y | 앱키         |
 | accessToken | Header | String | Y | 인증 토큰      |
 | flowId | Query | String | N | 플로우 아이디    |
-| flowName | Query | String | N | 플로우 이름, 접두사(Prefix) 검색 가능 |
+| flowName | Query | String | N | 플로우 이름, 접두사(Prefix), 단일 문자 와일드카드(Single Character Wildcard) 검색 가능 |
 | limit | Query | Integer | N | 페이지당 조회 개수 |
 | offset | Query | Integer | N | 페이지 오프셋    |
 
