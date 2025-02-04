@@ -60,58 +60,6 @@ X-NHN-Authorization: {accessToken}
 
 This API does not require a request body.
 
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "contactDeliveryResults": [
-    {
-      "messageId": "Message ID",
-      "recipientIndex": 0,
-      "contactIndex": 0,
-      "contactType": "PHONE_NUMBER",
-      "contact": "01012345678",
-      "sender": {
-        "senderKey": "sender_key",
-        "senderProfileId": "@nhnCloud",
-        "senderProfileType": "GROUP",
-        "senderPhoneNumber": "01012341234",
-        "senderMailAddress": "abcde@nhn.com",
-        "brandId": "AR.lj0eOjEI7Y",
-        "chatbotId": "01012341234"
-      },
-      "templateId": "Id of the template",
-      "flowId": "Id of the flow",
-      "statsKeyId": "Id of the statistics key",
-      "messageChannel": "SMS",
-      "messagePurpose": "NORMAL",
-      "confirmBeforeSend": false,
-      "confirmedDateTime": "2023-01-01T00:00:00Z",
-      "scheduled": false,
-      "scheduledDateTime": "2024-10-26T07:52:12.728Z",
-      "status": "REQUESTED",
-      "resultCode": "5.0.0",
-      "resultMessage": "Success",
-      "templateParameters": {
-        "key1": "value1",
-        "key2": "value2"
-      },
-      "additionalProperty": {
-      },
-      "createdDateTime": "2023-01-01T00:00:00Z",
-      "sentDateTime": "2023-01-01T00:00:00Z",
-      "deliveredDateTime": "2023-01-01T00:00:00Z",
-      "openedDateTime": "2023-01-01T00:00:00Z",
-      "updatedDateTime": "2023-01-01T00:00:00Z"
-    }
-  ],
-  "totalCount": 1
-}
-```
-
 <!--요청 본문의 필드를 설명합니다.-->
 
 **Response Body**

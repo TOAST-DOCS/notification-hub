@@ -17,7 +17,7 @@ You can view the reception results of the delivered message by receiver contacts
 * Check contact reception results by setting a combination of message channels, delivery time (immediate, schedule), delivery purpose, and delivered/received/query status.
 * The query period is set as the date and time of the request.
     * The default range for setting the inquiry period is up to 7 days.
-    * The maximum inquiry period can go back up to 180 days.
+    * You can view the results up to 180 days in the past.
 * You can select one of the additional detailed conditions to view the results of receiving of your contact.
     * message ID, template name, flow name, statistics key name, delivery information, receiver information
 
