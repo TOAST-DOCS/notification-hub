@@ -60,12 +60,6 @@ Gmailは、ドメインの評判をスパムメール判定の主な基準とし
 
 受信者のメールがGmailの場合、メールの閲覧の有無を収集できません。一般的に受信者のメール閲覧を確認するためにメール本文に画像タグを挿入する方式を使用しますが、Gmailでは画像プロキシサーバーが画像をキャッシュして追跡できないようにメール本文を修正します。これはGmailが意図的にブロックしているため、技術的に閲覧に関するイベントを収集することは現在不可能です。
 
-!!! tip "知っておくべきこと - Gmail Image Proxy"
-    Because the Gmail Image Proxy service does not forward users' cookies, you can't use the measurement protocol to track Gmail users. The Gmail Image Proxy service prevents this by having the measurement protocol requests passed through an intermediate server.
-
-
-* [Google Analytics > Email Tracking * Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/email)
-
 ### Gmail低い評判(Low Reputation)問題
 
 Gmail評判評価基準について簡単にまとめたガイドです。Gmailで評判を評価する方法を見て、評判を上げて維持するための方法は何なのかについて説明します詳細な内容は文書下の参考文書をご確認ください。

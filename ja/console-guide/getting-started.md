@@ -38,9 +38,9 @@ SMS、LMS、MMSメッセージを送信するためには発信番号を登録�
 
 ### ブランド管理
 
-RCSメッセージを送信するには、ブランド連動を完了する必要があります。RCS Biz Centerで事前登録が完了(ブランド承認)したら、NHN Cloudコンソールと連動を行います。RCS Biz Centerでブランドを作成するには、**使用前の準備事項** > **RCS**を参照してください。
+RCSメッセージを送信するには、ブランド連動を完了する必要があります。RCS Biz Centerで事前登録が完了(ブランド承認)したら、NHN Cloudコンソールと連動を行います。RCS Biz Centerでブランドを作成するには、**利用ポリシー及び事前設定案内** > **RCS**を参照してください。
 
-* [使用前の準備及び制限事項 > RCS ](./preconditions/preconditions-rcs)
+* [利用ポリシー及び事前設定案内 > RCS ](./preconditions/preconditions-rcs)
 * [RCS Biz Center](https://www.rcsbizcenter.com/main)
 
 RCS Biz Centerでブランド作成及び代理店設定、チャットルーム(発信番号)登録、テンプレート登録が完了(承認)したら、コンソールでブランドを連動します。
