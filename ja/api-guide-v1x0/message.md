@@ -70,17 +70,17 @@ X-NHN-Authorization: {accessToken}
 
 <!--リクエスト本文のフィールドを説明します。-->
 
-| 名前 | タイプ | 必須 | 説明 |
-| --- | --- |-----| --- |
-| statsKeyId | String | N   | 統計キーID |
-| scheduledDateTime | DateTime(ISO 8601) | N   | 予約送信日時(例：2024-10-29T06:29:00+09:00) |
-| confirmBeforeSend | Boolean | N   | 送信前に確認するかどうか(デフォルト値false) |
-| sender | Object | Y/N | 発信者、プッシュ以外のメッセージチャンネルは必須 |
-| recipients | Object Array | Y   | 受信者配列 |
-| recipients[].contacts | Object Array | Y   | 受信者の連絡先配列 |
-| recipients[].contacts[].contactType | String | Y   | 連絡先タイプ |
-| recipients[].contacts[].contact | String | Y   | 連絡先 |
-| content | Object | Y   | メッセージ内容 |
+| 名前 | タイプ | 必須 | 説明                                                                                                                                  |
+| --- | --- |-----|---------------------------------------------------------------------------------------------------------------------------------------|
+| statsKeyId | String | N   | 統計キーID                                                                                                                              |
+| scheduledDateTime | DateTime(ISO 8601) | N   | 予約送信日時(例：2024-10-29T06:29:00+09:00)                                                                                                |
+| confirmBeforeSend | Boolean | N   | 送信前に確認するかどうか(デフォルト値false)                                                                                                                 |
+| sender | Object | Y/N | 発信者、プッシュ以外のメッセージチャンネルは必須                                                                                                             |
+| recipients | Object Array | Y   | 受信者配列                                                                                                                              |
+| recipients[].contacts | Object Array | Y   | 受信者の連絡先配列                                                                                                                         |
+| recipients[].contacts[].contactType | String | Y   | 連絡先タイプ<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_FCM, TOKEN_APNS, TOKEN_ADM, TOKEN_APNS_SANDBOX, TOKEN_APNS_VOIP, TOKEN_APNS_VOIP_SANDBOX |
+| recipients[].contacts[].contact | String | Y   | 連絡先                                                                                                                                 |
+| content | Object | Y   | メッセージ内容                                                                                                                              |
 
 * メッセージチャンネルによって**sender**, **content**フィールドは異なる形式を持ちます。
 * メッセージチャンネルによって **recipients[].contact.contactType**, **recipients[].contact.contact**フィールドに入力できる値が異なります。
@@ -730,8 +730,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     {
       "contacts": [
         {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contactType": "EMAIL_ADDRESS",
+          "contact": "recipient@example.com"
         }
       ]
     }
@@ -756,9 +756,11 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.attachmentIds | String Array | N  | 添付ファイルID |
 
 * 発信者メールアドレスのドメインは所有認証が完了している必要があります。
-* 添付ファイルは**最大10個**までアップロード可能で、**30MB以下のファイル**のみ可能です。
-* 添付ファイルの**合計は30MB**を超えることはできません。
-* 最大**30MB**まで添付可能ですが、受信するメールシステム(gmail.com, naver.comなど)の添付ファイル制限ポリシーにより、**制限超過**で拒否されたり、スパム判定率が高くなる可能性があるため、**10MB以内で添付することを推奨します。
+* 添付ファイルは30MB以下で最大10個までアップロードできます。
+* 添付ファイルの合計が最大30MBを超えることはできません。
+* 最大30MBまで添付可能ですが、受信するメールシステム(gmail.com, naver.comなど)の添付ファイル制限ポリシーにより**制限超過**で拒否されたり、スパム判定率が高くなる可能性があるため、10MB以内で添付することを推奨します。
+* **recipients[].contacts[].contactType** フィールドには **EMAIL_ADDRESS**のみ使用可能です。 
+* **recipients[].contacts[].contact** フィールドには受信者メールアドレスを入力します。
 
 <span id="free-form-message-request-body-push"></span>
 
@@ -854,6 +856,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 * プッシュは**sender**フィールドが必要ありません。
 * プッシュはユーザーが定義したキーと値を追加して**content**フィールドを作成できます。
+* **recipients[].contacts[].contactType** フィールドは **TOKEN_FCM**, **TOKEN_APNS**, **TOKEN_ADM**, **TOKEN_APNS_SANDBOX**, **TOKEN_APNS_VOIP**, **TOKEN_APNS_VOIP_SANDBOX**のいずれかでなければなりません。
+* **recipients[].contacts[].contact**フィールドには**プッシュトークン**を入力します。
 
 
 <span id="template-message-sending-request"></span>
