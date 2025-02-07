@@ -26,7 +26,7 @@
 ```
 POST /message/v1.0/{messageChannel}/free-form-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -83,7 +83,7 @@ X-NHN-Authorization: {accessToken}
 | content | Object | Y   | 메시지 내용 |
 
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
-* 메시지 채널에 따라 **recipients[].contact.contactType**, **recipients[].contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
+* 메시지 채널에 따라 **recipients[].contacts.contactType**, **recipients[].contacts.contact** 필드에 입력할 수 있는 값이 달라집니다.
 * 예약 발송의 경우 **scheduledDateTime**를 설정합니다. 발송이 시작되기 전의 예약 발송은 요청 취소가 가능합니다. 요청 취소 API를 호출하거나 **Notification Hub 콘솔** > **발송 조회**에서 취소할 수 있습니다.
 * 승인 후 발송의 경우 **confirmBeforeSend**를 **true**로 설정합니다. 승인 후 발송인 메시지는 **Notification Hub 콘솔** > **발송 조회**에서 승인을 하면 발송이 진행됩니다.
 * 예약 발송과 승인 후 발송은 동시에 설정할 수 없습니다.
@@ -368,7 +368,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       ],
       "coupon": {
         "title": "쿠폰_제목",
-        "description": "쿠폰_상제_설명",
+        "description": "쿠폰_상세_설명",
         "linkMo": "모바일_링크",
         "linkPc": "PC_링크",
         "schemeIos": "iOS_앱_링크",
@@ -444,7 +444,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       ],
       "coupon": {
         "title": "쿠폰_제목",
-        "description": "쿠폰_상제_설명",
+        "description": "쿠폰_상세_설명",
         "linkMo": "모바일_링크",
         "linkPc": "PC_링크",
         "schemeIos": "iOS_앱_링크",
@@ -546,7 +546,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       },
       "coupon": {
         "title": "쿠폰_제목",
-        "description": "쿠폰_상제_설명",
+        "description": "쿠폰_상세_설명",
         "linkMo": "모바일_링크",
         "linkPc": "PC_링크",
         "schemeIos": "iOS_앱_링크",
@@ -577,8 +577,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.item.list[].attachmentId  | String        | Y  | 첨부 파일 아이디                                                                                                                                                 |
 | content.item.list[].linkMo        | String        | Y  | 모바일 웹 링크                                                                                                                                                  |
 | content.item.list[].linkPc        | String        | Y  | PC 웹 링크                                                                                                                                                   |
-| content.item.list[].schemeIos     | String        | Y  | IOS 앱 링크                                                                                                                                                  |
-| content.item.list[].schemeAndroid | String        | Y  | 안드로이 앱 링크                                                                                                                                                 |
+| content.item.list[].schemeIos     | String        | Y  | iOS 앱 링크                                                                                                                                                  |
+| content.item.list[].schemeAndroid | String        | Y  | Android 앱 링크                                                                                                                                                 |
 | content.coupon                    | Object        | N  | 쿠폰                                                                                                                                                        |
 | content.coupon.title              | String        | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰" |
 | content.coupon.description        | String        | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자)                                                                                   |
@@ -635,7 +635,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
               },
               "coupon": {
                 "title": "쿠폰_제목",
-                "description": "쿠폰_상제_설명",
+                "description": "쿠폰_상세_설명",
                 "linkMo": "모바일_링크",
                 "linkPc": "PC_링크",
                 "schemeIos": "iOS_앱_링크",
@@ -663,7 +663,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
               },
               "coupon": {
                 "title": "쿠폰_제목",
-                "description": "쿠폰_상제_설명",
+                "description": "쿠폰_상세_설명",
                 "linkMo": "모바일_링크",
                 "linkPc": "PC_링크",
                 "schemeIos": "iOS_앱_링크",
@@ -865,7 +865,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 ```
 POST /message/v1.0/{messageChannel}/template-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1048,7 +1048,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 ```
 POST /message/v1.0/flow-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1247,7 +1247,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 ```
 POST /message/v1.0/messages/{messageId}/do-cancel
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**

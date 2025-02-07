@@ -19,7 +19,7 @@
 POST /template/v1.0/{messageChannel}/templates
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -242,7 +242,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates" \
 ```
 GET /template/v1.0/{messageChannel}/templates
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -333,7 +333,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates" \
 ```
 GET /template/v1.0/{messageChannel}/templates/{templateId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -420,7 +420,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_I
 PUT /template/v1.0/{messageChannel}/templates/{templateId}
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -540,7 +540,7 @@ curl -X PUT "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_I
 ```
 DELETE /template/v1.0/{messageChannel}/templates/{templateId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -605,7 +605,7 @@ curl -X DELETE "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLAT
 POST /template/v1.0/ALIMTALK/templates/{templateId}/inquiries
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -686,7 +686,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquir
 POST /template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquiries/do-with-file
 Content-Type: multipart/form-data
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -768,7 +768,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquir
 GET /template/v1.0/ALIMTALK/templates/{templateId}/modifications
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -972,7 +972,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/modific
 POST /template/v1.0/{messageChannel}/categories
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1061,7 +1061,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories" \
 GET /template/v1.0/{messageChannel}/categories
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1143,7 +1143,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories" \
 GET /template/v1.0/{messageChannel}/category-tree
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1262,7 +1262,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/category-tree" \
 GET /template/v1.0/{messageChannel}/categories/{categoryId}
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1344,7 +1344,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/{categoryId
 PUT /template/v1.0/{messageChannel}/categories/{categoryId}
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1430,7 +1430,7 @@ curl -X PUT "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/{categoryId
 POST /template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY_ID}/templates
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1511,7 +1511,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY
 DELETE /template/v1.0/{messageChannel}/categories/{categoryId}
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**

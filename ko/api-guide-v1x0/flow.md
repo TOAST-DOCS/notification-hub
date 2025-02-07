@@ -19,7 +19,7 @@
 POST /flow/v1.0/flows
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -69,7 +69,7 @@ X-NHN-Authorization: {accessToken}
 * 위 예시는 이메일, 알림톡, SMS 템플릿을 사용하는 플로우를 생성하는 예시입니다.
 * 한번 사용된 메시지 채널은 다음 단계에서 사용할 수 없습니다.
 * 한 단계는 여러 개의 다음 단계를 가질 수 있습니다.
-* 순서 없이 동시 발송을 원하는 겨우 첫 번째 단계인 **steps**에 모든 메시지 채널을 추가합니다.
+* 순서 없이 동시 발송을 원하는 경우 첫 번째 단계인 **steps**에 모든 메시지 채널을 추가합니다.
 
 **응답 본문**
 
@@ -166,7 +166,7 @@ curl -X POST "${ENDPOINT}/flow/v1.0/flows" \
 ```
 GET /flow/v1.0/flows
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -262,7 +262,7 @@ curl -X GET "${ENDPOINT}/flow/v1.0/flows" \
 ```
 GET /flow/v1.0/flows/{flowId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -354,8 +354,8 @@ curl -X GET "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
 ```
 PUT /flow/v1.0/flows/{flowId}
 Content-Type: application/json
-X-NC-APP-KEY: {{ppKey}
-X-NHN-Authorization: {accessToken}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -490,7 +490,7 @@ curl -X PUT "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
 ```
 DELETE /flow/v1.0/flows/{flowId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**

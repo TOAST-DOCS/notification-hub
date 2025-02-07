@@ -26,7 +26,7 @@ In order to send messages to each message channel, the sender information for ea
 ```
 POST /message/v1.0/{messageChannel}/free-form-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -865,7 +865,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 ```
 POST /message/v1.0/{messageChannel}/template-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1048,7 +1048,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 ```
 POST /message/v1.0/flow-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1247,7 +1247,7 @@ Cancel a sending request for a scheduled message before it is sent, or a sent me
 ```
 POST /message/v1.0/messages/{messageId}/do-cancel
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**

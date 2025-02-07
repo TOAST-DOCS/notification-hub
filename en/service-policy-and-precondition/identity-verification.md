@@ -12,7 +12,7 @@
 To use the Notification Hub, you can use it after Identity verification at **Notification Hub** > ** Identity verification ** (compliance with notification related to the Telecommunications Business Act)
 
 * Business members can use the Notification Hub through Identity verification. Individual members are restricted from conducting Identity verification.
-  * [ Article 37-7of the Enforcement Decree of the Telecommunications Business Act](https://www.law.go.kr/법령/전기통신사업법시행령/(20240731,34761,20240730)/제37조의7)
+  * [ Article 37-7of the Enforcement Decree of the Telecommunications Business Act](https://www.law.go.kr/LSW//lsInfoP.do?lsId=004708&ancYnChk=0#0000)
 * Identity verification basically requires a document review of mobile phone self-authentication, business registration certificate, and employment certificate. 
 * The name and mobile phone number entered at the time of membership must match the information entered at the time of identity verification to be approved for identity verification.
 * NHN Cloud accounts invited to organizations/projects created by business members or IAM accounts invited to organizations created by business members must conduct identity verification to use services.

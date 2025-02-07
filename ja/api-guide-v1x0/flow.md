@@ -19,7 +19,7 @@
 POST /flow/v1.0/flows
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -166,7 +166,7 @@ curl -X POST "${ENDPOINT}/flow/v1.0/flows" \
 ```
 GET /flow/v1.0/flows
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -262,7 +262,7 @@ curl -X GET "${ENDPOINT}/flow/v1.0/flows" \
 ```
 GET /flow/v1.0/flows/{flowId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -354,8 +354,8 @@ curl -X GET "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
 ```
 PUT /flow/v1.0/flows/{flowId}
 Content-Type: application/json
-X-NC-APP-KEY: {{ppKey}
-X-NHN-Authorization: {accessToken}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -490,7 +490,7 @@ curl -X PUT "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
 ```
 DELETE /flow/v1.0/flows/{flowId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**

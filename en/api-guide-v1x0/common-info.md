@@ -30,7 +30,7 @@
 ## Authentication and Authorization
 
 ```
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 * Obtain an issued authorization token and set it in the **X-NHN-Authorization** request header when calling the Notification Hub API.
