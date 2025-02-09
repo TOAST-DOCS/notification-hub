@@ -1316,12 +1316,15 @@ curl -X POST "${ENDPOINT}/message/v1.0/messages/${MESSAGE_ID}/do-cancel" \
 
 ```
 POST /message/v1.0/instant-flow-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
+| appKey | Header | String | Y | 앱키 |
 | accessToken | Header | String | Y | 인증 토큰 |
 | messagePurpose | Path | String | Y | 메시지 목적<br>NORMAL, AD, AUTH |
 
