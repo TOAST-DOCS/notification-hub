@@ -57,7 +57,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ]
     }
@@ -80,6 +81,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Object Array | Y   | 수신자의 연락처 배열                                                                                                                           |
 | recipients[].contacts[].contactType | String | Y   | 연락처 유형<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_FCM, TOKEN_APNS, TOKEN_ADM, TOKEN_APNS_SANDBOX, TOKEN_APNS_VOIP, TOKEN_APNS_VOIP_SANDBOX |
 | recipients[].contacts[].contact | String | Y   | 연락처                                                                                                                                   |
+| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
 | content | Object | Y   | 메시지 내용                                                                                                                                |
 
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
@@ -149,7 +151,8 @@ X-NHN-Authorization: {{authorizationToken}}
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ]
     }
@@ -216,7 +219,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ]
     }
@@ -261,7 +265,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ]
     }
@@ -902,7 +907,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ],
       "templateParameters": {
@@ -930,6 +936,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Object Array              | Y | 수신자의 연락처 배열 |
 | recipients[].contacts[].contactType | String             | Y | 연락처 유형 |
 | recipients[].contacts[].contact | String             | Y | 연락처 |
+| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
 | recipients[].templateParameters | Object             | N | 템플릿 파라미터 |
 
 * 템플릿 파라미터는 템플릿에 정의된 파라미터와 일치해야 합니다.
@@ -983,7 +990,8 @@ X-NHN-Authorization: {{authorizationToken}}
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ],
       "templateParameters": {
@@ -1093,7 +1101,8 @@ X-NHN-Authorization: Bearer {accessToken}
         },
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345679"
+          "contact": "01012345679",
+          "clientReference": "test"
         }
       ],
       "templateParameters": {
@@ -1121,6 +1130,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Object Array          | Y | 수신자의 연락처 배열                            |
 | recipients[].contacts[].contactType | String         | Y | 연락처 유형                                 |
 | recipients[].contacts[].contact | String         | Y | 연락처                                    |
+| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
 | recipients[].templateParameters | Object         | N | 수신자 별 템플릿 파라미터                         |
 
 * 플로우 메시지 발송도 템플릿 메시지 발송과 동일하게 템플릿 파라미터를 사용합니다.
@@ -1344,7 +1354,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "recipients" : [ {
     "contacts" : [ {
       "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678"
+      "contact" : "01012345678",
+      "clientReference": "test"
     } ],
     "templateParameters" : "templateParameters" : {
       "key": "value"
@@ -1391,6 +1402,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[] | Array | N | 수신자 연락처 목록입니다. |
 | recipients[].contacts[].contactType | String | Y | 연락처 타입<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP |
 | recipients[].contacts[].contact | String | Y | 연락처 입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
+| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
 | recipients[].templateParameters |  | N | 템플릿 파라미터입니다. 템플릿 아이디를 설정하는 경우 필수입니다.  |
 | instantFlow | Object | Y | 인스턴트 플로우입니다. 플로우 생성 없이 정의할 수 있습니다. |
 | instantFlow.steps[] | Array | Y | 인스턴트 플로우 단계입니다. |
