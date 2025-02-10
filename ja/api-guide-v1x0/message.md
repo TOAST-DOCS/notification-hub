@@ -26,7 +26,7 @@
 ```
 POST /message/v1.0/{messageChannel}/free-form-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -83,7 +83,7 @@ X-NHN-Authorization: {accessToken}
 | content | Object | Y   | メッセージ内容 |
 
 * メッセージチャンネルによって**sender**, **content**フィールドは異なる形式を持ちます。
-* メッセージチャンネルによって **recipients[].contact.contactType**, **recipients[].contact.contact**フィールドに入力できる値が異なります。
+* メッセージチャンネルによって **recipients[].contacts.contactType**, **recipients[].contacts.contact**フィールドに入力できる値が異なります。
 * 予約送信の場合、**scheduledDateTime**を設定します。送信開始前の予約送信は、リクエストのキャンセルが可能です。リクエストキャンセルAPIを呼び出すか、**Notification Hubコンソール** > **送信照会**でキャンセルできます。
 * 承認後送信の場合、**confirmBeforeSend**を**true**に設定します。承認後送信のメッセージは**Notification Hubコンソール** > **送信照会**で承認すると送信が行われます。
 * 予約送信と承認後送信は同時に設定できません。
@@ -577,7 +577,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.item.list[].attachmentId  | String        | Y  | 添付ファイルID                                                                                                                                                 |
 | content.item.list[].linkMo        | String        | Y  | モバイルWebリンク                                                                                                                                                |
 | content.item.list[].linkPc        | String        | Y  | PC Webリンク                                                                                                                                                 |
-| content.item.list[].schemeIos     | String        | Y  | IOSアプリリンク                                                                                                                                                |
+| content.item.list[].schemeIos     | String        | Y  | iOSアプリリンク                                                                                                                                                |
 | content.item.list[].schemeAndroid | String        | Y  | Androidアプリリンク                                                                                                                                               |
 | content.coupon                    | Object        | N  | クーポン                                                                                                                                                      |
 | content.coupon.title              | String        | Y  | タイトル、場合5つの形式に制限<br>"${数字}KRW割引クーポン"数字は1以上99,999,999以下<br>"${数字}%割引クーポン"数字は1以上100以下<br>"送料割引クーポン"<br><br>"${7文字以内}無料クーポン"<br>"${7文字以内} UPクーポン" |
@@ -865,7 +865,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 ```
 POST /message/v1.0/{messageChannel}/template-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -1048,7 +1048,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 ```
 POST /message/v1.0/flow-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -1247,7 +1247,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 ```
 POST /message/v1.0/messages/{messageId}/do-cancel
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**

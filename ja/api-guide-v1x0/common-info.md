@@ -30,7 +30,7 @@
 ## 認証及び権限
 
 ```
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 * 認証トークンを発行し、Notification Hub APIを呼び出す際、**X-NHN-Authorization** リクエストヘッダに認証トークンを設定します。

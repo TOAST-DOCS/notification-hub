@@ -27,7 +27,7 @@
 ```
 GET /message/v1.0/contact-delivery-results
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
