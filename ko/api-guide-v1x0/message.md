@@ -1440,6 +1440,25 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultMessage | String | SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
+**실패 응답 - 중복 수신자**
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 400004,
+    "resultMessage" : "중복된 수신자 연락처가 있습니다."
+  },
+  "duplicatedContacts" : [
+    {
+      "contactType": "PHONE_NUMBER",
+      "contact": "0123456789"
+    }
+  ]
+}
+```
+
+
 
 
 **요청 예시**
