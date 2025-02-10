@@ -48,7 +48,7 @@ AlimTalk template can be used only after receiving approval from Kakao's inspect
     * In the case of general messages, the setting values may change during inspection, and be sure to check the security of OTP, authentication number, password, and credit information/grade change guide template.
 
 #### AlimTalk Template button
-* You can register **up to 5 buttons** on a template.
+* You can register **up to 5 buttons** per template.
 * Quick Reply
     * Tracking and plug-in types are not available and other types can be used the same as buttons.
     * You can use up to 10 buttons per template, and the number of buttons is limited to 2 when using a direct connection.
