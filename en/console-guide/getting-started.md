@@ -38,9 +38,9 @@ For more information on the Sender Number Pre-Registration System, see **Prepara
 
 ### Brand Management
 
-To send the RCS message, you must complete the brand linkage. If the pre-registration has been completed (brand approved) in the RCS Biz Center, proceed to link with the NHN Cloud console. For information on creating a brand in the RCS Biz Center, see ** Preparations before use **>**RCS**.
+To send the RCS message, you must complete the brand linkage. If the pre-registration has been completed (brand approved) in the RCS Biz Center, proceed to link with the NHN Cloud console. For information on creating a brand in the RCS Biz Center, see **Service Policy & Precondition** > **RCS**.
 
-* [ Preparations before use and Restrictions > RCS Shortcut](./preconditions/preconditions-rcs)
+* [Service Policy & Precondition > RCS Shortcut](./preconditions/preconditions-rcs)
 * [Shortcut to the RCS Biz Center](https://www.rcsbizcenter.com/main)
 
 When the RCS Biz Center has created a brand and set up an agency, registered a chat room (sender number), and registered a template (approved), the console will link the brand.

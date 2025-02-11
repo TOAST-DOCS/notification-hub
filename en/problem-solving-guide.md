@@ -19,10 +19,10 @@ In Notification Hub, the criteria for business membership follow the type of org
 
 ## Sent characters are not received by some receiver devices.
 
-If texts are not received from the receiver device, the receiver's number may be subscribed to the ** Stolen Number Text Message Blocking Service’ ** or the ** Mobile Carrier spam blocking service**. Resend the text after terminating the service. For more information about ** Stolen Number Text Message Blocking Service’ ** and ** Mobile Carrier spam blocking service**, check the link below.
+If texts are not received from the receiver device, the receiver's number may be subscribed to the **Stolen Number Text Message Blocking Service’** or the **Mobile Carrier spam blocking service**. Resend the text after terminating the service. For more information about **Stolen Number Text Message Blocking Service’** and **Mobile Carrier spam blocking service**, check the link below.
 
-* [Guide of Stolen Number Text Message Blocking Service](service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
-* [Mobile Carrier Spam Blocking Service Guide](service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
+* [Guide of Stolen Number Text Message Blocking Service](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
+* [Mobile Carrier Spam Blocking Service Guide](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 
 ## iPhone will not receive push messages, and the registered token will be deleted.
 

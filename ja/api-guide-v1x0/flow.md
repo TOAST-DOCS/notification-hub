@@ -19,7 +19,7 @@
 POST /flow/v1.0/flows
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -166,7 +166,7 @@ curl -X POST "${ENDPOINT}/flow/v1.0/flows" \
 ```
 GET /flow/v1.0/flows
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -176,7 +176,7 @@ X-NHN-Authorization: {accessToken}
 | appKey | Header | String | Y | アプリキー       |
 | accessToken | Header | String | Y | 認証トークン    |
 | flowId | Query | String | N | フローID    |
-| flowName | Query | String | N | フロー名、プレフィックス(Prefix)検索可能 |
+| flowName | Query | String | N | フロー名、プレフィックス(Prefix)、単一文字ワイルドカード(Single Character Wildcard)検索可能 |
 | limit | Query | Integer | N | 1ページあたりの照会数 |
 | offset | Query | Integer | N | ページオフセット  |
 
@@ -262,7 +262,7 @@ curl -X GET "${ENDPOINT}/flow/v1.0/flows" \
 ```
 GET /flow/v1.0/flows/{flowId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -354,8 +354,8 @@ curl -X GET "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
 ```
 PUT /flow/v1.0/flows/{flowId}
 Content-Type: application/json
-X-NC-APP-KEY: {{ppKey}
-X-NHN-Authorization: {accessToken}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**
@@ -490,7 +490,7 @@ curl -X PUT "${ENDPOINT}/flow/v1.0/flows/${FLOW_ID}" \
 ```
 DELETE /flow/v1.0/flows/{flowId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **リクエストパラメータ**

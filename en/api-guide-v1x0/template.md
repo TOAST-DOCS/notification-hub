@@ -19,7 +19,7 @@
 POST /template/v1.0/{messageChannel}/templates
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -242,18 +242,18 @@ curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates" \
 ```
 GET /template/v1.0/{messageChannel}/templates
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
 
-| Name           | In | Type | Required | Description                        |
-|--------------| --- | --- | --- |---------------------------|
-| appKey       | Header | String | Y | Appkey                        |
-| accessToken  | Header | String | Y | Authentication Token                     |
-| templateName | Query | String | N | Searchable template names and prefixes |
-| limit        | Query | Integer | N | Number of views (default: 20)            |
-| offset       | Query | Integer | N | View start location (default: 0)          |
+| Name           | In | Type | Required | Description                                                 |
+|--------------| --- | --- | --- |-------------------------------------------------------------------|
+| appKey       | Header | String | Y | Appkey                                                             |
+| accessToken  | Header | String | Y | Authentication Token                                                |
+| templateName | Query | String | N | Searchable template names and prefixes                               |
+| limit        | Query | Integer | N | Number of views (default: 20)                                       |
+| offset       | Query | Integer | N | View start location (default: 0)                                    |
 
 **Request Body**
 
@@ -333,7 +333,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates" \
 ```
 GET /template/v1.0/{messageChannel}/templates/{templateId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -420,7 +420,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_I
 PUT /template/v1.0/{messageChannel}/templates/{templateId}
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -540,7 +540,7 @@ curl -X PUT "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_I
 ```
 DELETE /template/v1.0/{messageChannel}/templates/{templateId}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -605,7 +605,7 @@ curl -X DELETE "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLAT
 POST /template/v1.0/ALIMTALK/templates/{templateId}/inquiries
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -686,7 +686,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquir
 POST /template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquiries/do-with-file
 Content-Type: multipart/form-data
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -768,7 +768,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquir
 GET /template/v1.0/ALIMTALK/templates/{templateId}/modifications
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -972,7 +972,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/modific
 POST /template/v1.0/{messageChannel}/categories
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1061,7 +1061,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories" \
 GET /template/v1.0/{messageChannel}/categories
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1143,7 +1143,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories" \
 GET /template/v1.0/{messageChannel}/category-tree
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1153,7 +1153,7 @@ X-NHN-Authorization: {accessToken}
 | appKey | Header | String | Y | Appkey                                                     |
 | accessToken | Header | String | Y | Authentication Token                                                  |
 | messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH  |
-| categoryTemplateName | Query | String | N | Searchable by category or template name and prefix                      |
+| categoryTemplateName | Query | String | N | Searchable by category, template name, prefix, or single character wildcard                      |
 | senderProfileType | Query | String | N | Sender profile type (GROUP, USER), Notification Chats and Friend Chats only                |
 | senderKey | Query | String | N | Sender ID, Notification Chats and Friend Chats only                                   |
 
@@ -1262,7 +1262,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/category-tree" \
 GET /template/v1.0/{messageChannel}/categories/{categoryId}
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1344,7 +1344,7 @@ curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/{categoryId
 PUT /template/v1.0/{messageChannel}/categories/{categoryId}
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1430,7 +1430,7 @@ curl -X PUT "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/{categoryId
 POST /template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY_ID}/templates
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1511,7 +1511,7 @@ curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY
 DELETE /template/v1.0/{messageChannel}/categories/{categoryId}
 Content-Type: application/json
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**

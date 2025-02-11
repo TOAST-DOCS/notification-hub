@@ -11,7 +11,7 @@
 
 !!! danger "Caution"
     * Notification Hub API v1.0 is currently in an alpha state, is not stabilized, and experimental features may be added or removed.
-    * The API is subject to change at any time, and changes may be made without notice.
+    * The API is subject to change at any time to improve the service, and changes may not be announced in advance.
     * Notification Hub will change to the official version after it is in General Availability (GA).
     * The parts that are subject to change include everything described in this document: API endpoints, authentication, request limits, requests, responses, fields, etc.
 
@@ -30,7 +30,7 @@
 ## Authentication and Authorization
 
 ```
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 * Obtain an issued authorization token and set it in the **X-NHN-Authorization** request header when calling the Notification Hub API.
@@ -74,6 +74,29 @@ curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
 * **+hh:mm** or **Z** represents the Time Zone Designator.
 * The units of seconds and milliseconds are not used in the Notification Hub API and features.
 * In the API response, the date and time are represented in the format **YYYY-MM-DDThh:mm:ss.sss+09:000**.
+
+## Prefix and Single-Character Wildcard Search
+
+List lookups support prefix and single character wildcard searches for non-personal information lookup criteria.
+
+### Prefix Search
+
+* **Prefix search** searches for values that begin with a specific string.
+* Request Example
+    * Search for templates whose template names begin `with _ad_`.
+      ```
+      GET /message/v1.0/templates?templateName=Advertising
+      ``` 
+    * Search results: Ad-1, Ad-2, Ad-3, etc.
+
+### Single Character Wildcard Search
+* **A single-character wildcard search** searches for any character in a specific location.
+* Request Example
+    * Search for templates with template names ending in `-1`.
+      ```
+      GET /message/v1.0/templates?templateName=__-1
+      ``` 
+    * Search results: Ads-1, General-1, Announcements-1, etc.
 
 <span id="response"></span>
 

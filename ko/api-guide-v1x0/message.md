@@ -26,7 +26,7 @@
 ```
 POST /message/v1.0/{messageChannel}/free-form-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -57,7 +57,8 @@ X-NHN-Authorization: {accessToken}
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ]
     }
@@ -75,15 +76,16 @@ X-NHN-Authorization: {accessToken}
 | statsKeyId | String | N   | 통계 키 아이디                                                                                                                              |
 | scheduledDateTime | DateTime(ISO 8601) | N   | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00)                                                                                                |
 | confirmBeforeSend | Boolean | N   | 발송 전 확인 여부(기본값 false)                                                                                                                 |
-| sender | Object | Y/N | 발신자, 푸시 외 다른 메시지 채널은 필수                                                                                                               |
+| sender | Object | Y | 발신자, 푸시 외 다른 메시지 채널은 필수                                                                                                               |
 | recipients | Object Array | Y   | 수신자 배열                                                                                                                                |
 | recipients[].contacts | Object Array | Y   | 수신자의 연락처 배열                                                                                                                           |
 | recipients[].contacts[].contactType | String | Y   | 연락처 유형<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_FCM, TOKEN_APNS, TOKEN_ADM, TOKEN_APNS_SANDBOX, TOKEN_APNS_VOIP, TOKEN_APNS_VOIP_SANDBOX |
 | recipients[].contacts[].contact | String | Y   | 연락처                                                                                                                                   |
+| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
 | content | Object | Y   | 메시지 내용                                                                                                                                |
 
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
-* 메시지 채널에 따라 **recipients[].contact.contactType**, **recipients[].contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
+* 메시지 채널에 따라 **recipients[].contacts.contactType**, **recipients[].contacts.contact** 필드에 입력할 수 있는 값이 달라집니다.
 * 예약 발송의 경우 **scheduledDateTime**를 설정합니다. 발송이 시작되기 전의 예약 발송은 요청 취소가 가능합니다. 요청 취소 API를 호출하거나 **Notification Hub 콘솔** > **발송 조회**에서 취소할 수 있습니다.
 * 승인 후 발송의 경우 **confirmBeforeSend**를 **true**로 설정합니다. 승인 후 발송인 메시지는 **Notification Hub 콘솔** > **발송 조회**에서 승인을 하면 발송이 진행됩니다.
 * 예약 발송과 승인 후 발송은 동시에 설정할 수 없습니다.
@@ -149,7 +151,8 @@ X-NHN-Authorization: {{authorizationToken}}
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ]
     }
@@ -216,7 +219,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ]
     }
@@ -261,7 +265,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ]
     }
@@ -368,7 +373,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       ],
       "coupon": {
         "title": "쿠폰_제목",
-        "description": "쿠폰_상제_설명",
+        "description": "쿠폰_상세_설명",
         "linkMo": "모바일_링크",
         "linkPc": "PC_링크",
         "schemeIos": "iOS_앱_링크",
@@ -444,7 +449,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       ],
       "coupon": {
         "title": "쿠폰_제목",
-        "description": "쿠폰_상제_설명",
+        "description": "쿠폰_상세_설명",
         "linkMo": "모바일_링크",
         "linkPc": "PC_링크",
         "schemeIos": "iOS_앱_링크",
@@ -546,7 +551,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
       },
       "coupon": {
         "title": "쿠폰_제목",
-        "description": "쿠폰_상제_설명",
+        "description": "쿠폰_상세_설명",
         "linkMo": "모바일_링크",
         "linkPc": "PC_링크",
         "schemeIos": "iOS_앱_링크",
@@ -577,8 +582,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.item.list[].attachmentId  | String        | Y  | 첨부 파일 아이디                                                                                                                                                 |
 | content.item.list[].linkMo        | String        | Y  | 모바일 웹 링크                                                                                                                                                  |
 | content.item.list[].linkPc        | String        | Y  | PC 웹 링크                                                                                                                                                   |
-| content.item.list[].schemeIos     | String        | Y  | IOS 앱 링크                                                                                                                                                  |
-| content.item.list[].schemeAndroid | String        | Y  | 안드로이 앱 링크                                                                                                                                                 |
+| content.item.list[].schemeIos     | String        | Y  | iOS 앱 링크                                                                                                                                                  |
+| content.item.list[].schemeAndroid | String        | Y  | Android 앱 링크                                                                                                                                                 |
 | content.coupon                    | Object        | N  | 쿠폰                                                                                                                                                        |
 | content.coupon.title              | String        | Y  | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰" |
 | content.coupon.description        | String        | Y  | 쿠폰 상세 설명 (일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자)                                                                                   |
@@ -635,7 +640,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
               },
               "coupon": {
                 "title": "쿠폰_제목",
-                "description": "쿠폰_상제_설명",
+                "description": "쿠폰_상세_설명",
                 "linkMo": "모바일_링크",
                 "linkPc": "PC_링크",
                 "schemeIos": "iOS_앱_링크",
@@ -663,7 +668,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
               },
               "coupon": {
                 "title": "쿠폰_제목",
-                "description": "쿠폰_상제_설명",
+                "description": "쿠폰_상세_설명",
                 "linkMo": "모바일_링크",
                 "linkPc": "PC_링크",
                 "schemeIos": "iOS_앱_링크",
@@ -869,7 +874,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 ```
 POST /message/v1.0/{messageChannel}/template-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -902,7 +907,8 @@ X-NHN-Authorization: {accessToken}
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ],
       "templateParameters": {
@@ -930,6 +936,7 @@ X-NHN-Authorization: {accessToken}
 | recipients[].contacts | Object Array              | Y | 수신자의 연락처 배열 |
 | recipients[].contacts[].contactType | String             | Y | 연락처 유형 |
 | recipients[].contacts[].contact | String             | Y | 연락처 |
+| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
 | recipients[].templateParameters | Object             | N | 템플릿 파라미터 |
 
 * 템플릿 파라미터는 템플릿에 정의된 파라미터와 일치해야 합니다.
@@ -983,7 +990,8 @@ X-NHN-Authorization: {{authorizationToken}}
       "contacts": [
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contact": "01012345678",
+          "clientReference": "test"
         }
       ],
       "templateParameters": {
@@ -1052,7 +1060,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 ```
 POST /message/v1.0/flow-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1093,7 +1101,8 @@ X-NHN-Authorization: {accessToken}
         },
         {
           "contactType": "PHONE_NUMBER",
-          "contact": "01012345679"
+          "contact": "01012345679",
+          "clientReference": "test"
         }
       ],
       "templateParameters": {
@@ -1121,6 +1130,7 @@ X-NHN-Authorization: {accessToken}
 | recipients[].contacts | Object Array          | Y | 수신자의 연락처 배열                            |
 | recipients[].contacts[].contactType | String         | Y | 연락처 유형                                 |
 | recipients[].contacts[].contact | String         | Y | 연락처                                    |
+| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
 | recipients[].templateParameters | Object         | N | 수신자 별 템플릿 파라미터                         |
 
 * 플로우 메시지 발송도 템플릿 메시지 발송과 동일하게 템플릿 파라미터를 사용합니다.
@@ -1251,7 +1261,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 ```
 POST /message/v1.0/messages/{messageId}/do-cancel
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -1306,6 +1316,238 @@ curl -X POST "${ENDPOINT}/message/v1.0/messages/${MESSAGE_ID}/do-cancel" \
      -H "Content-Type: application/json" \
      -H "X-NC-APP-KEY: ${APP_KEY}" \
      -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```
+
+</details>
+
+
+## 인스턴트 플로우 메시지 발송
+**요청**
+
+```
+POST /message/v1.0/instant-flow-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| appKey | Header | String | Y | 앱키 |
+| accessToken | Header | String | Y | 인증 토큰 |
+| messagePurpose | Path | String | Y | 메시지 목적<br>NORMAL, AD, AUTH |
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2021-01-01T00:00:00Z",
+  "confirmBeforeSend" : false,
+  "templateParameters" : "templateParameters" : {
+    "key": "value"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference": "test"
+    } ],
+    "templateParameters" : "templateParameters" : {
+      "key": "value"
+    }
+  } ],
+  "instantFlow" : {
+    "steps" : [ {
+      "messageChannel" : "RCS",
+      "sender" : {
+        "brandId": "브랜드_이이디",
+        "chatbotId": "대화방_아이디"
+      },
+      "content" : {
+        "title" : "제목",
+        "body" : "본문"
+      },
+      "templateId" : "템플릿_아이디",
+        "nextSteps" : [ {
+        "messageChannel" : "SMS",
+        "sender" : {
+          "senderPhoneNumber" : "0123456789"
+        },
+        "content" : {
+          "title" : "제목",
+          "body" : "본문"
+        },
+        "templateId" : "템플릿_아이디",
+        "nextSteps" : [ ]
+      } ]
+    } ]
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| statsKeyId | String | N   | 통계 키 아이디                                                                                                                              |
+| scheduledDateTime | DateTime(ISO 8601) | N   | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00)                                                                                                |
+| confirmBeforeSend | Boolean | N   | 발송 전 확인 여부(기본값 false)      
+| templateParameters | Object | N | 템플릿 파라미터입니다. 템플릿 아이디를 설정하는 경우 필수입니다. |
+| recipients[] | Array | Y | 수신자 목록록 |
+| recipients[].contacts[] | Array | N | 수신자 연락처 목록입니다. |
+| recipients[].contacts[].contactType | String | Y | 연락처 타입<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP |
+| recipients[].contacts[].contact | String | Y | 연락처 입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
+| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
+| recipients[].templateParameters |  | N | 템플릿 파라미터입니다. 템플릿 아이디를 설정하는 경우 필수입니다.  |
+| instantFlow | Object | Y | 인스턴트 플로우입니다. 플로우 생성 없이 정의할 수 있습니다. |
+| instantFlow.steps[] | Array | Y | 인스턴트 플로우 단계입니다. |
+| instantFlow.steps[].messageChannel | String | Y | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
+| instantFlow.steps[].sender | Object | N | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| instantFlow.steps[].content | Object | N | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
+| instantFlow.steps[].nextSteps[] | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다. |
+
+* 한번 사용된 메시지 채널은 다음 단계에서 사용할 수 없습니다.
+* 한 단계는 여러 개의 다음 단계를 가질 수 있습니다.
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | true |
+| header.resultCode | Integer | 0 |
+| header.resultMessage | String | SUCCESS |
+| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+
+**실패 응답 - 중복 수신자**
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 400004,
+    "resultMessage" : "중복된 수신자 연락처가 있습니다."
+  },
+  "duplicatedContacts" : [
+    {
+      "contactType": "PHONE_NUMBER",
+      "contact": "0123456789"
+    }
+  ]
+}
+```
+
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 인스턴트 플로우 메시지 발송
+POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{accessToken}}
+
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2021-01-01T00:00:00Z",
+  "confirmBeforeSend" : false,
+  "templateParameters" : "templateParameters" : {
+    "key": "value"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678"
+    } ],
+    "templateParameters" : {
+      "key": "value"
+    }
+  } ],
+  "instantFlow" : {
+    "steps" : [ {
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "제목",
+        "body" : "본문"
+      },
+      "templateId" : "템플릿_아이디",
+      "nextSteps" : [ ]
+    } ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: ${APP_KEY}" \
+     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+     -d '{
+      "statsKeyId" : "aA123456",
+      "scheduledDateTime" : "2021-01-01T00:00:00Z",
+      "confirmBeforeSend" : false,
+      "templateParameters" : {
+          "key": "value"
+      },
+      "recipients" : [ {
+        "contacts" : [ {
+          "contactType" : "PHONE_NUMBER",
+          "contact" : "01012345678"
+        } ],
+        "templateParameters" : {
+          "key": "value"
+        }
+      } ],
+      "instantFlow" : {
+        "steps" : [ {
+          "messageChannel" : "SMS",
+          "sender" : {
+            "senderPhoneNumber" : "0123456789"
+          },
+          "content" : {
+            "title" : "제목",
+            "body" : "본문"
+          },
+          "templateId" : "템플릿_아이디",
+          "nextSteps" : [ ]
+        } ]
+      }
+     }'
 ```
 
 </details>

@@ -67,7 +67,7 @@ Existing NHN Cloud Notification users can easily switch to and use the Notificat
 * Monthly delivery volume can be seen in **Console**>**Organization**>**Project**>**Quarter Management**.
 * Contact **Customer Center**>**1:1:1 Inquiry** if you need to adjust your monthly delivery volume.
   * [1:1 Inquiry Shortcut](https://www.nhncloud.com/kr/support/inquiry)
-* For resource provision policies, see **User Guide**>**NHN Cloud**>**Resource Provision Policy**].
+* For resource provision policies, see **User Guide**>**NHN Cloud**>**Resource Provision Policy**.
   * [ Resource Provision Policy Shortcut ](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
 
 ## Information on Processing of Personal Information

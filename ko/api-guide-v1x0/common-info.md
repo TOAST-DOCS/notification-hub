@@ -30,7 +30,7 @@
 ## 인증 및 권한
 
 ```
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 * 인증 토큰을 발급 받아 Notification Hub API 호출 시 **X-NHN-Authorization** 요청 헤더에 인증 토큰을 설정합니다.

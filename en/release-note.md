@@ -12,7 +12,10 @@
 ### Notification Hub in beta
 
 ### Bug Fixes
-* [Console] Fixed an issue where messages sent from the console are not properly delivered to the recipient.
+* [Console] Fixed errors
+    * Fixed errors in the send, flow, template, and statistics features.
+* [API] Fix authentication errors
+    * Fixed an issue where authentication are not being handled correctly for some API requests.
 
 
 ## October 29, 2024

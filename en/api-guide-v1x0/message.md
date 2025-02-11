@@ -26,7 +26,7 @@ In order to send messages to each message channel, the sender information for ea
 ```
 POST /message/v1.0/{messageChannel}/free-form-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -70,17 +70,17 @@ For more information on the body of the request depending on the message channel
 
 <!--요청 본문의 필드를 설명합니다.-->
 
-| Name | Type | Required  | Description |
-| --- | --- |-----| --- |
-| statsKeyId | String | N   | Statistics Key ID |
-| scheduledDateTime | DateTime(ISO 8601) | N   | Scheduled send date (e.g., 2024-10-29T06:29:00+09:00) |
-| confirmBeforeSend | Boolean | N   | Whether to verify before sending (default false) |
-| sender | Object | Y/N | Sender, Push, and other message channels are required |
-| recipients | Object Array | Y   | Receiver Array |
-| recipients[].contacts | Object Array | Y   | Arrange the recipient's contacts |
-| recipients[].contacts[].contactType | String | Y   | Contact types |
-| recipients[].contacts[].contact | String | Y   | Contact |
-| content | Object | Y   | Message content |
+| Name | Type | Required  | Description                                                                                                                                    |
+| --- | --- |-----|---------------------------------------------------------------------------------------------------------------------------------------|
+| statsKeyId | String | N   | Statistics Key ID                                                                                                                              |
+| scheduledDateTime | DateTime(ISO 8601) | N   | Scheduled send date (e.g., 2024-10-29T06:29:00+09:00)                                                                                                |
+| confirmBeforeSend | Boolean | N   | Whether to verify before sending (default false)                                                                                                                 |
+| sender | Object | Y/N | Sender, Push, and other message channels are required                                                                                                               |
+| recipients | Object Array | Y   | Receiver Array                                                                                                                                |
+| recipients[].contacts | Object Array | Y   | Arrange the recipient's contacts                                                                                                                           |
+| recipients[].contacts[].contactType | String | Y   | Contact types<br>phone_number, email_address, token_fcm, token_apns, token_adm, token_apns_sandbox, token_apns_voip, token_apns_voip_sandbox |
+| recipients[].contacts[].contact | String | Y   | Contact                                                                                                                                   |
+| content | Object | Y   | Message content                                                                                                                                |
 
 * Depending on the message channel, the **sender** and **content** fields have different formats.
 * The message channel determines the values you can enter in the **recipients** **[].contact.contactType**, **recipients[].contact.contact** fields.
@@ -730,8 +730,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
     {
       "contacts": [
         {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
+          "contactType": "EMAIL_ADDRESS",
+          "contact": "recipient@example.com"
         }
       ]
     }
@@ -756,9 +756,11 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.attachmentIds | String Array | N  | Attachment ID |
 
 * The domain in the sender email address must be verified as owned.
-* You can upload **up to 10**attachments, and they can be **no larger than 30 MB**.
-* Attachments can't **total**more than **30 MB**.
-* You can attach up to **30 MB**, but depending on the attachment limit policy of the receiving email system (gmail.com, naver.com, etc.), we recommend attachments that are **10 MB or less, as they may be rejected for **exceeding the limit** or result in a higher spam flagging rate.
+* You can upload up to 10 attachments that are no larger than 30 MB.
+* Attachments can't exceed a maximum of 30 MB in total.
+* You can attach up to 30 MB, but depending on the attachment limit policy of the receiving email system (gmail.com, naver.com, etc.), we recommend attachments that are 10 MB or less, as they may be rejected for **exceeding the limit** or result in a higher spam flagging rate.
+* **Only EMAIL_ADDRESS** is allowed in the **recipients[].contacts[].contactType** field. 
+* In the **recipients[].contacts[].contact** field, enter the recipient email addresses.
 
 <span id="free-form-message-request-body-push"></span>
 
@@ -854,6 +856,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 * Pushes don't require a **sender** field.
 * Pushes can build **content** fields by adding user-defined keys and values.
+* The **recipients[].contacts[].contactType** field must be one of the following: **TOKEN_FCM**, **TOKEN_APNS, TOKEN_ADM**, **TOKEN_APNS_SANDBOX**, **TOKEN_APNS_VOIP**, **TOKEN_APNS_VOIP_SANDBOX**.
+* In the **recipients[].contacts[].contact** field, enter the **push token**.
 
 
 <span id="template-message-sending-request"></span>
@@ -865,7 +869,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 ```
 POST /message/v1.0/{messageChannel}/template-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1048,7 +1052,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 ```
 POST /message/v1.0/flow-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**
@@ -1247,7 +1251,7 @@ Cancel a sending request for a scheduled message before it is sent, or a sent me
 ```
 POST /message/v1.0/messages/{messageId}/do-cancel
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **Request Parameter**

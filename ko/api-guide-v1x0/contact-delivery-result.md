@@ -27,7 +27,7 @@
 ```
 GET /message/v1.0/contact-delivery-results
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -152,7 +152,7 @@ X-NHN-Authorization: {accessToken}
 | contactDeliveryResults[].confirmedDateTime | DateTime(ISO 86091) | 승인 일시(예: 2024-10-29T06:09:00+09:00)|
 | contactDeliveryResults[].scheduled | Boolean | 예약 발송 여부 |
 | contactDeliveryResults[].scheduledDateTime | DateTime(ISO 86091) | 예약 발송 일시 |
-| contactDeliveryResults[].status | String| 상태 |
+| contactDeliveryResults[].status | String| 상태<br> 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)  |
 | contactDeliveryResults[].resultCode | String| 결과 코드|
 | contactDeliveryResults[].resultMessage | String| 결과 메시지 |
 | contactDeliveryResults[].templateParameters | Object| 템플릿 파라미터 |
