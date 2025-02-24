@@ -174,7 +174,7 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/message/v1.0/contact-delivery-results?createdDateTimeFrom={요청 일시 시작 범위}&createdDateTimeTo={요청 일시 종료 범위}&limit=10&offset=0
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
+X-NHN-Authorization: Bearer {{authorizationToken}}
 ```
 
 </details>
@@ -186,7 +186,7 @@ X-NHN-Authorization: {{authorizationToken}}
 curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results?createdDateTimeFrom={요청 일시 시작 범위}&createdDateTimeTo={요청 일시 종료 범위}&limit=10&offset=0" \
      -H "Content-Type: application/json" \
      -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+     -H "X-NHN-Authorization: Bearer ${ACCESS_TOKEN}"
 ```
 
 </details>
@@ -349,7 +349,7 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/final-contact-delivery-results?updatedDateTimeFrom={업데이트 일시 시작 범위}&updatedDateTimeTo={업데이트 일시 종료 범위}&limit=10&offset=0
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
+X-NHN-Authorization: Bearer {{authorizationToken}}
 ```
 
 </details>
@@ -361,7 +361,7 @@ X-NHN-Authorization: {{authorizationToken}}
 curl -X GET "${ENDPOINT}/message/v1.0/final-contact-delivery-results?updatedDateTimeFrom={업데이트 일시 시작 범위}&updatedDateTimeTo={업데이트 일시 종료 범위}&limit=10&offset=0" \
      -H "Content-Type: application/json" \
      -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+     -H "X-NHN-Authorization: Bearer ${ACCESS_TOKEN}"
 ```
 
 </details>
