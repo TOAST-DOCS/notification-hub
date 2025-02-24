@@ -148,7 +148,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].messageChannel           | String              | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH                                                      |
 | contactDeliveryResults[].messagePurpose           | String              | 메시지 목적                                                                                                     |
 | contactDeliveryResults[].confirmBeforeSend        | Boolean             | 승인 후 발송 사용 여부                                                                                              |
-| contactDeliveryResults[].confirmedDateTime        | DateTime(ISO 86091) | 승인 일시(예: 2024-10-29T06:09:00+09:00)                                                                        |
+| contactDeliveryResults[].confirmedDateTime        | DateTime(ISO 86091) | 승인 일시(예: 2024-10-29T06:09:00.000+09:00)                                                                    |
 | contactDeliveryResults[].scheduled                | Boolean             | 예약 발송 여부                                                                                                   |
 | contactDeliveryResults[].scheduledDateTime        | DateTime(ISO 86091) | 예약 발송 일시                                                                                                   |
 | contactDeliveryResults[].status                   | String              | 상태<br> 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED) |
@@ -156,7 +156,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].resultMessage            | String              | 결과 메시지                                                                                                     |
 | contactDeliveryResults[].templateParameters       | Object              | 템플릿 파라미터                                                                                                   |
 | contactDeliveryResults[].additionalProperty       | Object              | 추가 속성, 알림톡, RCS만 제공                                                                                        |
-| contactDeliveryResults[].createdDateTime          | DateTime(ISO 86091) | 요청 일시(예: 2024-10-29T06:09:00+09:00)                                                                        |
+| contactDeliveryResults[].createdDateTime          | DateTime(ISO 86091) | 요청 일시(예: 2024-10-29T06:09:00.000+09:00)                                                                    |
 | contactDeliveryResults[].sentDateTime             | DateTime(ISO 86091) | 발송 일시, 발송 이벤트가 수집되기 전까지 값은 null                                                                            |
 | contactDeliveryResults[].deliveredDateTime        | DateTime(ISO 86091) | 수신 일시, 수신 이벤트가 수집되기 전까지 값은 null                                                                            |
 | contactDeliveryResults[].openedDateTime           | DateTime(ISO 86091) | 열람 일시, 열람 이벤트가 수집되기 전까지 값은 null, 푸시와 이메일만 제공                                                               |
@@ -323,7 +323,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].messageChannel           | String              | 메시지 채널<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH                             |
 | contactDeliveryResults[].messagePurpose           | String              | 메시지 목적                                                                            |
 | contactDeliveryResults[].confirmBeforeSend        | Boolean             | 승인 후 발송 사용 여부                                                                     |
-| contactDeliveryResults[].confirmedDateTime        | DateTime(ISO 86091) | 승인 일시(예: 2024-10-29T06:09:00+09:00)                                               |
+| contactDeliveryResults[].confirmedDateTime        | DateTime(ISO 86091) | 승인 일시(예: 2024-10-29T06:09:00.000+09:00)                                              |
 | contactDeliveryResults[].scheduled                | Boolean             | 예약 발송 여부                                                                          |
 | contactDeliveryResults[].scheduledDateTime        | DateTime(ISO 86091) | 예약 발송 일시                                                                          |
 | contactDeliveryResults[].status                   | String              | 상태<br> 요청 취소(CANCELED), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED) |
@@ -331,7 +331,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].resultMessage            | String              | 결과 메시지                                                                            |
 | contactDeliveryResults[].templateParameters       | Object              | 템플릿 파라미터                                                                          |
 | contactDeliveryResults[].additionalProperty       | Object              | 추가 속성, 알림톡, RCS만 제공                                                               |
-| contactDeliveryResults[].createdDateTime          | DateTime(ISO 86091) | 요청 일시(예: 2024-10-29T06:09:00+09:00)                                               |
+| contactDeliveryResults[].createdDateTime          | DateTime(ISO 86091) | 요청 일시(예: 2024-10-29T06:09:00.000+09:00)                                           |
 | contactDeliveryResults[].sentDateTime             | DateTime(ISO 86091) | 발송 일시, 발송 이벤트가 수집되기 전까지 값은 null                                                   |
 | contactDeliveryResults[].deliveredDateTime        | DateTime(ISO 86091) | 수신 일시, 수신 이벤트가 수집되기 전까지 값은 null                                                   |
 | contactDeliveryResults[].openedDateTime           | DateTime(ISO 86091) | 열람 일시, 열람 이벤트가 수집되기 전까지 값은 null, 푸시와 이메일만 제공                                      |
