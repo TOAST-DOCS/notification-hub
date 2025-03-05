@@ -7,6 +7,22 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
+## 2025. 03. 11.
+
+### 기능 추가
+* [API] RCS BizCenter 브랜드 메시지 통계 연동
+    * 메시지 발송 시 그룹ID를 추가하여 RCS BizCenter 가 제공하는 메시지 통계를 사용할 수 있습니다.
+* [API] RCS 메시지 발송 요청 만료 옵션 추가
+    * RCS 메시지 발송 시, 디바이스로의 전송 시도에 대한 타임아웃(4가지 유형)을 설정할 수 있습니다.
+* [API] RCS BizCenter LMS 포맷형 지원
+    * RCS 메시지 발송 시 LMS 포맷형으로 발송할 수 있습니다.
+    * 템플릿 생성 시 LMS 포맷형을 선택할 수 있습니다.
+* 자세한 내용은 [[API v1.0 사용 가이드 > 메시지](./api-guide-v1x0/message)]을 참고하시기 바랍니다.
+
+### 기능 개선
+* [Console] RCS 템플릿 기능 개선
+    * 이제 RCS BizCenter 템플릿 연동 시 브랜드 연동 버튼을 클릭할 필요가 없으며, RCS BizCenter 템플릿의 변경 사항이 자동으로 반영됩니다.
+
 ## 2025. 02. 25.
 
 ### 기능 추가
