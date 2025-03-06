@@ -919,25 +919,38 @@ X-NHN-Authorization: Bearer {accessToken}
         "key6": "value6"
       }
     }
-  ]
+  ],
+  "sender": {
+    "senderKey": "발신_키",
+    "chatbotId": "대화방_아이디"
+  },
+  "content": {
+    "unsubscribePhoneNumber": "08012341234"
+  }
 }
 ```
 
 <!--요청 본문의 필드를 설명합니다.-->
 
-| 이름 | 타입                 | 필수 | 설명 |
-| --- |--------------------| --- | --- |
-| statsKeyId | String             | N | 통계 키 아이디 |
-| scheduledDateTime | DateTime(ISO 8601) | N | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00) |
-| confirmBeforeSend | Boolean            | N | 발송 전 확인 여부(기본값 false) |
-| templateId | String             | Y | 템플릿 아이디 |
-| templateParameters | Object             | N | 템플릿 파라미터 |
-| recipients | Object Array      | Y | 수신자 배열 |
-| recipients[].contacts | Object Array              | Y | 수신자의 연락처 배열 |
-| recipients[].contacts[].contactType | String             | Y | 연락처 유형 |
-| recipients[].contacts[].contact | String             | Y | 연락처 |
-| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
-| recipients[].templateParameters | Object             | N | 템플릿 파라미터 |
+| 이름                                      | 타입                 | 필수 | 설명                                                   |
+|-----------------------------------------|--------------------|----|------------------------------------------------------|
+| statsKeyId                              | String             | N  | 통계 키 아이디                                             |
+| scheduledDateTime                       | DateTime(ISO 8601) | N  | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00)               |
+| confirmBeforeSend                       | Boolean            | N  | 발송 전 확인 여부(기본값 false)                                |
+| templateId                              | String             | Y  | 템플릿 아이디                                              |
+| templateParameters                      | Object             | N  | 템플릿 파라미터                                             |
+| recipients                              | Object Array       | Y  | 수신자 배열                                               |
+| recipients[].contacts                   | Object Array       | Y  | 수신자의 연락처 배열                                          |
+| recipients[].contacts[].contactType     | String             | Y  | 연락처 유형                                               |
+| recipients[].contacts[].contact         | String             | Y  | 연락처                                                  |
+| recipients[].contacts[].clientReference | String             | N  | 사용자 커스텀 필드                                           |
+| recipients[].templateParameters         | Object             | N  | 템플릿 파라미터                                             |
+| sender                                  | Object             | N  | 발신자 정보                                               |
+| sender.senderKey                        | String             | N  | 발신 키 (메시지 채널이 알림톡인 경우 필수)                            |
+| sender.chatbotId                        | String             | N  | 대화방 아이디 (RCS Bizcenter 템플릿인 경우 필수)                   |
+| content                                 | Object             | N  | 메시지 내용                                               |
+| content.unsubscribePhoneNumber          | String             | N  | 080 수신 거부 번호 (광고 목적의 RCS Bizcenter 템플릿 발송 시 필수) |
+
 
 * 템플릿 파라미터는 템플릿에 정의된 파라미터와 일치해야 합니다.
 * 템플릿 파라미터는 공통 템플릿 파라미터, 수신자 템플릿 파라미터로 구분됩니다.
@@ -1113,28 +1126,53 @@ X-NHN-Authorization: Bearer {accessToken}
         "key6": "value6"
       }
     }
-  ]
+  ],
+  "flow": {
+    "steps": [
+      {
+        "messageChannel": "SMS",
+        "nextSteps": [
+          {
+            "messageChannel": "RCS",
+            "sender": {
+              "chatbotId": "대화방_아이디"
+            },
+            "content": {
+              "unsubscribePhoneNumber": "08012341234"
+            }
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
 <!--요청 본문의 필드를 설명합니다.-->
 
-| 이름                 | 타입             | 필수 | 설명                                     |
-|--------------------| ----------------| --- |----------------------------------------|
-| statsKeyId         | String         | N | 통계 키 아이디                               |
-| scheduledDateTime  | DateTime(ISO 8601) | N | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00) |
-| confirmBeforeSend  | Boolean        | N | 발송 전 확인 여부(기본값 false)                  |
-| flowId             | String         | Y | 템플릿 아이디                                |
-| templateParameters | Object         | N | 메시지 공통 템플릿 파라미터                        |
-| recipients         | Object Array          | Y | 수신자 배열                                 |
-| recipients[].contacts | Object Array          | Y | 수신자의 연락처 배열                            |
-| recipients[].contacts[].contactType | String         | Y | 연락처 유형                                 |
-| recipients[].contacts[].contact | String         | Y | 연락처                                    |
-| recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
-| recipients[].templateParameters | Object         | N | 수신자 별 템플릿 파라미터                         |
+| 이름                                      | 타입             | 필수 | 설명                                     |
+|-----------------------------------------| ----------------|----|----------------------------------------|
+| statsKeyId                              | String         | N  | 통계 키 아이디                               |
+| scheduledDateTime                       | DateTime(ISO 8601) | N  | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00) |
+| confirmBeforeSend                       | Boolean        | N  | 발송 전 확인 여부(기본값 false)                  |
+| flowId                                  | String         | Y  | 템플릿 아이디                                |
+| templateParameters                      | Object         | N  | 메시지 공통 템플릿 파라미터                        |
+| recipients                              | Object Array          | Y  | 수신자 배열                                 |
+| recipients[].contacts                   | Object Array          | Y  | 수신자의 연락처 배열                            |
+| recipients[].contacts[].contactType     | String         | Y  | 연락처 유형                                 |
+| recipients[].contacts[].contact         | String         | Y  | 연락처                                    |
+| recipients[].contacts[].clientReference | String         | N  | 사용자 커스텀 필드                        |
+| recipients[].templateParameters         | Object         | N  | 수신자 별 템플릿 파라미터                         |
+| flow                                    | Object | N  | 플로우 |
+| flow.steps[]                            | Array | Y  | 플로우 단계 |
+| flow.steps[].messageChannel             | String | Y  | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
+| flow.steps[].sender                     | Object | N  | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다. |
+| flow.steps[].content                    | Object | N  | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다. |
+| flow.steps[].nextSteps[]                | Array | N  | 다음 단계입니다. |
 
 * 플로우 메시지 발송도 템플릿 메시지 발송과 동일하게 템플릿 파라미터를 사용합니다.
 * 수신자의 연락처는 플로우에서 사용하는 메시지 채널에 필요한 연락처가 모두 포함되어야 합니다.
+* 필수값이 필요한 템플릿을 사용하는 플로우인 경우 flow를 통해 필수값을 지정할 수 있습니다. 이때, flow의 구성은 발송하려는 flowId의 flow와 동일하게 구성해야 합니다.
 
 **응답 본문**
 
