@@ -247,9 +247,9 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.attachmentIds | String Array | N | 첨부 파일 아이디 |
 
 
-<span id="free-form-message-request-body-rcs"></span>
+<span id="free-form-message-request-body-rcs-sms-standalone"></span>
 
-### RCS
+### RCS - SMS Standalone
 
 ```json
 {
@@ -257,7 +257,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
-    "brandId": "브랜드_이이디",
+    "brandId": "브랜드_아이디",
     "chatbotId": "대화방_아이디"
   },
   "recipients": [
@@ -274,61 +274,441 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
   "content": {
     "messageType": "SMS",
     "unsubscribePhoneNumber": "08012341234",
-    "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
-    "mmsType": "HORIZONTAL",
-    "messagebaseId": "44o4SUjpqnjDuUcH+uHvPg==",
+    "smsType": "STANDALONE",
     "cards": [
         {
-          "title":"testTitle",
-          "description":"testBody",
-          "media":"fileId",
+          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
           "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
-            },
             {
               "buttonType" : "URL",
               "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
             }
           ]
         }
-    ],
-    "buttons": [
-        {
-            "buttonType": "URL",
-            "buttonJson": "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
-        }
     ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
   }
 }
 ```
 
 
-| 이름 | 타입 | 필수 | 설명                                                                                                                                                       |
-| --- | --- | --- |----------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| sender | Object | Y | 발신자                                                                                                                                                      |
-| sender.brandId | Object | N | 브랜드 아이디                                                                                                                                                  |
-| sender.chatbotId | Object | N | 대화방 아이디                                                                                                                                                  |
-| content | Object | Y | 메시지 내용                                                                                                                                                   |
-| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RCS_TEMPLATE                                                                                                                |
-| content.unsubscribePhoneNumber | String | Y | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수                                                                                                                           |
-| content.title | Object | Y | 제목                                                                                                                                                       |
-| content.Object | Y | 내용 |
-| content.mmsType | Object | N | MMS 타입, 메시지 유형이 MMS인 경우 필수, HORIZONTAL(수평), VERTICAL(수직), CAROUSEL_MEDIUM(캐러셀 중간), CAROUSEL_SMALL(캐러셀 작게)                                                |
-| content.messagebaseId | Object | N | 메시지 유형이 RCS_TEMPLATE인 경우 필수, RCS Biz Center에 등록된 템플릿 아이디                                                                                                 |
-| content.cards | Object Array | Y | 카드                                                                                                                                                       |
-| content.cards[].title | String | Y | 제목                                                                                                                                                       |
-| content.cards[].description | String | Y | 내용                                                                                                                                                       |
-| content.cards[].media | String | Y | 첨부파일 ID                                                                                                                                                  |
-| content.cards[].buttons | Object Array | Y | 버튼                                                                                                                                                       |
-| content.cards[].button.buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].button.buttonJson | String | Y | 버튼 Json,  버튼 타입에 맞는 포맷 확인                                                                                                                                |
-| content.buttons | Object Array | Y | 버튼 |
-| content.buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.buttons[].buttonJson | String | Y | 버튼 JSON 형식의 문자열                                                                                                                                          |
-| content.attachmentIds | String Array | N | 첨부 파일 아이디 배열                                                                                                                                             |
+| 이름 | 타입 | 필수 | 설명                                                                                                                                                                     |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 발신자                                                                                                                                                               |
+| sender.brandId | String | Y | 브랜드 아이디                                                                                                                                                  |
+| sender.chatbotId | String | Y | 대화방 아이디                                                                                                                                                |
+| content | Object | Y | 메시지 내용                                                                                                                                                          |
+| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수                                                                                                     |
+| content.smsType | String | Y | SMS 타입, 메시지 유형이 SMS인 경우 필수, STANDALONE(스탠다드)                                                                                                      |
+| content.cards | Object Array | Y | 카드                                                                                                                                                   |
+| content.cards[].title | String | N | 제목                                                                                                                                                 |
+| content.cards[].description | String | Y | 내용                                                                                                                                           |
+| content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
+| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
+| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
+
+<span id="free-form-message-request-body-rcs-lms-standalone"></span>
+
+### RCS - LMS Standalone
+
+```json
+{
+  "statsKeyId": "통계_키_아이디",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "브랜드_아이디",
+    "chatbotId": "대화방_아이디"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "LMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "lmsType": "STANDALONE",
+    "cards": [
+        {
+          "title":"[NHN Cloud] 공지사항",
+          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| 이름 | 타입 | 필수 | 설명                                                                                                                                                                     |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 발신자                                                                                                                                                               |
+| sender.brandId | String | Y | 브랜드 아이디                                                                                                                                                  |
+| sender.chatbotId | String | Y | 대화방 아이디                                                                                                                                                |
+| content | Object | Y | 메시지 내용                                                                                                                                                          |
+| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수                                                                                                     |
+| content.lmsType | String | Y | LMS 타입, 메시지 유형이 LMS인 경우 필수, STANDALONE(스탠다드), FORMAT_BASIC(포맷 기본형), FORMAT_TITLE_HIGHLIGHT(포맷 타이틀 강조형), FORMAT_PARAGRAPH(포맷 문단형)           |
+| content.cards | Object Array | Y | 카드                                                                                                                                                   |
+| content.cards[].title | String | N | 제목                                                                                                                                                 |
+| content.cards[].description | String | Y | 내용                                                                                                                                           |
+| content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
+| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
+| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
+
+<span id="free-form-message-request-body-rcs-lms-format-basic"></span>
+
+### RCS - LMS 포맷 기본형 및 포맷 타이틀 강조형
+* mTitleMedia 아이콘 파일 ID 목록
+  * 프로모션: LT-messagebase.common-DdWk6s
+  * 쿠폰: LT-messagebase.common-5Weq00
+  * 이벤트: LT-messagebase.common-jUAJX2
+  * 예약: LT-messagebase.common-2Yxt2H
+  * 영수증: LT-messagebase.common-2k8ydI
+  * 알림: LT-messagebase.common-YCVd02
+
+```json
+{
+  "statsKeyId": "통계_키_아이디",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "브랜드_아이디",
+    "chatbotId": "대화방_아이디"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "LMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "lmsType": "FORMAT_BASIC",
+    "cards": [
+        {
+          "mTitle":"[NHN Cloud] 공지사항",
+          "mTitleMedia":"LT-messagebase.common-DdWk6s",
+          "title":"공지 1",
+          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| 이름 | 타입 | 필수 | 설명                                                                                                                                                                     |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 발신자                                                                                                                                                               |
+| sender.brandId | String | Y | 브랜드 아이디                                                                                                                                                  |
+| sender.chatbotId | String | Y | 대화방 아이디                                                                                                                                                |
+| content | Object | Y | 메시지 내용                                                                                                                                                          |
+| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수                                                                                                     |
+| content.lmsType | String | Y | LMS 타입, 메시지 유형이 LMS인 경우 필수, STANDALONE(스탠다드), FORMAT_BASIC(포맷 기본형), FORMAT_TITLE_HIGHLIGHT(포맷 타이틀 강조형), FORMAT_PARAGRAPH(포맷 문단형)           |
+| content.cards | Object Array | Y | 카드                                                                                                                                                   |
+| content.cards[].mTitle | String | Y | 메인 타이틀                                                                                                                                           |
+| content.cards[].mTitleMedia | String | N | 메인 타이틀 아이콘                                                                                                                              |
+| content.cards[].title | String | N | 제목                                                                                                                                                 |
+| content.cards[].description | String | Y | 내용                                                                                                                                           |
+| content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
+| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
+| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
+
+### RCS - LMS 포맷 문단형 타입
+* mTitleMedia 아이콘 파일 ID 목록
+  * 프로모션: LT-messagebase.common-DdWk6s
+  * 쿠폰: LT-messagebase.common-5Weq00
+  * 이벤트: LT-messagebase.common-jUAJX2
+  * 예약: LT-messagebase.common-2Yxt2H
+  * 영수증: LT-messagebase.common-2k8ydI
+  * 알림: LT-messagebase.common-YCVd02
+
+```json
+{
+  "statsKeyId": "통계_키_아이디",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "브랜드_아이디",
+    "chatbotId": "대화방_아이디"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "LMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "lmsType": "FORMAT_PARAGRAPH",
+    "cards": [
+        {
+          "mTitle":"[NHN Cloud] 공지사항",
+          "mTitleMedia":"LT-messagebase.common-DdWk6s",
+          "title1":"공지 1",
+          "description1":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "title2":"공지 2",
+          "description2":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "title3":"공지 3",
+          "description3":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"공지1 버튼\"}}"
+            },
+            {},
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"공지2 버튼\"}}"
+            },
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"공지2 버튼\"}}"
+            },
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"공지3 버튼\"}}"
+            },
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| 이름 | 타입 | 필수 | 설명                                                                                                                                                                     |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 발신자                                                                                                                                                               |
+| sender.brandId | String | Y | 브랜드 아이디                                                                                                                                                  |
+| sender.chatbotId | String | Y | 대화방 아이디                                                                                                                                                |
+| content | Object | Y | 메시지 내용                                                                                                                                                          |
+| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수                                                                                                     |
+| content.lmsType | String | Y | LMS 타입, 메시지 유형이 LMS인 경우 필수, STANDALONE(스탠다드), FORMAT_BASIC(포맷 기본형), FORMAT_TITLE_HIGHLIGHT(포맷 타이틀 강조형), FORMAT_PARAGRAPH(포맷 문단형)           |
+| content.cards | Object Array | Y | 카드                                                                                                                                                   |
+| content.cards[].mTitle | String | Y | 메인 타이틀                                                                                                                                           |
+| content.cards[].mTitleMedia | String | N | 메인 타이틀 아이콘                                                                                                                                |
+| content.cards[].title1 | String | N | 제목 (문단 1)                                                                                                                                        |
+| content.cards[].description1 | String | Y | 내용 (문단 1)                                                                                                                                  |
+| content.cards[].title2 | String | N | 제목 (문단 2)                                                                                                                                        |
+| content.cards[].description2 | String | Y | 내용 (문단 2)                                                                                                                                  |
+| content.cards[].title3 | String | N | 제목 (문단 3)                                                                                                                                        |
+| content.cards[].description3 | String | Y | 내용 (문단 3)                                                                                                                                  |
+| content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
+| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
+| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
+
+
+
+### RCS - MMS 가로형, 세로형
+
+```json
+{
+  "statsKeyId": "통계_키_아이디",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "브랜드_아이디",
+    "chatbotId": "대화방_아이디"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "MMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "mmsType": "HORIZONTAL",
+    "cards": [
+        {
+          "title":"[NHN Cloud] 공지사항",
+          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "attachmentId":"첨부파일 ID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+
+| 이름 | 타입 | 필수 | 설명                                                                                                                                                                     |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 발신자                                                                                                                                                               |
+| sender.brandId | String | Y | 브랜드 아이디                                                                                                                                                  |
+| sender.chatbotId | String | Y | 대화방 아이디                                                                                                                                                |
+| content | Object | Y | 메시지 내용                                                                                                                                                          |
+| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수                                                                                                     |
+| content.mmsType | String | Y | MMS 타입, 메시지 유형이 MMS인 경우 필수, HORIZONTAL(가로형), VERTICAL(세로형), CAROUSEL_MEDIUM(캐러셀 중간), CAROUSEL_SMALL(캐러셀 작게)                                  |
+| content.cards | Object Array | Y | 카드                                                                                                                                                   |
+| content.cards[].title | String | N | 제목                                                                                                                                                 |
+| content.cards[].description | String | Y | 내용                                                                                                                                           |
+| content.cards[].attachmentId | String | Y | 첨부파일 ID                                                                                                                                           |
+| content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
+| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
+| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
+
+### RCS - MMS 캐러셀
+
+```json
+{
+  "statsKeyId": "통계_키_아이디",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "브랜드_아이디",
+    "chatbotId": "대화방_아이디"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "MMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "mmsType": "CAROUSEL_MEDIUM",
+    "cards": [
+        {
+          "title":"[NHN Cloud] 공지사항",
+          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "attachmentId":"첨부파일 ID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+            }
+          ]
+        },
+        {
+          "title":"[NHN Cloud] 공지사항",
+          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "attachmentId":"첨부파일 ID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+            }
+          ]
+        },
+        {
+          "title":"[NHN Cloud] 공지사항",
+          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "attachmentId":"첨부파일 ID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+
+| 이름 | 타입 | 필수 | 설명                                                                                                                                                                     |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 발신자                                                                                                                                                               |
+| sender.brandId | String | Y | 브랜드 아이디                                                                                                                                                  |
+| sender.chatbotId | String | Y | 대화방 아이디                                                                                                                                                |
+| content | Object | Y | 메시지 내용                                                                                                                                                          |
+| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수                                                                                                     |
+| content.mmsType | String | Y | MMS 타입, 메시지 유형이 MMS인 경우 필수, HORIZONTAL(가로형), VERTICAL(세로형), CAROUSEL_MEDIUM(캐러셀 중간), CAROUSEL_SMALL(캐러셀 작게)                                  |
+| content.cards | Object Array | Y | 카드                                                                                                                                                   |
+| content.cards[].title | String | N | 제목                                                                                                                                                 |
+| content.cards[].description | String | Y | 내용                                                                                                                                           |
+| content.cards[].attachmentId | String | Y | 첨부파일 ID                                                                                                                                           |
+| content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
+| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
+| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
 
 
 <span id="free-form-message-request-body-friendtalk-text"></span>
