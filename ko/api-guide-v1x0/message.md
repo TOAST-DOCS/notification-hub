@@ -249,7 +249,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-rcs-sms-standalone"></span>
 
-### RCS - SMS Standalone
+### RCS - SMS
 
 ```json
 {
@@ -316,7 +316,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-rcs-lms-standalone"></span>
 
-### RCS - LMS Standalone
+### RCS - LMS 스탠다드
 
 ```json
 {
