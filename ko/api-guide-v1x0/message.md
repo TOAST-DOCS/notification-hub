@@ -1504,17 +1504,6 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 
 | 이름                                      | 타입                 | 필수 | 설명                                                   |
 |-----------------------------------------|--------------------|----|------------------------------------------------------|
-| statsKeyId                              | String             | N  | 통계 키 아이디                                             |
-| scheduledDateTime                       | DateTime(ISO 8601) | N  | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00)               |
-| confirmBeforeSend                       | Boolean            | N  | 발송 전 확인 여부(기본값 false)                                |
-| templateId                              | String             | Y  | 템플릿 아이디                                              |
-| templateParameters                      | Object             | N  | 템플릿 파라미터                                             |
-| recipients                              | Object Array       | Y  | 수신자 배열                                               |
-| recipients[].contacts                   | Object Array       | Y  | 수신자의 연락처 배열                                          |
-| recipients[].contacts[].contactType     | String             | Y  | 연락처 유형                                               |
-| recipients[].contacts[].contact         | String             | Y  | 연락처                                                  |
-| recipients[].contacts[].clientReference | String             | N  | 사용자 커스텀 필드                                           |
-| recipients[].templateParameters         | Object             | N  | 템플릿 파라미터                                             |
 | sender                                  | Object             | N  | 발신자 정보                                               |
 | sender.chatbotId                        | String             | N  | 대화방 아이디 (RCS Bizcenter 템플릿인 경우 필수)               |
 | content                                 | Object             | N  | 메시지 내용                                               |
