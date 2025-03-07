@@ -1615,7 +1615,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId                              | String         | N  | 통계 키 아이디                               |
 | scheduledDateTime                       | DateTime(ISO 8601) | N  | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00) |
 | confirmBeforeSend                       | Boolean        | N  | 발송 전 확인 여부(기본값 false)                  |
-| flowId                                  | String         | Y  | 템플릿 아이디                                |
+| flowId                                  | String         | Y  | 풀로우 아이디                                |
 | templateParameters                      | Object         | N  | 메시지 공통 템플릿 파라미터                        |
 | recipients                              | Object Array          | Y  | 수신자 배열                                 |
 | recipients[].contacts                   | Object Array          | Y  | 수신자의 연락처 배열                            |
@@ -1665,7 +1665,7 @@ X-NHN-Authorization: {{authorizationToken}}
   "statsKeyId": "통계_아이디",
   "scheduledDateTime": "2024-10-29T00:06:29+09:00",
   "confirmBeforeSend": false,
-  "flowId": "템플릿_아이디",
+  "flowId": "플로우_아이디",
   "templateParameters": {
     "key1": "value1",
     "key2": "value2",
@@ -1712,7 +1712,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
        "statsKeyId": "통계_아이디",
        "scheduledDateTime": "2024-10-29T00:06:29+09:00",
        "confirmBeforeSend": false,
-       "flowId": "템플릿_아이디",
+       "flowId": "플로우_아이디",
        "templateParameters": {
          "key1": "value1",
          "key2": "value2",
@@ -1747,6 +1747,76 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 
 </details>
 
+<span id="flow-message-sending-request-rcs-step"></span>
+
+### 플로우 메시지 발송 요청 본문 RCS Step 예시
+
+```json
+{
+  "statsKeyId": "통계_아이디",
+  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
+  "confirmBeforeSend": false,
+  "flowId": "플로우_아이디",
+  "templateParameters": {
+    "key1": "value1",
+    "key3": {
+        "key4": "value4",
+        "key5": "value5"
+    }
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345679",
+          "clientReference": "test"
+        }
+      ],
+      "templateParameters": {
+        "key3": {
+          "key4": "value4",
+          "key5": "value5"
+        },
+        "key6": "value6"
+      }
+    }
+  ],
+  "flow": {
+    "steps": [
+      {
+        "messageChannel": "RCS",
+        "sender": {
+          "chatbotId": "대화방_아이디"
+        },
+        "content": {
+          "unsubscribePhoneNumber": "08012341234"
+        },
+        "options": {
+          "expiryOption": 1,
+          "groupId":"groupId"
+        },
+        "nextSteps": []
+      }
+    ]
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 이름                                      | 타입             | 필수 | 설명                                     |
+|-----------------------------------------| ----------------|----|-------------------------------------------|
+| flow.steps[]                            | Array | Y  | 플로우 단계 |
+| flow.steps[].messageChannel             | String | Y  | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
+| flow.steps[].sender                     | Object         | N  | 발신자 정보                                    |
+| flow.steps[].sender.chatbotId           | String         | N  | 대화방 아이디 (RCS Bizcenter 템플릿인 경우 필수)    |
+| flow.steps[].content                    | Object         | N  | 메시지 내용                                    |
+| flow.steps[].content.unsubscribePhoneNumber | String     | N  | 080 수신 거부 번호 (광고 목적의 RCS Bizcenter 템플릿 발송 시 필수) |
+| flow.steps[].options                    | Object         | N  | 발송 옵션                                     |
+| flow.steps[].options.expiryOption       | Integer        | N  | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)  |
+| flow.steps[].options.groupId            | String         | N  | RCS BizCenter 통계 연동을 위한 그룹 아이디         |
+| flow.steps[].nextSteps[]                | Object Array   | N  | 다음 단계입니다.                                |
 
 <span id="cancel-message-sending-request"></span>
 
@@ -1841,49 +1911,57 @@ X-NHN-Authorization: Bearer {accessToken}
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
 
-```
+```json
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2021-01-01T00:00:00Z",
   "confirmBeforeSend" : false,
-  "templateParameters" : "templateParameters" : {
+  "templateParameters" : {
     "key": "value"
   },
-  "recipients" : [ {
-    "contacts" : [ {
-      "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678",
-      "clientReference": "test"
-    } ],
-    "templateParameters" : "templateParameters" : {
-      "key": "value"
-    }
-  } ],
+  "recipients" : [ 
+    {
+      "contacts" : [ 
+        {
+          "contactType" : "PHONE_NUMBER",
+          "contact" : "01012345678",
+          "clientReference": "test"
+        } 
+      ],
+      "templateParameters" : {
+        "key": "value"
+      }
+    } 
+  ],
   "instantFlow" : {
-    "steps" : [ {
-      "messageChannel" : "RCS",
-      "sender" : {
-        "brandId": "브랜드_이이디",
-        "chatbotId": "대화방_아이디"
-      },
-      "content" : {
-        "title" : "제목",
-        "body" : "본문"
-      },
-      "templateId" : "템플릿_아이디",
-        "nextSteps" : [ {
-        "messageChannel" : "SMS",
+    "steps" : [ 
+      {
+        "messageChannel" : "RCS",
         "sender" : {
-          "senderPhoneNumber" : "0123456789"
+          "brandId": "브랜드_이이디",
+          "chatbotId": "대화방_아이디"
         },
         "content" : {
           "title" : "제목",
           "body" : "본문"
         },
         "templateId" : "템플릿_아이디",
-        "nextSteps" : [ ]
-      } ]
-    } ]
+        "nextSteps" : [ 
+          {
+            "messageChannel" : "SMS",
+            "sender" : {
+              "senderPhoneNumber" : "0123456789"
+            },
+            "content" : {
+              "title" : "제목",
+              "body" : "본문"
+            },
+            "templateId" : "템플릿_아이디",
+            "nextSteps" : [ ]
+          } 
+        ]
+      } 
+    ]
   }
 }
 ```
@@ -2049,3 +2127,79 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
 ```
 
 </details>
+
+<span id="flow-message-sending-request-rcs-step"></span>
+
+### 인스턴트 플로우 메시지 발송 요청 본문 RCS Step 예시
+
+```json
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2021-01-01T00:00:00Z",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key": "value"
+  },
+  "recipients" : [ 
+    {
+      "contacts" : [ 
+        {
+          "contactType" : "PHONE_NUMBER",
+          "contact" : "01012345678",
+          "clientReference": "test"
+        } 
+      ],
+      "templateParameters" : {
+        "key": "value"
+      }
+    } 
+  ],
+  "instantFlow" : {
+    "steps" : [ 
+      {
+        "messageChannel" : "RCS",
+        "sender" : {
+          "brandId": "브랜드_이이디",
+          "chatbotId": "대화방_아이디"
+        },
+        "content" : {
+          "lmsType" : "STANDALONE",
+          "cards" : [
+            {
+              "title" : "제목",
+              "description" : "본문"
+            }
+          ]
+        },
+        "templateId" : "템플릿_아이디",
+        "nextSteps" : [ 
+          {
+            "messageChannel" : "SMS",
+            "sender" : {
+              "senderPhoneNumber" : "0123456789"
+            },
+            "content" : {
+              "title" : "제목",
+              "body" : "본문"
+            },
+            "templateId" : "템플릿_아이디",
+            "nextSteps" : [ ]
+          } 
+        ]
+      } 
+    ]
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 이름                                      | 타입             | 필수 | 설명                                     |
+|-----------------------------------------| ----------------|----|-------------------------------------------|
+| instantFlow.steps[]                            | Array          | Y  | 플로우 단계                                    |
+| instantFlow.steps[].messageChannel             | String         | Y  | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
+| instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
+| instantFlow.steps[].sender                     | Object         | N  | 발신자 정보 (자유 양식 메시지 발송 요청 RCS 본문 예시 참고) |
+| instantFlow.steps[].content                    | Object         | N  | 메시지 내용(자유 양식 메시지 발송 요청 RCS 본문 예시 참고)  |
+| instantFlow.steps[].options                    | Object         | N  | 발송 옵션(자유 양식 메시지 발송 요청 RCS 본문 예시 참고)  |
+| instantFlow.steps[].nextSteps[]                | Object Array   | N  | 다음 단계입니다.                                |
