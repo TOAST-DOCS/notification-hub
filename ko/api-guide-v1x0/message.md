@@ -1942,8 +1942,13 @@ X-NHN-Authorization: Bearer {accessToken}
           "chatbotId": "대화방_아이디"
         },
         "content" : {
-          "title" : "제목",
-          "body" : "본문"
+          "lmsType" : "STANDALONE",
+          "cards" : [
+            {
+              "title" : "제목",
+              "description" : "본문"
+            }
+          ]
         },
         "templateId" : "템플릿_아이디",
         "nextSteps" : [ 
@@ -2128,7 +2133,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
 
 </details>
 
-<span id="flow-message-sending-request-rcs-step"></span>
+<span id="instant-flow-message-sending-request-rcs-step"></span>
 
 ### 인스턴트 플로우 메시지 발송 요청 본문 RCS Step 예시
 
@@ -2170,6 +2175,10 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
               "description" : "본문"
             }
           ]
+        },
+        "options": {
+          "expiryOption": 1,
+          "groupId":"groupId"
         },
         "templateId" : "템플릿_아이디",
         "nextSteps" : [ 
