@@ -135,7 +135,7 @@ X-NHN-Authorization: Bearer {accessToken}
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 전문 메시지 발송
+### 자유 양식 메시지 발송
 POST {{endpoint}}/message/v1.0/PUSH/free-form-messages/{messagePurpose}
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
@@ -200,7 +200,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body"></span>
 
-## 메시지 채널별 상세 요청 본문 예시
+## 메시지 채널별 자유 양식 메시지 발송 요청 본문 예시
 
 <span id="free-form-message-request-body-sms"></span>
 
@@ -1739,7 +1739,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/messages/${MESSAGE_ID}/do-cancel" \
 </details>
 
 
-## 인스턴트 플로우 메시지 발송
+## 인스턴트 플로우 메시지 발송 요청
 **요청**
 
 ```
