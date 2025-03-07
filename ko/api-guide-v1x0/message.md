@@ -1612,12 +1612,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contact         | String         | Y  | 연락처                                    |
 | recipients[].contacts[].clientReference | String         | N  | 사용자 커스텀 필드                        |
 | recipients[].templateParameters         | Object         | N  | 수신자 별 템플릿 파라미터                         |
-| flow                                    | Object | N  | 플로우 |
-| flow.steps[]                            | Array | Y  | 플로우 단계 |
-| flow.steps[].messageChannel             | String | Y  | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
-| flow.steps[].sender                     | Object | N  | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다. |
-| flow.steps[].content                    | Object | N  | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다. |
-| flow.steps[].nextSteps[]                | Array | N  | 다음 단계입니다. |
+| flow                                    | Object | N  | 플로우 (필수값이 필요한 템플릿을 사용하는 플로우인 경우 필수) |
+| flow.steps[]                            | Array | Y  | 플로우 단계 (메시지 채널별 flow steps 스펙 참고) |
 
 * 플로우 메시지 발송도 템플릿 메시지 발송과 동일하게 템플릿 파라미터를 사용합니다.
 * 수신자의 연락처는 플로우에서 사용하는 메시지 채널에 필요한 연락처가 모두 포함되어야 합니다.
@@ -1738,39 +1734,11 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 
 <span id="flow-message-sending-request-rcs-step"></span>
 
-### 플로우 메시지 발송 요청 본문 RCS Step 예시
+### 플로우 메시지 발송 요청 본문 - RCS flow step
+* RCS Step 1개로만 이루어진 플로우로 발송하는 경우에 대한 flow.steps 예시입니다.
 
 ```json
 {
-  "statsKeyId": "통계_아이디",
-  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-  "confirmBeforeSend": false,
-  "flowId": "플로우_아이디",
-  "templateParameters": {
-    "key1": "value1",
-    "key3": {
-        "key4": "value4",
-        "key5": "value5"
-    }
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345679",
-          "clientReference": "test"
-        }
-      ],
-      "templateParameters": {
-        "key3": {
-          "key4": "value4",
-          "key5": "value5"
-        },
-        "key6": "value6"
-      }
-    }
-  ],
   "flow": {
     "steps": [
       {
