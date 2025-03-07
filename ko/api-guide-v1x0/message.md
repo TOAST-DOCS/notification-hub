@@ -1450,6 +1450,80 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 
 </details>
 
+
+<span id="template-message-sending-request-rcs"></span>
+
+### RCS 템플릿 메시지 발송 요청 본문 예시
+```json
+{
+  "statsKeyId": "통계_아이디",
+  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
+  "confirmBeforeSend": false,
+  "templateId": "템플릿_아이디",
+  "templateParameters": {
+    "key1": "value1",
+    "key2": "value2",
+    "key3": {
+        "key4": "value4",
+        "key5": "value5"
+    }
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ],
+      "templateParameters": {
+        "key3": {
+          "key4": "value4",
+          "key5": "value5"
+        },
+        "key6": "value6"
+      }
+    }
+  ],
+  "sender": {
+    "brandId": "브랜드_아이디",
+    "chatbotId": "대화방_아이디"
+  },
+  "content": {
+    "unsubscribePhoneNumber": "08012341234"
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 이름                                      | 타입                 | 필수 | 설명                                                   |
+|-----------------------------------------|--------------------|----|------------------------------------------------------|
+| statsKeyId                              | String             | N  | 통계 키 아이디                                             |
+| scheduledDateTime                       | DateTime(ISO 8601) | N  | 예약 발송 일시(예: 2024-10-29T06:29:00+09:00)               |
+| confirmBeforeSend                       | Boolean            | N  | 발송 전 확인 여부(기본값 false)                                |
+| templateId                              | String             | Y  | 템플릿 아이디                                              |
+| templateParameters                      | Object             | N  | 템플릿 파라미터                                             |
+| recipients                              | Object Array       | Y  | 수신자 배열                                               |
+| recipients[].contacts                   | Object Array       | Y  | 수신자의 연락처 배열                                          |
+| recipients[].contacts[].contactType     | String             | Y  | 연락처 유형                                               |
+| recipients[].contacts[].contact         | String             | Y  | 연락처                                                  |
+| recipients[].contacts[].clientReference | String             | N  | 사용자 커스텀 필드                                           |
+| recipients[].templateParameters         | Object             | N  | 템플릿 파라미터                                             |
+| sender                                  | Object             | N  | 발신자 정보                                               |
+| sender.chatbotId                        | String             | N  | 대화방 아이디 (RCS Bizcenter 템플릿인 경우 필수)               |
+| content                                 | Object             | N  | 메시지 내용                                               |
+| content.unsubscribePhoneNumber          | String             | N  | 080 수신 거부 번호 (광고 목적의 RCS Bizcenter 템플릿 발송 시 필수) |
+| options                                 | Object             | N  | 발송 옵션                                                 |
+| options.expiryOption                    | Integer            | N  | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)  |
+| options.groupId                         | String             | N  | RCS BizCenter 통계 연동을 위한 그룹 아이디                     |
+
+
 <span id="flow-message-sending-request"></span>
 
 ## 플로우 메시지 발송 요청
