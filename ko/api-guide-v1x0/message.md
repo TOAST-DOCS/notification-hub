@@ -310,7 +310,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
 
 <span id="free-form-message-request-body-rcs-lms-standalone"></span>
@@ -376,7 +376,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
 
 <span id="free-form-message-request-body-rcs-lms-format-basic"></span>
@@ -453,7 +453,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
 
 ### RCS - LMS 포맷 문단형 타입
@@ -549,7 +549,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
 
 
@@ -584,7 +584,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
         {
           "title":"[NHN Cloud] 공지사항",
           "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "attachmentId":"첨부파일 ID",
+          "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -614,11 +614,11 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards | Object Array | Y | 카드                                                                                                                                                   |
 | content.cards[].title | String | N | 제목                                                                                                                                                 |
 | content.cards[].description | String | Y | 내용                                                                                                                                           |
-| content.cards[].attachmentId | String | Y | 첨부파일 ID                                                                                                                                           |
+| content.cards[].attachmentId | String | Y | 첨부 파일 아이디                                                                                                                                           |
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
 
 ### RCS - MMS 캐러셀
@@ -651,7 +651,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
         {
           "title":"[NHN Cloud] 공지사항",
           "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "attachmentId":"첨부파일 ID",
+          "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -662,7 +662,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
         {
           "title":"[NHN Cloud] 공지사항",
           "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "attachmentId":"첨부파일 ID",
+          "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -673,7 +673,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
         {
           "title":"[NHN Cloud] 공지사항",
           "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "attachmentId":"첨부파일 ID",
+          "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -703,11 +703,11 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards | Object Array | Y | 카드                                                                                                                                                   |
 | content.cards[].title | String | N | 제목                                                                                                                                                 |
 | content.cards[].description | String | Y | 내용                                                                                                                                           |
-| content.cards[].attachmentId | String | Y | 첨부파일 ID                                                                                                                                           |
+| content.cards[].attachmentId | String | Y | 첨부 파일 아이디                                                                                                                                           |
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
 | content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
+| options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID                                                                                                                        |
 
 
