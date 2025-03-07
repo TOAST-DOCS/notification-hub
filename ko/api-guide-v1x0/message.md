@@ -1541,7 +1541,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "statsKeyId": "통계_아이디",
   "scheduledDateTime": "2024-10-29T00:06:29+09:00",
   "confirmBeforeSend": false,
-  "flowId": "템플릿_아이디",
+  "flowId": "플로우_아이디",
   "templateParameters": {
     "key1": "value1",
     "key2": "value2",
@@ -1588,6 +1588,10 @@ X-NHN-Authorization: Bearer {accessToken}
             },
             "content": {
               "unsubscribePhoneNumber": "08012341234"
+            },
+            "options": {
+              "expiryOption": 1,
+              "groupId":"groupId"
             }
           }
         ]
