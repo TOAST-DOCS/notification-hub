@@ -281,7 +281,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "홈페이지로 이동"
+                }
+              }
             }
           ]
         }
@@ -309,7 +314,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].description | String | Y | 내용                                                                                                                                           |
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
 | options | Object | N | 발송 옵션                                                                                                                                                           |
 | options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디                                                                                                                       |
@@ -349,7 +354,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "홈페이지로 이동"
+                }
+              }
             }
           ]
         }
@@ -376,7 +386,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].description | String | Y | 내용                                                                                                                                           |
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
 | options | Object | N | 발송 옵션                                                                                                                                                           |
 | options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디                                                                                                                        |
@@ -425,7 +435,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "홈페이지로 이동"
+                }
+              }
             }
           ]
         }
@@ -454,7 +469,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].description | String | Y | 내용                                                                                                                                           |
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
 | options | Object | N | 발송 옵션                                                                                                                                                           |
 | options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디                                                                                                                        |
@@ -505,20 +520,40 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"공지1 버튼\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "공지1 버튼"
+                }
+              }
             },
             {},
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"공지2 버튼\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "공지2 버튼"
+                }
+              }
             },
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"공지2 버튼\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "공지2 버튼"
+                }
+              }
             },
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"공지3 버튼\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "공지3 버튼"
+                }
+              }
             },
           ]
         }
@@ -551,7 +586,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].description3 | String | Y | 내용 (문단 3)                                                                                                                                  |
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
 | options | Object | N | 발송 옵션                                                                                                                                                           |
 | options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디                                                                                                                        |
@@ -592,7 +627,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "홈페이지로 이동"
+                }
+              }
             }
           ]
         }
@@ -621,7 +661,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].attachmentId | String | Y | 첨부 파일 아이디                                                                                                                                           |
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
 | options | Object | N | 발송 옵션                                                                                                                                                           |
 | options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디                                                                                                                        |
@@ -660,7 +700,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "홈페이지로 이동"
+                }
+              }
             }
           ]
         },
@@ -671,7 +716,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "홈페이지로 이동"
+                }
+              }
             }
           ]
         },
@@ -682,7 +732,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"홈페이지로 이동\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "홈페이지로 이동"
+                }
+              }
             }
           ]
         }
@@ -711,7 +766,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.cards[].attachmentId | String | Y | 첨부 파일 아이디                                                                                                                                           |
 | content.cards[].buttons | Object Array | N | 버튼                                                                                                                                         |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | String | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인                                                                                                       |
 | options | Object | N | 발송 옵션                                                                                                                                                           |
 | options.expiryOption | Integer | N | 디바이스로의 전송 시도에 대한 타임아웃 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)                                                                                      |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디                                                                                                                        |
