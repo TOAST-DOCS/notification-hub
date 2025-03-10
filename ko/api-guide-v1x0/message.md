@@ -2002,12 +2002,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].clientReference | String         | N | 사용자 커스텀 필드                        |
 | recipients[].templateParameters |  | N | 템플릿 파라미터입니다. 템플릿 아이디를 설정하는 경우 필수입니다.  |
 | instantFlow | Object | Y | 인스턴트 플로우입니다. 플로우 생성 없이 정의할 수 있습니다. |
-| instantFlow.steps[] | Array | Y | 인스턴트 플로우 단계입니다. |
-| instantFlow.steps[].messageChannel | String | Y | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
-| instantFlow.steps[].sender | Object | N | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].content | Object | N | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
-| instantFlow.steps[].nextSteps[] | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다. |
+| instantFlow.steps[] | Array | Y | 인스턴트 플로우 단계입니다. (메시지 채널별 인스턴트 플로우 단계 스펙 참고)|
 
 * 한번 사용된 메시지 채널은 다음 단계에서 사용할 수 없습니다.
 * 한 단계는 여러 개의 다음 단계를 가질 수 있습니다.
@@ -2152,29 +2147,10 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
 <span id="instant-flow-message-sending-request-rcs-step"></span>
 
 ### 인스턴트 플로우 메시지 발송 요청 본문 RCS Step 예시
+* RCS Step 1개로만 이루어진 인스턴트 플로우 발송시의 instantFlow.steps 예시입니다.
 
 ```json
 {
-  "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2021-01-01T00:00:00Z",
-  "confirmBeforeSend" : false,
-  "templateParameters" : {
-    "key": "value"
-  },
-  "recipients" : [ 
-    {
-      "contacts" : [ 
-        {
-          "contactType" : "PHONE_NUMBER",
-          "contact" : "01012345678",
-          "clientReference": "test"
-        } 
-      ],
-      "templateParameters" : {
-        "key": "value"
-      }
-    } 
-  ],
   "instantFlow" : {
     "steps" : [ 
       {
@@ -2197,20 +2173,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
           "groupId":"groupId"
         },
         "templateId" : "템플릿_아이디",
-        "nextSteps" : [ 
-          {
-            "messageChannel" : "SMS",
-            "sender" : {
-              "senderPhoneNumber" : "0123456789"
-            },
-            "content" : {
-              "title" : "제목",
-              "body" : "본문"
-            },
-            "templateId" : "템플릿_아이디",
-            "nextSteps" : [ ]
-          } 
-        ]
+        "nextSteps" : [ ]
       } 
     ]
   }
