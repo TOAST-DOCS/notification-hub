@@ -65,7 +65,7 @@ X-NHN-Authorization: Bearer {accessToken}
 * 템플릿 카테고리는 템플릿 카테고리 API를 이용해 생성할 수 있습니다.
 * 템플릿 언어는 PLAIN_TEXT, FREE_MARKER 중 하나를 선택합니다.
 * 템플릿 언어가 FREE_MARKER인 경우 템플릿 내용에 FREE_MARKER 문법을 사용할 수 있습니다.
-* **sender**, **content** 필드는 전문 메시지 발송 API의 요청 본문과 동일합니다.
+* **sender**, **content** 필드는 자유 양식 메시지 발송 API의 요청 본문과 동일합니다.
 
 #### 메시지 채널별 sender 필드
 
