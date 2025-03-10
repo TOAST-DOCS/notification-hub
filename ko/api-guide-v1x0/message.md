@@ -395,12 +395,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 ### RCS - LMS 포맷 기본형 및 포맷 타이틀 강조형
 * mTitleMedia 아이콘 파일 ID 목록
-  * 프로모션: LT-messagebase.common-DdWk6s
-  * 쿠폰: LT-messagebase.common-5Weq00
-  * 이벤트: LT-messagebase.common-jUAJX2
-  * 예약: LT-messagebase.common-2Yxt2H
-  * 영수증: LT-messagebase.common-2k8ydI
-  * 알림: LT-messagebase.common-YCVd02
+  * 프로모션: LT-messagebase.common-jFBCKu
+  * 쿠폰: LT-messagebase.common-LbshOv
+  * 이벤트: LT-messagebase.common-aWdsJX
+  * 예약: LT-messagebase.common-5eFcIF
+  * 영수증: LT-messagebase.common-rJQ22U
+  * 알림: LT-messagebase.common-j11Gtf
 
 ```json
 {
@@ -476,12 +476,12 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 ### RCS - LMS 포맷 문단형 타입
 * mTitleMedia 아이콘 파일 ID 목록
-  * 프로모션: LT-messagebase.common-DdWk6s
-  * 쿠폰: LT-messagebase.common-5Weq00
-  * 이벤트: LT-messagebase.common-jUAJX2
-  * 예약: LT-messagebase.common-2Yxt2H
-  * 영수증: LT-messagebase.common-2k8ydI
-  * 알림: LT-messagebase.common-YCVd02
+  * 프로모션: LT-messagebase.common-jFBCKu
+  * 쿠폰: LT-messagebase.common-LbshOv
+  * 이벤트: LT-messagebase.common-aWdsJX
+  * 예약: LT-messagebase.common-5eFcIF
+  * 영수증: LT-messagebase.common-rJQ22U
+  * 알림: LT-messagebase.common-j11Gtf
 
 ```json
 {
