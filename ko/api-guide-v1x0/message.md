@@ -1670,7 +1670,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contactType     | String         | Y  | 연락처 유형                                 |
 | recipients[].contacts[].contact         | String         | Y  | 연락처                                    |
 | recipients[].contacts[].clientReference | String         | N  | 사용자 커스텀 필드                        |
-| recipients[].templateParameters         | Object         | N  | 수신자 별 템플릿 파라미터                         |
+| recipients[].templateParameters         | Object         | N  | 수신자별 템플릿 파라미터                         |
 | flow                                    | Object | N  | 플로우(필수값이 필요한 템플릿을 사용하는 플로우인 경우 필수) |
 | flow.steps[]                            | Array | Y  | 플로우 단계(메시지 채널별 flow steps 스펙 참고) |
 
@@ -2186,7 +2186,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
 |-----------------------------------------| ----------------|----|-------------------------------------------|
 | instantFlow.steps[]                            | Array          | Y  | 플로우 단계                                    |
 | instantFlow.steps[].messageChannel             | String         | Y  | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
-| instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
+| instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)이 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].sender                     | Object         | N  | 발신자 정보(자유 양식 메시지 발송 요청 RCS 본문 예시 참고) |
 | instantFlow.steps[].content                    | Object         | N  | 메시지 내용(자유 양식 메시지 발송 요청 RCS 본문 예시 참고)  |
 | instantFlow.steps[].options                    | Object         | N  | 발송 옵션(자유 양식 메시지 발송 요청 RCS 본문 예시 참고)  |
