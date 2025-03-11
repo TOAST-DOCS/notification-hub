@@ -21,8 +21,8 @@ Notification Hubで事業者会員の基準は、有効化したプロジェク�
 
 受信者の端末でメールが届かない場合、受信者の番号が**番号盗用メールブロックサービス**または**通信会社の迷惑メールブロックサービス**に加入している可能性があります。サービスを解除して再度送信してください。**番号盗用メールブロックサービス**と**通信会社の迷惑メールブロックサービス**の詳細については、以下のリンクをご確認ください。
 
-* [番号盗用メールブロックサービス案内](service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
-* [サービスプロバイダースパムブロックサービス案内](service-policy-and-precondition/2-sms#about-phone-scam-blocking-services)
+* [番号盗用メールブロックサービス案内](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
+* [サービスプロバイダースパムブロックサービス案内](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 
 ## iPhoneでプッシュメッセージが受信されず、登録したトークンが削除されます。
 

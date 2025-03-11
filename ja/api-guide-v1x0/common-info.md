@@ -11,7 +11,7 @@
 
 !!! danger 「注意事項」
     * Notification Hub v1.0 APIは現在アルファ(alpha)状態であり、安定しておらず、実験的な機能が追加または削除される可能性があります。
-    * APIはいつでも変更される可能性があり、変更された場合、事前告知なしに変更されることがあります。
+    * APIはサービス改善のためにいつでも変更される可能性があり、変更された場合、事前告知なしに変更されることがあります。
     * Notification HubがGA(General Availability)状態に移行後、公式バージョンに変更されます。
     * 変更可能な部分は、この文書で説明するAPIエンドポイント、認証、リクエスト制限、リクエスト、レスポンス、フィールドなどの全ての項目が含まれます。
 
@@ -48,7 +48,7 @@ Authorization: Basic {{oauthAuthorization}}
 #### cURL
 
 ```curl
-curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
+curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
      -H "Content-Type: application/x-www-form-urlencoded" \
      -H "Authorization: Basic {{oauthAuthorization}}"
 ```
@@ -75,6 +75,28 @@ curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
 * Notification Hub API及び機能では、秒とミリ秒単位は使用されません。
 * APIレスポンスで日付と時間は **YYYY-MM-DDThh:mm:ss.sss+09:000**形式で表記します。
 
+## プレフィックス及び単一文字ワイルドカード検索
+
+リスト照会では個人情報以外の照会条件に対して、プレフィックス及び単一文字ワイルドカード検索がサポートされます。
+
+### プレフィックス(Prefix)検索
+
+* **プレフィックス検索**は特定文字列で始まる値を検索します。
+* リクエスト例
+    * テンプレート名が`広告_`で始まるテンプレートを検索します。
+      ```
+      GET /message/v1.0/templates?templateName=広告
+      ``` 
+    * 検索結果:広告-1、広告-2、広告-3など
+### 単一文字ワイルドカード(Single Character Wildcard)検索
+* **単一文字ワイルドカード検索**は特定位置にどんな文字でも関係なく検索します。
+* リクエスト例
+    * テンプレート名が`-1`で終わるテンプレートを検索します。
+      ```
+      GET /message/v1.0/templates?templateName=__-1
+      ``` 
+    * 検索結果:広告-1、一般-1、告知-1など
+    
 <span id="response"></span>
 
 ## レスポンス共通情報

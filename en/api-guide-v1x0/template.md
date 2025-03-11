@@ -247,13 +247,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 **Request Parameter**
 
-| Name           | In | Type | Required | Description                        |
-|--------------| --- | --- | --- |---------------------------|
-| appKey       | Header | String | Y | Appkey                        |
-| accessToken  | Header | String | Y | Authentication Token                     |
-| templateName | Query | String | N | Searchable template names and prefixes |
-| limit        | Query | Integer | N | Number of views (default: 20)            |
-| offset       | Query | Integer | N | View start location (default: 0)          |
+| Name           | In | Type | Required | Description                                                 |
+|--------------| --- | --- | --- |-------------------------------------------------------------------|
+| appKey       | Header | String | Y | Appkey                                                             |
+| accessToken  | Header | String | Y | Authentication Token                                                |
+| templateName | Query | String | N | Searchable template names and prefixes                               |
+| limit        | Query | Integer | N | Number of views (default: 20)                                       |
+| offset       | Query | Integer | N | View start location (default: 0)                                    |
 
 **Request Body**
 
@@ -1153,7 +1153,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | appKey | Header | String | Y | Appkey                                                     |
 | accessToken | Header | String | Y | Authentication Token                                                  |
 | messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH  |
-| categoryTemplateName | Query | String | N | Searchable by category or template name and prefix                      |
+| categoryTemplateName | Query | String | N | Searchable by category, template name, prefix, or single character wildcard                      |
 | senderProfileType | Query | String | N | Sender profile type (GROUP, USER), Notification Chats and Friend Chats only                |
 | senderKey | Query | String | N | Sender ID, Notification Chats and Friend Chats only                                   |
 

@@ -176,7 +176,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | appKey | Header | String | Y | Appkey         |
 | accessToken | Header | String | Y | Authentication Token      |
 | flowId | Query | String | N | Flow ID    |
-| flowName | Query | String | N | Flow name, prefix searchable |
+| flowName | Query | String | N | Searchable by the flow name, prefix, and single character wildcard |
 | limit | Query | Integer | N | Views per page |
 | offset | Query | Integer | N | Page offset    |
 

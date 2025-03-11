@@ -60,58 +60,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 このAPIはリクエスト本文を要求しません。
 
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "contactDeliveryResults": [
-    {
-      "messageId": "メッセージのID",
-      "recipientIndex": 0,
-      "contactIndex": 0,
-      "contactType": "PHONE_NUMBER",
-      "contact": "01012345678",
-      "sender": {
-        "senderKey": "発信_キー",
-        "senderProfileId": "@nhnCloud",
-        "senderProfileType": "GROUP",
-        "senderPhoneNumber": "01012341234",
-        "senderMailAddress": "abcde@nhn.com",
-        "brandId": "AR.lj0eOjEI7Y",
-        "chatbotId": "01012341234"
-      },
-      "templateId": "テンプレートのID",
-      "flowId": "フローのID",
-      "statsKeyId": "統計キーのID",
-      "messageChannel": "SMS",
-      "messagePurpose": "NORMAL",
-      "confirmBeforeSend": false,
-      "confirmedDateTime": "2023-01-01T00:00:00Z",
-      "scheduled": false,
-      "scheduledDateTime": "2024-10-26T07:52:12.728Z",
-      "status": "REQUESTED",
-      "resultCode": "5.0.0",
-      "resultMessage": "Success",
-      "templateParameters": {
-        "key1": "value1",
-        "key2": "value2"
-      },
-      "additionalProperty": {
-      },
-      "createdDateTime": "2023-01-01T00:00:00Z",
-      "sentDateTime": "2023-01-01T00:00:00Z",
-      "deliveredDateTime": "2023-01-01T00:00:00Z",
-      "openedDateTime": "2023-01-01T00:00:00Z",
-      "updatedDateTime": "2023-01-01T00:00:00Z"
-    }
-  ],
-  "totalCount": 1
-}
-```
-
 <!--リクエスト本文のフィールドを説明します。-->
 
 **レスポンス本文**
