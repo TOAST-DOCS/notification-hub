@@ -65,7 +65,7 @@ X-NHN-Authorization: Bearer {accessToken}
 * テンプレートカテゴリーはテンプレートカテゴリーAPIを利用して作成できます。
 * テンプレート言語はPLAIN_TEXT、FREE_MARKERのいずれかを選択します。
 * テンプレート言語がFREE_MARKERの場合テンプレート内容にFREE_MARKER文法を使用できます。
-* **sender**, **content**フィールドは専門メッセージ送信APIのリクエスト本文と同じです。
+* **sender**, **content**フィールドは自由形式メッセージ送信APIのリクエスト本文と同じです。
 
 #### メッセージチャンネル別senderフィールド
 
