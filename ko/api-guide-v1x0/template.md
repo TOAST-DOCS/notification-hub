@@ -181,7 +181,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 
@@ -750,21 +750,21 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.templateMessageType | String | N | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
 | content.templateEmphasizeType | String | N | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
 | content.templateContent | String | N | 템플릿 본문 |
-| content.templateAd | String | N | 채널 추가 안내 메시지 (템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
+| content.templateAd | String | N | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
 | content.templateExtra | String | N | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
-| content.templateTitle | String | N | 템플릿 제목(최대 50자, Android : 2줄, 23자 이상 말줄임 처리, IOS : 2줄, 27자 이상 말줄임 처리) |
-| content.templateSubtitle | String | N | 템플릿 보조 문구(최대 50자, Android : 18자 이상 말줄임 처리, IOS : 21자 이상 말줄임 처리) |
+| content.templateTitle | String | N | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
+| content.templateSubtitle | String | N | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
 | content.templateHeader | String | N | 템플릿 헤더, 변수 입력 가능 |
 | content.templateItem | Object | N |  |
 | content.templateItem.list | Array | N |  |
 | content.templateItem.list[].title | String | N | 아이템 타이틀 |
 | content.templateItem.list[].description | String | N | 아이템 설명 |
 | content.templateItem.summary | Object | N |  |
-| content.templateItem.summary.title | String | N | 요약약 타이틀 |
-| content.templateItem.summary.description | String | N | 요약 설명 (변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
+| content.templateItem.summary.title | String | N | 요약 타이틀 |
+| content.templateItem.summary.description | String | N | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
 | content.templateItemHighlight | Object | N |  |
-| content.templateItemHighlight.title | String | N | 아이템 하이라이트 타이틀 (최대 30자, 섬네일 이미지가 있을 경우, 21자) |
-| content.templateItemHighlight.description | String | N | 아이템 하이라이트 설명 (최대 19자, 섬네일 이미지가 있을 경우, 13자) |
+| content.templateItemHighlight.title | String | N | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
+| content.templateItemHighlight.description | String | N | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
 | content.templateItemHighlight.attachmentId | String | N | 템플릿 첨부 파일 ID |
 | content.templateItemHighlight.imageUrl | String | N | 섬네일 이미지 주소 |
 | content.templateRepresentLink | Object | N |  |
@@ -785,7 +785,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].linkPc | String | N | 템플릿 버튼 PC 웹 링크 |
 | content.buttons[].schemeIos | String | N | 템플릿 버튼 iOS 앱 링크 |
 | content.buttons[].schemeAndroid | String | N | 템플릿 버튼 안드로이드 앱 링크 |
-| content.buttons[].bizFormId | Integer | N | 템플릿 버튼 비즈니스폼 ID (BF 타입일 경우, 필수) |
+| content.buttons[].bizFormId | Integer | N | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | content.quickReplies | Array | N | 템플릿 바로 연결 |
 | content.quickReplies[].ordering | Integer | N | 템플릿 바로연결 순서 |
 | content.quickReplies[].type | String | N | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
@@ -794,11 +794,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.quickReplies[].linkPc | String | N | 템플릿 바로연결 PC 웹 링크 |
 | content.quickReplies[].schemeIos | String | N | 템플릿 바로연결 iOS 앱 링크 |
 | content.quickReplies[].schemeAndroid | String | N | 템플릿 바로연결 안드로이드 앱 링크 |
-| content.quickReplies[].bizFormId | Integer | N | 템플릿 바로연결 비즈니스폼 ID (BF 타입일 경우, 필수) |
+| content.quickReplies[].bizFormId | Integer | N | 템플릿 바로연결 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | additionalProperty | Object | N |  |
-| additionalProperty.templateCode | String | N | 템플릿 코드 (영문, 숫자, -, _) |
+| additionalProperty.templateCode | String | N | 템플릿 코드(영문, 숫자, -, _) |
 | additionalProperty.kakaoTemplateCode | String | N | 카카오 템플릿 코드 |
-| additionalProperty.comments | Array | N | 템플릿 문의리스트 |
+| additionalProperty.comments | Array | N | 템플릿 문의 리스트 |
 | additionalProperty.comments[].id | Integer | Y | 문의 아이디 |
 | additionalProperty.comments[].content | String | N | 문의 내용 |
 | additionalProperty.comments[].userName | String | Y | 작성자 |
@@ -1061,7 +1061,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
 | senderKey | Query  | String | N | 발신키 |
 | templateStatus | Query  | String | N | 템플릿 상태 |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 
@@ -1152,7 +1152,7 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
 
 ## 알림톡 발신자와 관계된 템플릿 리스트 조회
 
-발신자와 관계된 템플릿 리스트를 조회합니다. (발신자 또는 발신자가 포함된 그룹의 템플릿)
+발신자와 관계된 템플릿 리스트를 조회합니다.(발신자 또는 발신자가 포함된 그룹의 템플릿)
 
 **요청**
 
@@ -1171,7 +1171,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | senderKey | Path  | String | Y | 발신키 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
 | templateStatus | Query  | String | N | 템플릿 상태 |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 
@@ -1417,9 +1417,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.sender.senderProfileId | String | 카카오톡 채널명 |
 | template.sender.senderProfileType | String | 발신프로필 타입<br>[GROUP, NORMAL] |
 | template.additionalProperty | Object |  |
-| template.additionalProperty.templateCode | String | 템플릿 코드 (영문, 숫자, -, _) |
+| template.additionalProperty.templateCode | String | 템플릿 코드(영문, 숫자, -, _) |
 | template.additionalProperty.kakaoTemplateCode | String | 카카오 템플릿 코드 |
-| template.additionalProperty.comments | Array | 템플릿 문의리스트 |
+| template.additionalProperty.comments | Array | 템플릿 문의 리스트 |
 | template.additionalProperty.comments[].id | Integer | 문의 아이디 |
 | template.additionalProperty.comments[].content | String | 문의 내용 |
 | template.additionalProperty.comments[].userName | String | 작성자 |
@@ -1434,21 +1434,21 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
 | template.content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
 | template.content.templateContent | String | 템플릿 본문 |
-| template.content.templateAd | String | 채널 추가 안내 메시지 (템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
+| template.content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
 | template.content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
-| template.content.templateTitle | String | 템플릿 제목(최대 50자, Android : 2줄, 23자 이상 말줄임 처리, IOS : 2줄, 27자 이상 말줄임 처리) |
-| template.content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android : 18자 이상 말줄임 처리, IOS : 21자 이상 말줄임 처리) |
+| template.content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
+| template.content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
 | template.content.templateHeader | String | 템플릿 헤더, 변수 입력 가능 |
 | template.content.templateItem | Object |  |
 | template.content.templateItem.list | Array |  |
 | template.content.templateItem.list[].title | String | 아이템 타이틀 |
 | template.content.templateItem.list[].description | String | 아이템 설명 |
 | template.content.templateItem.summary | Object |  |
-| template.content.templateItem.summary.title | String | 요약약 타이틀 |
-| template.content.templateItem.summary.description | String | 요약 설명 (변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
+| template.content.templateItem.summary.title | String | 요약 타이틀 |
+| template.content.templateItem.summary.description | String | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
 | template.content.templateItemHighlight | Object |  |
-| template.content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀 (최대 30자, 섬네일 이미지가 있을 경우, 21자) |
-| template.content.templateItemHighlight.description | String | 아이템 하이라이트 설명 (최대 19자, 섬네일 이미지가 있을 경우, 13자) |
+| template.content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
+| template.content.templateItemHighlight.description | String | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
 | template.content.templateItemHighlight.attachmentId | String | 템플릿 첨부 파일 ID |
 | template.content.templateItemHighlight.imageUrl | String | 섬네일 이미지 주소 |
 | template.content.templateRepresentLink | Object |  |
@@ -1469,7 +1469,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.buttons[].linkPc | String | 템플릿 버튼 PC 웹 링크 |
 | template.content.buttons[].schemeIos | String | 템플릿 버튼 iOS 앱 링크 |
 | template.content.buttons[].schemeAndroid | String | 템플릿 버튼 안드로이드 앱 링크 |
-| template.content.buttons[].bizFormId | Integer | 템플릿 버튼 비즈니스폼 ID (BF 타입일 경우, 필수) |
+| template.content.buttons[].bizFormId | Integer | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | template.content.quickReplies | Array | 템플릿 바로 연결 |
 | template.content.quickReplies[].ordering | Integer | 템플릿 바로연결 순서 |
 | template.content.quickReplies[].type | String | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
@@ -1478,7 +1478,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.quickReplies[].linkPc | String | 템플릿 바로연결 PC 웹 링크 |
 | template.content.quickReplies[].schemeIos | String | 템플릿 바로연결 iOS 앱 링크 |
 | template.content.quickReplies[].schemeAndroid | String | 템플릿 바로연결 안드로이드 앱 링크 |
-| template.content.quickReplies[].bizFormId | Integer | 템플릿 바로연결 비즈니스폼 ID (BF 타입일 경우, 필수) |
+| template.content.quickReplies[].bizFormId | Integer | 템플릿 바로연결 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | template.createdDateTime | String | 템플릿 생성 시각 |
 | template.updatedDateTime | String | 템플릿 수정된 시각 |
 
@@ -1627,21 +1627,21 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.templateMessageType | String | N | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
 | content.templateEmphasizeType | String | N | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
 | content.templateContent | String | N | 템플릿 본문 |
-| content.templateAd | String | N | 채널 추가 안내 메시지 (템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
+| content.templateAd | String | N | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
 | content.templateExtra | String | N | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
-| content.templateTitle | String | N | 템플릿 제목(최대 50자, Android : 2줄, 23자 이상 말줄임 처리, IOS : 2줄, 27자 이상 말줄임 처리) |
-| content.templateSubtitle | String | N | 템플릿 보조 문구(최대 50자, Android : 18자 이상 말줄임 처리, IOS : 21자 이상 말줄임 처리) |
+| content.templateTitle | String | N | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
+| content.templateSubtitle | String | N | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
 | content.templateHeader | String | N | 템플릿 헤더, 변수 입력 가능 |
 | content.templateItem | Object | N |  |
 | content.templateItem.list | Array | N |  |
 | content.templateItem.list[].title | String | N | 아이템 타이틀 |
 | content.templateItem.list[].description | String | N | 아이템 설명 |
 | content.templateItem.summary | Object | N |  |
-| content.templateItem.summary.title | String | N | 요약약 타이틀 |
-| content.templateItem.summary.description | String | N | 요약 설명 (변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
+| content.templateItem.summary.title | String | N | 요약 타이틀 |
+| content.templateItem.summary.description | String | N | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
 | content.templateItemHighlight | Object | N |  |
-| content.templateItemHighlight.title | String | N | 아이템 하이라이트 타이틀 (최대 30자, 섬네일 이미지가 있을 경우, 21자) |
-| content.templateItemHighlight.description | String | N | 아이템 하이라이트 설명 (최대 19자, 섬네일 이미지가 있을 경우, 13자) |
+| content.templateItemHighlight.title | String | N | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
+| content.templateItemHighlight.description | String | N | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
 | content.templateItemHighlight.attachmentId | String | N | 템플릿 첨부 파일 ID |
 | content.templateItemHighlight.imageUrl | String | N | 섬네일 이미지 주소 |
 | content.templateRepresentLink | Object | N |  |
@@ -1662,7 +1662,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].linkPc | String | N | 템플릿 버튼 PC 웹 링크 |
 | content.buttons[].schemeIos | String | N | 템플릿 버튼 iOS 앱 링크 |
 | content.buttons[].schemeAndroid | String | N | 템플릿 버튼 안드로이드 앱 링크 |
-| content.buttons[].bizFormId | Integer | N | 템플릿 버튼 비즈니스폼 ID (BF 타입일 경우, 필수) |
+| content.buttons[].bizFormId | Integer | N | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | content.quickReplies | Array | N | 템플릿 바로 연결 |
 | content.quickReplies[].ordering | Integer | N | 템플릿 바로연결 순서 |
 | content.quickReplies[].type | String | N | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
@@ -1671,9 +1671,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.quickReplies[].linkPc | String | N | 템플릿 바로연결 PC 웹 링크 |
 | content.quickReplies[].schemeIos | String | N | 템플릿 바로연결 iOS 앱 링크 |
 | content.quickReplies[].schemeAndroid | String | N | 템플릿 바로연결 안드로이드 앱 링크 |
-| content.quickReplies[].bizFormId | Integer | N | 템플릿 바로연결 비즈니스폼 ID (BF 타입일 경우, 필수) |
+| content.quickReplies[].bizFormId | Integer | N | 템플릿 바로연결 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | additionalProperty | Object | N |  |
-| additionalProperty.templateCode | String | N | 템플릿 코드 (영문, 숫자, -, _) |
+| additionalProperty.templateCode | String | N | 템플릿 코드(영문, 숫자, -, _) |
 
 
 
@@ -2142,7 +2142,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 ## 알림톡 템플릿 수정 리스트 조회
 
-알림톡 템플릿 수정 리스트 조회합니다.
+알림톡 템플릿 수정 리스트를 조회합니다.
 
 **요청**
 
@@ -2301,9 +2301,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].sender.senderProfileId | String | 카카오톡 채널명 |
 | templates[].sender.senderProfileType | String | 발신프로필 타입<br>[GROUP, NORMAL] |
 | templates[].additionalProperty | Object |  |
-| templates[].additionalProperty.templateCode | String | 템플릿 코드 (영문, 숫자, -, _) |
+| templates[].additionalProperty.templateCode | String | 템플릿 코드(영문, 숫자, -, _) |
 | templates[].additionalProperty.kakaoTemplateCode | String | 카카오 템플릿 코드 |
-| templates[].additionalProperty.comments | Array | 템플릿 문의리스트 |
+| templates[].additionalProperty.comments | Array | 템플릿 문의 리스트 |
 | templates[].additionalProperty.status | String | REG:요청, REQ:검수 중, APR:승인, REJ: 반려<br>[REG, REQ, APR, REJ] |
 | templates[].additionalProperty.block | Boolean | 템플릿 차단 여부 |
 | templates[].additionalProperty.dormant | Boolean | 템플릿 휴면 여부 |
@@ -2312,19 +2312,19 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
 | templates[].content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
 | templates[].content.templateContent | String | 템플릿 본문 |
-| templates[].content.templateAd | String | 채널 추가 안내 메시지 (템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
+| templates[].content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
 | templates[].content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
-| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android : 2줄, 23자 이상 말줄임 처리, IOS : 2줄, 27자 이상 말줄임 처리) |
-| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android : 18자 이상 말줄임 처리, IOS : 21자 이상 말줄임 처리) |
+| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
+| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
 | templates[].content.templateHeader | String | 템플릿 헤더, 변수 입력 가능 |
 | templates[].content.templateItem | Object |  |
 | templates[].content.templateItem.list | Array |  |
 | templates[].content.templateItem.summary | Object |  |
-| templates[].content.templateItem.summary.title | String | 요약약 타이틀 |
-| templates[].content.templateItem.summary.description | String | 요약 설명 (변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
+| templates[].content.templateItem.summary.title | String | 요약 타이틀 |
+| templates[].content.templateItem.summary.description | String | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
 | templates[].content.templateItemHighlight | Object |  |
-| templates[].content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀 (최대 30자, 섬네일 이미지가 있을 경우, 21자) |
-| templates[].content.templateItemHighlight.description | String | 아이템 하이라이트 설명 (최대 19자, 섬네일 이미지가 있을 경우, 13자) |
+| templates[].content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
+| templates[].content.templateItemHighlight.description | String | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
 | templates[].content.templateItemHighlight.attachmentId | String | 템플릿 첨부 파일 ID |
 | templates[].content.templateItemHighlight.imageUrl | String | 섬네일 이미지 주소 |
 | templates[].content.templateRepresentLink | Object |  |
@@ -2376,7 +2376,7 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 
 ## 알림톡 템플릿 카테고리 리스트 조회
 
-알림톡 템플릿 카테고리 리스트 조회합니다.
+알림톡 템플릿 카테고리 리스트를 조회합니다.
 
 **요청**
 
@@ -2857,7 +2857,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
 | senderKey | Query  | String | N | 발신키 |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 
@@ -3899,7 +3899,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 
@@ -4323,7 +4323,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.body | String | N | 메시지 본문 |
 | content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
 | content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | Object | N | MMS 타입 (MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.mmsType | Object | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
@@ -4340,7 +4340,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | N | 본문 3 |
 | content.cards[].buttons | Array | N |  |
 | content.buttons | Array | N | RCS 버튼 리스트 |
-| content.buttons[].buttonType | String | N | buttonType값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
 
@@ -4551,7 +4551,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 
@@ -4784,9 +4784,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.body | String | 메시지 본문 |
 | template.content.smsType | Object | SMS 타입<br>[STANDALONE] |
 | template.content.lmsType | Object | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| template.content.mmsType | Object | MMS 타입 (MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| template.content.mmsType | Object | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
 | template.content.messagebaseId | String | RCS Biz Center 템플릿 아이디 |
-| template.content.messagebaseformId | Object | RCS Bizcenter 에서 지정한 messageBase 양식<br>- SS000000 (SMS 기본형)<br>- SL000000 (LMS 기본형)<br>- OL00000001 (LMS Format 기본형)<br>- OL00000002 (LMS Format 타이틀 강조형)<br>- OL00000003 (LMS Format 문단형)<br>- SMwThT00 (MMS 세로형)<br>- SMwThM00 (MMS 가로형)<br>- CMwMhM0200 (MMS 슬라이드 중간형 (2))<br>- CMwMhM0300 (MMS 슬라이드 중간형 (3))<br>- CMwMhM0400 (MMS 슬라이드 중간형 (4))<br>- CMwMhM0500 (MMS 슬라이드 중간형 (5))<br>- CMwMhM0600 (MMS 슬라이드 중간형 (6))<br>- CMwShS0200 (MMS 슬라이드 작은형 (2))<br>- CMwShS0300 (MMS 슬라이드 작은형 (3))<br>- CMwShS0400 (MMS 슬라이드 작은형 (4))<br>- CMwShS0500 (MMS 슬라이드 작은형 (5))<br>- CMwShS0600 (MMS 슬라이드 작은형 (6))<br>- CLI00001 (아이템 상세형)<br>- ITTBNV (썸네일형(세로))<br>- ITTBNH (썸네일형(가로))<br>- ITHIMS (이미지 강조형(1:1))<br>- ITHIMV (이미지 강조형(3:4))<br>- ITSNSS (SNS형)<br>- ITSNSH (SNS형(중간버튼))<br>- ITHITS (이미지 & 타이틀 강조형(1:1))<br>- ITHITV (이미지 & 타이틀 강조형(3:4))<br>- ITCRM2 (슬라이드 형 (2))<br>- ITCRM3 (슬라이드 형 (3))<br>- ITCRM4 (슬라이드 형 (4))<br>- ITCRM5 (슬라이드 형 (5))<br>- ITCRM6 (슬라이드 형 (6))<br>- CLT00001 (아이템 강조형 DESC)<br>- CLT00002 (아이템 강조형 TABLE)<br>- TATA001F (타이틀 자유형 FREE)<br>- TATA001C (타이틀 자유형 CELL)<br>- TATA001D (타이틀 자유형 DESC)<br>- GG000F (타이틀 선택형 FREE)<br>- FF005C (명세서 CELL)<br>- FF005D (명세서 DESC)<br>- FF004C (취소 CELL)<br>- FF004D (취소 DESC)<br>- GG003C (안내 CELL)<br>- GG003D (안내 DESC)<br>- GG002C (인증 CELL)<br>- GG002D (인증 DESC)<br>- GG001C (회원 가입 CELL)<br>- GG001D (회원 가입 DESC)<br>- EE001C (예약 CELL)<br>- EE001D (예약 DESC)<br>- CC003C (배송 CELL)<br>- CC003D (배송 DESC)<br>- FF002C (입금 CELL)<br>- FF002D (입금 DESC)<br>- FF001C (승인 CELL)<br>- FF001D (승인 DESC)<br>- CC002C (주문 CELL)<br>- CC002D (주문 DESC)<br>- CC001C (출고 CELL)<br>- CC001D (출고 DESC)<br>- FF003C (출금 CELL)<br>- FF003D (출금 DESC)<br>- CLL00001 (LMS 명세서 A)<br>- CLL00002 (LMS 문단형)<br>- CLL00003 (LMS 타이들 강조형)<br>- CLL00004 (LMS 기본형)<br>- CLL00005 (LMS 명세서 B)<br>- CLL00006 (LMS 명세서 C)<br><br>[SS000000, SL000000, OL00000001, OL00000002, OL00000003, SMwThT00, SMwThM00, CMwMhM0200, CMwMhM0300, CMwMhM0400, CMwMhM0500, CMwMhM0600, CMwShS0200, CMwShS0300, CMwShS0400, CMwShS0500, CMwShS0600, CLI00001, ITTBNV, ITTBNH, ITHIMS, ITHIMV, ITSNSS, ITSNSH, ITHITS, ITHITV, ITCRM2, ITCRM3, ITCRM4, ITCRM5, ITCRM6, CLT00001, CLT00002, TATA001C, TATA001D, TATA001F, FF005C, FF005D, FF004C, FF004D, GG003C, GG003D, GG002C, GG002D, GG001C, GG001D, GG000F, EE001C, EE001D, CC003C, CC003D, FF002C, FF002D, FF001C, FF001D, CC002C, CC002D, CC001C, CC001D, FF003C, FF003D, CLL00001, CLL00002, CLL00003, CLL00004, CLL00005, CLL00006] |
+| template.content.messagebaseformId | Object | RCS Biz Center 에서 지정한 messageBase 양식<br>- SS000000(SMS 기본형)<br>- SL000000(LMS 기본형)<br>- OL00000001(LMS Format 기본형)<br>- OL00000002(LMS Format 타이틀 강조형)<br>- OL00000003(LMS Format 문단형)<br>- SMwThT00(MMS 세로형)<br>- SMwThM00(MMS 가로형)<br>- CMwMhM0200(MMS 슬라이드 중간형(2))<br>- CMwMhM0300(MMS 슬라이드 중간형(3))<br>- CMwMhM0400(MMS 슬라이드 중간형(4))<br>- CMwMhM0500(MMS 슬라이드 중간형(5))<br>- CMwMhM0600(MMS 슬라이드 중간형(6))<br>- CMwShS0200(MMS 슬라이드 작은형(2))<br>- CMwShS0300(MMS 슬라이드 작은형(3))<br>- CMwShS0400(MMS 슬라이드 작은형(4))<br>- CMwShS0500(MMS 슬라이드 작은형(5))<br>- CMwShS0600(MMS 슬라이드 작은형(6))<br>- CLI00001(아이템 상세형)<br>- ITTBNV(썸네일형(세로))<br>- ITTBNH(썸네일형(가로))<br>- ITHIMS(이미지 강조형(1:1))<br>- ITHIMV(이미지 강조형(3:4))<br>- ITSNSS(SNS형)<br>- ITSNSH(SNS형(중간버튼))<br>- ITHITS(이미지 & 타이틀 강조형(1:1))<br>- ITHITV(이미지 & 타이틀 강조형(3:4))<br>- ITCRM2(슬라이드 형(2))<br>- ITCRM3(슬라이드 형(3))<br>- ITCRM4(슬라이드 형(4))<br>- ITCRM5(슬라이드 형(5))<br>- ITCRM6(슬라이드 형(6))<br>- CLT00001(아이템 강조형 DESC)<br>- CLT00002(아이템 강조형 TABLE)<br>- TATA001F(타이틀 자유형 FREE)<br>- TATA001C(타이틀 자유형 CELL)<br>- TATA001D(타이틀 자유형 DESC)<br>- GG000F(타이틀 선택형 FREE)<br>- FF005C(명세서 CELL)<br>- FF005D(명세서 DESC)<br>- FF004C(취소 CELL)<br>- FF004D(취소 DESC)<br>- GG003C(안내 CELL)<br>- GG003D(안내 DESC)<br>- GG002C(인증 CELL)<br>- GG002D(인증 DESC)<br>- GG001C(회원 가입 CELL)<br>- GG001D(회원 가입 DESC)<br>- EE001C(예약 CELL)<br>- EE001D(예약 DESC)<br>- CC003C(배송 CELL)<br>- CC003D(배송 DESC)<br>- FF002C(입금 CELL)<br>- FF002D(입금 DESC)<br>- FF001C(승인 CELL)<br>- FF001D(승인 DESC)<br>- CC002C(주문 CELL)<br>- CC002D(주문 DESC)<br>- CC001C(출고 CELL)<br>- CC001D(출고 DESC)<br>- FF003C(출금 CELL)<br>- FF003D(출금 DESC)<br>- CLL00001(LMS 명세서 A)<br>- CLL00002(LMS 문단형)<br>- CLL00003(LMS 타이들 강조형)<br>- CLL00004(LMS 기본형)<br>- CLL00005(LMS 명세서 B)<br>- CLL00006(LMS 명세서 C)<br><br>[SS000000, SL000000, OL00000001, OL00000002, OL00000003, SMwThT00, SMwThM00, CMwMhM0200, CMwMhM0300, CMwMhM0400, CMwMhM0500, CMwMhM0600, CMwShS0200, CMwShS0300, CMwShS0400, CMwShS0500, CMwShS0600, CLI00001, ITTBNV, ITTBNH, ITHIMS, ITHIMV, ITSNSS, ITSNSH, ITHITS, ITHITV, ITCRM2, ITCRM3, ITCRM4, ITCRM5, ITCRM6, CLT00001, CLT00002, TATA001C, TATA001D, TATA001F, FF005C, FF005D, FF004C, FF004D, GG003C, GG003D, GG002C, GG002D, GG001C, GG001D, GG000F, EE001C, EE001D, CC003C, CC003D, FF002C, FF002D, FF001C, FF001D, CC002C, CC002D, CC001C, CC001D, FF003C, FF003D, CLL00001, CLL00002, CLL00003, CLL00004, CLL00005, CLL00006] |
 | template.content.unsubscribePhoneNumber | String | 수신 거부 번호(광고 발송일 경우 필수) |
 | template.content.cards | Array | RCS 카드 |
 | template.content.cards[].title | String | 제목 |
@@ -4802,7 +4802,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.cards[].description3 | String | 본문 3 |
 | template.content.cards[].buttons | Array |  |
 | template.content.buttons | Array | RCS 버튼 리스트 |
-| template.content.buttons[].buttonType | String | buttonType값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| template.content.buttons[].buttonType | String | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | template.content.buttons[].buttonJson | Object |  |
 | template.content.buttons[].buttonJson.action | Object | 버튼 액션 |
 | template.additionalProperty | Object |  |
@@ -4953,7 +4953,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.body | String | N | 메시지 본문 |
 | content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
 | content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | Object | N | MMS 타입 (MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.mmsType | Object | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
@@ -4970,7 +4970,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | N | 본문 3 |
 | content.cards[].buttons | Array | N |  |
 | content.buttons | Array | N | RCS 버튼 리스트 |
-| content.buttons[].buttonType | String | N | buttonType값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
 
@@ -5521,7 +5521,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 

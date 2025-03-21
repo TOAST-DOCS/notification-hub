@@ -18,7 +18,7 @@
 
 발송 요청된 메시지의 발송과 수신 결과를 수신자의 연락처 단위로 조회합니다.
 
-예를 들어, 이메일과 전화번호를 가진 수신자 10명에게 이메일, SMS 템플릿으로 구성된 플로우 메시지 2개를 발송하는 경우, 연락처별 수신 결과 목록을 조회하면 40개의 항목이 조회됩니다. (연락처 2개 X 수신자 10명 X 플로우 메시지 2개 = 연락처별 수신 결과 40개)
+예를 들어, 이메일과 전화번호를 가진 수신자 10명에게 이메일, SMS 템플릿으로 구성된 플로우 메시지 2개를 발송하는 경우, 연락처별 수신 결과 목록을 조회하면 40개의 항목이 조회됩니다.(연락처 2개 X 수신자 10명 X 플로우 메시지 2개 = 연락처별 수신 결과 40개)
 다양한 검색 조건으로 연락처별 수신 결과를 조회할 수 있습니다.
 
 
@@ -44,7 +44,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contact | Query  | String | N | 연락처입니다. |
 | messageChannel | Query  | String | N | 메시지 채널입니다. |
 | messagePurpose | Query  | String | N | 메시지 목적입니다. |
-| statuses | Query  | String | N | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br>  |
+| statuses[] | Query  | List | N | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br>  |
 | scheduled | Query  | Boolean | N | 예약 발송 여부입니다. |
 | confirmBeforeSend | Query  | Boolean | N | 승인 후 발송 여부입니다. |
 | createdDateTimeFrom | Query  | Date | N | 요청 시작 일시입니다. 기본값은 7일 전입니다. |

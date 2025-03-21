@@ -943,7 +943,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.body | String | N | 메시지 본문 |
 | content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
 | content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | Object | N | MMS 타입 (MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.mmsType | Object | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
@@ -960,7 +960,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | N | 본문 3 |
 | content.cards[].buttons | Array | N |  |
 | content.buttons | Array | N | RCS 버튼 리스트 |
-| content.buttons[].buttonType | String | N | buttonType값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
 | options | Object | N |  |
@@ -2530,7 +2530,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 ## 메시지 발송 취소
 
 발송 취소할 메시지 아이디를 입력해 발송 취소합니다.<br>
-메시지 발송 시 응답받은 메시지 아이디를 이용해 발송을 취소할 수 있습니다.<br>
+메시지 발송 시 응답 받은 메시지 아이디를 이용해 발송을 취소할 수 있습니다.<br>
 메시지 내 모든 요청은 취소됩니다.<br>
 
 
