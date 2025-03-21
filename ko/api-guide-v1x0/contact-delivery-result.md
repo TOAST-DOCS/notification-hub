@@ -6,7 +6,7 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>연락처 별 수신 결과</h1>
+<h1>연락처별 수신 결과</h1>
 
 **Notification > Notification Hub > API v1.0 사용 가이드 > 연락처별 수신 결과**
 
@@ -18,8 +18,8 @@
 
 발송 요청된 메시지의 발송과 수신 결과를 수신자의 연락처 단위로 조회합니다.
 
-예를 들어, 이메일과 전화번호를 가진 수신자 10명에게 이메일, SMS 템플릿으로 구성된 플로우 메시지 2개를 발송하는 경우, 연락처별 수신 결과 목록을 조회하면 40개의 항목이 조회됩니다. (연락처 2개 X 수신자 10명 X 플로우 메시지 2개 = 연락처 별 수신 결과 40개)
-다양한 검색 조건으로 연락처 별 수신 결과를 조회할 수 있습니다.
+예를 들어, 이메일과 전화번호를 가진 수신자 10명에게 이메일, SMS 템플릿으로 구성된 플로우 메시지 2개를 발송하는 경우, 연락처별 수신 결과 목록을 조회하면 40개의 항목이 조회됩니다. (연락처 2개 X 수신자 10명 X 플로우 메시지 2개 = 연락처별 수신 결과 40개)
+다양한 검색 조건으로 연락처별 수신 결과를 조회할 수 있습니다.
 
 
 **요청**
@@ -96,9 +96,9 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "confirmBeforeSend" : false,
-    "confirmedDateTime" : "2025-03-21T14:25:12.099+09:00",
+    "confirmedDateTime" : "2025-03-21T14:51:25.882+09:00",
     "scheduled" : false,
-    "scheduledDateTime" : "2025-03-21T14:25:12.100+09:00",
+    "scheduledDateTime" : "2025-03-21T14:51:25.882+09:00",
     "status" : "REQUESTED",
     "resultCode" : "5.0.0",
     "resultMessage" : "Success",
@@ -107,11 +107,11 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     },
     "additionalProperty" : { },
-    "createdDateTime" : "2025-03-21T14:25:12.101+09:00",
-    "sentDateTime" : "2025-03-21T14:25:12.101+09:00",
-    "deliveredDateTime" : "2025-03-21T14:25:12.101+09:00",
-    "openedDateTime" : "2025-03-21T14:25:12.101+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:12.101+09:00"
+    "createdDateTime" : "2025-03-21T14:51:25.883+09:00",
+    "sentDateTime" : "2025-03-21T14:51:25.883+09:00",
+    "deliveredDateTime" : "2025-03-21T14:51:25.883+09:00",
+    "openedDateTime" : "2025-03-21T14:51:25.883+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:25.883+09:00"
   } ],
   "totalCount" : 1
 }
@@ -124,13 +124,13 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | contactDeliveryResults | Array | 메시지 발송 결과입니다. |
 | contactDeliveryResults[].messageId | String | 메시지 ID |
 | contactDeliveryResults[].recipientIndex | Integer | 수신자 인덱스입니다. |
 | contactDeliveryResults[].contactIndex | Integer | 연락처 인덱스입니다. |
 | contactDeliveryResults[].contactType | Object | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| contactDeliveryResults[].contact | String | 연락처 입니다. |
+| contactDeliveryResults[].contact | String | 연락처입니다. |
 | contactDeliveryResults[].sender | Object |  |
 | contactDeliveryResults[].sender.senderKey | String | 발신프로필 발신키 |
 | contactDeliveryResults[].sender.senderProfileId | String | 카카오톡 채널명 |
@@ -152,7 +152,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].status | Object | 발송/수신 상태입니다.<br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, CANCELED] |
 | contactDeliveryResults[].resultCode | String | 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
 | contactDeliveryResults[].resultMessage | String | 발송 결과 메시지입니다. |
-| contactDeliveryResults[].templateParameters | Object | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| contactDeliveryResults[].templateParameters | Object | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | contactDeliveryResults[].additionalProperty | Object |  |
 | contactDeliveryResults[].createdDateTime | String | 메시지가 생성된 시각입니다. |
 | contactDeliveryResults[].sentDateTime | String | 메시지가 발송된 시각입니다. |
@@ -271,9 +271,9 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "confirmBeforeSend" : false,
-    "confirmedDateTime" : "2025-03-21T14:25:12.228+09:00",
+    "confirmedDateTime" : "2025-03-21T14:51:25.981+09:00",
     "scheduled" : false,
-    "scheduledDateTime" : "2025-03-21T14:25:12.228+09:00",
+    "scheduledDateTime" : "2025-03-21T14:51:25.981+09:00",
     "status" : "REQUESTED",
     "resultCode" : "5.0.0",
     "resultMessage" : "Success",
@@ -282,11 +282,11 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     },
     "additionalProperty" : { },
-    "createdDateTime" : "2025-03-21T14:25:12.229+09:00",
-    "sentDateTime" : "2025-03-21T14:25:12.229+09:00",
-    "deliveredDateTime" : "2025-03-21T14:25:12.229+09:00",
-    "openedDateTime" : "2025-03-21T14:25:12.229+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:12.229+09:00"
+    "createdDateTime" : "2025-03-21T14:51:25.982+09:00",
+    "sentDateTime" : "2025-03-21T14:51:25.982+09:00",
+    "deliveredDateTime" : "2025-03-21T14:51:25.982+09:00",
+    "openedDateTime" : "2025-03-21T14:51:25.982+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:25.982+09:00"
   } ],
   "totalCount" : 1
 }
@@ -299,13 +299,13 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | contactDeliveryResults | Array | 메시지 발송 결과입니다. |
 | contactDeliveryResults[].messageId | String | 메시지 ID |
 | contactDeliveryResults[].recipientIndex | Integer | 수신자 인덱스입니다. |
 | contactDeliveryResults[].contactIndex | Integer | 연락처 인덱스입니다. |
 | contactDeliveryResults[].contactType | Object | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| contactDeliveryResults[].contact | String | 연락처 입니다. |
+| contactDeliveryResults[].contact | String | 연락처입니다. |
 | contactDeliveryResults[].sender | Object |  |
 | contactDeliveryResults[].sender.senderKey | String | 발신프로필 발신키 |
 | contactDeliveryResults[].sender.senderProfileId | String | 카카오톡 채널명 |
@@ -327,7 +327,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].status | Object | 발송/수신 상태입니다.<br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, CANCELED] |
 | contactDeliveryResults[].resultCode | String | 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
 | contactDeliveryResults[].resultMessage | String | 발송 결과 메시지입니다. |
-| contactDeliveryResults[].templateParameters | Object | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| contactDeliveryResults[].templateParameters | Object | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | contactDeliveryResults[].additionalProperty | Object |  |
 | contactDeliveryResults[].createdDateTime | String | 메시지가 생성된 시각입니다. |
 | contactDeliveryResults[].sentDateTime | String | 메시지가 발송된 시각입니다. |

@@ -48,7 +48,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:08.862+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.706+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -86,14 +86,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.senderPhoneNumber | String | Y | 발신 번호 |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | N |  |
 | content.messageType | String | Y | 발송 메시지 유형(SMS, LMS, MMS)<br>[SMS, LMS, MMS] |
 | content.title | String | N | 메시지 제목 |
 | content.body | String | Y | 메시지 본문 |
 | content.attachmentIds | Array | N | 첨부 파일 아이디 최대 3개 |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
 * 메시지 채널에 따라 **recipients[].contact.contactType**, **recipients[].contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
@@ -140,7 +140,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 응답 밑에 추가될 추가 설명 입니다.
@@ -161,7 +161,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:08.862+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.706+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -199,7 +199,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:08.862+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.706+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -260,7 +260,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:08.998+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.797+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -357,7 +357,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.senderKey | String | Y | 발신프로필 발신키 |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | N |  |
 | content.messageType | String | N | 템플릿 메시지 유형(TEXT: 텍스트형, IMAGE: 이미지형, WIDE_IMAGE: 와이드 이미지형, WIDE_ITEMLIST: 와이드아이템리스트형, CAROUSEL_FEED: 캐러셀피드형, default: TEXT) |
@@ -405,7 +405,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.coupon.linkPc | String | N | 대표 링크 PC 웹 링크 |
 | content.coupon.schemeIos | String | N | 대표 링크 iOS 앱 링크 |
 | content.coupon.schemeAndroid | String | N | 대표 링크 안드로이드 앱 링크 |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -431,7 +431,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -451,7 +451,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:08.998+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.797+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -548,7 +548,7 @@ curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePu
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:08.998+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.797+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -668,21 +668,17 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.026+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.815+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
   },
   "recipients" : [ {
     "contacts" : [ {
-      "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678",
+      "contactType" : "EMAIL_ADDRESS",
+      "contact" : "recipient@example.com",
       "clientReference" : "1234:abcd:011-asd"
-    } ],
-    "templateParameters" : {
-      "key1" : "value1",
-      "key2" : "value2"
-    }
+    } ]
   } ],
   "id" : "alpha123",
   "content" : {
@@ -705,13 +701,13 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.senderMailAddress | String | Y | 발신 메일 주소 |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | N |  |
 | content.title | String | Y | 템플릿 메일 제목 |
 | content.body | String | Y | 템플릿 메일 본문 |
 | content.attachmentIds | Array | N | 템플릿 첨부 파일 ID |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -737,7 +733,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -757,21 +753,17 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.026+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.815+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
   },
   "recipients" : [ {
     "contacts" : [ {
-      "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678",
+      "contactType" : "EMAIL_ADDRESS",
+      "contact" : "recipient@example.com",
       "clientReference" : "1234:abcd:011-asd"
-    } ],
-    "templateParameters" : {
-      "key1" : "value1",
-      "key2" : "value2"
-    }
+    } ]
   } ],
   "id" : "alpha123",
   "content" : {
@@ -794,21 +786,17 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.026+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.815+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
   },
   "recipients" : [ {
     "contacts" : [ {
-      "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678",
+      "contactType" : "EMAIL_ADDRESS",
+      "contact" : "recipient@example.com",
       "clientReference" : "1234:abcd:011-asd"
-    } ],
-    "templateParameters" : {
-      "key1" : "value1",
-      "key2" : "value2"
-    }
+    } ]
   } ],
   "id" : "alpha123",
   "content" : {
@@ -854,7 +842,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.034+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.826+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -947,7 +935,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.chatbotId | String | Y | 대화방(챗봇) 아이디 |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | N |  |
 | content.messageType | Object | N | RCS 발송 메시지 유형(SMS, LMS, MMS, RBC_TEMPLATE)<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
@@ -978,7 +966,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options | Object | N |  |
 | options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1004,7 +992,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -1024,7 +1012,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.034+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.826+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1116,7 +1104,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.034+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.826+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1231,18 +1219,14 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.052+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.848+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
-      "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678",
+      "contactType" : "TOKEN_FCM",
+      "contact" : "TOKEN_FCM",
       "clientReference" : "1234:abcd:011-asd"
-    } ],
-    "templateParameters" : {
-      "key1" : "value1",
-      "key2" : "value2"
-    }
+    } ]
   } ],
   "id" : "alpha123",
   "content" : {
@@ -1306,10 +1290,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | N | 푸시 메시지 내용 |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1335,7 +1319,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -1355,18 +1339,14 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.052+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.848+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
-      "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678",
+      "contactType" : "TOKEN_FCM",
+      "contact" : "TOKEN_FCM",
       "clientReference" : "1234:abcd:011-asd"
-    } ],
-    "templateParameters" : {
-      "key1" : "value1",
-      "key2" : "value2"
-    }
+    } ]
   } ],
   "id" : "alpha123",
   "content" : {
@@ -1432,18 +1412,14 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.052+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.848+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
-      "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678",
+      "contactType" : "TOKEN_FCM",
+      "contact" : "TOKEN_FCM",
       "clientReference" : "1234:abcd:011-asd"
-    } ],
-    "templateParameters" : {
-      "key1" : "value1",
-      "key2" : "value2"
-    }
+    } ]
   } ],
   "id" : "alpha123",
   "content" : {
@@ -1542,7 +1518,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.063+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.858+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1572,12 +1548,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateId | String | N | 템플릿 ID |
 | scheduledDateTime | String | N | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1603,7 +1579,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -1624,7 +1600,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.063+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.858+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1658,7 +1634,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 -d '{
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.063+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.858+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1726,7 +1702,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.069+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.867+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1758,12 +1734,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateId | String | N | 템플릿 ID |
 | scheduledDateTime | String | N | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1789,7 +1765,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -1813,7 +1789,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.069+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.867+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1850,7 +1826,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.069+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.867+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1917,7 +1893,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.082+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.874+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1955,15 +1931,15 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | templateId | String | N | 템플릿 ID |
 | scheduledDateTime | String | N | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | options | Object | N |  |
 | options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
 | options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1989,7 +1965,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -2014,7 +1990,7 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.082+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.874+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2056,7 +2032,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.082+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.874+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2125,7 +2101,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.090+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.878+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2174,10 +2150,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | flowId | String | N | 플로우 ID |
 | scheduledDateTime | String | N | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | recipients | Array | N |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | flow | Object | N |  |
 | flow.steps | Array | Y |  |
@@ -2186,7 +2162,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.steps[].content | Object | N | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].options | Object | N | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].nextSteps | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2212,7 +2188,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -2233,7 +2209,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.090+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.878+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2286,7 +2262,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.090+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.878+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2359,7 +2335,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.098+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.884+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2405,10 +2381,10 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | statsKeyId | String | N | 통계 키 아이디 |
 | scheduledDateTime | String | N | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | recipients | Array | Y |  |
 | recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터 보다 우선 시 됩니다.<br><br> |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | instantFlow | Object | Y |  |
 | instantFlow.steps | Array | Y |  |
 | instantFlow.steps[].messageChannel | Object | Y | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
@@ -2417,7 +2393,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].options | Object | N | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].nextSteps | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다. |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처 별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2443,7 +2419,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
@@ -2461,7 +2437,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.098+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.884+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2509,7 +2485,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:25:09.098+09:00",
+  "scheduledDateTime" : "2025-03-21T14:51:22.884+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2605,7 +2581,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -2691,7 +2667,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 

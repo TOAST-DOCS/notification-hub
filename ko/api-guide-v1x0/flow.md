@@ -99,7 +99,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flowId | String | 플로우 아이디입니다. |
 
 ### 플로우 정의 예시
@@ -223,7 +223,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | flowName | Query  | String | N | 플로우 이름 (LIKE 검색) |
 | flowId | Query  | String | N | 플로우 아이디입니다. |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 50 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 50(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 
@@ -281,7 +281,7 @@ X-NHN-Authorization: Bearer {accessToken}
         } ]
       } ]
     } ],
-    "messageChannels" : [ "PUSH", "SMS" ],
+    "messageChannels" : [ "PUSH", "EMAIL", "ALIMTALK", "SMS" ],
     "createdDateTime" : "2021-01-01T00:00:00.000Z",
     "updatedDateTime" : "2021-01-01T00:00:00.000Z"
   } ],
@@ -296,7 +296,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flows | Array |  |
 | flows[].flowId | String | 플로우 아이디입니다. |
 | flows[].flowName | String | 플로우 이름입니다. |
@@ -417,7 +417,7 @@ X-NHN-Authorization: Bearer {accessToken}
         } ]
       } ]
     } ],
-    "messageChannels" : [ "PUSH", "SMS" ],
+    "messageChannels" : [ "PUSH", "EMAIL", "ALIMTALK", "SMS" ],
     "createdDateTime" : "2021-01-01T00:00:00.000Z",
     "updatedDateTime" : "2021-01-01T00:00:00.000Z"
   }
@@ -431,7 +431,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flow | Object |  |
 | flow.flowId | String | 플로우 아이디입니다. |
 | flow.flowName | String | 플로우 이름입니다. |
@@ -556,7 +556,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flowId | String | 플로우 아이디입니다. |
 
 
@@ -662,7 +662,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -763,11 +763,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | results | Array | 다중 처리 요청의 결과입니다. |
 | results[].isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | results[].resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| results[].resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| results[].resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 

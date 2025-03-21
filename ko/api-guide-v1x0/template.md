@@ -98,7 +98,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 
 
@@ -213,8 +213,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:25:20.754+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:20.754+09:00"
+    "createdDateTime" : "2025-03-21T14:51:31.993+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:31.993+09:00"
   } ]
 }
 ```
@@ -226,7 +226,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
 | templates | Array |  |
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -328,8 +328,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
-    "createdDateTime" : "2025-03-21T14:25:20.786+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:20.786+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.025+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.025+09:00"
   }
 }
 ```
@@ -341,7 +341,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
@@ -474,7 +474,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -586,7 +586,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -720,7 +720,7 @@ X-NHN-Authorization: Bearer {accessToken}
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T14:25:20.822+09:00",
+      "createdAt" : "2025-03-21T14:51:32.051+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -834,7 +834,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 
 
@@ -925,7 +925,7 @@ X-NHN-Authorization: Bearer {accessToken}
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T14:25:20.822+09:00",
+      "createdAt" : "2025-03-21T14:51:32.051+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -1022,7 +1022,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T14:25:20.822+09:00",
+      "createdAt" : "2025-03-21T14:51:32.051+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -1059,8 +1059,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
-| senderKey | Query  | String | N | 발신키 (ALIMTALK만 해당) |
-| templateStatus | Query  | String | N | 템플릿 상태 (ALIMTALK만 해당) |
+| senderKey | Query  | String | N | 발신키 |
+| templateStatus | Query  | String | N | 템플릿 상태 |
 | limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
@@ -1093,8 +1093,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:25:20.842+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:20.842+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.072+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.072+09:00"
   } ]
 }
 ```
@@ -1106,7 +1106,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
 | templates | Array |  |
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -1168,9 +1168,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| senderKey | Path  | String | Y | 발신키 (ALIMTALK만 해당) |
+| senderKey | Path  | String | Y | 발신키 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
-| templateStatus | Query  | String | N | 템플릿 상태 (ALIMTALK만 해당) |
+| templateStatus | Query  | String | N | 템플릿 상태 |
 | limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
@@ -1203,8 +1203,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:25:20.856+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:20.856+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.080+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.080+09:00"
   } ]
 }
 ```
@@ -1216,7 +1216,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
 | templates | Array |  |
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -1321,7 +1321,7 @@ X-NHN-Authorization: Bearer {accessToken}
         "id" : 1,
         "content" : "문의 내용 예시",
         "userName" : "사용자 이름",
-        "createdAt" : "2025-03-21T14:25:20.865+09:00",
+        "createdAt" : "2025-03-21T14:51:32.092+09:00",
         "attachments" : [ {
           "originalFileName" : "파일명 예시",
           "filePath" : "/path/to/file"
@@ -1390,8 +1390,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "bizFormId" : 12345
       } ]
     },
-    "createdDateTime" : "2025-03-21T14:25:20.868+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:20.868+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.093+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.094+09:00"
   }
 }
 ```
@@ -1403,7 +1403,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
@@ -1698,7 +1698,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -1920,7 +1920,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -2016,7 +2016,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -2106,7 +2106,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -2159,7 +2159,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | templateId | Path  | String | Y | 템플릿 아이디 |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 50 (최대 1000) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 50(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
 
@@ -2204,7 +2204,7 @@ X-NHN-Authorization: Bearer {accessToken}
         "id" : 1,
         "content" : "문의 내용 예시",
         "userName" : "사용자 이름",
-        "createdAt" : "2025-03-21T14:25:20.922+09:00",
+        "createdAt" : "2025-03-21T14:51:32.149+09:00",
         "attachments" : [ {
           "originalFileName" : "파일명 예시",
           "filePath" : "/path/to/file"
@@ -2273,8 +2273,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "bizFormId" : 12345
       } ]
     },
-    "createdDateTime" : "2025-03-21T14:25:20.926+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:20.927+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.152+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.153+09:00"
   } ]
 }
 ```
@@ -2286,7 +2286,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
 | templates | Array |  |
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -2434,7 +2434,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | categories | Array |  |
 | categories[].name | String | 대분류 카테고리 이름 |
 | categories[].subCategories | Array | 서브 카테고리 |
@@ -2655,7 +2655,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 
 
@@ -2856,7 +2856,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
-| senderKey | Query  | String | N | 발신키 (ALIMTALK만 해당) |
+| senderKey | Query  | String | N | 발신키 |
 | limit | Query  | Integer | N | limit 설정하지 않으면 default 20 (최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
@@ -2889,8 +2889,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:25:20.967+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:20.967+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.179+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.179+09:00"
   } ]
 }
 ```
@@ -2902,7 +2902,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
 | templates | Array |  |
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -3064,8 +3064,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "schemeAndroid" : "example://android"
       }
     },
-    "createdDateTime" : "2025-03-21T14:25:20.979+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:20.979+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.190+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.190+09:00"
   }
 }
 ```
@@ -3077,7 +3077,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
@@ -3352,7 +3352,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -3582,7 +3582,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -3698,7 +3698,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 
 
@@ -3817,8 +3817,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
-    "createdDateTime" : "2025-03-21T14:25:21.100+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:21.100+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.302+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.302+09:00"
   }
 }
 ```
@@ -3830,7 +3830,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
@@ -3931,8 +3931,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:25:21.115+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:21.115+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.310+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.310+09:00"
   } ]
 }
 ```
@@ -3944,7 +3944,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
 | templates | Array |  |
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -4068,7 +4068,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -4178,7 +4178,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -4368,7 +4368,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 
 
@@ -4583,8 +4583,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:25:21.158+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:21.158+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.346+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.346+09:00"
   } ]
 }
 ```
@@ -4596,7 +4596,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
 | templates | Array |  |
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -4751,10 +4751,10 @@ X-NHN-Authorization: Bearer {accessToken}
     },
     "additionalProperty" : {
       "status" : "SUCCESS",
-      "approvedDateTime" : "2025-03-21T14:25:21.166+09:00"
+      "approvedDateTime" : "2025-03-21T14:51:32.353+09:00"
     },
-    "createdDateTime" : "2025-03-21T14:25:21.166+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:21.166+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.353+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.353+09:00"
   }
 }
 ```
@@ -4766,7 +4766,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
@@ -4997,7 +4997,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -5209,7 +5209,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -5360,7 +5360,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 
 
@@ -5553,8 +5553,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:25:21.204+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:21.204+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.376+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.376+09:00"
   } ]
 }
 ```
@@ -5566,7 +5566,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
 | templates | Array |  |
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -5707,8 +5707,8 @@ X-NHN-Authorization: Bearer {accessToken}
       },
       "customKey" : "customValue"
     },
-    "createdDateTime" : "2025-03-21T14:25:21.208+09:00",
-    "updatedDateTime" : "2025-03-21T14:25:21.208+09:00"
+    "createdDateTime" : "2025-03-21T14:51:32.380+09:00",
+    "updatedDateTime" : "2025-03-21T14:51:32.381+09:00"
   }
 }
 ```
@@ -5720,7 +5720,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
@@ -5880,7 +5880,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -6070,7 +6070,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -6167,7 +6167,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateParameter | Object | 템플릿 파라미터 결과 JSON |
 
 

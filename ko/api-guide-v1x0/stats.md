@@ -119,7 +119,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header | Object |  |
 | header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청과 메시지입니다.<br>기본값: SUCCESS |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | stats | Object |  |
 | stats.columns | Array | 이벤트 카테고리에 대한 이벤트가 컬럼으로 응답됩니다.<br>EVENT_DATE_TIME 컬럼은 이벤트 발생 일시를 나타냅니다.<br> |
 | stats.rows | Array | EVENT_DATE_TIME 필드을 제외한 나머지 필드은 이벤트 카테고리에 따라 응답됩니다.<br><br> |
