@@ -96,9 +96,9 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "confirmBeforeSend" : false,
-    "confirmedDateTime" : "2025-03-21T16:08:26.150+09:00",
+    "confirmedDateTime" : "2024-10-29T06:00:01.000+09:00",
     "scheduled" : false,
-    "scheduledDateTime" : "2025-03-21T16:08:26.150+09:00",
+    "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
     "status" : "REQUESTED",
     "resultCode" : "5.0.0",
     "resultMessage" : "Success",
@@ -107,11 +107,11 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     },
     "additionalProperty" : { },
-    "createdDateTime" : "2025-03-21T16:08:26.152+09:00",
-    "sentDateTime" : "2025-03-21T16:08:26.152+09:00",
-    "deliveredDateTime" : "2025-03-21T16:08:26.152+09:00",
-    "openedDateTime" : "2025-03-21T16:08:26.152+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:26.152+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "sentDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "deliveredDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "openedDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ],
   "totalCount" : 1
 }
@@ -271,9 +271,9 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "confirmBeforeSend" : false,
-    "confirmedDateTime" : "2025-03-21T16:08:26.242+09:00",
+    "confirmedDateTime" : "2024-10-29T06:00:01.000+09:00",
     "scheduled" : false,
-    "scheduledDateTime" : "2025-03-21T16:08:26.242+09:00",
+    "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
     "status" : "REQUESTED",
     "resultCode" : "5.0.0",
     "resultMessage" : "Success",
@@ -282,11 +282,11 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     },
     "additionalProperty" : { },
-    "createdDateTime" : "2025-03-21T16:08:26.243+09:00",
-    "sentDateTime" : "2025-03-21T16:08:26.243+09:00",
-    "deliveredDateTime" : "2025-03-21T16:08:26.243+09:00",
-    "openedDateTime" : "2025-03-21T16:08:26.243+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:26.243+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "sentDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "deliveredDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "openedDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ],
   "totalCount" : 1
 }

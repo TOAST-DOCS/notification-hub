@@ -213,8 +213,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T16:08:31.908+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:31.908+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ]
 }
 ```
@@ -328,8 +328,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
-    "createdDateTime" : "2025-03-21T16:08:31.928+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:31.928+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```
@@ -720,7 +720,7 @@ X-NHN-Authorization: Bearer {accessToken}
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T16:08:31.947+09:00",
+      "createdAt" : "2024-10-29T06:00:01.000+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -925,7 +925,7 @@ X-NHN-Authorization: Bearer {accessToken}
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T16:08:31.947+09:00",
+      "createdAt" : "2024-10-29T06:00:01.000+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -1022,7 +1022,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T16:08:31.947+09:00",
+      "createdAt" : "2024-10-29T06:00:01.000+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -1093,8 +1093,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T16:08:31.965+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:31.965+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ]
 }
 ```
@@ -1203,8 +1203,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T16:08:31.971+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:31.971+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ]
 }
 ```
@@ -1321,7 +1321,7 @@ X-NHN-Authorization: Bearer {accessToken}
         "id" : 1,
         "content" : "문의 내용 예시",
         "userName" : "사용자 이름",
-        "createdAt" : "2025-03-21T16:08:31.977+09:00",
+        "createdAt" : "2024-10-29T06:00:01.000+09:00",
         "attachments" : [ {
           "originalFileName" : "파일명 예시",
           "filePath" : "/path/to/file"
@@ -1390,8 +1390,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "bizFormId" : 12345
       } ]
     },
-    "createdDateTime" : "2025-03-21T16:08:31.979+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:31.979+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```
@@ -2204,7 +2204,7 @@ X-NHN-Authorization: Bearer {accessToken}
         "id" : 1,
         "content" : "문의 내용 예시",
         "userName" : "사용자 이름",
-        "createdAt" : "2025-03-21T16:08:32.023+09:00",
+        "createdAt" : "2024-10-29T06:00:01.000+09:00",
         "attachments" : [ {
           "originalFileName" : "파일명 예시",
           "filePath" : "/path/to/file"
@@ -2273,8 +2273,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "bizFormId" : 12345
       } ]
     },
-    "createdDateTime" : "2025-03-21T16:08:32.025+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.025+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ]
 }
 ```
@@ -2889,8 +2889,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T16:08:32.056+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.056+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ]
 }
 ```
@@ -3064,8 +3064,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "schemeAndroid" : "example://android"
       }
     },
-    "createdDateTime" : "2025-03-21T16:08:32.068+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.068+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```
@@ -3817,8 +3817,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
-    "createdDateTime" : "2025-03-21T16:08:32.168+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.168+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```
@@ -3931,8 +3931,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T16:08:32.181+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.181+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ]
 }
 ```
@@ -4583,8 +4583,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T16:08:32.216+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.216+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ]
 }
 ```
@@ -4751,10 +4751,10 @@ X-NHN-Authorization: Bearer {accessToken}
     },
     "additionalProperty" : {
       "status" : "SUCCESS",
-      "approvedDateTime" : "2025-03-21T16:08:32.220+09:00"
+      "approvedDateTime" : "2024-10-29T06:00:01.000+09:00"
     },
-    "createdDateTime" : "2025-03-21T16:08:32.220+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.220+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```
@@ -5553,8 +5553,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T16:08:32.239+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.240+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   } ]
 }
 ```
@@ -5707,8 +5707,8 @@ X-NHN-Authorization: Bearer {accessToken}
       },
       "customKey" : "customValue"
     },
-    "createdDateTime" : "2025-03-21T16:08:32.243+09:00",
-    "updatedDateTime" : "2025-03-21T16:08:32.243+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```

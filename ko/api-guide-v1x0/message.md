@@ -48,7 +48,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.441+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -161,7 +161,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.441+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -199,7 +199,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.441+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -260,7 +260,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.516+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -451,7 +451,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.516+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -548,7 +548,7 @@ curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePu
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.516+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -668,7 +668,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.542+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -753,7 +753,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.542+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -786,7 +786,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.542+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -842,7 +842,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.553+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1012,7 +1012,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.553+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1104,7 +1104,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.553+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1219,7 +1219,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.570+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1339,7 +1339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.570+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1412,7 +1412,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.570+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1518,7 +1518,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.575+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1600,7 +1600,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.575+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1634,7 +1634,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 -d '{
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.575+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1702,7 +1702,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.582+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1789,7 +1789,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.582+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1826,7 +1826,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.582+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1893,7 +1893,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.593+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1990,7 +1990,7 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.593+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2032,7 +2032,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.593+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2101,7 +2101,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.601+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2209,7 +2209,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.601+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2262,7 +2262,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.601+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2335,7 +2335,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.606+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2437,7 +2437,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.606+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2485,7 +2485,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T16:08:23.606+09:00",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
