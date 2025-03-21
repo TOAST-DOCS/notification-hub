@@ -16,9 +16,9 @@
 
 ## 자유 양식 메시지 발송 요청 - SMS
 
-SMS에 대한 자유 양식 메시지를 발송요청 합니다. 요청 본문에 메시지 내용을 입력해 메시지를 발송 요청합니다.
+SMS에 대한 자유 양식 메시지 발송을 요청합니다. 메시지 내용을 요청 본문에 입력한 뒤 발송을 요청합니다.
 
-각 메시지 채널로 메시지를 발송하기 위해서는 각 메시지 채널의 발신 정보가 등록되어야 있어야 합니다. 발신 정보 등록은 **Notification Hub 콘솔** > **발신 정보 탭**에서 진행할 수 있습니다. 메시지 채널의 발신 정보에 대한 자세한 설명은 **Notification** > **Notification Hub** > **이용 정책 및 사전 설정 안내**에서 확인할 수 있습니다.
+각 메시지 채널로 메시지를 발송하기 위해서는 각 메시지 채널의 발신 정보가 등록되어 있어야 합니다. 발신 정보 등록은 **Notification Hub 콘솔** > **발신 정보 탭**에서 진행할 수 있습니다. 메시지 채널의 발신 정보에 대한 자세한 설명은 **Notification** > **Notification Hub** > **이용 정책 및 사전 설정 안내**에서 확인할 수 있습니다.
 
 
 **요청**
@@ -37,7 +37,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | messagePurpose | Path  | String | Y | 메시지 목적입니다. |
 
-요청 파라미터 밑에 추가될 추가 설명 입니다.
+요청 파라미터 밑에 추가될 추가 설명입니다.
 
 
 **요청 본문**
@@ -48,7 +48,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.706+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.032+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -143,7 +143,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
-응답 밑에 추가될 추가 설명 입니다.
+응답 밑에 추가될 추가 설명입니다.
 
 
 **요청 예시**
@@ -161,7 +161,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.706+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.032+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -199,7 +199,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.706+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.032+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -231,7 +231,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 
 ## 자유 양식 메시지 발송 요청 - 친구톡(FRIENDTALK)
 
-친구톡(FRIENDTALK)에 대한 자유 양식 메시지를 발송요청 합니다.
+친구톡(FRIENDTALK)에 대한 자유 양식 메시지 발송을 요청합니다.
 
 
 **요청**
@@ -260,7 +260,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.797+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.103+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -400,7 +400,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.carousel.tail.schemeAndroid | String | N | 대표 링크 안드로이드 앱 링크 |
 | content.coupon | Object | N |  |
 | content.coupon.title | String | N | 쿠폰 이름 |
-| content.coupon.description | String | N | 쿠폰 상세 설명 (일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
+| content.coupon.description | String | N | 쿠폰 상세 설명(일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
 | content.coupon.linkMo | String | N | 대표 링크 모바일 웹 링크 |
 | content.coupon.linkPc | String | N | 대표 링크 PC 웹 링크 |
 | content.coupon.schemeIos | String | N | 대표 링크 iOS 앱 링크 |
@@ -451,7 +451,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.797+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.103+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -548,7 +548,7 @@ curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePu
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.797+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.103+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -639,7 +639,7 @@ curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePu
 
 ## 자유 양식 메시지 발송 요청 - 이메일(EMAIL)
 
-이메일(EMAIL)에 대한 자유 양식 메시지를 발송요청 합니다.
+이메일(EMAIL)에 대한 자유 양식 메시지 발송을 요청합니다.
 
 
 **요청**
@@ -668,7 +668,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.815+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.120+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -753,7 +753,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.815+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.120+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -786,7 +786,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.815+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.120+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -813,7 +813,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 ## 자유 양식 메시지 발송 요청 - RCS
 
-RCS에 대한 자유 양식 메시지를 발송요청 합니다.
+RCS에 대한 자유 양식 메시지 발송을 요청합니다.
 
 
 **요청**
@@ -842,7 +842,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.826+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.125+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -944,8 +944,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
 | content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
 | content.mmsType | Object | N | MMS 타입 (MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
-| content.messagebaseId | String | N | RCS biz센터 템플릿 아이디 |
-| content.unsubscribePhoneNumber | String | N | 수신 거부 번호 (광고 발송일 경우 필수) |
+| content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
+| content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
 | content.cards[].title | String | N | 제목 |
 | content.cards[].description | String | N | 본문 |
@@ -964,8 +964,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
 | options | Object | N |  |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID |
+| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID |
 | dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
@@ -1012,7 +1012,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.826+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.125+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1104,7 +1104,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.826+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.125+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1190,7 +1190,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 ## 자유 양식 메시지 발송 요청 - PUSH
 
-PUSH에 대한 자유 양식 메시지를 발송요청 합니다.
+PUSH에 대한 자유 양식 메시지 발송을 요청합니다.
 
 
 **요청**
@@ -1219,7 +1219,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.848+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.136+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1339,7 +1339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.848+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.136+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1412,7 +1412,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.848+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.136+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1518,7 +1518,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.858+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.142+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1600,7 +1600,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.858+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.142+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1634,7 +1634,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 -d '{
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.858+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.142+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1702,7 +1702,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.867+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.149+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1789,7 +1789,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.867+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.149+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1826,7 +1826,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.867+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.149+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1893,7 +1893,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.874+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.155+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1937,8 +1937,8 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | options | Object | N |  |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간 (1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 group ID |
+| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID |
 | dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
@@ -1990,7 +1990,7 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.874+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.155+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2032,7 +2032,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.874+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.155+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2101,7 +2101,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.878+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.160+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2209,7 +2209,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.878+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.160+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2262,7 +2262,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.878+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.160+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2335,7 +2335,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.884+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.164+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2437,7 +2437,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.884+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.164+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2485,7 +2485,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T14:51:22.884+09:00",
+  "scheduledDateTime" : "2025-03-21T15:48:29.164+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",

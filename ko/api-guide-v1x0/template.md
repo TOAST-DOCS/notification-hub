@@ -213,8 +213,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:51:31.993+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:31.993+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.794+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.794+09:00"
   } ]
 }
 ```
@@ -328,8 +328,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
-    "createdDateTime" : "2025-03-21T14:51:32.025+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.025+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.810+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.810+09:00"
   }
 }
 ```
@@ -720,7 +720,7 @@ X-NHN-Authorization: Bearer {accessToken}
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T14:51:32.051+09:00",
+      "createdAt" : "2025-03-21T15:48:36.825+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -925,7 +925,7 @@ X-NHN-Authorization: Bearer {accessToken}
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T14:51:32.051+09:00",
+      "createdAt" : "2025-03-21T15:48:36.825+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -1022,7 +1022,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
       "id" : 1,
       "content" : "문의 내용 예시",
       "userName" : "사용자 이름",
-      "createdAt" : "2025-03-21T14:51:32.051+09:00",
+      "createdAt" : "2025-03-21T15:48:36.825+09:00",
       "attachments" : [ {
         "originalFileName" : "파일명 예시",
         "filePath" : "/path/to/file"
@@ -1093,8 +1093,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:51:32.072+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.072+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.836+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.836+09:00"
   } ]
 }
 ```
@@ -1203,8 +1203,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:51:32.080+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.080+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.841+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.841+09:00"
   } ]
 }
 ```
@@ -1321,7 +1321,7 @@ X-NHN-Authorization: Bearer {accessToken}
         "id" : 1,
         "content" : "문의 내용 예시",
         "userName" : "사용자 이름",
-        "createdAt" : "2025-03-21T14:51:32.092+09:00",
+        "createdAt" : "2025-03-21T15:48:36.847+09:00",
         "attachments" : [ {
           "originalFileName" : "파일명 예시",
           "filePath" : "/path/to/file"
@@ -1390,8 +1390,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "bizFormId" : 12345
       } ]
     },
-    "createdDateTime" : "2025-03-21T14:51:32.093+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.094+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.849+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.849+09:00"
   }
 }
 ```
@@ -2204,7 +2204,7 @@ X-NHN-Authorization: Bearer {accessToken}
         "id" : 1,
         "content" : "문의 내용 예시",
         "userName" : "사용자 이름",
-        "createdAt" : "2025-03-21T14:51:32.149+09:00",
+        "createdAt" : "2025-03-21T15:48:36.879+09:00",
         "attachments" : [ {
           "originalFileName" : "파일명 예시",
           "filePath" : "/path/to/file"
@@ -2273,8 +2273,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "bizFormId" : 12345
       } ]
     },
-    "createdDateTime" : "2025-03-21T14:51:32.152+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.153+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.881+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.881+09:00"
   } ]
 }
 ```
@@ -2625,7 +2625,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.carousel.tail.schemeAndroid | String | N | 대표 링크 안드로이드 앱 링크 |
 | content.coupon | Object | N |  |
 | content.coupon.title | String | N | 쿠폰 이름 |
-| content.coupon.description | String | N | 쿠폰 상세 설명 (일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
+| content.coupon.description | String | N | 쿠폰 상세 설명(일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
 | content.coupon.linkMo | String | N | 대표 링크 모바일 웹 링크 |
 | content.coupon.linkPc | String | N | 대표 링크 PC 웹 링크 |
 | content.coupon.schemeIos | String | N | 대표 링크 iOS 앱 링크 |
@@ -2889,8 +2889,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:51:32.179+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.179+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.903+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.904+09:00"
   } ]
 }
 ```
@@ -3064,8 +3064,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "schemeAndroid" : "example://android"
       }
     },
-    "createdDateTime" : "2025-03-21T14:51:32.190+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.190+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.909+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.909+09:00"
   }
 }
 ```
@@ -3130,7 +3130,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.carousel.tail.schemeAndroid | String | 대표 링크 안드로이드 앱 링크 |
 | template.content.coupon | Object |  |
 | template.content.coupon.title | String | 쿠폰 이름 |
-| template.content.coupon.description | String | 쿠폰 상세 설명 (일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
+| template.content.coupon.description | String | 쿠폰 상세 설명(일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
 | template.content.coupon.linkMo | String | 대표 링크 모바일 웹 링크 |
 | template.content.coupon.linkPc | String | 대표 링크 PC 웹 링크 |
 | template.content.coupon.schemeIos | String | 대표 링크 iOS 앱 링크 |
@@ -3323,7 +3323,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.carousel.tail.schemeAndroid | String | N | 대표 링크 안드로이드 앱 링크 |
 | content.coupon | Object | N |  |
 | content.coupon.title | String | N | 쿠폰 이름 |
-| content.coupon.description | String | N | 쿠폰 상세 설명 (일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
+| content.coupon.description | String | N | 쿠폰 상세 설명(일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
 | content.coupon.linkMo | String | N | 대표 링크 모바일 웹 링크 |
 | content.coupon.linkPc | String | N | 대표 링크 PC 웹 링크 |
 | content.coupon.schemeIos | String | N | 대표 링크 iOS 앱 링크 |
@@ -3817,8 +3817,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
-    "createdDateTime" : "2025-03-21T14:51:32.302+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.302+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.981+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.982+09:00"
   }
 }
 ```
@@ -3931,8 +3931,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:51:32.310+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.310+09:00"
+    "createdDateTime" : "2025-03-21T15:48:36.985+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:36.985+09:00"
   } ]
 }
 ```
@@ -4324,8 +4324,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
 | content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
 | content.mmsType | Object | N | MMS 타입 (MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
-| content.messagebaseId | String | N | RCS biz센터 템플릿 아이디 |
-| content.unsubscribePhoneNumber | String | N | 수신 거부 번호 (광고 발송일 경우 필수) |
+| content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
+| content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
 | content.cards[].title | String | N | 제목 |
 | content.cards[].description | String | N | 본문 |
@@ -4583,8 +4583,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:51:32.346+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.346+09:00"
+    "createdDateTime" : "2025-03-21T15:48:37.011+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:37.011+09:00"
   } ]
 }
 ```
@@ -4751,10 +4751,10 @@ X-NHN-Authorization: Bearer {accessToken}
     },
     "additionalProperty" : {
       "status" : "SUCCESS",
-      "approvedDateTime" : "2025-03-21T14:51:32.353+09:00"
+      "approvedDateTime" : "2025-03-21T15:48:37.016+09:00"
     },
-    "createdDateTime" : "2025-03-21T14:51:32.353+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.353+09:00"
+    "createdDateTime" : "2025-03-21T15:48:37.016+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:37.017+09:00"
   }
 }
 ```
@@ -4785,9 +4785,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.smsType | Object | SMS 타입<br>[STANDALONE] |
 | template.content.lmsType | Object | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
 | template.content.mmsType | Object | MMS 타입 (MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
-| template.content.messagebaseId | String | RCS biz센터 템플릿 아이디 |
+| template.content.messagebaseId | String | RCS Biz Center 템플릿 아이디 |
 | template.content.messagebaseformId | Object | RCS Bizcenter 에서 지정한 messageBase 양식<br>- SS000000 (SMS 기본형)<br>- SL000000 (LMS 기본형)<br>- OL00000001 (LMS Format 기본형)<br>- OL00000002 (LMS Format 타이틀 강조형)<br>- OL00000003 (LMS Format 문단형)<br>- SMwThT00 (MMS 세로형)<br>- SMwThM00 (MMS 가로형)<br>- CMwMhM0200 (MMS 슬라이드 중간형 (2))<br>- CMwMhM0300 (MMS 슬라이드 중간형 (3))<br>- CMwMhM0400 (MMS 슬라이드 중간형 (4))<br>- CMwMhM0500 (MMS 슬라이드 중간형 (5))<br>- CMwMhM0600 (MMS 슬라이드 중간형 (6))<br>- CMwShS0200 (MMS 슬라이드 작은형 (2))<br>- CMwShS0300 (MMS 슬라이드 작은형 (3))<br>- CMwShS0400 (MMS 슬라이드 작은형 (4))<br>- CMwShS0500 (MMS 슬라이드 작은형 (5))<br>- CMwShS0600 (MMS 슬라이드 작은형 (6))<br>- CLI00001 (아이템 상세형)<br>- ITTBNV (썸네일형(세로))<br>- ITTBNH (썸네일형(가로))<br>- ITHIMS (이미지 강조형(1:1))<br>- ITHIMV (이미지 강조형(3:4))<br>- ITSNSS (SNS형)<br>- ITSNSH (SNS형(중간버튼))<br>- ITHITS (이미지 & 타이틀 강조형(1:1))<br>- ITHITV (이미지 & 타이틀 강조형(3:4))<br>- ITCRM2 (슬라이드 형 (2))<br>- ITCRM3 (슬라이드 형 (3))<br>- ITCRM4 (슬라이드 형 (4))<br>- ITCRM5 (슬라이드 형 (5))<br>- ITCRM6 (슬라이드 형 (6))<br>- CLT00001 (아이템 강조형 DESC)<br>- CLT00002 (아이템 강조형 TABLE)<br>- TATA001F (타이틀 자유형 FREE)<br>- TATA001C (타이틀 자유형 CELL)<br>- TATA001D (타이틀 자유형 DESC)<br>- GG000F (타이틀 선택형 FREE)<br>- FF005C (명세서 CELL)<br>- FF005D (명세서 DESC)<br>- FF004C (취소 CELL)<br>- FF004D (취소 DESC)<br>- GG003C (안내 CELL)<br>- GG003D (안내 DESC)<br>- GG002C (인증 CELL)<br>- GG002D (인증 DESC)<br>- GG001C (회원 가입 CELL)<br>- GG001D (회원 가입 DESC)<br>- EE001C (예약 CELL)<br>- EE001D (예약 DESC)<br>- CC003C (배송 CELL)<br>- CC003D (배송 DESC)<br>- FF002C (입금 CELL)<br>- FF002D (입금 DESC)<br>- FF001C (승인 CELL)<br>- FF001D (승인 DESC)<br>- CC002C (주문 CELL)<br>- CC002D (주문 DESC)<br>- CC001C (출고 CELL)<br>- CC001D (출고 DESC)<br>- FF003C (출금 CELL)<br>- FF003D (출금 DESC)<br>- CLL00001 (LMS 명세서 A)<br>- CLL00002 (LMS 문단형)<br>- CLL00003 (LMS 타이들 강조형)<br>- CLL00004 (LMS 기본형)<br>- CLL00005 (LMS 명세서 B)<br>- CLL00006 (LMS 명세서 C)<br><br>[SS000000, SL000000, OL00000001, OL00000002, OL00000003, SMwThT00, SMwThM00, CMwMhM0200, CMwMhM0300, CMwMhM0400, CMwMhM0500, CMwMhM0600, CMwShS0200, CMwShS0300, CMwShS0400, CMwShS0500, CMwShS0600, CLI00001, ITTBNV, ITTBNH, ITHIMS, ITHIMV, ITSNSS, ITSNSH, ITHITS, ITHITV, ITCRM2, ITCRM3, ITCRM4, ITCRM5, ITCRM6, CLT00001, CLT00002, TATA001C, TATA001D, TATA001F, FF005C, FF005D, FF004C, FF004D, GG003C, GG003D, GG002C, GG002D, GG001C, GG001D, GG000F, EE001C, EE001D, CC003C, CC003D, FF002C, FF002D, FF001C, FF001D, CC002C, CC002D, CC001C, CC001D, FF003C, FF003D, CLL00001, CLL00002, CLL00003, CLL00004, CLL00005, CLL00006] |
-| template.content.unsubscribePhoneNumber | String | 수신 거부 번호 (광고 발송일 경우 필수) |
+| template.content.unsubscribePhoneNumber | String | 수신 거부 번호(광고 발송일 경우 필수) |
 | template.content.cards | Array | RCS 카드 |
 | template.content.cards[].title | String | 제목 |
 | template.content.cards[].description | String | 본문 |
@@ -4954,8 +4954,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
 | content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
 | content.mmsType | Object | N | MMS 타입 (MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
-| content.messagebaseId | String | N | RCS biz센터 템플릿 아이디 |
-| content.unsubscribePhoneNumber | String | N | 수신 거부 번호 (광고 발송일 경우 필수) |
+| content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
+| content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
 | content.cards[].title | String | N | 제목 |
 | content.cards[].description | String | N | 본문 |
@@ -5553,8 +5553,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "messagePurposes" : [ "NORMAL" ],
-    "createdDateTime" : "2025-03-21T14:51:32.376+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.376+09:00"
+    "createdDateTime" : "2025-03-21T15:48:37.036+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:37.036+09:00"
   } ]
 }
 ```
@@ -5707,8 +5707,8 @@ X-NHN-Authorization: Bearer {accessToken}
       },
       "customKey" : "customValue"
     },
-    "createdDateTime" : "2025-03-21T14:51:32.380+09:00",
-    "updatedDateTime" : "2025-03-21T14:51:32.381+09:00"
+    "createdDateTime" : "2025-03-21T15:48:37.038+09:00",
+    "updatedDateTime" : "2025-03-21T15:48:37.038+09:00"
   }
 }
 ```

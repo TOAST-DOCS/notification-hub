@@ -21,7 +21,7 @@
 <br>
 **steps**라는 필드에 플로우 단계를 정의할 수 있습니다.<br>
 **steps**에 정의한 순서대로 메시지 발송을 진행합니다.<br> 
-수신자 마다 첫 번째 단계 부터 메시지 발송을 시도하며 발송/수신이 성공하면 다음 단계로 넘어가지 않고 발송이 완료 됩니다. 실패하면 다음 단계로 넘어갑니다.<br>
+수신자마다 첫 번째 단계부터 메시지 발송을 시도하며, 발송과 수신을 성공하면 다음 단계로 넘어가지 않고 완료됩니다. 실패하면 다음 단계로 넘어갑니다.<br>
 
 
 **요청**
@@ -108,7 +108,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "flowName": "선형적인 순서를 가진 플로우",
   "messagePurpose": "NORMAL",
-  "description": "PUSH > EMAIL > SMS 순으로 발송 됩니다.",
+  "description": "PUSH > EMAIL > SMS 순으로 발송됩니다.",
   "steps": [{
     "messageChannel": "PUSH",
     "templateId": "템플릿의 아이디",
@@ -133,7 +133,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "flowName": "동시 발송",
   "messagePurpose": "NORMAL",
-  "description": "PUSH, EMAIL, SMS 순서 없이 동시에 발송 됩니다.",
+  "description": "PUSH, EMAIL, SMS 순서 없이 동시에 발송됩니다.",
   "steps": [{
     "messageChannel": "PUSH",
     "templateId": "템플릿의 아이디",
@@ -221,7 +221,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| flowName | Query  | String | N | 플로우 이름 (LIKE 검색) |
+| flowName | Query  | String | N | 플로우 이름(LIKE 검색) |
 | flowId | Query  | String | N | 플로우 아이디입니다. |
 | limit | Query  | Integer | N | limit 설정하지 않으면 default 50(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |

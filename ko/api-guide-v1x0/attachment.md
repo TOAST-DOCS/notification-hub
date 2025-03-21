@@ -160,8 +160,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "fileName" : "test.txt",
     "fileFormat" : "JPG",
     "fileSizeByte" : 21391,
-    "createDateTime" : "2025-03-21T14:51:19.576+09:00",
-    "expireDateTime" : "2025-03-21T14:51:19.576+09:00",
+    "createDateTime" : "2025-03-21T15:48:26.451+09:00",
+    "expireDateTime" : "2025-03-21T15:48:26.451+09:00",
     "uploadedFileTypes" : [ "EMAIL_DEFAULT" ]
   } ]
 }
@@ -265,8 +265,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "fileFormat" : "JPG",
     "previewUrl" : "https://www.example.com/preview/test.txt",
     "fileSizeByte" : 21391,
-    "createDateTime" : "2025-03-21T14:51:19.596+09:00",
-    "expireDateTime" : "2025-03-21T14:51:19.597+09:00",
+    "createDateTime" : "2025-03-21T15:48:26.464+09:00",
+    "expireDateTime" : "2025-03-21T15:48:26.464+09:00",
     "uploadedFileTypes" : [ "EMAIL_DEFAULT" ]
   }
 }
