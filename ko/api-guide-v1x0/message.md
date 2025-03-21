@@ -48,7 +48,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.032+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.441+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -161,7 +161,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.032+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.441+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -199,7 +199,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.032+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.441+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderPhoneNumber" : "01012341234"
@@ -260,7 +260,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.103+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.516+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -451,7 +451,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.103+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.516+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -548,7 +548,7 @@ curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePu
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.103+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.516+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
@@ -668,7 +668,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.120+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.542+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -753,7 +753,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.120+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.542+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -786,7 +786,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.120+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.542+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "senderMailAddress" : "abcde@nhn.com"
@@ -842,7 +842,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.125+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.553+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1012,7 +1012,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.125+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.553+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1104,7 +1104,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.125+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.553+09:00",
   "confirmBeforeSend" : false,
   "sender" : {
     "brandId" : "AR.lj0eOjEI7Y",
@@ -1219,7 +1219,7 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.136+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.570+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1339,7 +1339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.136+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.570+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1412,7 +1412,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.136+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.570+09:00",
   "confirmBeforeSend" : false,
   "recipients" : [ {
     "contacts" : [ {
@@ -1480,13 +1480,13 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 ## 템플릿 메시지 발송 요청
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
-템플릿을 등록하지 않았다면, 템플릿을 등록하고 발송해야 합니다.<br>
+등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
 <br>
-예약 발송의 경우 'scheduledDateTime'를 설정합니다.<br>
+예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
 확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
@@ -1518,7 +1518,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.142+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.575+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1600,7 +1600,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.142+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.575+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1634,7 +1634,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 -d '{
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.142+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.575+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1662,13 +1662,13 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 ## 알림톡 템플릿 메시지 발송
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
-템플릿을 등록하지 않았다면, 템플릿을 등록하고 발송해야 합니다.<br>
+등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
 <br>
-예약 발송의 경우 'scheduledDateTime'를 설정합니다.<br>
+예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
 확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
@@ -1702,7 +1702,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.149+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.582+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1789,7 +1789,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.149+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.582+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1826,7 +1826,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.149+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.582+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1854,13 +1854,13 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 ## RCS 템플릿 메시지 발송
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
-템플릿을 등록하지 않았다면, 템플릿을 등록하고 발송해야 합니다.<br>
+등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
 <br>
-예약 발송의 경우 'scheduledDateTime'를 설정합니다.<br>
+예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
 확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
@@ -1893,7 +1893,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.155+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.593+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -1990,7 +1990,7 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.155+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.593+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2032,7 +2032,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
     "unsubscribePhoneNumber" : "08012341234"
   },
   "templateId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.155+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.593+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2070,7 +2070,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
 <br>
-예약 발송의 경우 'scheduledDateTime'를 설정합니다.<br>
+예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
 확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
@@ -2101,7 +2101,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.160+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.601+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2209,7 +2209,7 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.160+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.601+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2262,7 +2262,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.160+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.601+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2335,7 +2335,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 ```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.164+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.606+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2437,7 +2437,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.164+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.606+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
@@ -2485,7 +2485,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2025-03-21T15:48:29.164+09:00",
+  "scheduledDateTime" : "2025-03-21T16:08:23.606+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
     "key1" : "value1",
