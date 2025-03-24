@@ -2697,4 +2697,15 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-confirm" \
 -H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
-</details>
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 이름                                      | 타입             | 필수 | 설명                                     |
+|-----------------------------------------| ----------------|----|-------------------------------------------|
+| instantFlow.steps[]                            | Array          | Y  | 플로우 단계                                    |
+| instantFlow.steps[].messageChannel             | String         | Y  | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
+| instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)이 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
+| instantFlow.steps[].sender                     | Object         | N  | 발신자 정보(자유 양식 메시지 발송 요청 RCS 본문 예시 참고) |
+| instantFlow.steps[].content                    | Object         | N  | 메시지 내용(자유 양식 메시지 발송 요청 RCS 본문 예시 참고)  |
+| instantFlow.steps[].options                    | Object         | N  | 발송 옵션(자유 양식 메시지 발송 요청 RCS 본문 예시 참고)  |
+| instantFlow.steps[].nextSteps[]                | Object Array   | N  | 다음 단계입니다.                                |
+
