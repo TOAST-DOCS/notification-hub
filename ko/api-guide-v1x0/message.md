@@ -815,7 +815,6 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 RCS에 대한 자유 양식 메시지 발송을 요청합니다.
 
-
 **요청**
 
 ```
