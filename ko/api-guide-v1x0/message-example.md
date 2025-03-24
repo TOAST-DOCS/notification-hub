@@ -14,7 +14,7 @@
 
 <span id="sms-sms"></span>
 
-### SMS(단문문)
+### SMS(단문)
 
 ```json
 {
@@ -127,7 +127,7 @@
 | content | Object | Y | 메시지 내용 |
 | content.messageType | String | Y | MMS |
 | content.body | String | Y | 내용 |
-| content.attachmentIds | String Array | Y | 첨부 파일 아이디 |
+| content.attachmentIds | String Array | Y | 첨부 파일 아이디<br>첨부 이미지 제한 사항.<br>지원 코덱: .jpg, .jpeg<br>첨부 이미지 개수: 3개 이하.<br>첨부 이미지 사이즈: 1개당 300KB 이하. 단, 첨부한 이미지의 개수가 3개일 경우 합산 800KB 이하.<br>첨부 이미지 해상도: 1000*1000 이하. |
 
 
 <span id="rcs"></span>
@@ -1164,29 +1164,28 @@
 | 이름 | 타입 | 필수 | 설명 |
 | --- | --- | --- | --- |
 | content | Object | Y | 메시지 내용 |
-| content.unsubscribePhoneNumber | String | 푸시 메시지 수신 거부를 위한 대표 번호 |
-| content.unsubscribeGuide | String | 푸시 메시지 수신 거부를 위한 안내 |
+| content.unsubscribePhoneNumber | String | N | 푸시 메시지 수신 거부를 위한 대표 번호 |
+| content.unsubscribeGuide | String | N | 푸시 메시지 수신 거부를 위한 안내 |
 | content.title | String | Y | 제목 |
-| content.String | Y | 내용 |
+| content.body | String | Y | 내용 |
 | content.style.useHtmlStyle | Boolean | Y | HTML 스타일 사용(Android에서만 가능) |
-| content.richMessage | Object | 리치 메시지 |
-| content.richMessage | Object | N | 리치 메시지 사용시 필요 |
-| content.richMessage.buttons | Object Array | N |  리치 메시지에 추가되는 버튼, 최대 3개까지 가능 |
-| content.richMessage.button.name | String | 버튼 이름 |
-| content.richMessage.button.buttonType | String | 버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
-| content.richMessage.button.link | String | 버튼을 눌렀을때, 연결되는 링크 |
-| content.richMessage.button.hint | String | 버튼에대한 힌트 |
-| content.richMessage.media | Object | N |  리치 메시지에 추가되는 미디어 |
-| content.richMessage.media.source | String | 미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE 가능 |
-| content.richMessage.media.mediaType | String | N |  미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원 |
-| content.richMessage.media.expandable | Boolean | N | Android에서 미디어를 클릭 시 펼침 기능 사용 여부 |
-| content.richMessage.androidMedia | Object | N |  Android 기기에 사용되는 미디어. 형식은 media와 동일 |
-| content.richMessage.iosMedia | Object | N |  iOS 기기에 사용되는 미디어. 형식은 media와 동일 |
-| content.richMessage.largeIcon | Object | N |  리치 메시지에 추가되는 큰 아이콘, Android에서만 지원 |
-| content.richMessage.largeIcon.source | String | Y | 미디어의 위치한 곳의 주소 |
-| content.richMessage.group | Object | N |  여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원 |
-| content.richMessage.group.key | String | Y |  그룹의 키 |
-| content.richMessage.group.description | String | Y |  그룹에대한 설명 |
+| content.richMessage | Object | N | 리치 메시지 사용 시 필요 |
+| content.richMessage.buttons | Object Array | N | 리치 메시지에 추가되는 버튼, 최대 3개까지 가능 |
+| content.richMessage.buttons.name | String | N | 버튼 이름 |
+| content.richMessage.buttons.buttonType | String | N | 버튼 타입: REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
+| content.richMessage.buttons.link | String | N | 버튼을 눌렀을 때 연결되는 링크 |
+| content.richMessage.buttons.hint | String | N | 버튼에 대한 힌트 |
+| content.richMessage.media | Object | N | 리치 메시지에 추가되는 미디어 |
+| content.richMessage.media.source | String | N | 미디어의 주소 (URL, LOCAL_RESOURCE 가능) |
+| content.richMessage.media.mediaType | String | N | 미디어 타입: IMAGE, GIF, VIDEO, AUDIO. Android는 IMAGE만 지원 |
+| content.richMessage.media.expandable | Boolean | N | Android에서 미디어 클릭 시 펼침 기능 사용 여부 |
+| content.richMessage.androidMedia | Object | N | Android 기기 전용 미디어. media 형식과 동일 |
+| content.richMessage.iosMedia | Object | N | iOS 기기 전용 미디어. media 형식과 동일 |
+| content.richMessage.largeIcon | Object | N | 리치 메시지에 추가되는 큰 아이콘, Android만 지원 |
+| content.richMessage.largeIcon.source | String | Y | 아이콘의 주소 |
+| content.richMessage.group | Object | N | 여러 메시지를 그룹으로 묶는 기능, Android만 지원 |
+| content.richMessage.group.key | String | Y | 그룹 키 |
+| content.richMessage.group.description | String | Y | 그룹 설명 |
 | content.customKey | Object Array or String Array | N | 사용자 정의 키와 값 |
 
 * 푸시는 **sender** 필드가 필요 없습니다.
