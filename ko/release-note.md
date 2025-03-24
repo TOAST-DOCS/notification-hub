@@ -7,6 +7,11 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
+## 2025. 03. 25.
+### 기능 추가
+* [API] 첨부파일/통계 API 가 추가되었습니다.
+    * 자세한 내용은 [[API v1.0 사용 가이드 > 첨부파일](./api-guide-v1x0/attachment)], [[API v1.0 사용 가이드 > 통계](./api-guide-v1x0/stats)]을 참고하시기 바랍니다.
+
 ## 2025. 03. 11.
 
 ### 기능 추가
