@@ -133,7 +133,7 @@ X-NHN-Authorization: Bearer {accessToken}
   <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 専門メッセージ送信
+### 自由形式メッセージ送信
 POST {{endpoint}}/message/v1.0/PUSH/free-form-messages/{messagePurpose}
 Content-Type: application/json
 X-NC-APP-KEY: {{appKey}}
@@ -197,7 +197,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body"></span>
 
-## メッセージチャンネル別詳細リクエスト本文例
+## メッセージチャンネル別自由形式メッセージ送信リクエスト本文例
 
 <span id="free-form-message-request-body-sms"></span>
 
@@ -243,9 +243,9 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.attachmentIds | String Array | N | 添付ファイルID |
 
 
-<span id="free-form-message-request-body-rcs"></span>
+<span id="free-form-message-request-body-rcs-sms-standalone"></span>
 
-### RCS
+### RCS - SMS
 
 ```json
 {
@@ -269,61 +269,506 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
   "content": {
     "messageType": "SMS",
     "unsubscribePhoneNumber": "08012341234",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "mmsType": "HORIZONTAL",
-    "messagebaseId": "44o4SUjpqnjDuUcH+uHvPg==",
+    "smsType": "STANDALONE",
     "cards": [
         {
-          "title":"testTitle",
-          "description":"testBody",
-          "media":"fileId",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
           "buttons" : [
             {
               "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"Webサイトへ移動\"}}"
-            },
-            {
-              "buttonType" : "URL",
-              "buttonJson" : "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"Webサイトへ移動\"}}"
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Webサイトへ移動"
+                }
+              }
             }
           ]
         }
-    ],
-    "buttons": [
-        {
-            "buttonType": "URL",
-            "buttonJson": "{ \"action\": { \"urlAction\":{\"openUrl\":{\"url\":\"http://www.test.com\"} },\"displayText\":\"Webサイトへ移動\"}}"
-        }
     ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
   }
 }
 ```
 
 
-| 名前 | タイプ | 必須 | 説明                                                                                                                                                     |
-| --- | --- | --- |----------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| sender | Object | Y | 発信者                                                                                                                                                    |
-| sender.brandId | Object | N | ブランドID                                                                                                                                                  |
-| sender.chatbotId | Object | N | チャットルームID                                                                                                                                                  |
-| content | Object | Y | メッセージ内容                                                                                                                                                 |
-| content.messageType | String | Y | RCS内のメッセージタイプ、 SMS, LMS, MMS, RCS_TEMPLATE                                                                                                                |
-| content.unsubscribePhoneNumber | String | Y | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                                         |
-| content.title | Object | Y | タイトル                                                                                                                                                     |
-| content.Object | Y | 内容 |
-| content.mmsType | Object | N | MMSタイプ、メッセージタイプがMMSの場合必須、 HORIZONTAL(水平), VERTICAL(垂直), CAROUSEL_MEDIUM(カルーセル中央), CAROUSEL_SMALL(カルーセル小さく)                                                |
-| content.messagebaseId | Object | N | メッセージタイプがRCS_TEMPLATEの場合必須、 RCS Biz Centerに登録されたテンプレートID                                                                                                 |
-| content.cards | Object Array | Y | カード                                                                                                                                                     |
-| content.cards[].title | String | Y | タイトル                                                                                                                                                     |
-| content.cards[].description | String | Y | 内容                                                                                                                                                     |
-| content.cards[].media | String | Y | 添付ファイルID                                                                                                                                                  |
-| content.cards[].buttons | Object Array | Y | ボタン                                                                                                                                                     |
-| content.cards[].button.buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在地を共有する), URL(URL接続する), CALENDAR(予定を登録する) |
-| content.cards[].button.buttonJson | String | Y | ボタンJson,ボタンタイプに合ったフォーマット確認                                                                                                                              |
-| content.buttons | Object Array | Y | ボタン |
-| content.buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在地を共有する), URL(URL接続する), CALENDAR(予定を登録する) |
-| content.buttons[].buttonJson | String | Y | ボタンJSON形式の文字列                                                                                                                                        |
-| content.attachmentIds | String Array | N | 添付ファイルID配列                                                                                                                                           |
+| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 発信者                                                                                                                                                             |
+| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
+| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
+| content | Object | Y | メッセージ内容                                                                                                                                                        |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
+| content.smsType | String | Y | SMSタイプ、メッセージタイプがSMSの場合は必須、STANDALONE(スタンダード)                                                                                                      |
+| content.cards | Object Array | Y | カード                                                                                                                                                 |
+| content.cards[].title | String | N | タイトル                                                                                                                                               |
+| content.cards[].description | String | Y | 内容                                                                                                                                         |
+| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
+| options | Object | N | 送信オプション                                                                                                                                                         |
+| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                       |
+
+<span id="free-form-message-request-body-rcs-lms-standalone"></span>
+
+### RCS - LMSスタンダード
+
+```json
+{
+  "statsKeyId": "統計_キー_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "LMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "lmsType": "STANDALONE",
+    "cards": [
+        {
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Webサイトへ移動"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 発信者                                                                                                                                                             |
+| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
+| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
+| content | Object | Y | メッセージ内容                                                                                                                                                        |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
+| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード), FORMAT_BASIC(フォーマット基本型), FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型), FORMAT_PARAGRAPH(フォーマット段落型)           |
+| content.cards | Object Array | Y | カード                                                                                                                                                 |
+| content.cards[].title | String | N | タイトル                                                                                                                                               |
+| content.cards[].description | String | Y | 内容                                                                                                                                         |
+| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
+| options | Object | N | 送信オプション                                                                                                                                                         |
+| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
+
+<span id="free-form-message-request-body-rcs-lms-format-basic"></span>
+
+### RCS - LMSフォーマット基本型及びフォーマットタイトル強調型
+* mTitleMediaアイコンファイルIDリスト
+  * プロモーション: LT-messagebase.common-DdWk6s
+  * クーポン: LT-messagebase.common-5Weq00
+  * イベント: LT-messagebase.common-jUAJX2
+  * 予約: LT-messagebase.common-2Yxt2H
+  * 領収書: LT-messagebase.common-2k8ydI
+  * 通知: LT-messagebase.common-YCVd02
+
+```json
+{
+  "statsKeyId": "統計_キー_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "LMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "lmsType": "FORMAT_BASIC",
+    "cards": [
+        {
+          "mTitle":"[NHN Cloud]告知事項",
+          "mTitleMedia":"LT-messagebase.common-DdWk6s",
+          "title":"告知1",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Webサイトへ移動"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 発信者                                                                                                                                                             |
+| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
+| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
+| content | Object | Y | メッセージ内容                                                                                                                                                        |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
+| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード), FORMAT_BASIC(フォーマット基本型), FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型), FORMAT_PARAGRAPH(フォーマット段落型)           |
+| content.cards | Object Array | Y | カード                                                                                                                                                 |
+| content.cards[].mTitle | String | Y | メインタイトル                                                                                                                                         |
+| content.cards[].mTitleMedia | String | N | メインタイトルアイコン                                                                                                                            |
+| content.cards[].title | String | N | タイトル                                                                                                                                               |
+| content.cards[].description | String | Y | 内容                                                                                                                                         |
+| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
+| options | Object | N | 送信オプション                                                                                                                                                         |
+| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
+
+### RCS - LMSフォーマット段落型タイプ
+* mTitleMediaアイコンファイルIDリスト
+  * プロモーション: LT-messagebase.common-DdWk6s
+  * クーポン: LT-messagebase.common-5Weq00
+  * イベント: LT-messagebase.common-jUAJX2
+  * 予約: LT-messagebase.common-2Yxt2H
+  * 領収書: LT-messagebase.common-2k8ydI
+  * 通知: LT-messagebase.common-YCVd02
+
+```json
+{
+  "statsKeyId": "統計_キー_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "LMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "lmsType": "FORMAT_PARAGRAPH",
+    "cards": [
+        {
+          "mTitle":"[NHN Cloud]告知事項",
+          "mTitleMedia":"LT-messagebase.common-DdWk6s",
+          "title1":"告知1",
+          "description1":"こんにちは。NHN Cloud Notification Hubです。",
+          "title2":"告知2",
+          "description2":"こんにちは。NHN Cloud Notification Hubです。",
+          "title3":"告知3",
+          "description3":"こんにちは。NHN Cloud Notification Hubです。",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "告知1ボタン"
+                }
+              }
+            },
+            {},
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "告知2ボタン"
+                }
+              }
+            },
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "告知2ボタン"
+                }
+              }
+            },
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "告知3ボタン"
+                }
+              }
+            },
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 発信者                                                                                                                                                             |
+| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
+| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
+| content | Object | Y | メッセージ内容                                                                                                                                                        |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
+| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード), FORMAT_BASIC(フォーマット基本型), FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型), FORMAT_PARAGRAPH(フォーマット段落型)           |
+| content.cards | Object Array | Y | カード                                                                                                                                                 |
+| content.cards[].mTitle | String | Y | メインタイトル                                                                                                                                         |
+| content.cards[].mTitleMedia | String | N | メインタイトルアイコン                                                                                                                              |
+| content.cards[].title1 | String | N | タイトル(段落1)                                                                                                                                        |
+| content.cards[].description1 | String | Y | 内容(段落1)                                                                                                                                  |
+| content.cards[].title2 | String | N | タイトル(段落2)                                                                                                                                        |
+| content.cards[].description2 | String | Y | 内容(段落2)                                                                                                                                  |
+| content.cards[].title3 | String | N | タイトル(段落3)                                                                                                                                        |
+| content.cards[].description3 | String | Y | 内容(段落3)                                                                                                                                  |
+| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
+| options | Object | N | 送信オプション                                                                                                                                                         |
+| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
+
+
+
+### RCS - MMS横型、縦型
+
+```json
+{
+  "statsKeyId": "統計_キー_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "MMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "mmsType": "HORIZONTAL",
+    "cards": [
+        {
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "attachmentId":"添付ファイルID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Webサイトへ移動"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+
+| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 発信者                                                                                                                                                             |
+| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
+| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
+| content | Object | Y | メッセージ内容                                                                                                                                                        |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
+| content.mmsType | String | Y | MMSタイプ、メッセージタイプがMMSの場合必須、HORIZONTAL(横型), VERTICAL(縦型), CAROUSEL_MEDIUM(カルーセル中型), CAROUSEL_SMALL(カルーセル小型)                                  |
+| content.cards | Object Array | Y | カード                                                                                                                                                 |
+| content.cards[].title | String | N | タイトル                                                                                                                                               |
+| content.cards[].description | String | Y | 内容                                                                                                                                         |
+| content.cards[].attachmentId | String | Y | 添付ファイルID                                                                                                                                           |
+| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
+| options | Object | N | 送信オプション                                                                                                                                                         |
+| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
+
+### RCS - MMSカルーセル
+
+```json
+{
+  "statsKeyId": "統計_キー_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+            "buttonType": "URL",
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "MMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "mmsType": "CAROUSEL_MEDIUM",
+    "cards": [
+        {
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "attachmentId":"添付ファイルID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Webサイトへ移動"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "attachmentId":"添付ファイルID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Webサイトへ移動"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "attachmentId":"添付ファイルID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Webサイトへ移動"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"    
+  }
+}
+```
+
+
+| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
+| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| sender | Object | Y | 発信者                                                                                                                                                             |
+| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
+| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
+| content | Object | Y | メッセージ内容                                                                                                                                                        |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
+| content.mmsType | String | Y | MMSタイプ、メッセージタイプがMMSの場合必須、HORIZONTAL(横型), VERTICAL(縦型), CAROUSEL_MEDIUM(カルーセル中型), CAROUSEL_SMALL(カルーセル小型)                                  |
+
+
+
+| content.cards | Object Array | Y | カード                                                                                                                                                 |
+| content.cards[].title | String | N | タイトル                                                                                                                                               |
+| content.cards[].description | String | Y | 内容                                                                                                                                         |
+| content.cards[].attachmentId | String | Y | 添付ファイルID                                                                                                                                           |
+| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
+| options | Object | N | 送信オプション                                                                                                                                                         |
+| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
 
 
 <span id="free-form-message-request-body-friendtalk-text"></span>
@@ -454,30 +899,24 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 }
 ```
 
-| 名前 | タイプ          | 必須 | 説明                                                          |
-| --- |---------------|----|---------------------------------------------------------------|
-| sender | Object        | Y  | 発信者                                                         |
-| sender.senderKey | Object        | Y  | 発信プロフィール_発信キー                                                    |
-| content | Object        | Y  | メッセージ内容                                                      |
-| content.messageType | String        | Y  | メッセージタイプ                                                      |
-| content.content | String        | Y  | 内容                                                          |
-| content.attachmentId | String        | Y  | 添付ファイルID |
-| content.imageLink | String        | N  | 画像リンク |
-| content.buttons                   | Object Array | N  | ボタン                                                                                                                                                      |
-| content.buttons[].type            | String        | Y  | ボタンタイプ<br>WL(Webリンク), AL(アプリリンク), BK(Botキーワード), MD(メッセージ伝達), BF(ビジネスフォーム)                                                                                             |
-| content.buttons[].name            | String        | Y  | ボタン名                                                                                                                                                   |
-| content.buttons[].linkMo          | String        | N  | リンクモバイル、ボタンタイプがWLの場合は必須                                                                                                                                  |
-| content.buttons[].linkPc          | String        | N  | リンクPC                                                                                                                                                     |
-| content.buttons[].schemeIos       | String        | N  | iOSアプリリンク                                                                                                                                                |
-| content.buttons[].schemeAndroid   | String        | N  | Androidアプリリンク                                                                                                                                            |
-| content.buttons[].bizFormKey      | String        | N  | ビズフォームキー、ボタンタイプがBFの場合必須                                                                                                                                   |
-| content.coupon | Object        | N  | クーポン                                                          |
-| content.coupon.title | String        | Y  | タイトル、場合5つの形式に制限<br>"${数字}KRW割引クーポン"数字は1以上99,999,999以下<br>"${数字}%割引クーポン"数字は1以上100以下<br>"送料割引クーポン"<br><br>"${7文字以内}無料クーポン"<br>"${7文字以内} UPクーポン"                                                          |
-| content.coupon.description | String        | Y  | クーポン詳細説明(一般テキスト、画像型、カルーセルフィード型最大12文字 / ワイド画像型、ワイドアイテムリスト型最大18文字) |
-| content.coupon.linkMo | String        | N  | リンクモバイル                                                      |
-| content.coupon.linkPc | String        | N  | リンクPC                                                         |
-| content.coupon.schemeIos | String        | N  | iOSアプリリンク                                          |
-| content.coupon.schemeAndroid | String        | N  | Androidアプリリンク                       |
+| 名前                                    | タイプ               | 必須 | 説明                                                 |
+|-----------------------------------------|--------------------|----|------------------------------------------------------|
+| statsKeyId                              | String             | N  | 統計キーID                                             |
+| scheduledDateTime                       | DateTime(ISO 8601) | N  | 予約送信日時(例：2024-10-29T06:29:00+09:00)               |
+| confirmBeforeSend                       | Boolean            | N  | 送信前に確認するかどうか(デフォルト値false)                                |
+| templateId                              | String             | Y  | テンプレートID                                              |
+| templateParameters                      | Object             | N  | テンプレートパラメータ                                           |
+| recipients                              | Object Array       | Y  | 受信者配列                                             |
+| recipients[].contacts                   | Object Array       | Y  | 受信者の連絡先配列                                        |
+| recipients[].contacts[].contactType     | String             | Y  | 連絡先タイプ                                             |
+| recipients[].contacts[].contact         | String             | Y  | 連絡先                                                |
+| recipients[].contacts[].clientReference | String             | N  | ユーザーカスタムフィールド                                         |
+| recipients[].templateParameters         | Object             | N  | テンプレートパラメータ                                           |
+| sender                                  | Object             | N  | 発信者情報                                             |
+| sender.senderKey                        | String             | N  | 発信キー(メッセージチャンネルがお知らせトークの場合必須)                            |
+| sender.chatbotId                        | String             | N  | チャットルームID(RCS Bizcenterテンプレートの場合必須)                   |
+| content                                 | Object             | N  | メッセージ内容                                             |
+| content.unsubscribePhoneNumber          | String             | N  | 080受信拒否番号(広告目的のRCS Bizcenterテンプレートを送信する場合、必須) |
 
 <span id="free-form-message-request-body-friendtalk-wide-itemlist"></span>
 
@@ -913,7 +1352,14 @@ X-NHN-Authorization: Bearer {accessToken}
         "key6": "value6"
       }
     }
-  ]
+  ],
+  "sender": {
+    "senderKey": "発信_キー",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "content": {
+    "unsubscribePhoneNumber": "08012341234"
+  }
 }
 ```
 
@@ -1043,6 +1489,69 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 
 </details>
 
+
+<span id="template-message-sending-request-rcs"></span>
+
+### RCSテンプレートメッセージ送信リクエスト本文例
+```json
+{
+  "statsKeyId": "統計_ID",
+  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
+  "confirmBeforeSend": false,
+  "templateId": "テンプレート_ID",
+  "templateParameters": {
+    "key1": "value1",
+    "key2": "value2",
+    "key3": {
+        "key4": "value4",
+        "key5": "value5"
+    }
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "test"
+        }
+      ],
+      "templateParameters": {
+        "key3": {
+          "key4": "value4",
+          "key5": "value5"
+        },
+        "key6": "value6"
+      }
+    }
+  ],
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "content": {
+    "unsubscribePhoneNumber": "08012341234"
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+<!--リクエスト本文のフィールドを説明します。-->
+
+| 名前                                    | タイプ               | 必須 | 説明                                                 |
+|-----------------------------------------|--------------------|----|------------------------------------------------------|
+| sender                                  | Object             | N  | 発信者情報                                             |
+| sender.chatbotId                        | String             | N  | チャットルームID(RCS Bizcenterテンプレートの場合必須)               |
+| content                                 | Object             | N  | メッセージ内容                                             |
+| content.unsubscribePhoneNumber          | String             | N  | 080受信拒否番号(広告目的のRCS Bizcenterテンプレートを送信する場合、必須) |
+| options                                 | Object             | N  | 送信オプション                                               |
+| options.expiryOption                    | Integer            | N  | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)  |
+| options.groupId                         | String             | N  | RCS BizCenter統計連動のためのグループID                     |
+
+
 <span id="flow-message-sending-request"></span>
 
 ## フローメッセージ送信リクエスト
@@ -1104,27 +1613,53 @@ X-NHN-Authorization: Bearer {accessToken}
         "key6": "value6"
       }
     }
-  ]
+  ],
+  "flow": {
+    "steps": [
+      {
+        "messageChannel": "SMS",
+        "nextSteps": [
+          {
+            "messageChannel": "RCS",
+            "sender": {
+              "chatbotId": "チャットルーム_ID"
+            },
+            "content": {
+              "unsubscribePhoneNumber": "08012341234"
+            },
+            "options": {
+              "expiryOption": 1,
+              "groupId":"groupId"
+            }
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
 <!--リクエスト本文のフィールドを説明します。-->
 
-| 名前               | タイプ           | 必須 | 説明                                   |
-|--------------------| ----------------| --- |----------------------------------------|
-| statsKeyId         | String         | N | 統計キーID                               |
-| scheduledDateTime  | DateTime(ISO 8601) | N | 予約送信日時(例：2024-10-29T06:29:00+09:00) |
-| confirmBeforeSend  | Boolean        | N | 送信前確認を行うかどうか(デフォルト値false)                  |
-| flowId             | String         | Y | テンプレートID                                |
-| templateParameters | Object         | N | メッセージ共通テンプレートパラメータ                      |
-| recipients         | Object Array          | Y | 受信者配列                               |
-| recipients[].contacts | Object Array          | Y | 受信者の連絡先配列                          |
-| recipients[].contacts[].contactType | String         | Y | 連絡先タイプ                               |
-| recipients[].contacts[].contact | String         | Y | 連絡先                                  |
-| recipients[].templateParameters | Object         | N | 受信者別テンプレートパラメータ                       |
+| 名前                                    | タイプ           | 必須 | 説明                                   |
+|-----------------------------------------| ----------------|----|----------------------------------------|
+| statsKeyId                              | String         | N  | 統計キーID                               |
+| scheduledDateTime                       | DateTime(ISO 8601) | N  | 予約送信日時(例：2024-10-29T06:29:00+09:00) |
+| confirmBeforeSend                       | Boolean        | N  | 送信前に確認するかどうか(デフォルト値false)                  |
+| flowId                                  | String         | Y  | フローID                                |
+| templateParameters                      | Object         | N  | メッセージ共通テンプレートパラメータ                      |
+| recipients                              | Object Array          | Y  | 受信者配列                               |
+| recipients[].contacts                   | Object Array          | Y  | 受信者の連絡先配列                          |
+| recipients[].contacts[].contactType     | String         | Y  | 連絡先タイプ                               |
+| recipients[].contacts[].contact         | String         | Y  | 連絡先                                  |
+| recipients[].contacts[].clientReference | String         | N  | ユーザーカスタムフィールド                      |
+| recipients[].templateParameters         | Object         | N  | 受信者別テンプレートパラメータ                       |
+| flow                                    | Object | N  | フロー(必須値が必要なテンプレートを使用するフローの場合必須) |
+| flow.steps[]                            | Array | Y  | フロー段階(メッセージチャンネル別flow stepsスペック参照) |
 
 * フローメッセージ送信もテンプレートメッセージ送信と同じようにテンプレートパラメータを使用します。
 * 受信者の連絡先はフローで使用するメッセージチャンネルに必要な連絡先が全て含まれている必要があります。
+* 必須値が必要なテンプレートを使用するフローの場合、flowで必須値を指定できます。この時、flowの構成は送信しようとするflowIdのflowと同じように構成する必要があります。
 
 **レスポンス本文**
 
@@ -1239,6 +1774,48 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 
 </details>
 
+<span id="flow-message-sending-request-rcs-step"></span>
+
+### フローメッセージ送信リクエスト本文 - RCS flow step
+* RCS Step 1つだけのフローで送信する場合のflow.stepsの例です。
+
+```json
+{
+  "flow": {
+    "steps": [
+      {
+        "messageChannel": "RCS",
+        "sender": {
+          "chatbotId": "チャットルーム_ID"
+        },
+        "content": {
+          "unsubscribePhoneNumber": "08012341234"
+        },
+        "options": {
+          "expiryOption": 1,
+          "groupId":"groupId"
+        },
+        "nextSteps": []
+      }
+    ]
+  }
+}
+```
+
+<!--リクエスト本文のフィールドを説明します。-->
+
+| 名前                                    | タイプ           | 必須 | 説明                                   |
+|-----------------------------------------| ----------------|----|-------------------------------------------|
+| flow.steps[]                            | Array | Y  | フロー段階 |
+| flow.steps[].messageChannel             | String | Y  | メッセージチャンネル<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
+| flow.steps[].sender                     | Object         | N  | 発信者情報                                  |
+| flow.steps[].sender.chatbotId           | String         | N  | チャットルームID(RCS Bizcenterテンプレートの場合必須)    |
+| flow.steps[].content                    | Object         | N  | メッセージ内容                                  |
+| flow.steps[].content.unsubscribePhoneNumber | String     | N  | 080受信拒否番号(広告目的のRCS Bizcenterテンプレートを送信する場合、必須) |
+| flow.steps[].options                    | Object         | N  | 送信オプション                                   |
+| flow.steps[].options.expiryOption       | Integer        | N  | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)  |
+| flow.steps[].options.groupId            | String         | N  | RCS BizCenter統計連動のためのグループID         |
+| flow.steps[].nextSteps[]                | Object Array   | N  | 次の段階です。                               |
 
 <span id="cancel-message-sending-request"></span>
 
@@ -1309,3 +1886,290 @@ curl -X POST "${ENDPOINT}/message/v1.0/messages/${MESSAGE_ID}/do-cancel" \
 ```
 
 </details>
+
+## インスタントフローメッセージ送信リクエスト
+**リクエスト**
+
+```
+POST /message/v1.0/instant-flow-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| appKey | Header | String | Y | アプリキー |
+| accessToken | Header | String | Y | 認証トークン |
+| messagePurpose | Path | String | Y | メッセージ目的<br>NORMAL, AD, AUTH |
+
+**リクエスト本文**
+
+<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
+
+
+```json
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2021-01-01T00:00:00Z",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key": "value"
+  },
+  "recipients" : [ 
+    {
+      "contacts" : [ 
+        {
+          "contactType" : "PHONE_NUMBER",
+          "contact" : "01012345678",
+          "clientReference": "test"
+        } 
+      ],
+      "templateParameters" : {
+        "key": "value"
+      }
+    } 
+  ],
+  "instantFlow" : {
+    "steps" : [ 
+      {
+        "messageChannel" : "RCS",
+        "sender" : {
+          "brandId": "ブランド_ID",
+          "chatbotId": "チャットルーム_ID"
+        },
+        "content" : {
+          "lmsType" : "STANDALONE",
+          "cards" : [
+            {
+              "title" : "タイトル",
+              "description" : "本文"
+            }
+          ]
+        },
+        "templateId" : "テンプレート_ID",
+        "nextSteps" : [ 
+          {
+            "messageChannel" : "SMS",
+            "sender" : {
+              "senderPhoneNumber" : "0123456789"
+            },
+            "content" : {
+              "title" : "タイトル",
+              "body" : "本文"
+            },
+            "templateId" : "テンプレート_ID",
+            "nextSteps" : [ ]
+          } 
+        ]
+      } 
+    ]
+  }
+}
+```
+
+<!--リクエスト本文のフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N   | 統計キーID                                                                                                                              |
+| scheduledDateTime | DateTime(ISO 8601) | N   | 予約送信日時(例：2024-10-29T06:29:00+09:00)                                                                                                |
+| confirmBeforeSend | Boolean | N   | 送信前に確認するかどうか(デフォルト値false)      
+| templateParameters | Object | N | テンプレートパラメータです。テンプレートIDを設定する場合必須です。|
+| recipients[] | Array | Y | 受信者リスト |
+| recipients[].contacts[] | Array | N | 受信者連絡先リストです。|
+| recipients[].contacts[].contactType | String | Y | 連絡先タイプ<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP |
+| recipients[].contacts[].contact | String | Y | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String         | N | ユーザーカスタムフィールド                      |
+| recipients[].templateParameters |  | N | テンプレートパラメータです。テンプレートIDを設定する場合必須です。 |
+| instantFlow | Object | Y | インスタントフローです。フローを作成せずに定義できます。 |
+| instantFlow.steps[] | Array | Y | インスタントフロー段階です。(メッセージチャンネル別インスタントフロー段階スペックを参照)|
+
+* 一度使用したメッセージチャンネルは、次の段階では使用できません。
+* 1つの段階は複数の次の段階を持つことができます。
+
+**レスポンス本文**
+
+<!--レスポンス本文を返さない場合は「このAPIは応答本文を返しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--レスポンス本文のフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | true |
+| header.resultCode | Integer | 0 |
+| header.resultMessage | String | SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取った時に作成される値です。 |
+
+**失敗レスポンス - 重複受信者**
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 400004,
+    "resultMessage" : 「受信者の連絡先が重複しています」
+  },
+  "duplicatedContacts" : [
+    {
+      "contactType": "PHONE_NUMBER",
+      "contact": "0123456789"
+    }
+  ]
+}
+```
+
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### インスタントフローメッセージ送信
+POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
+Content-Type: application/json
+X-NC-APP-KEY: {{appKey}}
+X-NHN-Authorization: {{accessToken}}
+
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2021-01-01T00:00:00Z",
+  "confirmBeforeSend" : false,
+  "templateParameters" : "templateParameters" : {
+    "key": "value"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678"
+    } ],
+    "templateParameters" : {
+      "key": "value"
+    }
+  } ],
+  "instantFlow" : {
+    "steps" : [ {
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "タイトル",
+        "body" : "本文"
+      },
+      "templateId" : "テンプレート_ID",
+      "nextSteps" : [ ]
+    } ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
+     -H "Content-Type: application/json" \
+     -H "X-NC-APP-KEY: ${APP_KEY}" \
+     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+     -d '{
+      "statsKeyId" : "aA123456",
+      "scheduledDateTime" : "2021-01-01T00:00:00Z",
+      "confirmBeforeSend" : false,
+      "templateParameters" : {
+          "key": "value"
+      },
+      "recipients" : [ {
+        "contacts" : [ {
+          "contactType" : "PHONE_NUMBER",
+          "contact" : "01012345678"
+        } ],
+        "templateParameters" : {
+          "key": "value"
+        }
+      } ],
+      "instantFlow" : {
+        "steps" : [ {
+          "messageChannel" : "SMS",
+          "sender" : {
+            "senderPhoneNumber" : "0123456789"
+          },
+          "content" : {
+            "title" : "タイトル",
+            "body" : "本文"
+          },
+          "templateId" : "テンプレート_ID",
+          "nextSteps" : [ ]
+        } ]
+      }
+     }'
+```
+
+</details>
+
+<span id="instant-flow-message-sending-request-rcs-step"></span>
+
+### インスタントフローメッセージ送信リクエスト本文RCS Step例
+* RCS Step 1つだけで構成されたインスタントフロー送信時のinstantFlow.steps例です。
+
+```json
+{
+  "instantFlow" : {
+    "steps" : [ 
+      {
+        "messageChannel" : "RCS",
+        "sender" : {
+          "brandId": "ブランド_ID",
+          "chatbotId": "チャットルーム_ID"
+        },
+        "content" : {
+          "lmsType" : "STANDALONE",
+          "cards" : [
+            {
+              "title" : "タイトル",
+              "description" : "本文"
+            }
+          ]
+        },
+        "options": {
+          "expiryOption": 1,
+          "groupId":"groupId"
+        },
+        "templateId" : "テンプレート_ID",
+        "nextSteps" : [ ]
+      } 
+    ]
+  }
+}
+```
+
+<!--リクエスト本文のフィールドを説明します。-->
+
+| 名前                                    | タイプ           | 必須 | 説明                                   |
+|-----------------------------------------| ----------------|----|-------------------------------------------|
+| instantFlow.steps[]                            | Array          | Y  | フロー段階                                  |
+| instantFlow.steps[].messageChannel             | String         | Y  | メッセージチャンネル<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
+| instantFlow.steps[].templateId | String | N | テンプレートIDです。テンプレートIDを設定した場合、リクエスト時に発信者情報(sender)とメッセージ内容(content)が適用されません。<br>インスタントフローメッセージでテンプレートIDを設定しない場合、発信者情報(sender)とメッセージ内容(content)が必ず必要です。<br> |
+| instantFlow.steps[].sender                     | Object         | N  | 発信者情報(自由形式メッセージ送信リクエストRCS本文例参照) |
+| instantFlow.steps[].content                    | Object         | N  | メッセージ内容(自由形式メッセージ送信リクエストRCS本文例参照)  |
+| instantFlow.steps[].options                    | Object         | N  | 送信オプション(自由形式メッセージ送信リクエストRCS本文例参照)  |
+| instantFlow.steps[].nextSteps[]                | Object Array   | N  | 次の段階です。                               |
