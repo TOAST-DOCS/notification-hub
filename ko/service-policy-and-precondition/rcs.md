@@ -83,7 +83,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
     </tr>
     <tr>
         <td>2</td>
-        <td>LMS</td>
+        <td rowspan="4">LMS</td>
         <td>LMS</td>
         <td>Standalone</td>
         <td>1장</td>
@@ -94,7 +94,34 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
     </tr>
     <tr>
         <td>3</td>
-        <td rowspan="2">MMS</td>
+        <td>기본형</td>
+        <td>Format</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>17자</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>타이틀 강조형</td>
+        <td>Format</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>17자</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>문단형</td>
+        <td>Format</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>문단별 2개</td>
+        <td>7자</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td rowspan="4">MMS</td>
         <td>세로형(Tall)</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
@@ -104,7 +131,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Tall(568x528)</td>
     </tr>
     <tr>
-        <td>4</td>
+        <td>7</td>
         <td>세로형(Medium)</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
@@ -114,7 +141,27 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Medium(568x336)</td>
     </tr>
     <tr>
-        <td>5</td>
+        <td>8</td>
+        <td>슬라이드형(Medium)</td>
+        <td>Carousel Medium</td>
+        <td>2장 <br/> ~ 6장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>13자</td>
+        <td>Medium(696x504)</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>슬라이드형(Small)</td>
+        <td>Carousel Small</td>
+        <td>2장 <br/> ~ 6장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>5자</td>
+        <td>Short(360x336)</td>
+    </tr>
+    <tr>
+        <td>10</td>
         <td rowspan="5">텍스트<br/>템플릿</td>
         <td>서술 템플릿_타이틀 선택형</td>
         <td>Description</td>
@@ -125,7 +172,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td rowspan="5">-</td>
     </tr>
     <tr>
-        <td>6</td>
+        <td>11</td>
         <td>서술 템플릿_타이틀 자유형</td>
         <td>Description</td>
         <td>1장</td>
@@ -134,7 +181,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>16자</td>
     </tr>
     <tr>
-        <td>7</td>
+        <td>12</td>
         <td>스타일 템플릿_타이틀 선택형</td>
         <td>Cell</td>
         <td>1장</td>
@@ -143,7 +190,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>17자</td>
     </tr>
     <tr>
-        <td>8</td>
+        <td>13</td>
         <td>스타일 템플릿_타이틀 자유형</td>
         <td>Cell</td>
         <td>1장</td>
@@ -152,7 +199,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>16자</td>
     </tr>
     <tr>
-        <td>9</td>
+        <td>14</td>
         <td>기본 템플릿_타이틀 자유형</td>
         <td>Free</td>
         <td>1장</td>
@@ -161,7 +208,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>-</td>
     </tr>
     <tr>
-        <td>10</td>
+        <td>15</td>
         <td rowspan="8">이미지<br/>템플릿</td>
         <td>이미지 & 타이틀 강조형(3:4)</td>
         <td>Highlighted Image n Title</td>
@@ -172,7 +219,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Long(900x1200)</td>
     </tr>
     <tr>
-        <td>11</td>
+        <td>16</td>
         <td>이미지 & 타이틀 강조형(1:1)</td>
         <td>Highlighted Image n Title</td>
         <td>1장</td>
@@ -182,7 +229,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Square(900x900)</td>
     </tr>
     <tr>
-        <td>12</td>
+        <td>17</td>
         <td>이미지 강조형(3:4)</td>
         <td>Highlighted Image</td>
         <td>1장</td>
@@ -192,7 +239,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Long(900x1200)</td>
     </tr>
     <tr>
-        <td>13</td>
+        <td>18</td>
         <td>이미지 강조형(1:1)</td>
         <td>Highlighted Image</td>
         <td>1장</td>
@@ -202,7 +249,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Square(900x900)</td>
     </tr>
     <tr>
-        <td>14</td>
+        <td>19</td>
         <td>썸네일형(세로)</td>
         <td>Thumbnail</td>
         <td>1장</td>
@@ -212,7 +259,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Vertical(900x560)</td>
     </tr>
     <tr>
-        <td>15</td>
+        <td>20</td>
         <td>썸네일형(가로)</td>
         <td>Thumbnail</td>
         <td>1장</td>
@@ -222,7 +269,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Horizontal(900x560)</td>
     </tr>
     <tr>
-        <td>16</td>
+        <td>21</td>
         <td>SNS형</td>
         <td>SNS</td>
         <td>1장</td>
@@ -232,7 +279,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>Square(900x900)</td>
     </tr>
     <tr>
-        <td>17</td>
+        <td>22</td>
         <td>SNS형(중간 버튼)</td>
         <td>SNS</td>
         <td>1장</td>
@@ -240,5 +287,61 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘㈜ NHN Cloud’로 설정합�
         <td>2개</td>
         <td>16자</td>
         <td>Rectangle(900x560)</td>
+    </tr>
+    <tr>
+        <td>23</td>
+        <td rowspan="6">LMS<br/>템플릿</td>
+        <td>명세서 A형</td>
+        <td>Description</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>17자</td>
+        <td rowspan="6">-</td>
+    </tr>
+    <tr>
+        <td>24</td>
+        <td>명세서 B형</td>
+        <td>Description</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>17자</td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td>명세서 C형</td>
+        <td>Description</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>17자</td>
+    </tr>
+    <tr>
+        <td>26</td>
+        <td>기본형</td>
+        <td>Description</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>17자</td>
+    </tr>
+    <tr>
+        <td>27</td>
+        <td>타이틀 강조형</td>
+        <td>Description</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>17자</td>
+    </tr>
+    <tr>
+        <td>28</td>
+        <td>문단형</td>
+        <td>Description</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>문단별 2개</td>
+        <td>7자</td>
     </tr>
 </table>
