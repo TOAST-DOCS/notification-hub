@@ -10,9 +10,13 @@
 ## 2025. 04. 15.
 ### 기능 추가
 * [API/Console] 서비스에서 발생하는 다양한 이벤트 이력을 CloudTrail에서 확인할 수 있습니다.
-    * 확인 가능한 이벤트 목록은 [CloudTrail > 수집되는 이벤트 목록](../../../Governance%20&%20Audit/CloudTrail/ko/event-list)을 참고하시기 바랍니다.
-* [Console] 콘솔에서도 RCS BizCenter LMS 포맷형을 지원하게 되었습니다.
+    * 확인 가능한 이벤트 목록은 [[CloudTrail > 수집되는 이벤트 목록]](../../../Governance%20&%20Audit/CloudTrail/ko/event-list)을 참고하시기 바랍니다.
 * [API/Console] RCS 인증용 메시지 발송이 추가되었습니다.
+* [API] 연락처별 수신 결과 목록 조회 API에 응답 필드가 추가되었습니다.
+  * 자세한 내용은 [[API v1.0 사용 가이드 > 연락처별 수신 결과 > 연락처별 수신 결과 목록 조회]](./api-guide-v1x0/contact-delivery-result/#_1)를 참고하시기 바랍니다.
+* [Console] RCS BizCenter LMS 포맷형 지원
+  * RCS 메시지 발송 시 LMS 포맷형으로 발송할 수 있습니다.
+  * 템플릿 생성 시 LMS 포맷형을 선택할 수 있습니다.
 
 ### 기능 개선
 * [API/Console] Push 채널의 수신, 열림 이벤트가 통계 키에 수집되도록 개선되었습니다.
@@ -20,7 +24,7 @@
 ## 2025. 03. 25.
 ### 기능 추가
 * [API] 첨부파일/통계 API 가 추가되었습니다.
-    * 자세한 내용은 [[API v1.0 사용 가이드 > 첨부파일](./api-guide-v1x0/attachment)], [[API v1.0 사용 가이드 > 통계](./api-guide-v1x0/stats)]을 참고하시기 바랍니다.
+    * 자세한 내용은 [[API v1.0 사용 가이드 > 첨부파일]](./api-guide-v1x0/attachment), [[API v1.0 사용 가이드 > 통계]](./api-guide-v1x0/stats)을 참고하시기 바랍니다.
 
 ## 2025. 03. 11.
 
@@ -32,7 +36,7 @@
 * [API] RCS BizCenter LMS 포맷형 지원
     * RCS 메시지 발송 시 LMS 포맷형으로 발송할 수 있습니다.
     * 템플릿 생성 시 LMS 포맷형을 선택할 수 있습니다.
-* 자세한 내용은 [[API v1.0 사용 가이드 > 메시지](./api-guide-v1x0/message)]을 참고하시기 바랍니다.
+* 자세한 내용은 [[API v1.0 사용 가이드 > 메시지]](./api-guide-v1x0/message)을 참고하시기 바랍니다.
 
 ### 기능 개선
 * [Console] RCS 템플릿 기능 개선
@@ -55,7 +59,7 @@
     * RCS BizCenter LMS 템플릿 타입들도 발송할 수 있습니다.
 * [API] Instant Flow Message API 추가
     * 사전에 플로우나 템플릿을 등록하지 않고도 요청 시점에 메시지를 즉시 생성·발송할 수 있는 API가 추가되었습니다.
-    * 자세한 내용은 [[API v1.0 사용 가이드 > 메시지 > 인스턴트 플로우 메시지 발송](./api-guide-v1x0/message/#_6)]을 참고하시기 바랍니다.
+    * 자세한 내용은 [[API v1.0 사용 가이드 > 메시지 > 인스턴트 플로우 메시지 발송]](./api-guide-v1x0/message/#_6)을 참고하시기 바랍니다.
 * [Console/API] 발송 수신자 중복 체크 기능
     * 수신자 목록에 중복된 연락처가 존재하면 발송 전에 이를 확인하여 중복 발송을 방지할 수 있습니다.
 * [Console] 플로우 템플릿 미리보기 기능 추가
@@ -64,7 +68,7 @@
     * 알림톡 채널 템플릿 미리보기에서 '바로 연결' 항목을 확인할 수 있도록 수정되었습니다.
 * [API] 발송 API 사용자 커스텀 필드 추가
     * 발송 API 요청 시 사용자 커스텀 필드를 포함하여 요청할 수 있도록 추가되었습니다.
-    * 자세한 내용은 [[API v1.0 사용 가이드 > 메시지](./api-guide-v1x0/message)]을 참고하시기 바랍니다.
+    * 자세한 내용은 [[API v1.0 사용 가이드 > 메시지]](./api-guide-v1x0/message)을 참고하시기 바랍니다.
 
 ### 기능 개선
 * [Console/API] RCS 템플릿 기능 개선
