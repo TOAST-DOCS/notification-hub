@@ -7,6 +7,16 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
+## 2025. 04. 15.
+### 기능 추가
+* [API/Console] 서비스에서 발생하는 다양한 이벤트 이력을 CloudTrail에서 확인할 수 있습니다.
+    * 확인 가능한 이벤트 목록은 [CloudTrail > 수집되는 이벤트 목록](../../../Governance%20&%20Audit/CloudTrail/ko/event-list)을 참고하시기 바랍니다.
+* [Console] 콘솔에서도 RCS BizCenter LMS 포맷형을 지원하게 되었습니다.
+* [API/Console] RCS 인증용 메시지 발송이 추가되었습니다.
+
+### 기능 개선
+* [API/Console] Push 채널의 수신, 열림 이벤트가 통계 키에 수집되도록 개선되었습니다.
+
 ## 2025. 03. 25.
 ### 기능 추가
 * [API] 첨부파일/통계 API 가 추가되었습니다.
