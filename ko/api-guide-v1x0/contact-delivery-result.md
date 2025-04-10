@@ -149,7 +149,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].clientReference | String | 사용자 지정 필드 |
 | contactDeliveryResults[].options | Object | 발송 옵션 |
 | contactDeliveryResults[].options.expiryOption | Integer | RCS 메시지 수신 대기 만료 기간 설정값 (1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| contactDeliveryResults[].options.groupId | String | RCS 메시지 그룹 ID |
+| contactDeliveryResults[].options.groupId | String | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
 | contactDeliveryResults[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 확인 후 발송 여부입니다. |
@@ -331,7 +331,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].clientReference | String | 사용자 지정 필드 |
 | contactDeliveryResults[].options | Object | 발송 옵션 |
 | contactDeliveryResults[].options.expiryOption | Integer | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| contactDeliveryResults[].options.groupId | String | RCS 메시지 그룹 ID |
+| contactDeliveryResults[].options.groupId | String | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
 | contactDeliveryResults[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 확인 후 발송 여부입니다. |
