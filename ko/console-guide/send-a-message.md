@@ -82,6 +82,8 @@
     * [번호 도용 문자 차단 서비스 가이드 바로 가기](../service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 * 전송 결과는 성공이지만 문자를 수신하지 못하는 경우는 '통신사 스팸 차단 서비스'를 확인하세요.
     * [통신사 스팸 차단 서비스 가이드 바로 가기](../service-policy-and-precondition/sms#about-carrier-spam-text-blocking-services)
+* 인증용 SMS 메시지의 경우 인증 문구가 필수로 포함되어야 합니다.
+      * 인증 문구: auth, password, verif, にんしょう, 認証, 비밀번호, 인증
 
 ##### MMS 첨부 가능한 이미지 규격
 
