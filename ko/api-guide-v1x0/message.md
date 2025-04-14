@@ -2096,21 +2096,11 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "flow" : {
     "steps" : [ {
-      "messageChannel" : "SMS",
-      "sender" : {
-        "senderPhoneNumber" : "0123456789"
-      },
-      "content" : {
-        "title" : "제목",
-        "body" : "본문"
-      },
+      "messageChannel" : "RCS",
       "options" : {
         "expiryOption:" : 1,
-        "groupId\"" : "groupId"
-      },
-      "nextSteps" : [ {
-        "messageChannel" : "RCS"
-      } ]
+        "groupId" : "groupId"
+      }
     } ]
   }
 }
@@ -2203,21 +2193,11 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "flow" : {
     "steps" : [ {
-      "messageChannel" : "SMS",
-      "sender" : {
-        "senderPhoneNumber" : "0123456789"
-      },
-      "content" : {
-        "title" : "제목",
-        "body" : "본문"
-      },
+      "messageChannel" : "RCS",
       "options" : {
         "expiryOption:" : 1,
-        "groupId\"" : "groupId"
-      },
-      "nextSteps" : [ {
-        "messageChannel" : "RCS"
-      } ]
+        "groupId" : "groupId"
+      }
     } ]
   }
 }
@@ -2255,21 +2235,11 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
   "id" : "alpha123",
   "flow" : {
     "steps" : [ {
-      "messageChannel" : "SMS",
-      "sender" : {
-        "senderPhoneNumber" : "0123456789"
-      },
-      "content" : {
-        "title" : "제목",
-        "body" : "본문"
-      },
+      "messageChannel" : "RCS",
       "options" : {
         "expiryOption:" : 1,
-        "groupId\"" : "groupId"
-      },
-      "nextSteps" : [ {
-        "messageChannel" : "RCS"
-      } ]
+        "groupId" : "groupId"
+      }
     } ]
   }
 }'
@@ -2333,10 +2303,6 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
       "content" : {
         "title" : "제목",
         "body" : "본문"
-      },
-      "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
       },
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
@@ -2435,10 +2401,6 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
         "title" : "제목",
         "body" : "본문"
       },
-      "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
-      },
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
@@ -2481,10 +2443,6 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
       "content" : {
         "title" : "제목",
         "body" : "본문"
-      },
-      "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
       },
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
