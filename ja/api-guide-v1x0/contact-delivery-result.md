@@ -93,6 +93,10 @@ X-NHN-Authorization: Bearer {accessToken}
       "templateId": "テンプレートのID",
       "flowId": "フローのID",
       "statsKeyId": "統計キーのID",
+    "options" : {
+      "expiryOption" : 1,
+      "groupId" : "groupId"
+    },      
       "messageChannel": "SMS",
       "messagePurpose": "NORMAL",
       "confirmBeforeSend": false,
@@ -146,6 +150,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].templateId | String| テンプレートのID、テンプレートメッセージのみ表示|
 | contactDeliveryResults[].flowId | String| フローのID、テンプレートメッセージのみ表示|
 | contactDeliveryResults[].statsKeyId | String| 統計キーのID|
+| contactDeliveryResults[].options | Object | 送信オプション |
+| contactDeliveryResults[].options.expiryOption | Integer | RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
+| contactDeliveryResults[].options.groupId | String | RCS BizCenter統計連動のためのグループID |
 | contactDeliveryResults[].messageChannel | String| メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
 | contactDeliveryResults[].messagePurpose | String| メッセージの目的 |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 承認後送信を使用するかどうか|
@@ -210,6 +217,188 @@ curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results" \
      -H "Content-Type: application/json" \
      -H "X-NC-APP-KEY: ${APP_KEY}" \
      -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```
+
+</details>
+<span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
+
+## 最終送信ステータスメッセージリスト照会
+
+送信プロセスが終了したメッセージ結果リストを照会します。<br>
+最終送信ステータスには「SEND_FAILED(送信失敗)」、「DELIVERED(受信成功)」、「DELIVERY_FAILED(受信失敗)」、「CANCELED(キャンセル)」があります。
+
+
+**リクエスト**
+
+```
+GET /message/v1.0/final-contact-delivery-results
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messageId | Query  | String | N | メッセージIDです。メッセージ送信リクエストを受信すると作成される値です。
+| templateId | Query  | String | N | テンプレートIDです。 |
+| flowId | Query  | String | N | フローIDです。 |
+| statsKeyId | Query  | String | N | 統計キーIDです。 |
+| sender | Query  | String | N | 発信者情報です。 |
+| contact | Query  | String | N | 連絡先です。 |
+| messageChannel | Query  | String | N | メッセージチャンネルです。 |
+| messagePurpose | Query  | String | N | メッセージの目的です。 |
+| scheduled | Query  | Boolean | N | 予約送信なのかどうかを示します。 |
+| confirmBeforeSend | Query  | Boolean | N | 承認後に送信するかどうかを示します。 |
+| updatedDateTimeFrom | Query  | Date | N | 送信ステータスアップデート開始日時です。デフォルト値は7日前です。 |
+| updatedDateTimeTo | Query  | Date | N | 送信ステータスアップデート終了日時です。デフォルト値は現在日時です。 |
+| limit | Query  | Integer | N | 照会するメッセージの数です。デフォルト値は10です。 |
+| offset | Query  | Integer | N | 照会するメッセージの開始位置です。デフォルト値は0です。 |
+
+
+
+**リクエスト本文**
+
+<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
+
+このAPIはリクエスト本文を要求しません。
+
+
+
+**レスポンス本文**
+
+<!--レスポンス本文を返さない場合は、「このAPIはレスポンス本文を返しません」と入力します。 -->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "contactDeliveryResults" : [ {
+    "messageId" : "メッセージのID",
+    "recipientIndex" : 0,
+    "contactIndex" : 0,
+    "contactType" : "PHONE_NUMBER",
+    "contact" : "01012345678",
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "GROUP",
+      "senderPhoneNumber" : "01012341234",
+      "senderMailAddress" : "abcde@nhn.com",
+      "brandId" : "AR.lj0eOjEI7Y",
+      "chatbotId" : "01012341234"
+    },
+    "templateId" : "テンプレートのID",
+    "flowId" : "フローのID",
+    "statsKeyId" : "統計キーのID",
+    "clientReference" : "ユーザー指定フィールド",
+    "options" : {
+      "expiryOption" : 1,
+      "groupId" : "groupId"
+    },
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "confirmBeforeSend" : false,
+    "confirmedDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "scheduled" : false,
+    "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "status" : "REQUESTED",
+    "resultCode" : "5.0.0",
+    "resultMessage" : "Success",
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    },
+    "additionalProperty" : { },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "sentDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "deliveredDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "openedDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ],
+  "totalCount" : 1
+}
+```
+
+<!--レスポンス本文のフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 作業が成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| contactDeliveryResults | Array | メッセージ送信結果です。 |
+| contactDeliveryResults[].messageId | String | メッセージID |
+| contactDeliveryResults[].recipientIndex | Integer | 受信者インデックスです。 |
+| contactDeliveryResults[].contactIndex | Integer | 連絡先インデックスです。 |
+| contactDeliveryResults[].contactType | Object | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| contactDeliveryResults[].contact | String | 連絡先です。 |
+| contactDeliveryResults[].sender | Object |  |
+| contactDeliveryResults[].sender.senderKey | String | 発信プロフィール発信キー |
+| contactDeliveryResults[].sender.senderProfileId | String | カカオトークチャンネル名 |
+| contactDeliveryResults[].sender.senderProfileType | String | 発信プロフィールタイプ<br>[GROUP, NORMAL] |
+| contactDeliveryResults[].sender.senderPhoneNumber | String | 発信番号 |
+| contactDeliveryResults[].sender.senderMailAddress | String | 発信メールアドレス |
+| contactDeliveryResults[].sender.brandId | String | ブランドID |
+| contactDeliveryResults[].sender.chatbotId | String | チャットルーム(チャットボット) ID |
+| contactDeliveryResults[].templateId | String | テンプレートID |
+| contactDeliveryResults[].flowId | String | フローID |
+| contactDeliveryResults[].statsKeyId | String | 統計キーID |
+| contactDeliveryResults[].clientReference | String | ユーザー指定フィールド |
+| contactDeliveryResults[].options | Object | 送信オプション |
+| contactDeliveryResults[].options.expiryOption | Integer | RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
+| contactDeliveryResults[].options.groupId | String | RCS BizCenter統計連動のためのグループID |
+| contactDeliveryResults[].messageChannel | Object | メッセージチャンネル<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| contactDeliveryResults[].messagePurpose | Object | 送信内容タイプ(NORMAL:一般、 AD:広告、 AUTH:認証、 default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| contactDeliveryResults[].confirmBeforeSend | Boolean | 確認後に送信するかどうかを示します。 |
+| contactDeliveryResults[].confirmedDateTime | String | メッセージ送信確認時刻です。 |
+| contactDeliveryResults[].scheduled | Boolean | 予約送信するかどうかを示します。 |
+| contactDeliveryResults[].scheduledDateTime | String | 予約送信時刻です。 |
+| contactDeliveryResults[].status | Object | 送信/受信状態です。<br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, CANCELED] |
+| contactDeliveryResults[].resultCode | String | 送信結果コードです。メッセージチャンネルによって値が異なります。 |
+| contactDeliveryResults[].resultMessage | String | 送信結果メッセージです。 |
+| contactDeliveryResults[].templateParameters | Object | テンプレートパラメータです。キー(Key、置換子)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータはメッセージテンプレートパラメータより優先されます。<br><br> |
+| contactDeliveryResults[].additionalProperty | Object |  |
+| contactDeliveryResults[].createdDateTime | String | メッセージが作成された時刻です。 |
+| contactDeliveryResults[].sentDateTime | String | メッセージが送信された時刻です。 |
+| contactDeliveryResults[].deliveredDateTime | String | メッセージを受信した時刻です。 |
+| contactDeliveryResults[].openedDateTime | String | メッセージが閲覧された時刻です。 |
+| contactDeliveryResults[].updatedDateTime | String | メッセージが修正された時刻です。 |
+| totalCount | Integer | 照会されたメッセージ送信結果の総数です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 最終送信ステータスメッセージリスト照会
+
+GET {{endpoint}}/message/v1.0/final-contact-delivery-results
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/message/v1.0/final-contact-delivery-results" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
