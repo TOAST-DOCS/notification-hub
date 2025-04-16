@@ -3,9 +3,9 @@
     display: inline !important;
 }
 </style>
-<h1>메시지 - 발송 요청 본문 예시</h1>
+<h1>メッセージ - 送信リクエスト本文例</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > 메시지 - 발송 요청 본문 예시**
+**Notification > Notification Hub > API v1.0使用ガイド > メッセージ - 送信リクエスト本文例**
 
 
 <span id="sms"></span>
@@ -14,11 +14,11 @@
 
 <span id="sms-sms"></span>
 
-### SMS(단문)
+### SMS(短文)
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
@@ -30,31 +30,31 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
   ],
   "content": {
     "messageType": "SMS",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "body": "こんにちは。NHN Cloud Notification Hubです。",
   }
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- |
-| sender | Object | Y | 발신자 |
-| sender.senderPhoneNumber | String | Y | 발신자 번호 |
-| content | Object | Y | 메시지 내용 |
+| sender | Object | Y | 発信者 |
+| sender.senderPhoneNumber | String | Y | 発信者番号 |
+| content | Object | Y | メッセージ内容 |
 | content.messageType | String | Y | SMS |
-| content.body | String | Y | 내용 |
+| content.body | String | Y | 内容 |
 
-### LMS(장문)
+### LMS(長文)
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
@@ -66,33 +66,33 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
   ],
   "content": {
     "messageType": "LMS",
-    "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다."
+    "title": "[NHN Cloud Notification Hub]告知事項",
+    "body": "こんにちは。NHN Cloud Notification Hubです。"
   }
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- |
-| sender | Object | Y | 발신자 |
-| sender.senderPhoneNumber | String | Y | 발신자 번호 |
-| content | Object | Y | 메시지 내용 |
+| sender | Object | Y | 発信者 |
+| sender.senderPhoneNumber | String | Y | 発信者番号 |
+| content | Object | Y | メッセージ内容 |
 | content.messageType | String | Y | LMS |
-| content.title | String | Y | 제목 |
-| content.body | String | Y | 내용 |
+| content.title | String | Y | タイトル |
+| content.body | String | Y | 内容 |
 
-### MMS(미디어 장문)
+### MMS(メディア長文)
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
@@ -104,30 +104,30 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
   ],
   "content": {
     "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "title": "[NHN Cloud Notification Hub]告知事項",
+    "body": "こんにちは。NHN Cloud Notification Hubです。",
     "attachmentIds": [
-      "첨부_파일_아이디"
+      "添付_ファイル_ID"
     ]
   }
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- |
-| sender | Object | Y | 발신자 |
-| sender.senderPhoneNumber | String | Y | 발신자 번호 |
-| content | Object | Y | 메시지 내용 |
+| sender | Object | Y | 発信者 |
+| sender.senderPhoneNumber | String | Y | 発信者番号 |
+| content | Object | Y | メッセージ内容 |
 | content.messageType | String | Y | MMS |
-| content.body | String | Y | 내용 |
-| content.attachmentIds | String Array | Y | 첨부 파일 아이디<br>첨부 이미지 제한 사항.<br>지원 코덱: .jpg, .jpeg<br>첨부 이미지 개수: 3개 이하.<br>첨부 이미지 사이즈: 1개당 300KB 이하. 단, 첨부한 이미지의 개수가 3개일 경우 합산 800KB 이하.<br>첨부 이미지 해상도: 1000*1000 이하. |
+| content.body | String | Y | 内容 |
+| content.attachmentIds | String Array | Y | 添付ファイルID<br>添付画像の制限事項。<br>サポートコーデック: .jpg, .jpeg<br>添付画像数: 3個以下。<br>添付画像サイズ: 1枚あたり300KB以下。ただし、添付した画像の数が3枚の場合、合計800KB以下。<br>添付画像解像度: 1000*1000以下。 |
 
 
 <span id="rcs"></span>
@@ -140,12 +140,12 @@
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
-    "brandId": "브랜드_아이디",
-    "chatbotId": "대화방_아이디"
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
   },
   "recipients": [
     {
@@ -153,7 +153,7 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
@@ -164,14 +164,14 @@
     "smsType": "STANDALONE",
     "cards": [
         {
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
           "buttons" : [
             {
               "buttonType" : "URL",
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "홈페이지로 이동"
+                  "displayText": "Webサイトへ移動"
                 }
               }
             }
@@ -187,37 +187,37 @@
 ```
 
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | 
-| sender | Object | Y | 발신자 |
-| sender.brandId | String | Y | 브랜드 아이디 |
-| sender.chatbotId | String | Y | 대화방 아이디 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE |
-| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수 |
-| content.smsType | String | Y | SMS 타입, 메시지 유형이 SMS인 경우 필수, STANDALONE(스탠다드) |
-| content.cards | Object Array | Y | 카드 |
-| content.cards[].title | String | N | 제목 |
-| content.cards[].description | String | Y | 내용 |
-| content.cards[].buttons | Object Array | N | 버튼 |
-| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
-| options | Object | N | 발송 옵션 |
-| options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| sender | Object | Y | 発信者 |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | チャットルームID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須 |
+| content.smsType | String | Y | SMSタイプ、メッセージタイプがSMSの場合必須、STANDALONE(スタンダード) |
+| content.cards | Object Array | Y | カード |
+| content.cards[].title | String | N | タイトル |
+| content.cards[].description | String | Y | 内容 |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(マップを表示する)、MAP_QUERY(マップを検索する)、MAP_SHARE(現在地を共有する)、URL(URをL接続する)、CALENDAR(予定を登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <span id="free-form-message-request-body-rcs-lms-standalone"></span>
 
-### LMS 스탠다드
+### LMSスタンダード
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
-    "brandId": "브랜드_아이디",
-    "chatbotId": "대화방_아이디"
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
   },
   "recipients": [
     {
@@ -225,7 +225,7 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
@@ -236,15 +236,15 @@
     "lmsType": "STANDALONE",
     "cards": [
         {
-          "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
           "buttons" : [
             {
               "buttonType" : "URL",
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "홈페이지로 이동"
+                  "displayText": "Webサイトへ移動"
                 }
               }
             }
@@ -259,44 +259,44 @@
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- |
-| sender | Object | Y | 발신자 |
-| sender.brandId | String | Y | 브랜드 아이디 |
-| sender.chatbotId | String | Y | 대화방 아이디 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE |
-| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수 |
-| content.lmsType | String | Y | LMS 타입, 메시지 유형이 LMS인 경우 필수, STANDALONE(스탠다드), FORMAT_BASIC(포맷 기본형), FORMAT_TITLE_HIGHLIGHT(포맷 타이틀 강조형), FORMAT_PARAGRAPH(포맷 문단형) |
-| content.cards | Object Array | Y | 카드 |
-| content.cards[].title | String | N | 제목 |
-| content.cards[].description | String | Y | 내용 |
-| content.cards[].buttons | Object Array | N | 버튼 |
-| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
-| options | Object | N | 발송 옵션 |
-| options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| sender | Object | Y | 発信者 |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | チャットルームID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須 |
+| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード)、FORMAT_BASIC(フォーマット基本型)、FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型)、FORMAT_PARAGRAPH(フォーマット段落型) |
+| content.cards | Object Array | Y | カード |
+| content.cards[].title | String | N | タイトル |
+| content.cards[].description | String | Y | 内容 |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(マップを表示する)、MAP_QUERY(マップを検索する)、MAP_SHARE(現在地を共有する)、URL(URをL接続する)、CALENDAR(予定を登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <span id="free-form-message-request-body-rcs-lms-format-basic"></span>
 
-### LMS 포맷 기본형 및 포맷 타이틀 강조형
-* mTitleMedia 아이콘 파일 ID 목록
-  * 프로모션: LT-messagebase.common-jFBCKu
-  * 쿠폰: LT-messagebase.common-LbshOv
-  * 이벤트: LT-messagebase.common-aWdsJX
-  * 예약: LT-messagebase.common-5eFcIF
-  * 영수증: LT-messagebase.common-rJQ22U
-  * 알림: LT-messagebase.common-j11Gtf
+### LMSフォーマット基本型及びフォーマットタイトル強調型
+* mTitleMediaアイコンファイルIDリスト
+  * プロモーション: LT-messagebase.common-jFBCKu
+  * クーポン: LT-messagebase.common-LbshOv
+  * イベント: LT-messagebase.common-aWdsJX
+  * 予約: LT-messagebase.common-5eFcIF
+  * 領収書: LT-messagebase.common-rJQ22U
+  * 通知: LT-messagebase.common-j11Gtf
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
-    "brandId": "브랜드_아이디",
-    "chatbotId": "대화방_아이디"
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
   },
   "recipients": [
     {
@@ -304,7 +304,7 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
@@ -315,17 +315,17 @@
     "lmsType": "FORMAT_BASIC",
     "cards": [
         {
-          "mTitle":"[NHN Cloud] 공지사항",
+          "mTitle":"[NHN Cloud]告知事項",
           "mTitleMedia":"LT-messagebase.common-DdWk6s",
-          "title":"공지 1",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "title":"告知1",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
           "buttons" : [
             {
               "buttonType" : "URL",
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "홈페이지로 이동"
+                  "displayText": "Webサイトへ移動"
                 }
               }
             }
@@ -340,44 +340,44 @@
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | 
-| sender | Object | Y | 발신자 |
-| sender.brandId | String | Y | 브랜드 아이디 |
-| sender.chatbotId | String | Y | 대화방 아이디 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE |
-| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수 |
-| content.lmsType | String | Y | LMS 타입, 메시지 유형이 LMS인 경우 필수, STANDALONE(스탠다드), FORMAT_BASIC(포맷 기본형), FORMAT_TITLE_HIGHLIGHT(포맷 타이틀 강조형), FORMAT_PARAGRAPH(포맷 문단형) |
-| content.cards | Object Array | Y | 카드 |
-| content.cards[].mTitle | String | Y | 메인 타이틀 |
-| content.cards[].mTitleMedia | String | N | 메인 타이틀 아이콘 |
-| content.cards[].title | String | N | 제목 |
-| content.cards[].description | String | Y | 내용 |
-| content.cards[].buttons | Object Array | N | 버튼 |
-| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
-| options | Object | N | 발송 옵션 |
-| options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| sender | Object | Y | 発信者 |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | チャットルームID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須 |
+| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード)、FORMAT_BASIC(フォーマット基本型)、FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型)、FORMAT_PARAGRAPH(フォーマット段落型) |
+| content.cards | Object Array | Y | カード |
+| content.cards[].mTitle | String | Y | メインタイトル |
+| content.cards[].mTitleMedia | String | N | メインタイトルアイコン |
+| content.cards[].title | String | N | タイトル |
+| content.cards[].description | String | Y | 内容 |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(マップを表示する)、MAP_QUERY(マップを検索する)、MAP_SHARE(現在地を共有する)、URL(URをL接続する)、CALENDAR(予定を登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
-### LMS 포맷 문단형 타입
-* mTitleMedia 아이콘 파일 ID 목록
-  * 프로모션: LT-messagebase.common-jFBCKu
-  * 쿠폰: LT-messagebase.common-LbshOv
-  * 이벤트: LT-messagebase.common-aWdsJX
-  * 예약: LT-messagebase.common-5eFcIF
-  * 영수증: LT-messagebase.common-rJQ22U
-  * 알림: LT-messagebase.common-j11Gtf
+### LMSフォーマット段落型タイプ
+* mTitleMediaアイコンファイルIDリスト
+  * プロモーション: LT-messagebase.common-jFBCKu
+  * クーポン: LT-messagebase.common-LbshOv
+  * イベント: LT-messagebase.common-aWdsJX
+  * 予約: LT-messagebase.common-5eFcIF
+  * 領収書: LT-messagebase.common-rJQ22U
+  * 通知: LT-messagebase.common-j11Gtf
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
-    "brandId": "브랜드_아이디",
-    "chatbotId": "대화방_아이디"
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
   },
   "recipients": [
     {
@@ -385,7 +385,7 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
@@ -396,21 +396,21 @@
     "lmsType": "FORMAT_PARAGRAPH",
     "cards": [
         {
-          "mTitle":"[NHN Cloud] 공지사항",
+          "mTitle":"[NHN Cloud]告知事項",
           "mTitleMedia":"LT-messagebase.common-DdWk6s",
-          "title1":"공지 1",
-          "description1":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "title2":"공지 2",
-          "description2":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "title3":"공지 3",
-          "description3":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "title1":"告知1",
+          "description1":"こんにちは。NHN Cloud Notification Hubです。",
+          "title2":"告知2",
+          "description2":"こんにちは。NHN Cloud Notification Hubです。",
+          "title3":"告知3",
+          "description3":"こんにちは。NHN Cloud Notification Hubです。",
           "buttons" : [
             {
               "buttonType" : "URL",
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "공지1 버튼"
+                  "displayText": "告知1ボタン"
                 }
               }
             },
@@ -420,7 +420,7 @@
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "공지2 버튼"
+                  "displayText": "告知2ボタン"
                 }
               }
             },
@@ -429,7 +429,7 @@
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "공지2 버튼"
+                  "displayText": "告知2ボタン"
                 }
               }
             },
@@ -438,7 +438,7 @@
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "공지3 버튼"
+                  "displayText": "告知3ボタン"
                 }
               }
             },
@@ -453,43 +453,43 @@
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | 
-| sender | Object | Y | 발신자 |
-| sender.brandId | String | Y | 브랜드 아이디 |
-| sender.chatbotId | String | Y | 대화방 아이디 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE |
-| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수 |
-| content.lmsType | String | Y | LMS 타입, 메시지 유형이 LMS인 경우 필수, STANDALONE(스탠다드), FORMAT_BASIC(포맷 기본형), FORMAT_TITLE_HIGHLIGHT(포맷 타이틀 강조형), FORMAT_PARAGRAPH(포맷 문단형) |
-| content.cards | Object Array | Y | 카드 |
-| content.cards[].mTitle | String | Y | 메인 타이틀 |
-| content.cards[].mTitleMedia | String | N | 메인 타이틀 아이콘 |
-| content.cards[].title1 | String | N | 제목(문단 1) |
-| content.cards[].description1 | String | Y | 내용(문단 1) |
-| content.cards[].title2 | String | N | 제목(문단 2) |
-| content.cards[].description2 | String | Y | 내용(문단 2) |
-| content.cards[].title3 | String | N | 제목(문단 3) |
-| content.cards[].description3 | String | Y | 내용(문단 3) |
-| content.cards[].buttons | Object Array | N | 버튼 |
-| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
-| options | Object | N | 발송 옵션 |
-| options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| sender | Object | Y | 発信者 |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | チャットルームID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須 |
+| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード)、FORMAT_BASIC(フォーマット基本型)、FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型)、FORMAT_PARAGRAPH(フォーマット段落型) |
+| content.cards | Object Array | Y | カード |
+| content.cards[].mTitle | String | Y | メインタイトル |
+| content.cards[].mTitleMedia | String | N | メインタイトルアイコン |
+| content.cards[].title1 | String | N | タイトル(段落1) |
+| content.cards[].description1 | String | Y | 内容(段落1) |
+| content.cards[].title2 | String | N | タイトル(段落2) |
+| content.cards[].description2 | String | Y | 内容(段落2) |
+| content.cards[].title3 | String | N | タイトル(段落3) |
+| content.cards[].description3 | String | Y | 内容(段落3) |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(マップを表示する)、MAP_QUERY(マップを検索する)、MAP_SHARE(現在地を共有する)、URL(URをL接続する)、CALENDAR(予定を登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 
 
-### MMS 가로형, 세로형
+### MMS横型、縦型
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
-    "brandId": "브랜드_아이디",
-    "chatbotId": "대화방_아이디"
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
   },
   "recipients": [
     {
@@ -497,7 +497,7 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
@@ -508,16 +508,16 @@
     "mmsType": "HORIZONTAL",
     "cards": [
         {
-          "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "attachmentId":"첨부 파일 아이디",
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "attachmentId":"添付ファイルID",
           "buttons" : [
             {
               "buttonType" : "URL",
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "홈페이지로 이동"
+                  "displayText": "Webサイトへ移動"
                 }
               }
             }
@@ -533,36 +533,36 @@
 ```
 
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | 
-| sender | Object | Y | 발신자 |
-| sender.brandId | String | Y | 브랜드 아이디 |
-| sender.chatbotId | String | Y | 대화방 아이디 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE |
-| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수 |
-| content.mmsType | String | Y | MMS 타입, 메시지 유형이 MMS인 경우 필수, HORIZONTAL(가로형), VERTICAL(세로형), CAROUSEL_MEDIUM(캐러셀 중간), CAROUSEL_SMALL(캐러셀 작게) |
-| content.cards | Object Array | Y | 카드 |
-| content.cards[].title | String | N | 제목 |
-| content.cards[].description | String | Y | 내용 |
-| content.cards[].attachmentId | String | Y | 첨부 파일 아이디 |
-| content.cards[].buttons | Object Array | N | 버튼 |
-| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
-| options | Object | N | 발송 옵션 |
-| options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| sender | Object | Y | 発信者 |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | チャットルームID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須 |
+| content.mmsType | String | Y | MMSタイプ、メッセージタイプがMMSの場合必須、HORIZONTAL(横型)、VERTICAL(縦型)、CAROUSEL_MEDIUM(カルーセル中)、CAROUSEL_SMALL(カルーセル小) |
+| content.cards | Object Array | Y | カード |
+| content.cards[].title | String | N | タイトル |
+| content.cards[].description | String | Y | 内容 |
+| content.cards[].attachmentId | String | Y | 添付ファイルID |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(マップを表示する)、MAP_QUERY(マップを検索する)、MAP_SHARE(現在地を共有する)、URL(URをL接続する)、CALENDAR(予定を登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
-### MMS 캐러셀
+### MMSカルーセル
 
 ```json
 {
-  "statsKeyId": "통계_키_아이디",
+  "statsKeyId": "統計_キー_ID",
   "scheduledDateTime": "2024-10-24T06:29:00+09:00",
   "confirmBeforeSend": false,
   "sender": {
-    "brandId": "브랜드_아이디",
-    "chatbotId": "대화방_아이디"
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
   },
   "recipients": [
     {
@@ -570,7 +570,7 @@
         {
           "contactType": "PHONE_NUMBER",
           "contact": "01012345678",
-          "clientReference": "클라이언트_레퍼런스"
+          "clientReference": "クライアント_リファレンス"
         }
       ]
     }
@@ -581,48 +581,48 @@
     "mmsType": "CAROUSEL_MEDIUM",
     "cards": [
         {
-          "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "attachmentId":"첨부 파일 아이디",
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "attachmentId":"添付ファイルID",
           "buttons" : [
             {
               "buttonType" : "URL",
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "홈페이지로 이동"
+                  "displayText": "Webサイトへ移動"
                 }
               }
             }
           ]
         },
         {
-          "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "attachmentId":"첨부 파일 아이디",
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "attachmentId":"添付ファイルID",
           "buttons" : [
             {
               "buttonType" : "URL",
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "홈페이지로 이동"
+                  "displayText": "Webサイトへ移動"
                 }
               }
             }
           ]
         },
         {
-          "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
-          "attachmentId":"첨부 파일 아이디",
+          "title":"[NHN Cloud]告知事項",
+          "description":"こんにちは。NHN Cloud Notification Hubです。",
+          "attachmentId":"添付ファイルID",
           "buttons" : [
             {
               "buttonType" : "URL",
               "buttonJson" : {
                 "action": {
                   "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "홈페이지로 이동"
+                  "displayText": "Webサイトへ移動"
                 }
               }
             }
@@ -638,44 +638,44 @@
 ```
 
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- | 
-| sender | Object | Y | 발신자 |
-| sender.brandId | String | Y | 브랜드 아이디 |
-| sender.chatbotId | String | Y | 대화방 아이디 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | RCS 내 메시지 유형, SMS, LMS, MMS, RBC_TEMPLATE |
-| content.unsubscribePhoneNumber | String | N | 080 수신 거부 번호, 발송 목적이 광고인 경우 필수 |
-| content.mmsType | String | Y | MMS 타입, 메시지 유형이 MMS인 경우 필수, HORIZONTAL(가로형), VERTICAL(세로형), CAROUSEL_MEDIUM(캐러셀 중간), CAROUSEL_SMALL(캐러셀 작게) |
-| content.cards | Object Array | Y | 카드 |
-| content.cards[].title | String | N | 제목 |
-| content.cards[].description | String | Y | 내용 |
-| content.cards[].attachmentId | String | Y | 첨부 파일 아이디 |
-| content.cards[].buttons | Object Array | N | 버튼 |
-| content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
-| options | Object | N | 발송 옵션 |
-| options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| sender | Object | Y | 発信者 |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | チャットルームID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS内のメッセージタイプ、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須 |
+| content.mmsType | String | Y | MMSタイプ、メッセージタイプがMMSの場合必須、HORIZONTAL(横型)、VERTICAL(縦型)、CAROUSEL_MEDIUM(カルーセル中)、CAROUSEL_SMALL(カルーセル小) |
+| content.cards | Object Array | Y | カード |
+| content.cards[].title | String | N | タイトル |
+| content.cards[].description | String | Y | 内容 |
+| content.cards[].attachmentId | String | Y | 添付ファイルID |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(マップを表示する)、MAP_QUERY(マップを検索する)、MAP_SHARE(現在地を共有する)、URL(URをL接続する)、CALENDAR(予定を登録する) |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
+| options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 
 <span id="free-form-message-request-body-friendtalk-text"></span>
 
-## 친구톡
+## カカともへのメッセージ
 
-### 텍스트형
+### テキスト型
 
-* 알림톡은 템플릿 등록 후 승인을 받은 상태에서 발송 가능하기 때문에 템플릿, 플로우 메시지 발송만 가능합니다.
-* 알림톡의 **sender**, **content** 필드는 **템플릿 메시지 발송**의 **요청 본문**을 확인하세요.
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* お知らせトークはテンプレート登録後、承認を受けた状態で送信できるため、テンプレート、フローメッセージの送信のみ可能です。
+* お知らせトークの**sender**, **content**フィールドは **テンプレートメッセージ送信**の**リクエスト本文**をご確認ください。
+* カカともへのメッセージ(FRIENDTALK)はNORMAL(一般)発信プロフィールタイプのみ使用できます。GROUP(グループ)発信プロフィールタイプの発信キーを使用すると送信に失敗します。
 
 ```json
 {
-    "statsKeyId": "통계_키_아이디",
+    "statsKeyId": "統計_キー_ID",
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신 프로필_발신키"
+        "senderKey": "発信プロフィール_発信キー"
     },
     "recipients": [
         {
@@ -689,67 +689,67 @@
     ],
     "content": {
       "messageType": "TEXT",
-      "content": "발송_내용",
+      "content": "送信_内容",
       "buttons": [
         {
           "type": "WL",
-          "name": "버튼_이름",
-          "linkMo": "모바일_링크",
-          "linkPc": "PC_링크",
-          "schemeIos": "iOS_앱_링크",
-          "schemeAndroid": "Android_앱_링크",
-          "bizFormKey": "비즈폼_키"
+          "name": "ボタン_名前",
+          "linkMo": "モバイル_リンク",
+          "linkPc": "PC_リンク",
+          "schemeIos": "iOS_アプリ_リンク",
+          "schemeAndroid": "Android_アプリ_リンク",
+          "bizFormKey": "ビズフォーム_キー"
         }
       ],
       "coupon": {
-        "title": "쿠폰_제목",
-        "description": "쿠폰_상세_설명",
-        "linkMo": "모바일_링크",
-        "linkPc": "PC_링크",
-        "schemeIos": "iOS_앱_링크",
-        "schemeAndroid": "Android_앱_링크"
+        "title": "クーポン_タイトル",
+        "description": "クーポン_詳細_説明",
+        "linkMo": "モバイル_リンク",
+        "linkPc": "PC_リンク",
+        "schemeIos": "iOS_アプリ_リンク",
+        "schemeAndroid": "Android_アプリ_リンク"
       }
     }
 }
 ```
 
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- |----|---------------------------------------------------------------|
-| sender | Object | Y | 발신자 |
-| sender.senderKey | Object | Y | 발신 프로필_발신키 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | 메시지 유형 |
-| content.content | String | Y | 내용 |
-| content.buttons | Object Array | N | 버튼 |
-| content.buttons[].type | String | Y | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
-| content.buttons[].name | String | Y | 버튼 이름 |
-| content.buttons[].linkMo | String | N | 링크 모바일, 버튼 타입이 WL이면 필수 |
-| content.buttons[].linkPc | String | N | 링크 PC |
-| content.buttons[].schemeIos | String | N | iOS 앱 링크 |
-| content.buttons[].schemeAndroid | String | N | Android 앱 링크 |
-| content.buttons[].bizFormKey | String | N | 비즈폼 키, 버튼 타입이 BF이면 필수 |
-| content.coupon | Object | N | 쿠폰 |
-| content.coupon.title | String | Y | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰" |
-| content.coupon.description | String | Y | 쿠폰 상세 설명(일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
-| content.coupon.linkMo | String | N | 링크 모바일 |
-| content.coupon.linkPc | String | N | 링크 PC |
-| content.coupon.schemeIos | String | N | iOS 앱 링크 |
-| content.coupon.schemeAndroid | String | N | Android 앱 링크 |
+| sender | Object | Y | 発信者 |
+| sender.senderKey | Object | Y | 発信プロフィール_発信キー |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | メッセージタイプ |
+| content.content | String | Y | 内容 |
+| content.buttons | Object Array | N | ボタン |
+| content.buttons[].type | String | Y | ボタンタイプ<br>WL(Webリンク)、AL(アプリリンク)、BK(Botキーワード)、MD(メッセージ伝達)、BF(ビジネスフォーム) |
+| content.buttons[].name | String | Y | ボタン名 |
+| content.buttons[].linkMo | String | N | リンクモバイル、ボタンタイプがWLの場合は必須 |
+| content.buttons[].linkPc | String | N | リンクPC |
+| content.buttons[].schemeIos | String | N | iOSアプリリンク |
+| content.buttons[].schemeAndroid | String | N | Androidアプリリンク |
+| content.buttons[].bizFormKey | String | N | ビズフォームキー、ボタンタイプがBFの場合は必須 |
+| content.coupon | Object | N | クーポン |
+| content.coupon.title | String | Y | タイトル。5つの形式に制限される<br>「${数字}KRW割引クーポン」数字は1以上99,999,999以下<br>「${数字}%割引クーポン」数字は1以上100以下<br>「送料割引クーポン」<br><br>「${7文字以内}無料クーポン」<br>「${7文字以内} UPクーポン」 |
+| content.coupon.description | String | Y | クーポン詳細説明(一般テキスト、画像型、カルーセルフィード型最大12文字 / ワイド画像型、ワイドアイテムリスト型最大18文字) |
+| content.coupon.linkMo | String | N | リンクモバイル |
+| content.coupon.linkPc | String | N | リンクPC |
+| content.coupon.schemeIos | String | N | iOSアプリリンク |
+| content.coupon.schemeAndroid | String | N | Androidアプリリンク |
 
 <span id="free-form-message-request-body-friendtalk-image"></span>
 
-### 이미지형 / 와이드 이미지형
+### 画像型 / ワイド画像型
 
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* カカともへのメッセージ(FRIENDTALK)はNORMAL(一般)発信プロフィールタイプのみ使用できます。GROUP(グループ)発信プロフィールタイプの発信キーを使用すると送信に失敗します。
 
 ```json
 {
-    "statsKeyId": "통계_키_아이디",
+    "statsKeyId": "統計_キー_ID",
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신 프로필_발신키"
+        "senderKey": "発信プロフィール_発信キー"
     },
     "recipients": [
         {
@@ -763,70 +763,70 @@
     ],
     "content": {
       "messageType": "WIDE_IMAGE",
-      "content": "발송_내용",
-      "attachmentId": "첨부_파일_ID",
-      "imageLink": "이미지_링크_URL",
+      "content": "送信_内容",
+      "attachmentId": "添付_ファイル_ID",
+      "imageLink": "画像_リンク_URL",
       "buttons": [
         {
           "type": "WL",
-          "name": "버튼_이름",
-          "linkMo": "모바일_링크",
-          "linkPc": "PC_링크",
-          "schemeIos": "iOS_앱_링크",
-          "schemeAndroid": "Android_앱_링크",
-          "bizFormKey": "비즈폼_키"
+          "name": "ボタン_名前",
+          "linkMo": "モバイル_リンク",
+          "linkPc": "PC_リンク",
+          "schemeIos": "iOS_アプリ_リンク",
+          "schemeAndroid": "Android_アプリ_リンク",
+          "bizFormKey": "ビズフォーム_キー"
         }
       ],
       "coupon": {
-        "title": "쿠폰_제목",
-        "description": "쿠폰_상세_설명",
-        "linkMo": "모바일_링크",
-        "linkPc": "PC_링크",
-        "schemeIos": "iOS_앱_링크",
-        "schemeAndroid": "Android_앱_링크"
+        "title": "クーポン_タイトル",
+        "description": "クーポン_詳細_説明",
+        "linkMo": "モバイル_リンク",
+        "linkPc": "PC_リンク",
+        "schemeIos": "iOS_アプリ_リンク",
+        "schemeAndroid": "Android_アプリ_リンク"
       }
     }
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- |---------------|----|---------------------------------------------------------------|
-| sender | Object | Y | 발신자 |
-| sender.senderKey | Object | Y | 발신 프로필_발신 키 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | 메시지 유형 |
-| content.content | String | Y | 내용 |
-| content.attachmentId | String | Y | 첨부 파일 아이디 |
-| content.imageLink | String | N | 이미지 링크 |
-| content.buttons | Object Array | N | 버튼 |
-| content.buttons[].type | String | Y | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
-| content.buttons[].name | String | Y | 버튼 이름 |
-| content.buttons[].linkMo | String | N | 링크 모바일, 버튼 타입이 WL이면 필수 |
-| content.buttons[].linkPc | String | N | 링크 PC |
-| content.buttons[].schemeIos | String | N | iOS 앱 링크 |
-| content.buttons[].schemeAndroid | String | N | Android 앱 링크 |
-| content.buttons[].bizFormKey | String | N | 비즈폼 키, 버튼 타입이 BF이면 필수 |
-| content.coupon | Object | N | 쿠폰 |
-| content.coupon.title | String | Y | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰" |
-| content.coupon.description | String | Y | 쿠폰 상세 설명(일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
-| content.coupon.linkMo | String | N | 링크 모바일 |
-| content.coupon.linkPc | String | N | 링크 PC |
-| content.coupon.schemeIos | String | N | iOS 앱 링크 |
-| content.coupon.schemeAndroid | String | N | Android 앱 링크 |
+| sender | Object | Y | 発信者 |
+| sender.senderKey | Object | Y | 発信プロフィール_発信キー |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | メッセージタイプ |
+| content.content | String | Y | 内容 |
+| content.attachmentId | String | Y | 添付ファイルID |
+| content.imageLink | String | N | 画像リンク |
+| content.buttons | Object Array | N | ボタン |
+| content.buttons[].type | String | Y | ボタンタイプ<br>WL(Webリンク)、AL(アプリリンク)、BK(Botキーワード)、MD(メッセージ伝達)、BF(ビジネスフォーム) |
+| content.buttons[].name | String | Y | ボタン名 |
+| content.buttons[].linkMo | String | N | リンクモバイル、ボタンタイプがWLの場合は必須 |
+| content.buttons[].linkPc | String | N | リンクPC |
+| content.buttons[].schemeIos | String | N | iOSアプリリンク |
+| content.buttons[].schemeAndroid | String | N | Androidアプリリンク |
+| content.buttons[].bizFormKey | String | N | ビズフォームキー、ボタンタイプがBFの場合は必須 |
+| content.coupon | Object | N | クーポン |
+| content.coupon.title | String | Y | タイトル。5つの形式に制限される<br>「${数字}KRW割引クーポン」数字は1以上99,999,999以下<br>「${数字}%割引クーポン」数字は1以上100以下<br>「送料割引クーポン」<br><br>「${7文字以内}無料クーポン」<br>「${7文字以内} UPクーポン」 |
+| content.coupon.description | String | Y | クーポン詳細説明(一般テキスト、画像型、カルーセルフィード型最大12文字 / ワイド画像型、ワイドアイテムリスト型最大18文字) |
+| content.coupon.linkMo | String | N | リンクモバイル |
+| content.coupon.linkPc | String | N | リンクPC |
+| content.coupon.schemeIos | String | N | iOSアプリリンク |
+| content.coupon.schemeAndroid | String | N | Androidアプリリンク |
 
 <span id="free-form-message-request-body-friendtalk-wide-itemlist"></span>
 
-### 와이드 아이템리스트형
+### ワイドアイテムリスト型
 
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* カカともへのメッセージ(FRIENDTALK)はNORMAL(一般)発信プロフィールタイプのみ使用できます。GROUP(グループ)発信プロフィールタイプの発信キーを使用すると送信に失敗します。
 
 ```json
 {
-    "statsKeyId": "통계_키_아이디",
+    "statsKeyId": "統計_キー_ID",
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신 프로필_발신 키"
+        "senderKey": "発信プロフィール_発信キー"
     },
     "recipients": [
         {
@@ -843,98 +843,98 @@
       "buttons": [
         {
           "type": "WL",
-          "name": "버튼_이름",
-          "linkMo": "모바일_링크",
-          "linkPc": "PC_링크",
-          "schemeIos": "iOS_앱_링크",
-          "schemeAndroid": "Android_앱_링크",
-          "bizFormKey": "비즈폼_키"
+          "name": "ボタン_名前",
+          "linkMo": "モバイル_リンク",
+          "linkPc": "PC_リンク",
+          "schemeIos": "iOS_アプリ_リンク",
+          "schemeAndroid": "Android_アプリ_リンク",
+          "bizFormKey": "ビズフォーム_キー"
         }
       ],
-      "header": "헤더",
+      "header": "ヘッダ",
       "item": {
           "list": [{
-            "title": "아이템_제목",
-            "attachmentId": "첨부_파일_아이디",
-            "linkMo": "모바일_링크",
-            "linkPc": "PC_링크",
-            "schemeIos": "iOS_앱_링크",
-            "schemeAndroid": "Android_앱_링크"
+            "title": "アイテム_タイトル",
+            "attachmentId": "添付_ファイル_ID",
+            "linkMo": "モバイル_リンク",
+            "linkPc": "PC_リンク",
+            "schemeIos": "iOS_アプリ_リンク",
+            "schemeAndroid": "Android_アプリ_リンク"
           },
           {
-            "title": "아이템_제목",
-            "attachmentId": "첨부_파일_아이디",
-            "linkMo": "모바일_링크",
-            "linkPc": "PC_링크",
-            "schemeIos": "iOS_앱_링크",
-            "schemeAndroid": "Android_앱_링크"
+            "title": "アイテム_タイトル",
+            "attachmentId": "添付_ファイル_ID",
+            "linkMo": "モバイル_リンク",
+            "linkPc": "PC_リンク",
+            "schemeIos": "iOS_アプリ_リンク",
+            "schemeAndroid": "Android_アプリ_リンク"
           },
           {
-          "title": "아이템_제목",
-          "attachmentId": "첨부_파일_아이디",
-          "linkMo": "모바일_링크",
-          "linkPc": "PC_링크",
-          "schemeIos": "iOS_앱_링크",
-          "schemeAndroid": "Android_앱_링크"
+          "title": "アイテム_タイトル",
+          "attachmentId": "添付_ファイル_ID",
+          "linkMo": "モバイル_リンク",
+          "linkPc": "PC_リンク",
+          "schemeIos": "iOS_アプリ_リンク",
+          "schemeAndroid": "Android_アプリ_リンク"
           }
         ]
       },
       "coupon": {
-        "title": "쿠폰_제목",
-        "description": "쿠폰_상세_설명",
-        "linkMo": "모바일_링크",
-        "linkPc": "PC_링크",
-        "schemeIos": "iOS_앱_링크",
-        "schemeAndroid": "Android_앱_링크"
+        "title": "クーポン_タイトル",
+        "description": "クーポン_詳細_説明",
+        "linkMo": "モバイル_リンク",
+        "linkPc": "PC_リンク",
+        "schemeIos": "iOS_アプリ_リンク",
+        "schemeAndroid": "Android_アプリ_リンク"
       }
     }
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 |-----------------------------------|---------------|----|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| sender | Object | Y | 발신자 |
-| sender.senderKey | Object | Y | 발신 프로필_발신 키 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | 메시지 유형 |
-| content.buttons | Object Array | N | 버튼 |
-| content.buttons[].type | String | Y | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
-| content.buttons[].name | String | Y | 버튼 이름 |
-| content.buttons[].linkMo | String | N | 링크 모바일, 버튼 타입이 WL이면 필수 |
-| content.buttons[].linkPc | String | N | 링크 PC |
-| content.buttons[].schemeIos | String | N | iOS 앱 링크 |
-| content.buttons[].schemeAndroid | String | N | Android 앱 링크 |
-| content.buttons[].bizFormKey | String | N | 비즈폼 키, 버튼 타입이 BF이면 필수 |
-| content.header | String | Y | 헤더 |
-| content.item | Object | Y | 와이드 아이템 |
-| content.item.list | Object Array | Y | 와이드 아이템 리스트(최소 3개, 최대 4개) |
-| content.item.list[].title | String | Y | 아이템 제목(첫 번째 아이템의 경우 최대 25자, 2~4번째 아이템의 경우 최대 30자) |
-| content.item.list[].attachmentId | String | Y | 첨부 파일 아이디 |
-| content.item.list[].linkMo | String | Y | 모바일 웹 링크 |
-| content.item.list[].linkPc | String | Y | PC 웹 링크 |
-| content.item.list[].schemeIos | String | Y | iOS 앱 링크 |
-| content.item.list[].schemeAndroid | String | Y | Android 앱 링크 |
-| content.coupon | Object | N | 쿠폰 |
-| content.coupon.title | String | Y | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰" |
-| content.coupon.description | String | Y | 쿠폰 상세 설명(일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
-| content.coupon.linkMo | String | N | 링크 모바일 |
-| content.coupon.linkPc | String | N | 링크 PC |
-| content.coupon.schemeIos | String | N | iOS 앱 링크 |
-| content.coupon.schemeAndroid | String | N | Android 앱 링크 |
+| sender | Object | Y | 発信者 |
+| sender.senderKey | Object | Y | 発信プロフィール_発信キー |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | メッセージタイプ |
+| content.buttons | Object Array | N | ボタン |
+| content.buttons[].type | String | Y | ボタンタイプ<br>WL(Webリンク)、AL(アプリリンク)、BK(Botキーワード)、MD(メッセージ伝達)、BF(ビジネスフォーム) |
+| content.buttons[].name | String | Y | ボタン名 |
+| content.buttons[].linkMo | String | N | リンクモバイル、ボタンタイプがWLの場合は必須 |
+| content.buttons[].linkPc | String | N | リンクPC |
+| content.buttons[].schemeIos | String | N | iOSアプリリンク |
+| content.buttons[].schemeAndroid | String | N | Androidアプリリンク |
+| content.buttons[].bizFormKey | String | N | ビズフォームキー、ボタンタイプがBFの場合は必須 |
+| content.header | String | Y | ヘッダ |
+| content.item | Object | Y | ワイドアイテム |
+| content.item.list | Object Array | Y | ワイドアイテムリスト(最小3個、最大4個) |
+| content.item.list[].title | String | Y | アイテムタイトル(最初のアイテムの場合は最大25文字、2～4番目のアイテムの場合は最大30文字) |
+| content.item.list[].attachmentId | String | Y | 添付ファイルID |
+| content.item.list[].linkMo | String | Y | モバイルWebリンク |
+| content.item.list[].linkPc | String | Y | PC Webリンク |
+| content.item.list[].schemeIos | String | Y | iOSアプリリンク |
+| content.item.list[].schemeAndroid | String | Y | Androidアプリリンク |
+| content.coupon | Object | N | クーポン |
+| content.coupon.title | String | Y | タイトル。5つの形式に制限される<br>「${数字}KRW割引クーポン」数字は1以上99,999,999以下<br>「${数字}%割引クーポン」数字は1以上100以下<br>「送料割引クーポン」<br><br>「${7文字以内}無料クーポン」<br>「${7文字以内} UPクーポン」 |
+| content.coupon.description | String | Y | クーポン詳細説明(一般テキスト、画像型、カルーセルフィード型最大12文字 / ワイド画像型、ワイドアイテムリスト型最大18文字) |
+| content.coupon.linkMo | String | N | リンクモバイル |
+| content.coupon.linkPc | String | N | リンクPC |
+| content.coupon.schemeIos | String | N | iOSアプリリンク |
+| content.coupon.schemeAndroid | String | N | Androidアプリリンク |
 
 <span id="free-form-message-request-body-friendtalk-carousel"></span>
 
-### 캐러셀 피드형
+### カルーセルフィード型
 
-* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* カカともへのメッセージ(FRIENDTALK)はNORMAL(一般)発信プロフィールタイプのみ使用できます。GROUP(グループ)発信プロフィールタイプの発信キーを使用すると送信に失敗します。
 
 ```json
 {
-    "statsKeyId": "통계_키_아이디",
+    "statsKeyId": "統計_キー_ID",
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "발신 프로필_발신 키"
+        "senderKey": "発信プロフィール_発信キー"
     },
     "recipients": [
         {
@@ -951,106 +951,106 @@
       "carousel": {
         "list": [
           {
-            "header": "캐러셀_아이템_제목",
-            "message": "캐러셀_아이템_메시지",
+            "header": "カルーセル_アイテム_タイトル",
+            "message": "カルーセル_アイテム_メッセージ",
             "attachment": {
               "buttons": [
                 {
                   "type": "WL",
-                  "name": "버튼_이름",
-                  "linkMo": "모바일_링크",
-                  "linkPc": "PC_링크",
-                  "schemeIos": "iOS_앱_링크",
-                  "schemeAndroid": "Android_앱_링크"
+                  "name": "ボタン_名前",
+                  "linkMo": "モバイル_リンク",
+                  "linkPc": "PC_リンク",
+                  "schemeIos": "iOS_アプリ_リンク",
+                  "schemeAndroid": "Android_アプリ_リンク"
                 }
               ],
               "image": {
-                "attachmentId": "첨부_파일_아이디",
-                "imageLink": "이미지_링크_URL"
+                "attachmentId": "添付_ファイル_ID",
+                "imageLink": "画像_リンク_URL"
               },
               "coupon": {
-                "title": "쿠폰_제목",
-                "description": "쿠폰_상세_설명",
-                "linkMo": "모바일_링크",
-                "linkPc": "PC_링크",
-                "schemeIos": "iOS_앱_링크",
-                "schemeAndroid": "Android_앱_링크"
+                "title": "クーポン_タイトル",
+                "description": "クーポン_詳細_説明",
+                "linkMo": "モバイル_リンク",
+                "linkPc": "PC_リンク",
+                "schemeIos": "iOS_アプリ_リンク",
+                "schemeAndroid": "Android_アプリ_リンク"
               }
             }
           },
           {
-            "header": "캐러셀_아이템_제목",
-            "message": "캐러셀_아이템_메시지",
+            "header": "カルーセル_アイテム_タイトル",
+            "message": "カルーセル_アイテム_メッセージ",
             "attachment": {
               "buttons": [
                 {
                   "type": "WL",
-                  "name": "버튼_이름",
-                  "linkMo": "모바일_링크",
-                  "linkPc": "PC_링크",
-                  "schemeIos": "iOS_앱_링크",
-                  "schemeAndroid": "Android_앱_링크"
+                  "name": "ボタン_名前",
+                  "linkMo": "モバイル_リンク",
+                  "linkPc": "PC_リンク",
+                  "schemeIos": "iOS_アプリ_リンク",
+                  "schemeAndroid": "Android_アプリ_リンク"
                 }
               ],
               "image": {
-                "attachmentId": "첨부_파일_아이디",
-                "imageLink": "이미지_링크_URL"
+                "attachmentId": "添付_ファイル_ID",
+                "imageLink": "画像_リンク_URL"
               },
               "coupon": {
-                "title": "쿠폰_제목",
-                "description": "쿠폰_상세_설명",
-                "linkMo": "모바일_링크",
-                "linkPc": "PC_링크",
-                "schemeIos": "iOS_앱_링크",
-                "schemeAndroid": "Android_앱_링크"
+                "title": "クーポン_タイトル",
+                "description": "クーポン_詳細_説明",
+                "linkMo": "モバイル_リンク",
+                "linkPc": "PC_リンク",
+                "schemeIos": "iOS_アプリ_リンク",
+                "schemeAndroid": "Android_アプリ_リンク"
               }
             }
           }
         ],
         "tail": {
-          "linkMo": "모바일_링크",
-          "linkPc": "PC_링크",
-          "schemeAndroid": "Android_앱_링크",
-          "schemeIos": "iOS_앱_링크"
+          "linkMo": "モバイル_リンク",
+          "linkPc": "PC_リンク",
+          "schemeAndroid": "Android_アプリ_リンク",
+          "schemeIos": "iOS_アプリ_リンク"
         }
       }
     }
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 |------------------------------------------------------------|---------------|----|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| sender | Object | Y | 발신자 |
-| sender.senderKey | Object | Y | 발신 프로필_발신 키 |
-| content | Object | Y | 메시지 내용 |
-| content.messageType | String | Y | 메시지 유형 |
-| content.carousel | Object | Y | 캐러셀 |
-| content.carousel.list | Object Array | Y | 캐러셀 리스트(최소 2개, 최대 10개) |
-| content.carousel.list[].header | String | Y | 캐러셀 아이템 제목(최대 20자), 캐러셀 피드형에서만 사용 가능 |
-| content.carousel.list[].message | String | Y | 캐러셀 아이템 메시지(최대 180자), 캐러셀 피드형에서만 사용 가능 |
-| content.carousel.list[].attachment | Object | N | 캐러셀 아이템 이미지, 버튼 정보 |
-| content.carousel.list[].attachment.buttons | Object Array | N | 버튼 리스트(최대 2개) |
-| content.carousel.list[].attachment.buttons[].type | String | Y | 버튼 타입<br>WL(웹 링크), AL(앱 링크), BK(봇 키워드), MD(메시지 전달), BF(비즈니스폼) |
-| content.carousel.list[].attachment.buttons[].name | String | Y | 버튼 이름 |
-| content.carousel.list[].attachment.buttons[].linkMo | String | N | 링크 모바일, 버튼 타입이 WL이면 필수 |
-| content.carousel.list[].attachment.buttons[].linkPc | String | N | 링크 PC |
-| content.carousel.list[].attachment.buttons[].schemeIos | String | N | iOS 앱 링크 |
-| content.carousel.list[].attachment.buttons[].schemeAndroid | String | N | Android 앱 링크 |
-| content.carousel.list[].attachment.image | Object | Y | 캐러셀 이미지 |
-| content.carousel.list[].attachment.image.attachmentId | String | Y | 첨부 파일 id |
-| content.carousel.list[].attachment.image.imageLink | String | N | 이미지 링크 URL |
-| content.carousel.list[].attachment.coupon | Object | N | 쿠폰 |
-| content.carousel.list[].attachment.coupon.title | String | Y | 제목, 경우 5가지 형식으로 제한됨<br>"${숫자}원 할인 쿠폰" 숫자는 1 이상 99,999,999 이하<br>"${숫자}% 할인 쿠폰" 숫자는 1 이상 100 이하<br>"배송비 할인 쿠폰"<br><br>"${7자 이내} 무료 쿠폰"<br>"${7자 이내} UP 쿠폰" |
-| content.carousel.list[].attachment.coupon.description | String | Y | 쿠폰 상세 설명(일반 텍스트, 이미지형, 캐러셀 피드형 최대 12자 / 와이드 이미지형, 와이드 아이템 리스트형 최대 18자) |
-| content.carousel.list[].attachment.coupon.linkMo | String | N | 링크 모바일 |
-| content.carousel.list[].attachment.coupon.linkPc | String | N | 링크 PC |
-| content.carousel.list[].attachment.coupon.schemeIos | String | N | iOS 앱 링크 |
-| content.carousel.list[].attachment.coupon.schemeAndroid | String | N | Android 앱 링크 |
-| content.carousel.tail | Object | N | 캐러셀 더보기 버튼 정보 |
-| content.carousel.tail.linkMo | String | Y | 모바일 웹 링크 |
-| content.carousel.tail.linkPc | String | N | 모바일 웹 링크 |
-| content.carousel.tail.schemeIos | String | N | 모바일 웹 링크 |
-| content.carousel.tail.schemeAndroid | String | N | 모바일 웹 링크 |
+| sender | Object | Y | 発信者 |
+| sender.senderKey | Object | Y | 発信プロフィール_発信キー |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | メッセージタイプ |
+| content.carousel | Object | Y | カルーセル |
+| content.carousel.list | Object Array | Y | カルーセルリスト(最小2個、最大10個) |
+| content.carousel.list[].header | String | Y | カルーセルアイテムタイトル(最大20文字)、カルーセルフィード型でのみ使用可能 |
+| content.carousel.list[].message | String | Y | カルーセルアイテムメッセージ(最大180文字)、カルーセルフィード型でのみ使用可能 |
+| content.carousel.list[].attachment | Object | N | カルーセルアイテム画像、ボタン情報 |
+| content.carousel.list[].attachment.buttons | Object Array | N | ボタンリスト(最大2個) |
+| content.carousel.list[].attachment.buttons[].type | String | Y | ボタンタイプ<br>WL(Webリンク)、AL(アプリリンク)、BK(Botキーワード)、MD(メッセージ伝達)、BF(ビジネスフォーム) |
+| content.carousel.list[].attachment.buttons[].name | String | Y | ボタン名 |
+| content.carousel.list[].attachment.buttons[].linkMo | String | N | リンクモバイル、ボタンタイプがWLの場合は必須 |
+| content.carousel.list[].attachment.buttons[].linkPc | String | N | リンクPC |
+| content.carousel.list[].attachment.buttons[].schemeIos | String | N | iOSアプリリンク |
+| content.carousel.list[].attachment.buttons[].schemeAndroid | String | N | Androidアプリリンク |
+| content.carousel.list[].attachment.image | Object | Y | カルーセル画像 |
+| content.carousel.list[].attachment.image.attachmentId | String | Y | 添付ファイルid |
+| content.carousel.list[].attachment.image.imageLink | String | N | 画像リンクURL |
+| content.carousel.list[].attachment.coupon | Object | N | クーポン |
+| content.carousel.list[].attachment.coupon.title | String | Y | タイトル。5つの形式に制限される<br>「${数字}KRW割引クーポン」数字は1以上99,999,999以下<br>「${数字}%割引クーポン」数字は1以上100以下<br>「送料割引クーポン」<br><br>「${7文字以内}無料クーポン」<br>「${7文字以内} UPクーポン」 |
+| content.carousel.list[].attachment.coupon.description | String | Y | クーポン詳細説明(一般テキスト、画像型、カルーセルフィード型最大12文字 / ワイド画像型、ワイドアイテムリスト型最大18文字) |
+| content.carousel.list[].attachment.coupon.linkMo | String | N | リンクモバイル |
+| content.carousel.list[].attachment.coupon.linkPc | String | N | リンクPC |
+| content.carousel.list[].attachment.coupon.schemeIos | String | N | iOSアプリリンク |
+| content.carousel.list[].attachment.coupon.schemeAndroid | String | N | Androidアプリリンク |
+| content.carousel.tail | Object | N | カルーセルさらに表示ボタン情報 |
+| content.carousel.tail.linkMo | String | Y | モバイルWebリンク |
+| content.carousel.tail.linkPc | String | N | モバイルWebリンク |
+| content.carousel.tail.schemeIos | String | N | モバイルWebリンク |
+| content.carousel.tail.schemeAndroid | String | N | モバイルWebリンク |
 
 <span id="free-form-message-request-body-email"></span>
 
@@ -1072,30 +1072,30 @@
     }
   ],
   "content": {
-    "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "title": "[NHN Cloud Notification Hub]告知事項",
+    "body": "こんにちは。NHN Cloud Notification Hubです。",
     "attachmentIds": [
-      "첨부_파일_아이디"
+      "添付_ファイル_ID"
     ]
   }
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- |---------------| --- | --- |
-| sender | Object | N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
-| sender.senderMailAddress | Object | N | 발신자 이메일 주소 |
-| content | Object | Y | 메시지 내용 |
-| content.title | Object | Y | 제목 |
-| content.Object | Y | 내용 |
-| content.attachmentIds | String Array | N | 첨부 파일 아이디 |
+| sender | Object | N | 発信者、プッシュ以外のメッセージチャンネルは必須 |
+| sender.senderMailAddress | Object | N | 発信者メールアドレス |
+| content | Object | Y | メッセージ内容 |
+| content.title | Object | Y | タイトル |
+| content.Object | Y | 内容 |
+| content.attachmentIds | String Array | N | 添付ファイルID |
 
-* 발신자 이메일 주소의 도메인은 소유 인증이 완료되어야 합니다.
-* 첨부 파일은 30MB 이하로 최대 10개까지 업로드할 수 있습니다.
-* 첨부 파일은 총합이 최대 30MB를 초과할 수 없습니다.
-* 최대 30MB까지 첨부 가능하지만 수신하는 이메일 시스템(gmail.com, naver.com 등)의 첨부 파일 제한 정책에 따라 **제한 초과**로 거부되거나 스팸 판정률이 높아질 수 있으므로 10MB 이내로 첨부할 것을 권장합니다.
-* **recipients[].contacts[].contactType** 필드에는 **EMAIL_ADDRESS**만 사용 가능합니다. 
-* **recipients[].contacts[].contact** 필드에는 수신자 이메일 주소를 입력합니다.
+* 発信者メールアドレスのドメインは所有認証が完了している必要があります。
+* 添付ファイルは30MB以下で最大10個までアップロードできます。
+* 添付ファイルの合計が最大30MBを超えることはできません。
+* 最大30MBまで添付可能ですが、受信するメールシステム(gmail.com, naver.comなど)の添付ファイル制限ポリシーにより、**制限超過**として拒否されたり、スパム判定率が高くなる可能性があるため、10MB以内で添付することを推奨します。
+* **recipients[].contacts[].contactType**フィールドには**EMAIL_ADDRESS**のみ使用可能です。
+* **recipients[].contacts[].contact** フィールドには受信者メールアドレスを入力します。
 
 <span id="free-form-message-request-body-push"></span>
 
@@ -1103,7 +1103,7 @@
 
 ```json
 {
-  "statsId": "통계_아이디",
+  "statsId": "統計_ID",
   "scheduledDateTime": "2024-10-29T06:29:00+09:00",
   "confirmBeforeSend": false,
   "recipients": [
@@ -1111,26 +1111,26 @@
       "contacts": [
         {
           "contactType": "TOKEN_FCM",
-          "contact": "토큰"
+          "contact": "トークン"
         }
       ]
     }
   ],
   "content": {
     "unsubscribePhoneNumber": "1234-1234",
-    "unsubscribeGuide": "설정 > 메뉴",
+    "unsubscribeGuide": "設定 > メニュー",
     "style": {
       "useHtmlStyle": true
     },
     "title" : "<b>NHN Cloud </b> Notification",
-    "body" : "<b>출시 이벤트</b> <i>공지 사항 확인</i>",
+    "body" : "<b>リリースイベント</b> <i>告知事項確認</i>",
     "richMessage" : {
       "buttons" : [{
-        "name" : "버튼 이름",
-        "submitName": "전송 버튼 이름",
+        "name" : "ボタン名",
+        "submitName": "送信ボタン名",
         "buttonType" : "REPLY",
         "link" : "myapp://product_detail?product_id=1234",
-        "hint" : "버튼에대한 힌트"
+        "hint" : "ボタンに関するヒント"
       }
       ],
       "media" : {
@@ -1152,8 +1152,8 @@
         "source" : "URL"
       },
       "group" : {
-        "key" : "그룹의 키",
-        "description" : "그룹에대한 설명"
+        "key" : "グループのキー",
+        "description" : "グループの説明"
       }
     },
     "customKey" : "customValue"
@@ -1161,34 +1161,34 @@
 }
 ```
 
-| 이름 | 타입 | 필수 | 설명 |
+| 名前 | タイプ | 必須 | 説明 |
 | --- | --- | --- | --- |
-| content | Object | Y | 메시지 내용 |
-| content.unsubscribePhoneNumber | String | N | 푸시 메시지 수신 거부를 위한 대표 번호 |
-| content.unsubscribeGuide | String | N | 푸시 메시지 수신 거부를 위한 안내 |
-| content.title | String | Y | 제목 |
-| content.body | String | Y | 내용 |
-| content.style.useHtmlStyle | Boolean | Y | HTML 스타일 사용(Android에서만 가능) |
-| content.richMessage | Object | N | 리치 메시지 사용 시 필요 |
-| content.richMessage.buttons | Object Array | N | 리치 메시지에 추가되는 버튼, 최대 3개까지 가능 |
-| content.richMessage.buttons.name | String | N | 버튼 이름 |
-| content.richMessage.buttons.buttonType | String | N | 버튼 타입: REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
-| content.richMessage.buttons.link | String | N | 버튼을 눌렀을 때 연결되는 링크 |
-| content.richMessage.buttons.hint | String | N | 버튼에 대한 힌트 |
-| content.richMessage.media | Object | N | 리치 메시지에 추가되는 미디어 |
-| content.richMessage.media.source | String | N | 미디어의 주소 (URL, LOCAL_RESOURCE 가능) |
-| content.richMessage.media.mediaType | String | N | 미디어 타입: IMAGE, GIF, VIDEO, AUDIO. Android는 IMAGE만 지원 |
-| content.richMessage.media.expandable | Boolean | N | Android에서 미디어 클릭 시 펼침 기능 사용 여부 |
-| content.richMessage.androidMedia | Object | N | Android 기기 전용 미디어. media 형식과 동일 |
-| content.richMessage.iosMedia | Object | N | iOS 기기 전용 미디어. media 형식과 동일 |
-| content.richMessage.largeIcon | Object | N | 리치 메시지에 추가되는 큰 아이콘, Android만 지원 |
-| content.richMessage.largeIcon.source | String | Y | 아이콘의 주소 |
-| content.richMessage.group | Object | N | 여러 메시지를 그룹으로 묶는 기능, Android만 지원 |
-| content.richMessage.group.key | String | Y | 그룹 키 |
-| content.richMessage.group.description | String | Y | 그룹 설명 |
-| content.customKey | Object Array or String Array | N | 사용자 정의 키와 값 |
+| content | Object | Y | メッセージ内容 |
+| content.unsubscribePhoneNumber | String | N | プッシュメッセージ受信拒否のための代表番号 |
+| content.unsubscribeGuide | String | N | プッシュメッセージ受信拒否のための案内 |
+| content.title | String | Y | タイトル |
+| content.body | String | Y | 内容 |
+| content.style.useHtmlStyle | Boolean | Y | HTMLスタイル使用(Androidのみ可能) |
+| content.richMessage | Object | N | リッチメッセージ使用時必要 |
+| content.richMessage.buttons | Object Array | N | リッチメッセージに追加されるボタン。最大3個まで可能 |
+| content.richMessage.buttons.name | String | N | ボタン名 |
+| content.richMessage.buttons.buttonType | String | N | ボタンタイプ: REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
+| content.richMessage.buttons.link | String | N | ボタンを押した時に接続されるリンク |
+| content.richMessage.buttons.hint | String | N | ボタンに関するヒント |
+| content.richMessage.media | Object | N | リッチメッセージに追加されるメディア |
+| content.richMessage.media.source | String | N | メディアのアドレス(URL, LOCAL_RESOURCE可能) |
+| content.richMessage.media.mediaType | String | N | メディアタイプ: IMAGE、GIF、VIDEO、AUDIO。AndroidはIMAGEのみサポート |
+| content.richMessage.media.expandable | Boolean | N | Androidでメディアをクリックしたときに展開機能を使用するかどうか |
+| content.richMessage.androidMedia | Object | N | Android端末専用メディア。media形式と同じ |
+| content.richMessage.iosMedia | Object | N | iOS端末専用メディア。media形式と同じ |
+| content.richMessage.largeIcon | Object | N | リッチメッセージに追加される大きなアイコン。Androidのみサポート |
+| content.richMessage.largeIcon.source | String | Y | アイコンのアドレス |
+| content.richMessage.group | Object | N | 複数のメッセージをグループ化する機能。Androidのみサポート |
+| content.richMessage.group.key | String | Y | グループキー |
+| content.richMessage.group.description | String | Y | グループの説明 |
+| content.customKey | Object Array or String Array | N | ユーザー定義キーと値 |
 
-* 푸시는 **sender** 필드가 필요 없습니다.
-* 푸시는 사용자가 정의한 키와 값을 추가해 **content** 필드를 작성할 수 있습니다.
-* **recipients[].contacts[].contactType** 필드는 **TOKEN_FCM**, **TOKEN_APNS**, **TOKEN_ADM**, **TOKEN_APNS_SANDBOX**, **TOKEN_APNS_VOIP**, **TOKEN_APNS_VOIP_SANDBOX** 중 하나여야 합니다.
-* **recipients[].contacts[].contact** 필드에는 **푸시 토큰**을 입력합니다.
+* プッシュは**sender**フィールドが必要ありません。
+* プッシュはユーザーが定義したキーと値を追加して**content**フィールドを作成できます。
+* **recipients[].contacts[].contactType**フィールドは**TOKEN_FCM**, **TOKEN_APNS**, **TOKEN_ADM**, **TOKEN_APNS_SANDBOX**, **TOKEN_APNS_VOIP**, **TOKEN_APNS_VOIP_SANDBOX**のいずれかでなければなりません。
+* **recipients[].contacts[].contact**フィールドには**プッシュトークン**を入力します。
