@@ -7,6 +7,20 @@
 
 **Notification > Notification Hub > リリースノート**
 
+## 2025. 04. 15.
+### 機能追加
+* [API/Console]サービスで発生する様々なイベント履歴をCloudTrailで確認できます。
+    * 確認可能なイベントリストは[[CloudTrail > 収集されるイベントリスト]](../../../Governance%20&%20Audit/CloudTrail/ko/event-list)を参照してください。
+* [API/Console] RCS認証用メッセージ送信が追加されました。
+* [API]連絡先別受信結果リスト照会APIにレスポンスフィールドが追加されました。
+  * 詳細は[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別受信結果リスト照会]](./api-guide-v1x0/contact-delivery-result/#_1)を参照してください。
+* [Console] RCS BizCenter LMSフォーマット型サポート
+  * RCSメッセージ送信時、LMSフォーマット型で送信できます。
+  * テンプレート作成時にLMSフォーマット型を選択できます。
+
+### 機能改善
+* [API/Console] Pushチャンネルの受信、開封イベントが統計に収集されるように改善しました。
+
 ## 2024. 11. 12.
 
 ### Notification Hubベータ(beta)リリース

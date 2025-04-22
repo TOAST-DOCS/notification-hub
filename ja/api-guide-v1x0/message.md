@@ -1909,62 +1909,37 @@ X-NHN-Authorization: Bearer {accessToken}
 <!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
 
 
-```json
+```
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2021-01-01T00:00:00Z",
+  "sender" : {
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "unsubscribePhoneNumber" : "08012341234"
+  },
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
-    "key": "value"
+    "key1" : "value1",
+    "key2" : "value2"
   },
-  "recipients" : [ 
-    {
-      "contacts" : [ 
-        {
-          "contactType" : "PHONE_NUMBER",
-          "contact" : "01012345678",
-          "clientReference": "test"
-        } 
-      ],
-      "templateParameters" : {
-        "key": "value"
-      }
-    } 
-  ],
-  "instantFlow" : {
-    "steps" : [ 
-      {
-        "messageChannel" : "RCS",
-        "sender" : {
-          "brandId": "ブランド_ID",
-          "chatbotId": "チャットルーム_ID"
-        },
-        "content" : {
-          "lmsType" : "STANDALONE",
-          "cards" : [
-            {
-              "title" : "タイトル",
-              "description" : "本文"
-            }
-          ]
-        },
-        "templateId" : "テンプレート_ID",
-        "nextSteps" : [ 
-          {
-            "messageChannel" : "SMS",
-            "sender" : {
-              "senderPhoneNumber" : "0123456789"
-            },
-            "content" : {
-              "title" : "タイトル",
-              "body" : "本文"
-            },
-            "templateId" : "テンプレート_ID",
-            "nextSteps" : [ ]
-          } 
-        ]
-      } 
-    ]
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "options" : {
+    "expiryOption" : 1,
+    "groupId" : "20240814125609swLmoZTsGr0"
   }
 }
 ```
@@ -2066,16 +2041,11 @@ X-NHN-Authorization: {{accessToken}}
   } ],
   "instantFlow" : {
     "steps" : [ {
-      "messageChannel" : "SMS",
-      "sender" : {
-        "senderPhoneNumber" : "0123456789"
-      },
-      "content" : {
-        "title" : "タイトル",
-        "body" : "本文"
-      },
-      "templateId" : "テンプレート_ID",
-      "nextSteps" : [ ]
+      "messageChannel" : "RCS",
+      "options" : {
+        "expiryOption:" : 1,      
+        "groupId" : "groupId"
+      }
     } ]
   }
 }
@@ -2109,19 +2079,14 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
       } ],
       "instantFlow" : {
         "steps" : [ {
-          "messageChannel" : "SMS",
-          "sender" : {
-            "senderPhoneNumber" : "0123456789"
-          },
-          "content" : {
-            "title" : "タイトル",
-            "body" : "本文"
-          },
-          "templateId" : "テンプレート_ID",
-          "nextSteps" : [ ]
-        } ]
+      "messageChannel" : "RCS",
+      "options" : {
+        "expiryOption:" : 1,      
+        "groupId" : "groupId"
       }
-     }'
+    } ]
+  }
+}
 ```
 
 </details>
@@ -2134,32 +2099,15 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
 ```json
 {
   "instantFlow" : {
-    "steps" : [ 
-      {
-        "messageChannel" : "RCS",
-        "sender" : {
-          "brandId": "ブランド_ID",
-          "chatbotId": "チャットルーム_ID"
-        },
-        "content" : {
-          "lmsType" : "STANDALONE",
-          "cards" : [
-            {
-              "title" : "タイトル",
-              "description" : "本文"
-            }
-          ]
-        },
-        "options": {
-          "expiryOption": 1,
-          "groupId":"groupId"
-        },
-        "templateId" : "テンプレート_ID",
-        "nextSteps" : [ ]
-      } 
-    ]
+    "steps" : [ {
+      "messageChannel" : "RCS",
+           "options" : {
+        "expiryOption:" : 1,
+        "groupId" : "groupId"
+      }
+    } ]
   }
-}
+}'
 ```
 
 <!--リクエスト本文のフィールドを説明します。-->
