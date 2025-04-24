@@ -73,7 +73,7 @@ curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
 * **T**는 날짜와 시간을 구분하는 구분자입니다.
 * **+hh:mm** 또는 **Z**는 표준 시간대 지정자(Time Zone Designator) 를 나타냅니다.
 * Notification Hub API 및 기능에서 초와 밀리초 단위는 사용되지 않습니다.
-* API 응답에서 날짜와 시간은 **YYYY-MM-DDThh:mm:ss.sss+09:000** 형식으로 표기합니다.
+* API 응답에서 날짜와 시간은 **YYYY-MM-DDThh:mm:ss.sss+09:00** 형식으로 표기합니다.
 
 ## 접두사 및 단일 문자 와일드카드 검색
 
