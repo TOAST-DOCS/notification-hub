@@ -30,9 +30,9 @@ To send SMS, LMS, and MMS messages, you need to register a sender number. Once y
 2. Select the type of sender number you want to register and enter the sender number.
 3. Attach the required documents for sender number type.
 
-For more information on the Sender Number Pre-Registration System, see **Preparations before use> Sender Number Pre-Registration System**.
+For more information on the Sender Number Pre-Registration System, see **Service Policy & Precondition > SMS > Sender Number Pre-Registration System**.
 
-* [ Sender Number Pre-Registration System Shortcut ](./preconditions#sender-phone-number-pre-registration)
+* [Sender Number Pre-Registration System Shortcut](./preconditions#sender-phone-number-pre-registration)
 
 <span id="manage-sender-brand"></span>
 
@@ -53,9 +53,9 @@ When the RCS Biz Center has created a brand and set up an agency, registered a c
 
 To send emails, you need a domain, SPF authentication, DKIM authentication, and DMARC authentication that belongs to you.
 
-For more information on sending domains and SPF, DKIM, and DMARC, check ** Preparations before use and Restrictions > Email**.
+For more information on sending domains and SPF, DKIM, and DMARC, check **Service Policy & Precondition > Email**.
 
-* [ Preparations before use and Restrictions > Email](./preconditions/preconditions-email).
+* [Service Policy & Precondition > Email](./preconditions/preconditions-email).
 
 #### Email Domain Registration and Ownership Authentication
 
@@ -89,8 +89,8 @@ v=spf1 include:_spfblocka.toast.com ~all
 For a detailed description of SPF, please refer to the document below.
 
 * [Introduce feature of Email Security Enhancement (SPF) Shortcut](https://meetup.nhncloud.com/posts/244)
-* [RFC 4408  - 4.5 Selecting Records  Shortcut](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
-* [RFC 4408  - 10.1 Processing Limits Shortcut](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
+* [RFC 4408 - 4.5 Selecting Records Shortcut](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
+* [RFC 4408 - 10.1 Processing Limits Shortcut](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
 #### DKIM Authentication
 
@@ -136,9 +136,9 @@ Domains with domain protection enabled cannot be used by other projects. To use 
 
 ### Push Authentication Management
 
-For more information on issuing Push Credentials, check **Usage Policy and Preset Guide > Push**.
+For more information on issuing Push Credentials, check **Service Policy & Precondition > Push**.
 
-* [Preparations before use and Restrictions > Push](./preconditions/preconditions-push)
+* [Service Policy & Precondition > Push](./preconditions/preconditions-push)
 
 #### FCM Authentication Settings
 1. Enable **Service Account Key Registration**.

@@ -65,7 +65,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | flowName | String | Y | 플로우 이름입니다. |
 | description | String | N | 플로우 설명입니다. |
-| messagePurpose | String | Y | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| messagePurpose | String | Y | 발송 내용 유형<br>[NORMAL, AD, AUTH] |
 | steps | Array | Y | 플로우 단계입니다. |
 | steps[].messageChannel | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
 | steps[].templateId | String | N | 템플릿 아이디입니다. |
@@ -97,7 +97,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flowId | String | 플로우 아이디입니다. |
@@ -294,13 +294,13 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flows | Array |  |
 | flows[].flowId | String | 플로우 아이디입니다. |
 | flows[].flowName | String | 플로우 이름입니다. |
-| flows[].messagePurpose | String | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| flows[].messagePurpose | String | 발송 내용 유형<br>[NORMAL, AD, AUTH] |
 | flows[].description | String | 플로우 설명입니다. |
 | flows[].steps | Array | 플로우 단계입니다. |
 | flows[].messageChannels | Array | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
@@ -429,13 +429,13 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flow | Object |  |
 | flow.flowId | String | 플로우 아이디입니다. |
 | flow.flowName | String | 플로우 이름입니다. |
-| flow.messagePurpose | String | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| flow.messagePurpose | String | 발송 내용 유형<br>[NORMAL, AD, AUTH] |
 | flow.description | String | 플로우 설명입니다. |
 | flow.steps | Array | 플로우 단계입니다. |
 | flow.steps[].messageChannel | String | 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
@@ -526,7 +526,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | flowName | String | Y | 플로우 이름입니다. |
 | description | String | N | 플로우 설명입니다. |
-| messagePurpose | String | Y | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| messagePurpose | String | Y | 발송 내용 유형<br>[NORMAL, AD, AUTH] |
 | steps | Array | Y | 플로우 단계입니다. |
 | steps[].messageChannel | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
 | steps[].templateId | String | N | 템플릿 아이디입니다. |
@@ -554,7 +554,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flowId | String | 플로우 아이디입니다. |
@@ -660,7 +660,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -761,11 +761,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | results | Array | 다중 처리 요청의 결과입니다. |
-| results[].isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| results[].isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | results[].resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | results[].resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 

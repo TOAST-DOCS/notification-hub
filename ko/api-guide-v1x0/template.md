@@ -64,8 +64,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
 | categoryId | String | N | 카테고리 아이디 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
 | sender.senderPhoneNumber | String | N | 발신 번호 |
 | content | Object | Y |  |
@@ -96,7 +96,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -224,7 +224,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
@@ -232,8 +232,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | 템플릿명 |
 | templates[].categoryId | String | 카테고리 아이디 |
-| templates[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| templates[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | 템플릿 생성 시각 |
 | templates[].updatedDateTime | String | 템플릿 수정된 시각 |
@@ -339,17 +339,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
 | template.categoryId | String | 카테고리 아이디 |
-| template.messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| template.messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
 | template.sender.senderPhoneNumber | String | 발신 번호 |
 | template.content | Object |  |
@@ -441,8 +441,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
 | sender.senderPhoneNumber | String | N | 발신 번호 |
 | content | Object | Y |  |
@@ -472,7 +472,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -584,7 +584,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -741,8 +741,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
 | categoryId | String | N | 카테고리 아이디 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
 | sender.senderKey | String | N | 발신프로필 발신키 |
 | sender.senderProfileType | String | N | 발신프로필 타입<br>[GROUP, NORMAL] |
@@ -832,7 +832,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -1104,7 +1104,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
@@ -1112,8 +1112,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | 템플릿명 |
 | templates[].categoryId | String | 카테고리 아이디 |
-| templates[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| templates[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | 템플릿 생성 시각 |
 | templates[].updatedDateTime | String | 템플릿 수정된 시각 |
@@ -1214,7 +1214,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
@@ -1222,8 +1222,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | 템플릿명 |
 | templates[].categoryId | String | 카테고리 아이디 |
-| templates[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| templates[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | 템플릿 생성 시각 |
 | templates[].updatedDateTime | String | 템플릿 수정된 시각 |
@@ -1401,17 +1401,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
 | template.categoryId | String | 카테고리 아이디 |
-| template.messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| template.messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
 | template.sender.senderKey | String | 발신프로필 발신키 |
 | template.sender.senderProfileId | String | 카카오톡 채널명 |
@@ -1618,8 +1618,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
 | sender.senderKey | String | N | 발신프로필 발신키 |
 | sender.senderProfileType | String | N | 발신프로필 타입<br>[GROUP, NORMAL] |
@@ -1696,7 +1696,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -1918,7 +1918,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -2014,7 +2014,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -2104,7 +2104,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -2284,7 +2284,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
@@ -2292,10 +2292,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | 템플릿 이름 |
 | templates[].categoryId | String | 카테고리 아이디 |
-| templates[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| templates[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
-| templates[].templateLanguage | String | 템플릿 타입 default: PLAIN_TEXT |
+| templates[].templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | templates[].sender | Object |  |
 | templates[].sender.senderKey | String | 발신프로필 발신키 |
 | templates[].sender.senderProfileId | String | 카카오톡 채널명 |
@@ -2432,7 +2432,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | categories | Array |  |
@@ -2580,8 +2580,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
 | categoryId | String | N | 카테고리 아이디 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | Y |  |
 | sender.senderKey | String | N | 발신프로필 발신키 |
 | content | Object | N |  |
@@ -2653,7 +2653,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -2900,7 +2900,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
@@ -2908,8 +2908,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | 템플릿명 |
 | templates[].categoryId | String | 카테고리 아이디 |
-| templates[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| templates[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | 템플릿 생성 시각 |
 | templates[].updatedDateTime | String | 템플릿 수정된 시각 |
@@ -3075,17 +3075,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
 | template.categoryId | String | 카테고리 아이디 |
-| template.messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| template.messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
 | template.sender.senderKey | String | 발신프로필 발신키 |
 | template.sender.senderProfileId | String | 카카오톡 채널명 |
@@ -3278,8 +3278,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
 | sender.senderKey | String | N | 발신프로필 발신키 |
 | content | Object | Y |  |
@@ -3350,7 +3350,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -3580,7 +3580,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -3665,8 +3665,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
 | categoryId | String | N | 카테고리 아이디 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
 | sender.senderMailAddress | String | Y | 발신 메일 주소 |
 | content | Object | Y |  |
@@ -3696,7 +3696,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -3828,17 +3828,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
 | template.categoryId | String | 카테고리 아이디 |
-| template.messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| template.messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
 | template.sender.senderMailAddress | String | 발신 메일 주소 |
 | template.content | Object |  |
@@ -3942,7 +3942,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
@@ -3950,8 +3950,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | 템플릿명 |
 | templates[].categoryId | String | 카테고리 아이디 |
-| templates[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| templates[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | 템플릿 생성 시각 |
 | templates[].updatedDateTime | String | 템플릿 수정된 시각 |
@@ -4036,8 +4036,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
 | sender.senderMailAddress | String | Y | 발신 메일 주소 |
 | content | Object | Y |  |
@@ -4066,7 +4066,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -4176,7 +4176,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -4312,18 +4312,18 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
 | categoryId | String | N | 카테고리 아이디 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | Y |  |
 | sender.brandId | String | Y | 브랜드 아이디 |
 | sender.chatbotId | String | Y | 대화방(챗봇) 아이디 |
 | content | Object | Y |  |
-| content.messageType | Object | N | RCS 발송 메시지 유형(SMS, LMS, MMS, RBC_TEMPLATE)<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
 | content.title | String | N | 메시지 제목 |
 | content.body | String | N | 메시지 본문 |
-| content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
-| content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | Object | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.smsType | String | N | SMS 타입<br>[STANDALONE] |
+| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
@@ -4366,7 +4366,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -4594,7 +4594,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
@@ -4602,8 +4602,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | 템플릿명 |
 | templates[].categoryId | String | 카테고리 아이디 |
-| templates[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| templates[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | 템플릿 생성 시각 |
 | templates[].updatedDateTime | String | 템플릿 수정된 시각 |
@@ -4764,29 +4764,29 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
 | template.categoryId | String | 카테고리 아이디 |
-| template.messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| template.messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
 | template.sender.brandId | String | 브랜드 아이디 |
 | template.sender.chatbotId | String | 대화방(챗봇) 아이디 |
 | template.content | Object |  |
-| template.content.messageType | Object | RCS 발송 메시지 유형(SMS, LMS, MMS, RBC_TEMPLATE)<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| template.content.messageType | String | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
 | template.content.title | String | 메시지 제목 |
 | template.content.body | String | 메시지 본문 |
-| template.content.smsType | Object | SMS 타입<br>[STANDALONE] |
-| template.content.lmsType | Object | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| template.content.mmsType | Object | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| template.content.smsType | String | SMS 타입<br>[STANDALONE] |
+| template.content.lmsType | String | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| template.content.mmsType | String | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
 | template.content.messagebaseId | String | RCS Biz Center 템플릿 아이디 |
-| template.content.messagebaseformId | Object | RCS Biz Center 에서 지정한 messageBase 양식<br>- SS000000(SMS 기본형)<br>- SL000000(LMS 기본형)<br>- OL00000001(LMS Format 기본형)<br>- OL00000002(LMS Format 타이틀 강조형)<br>- OL00000003(LMS Format 문단형)<br>- SMwThT00(MMS 세로형)<br>- SMwThM00(MMS 가로형)<br>- CMwMhM0200(MMS 슬라이드 중간형(2))<br>- CMwMhM0300(MMS 슬라이드 중간형(3))<br>- CMwMhM0400(MMS 슬라이드 중간형(4))<br>- CMwMhM0500(MMS 슬라이드 중간형(5))<br>- CMwMhM0600(MMS 슬라이드 중간형(6))<br>- CMwShS0200(MMS 슬라이드 작은형(2))<br>- CMwShS0300(MMS 슬라이드 작은형(3))<br>- CMwShS0400(MMS 슬라이드 작은형(4))<br>- CMwShS0500(MMS 슬라이드 작은형(5))<br>- CMwShS0600(MMS 슬라이드 작은형(6))<br>- CLI00001(아이템 상세형)<br>- ITTBNV(썸네일형(세로))<br>- ITTBNH(썸네일형(가로))<br>- ITHIMS(이미지 강조형(1:1))<br>- ITHIMV(이미지 강조형(3:4))<br>- ITSNSS(SNS형)<br>- ITSNSH(SNS형(중간버튼))<br>- ITHITS(이미지 & 타이틀 강조형(1:1))<br>- ITHITV(이미지 & 타이틀 강조형(3:4))<br>- ITCRM2(슬라이드 형(2))<br>- ITCRM3(슬라이드 형(3))<br>- ITCRM4(슬라이드 형(4))<br>- ITCRM5(슬라이드 형(5))<br>- ITCRM6(슬라이드 형(6))<br>- CLT00001(아이템 강조형 DESC)<br>- CLT00002(아이템 강조형 TABLE)<br>- TATA001F(타이틀 자유형 FREE)<br>- TATA001C(타이틀 자유형 CELL)<br>- TATA001D(타이틀 자유형 DESC)<br>- GG000F(타이틀 선택형 FREE)<br>- FF005C(명세서 CELL)<br>- FF005D(명세서 DESC)<br>- FF004C(취소 CELL)<br>- FF004D(취소 DESC)<br>- GG003C(안내 CELL)<br>- GG003D(안내 DESC)<br>- GG002C(인증 CELL)<br>- GG002D(인증 DESC)<br>- GG001C(회원 가입 CELL)<br>- GG001D(회원 가입 DESC)<br>- EE001C(예약 CELL)<br>- EE001D(예약 DESC)<br>- CC003C(배송 CELL)<br>- CC003D(배송 DESC)<br>- FF002C(입금 CELL)<br>- FF002D(입금 DESC)<br>- FF001C(승인 CELL)<br>- FF001D(승인 DESC)<br>- CC002C(주문 CELL)<br>- CC002D(주문 DESC)<br>- CC001C(출고 CELL)<br>- CC001D(출고 DESC)<br>- FF003C(출금 CELL)<br>- FF003D(출금 DESC)<br>- CLL00001(LMS 명세서 A)<br>- CLL00002(LMS 문단형)<br>- CLL00003(LMS 타이들 강조형)<br>- CLL00004(LMS 기본형)<br>- CLL00005(LMS 명세서 B)<br>- CLL00006(LMS 명세서 C)<br><br>[SS000000, SL000000, OL00000001, OL00000002, OL00000003, SMwThT00, SMwThM00, CMwMhM0200, CMwMhM0300, CMwMhM0400, CMwMhM0500, CMwMhM0600, CMwShS0200, CMwShS0300, CMwShS0400, CMwShS0500, CMwShS0600, CLI00001, ITTBNV, ITTBNH, ITHIMS, ITHIMV, ITSNSS, ITSNSH, ITHITS, ITHITV, ITCRM2, ITCRM3, ITCRM4, ITCRM5, ITCRM6, CLT00001, CLT00002, TATA001C, TATA001D, TATA001F, FF005C, FF005D, FF004C, FF004D, GG003C, GG003D, GG002C, GG002D, GG001C, GG001D, GG000F, EE001C, EE001D, CC003C, CC003D, FF002C, FF002D, FF001C, FF001D, CC002C, CC002D, CC001C, CC001D, FF003C, FF003D, CLL00001, CLL00002, CLL00003, CLL00004, CLL00005, CLL00006] |
+| template.content.messagebaseformId | String | RCS Biz Center 에서 지정한 messageBase 양식<br><br>[SS000000(기본형), SL000000(기본형), OL00000001(LMS Format 기본형), OL00000002(LMS Format 타이틀 강조형), OL00000003(LMS Format 문단형), SMwThT00(MMS 세로형), SMwThM00(MMS 가로형), CMwMhM0200(MMS 슬라이드 중간형(2)), CMwMhM0300(MMS 슬라이드 중간형(3)), CMwMhM0400(MMS 슬라이드 중간형(4)), CMwMhM0500(MMS 슬라이드 중간형(5)), CMwMhM0600(MMS 슬라이드 중간형(6)), CMwShS0200(MMS 슬라이드 작은형(2)), CMwShS0300(MMS 슬라이드 작은형(3)), CMwShS0400(MMS 슬라이드 작은형(4)), CMwShS0500(MMS 슬라이드 작은형(5)), CMwShS0600(MMS 슬라이드 작은형(6)), CLI00001(아이템 상세형), ITTBNV(썸네일형(세로)), ITTBNH(썸네일형(가로)), ITHIMS(이미지 강조형(1:1)), ITHIMV(이미지 강조형(3:4)), ITSNSS(SNS형), ITSNSH(SNS형(중간버튼)), ITHITS(이미지 & 타이틀 강조형(1:1)), ITHITV(이미지 & 타이틀 강조형(3:4)), ITCRM2(슬라이드 형(2)), ITCRM3(슬라이드 형(3)), ITCRM4(슬라이드 형(4)), ITCRM5(슬라이드 형(5)), ITCRM6(슬라이드 형(6)), CLT00001(아이템 강조형 DESC), CLT00002(아이템 강조형 TABLE), TATA001C(타이틀 자유형 FREE), TATA001D(타이틀 자유형 CELL), TATA001F(타이틀 자유형 DESC), FF005C(타이틀 선택형 FREE), FF005D(명세서 CELL), FF004C(명세서 DESC), FF004D(취소 CELL), GG003C(취소 DESC), GG003D(안내 CELL), GG002C(안내 DESC), GG002D(인증 CELL), GG001C(인증 DESC), GG001D(회원 가입 CELL), GG000F(회원 가입 DESC), EE001C(예약 CELL), EE001D(예약 DESC), CC003C(배송 CELL), CC003D(배송 DESC), FF002C(입금 CELL), FF002D(입금 DESC), FF001C(승인 CELL), FF001D(승인 DESC), CC002C(주문 CELL), CC002D(주문 DESC), CC001C(출고 CELL), CC001D(출고 DESC), FF003C(출금 CELL), FF003D(출금 DESC), CLL00001(LMS 명세서 A), CLL00002(LMS 문단형), CLL00003(LMS 타이들 강조형), CLL00004(LMS 기본형), CLL00005(LMS 명세서 B), CLL00006(LMS 명세서 C)] |
 | template.content.unsubscribePhoneNumber | String | 수신 거부 번호(광고 발송일 경우 필수) |
 | template.content.cards | Array | RCS 카드 |
 | template.content.cards[].title | String | 제목 |
@@ -4942,18 +4942,18 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
 | sender.brandId | String | Y | 브랜드 아이디 |
 | sender.chatbotId | String | Y | 대화방(챗봇) 아이디 |
 | content | Object | Y |  |
-| content.messageType | Object | N | RCS 발송 메시지 유형(SMS, LMS, MMS, RBC_TEMPLATE)<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
 | content.title | String | N | 메시지 제목 |
 | content.body | String | N | 메시지 본문 |
-| content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
-| content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | Object | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.smsType | String | N | SMS 타입<br>[STANDALONE] |
+| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
@@ -4995,7 +4995,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -5207,7 +5207,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -5332,8 +5332,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
 | categoryId | String | N | 카테고리 아이디 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | content | Object | Y | 푸시 메시지 내용 |
 
 
@@ -5358,7 +5358,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
@@ -5564,7 +5564,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | totalCount | Integer | 총 건수 |
@@ -5572,8 +5572,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | 템플릿명 |
 | templates[].categoryId | String | 카테고리 아이디 |
-| templates[].messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| templates[].messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | 템플릿 생성 시각 |
 | templates[].updatedDateTime | String | 템플릿 수정된 시각 |
@@ -5718,17 +5718,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | template | Object |  |
 | template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | 템플릿 이름 |
 | template.categoryId | String | 카테고리 아이디 |
-| template.messageChannel | Object | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| template.messagePurpose | Object | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.content | Object | 푸시 메시지 내용 |
 | template.createdDateTime | String | 템플릿 생성 시각 |
 | template.updatedDateTime | String | 템플릿 수정된 시각 |
@@ -5853,8 +5853,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
-| messagePurpose | Object | N | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입 default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | content | Object | Y | 푸시 메시지 내용 |
 
 
@@ -5878,7 +5878,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -6068,7 +6068,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -6122,7 +6122,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널입니다. |
+| messageChannel | Path  | String | Y | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
 | templateId | Path  | String | Y | 템플릿 아이디 |
 
 
@@ -6165,7 +6165,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateParameter | Object | 템플릿 파라미터 결과 JSON |

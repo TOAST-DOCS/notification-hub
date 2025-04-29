@@ -35,7 +35,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 요청 파라미터 밑에 추가될 추가 설명입니다.
 
@@ -93,7 +93,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.body | String | Y | 메시지 본문 |
 | content.attachmentIds | Array | N | 첨부 파일 아이디 최대 3개 |
 
-
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
 * 메시지 채널에 따라 **recipients[].contact.contactType**, **recipients[].contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
 * 예약 발송의 경우 **scheduledDateTime**를 설정합니다. 발송이 시작되기 전의 예약 발송은 요청 취소가 가능합니다. 요청 취소 API를 호출하거나 **Notification Hub 콘솔** > **발송 조회**에서 취소할 수 있습니다.
@@ -137,7 +136,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -245,7 +244,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -404,7 +403,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-
 **응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
@@ -425,7 +423,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -650,7 +648,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -703,7 +701,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-
 **응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
@@ -724,7 +721,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -806,6 +803,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 RCS에 대한 자유 양식 메시지 발송을 요청합니다.
 
+
 **요청**
 
 ```
@@ -820,7 +818,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -927,12 +925,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | N |  |
-| content.messageType | Object | N | RCS 발송 메시지 유형(SMS, LMS, MMS, RBC_TEMPLATE)<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
 | content.title | String | N | 메시지 제목 |
 | content.body | String | N | 메시지 본문 |
-| content.smsType | Object | N | SMS 타입<br>[STANDALONE] |
-| content.lmsType | Object | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | Object | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.smsType | String | N | SMS 타입<br>[STANDALONE] |
+| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
@@ -958,7 +956,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-
 **응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
@@ -979,7 +976,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -1194,7 +1191,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -1282,7 +1279,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-
 **응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
@@ -1303,7 +1299,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -1488,8 +1484,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널입니다. |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messageChannel | Path  | String | Y | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -1539,7 +1535,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-
 **응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
@@ -1560,7 +1555,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -1667,7 +1662,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -1722,7 +1717,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-
 **응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
@@ -1743,7 +1737,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -1852,7 +1846,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -1919,7 +1913,6 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 
 
-
 **응답 본문**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
@@ -1940,7 +1933,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -2063,7 +2056,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -2096,11 +2089,21 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "flow" : {
     "steps" : [ {
-      "messageChannel" : "RCS",
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "제목",
+        "body" : "본문"
+      },
       "options" : {
         "expiryOption:" : 1,
-        "groupId" : "groupId"
-      }
+        "groupId\"" : "groupId"
+      },
+      "nextSteps" : [ {
+        "messageChannel" : "RCS"
+      } ]
     } ]
   }
 }
@@ -2121,12 +2124,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | flow | Object | N |  |
 | flow.steps | Array | Y |  |
-| flow.steps[].messageChannel | Object | Y | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| flow.steps[].messageChannel | String | Y | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
 | flow.steps[].sender | Object | N | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].content | Object | N | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].options | Object | N | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].nextSteps | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
-
 
 
 
@@ -2150,7 +2152,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -2193,11 +2195,21 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "flow" : {
     "steps" : [ {
-      "messageChannel" : "RCS",
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "제목",
+        "body" : "본문"
+      },
       "options" : {
         "expiryOption:" : 1,
-        "groupId" : "groupId"
-      }
+        "groupId\"" : "groupId"
+      },
+      "nextSteps" : [ {
+        "messageChannel" : "RCS"
+      } ]
     } ]
   }
 }
@@ -2235,11 +2247,21 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
   "id" : "alpha123",
   "flow" : {
     "steps" : [ {
-      "messageChannel" : "RCS",
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "제목",
+        "body" : "본문"
+      },
       "options" : {
         "expiryOption:" : 1,
-        "groupId" : "groupId"
-      }
+        "groupId\"" : "groupId"
+      },
+      "nextSteps" : [ {
+        "messageChannel" : "RCS"
+      } ]
     } ]
   }
 }'
@@ -2265,7 +2287,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다. |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 
 
 
@@ -2304,6 +2326,10 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
         "title" : "제목",
         "body" : "본문"
       },
+      "options" : {
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
@@ -2324,13 +2350,12 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | instantFlow | Object | Y |  |
 | instantFlow.steps | Array | Y |  |
-| instantFlow.steps[].messageChannel | Object | Y | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| instantFlow.steps[].messageChannel | String | Y | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
 | instantFlow.steps[].sender | Object | N | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].content | Object | N | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].options | Object | N | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].nextSteps | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다. |
-
 
 
 
@@ -2354,7 +2379,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
@@ -2401,6 +2426,10 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
         "title" : "제목",
         "body" : "본문"
       },
+      "options" : {
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
@@ -2444,6 +2473,10 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
         "title" : "제목",
         "body" : "본문"
       },
+      "options" : {
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
@@ -2475,7 +2508,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageId | Path  | String | Y |  |
+| messageId | Path  | String | Y | null |
 
 
 
@@ -2506,7 +2539,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -2561,7 +2594,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageId | Path  | String | Y |  |
+| messageId | Path  | String | Y | null |
 
 
 
@@ -2592,7 +2625,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | 설명 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
@@ -2625,15 +2658,4 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-confirm" \
 -H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
-<!--요청 본문의 필드를 설명합니다.-->
-
-| 이름                                      | 타입             | 필수 | 설명                                     |
-|-----------------------------------------| ----------------|----|-------------------------------------------|
-| instantFlow.steps[]                            | Array          | Y  | 플로우 단계                                    |
-| instantFlow.steps[].messageChannel             | String         | Y  | 메시지 채널<br>SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH |
-| instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)이 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
-| instantFlow.steps[].sender                     | Object         | N  | 발신자 정보(자유 양식 메시지 발송 요청 RCS 본문 예시 참고) |
-| instantFlow.steps[].content                    | Object         | N  | 메시지 내용(자유 양식 메시지 발송 요청 RCS 본문 예시 참고)  |
-| instantFlow.steps[].options                    | Object         | N  | 발송 옵션(자유 양식 메시지 발송 요청 RCS 본문 예시 참고)  |
-| instantFlow.steps[].nextSteps[]                | Object Array   | N  | 다음 단계입니다.                                |
-
+</details>

@@ -30,7 +30,7 @@ SMS、LMS、MMSメッセージを送信するためには発信番号を登録�
 2. 登録する発信番号タイプを選択し、発信番号を入力します。
 3. 発信番号タイプに必要な書類を添付します。
 
-発信番号事前登録制の詳細については、**使用前の準備事項 > 発信番号事前登録制**をご参照ください。
+発信番号事前登録制の詳細については、**使用前の準備事項 > SMS > 発信番号事前登録制**をご参照ください。
 
 * [発信番号事前登録制](./preconditions#sender-phone-number-pre-registration)
 
@@ -40,7 +40,7 @@ SMS、LMS、MMSメッセージを送信するためには発信番号を登録�
 
 RCSメッセージを送信するには、ブランド連動を完了する必要があります。RCS Biz Centerで事前登録が完了(ブランド承認)したら、NHN Cloudコンソールと連動を行います。RCS Biz Centerでブランドを作成するには、**利用ポリシー及び事前設定案内** > **RCS**を参照してください。
 
-* [利用ポリシー及び事前設定案内 > RCS ](./preconditions/preconditions-rcs)
+* [利用ポリシー及び事前設定案内 > RCS](./preconditions/preconditions-rcs)
 * [RCS Biz Center](https://www.rcsbizcenter.com/main)
 
 RCS Biz Centerでブランド作成及び代理店設定、チャットルーム(発信番号)登録、テンプレート登録が完了(承認)したら、コンソールでブランドを連動します。
@@ -53,9 +53,9 @@ RCS Biz Centerでブランド作成及び代理店設定、チャットルーム
 
 メールを送信するには、自分が所有するドメイン、SPF認証、DKIM認証、DMARC認証が必要です。
 
-送信ドメインとSPF、DKIM、DMARCの詳細については、**使用前の準備及び制限事項 > メール**をご確認ください。
+送信ドメインとSPF、DKIM、DMARCの詳細については、**利用ポリシー及び事前設定案内 > メール**をご確認ください。
 
-* [使用前の準備及び制限事項 > メール](./preconditions/preconditions-email)
+* [利用ポリシー及び事前設定案内 > メール](./preconditions/preconditions-email)
 
 #### メールドメイン登録及び所有権認証
 
@@ -89,8 +89,8 @@ v=spf1 include:_spfblocka.toast.com ～all
 SPFの詳細な説明は、以下の文書を参照してください。
 
 * [Emailセキュリティ強化機能紹介(SPF) ](https://meetup.nhncloud.com/posts/244)
-* [RFC 4408  - 4.5 Selecting Records](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
-* [RFC 4408  - 10.1 Processing Limits](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
+* [RFC 4408 - 4.5 Selecting Records](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
+* [RFC 4408 - 10.1 Processing Limits](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
 #### DKIM認証
 
@@ -138,7 +138,7 @@ DMARCの詳しい説明は、以下の文書を参照してください。
 
 Push認証情報の発行方法は**利用ポリシー及び事前設定案内 > Push**をご確認ください。
 
-* [使用前準備及び制限事項 > Push](./preconditions/preconditions-push)
+* [利用ポリシー及び事前設定案内 > Push](./preconditions/preconditions-push)
 
 #### FCM認証設定
 1. **サービスアカウントキー登録**を有効にします。
