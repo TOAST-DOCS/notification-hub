@@ -7,6 +7,13 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
+## 2025. 05. 27.
+### 기능 추가
+* [Console] 지정한 이벤트 발생 시 URL을 지정하여 웹훅 이벤트를 받을 수 있습니다.
+    * 자세한 내용은 [콘솔 사용 가이드 > 상세 설정 > 웹훅](./console-guide/detailed-setting/#webhook)을 참고하시기 바랍니다.
+* [Console] 지난 메시지 발송 내역을 백업 할 수 있습니다.
+    * 자세한 내용은 [콘솔 사용 가이드 > 상세 설정 > 백업](./console-guide/detailed-setting/#backup)을 참고하시기 바랍니다.
+
 ## 2025. 04. 15.
 ### 기능 추가
 * [API/Console] 서비스에서 발생하는 다양한 이벤트 이력을 CloudTrail에서 확인할 수 있습니다.
