@@ -156,7 +156,6 @@
 * 지원하는 저장소는 [NHN Cloud Object Storage](../../../../Storage/Object%20Storage/ko/Overview/)와 AWS S3입니다.
 * 최대 5개까지 저장소를 지정할 수 있고 각 저장소에는 동일한 파일이 백업됩니다.
 * 본문의 경우 최대 1만자까지 백업됩니다.
-
 * 백업을 위해 필요한 저장소 권한은 다음과 같습니다.
     1. ListBucket - 버킷 유효성 판단(업로드 가능 여부 확인)
     2. deleteObject - 임시 파일 생성 후 삭제(업로드 가능 여부 확인)
