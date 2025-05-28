@@ -154,6 +154,9 @@
 
 * 기본적으로 사용안함으로 설정되어 있으며, 저장소 정보를 입력하여 사용함으로 설정 시 하루 단위로 백업됩니다.
 * 지원하는 저장소는 [NHN Cloud Object Storage](../../../../Storage/Object%20Storage/ko/Overview/)와 AWS S3입니다.
+    * **액세스 키**, **비밀 키**는 [AWS S3 API](../../../../Storage/Object%20Storage/ko/s3-api-guide/#_1)를 이용한 EC2 자격 증명 등록 및 조회로 확인할 수 있습니다.
+    * **버킷이름**은 로그가 저장될 Object Storage 컨테이너의 이름입니다.
+    * **엔드포인트**, **리전**은 로그를 저장할 Object Storage를 관리할 정보이며, [Amazon S3 호환 API 가이드 - AWS SDK](../../../../Storage/Object%20Storage/ko/s3-api-guide/#aws-sdk)에서 확인할 수 있습니다.
 * 최대 5개까지 저장소를 지정할 수 있고 각 저장소에는 동일한 파일이 백업됩니다.
 * 본문의 경우 최대 1만자까지 백업됩니다.
 * 백업을 위해 필요한 저장소 권한은 다음과 같습니다.
