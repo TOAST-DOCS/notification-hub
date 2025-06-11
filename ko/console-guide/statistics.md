@@ -28,16 +28,16 @@ Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 �
 
 #### 메시지 채널, 통계 기준에 따른 통계 이벤트
 
-| 메시지 채널 | 통계 기준 | 이벤트                                                                                                      | 비고 |
-| - | - |----------------------------------------------------------------------------------------------------------| - |
-| 전체 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | 발송 과정에서 발생한 이벤트입니다. |
-| SMS | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | |
-| RCS | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | |
-| 알림톡 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | |
-| 친구톡 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)    | |
-| Push | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED) | 메시지 열람에 대한 이벤트도 수집됩니다. |
-| Email | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED) | 메시지 열람에 대한 이벤트도 수집됩니다. |
-| SMS | 국제 SMS 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)  | |
+| 메시지 채널 | 통계 기준 | 이벤트                                                                                                                 | 비고                     |
+| - | - |---------------------------------------------------------------------------------------------------------------------|------------------------|
+| 전체 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 | 발송 과정에서 발생한 이벤트입니다.    |
+| SMS | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 |                        |
+| RCS | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 |                        |
+| 알림톡 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 |                        |
+| 친구톡 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 |                        |
+| Push | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED)    | 메시지 열람에 대한 이벤트도 수집됩니다. |
+| Email | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED)    | 메시지 열람에 대한 이벤트도 수집됩니다. |
+| SMS | 국제 SMS 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 실발송(CONCAT) | 실발송 : 국제 SMS 메시지에 한해 Concatenated message(연결) 기능을 통해 발송된 실제 메시지 발송 건수|
 
 ### 통계 키 관리
 
