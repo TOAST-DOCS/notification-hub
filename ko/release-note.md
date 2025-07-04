@@ -7,6 +7,16 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
+## 2025. 07. 29.
+### 기능 추가
+* [API/Console] 이미지 레이아웃 리소스가 추가되었습니다.
+  * 이미지 레이아웃은 개인화된 MMS 첨부 이미지를 생성하기 위한 리소스입니다.
+  * 이미지 레이아웃은 MMS 템플릿 생성 시 선택할 수 있으며, MMS 템플릿에 연동된 이미지 레이아웃을 통해 개인화된 이미지를 생성할 수 있습니다.
+  * 자세한 내용은 [콘솔 사용 가이드 > 발송](./console-guide/image-layout), [API v1.0 사용 가이드 > 메시지 > 이미지 레이아웃](./api-guide-v1x0/image-layout)을 참고하시기 바랍니다.
+* [API/Console] MMS 템플릿에 이미지 레이아웃을 연동할 수 있습니다.
+  * MMS 템플릿 생성 시 첨부 파일 섹션에서 이미지 레이아웃을 선택할 수 있습니다.
+  * 자세한 내용은 [콘솔 사용 가이드 > 템플릿](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0 사용 가이드 > 메시지 > MMS 템플릿](./api-guide-v1x0/template/#templateV1x0001CreateSmsTemplate)을 참고하시기 바랍니다.
+
 ## 2025. 05. 27.
 ### 기능 추가
 * [Console] 지정한 이벤트 발생 시 URL을 지정하여 웹훅 이벤트를 받을 수 있습니다.
