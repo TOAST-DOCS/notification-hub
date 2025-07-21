@@ -140,6 +140,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 POST /image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data
 ```
 
 **요청 파라미터**
@@ -155,9 +156,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-이 API는 요청 본문을 요구하지 않습니다.
 
-
+| 이름 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| name | String | Y | 이미지 레이아웃 이름 |
+| backgroundImage | String | Y | 배경 이미지 파일 |
+| cardImage | String | Y | 카드 이미지 파일 |
+| title | String | Y | 제목 |
+| body | String | Y | 본문 |
+| useBarcode | Bolean | Y | 바코드 사용 여부 |
 
 **응답 본문**
 
@@ -415,9 +422,10 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 **요청**
 
 ```
-PATCH /image-layout/v1.0/image-layouts/{id}
+POST /image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data
 ```
 
 **요청 파라미터**
@@ -426,16 +434,21 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| id | Path  | String | Y | 이미지 레이아웃 아이디 |
-
 
 
 **요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-이 API는 요청 본문을 요구하지 않습니다.
 
+| 이름 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| name | String | Y | 이미지 레이아웃 이름 |
+| backgroundImage | String | Y | 배경 이미지 파일 |
+| cardImage | String | Y | 카드 이미지 파일 |
+| title | String | Y | 제목 |
+| body | String | Y | 본문 |
+| useBarcode | Bolean | Y | 바코드 사용 여부 |
 
 
 **응답 본문**
