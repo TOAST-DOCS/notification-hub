@@ -66,8 +66,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "fileName" : "cardImage.png",
       "filePreviewUrl" : "https://example.com/background.png"
     },
-    "title" : "%user%님이 보내신\\n%promotion% 기프트 카드가 도착했어요.",
-    "body" : "* 상품명: 오늘의 상품\\n*유효기간: %expirydate%까지\\n*사용처: 온/오프라인 매장(일부 매장 제외)",
+    "title" : "#{user}님이 보내신\n#{promotion} 기프트 카드가 도착했어요.",
+    "body" : "* 상품명: 오늘의 상품\n*유효기간: #{expirydate}까지\n*사용처: 온/오프라인 매장(일부 매장 제외)",
     "useBarcode" : true,
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
     "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
