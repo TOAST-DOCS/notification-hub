@@ -9,13 +9,13 @@
 
 ## 2025. 07. 29.
 ### 기능 추가
-* [API/Console] 이미지 레이아웃 리소스가 추가되었습니다.
-  * 이미지 레이아웃은 개인화된 MMS 첨부 이미지를 생성하기 위한 리소스입니다.
-  * 이미지 레이아웃은 MMS 템플릿 생성 시 선택할 수 있으며, MMS 템플릿에 연동된 이미지 레이아웃을 통해 개인화된 이미지를 생성할 수 있습니다.
-  * 자세한 내용은 [콘솔 사용 가이드 > 발송](./console-guide/image-layout), [API v1.0 사용 가이드 > 메시지 > 이미지 레이아웃](./api-guide-v1x0/image-layout)을 참고하시기 바랍니다.
+* [API/Console] 이미지 레이아웃 기능이 추가되었습니다.
+    * 이미지 레이아웃은 개인화된 MMS 첨부 이미지를 생성하기 위한 기능입니다.
+    * 이미지 레이아웃은 MMS 템플릿 생성 시 선택할 수 있으며, MMS 템플릿에 연동된 이미지 레이아웃을 통해 개인화된 이미지를 생성할 수 있습니다.
+    * 자세한 내용은 [콘솔 사용 가이드 > 발송](./console-guide/image-layout), [API v1.0 사용 가이드 > 메시지 > 이미지 레이아웃](./api-guide-v1x0/image-layout)을 참고하시기 바랍니다.
 * [API/Console] MMS 템플릿에 이미지 레이아웃을 연동할 수 있습니다.
-  * MMS 템플릿 생성 시 첨부 파일 섹션에서 이미지 레이아웃을 선택할 수 있습니다.
-  * 자세한 내용은 [콘솔 사용 가이드 > 템플릿](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0 사용 가이드 > 메시지 > MMS 템플릿](./api-guide-v1x0/template/#templateV1x0001CreateSmsTemplate)을 참고하시기 바랍니다.
+    * MMS 템플릿 생성 시 첨부 파일 섹션에서 이미지 레이아웃을 선택할 수 있습니다.
+    * 자세한 내용은 [콘솔 사용 가이드 > 템플릿](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0 사용 가이드 > 메시지 > MMS 템플릿](./api-guide-v1x0/template/#templateV1x0001CreateSmsTemplate)을 참고하시기 바랍니다.
 * [Console] 국제 SMS 발송 시, 발송 상세 조회에서 인코딩, 실 발송 건수를 확인할 수 있습니다.
 
 ## 2025. 05. 27.
@@ -31,10 +31,10 @@
     * 확인 가능한 이벤트 목록은 [[CloudTrail > 수집되는 이벤트 목록]](../../../Governance%20&%20Audit/CloudTrail/ko/event-list)을 참고하시기 바랍니다.
 * [API/Console] RCS 인증용 메시지 발송이 추가되었습니다.
 * [API] 연락처별 수신 결과 목록 조회 API에 응답 필드가 추가되었습니다.
-  * 자세한 내용은 [[API v1.0 사용 가이드 > 연락처별 수신 결과 > 연락처별 수신 결과 목록 조회]](./api-guide-v1x0/contact-delivery-result/#_1)를 참고하시기 바랍니다.
+    * 자세한 내용은 [[API v1.0 사용 가이드 > 연락처별 수신 결과 > 연락처별 수신 결과 목록 조회]](./api-guide-v1x0/contact-delivery-result/#_1)를 참고하시기 바랍니다.
 * [Console] RCS BizCenter LMS 포맷형 지원
-  * RCS 메시지 발송 시 LMS 포맷형으로 발송할 수 있습니다.
-  * 템플릿 생성 시 LMS 포맷형을 선택할 수 있습니다.
+    * RCS 메시지 발송 시 LMS 포맷형으로 발송할 수 있습니다.
+    * 템플릿 생성 시 LMS 포맷형을 선택할 수 있습니다.
 
 ### 기능 개선
 * [API/Console] Push 채널의 수신, 열림 이벤트가 통계에 수집되도록 개선되었습니다.
