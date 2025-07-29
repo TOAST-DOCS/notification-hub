@@ -2180,26 +2180,7 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123",
-  "flow" : {
-    "steps" : [ {
-      "messageChannel" : "SMS",
-      "sender" : {
-        "senderPhoneNumber" : "0123456789"
-      },
-      "content" : {
-        "title" : "제목",
-        "body" : "본문"
-      },
-      "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
-      },
-      "nextSteps" : [ {
-        "messageChannel" : "RCS"
-      } ]
-    } ]
-  }
+  "id" : "alpha123"
 }
 ```
 
