@@ -2027,6 +2027,218 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 ```
 
 </details>
+<span id="messageV1x0008SmsTemplateMessages"></span>
+
+## SMS 템플릿 메시지 발송
+
+등록한 템플릿을 이용해 메시지를 발송합니다.<br>
+등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
+<br>
+수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
+* 단건 수신자(recipient)<br>
+* 대량/그룹 수신자(id)<br>
+  <br>
+  예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
+  확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
+
+이미지 레이아웃이 연동된 MMS 템플릿 발송 시 다음 사항을 유의해야 합니다.
+* **필수 템플릿 파라미터**: `cardNumber`, `scratchNumber`를 반드시 포함해야 합니다.
+    * `cardNumber`: 바코드 생성에 사용되며, 반드시 16자리 숫자로 구성되어야 합니다.
+    * `scratchNumber`: 별도 제약 조건이 없습니다.
+* **이미지 레이아웃 Override**: 요청 본문에 `content.imageLayoutId` 또는 `content.imageLayoutName`을 포함하여 템플릿에 설정된 이미지 레이아웃을 변경할 수 있습니다.
+    * `content.imageLayoutId`와 `content.imageLayoutName` 중 하나만 사용해야 합니다.
+    * 두 필드 모두 포함되지 않으면 템플릿 생성 시 연동한 기본 이미지 레이아웃이 사용됩니다.
+
+
+**요청**
+
+```
+POST /message/v1.0/SMS/template-messages/{messagePurpose}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "content" : {
+    "imageLayoutId" : "aA123456",
+    "imageLayoutName" : "2025-프로모션-레이아웃"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| statsKeyId | String | N | 통계 키 아이디 |
+| templateId | String | N | 템플릿 ID |
+| scheduledDateTime | String | N | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
+| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| content | Object | N |  |
+| content.imageLayoutId | String | N | 이미지 레이아웃 아이디 |
+| content.imageLayoutName | String | N | 이미지 레이아웃 이름 |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | Y |  |
+| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMS 템플릿 메시지 발송
+
+POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
+
+{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "content" : {
+    "imageLayoutId" : "aA123456",
+    "imageLayoutName" : "2025-프로모션-레이아웃"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "flow" : {
+    "steps" : [ {
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "제목",
+        "body" : "본문"
+      },
+      "options" : {
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
+      "nextSteps" : [ {
+        "messageChannel" : "RCS"
+      } ]
+    } ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" \
+-d '{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "content" : {
+    "imageLayoutId" : "aA123456",
+    "imageLayoutName" : "2025-프로모션-레이아웃"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+}'
+```
+
+</details>
 <span id="messageV1x0009FlowMessages"></span>
 
 ## 플로우 메시지 발송
