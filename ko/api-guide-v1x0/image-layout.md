@@ -160,11 +160,11 @@ Content-Type: multipart/form-data
 | 이름 | 타입 | 필수 | 설명 |
 | - | - | - | - |
 | name | String | Y | 이미지 레이아웃 이름 |
-| backgroundImage | String | Y | 배경 이미지 파일 |
-| cardImage | String | Y | 카드 이미지 파일 |
+| backgroundImage | File | Y | 배경 이미지 파일 |
+| cardImage | File | Y | 카드 이미지 파일 |
 | title | String | Y | 제목 |
 | body | String | Y | 본문 |
-| useBarcode | Bolean | Y | 바코드 사용 여부 |
+| useBarcode | Boolean | Y | 바코드 사용 여부 |
 
 **응답 본문**
 
@@ -205,8 +205,14 @@ Content-Type: multipart/form-data
 POST {{endpoint}}/image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data
 
-
+name=이미지-레이아웃
+title=제목
+body=본문
+useBarcode=true
+backgroundImage=@{{pathToImage}}
+cardImage=@{{pathToImage}}
 ```
 
 </details>
@@ -217,7 +223,14 @@ X-NHN-Authorization: Bearer {accessToken}
 ```http
 curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H 'Content-Type: multipart/form-data' \
+-F "name=이미지-레이아웃" \
+-F "backgroundImage=@{pathToImage}" \
+-F "cardImage=@{pathToImage}" \
+-F "title=제목" \
+-F "body=본문" \
+-F "useBarcode=true"
 ```
 
 </details>
@@ -417,12 +430,12 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 
 ## 이미지 레이아웃 수정
 
-이미지 레이아웃을 수정합니다.
+이미지 레이아웃을 수정합니다. 수정이 필요한 필드만 입력하여 부분 수정이 가능합니다.
 
 **요청**
 
 ```
-POST /image-layout/v1.0/image-layouts
+PATCH /image-layout/v1.0/image-layouts/{id}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 Content-Type: multipart/form-data
@@ -443,12 +456,12 @@ Content-Type: multipart/form-data
 
 | 이름 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| name | String | Y | 이미지 레이아웃 이름 |
-| backgroundImage | String | Y | 배경 이미지 파일 |
-| cardImage | String | Y | 카드 이미지 파일 |
-| title | String | Y | 제목 |
-| body | String | Y | 본문 |
-| useBarcode | Bolean | Y | 바코드 사용 여부 |
+| name | String | N | 이미지 레이아웃 이름 |
+| backgroundImage | String | N | 배경 이미지 파일 |
+| cardImage | String | N | 카드 이미지 파일 |
+| title | String | N | 제목 |
+| body | String | N | 본문 |
+| useBarcode | Bolean | N | 바코드 사용 여부 |
 
 
 **응답 본문**
@@ -488,8 +501,14 @@ Content-Type: multipart/form-data
 PATCH {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data
 
-
+name=이미지-레이아웃
+title=제목
+body=본문
+useBarcode=true
+backgroundImage=@{{pathToImage}}
+cardImage=@{{pathToImage}}
 ```
 
 </details>
@@ -500,7 +519,14 @@ X-NHN-Authorization: Bearer {accessToken}
 ```http
 curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H 'Content-Type: multipart/form-data' \
+-F "name=이미지-레이아웃" \
+-F "backgroundImage=@{pathToImage}" \
+-F "cardImage=@{pathToImage}" \
+-F "title=제목" \
+-F "body=본문" \
+-F "useBarcode=true"
 ```
 
 </details>
