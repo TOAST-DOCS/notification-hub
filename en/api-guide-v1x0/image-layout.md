@@ -160,11 +160,11 @@ Content-Type: multipart/form-data
 | Name | Type | Required | Description |
 | - | - | - | - |
 | name | String | Y | Image Layout Name |
-| backgroundImage | String | Y | Background image file |
-| cardImage | String | Y | Card image file |
+| backgroundImage | File | Y | Background image file |
+| cardImage | File | Y | Card image file |
 | title | String | Y | Title |
 | body | String | Y | Body |
-| useBarcode | Bolean | Y | Whether to use a barcode |
+| useBarcode | Boolean | Y | Whether to use a barcode |
 
 **Response Body**
 
@@ -205,8 +205,14 @@ Content-Type: multipart/form-data
 POST {{endpoint}}/image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data
 
-
+name=image-layout
+title=title
+body=body
+useBarcode=true
+backgroundImage=@{{pathToImage}}
+cardImage=@{{pathToImage}}
 ```
 
 </details>
@@ -217,7 +223,14 @@ X-NHN-Authorization: Bearer {accessToken}
 ```http
 curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H 'Content-Type: multipart/form-data' \
+-F "name=image-layout" \
+-F "backgroundImage=@{pathToImage}" \
+-F "cardImage=@{pathToImage}" \
+-F "title=title" \
+-F "body=body" \
+-F "useBarcode=true"
 ```
 
 </details>
@@ -417,12 +430,12 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 
 ## Update Image Layout
 
-Updates an image layout.
+Updates an image layout. Partial updates are possible by entering only the fields that need modification.
 
 **Request**
 
 ```
-POST /image-layout/v1.0/image-layouts
+PATCH /image-layout/v1.0/image-layouts/{id}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 Content-Type: multipart/form-data
@@ -434,6 +447,7 @@ Content-Type: multipart/form-data
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | App Key |
 | X-NHN-Authorization | Header  | String | Y | Access Token |
+| id | Path  | String | Y | Image Layout ID |
 
 
 **Request Body**
@@ -443,12 +457,12 @@ Content-Type: multipart/form-data
 
 | Name | Type | Required | Description |
 | - | - | - | - |
-| name | String | Y | Image Layout Name |
-| backgroundImage | String | Y | Background image file |
-| cardImage | String | Y | Card image file |
-| title | String | Y | Title |
-| body | String | Y | Body |
-| useBarcode | Bolean | Y | Whether to use a barcode |
+| name | String | N | Image Layout Name |
+| backgroundImage | String | N | Background image file |
+| cardImage | String | N | Card image file |
+| title | String | N | Title |
+| body | String | N | Body |
+| useBarcode | Boolean | N | Whether to use a barcode |
 
 
 **Response Body**
@@ -488,8 +502,14 @@ Content-Type: multipart/form-data
 PATCH {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data
 
-
+name=image-layout
+title=title
+body=body
+useBarcode=true
+backgroundImage=@{{pathToImage}}
+cardImage=@{{pathToImage}}
 ```
 
 </details>
@@ -500,7 +520,14 @@ X-NHN-Authorization: Bearer {accessToken}
 ```http
 curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H 'Content-Type: multipart/form-data' \
+-F "name=image-layout" \
+-F "backgroundImage=@{pathToImage}" \
+-F "cardImage=@{pathToImage}" \
+-F "title=title" \
+-F "body=body" \
+-F "useBarcode=true"
 ```
 
 </details>
