@@ -160,11 +160,11 @@ Content-Type: multipart/form-data
 | 名前 | タイプ | 必須 | 説明 |
 | - | - | - | - |
 | name | String | Y | 画像レイアウト名 |
-| backgroundImage | String | Y | 背景画像ファイル |
-| cardImage | String | Y | カード画像ファイル |
+| backgroundImage | File | Y | 背景画像ファイル |
+| cardImage | File | Y | カード画像ファイル |
 | title | String | Y | 件名 |
 | body | String | Y | 本文 |
-| useBarcode | Bolean | Y | バーコード使用可否 |
+| useBarcode | Boolean | Y | バーコード使用可否 |
 
 **レスポンスボディ**
 
@@ -205,8 +205,14 @@ Content-Type: multipart/form-data
 POST {{endpoint}}/image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data
 
-
+name=画像-レイアウト
+title=件名
+body=本文
+useBarcode=true
+backgroundImage=@{{pathToImage}}
+cardImage=@{{pathToImage}}
 ```
 
 </details>
@@ -217,7 +223,14 @@ X-NHN-Authorization: Bearer {accessToken}
 ```http
 curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H 'Content-Type: multipart/form-data' \
+-F "name=画像-レイアウト" \
+-F "backgroundImage=@{pathToImage}" \
+-F "cardImage=@{pathToImage}" \
+-F "title=件名" \
+-F "body=本文" \
+-F "useBarcode=true"
 ```
 
 </details>
@@ -417,12 +430,12 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 
 ## 画像レイアウトの修正
 
-画像レイアウトを修正します。
+画像レイアウトを修正します。修正が必要なフィールドのみ入力して部分修正が可能です。
 
 **リクエスト**
 
 ```
-POST /image-layout/v1.0/image-layouts
+PATCH /image-layout/v1.0/image-layouts/{id}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 Content-Type: multipart/form-data
@@ -443,12 +456,12 @@ Content-Type: multipart/form-data
 
 | 名前 | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| name | String | Y | 画像レイアウト名 |
-| backgroundImage | String | Y | 背景画像ファイル |
-| cardImage | String | Y | カード画像ファイル |
-| title | String | Y | 件名 |
-| body | String | Y | 本文 |
-| useBarcode | Bolean | Y | バーコード使用可否 |
+| name | String | N | 画像レイアウト名 |
+| backgroundImage | String | N | 背景画像ファイル |
+| cardImage | String | N | カード画像ファイル |
+| title | String | N | 件名 |
+| body | String | N | 本文 |
+| useBarcode | Boolean | N | バーコード使用可否 |
 
 
 **レスポンスボディ**
@@ -488,8 +501,14 @@ Content-Type: multipart/form-data
 PATCH {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data
 
-
+name=画像-レイアウト
+title=件名
+body=本文
+useBarcode=true
+backgroundImage=@{{pathToImage}}
+cardImage=@{{pathToImage}}
 ```
 
 </details>
@@ -500,7 +519,14 @@ X-NHN-Authorization: Bearer {accessToken}
 ```http
 curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H 'Content-Type: multipart/form-data' \
+-F "name=画像-レイアウト" \
+-F "backgroundImage=@{pathToImage}" \
+-F "cardImage=@{pathToImage}" \
+-F "title=件名" \
+-F "body=本文" \
+-F "useBarcode=true"
 ```
 
 </details>
