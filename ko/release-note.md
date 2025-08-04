@@ -7,6 +7,12 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
+### 2025. 08. 26.
+#### 기능 개선
+* [API/Console] Notification Hub <-> KakaoTalk Bizmessage, SMS, Email 서비스 간 템플릿 리소스 공유 해제
+    * 템플릿 리소스가 더 이상 서비스 간에 동기화되지 않습니다.
+    * 기존에 공유되어 있던 템플릿은 각 서비스에 그대로 유지되지만, 이후 변경 사항은 다른 서비스와 동기화되지 않습니다.
+
 ## 2025. 07. 29.
 ### 기능 추가
 * [API/Console] 이미지 레이아웃 기능이 추가되었습니다.
