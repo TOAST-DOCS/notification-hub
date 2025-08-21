@@ -7,6 +7,11 @@
 
 **Notification > Notification Hub > Release Notes**
 
+### 2025. 08. 26.
+#### Feature Improvements
+* [API/Console] Support for image templates including financial compliance notice fields
+    * Supports integration and sending of image templates that include financial compliance notice fields.
+
 ## 2025. 07. 29.
 ### New Features
 * [API/Console] Image layout feature has been released.
