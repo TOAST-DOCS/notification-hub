@@ -9,8 +9,8 @@
 
 ### 2025. 08. 26.
 #### Feature Improvements
-* [API/Console] Support for image templates including financial compliance notice fields
-    * Supports integration and sending of image templates that include financial compliance notice fields.
+* [API/Console] Support for RCS image templates including financial compliance notice fields
+    * Supports integration and sending of image templates that include financial compliance notice fields in RCS channels.
 
 ## 2025. 07. 29.
 ### New Features
