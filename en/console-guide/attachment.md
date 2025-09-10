@@ -3,7 +3,7 @@
     display: inline !important;
 }
 </style>
-<h1>Detailed Settings</h1>
+<h1>Attachments</h1>
 
 **Notification > Notification Hub > Console User Guide > Attachments**
 
