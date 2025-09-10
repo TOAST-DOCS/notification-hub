@@ -3,7 +3,7 @@
     display: inline !important;
 }
 </style>
-<h1>상세 설정</h1>
+<h1>첨부 파일</h1>
 
 **Notification > Notification Hub > 콘솔 사용 가이드 > 첨부 파일**
 
@@ -53,4 +53,3 @@
 | - | - | - |
 | 배경 이미지 | .jpg, .jpeg | 가로 500px, 세로 663px |
 | 이미지 | .jpg, .jpeg | 가로 430px, 세로 274px |
-

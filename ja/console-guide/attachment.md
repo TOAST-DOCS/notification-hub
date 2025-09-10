@@ -3,7 +3,7 @@
     display: inline !important;
 }
 </style>
-<h1>詳細設定</h1>
+<h1>添付ファイル</h1>
 
 **Notification > Notification Hub > コンソール利用ガイド > 添付ファイル**
 
