@@ -9,12 +9,6 @@
 
 <span id="notification-hub-api-common-information"></span>
 
-!!! danger 「注意事項」
-    * Notification Hub v1.0 APIは現在アルファ(alpha)状態であり、安定しておらず、実験的な機能が追加または削除される可能性があります。
-    * APIはサービス改善のためにいつでも変更される可能性があり、変更された場合、事前告知なしに変更されることがあります。
-    * Notification HubがGA(General Availability)状態に移行後、公式バージョンに変更されます。
-    * 変更可能な部分は、この文書で説明するAPIエンドポイント、認証、リクエスト制限、リクエスト、レスポンス、フィールドなどの全ての項目が含まれます。
-
 <span id="api-endpoint"></span>
 
 ## APIエンドポイント
