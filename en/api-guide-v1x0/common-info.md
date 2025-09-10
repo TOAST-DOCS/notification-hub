@@ -9,12 +9,6 @@
 
 <span id="notification-hub-api-common-information"></span>
 
-!!! danger "Caution"
-    * Notification Hub API v1.0 is currently in an alpha state, is not stabilized, and experimental features may be added or removed.
-    * The API is subject to change at any time to improve the service, and changes may not be announced in advance.
-    * Notification Hub will change to the official version after it is in General Availability (GA).
-    * The parts that are subject to change include everything described in this document: API endpoints, authentication, request limits, requests, responses, fields, etc.
-
 <span id="api-endpoint"></span>
 
 ## API Endpoint
