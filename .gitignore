@@ -50,6 +50,7 @@ cmake-build-*/
 
 # File-based project format
 *.iws
+*.iml
 
 # IntelliJ
 out/
@@ -77,3 +78,6 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+ko/api-guide-v1x0/.openapi-generator-ignore
+ko/api-guide-v1x0/.openapi-generator/

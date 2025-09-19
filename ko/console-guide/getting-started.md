@@ -30,17 +30,17 @@ SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 
 2. 등록할 발신 번호 타입을 선택하고 발신 번호를 입력합니다.
 3. 발신 번호 타입에 필요한 서류를 첨부합니다.
 
-발신번호 사전 등록제에 대한 자세한 내용은 **사용 전 준비 사항 > 발신번호 사전 등록제**를 참고하세요.
+발신번호 사전 등록제에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > SMS > 발신번호 사전 등록제 시행**을 참고하세요.
 
-* [발신번호 사전 등록제 바로 가기](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
+* [발신번호 사전 등록제 시행 바로 가기](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
 
 <span id="manage-sender-brand"></span>
 
 ### 브랜드 관리
 
-RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS Biz Center에서 사전 등록 사항이 완료(브랜드 승인)되었다면, NHN Cloud 콘솔과 연동을 진행합니다. RCS Biz Center에서 브랜드 생성은 **사용 전 준비 사항** > **RCS**를 참고하세요.
+RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS Biz Center에서 사전 등록 사항이 완료(브랜드 승인)되었다면, NHN Cloud 콘솔과 연동을 진행합니다. RCS Biz Center에서 브랜드 생성은 **이용 정책 및 사전 설정 안내** > **RCS**를 참고하세요.
 
-* [사용 전 준비 및 제한 사항 > RCS 바로 가기](../service-policy-and-precondition/rcs)
+* [이용 정책 및 사전 설정 안내 > RCS 바로 가기](../service-policy-and-precondition/rcs)
 * [RCS Biz Center 바로 가기](https://www.rcsbizcenter.com/main)
 
 RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번호) 등록, 템플릿 등록이 완료(승인)되었으면 콘솔에서 브랜드를 연동합니다.
@@ -53,9 +53,9 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 
 이메일을 보내려면 자신이 소유한 도메인, SPF 인증, DKIM 인증, DMARC 인증이 필요합니다.
 
-발신 도메인 및 SPF, DKIM, DMARC에 대한 자세한 내용은 **사용 전 준비 및 제한 사항 > 이메일**을 확인하세요.
+발신 도메인 및 SPF, DKIM, DMARC에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 이메일**을 확인하세요.
 
-* [사용 전 준비 및 제한 사항 > 이메일](../service-policy-and-precondition/email)
+* [이용 정책 및 사전 설정 안내 > 이메일 바로가기](../service-policy-and-precondition/email)
 
 #### 이메일 도메인 등록 및 소유권 인증
 
@@ -89,8 +89,8 @@ v=spf1 include:_spfblocka.toast.com ~all
 SPF에 대한 자세한 설명은 아래 문서를 참고하세요.
 
 * [Email 보안 강화 기능 소개(SPF) 바로 가기](https://meetup.nhncloud.com/posts/244)
-* [RFC 4408  - 4.5 Selecting Records  바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
-* [RFC 4408  - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
+* [RFC 4408 - 4.5 Selecting Records 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
+* [RFC 4408 - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
 #### DKIM 인증
 
@@ -138,7 +138,7 @@ DMARC에 대한 자세한 설명은 아래 문서를 참고하세요.
 
 Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > Push**를 확인하세요.
 
-* [사용 전 준비 및 제한 사항 > Push](../service-policy-and-precondition/push)
+* [이용 정책 및 사전 설정 안내 > Push 바로 가기](../service-policy-and-precondition/push)
 
 #### FCM 인증 설정
 1. **서비스 계정 키 등록**을 활성화합니다.
@@ -188,7 +188,7 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 
 #### 광고성 문자 발송 시 080 수신 거부 번호 설정
 
-* 080 수신 거부 번호가 계통된 상태에서만 광고 문자를 발송할 수 있습니다.
+* 080 수신 거부 번호가 개통된 상태에서만 광고 문자를 발송할 수 있습니다.
 * **발송 > SMS** 탭에서 발송 목적을 광고로 선택하면 080 수신 거부 번호 선택 창이 나옵니다.
 * **선택 적용**을 클릭하면 광고성 필수 문구를 추가할 수 있습니다.
 * 광고성 발송 시 메시지 본문에 반드시 광고성 필수 문구가 포함되어야 하며 규칙은 다음과 같습니다.

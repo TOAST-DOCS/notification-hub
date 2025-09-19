@@ -3,206 +3,206 @@
     display: inline !important;
 }
 </style>
-<h1>Notification Hub 시작하기</h1>
+<h1>Get Started With Notification Hub</h1>
 
-**Notification > Notification Hub > 콘솔 사용 가이드 > Notification Hub 시작하기**
+**Notification > Notification Hub > Console User Guide > Get Started with Notification Hub **
 
 <span id="identity-verification"></span>
 
-## 본인 인증하기
+## Identity verification
 
-Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 있습니다. 본인 인증에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 본인 인증** 항목을 확인 부탁드립니다.
+The Notification Hub is available after it is activated and Identity verification is completed. For more information on Identity verification, please check the ** Usage Policy and Preset Guide > Identity verification**.
 
-* [본인 인증 가이드 바로 가기](../service-policy-and-precondition/identity-verification)
+* [Go to Identity verification Guide](./2-service-policy#identity-verification)
 
 
 <span id="manage-sender-info"></span>
 
-## 발신 정보 관리
+## Sender Information Management
 
 <span id="manage-sender-phone-number"></span>
 
-### 발신 번호 관리
+### Sender Number Management
 
-SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 합니다. 발신 번호 등록 심사를 요청하고 심사가 승인되면 발신 번호가 등록됩니다.
+To send SMS, LMS, and MMS messages, you need to register a sender number. Once you request a sender number registration review and it is approved, the sender number will be registered.
 
-1. **+ 발신 번호 등록**을 클릭하고 **개인정보 수집 이용 동의서**에 동의합니다.
-2. 등록할 발신 번호 타입을 선택하고 발신 번호를 입력합니다.
-3. 발신 번호 타입에 필요한 서류를 첨부합니다.
+1. Click **+ Add Sender Number** and agree to **Agreement to collect and use Personal Information**.
+2. Select the type of sender number you want to register and enter the sender number.
+3. Attach the required documents for sender number type.
 
-발신번호 사전 등록제에 대한 자세한 내용은 **사용 전 준비 사항 > 발신번호 사전 등록제**를 참고하세요.
+For more information on the Sender Number Pre-Registration System, see **Service Policy & Precondition > SMS > Sender Number Pre-Registration System**.
 
-* [발신번호 사전 등록제 바로 가기](./preconditions#sender-phone-number-pre-registration)
+* [Sender Number Pre-Registration System Shortcut](./preconditions#sender-phone-number-pre-registration)
 
 <span id="manage-sender-brand"></span>
 
-### 브랜드 관리
+### Brand Management
 
-RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS Biz Center에서 사전 등록 사항이 완료(브랜드 승인)되었다면, NHN Cloud 콘솔과 연동을 진행합니다. RCS Biz Center에서 브랜드 생성은 **사용 전 준비 사항** > **RCS**를 참고하세요.
+To send the RCS message, you must complete the brand linkage. If the pre-registration has been completed (brand approved) in the RCS Biz Center, proceed to link with the NHN Cloud console. For information on creating a brand in the RCS Biz Center, see **Service Policy & Precondition** > **RCS**.
 
-* [사용 전 준비 및 제한 사항 > RCS 바로 가기](./preconditions/preconditions-rcs)
-* [RCS Biz Center 바로 가기](https://www.rcsbizcenter.com/main)
+* [Service Policy & Precondition > RCS Shortcut](./preconditions/preconditions-rcs)
+* [Shortcut to the RCS Biz Center](https://www.rcsbizcenter.com/main)
 
-RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번호) 등록, 템플릿 등록이 완료(승인)되었으면 콘솔에서 브랜드를 연동합니다.
+When the RCS Biz Center has created a brand and set up an agency, registered a chat room (sender number), and registered a template (approved), the console will link the brand.
 
-* **+ 브랜드 연동**을 클릭하면 동기화가 완료됩니다.
+* Click **+ Brand linkage ** to complete the connection.
 
 <span id="manage-sender-domain"></span>
 
-### 도메인 관리
+### Manage Domains
 
-이메일을 보내려면 자신이 소유한 도메인, SPF 인증, DKIM 인증, DMARC 인증이 필요합니다.
+To send emails, you need a domain, SPF authentication, DKIM authentication, and DMARC authentication that belongs to you.
 
-발신 도메인 및 SPF, DKIM, DMARC에 대한 자세한 내용은 **사용 전 준비 및 제한 사항 > 이메일**을 확인하세요.
+For more information on sending domains and SPF, DKIM, and DMARC, check **Service Policy & Precondition > Email**.
 
-* [사용 전 준비 및 제한 사항 > 이메일](./preconditions/preconditions-email)
+* [Service Policy & Precondition > Email](./preconditions/preconditions-email).
 
-#### 이메일 도메인 등록 및 소유권 인증
+#### Email Domain Registration and Ownership Authentication
 
-도메인을 등록하고 도메인 소유권을 확인해야 합니다. Notification Hub에서 제공한 값을 이메일 도메인 DNS TXT 레코드에 등록합니다. 제공된 값이 등록한 도메인의 TXT 레코드와 일치 여부로 소유권을 인증합니다.
+You must register the domain and verify ownership of the domain. Register the values provided by Notification Hub in email domain DNS TXT record. Authentication ownership is confirmed by matching the TXT record in the domain you registered.
 
-1. **+ 도메인 등록**을 클릭합니다.
-2. 등록할 루트 도메인을 입력하고 **검증**을 클릭합니다.
-3. 검증에 성공하면 **등록**을 클릭해 등록을 마칩니다.
-4. 도메인 목록에서 도메인 소유 인증 상태의 **인증**을 클릭합니다.
+1. Click **+ Register Domain**.
+2. Enter the root domain to register and click **Verify**.
+3. If verification is successful, click **Register** to complete the registration.
+4. In the Domain list, click **Authentication** in Domain Ownership Authentication Status.
 
-도메인 소유 인증에 성공하면 도메인 인증 상태가 '완료'로 변경됩니다.
+If domain ownership authentication is successful, the domain authentication status changes to 'Completed'.
 
-#### SPF 인증
+#### SPF Authentication
 
-SPF(sender policy framework, 발신자 정책 프레임워크)는 이메일 발신자와 발송 서버의 신뢰성을 검증하기 위한 메커니즘으로, 이메일 수신 서버가 특정 도메인에서 발송된 메일이 실제로 허가된 이메일 발송 서버에서 왔는지 확인합니다. 메일 수신 서버는 발신자의 이메일 도메인 DNS에 등록된 SPF 레코드를 확인하여 등록되지 않은 IP 주소에서 보낸 메일을 스팸 메일로 처리합니다.
+The sender policy framework (SPF) is a mechanism for authentication the credibility of email senders and sending servers, and it ensures that mail from a particular domain actually comes from an authorized email delivery server. The mail receiving server checks the SPF records registered in the sender's email domain DNS and processes mail sent from unregistered IP addresses as spam mail.
 
 **SPF**
 ```
 v=spf1 include:_spfblocka.toast.com ~all
 ```
 
-1. 위 **SPF** 항목의 SPF 레코드를 도메인 TXT 레코드에 등록합니다.
-2. 목록에서 도메인을 선택합니다.
-3. **SPF 레코드 인증 상태** 항목의 **상태 확인**을 클릭해 SPF 인증을 완료합니다.
+1. Register the SPF record of item **SPF** above in the domain TXT record.
+2. Select a domain from the list.
+3. Click **Check Status** in **SPF Record Authentication Status** to complete SPF authentication.
 
 
-!!! danger "주의 사항"
-    * 도메인 TXT 레코드에는 하나의 SPF 레코드만 등록해야 합니다. 도메인 TXT 레코드에 2개 이상 SPF 레코드가 등록된 경우, SPF 인증이 실패해 이메일 수신 서버가 수신을 거부할 수 있습니다.
-    * SPF 레코드를 검사할 때 DNS 조회를 발생시키는 메커니즘(include)과 수정자(redirect)의 사용은 최대 10개로 제한되며, 이를 초과하면 이메일 수신 서버에서 수신을 거부할 수 있습니다.
+!!! danger " Precautions "
+    * Only one SPF record must be registered in the domain TXT record. If more than 2 or more SPF record is registered in the domain TXT record, SPF authentication may fail and the email receiving server may deny reception.
+    * When inspecting SPF records, the use of mechanisms (include) and modifiers (redirects) to generate DNS queries is limited to a maximum of 10 and anything beyond that may cause the email receiving server to deny reception.
     
-SPF에 대한 자세한 설명은 아래 문서를 참고하세요.
+For a detailed description of SPF, please refer to the document below.
 
-* [Email 보안 강화 기능 소개(SPF) 바로 가기](https://meetup.nhncloud.com/posts/244)
-* [RFC 4408  - 4.5 Selecting Records  바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
-* [RFC 4408  - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
+* [Introduce feature of Email Security Enhancement (SPF) Shortcut](https://meetup.nhncloud.com/posts/244)
+* [RFC 4408 - 4.5 Selecting Records Shortcut](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
+* [RFC 4408 - 10.1 Processing Limits Shortcut](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
-#### DKIM 인증
+#### DKIM Authentication
 
-DKIM(domainkeys identified mail, 도메인 키 식별 메일)은 이메일 발송 서버가 이메일을 디지털 서명하고 이메일 수신 서버는 발신자 진위 여부를 확인하여 전송 중에 메시지가 위조, 변조되지 않았는지 확인하는 이메일 검증 방법입니다. DKIM을 통해 스팸 발송자 및 기타 악의적인 공격자가 이메일을 위조, 변조하는 것을 방지할 수 있습니다.
-
-
-1. 도메인 소유 인증 완료 후 목록에서 도메인을 체크하고 **DKIM 설정**을 클릭합니다.
-2. DKIM 인증을 위해 제공된 DNS 호스트 이름에 TXT 레코드 값을 설정하고 아래 **인증**을 클릭합니다.
-    * 등록한 도메인이 `example.com`인 경우, `toast._domainkey.example.com` TXT 레코드에 값을 설정해야 합니다.
-3. 인증이 완료 후 사용 설정을 하고 **저장**을 클릭해 DKIM 인증을 완료합니다.
-
-DKIM에 대한 자세한 설명은 아래 문서를 참고하세요.
-
-* [이메일 보안 강화 기능 소개 - 도메인 보호, DKIM, DMARC 바로 가기](https://meetup.nhncloud.com/posts/248)
+Domainkey identified mail (DKIM) is an email verification method in which an email sending server digitally signs an email and the email receiving server verifies the authenticity of the sender to ensure that messages are not forged or tampered with during delivery. DKIM prevents spammers and other malicious attackers from falsifying and tampering emails.
 
 
-#### DMARC 인증
+1. After completing domain ownership authentication, check the domain in the list and click **DKIM Settings**.
+2. Set the TXT record value in the DNS hostname provided for DKIM authentication and click **Authentication** below.
+    * If the registered domain is `example.com `, you must set a value in `toast._domainkey.example.com ` TXT record.
+3. After the authentication is complete, enable it and click **Save** to complete DKIM authentication.
 
-DMARC(domain-based message authentication reporting and conformance)는 이메일 보안 강화 가능의 마지막 단계입니다. 이메일 스푸핑을 이용한 피싱, 사기 등을 막기 위한 도메인 기반 메시지 인증에 대한 보고 및 준수 정책입니다. 이메일 수신 서버는 발송자 주소 (From) 도메인의 DNS에서 DMARC 레코드를 조회합니다. DMARC 레코드에 정의된 정책에 따라 수신 서버는 수신된 메일을 인증합니다.
+Please refer to the document below for a detailed description of DKIM.
+
+* [Introducing Email Security Enhancements - Domain Protection, DKIM, DMARC Shortcuts](https://meetup.nhncloud.com/posts/248)
+
+
+#### 3. DMARC authentication
+
+Domain-based message authentication reporting and performance (DMARC) is the final step in enabling email security. It is a reporting and compliance policy for domain-based message authentication to prevent phishing and fraud using email spoofing. The email receiving server searches the DMARC record in DNS of the sender address (From) domain. According to the policy defined in the DMARC record, the receiving server authenticates the mail it receives.
 
 **DMARC**
 ```
-"v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:${보고서를_수신할_이메일_주소}"
+"v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:${ Email_address_to_receive_ report }"
 ```
 
-1. 위 **DMARC** 항목의 값에 DMARC 보고서를 수신할 이메일 주소를 추가해 DMARC TXT 레코드를 완성합니다.
-2. `_dmarc.`가 추가된 서브 도메인 TXT 레코드에 등록합니다.
-    * 예: 도메인이 `example.com`인 경우 `_dmarc.example.com`의 TXT 레코드에 등록합니다.
-3.  **DMARC 인증 상태** 항목의 **상태 확인**을 클릭해 DMARC 인증을 완료합니다.
+1. Complete the DMARC TXT record by adding an email address to the value in the above **DMARC** item to receive the DMARC report.
+2. `_dmarc.` registers with the added subdomain TXT record.
+    * For example, if the domain is `example.com ` register with the TXT record of `_dmarc.example.com `.
+3.  Click **Check Status** in **DMARC Authentication Status** to complete DMARC authentication.
 
-DMARC에 대한 자세한 설명은 아래 문서를 참고하세요.
+For a detailed description of DMARC, refer to the document below.
 
-* [이메일 보안 강화 기능 소개 - 도메인 보호, DKIM, DMARC 바로 가기](https://meetup.nhncloud.com/posts/248)
+* [Introducing Email Security Enhancements - Domain Protection, DKIM, DMARC Shortcuts](https://meetup.nhncloud.com/posts/248)
 
-##### 도메인 보호
+##### Domain Protection
 
-도메인 보호가 활성화된 도메인은 다른 프로젝트에서 사용할 수 없습니다. 보호가 된 도메인을 다른 프로젝트에서 사용하기 위해서는 동일하게 도메인 등록과 소유 인증을 받아야 합니다.
+Domains with domain protection enabled cannot be used by other projects. To use the protected domains in other projects, the same domain registration and ownership authentication are required.
 
-!!! danger "주의 사항"
-    도메인 보호를 비활성화하면 다른 프로젝트에서 임의로 도메인을 사용할 수 있습니다. 모든 인증을 완료한 도메인의 경우 다른 프로젝트에서 발송하는 이메일도 동일하게 이메일 수신 서버에서 정상적으로 수신됩니다. 이렇게 발송된 이메일이 스팸이거나 피싱인 경우 수신자에게 피해가 발생할 수 있고 도메인의 평판이 하락해 수신 이메일 서버에서 수신을 거부할 수 있습니다.
+!!! danger " Precautions "
+    If you disable domain protection, you can use the domain arbitrarily for other projects. For all authenticated domains, email from other projects will also be received as normal by the email receiving server. If the email is spam or phishing, the receiver can be harmed and the domain's reputation can be degraded causing the receiving email server to refuse reception.
 
 <span id="manage-sender-push-authorization"></span>
 
-### Push 인증 관리
+### Push Authentication Management
 
-Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > Push**를 확인하세요.
+For more information on issuing Push Credentials, check **Service Policy & Precondition > Push**.
 
-* [사용 전 준비 및 제한 사항 > Push](./preconditions/preconditions-push)
+* [Service Policy & Precondition > Push](./preconditions/preconditions-push)
 
-#### FCM 인증 설정
-1. **서비스 계정 키 등록**을 활성화합니다.
-2. 서비스 계정 키(JSON)에 발급 받은 FCM Service Account Credential 파일의 내용을 복사해 붙여 넣습니다.
-3. **검증 > 저장**을 클릭해 설정을 완료합니다.
+#### FCM Authentication Settings
+1. Enable **Service Account Key Registration**.
+2. Copy and paste the contents of the FCM Service Account Credential file issued to the Service Account Key (JSON).
+3. Click **Authenticate > Save** to complete the setup.
 
-#### APNS 인증 설정
-1. **APNS JWT 인증서 등록**을 활성화합니다.
-2. **팀 아이디**와 **키 아이디**를 입력합니다.
-3. **토픽**을 입력합니다. 토픽은 앱의 번들 아이디(Bundle ID)입니다.
-4. **개인 키** 파일의 내용을 복사해 붙여 넣습니다.
-5. **검증 > 저장**을 클릭해 설정을 완료합니다.
+#### PNS Authentication Settings
+1. Enable **APNS JWT certificate registration**.
+2. Enter your **team ID and** **key ID**.
+3. Enter **Topic**. The topic is the Bundle ID of App.
+4. Copy and paste the contents of the **private key** file.
+5. Click **Authenticate > Save** to complete the setup.
 
-#### ADM 인증 설정
-1. **자격 증명 등록**을 활성화합니다.
-2. **클라이언트 아이디**와 **클라이언트 키**를 입력합니다.
-3. **검증 > 저장**을 클릭해 설정을 완료합니다.
+#### ADM Authentication Settings
+1. Enable **Credentials Registration**.
+2. Enter **Client ID** and **Client Key**.
+3. Click **Authenticate > Save** to complete the setup.
 
 <span id="manage-sender-profile"></span>
 
-### 발신 프로필 관리
+### Manage Outgoing Profiles
 
-알림톡이나 친구톡 발송을 위해서는 발신 프로필 생성 및 등록이 필요합니다.
+You need to create and register an outgoing profile to send a notification or Friendtalk.
 
-발신 프로필 생성은 카카오 비즈니스에서 진행할 수 있습니다.
+Outgoing profiles can be created by Kakao Business.
 
-* [발신 프로필 생성 가이드 바로 가기](./preconditions#ktb-sender-profile)
+* [Outgoing Profile Generation Guide Shortcut](./preconditions#ktb-sender-profile)
 
 
-카카오 비즈니스에서 발신 프로필이 생성 완료되면 다음 순서에 따라 등록합니다.
+Once the outgoing profile has been created in Kakao Business, follow the following steps to register.
 
-1. **+ 발신 프로필 등록**을 클릭하고 발신 프로필 아이디, 관리자 휴대폰 번호, 카테고리를 설정한 뒤 **토큰 요청**을 클릭합니다.
-2. 관리자 휴대폰으로 전송된 토큰을 입력하고 **확인 > 등록**을 클릭하면 발신 프로필 등록이 완료됩니다.
+1. Click **+ Register outgoing profile**, set outgoing profile ID, administrator mobile number, category, and click ** Request token**.
+2. Enter the token sent to the administrator's mobile phone and click **OK > Register** to complete outgoing profile registration.
 
 
 <span id="manage-080-unsubscription-number"></span>
 
-### 080 수신 거부 번호 관리
+### Manage Opt Out Numbers
 
-080 수신 거부 번호는 광고 문자 발송 시, 수신자에게 수신 거부를 제공하는 서비스입니다. 광고성 정보 전송 시, 수신자가 수신 거부나 수신 동의의 철회를 무료로 할 수 있도록 무료 수신 거부 방법을 반드시 기재해야 합니다.
+Opt out number is a service that provides receivers with Unsubscription when sending advertising texts. When sending advertising information, you must include a free Unsubscription method so that the receiver can refuse or withdraw the consent.
 
-#### 가입 신청
+#### Apply Subscription
 
-* **+ 080 수신 거부 번호 신청**을 클릭하고 회사명을 입력합니다. 입력한 회사명은 080 수신 거부 번호로 전화를 걸 때, 안내되는 업체명입니다.
-* 가입 신청을 완료하면 등록 예약 상태로 변경됩니다. 080 수신 거부 서비스 개통은 영업일 기준 3~4일이 소요되고, 개통이 완료되면 사용할 수 있습니다.
-* 개통이 완료되면, 사용 시작 일시와 상태를 확인할 수 있습니다. 080 수신 거부 서비스 등록 예약, 사용 중 상태에서 SMS 상품 이용 종료를 할 수 없습니다. 해지 후, 상품 이용 종료가 가능합니다. 해지하려면 **해지**를 클릭하세요.
+* Click **+ Apply for 080 opt out number** to enter the company name. The company name you entered is the company name that will be displayed when calling the 080 Unsubscription number.
+* When subscription is fully applied, the status is changed to Registration Scheduled. It takes 3 to 4 business days to open the 080-number service for unsubscription, and the service is enabled after opening.
+* Once the opening is complete, you can check the starting date and time of use and the status. SMS product cannot be terminated while the 080-number service is reserved for registration or is being used. The product can be terminated after cancellation. To cancel, click **Cancel**.
 
-#### 광고성 문자 발송 시 080 수신 거부 번호 설정
+#### Set 080 Unsubscription Number When Advertising Texts
 
-* 080 수신 거부 번호가 계통된 상태에서만 광고 문자를 발송할 수 있습니다.
-* **발송 > SMS** 탭에서 발송 목적을 광고로 선택하면 080 수신 거부 번호 선택 창이 나옵니다.
-* **선택 적용**을 클릭하면 광고성 필수 문구를 추가할 수 있습니다.
-* 광고성 발송 시 메시지 본문에 반드시 광고성 필수 문구가 포함되어야 하며 규칙은 다음과 같습니다.
-    * 시작 문구: (광고)
-    * 마지막 문구: 무료수신 거부 {080수신 거부번호} 또는 무료거부 {080수신 거부번호} (해당 문구에는 공백이 포함될 수 있습니다.)
+* Advertising text can only be sent with 080 Unsubscription Number service is opened in a system.
+* If you select the purpose of sending as an advertising on **Send > SMS** tab, the 080 Unsubscription Number Selection window will appear.
+* Click **Opt out** to add required advertising phrases.
+* When sending advertising, the message body must contain required advertising phrases, and the rules are as follows.
+    * Starting phrase: (Advertising)
+    * Ending phrase: Free Unsubscription {080 Unsubscription Number} or Free Unsubscription {080 Unsubscription Number} (the phrase may contain spaces)
 
-##### 예시
+##### Example
 ```
-(광고)
-
-[무료 수신 거부]080XXXXXXX
+(Advertising) 
+ 
+[Free Unsubscription]080XXXXXXX
 ```
 ```
-(광고)
-
-무료거부 080XXXXXXX
+(Advertising) 
+ 
+Free Rejection 080XXXXXXX
 ```

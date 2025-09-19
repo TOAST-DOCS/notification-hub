@@ -13,7 +13,7 @@
 
 발송 요청된 메시지의 발송과 수신 결과를 수신자의 연락처 단위로 조회합니다.
 
-예를 들어, 이메일과 전화번호를 가진 수신자 10명에게 이메일, SMS 템플릿으로 구성된 플로우 메시지 2개를 발송하는 경우, 연락처 별 수신 결과 목록을 조회하면 40개의 항목이 조회됩니다. (연락처 2개 X 수신자 10명 X 플로우 메시지 2개 = 연락처 별 수신 결과 40개)
+예를 들어, 이메일과 전화번호를 가진 수신자 10명에게 이메일, SMS 템플릿으로 구성된 플로우 메시지 2개를 발송하는 경우, 연락처별 수신 결과 목록을 조회하면 40개의 항목이 조회됩니다. (연락처 2개 X 수신자 10명 X 플로우 메시지 2개 = 연락처 별 수신 결과 40개)
 다양한 검색 조건으로 연락처 별 수신 결과를 조회할 수 있습니다.
 
 <!-- !!! tip "알아두기"-->
@@ -27,7 +27,7 @@
 ```
 GET /message/v1.0/contact-delivery-results
 X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: {accessToken}
+X-NHN-Authorization: Bearer {accessToken}
 ```
 
 **요청 파라미터**
@@ -181,7 +181,7 @@ X-NHN-Authorization: {accessToken}
 | header.isSuccessful | Boolean | API 요청 성공 여부 |
 | header.resultCode | Integer | 결과 코드 |
 | header.resultMessage | String | 결과 메시지 |
-| contactDeliveryResults | Object Array | 연락처 별 수신 결과 목록 |
+| contactDeliveryResults | Object Array | 연락처별 수신 결과 목록 |
 | contactDeliveryResults[].messageId | String| 메시지의 아이디 |
 | contactDeliveryResults[].recipientIndex | Number| 수신자 인덱스|
 | contactDeliveryResults[].contactIndex | Number| 연락처 인덱스|
