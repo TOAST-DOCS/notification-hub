@@ -5,108 +5,107 @@
 </style>
 <h1>Push</h1>
 
-**Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > Push**
+**Notification > Notification Hub > 利用ポリシー及び事前設定案内 > Push**
 
-Notification Hub에서 푸시 메시지를 발송하기 위해서는 푸시 서비스에서 발급하는 인증 정보가 필요합니다.
+Notification Hubでプッシュメッセージを送信するためには、プッシュサービスで発行する認証情報が必要です。
 
-Notification Hub에서 지원하는 푸시 서비스는 다음과 같습니다.
-* FCM(firebase cloud messaging): Android 기기 
+Notification Hubでサポートするプッシュサービスは次のとおりです。
+* FCM(firebase cloud messaging): Android端末 
 * APNS(apple push notification service): iPhone
-* ADM(amazon device messaging): Amazon Kindle, Fire 등
+* ADM(amazon device messaging): Amazon Kindle, Fireなど
 
-## 푸시 인증 정보 발급 방법
+## プッシュ認証情報の発行方法
 
 <span id="get-fcm-service-account-credential"></span>
 
 ### FCM Service Account Credential
-Android 기기에 푸시 알림 메시지를 전송하기 위해서는 **Service Account Credential**이 필요합니다.
-**Service Account**(서비스 계정)는 일반적으로 Google Cloud와  A2A(Application to Application) 통신 시 사용하는 특별한 유형의 계정입니다.
+Android端末にプッシュ通知メッセージを送信するためには、**Service Account Credential**が必要です。
+**Service Account**(サービスアカウント)は、一般的にGoogle CloudとA2A(Application to Application)通信時に使用する特別なタイプのアカウントです。
 
-#### FCM Service Account Credential JSON 파일 얻기
-1. [Google Firebase Console](https://console.firebase.google.com)에 접속합니다.
-2. 프로젝트 추가를 통해 새로운 프로젝트를 생성합니다.
-3. 생성된 프로젝트로 이동합니다.
-4. 페이지 왼쪽 상단 프로젝트 개요 옆 톱니바퀴 아이콘을 클릭한 뒤 **프로젝트 설정**을 클릭합니다.
-5. **서비스 계정**을 선택합니다.
-6. Firebase Admin SDK 항목에서 **새 비공개 키 생성**을 클릭해 새로운 **Service Account Credential** JSON 파일을 다운로드합니다.
+#### FCM Service Account Credential JSONファイルを取得
+1. [Google Firebase Console](https://console.firebase.google.com)に接続します。
+2. プロジェクトの追加で新しいプロジェクトを作成します。
+3. 作成されたプロジェクトに移動します。
+4. ページ右上プロジェクト概要の横にある歯車アイコンをクリックし、**プロジェクト設定**をクリックします。
+5. **サービスアカウント**を選択します。
+6. Firebase Admin SDK項目で**新しい秘密鍵の作成**をクリックして、新しい**Service Account Credential**JSONファイルをダウンロードします。
 
-#### FCM Service Account Credential JSON 파일 등록
-1. 콘솔에서 **Notification > Push > 인증서**를 클릭합니다.
-2. 다운로드 받은 JSON 파일을 열어 내용을 복사합니다.
-3. 복사한 내용을 **FCM Service Account Credential** 항목에 붙여 넣고 **등록**을 클릭합니다.
+#### FCM Service Account Credential JSONファイル登録
+1. コンソールで**Notification > Push > 証明書**をクリックします。
+2. ダウンロードしたJSONファイルを開いて内容をコピーします。
+3. コピーした内容を**FCM Service Account Credential** 項目に貼り付けて**登録**をクリックします。
 
 <span id="get-apns-jwt"></span>
 
-### APNS JWT 인증 정보 얻기
-iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Developer 사이트에서 발급 받은 암호 키와 키 ID(Key ID), 팀 ID(Team ID, App ID Prefix), 토픽(Topic)이 필요합니다.
+### APNS JWT認証情報を取得する
+iOS端末にプッシュ通知メッセージを送信するためには、Apple Developerサイトで発行された暗号鍵とキーID(Key ID)、チームID(Team ID, App ID Prefix)、トピック(Topic)が必要です。
 
-#### APNS 암호 키 얻기
-1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
-2. **Keys**를 선택합니다.
-3. **Create a key**를 선택합니다.
-4. **Register a New Key**에서 키 이름 입력, **ENABLE** 항목에서 **Apple Push Notification service (APNs)** 선택 후 **Continue**로 계속 진행합니다.
-5. 내용 확인 후 **Register**를 선택합니다.
-6. **Download**를 선택해 암호 키 파일을 받습니다.
+#### APNS暗号鍵を取得する
+1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
+2. **Keys**を選択します。
+3. **Create a key**を選択します。
+4. **Register a New Key**でキー名を入力、 **ENABLE**項目で**Apple Push Notification service (APNs)**を選択し、**Continue**に進みます。
+5. 内容を確認した後、**Register**を選択します。
+6. **Download**を選択し、パスワードキーファイルを取得します。
 
-#### 키 ID 얻기
-1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
-2. 발급 받은 키(Key)를 선택합니다.
-3. **View Key Details** 항목에서 확인할 수 있습니다.
+#### キーIDを取得する
+1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
+2. 発行されたキー(Key)を選択します。
+3. **View Key Details**項目で確認できます。
 
-#### 팀 ID 얻기
-1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
-2. **Identifiers**를 선택합니다.
-3. **Edit your App ID Configuration** 항목에서 확인할 수 있습니다.
+#### チームIDを取得する
+1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
+2. **Identifiers**を選択します。
+3. **Edit your App ID Configuration** 項目で確認できます。
 
-#### 토픽
-JWT를 이용한 인증을 위해서는 토픽(Topic)이 필요한데, 토픽은 앱의 번들 아이디(Bundle ID)입니다.
+#### トピック
+JWTを利用した認証のためにはトピック(Topic)が必要ですが、トピックはアプリのバンドルID(Bundle ID)です。
 
 
-* [인증 토큰을 사용하여 APNs와 커뮤니케이션하기](https://developer.apple.com/kr/help/account/configure-app-capabilities/communicate-with-apns-using-authentication-tokens)
+* [認証トークンを使用してAPNsとコミュニケーションする](https://developer.apple.com/kr/help/account/configure-app-capabilities/communicate-with-apns-using-authentication-tokens)
 
 
 <span id="get-adm-credential"></span>
 
-### ADM 자격 증명
+### ADM認証情報
 
-Kindle Fire 앱에 푸시 알림 메시지를 전송하기 위해서는 앱의 Client ID와 Client Secret이 필요합니다.
+Kindle Fireアプリにプッシュ通知メッセージを送信するためには、アプリのClient IDとClient Secretが必要です。
 
-#### ADM 애플리케이션 및 프로파일 등록(Client Id, Client Secret 획득)
-1. [ADM 개발자 콘솔](https://developer.amazon.com/home.html)에 접속합니다.
-2. 페이지 왼쪽 상단에서 **APP & SERVICES**를 클릭한 후, 하단에 **Add a New App**을 클릭합니다.
-3. 앱이 생성되면 중간 탭에 있는 **Device Messaging**을 클릭하고 **Create a New Security Profile**을 클릭합니다.
-4. 프로필 생성 완료 후 중간 탭에 있는 **Security Profiles > View Security Profile**을 클릭합니다.
-5. **General** 탭에서 Client ID와 Client Secret 값을 확인할 수 있습니다.
+#### ADMアプリケーション及びプロファイルの登録(Client Id, Client Secret取得)
+1. [ADM開発者コンソール](https://developer.amazon.com/home.html)に接続します。
+2. ページ右上の**APP & SERVICES**をクリックした後、下部にある**Add a New App**をクリックします。
+3. アプリが作成されたら、中央のタブにある**Device Messaging**をクリックし、**Create a New Security Profile**をクリックします。
+4. プロフィール作成完了後、中央のタブにある**Security Profiles > View Security Profile**をクリックします。
+5. **General**タブでClient IDとClient Secret値を確認できます。
 
-#### ADM Kindle 설정 정보 등록(API key 획득)
-1. **Security Profiles** 탭을 클릭한 후 중간에 있는 **Android/Kindle Setting** 탭을 클릭합니다.
-2. App Key Name, Package, MD5 Signature, SHA256 Signature 정보를 입력합니다.
-3. 아래와 같은 명령어로 MD5, SHA256 정보를 조회할 수 있습니다.
+#### ADM Kindle設定情報登録(API key取得)
+1. **Security Profiles**タブをクリックした後、中央にある**Android/Kindle Setting**タブをクリックします。
+2. App Key Name, Package, MD5 Signature, SHA256 Signature情報を入力します。
+3. 下記のコマンドでMD5, SHA256情報を照会できます。
     ```
     > keytool -list -v -keystore {keystoreFileName}
     
-    키 저장소 비밀번호 입력:
-    키 저장소 유형: JKS
-    키 저장소 제공자: SUN
+ キーストアパスワード入力:
+ キーストアタイプ: JKS
+ キーストア提供者: SUN
     
-    키 저장소에 1개의 항목이 포함되어 있습니다.
+ キーストアに1つの項目が含まれています。
     
-    별칭 이름: androiddebugkey
-    생성 날짜: 2018. 5. 9
-    항목 유형: PrivateKeyEntry
-    인증서 체인 길이: 1
-    인증서[1]:
-    소유자: C=US, O=Android, CN=Android Debug
-    발행자: C=US, O=Android, CN=Android Debug
-    일련 번호: 1
-    적합한 시작 날짜: Wed May 09 19:59:46 KST 2018 종료 날짜: Fri May 01 19:59:46 KST 2048
-    인증서 지문:
+ エイリアス名: androiddebugkey
+ 作成日: 2018. 5. 9
+ 項目タイプ: PrivateKeyEntry
+ 証明書チェーンの長さ: 1
+ 証明書[1]:
+ 所有者: C=US, O=Android, CN=Android Debug
+ 発行者: C=US, O=Android, CN=Android Debug
+  シリアル番号: 1
+  適切な開始日: Wed May 09 19:59:46 KST 2018終了日: Fri May 01 19:59:46 KST 2048
+ 証明書指紋:
              MD5:  xxxx
              SHA1: xxxx
              SHA256: xxxx
-    서명 알고리즘 이름: SHA1withRSA
-    주체 공용 키 알고리즘: 1024비트 RSA 키
-    버전: 1
+ 署名アルゴリズム名: SHA1withRSA
+ 主体共用鍵アルゴリズム: 1024ビットRSAキー
+ バージョン: 1
     ```
-4. 등록 완료 후 **Show**를 클릭하면 API key 정보를 조회할 수 있습니다.
-
+4. 登録完了後、**Show**をクリックするとAPI key情報を照会できます。

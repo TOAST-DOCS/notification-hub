@@ -3,20 +3,20 @@
     display: inline !important;
 }
 </style>
-<h1>플로우</h1>
+<h1>Flow</h1>
 
-**Notification > Notification Hub > 콘솔 사용 가이드 > 플로우**
+**Notification > Notification Hub > Console User Guide > Flow**
 
 <span id="flow"></span>
 
-## 플로우
+## Flow
 
-플로우는 다양한 메시지 채널로 메시지를 수신 결과에 따라 순서대로 발송하는 기능입니다. 예를 들어, 공지 사항을 푸시, 이메일, 문자순으로 수신 결과에 따라 순서대로 발송하면 비용을 절약하면서 수신율을 높일 수 있습니다.
+Flow is the feature of sending messages to various message channels according to their reception results. For example, you can increase reception rates while saving money by sending notifications according to their reception results, such as push, email, and text.
 
-1. **+ 플로우 생성**을 클릭합니다.
-2. 플로우 이름을 입력하고 발송 목적을 선택합니다. 설정한 발송 목적에 따라 선택할 수 있는 메시지 채널과 템플릿이 정해집니다.
-    * 발송 목적이 광고이면 알림톡을 사용할 수 없습니다.
-    * 발송 목적이 일치하는 템플릿만 선택할 수 있습니다.
-3. **+** 버튼을 클릭해 플로우 단계을 추가합니다.
-4. 추가된 플로우 단계를 드래그해 발송 순서를 조정하고 메시지 채널을 선택합니다.
-5. 템플릿 이름 칼럼에서 **선택**을 클릭하고 플로우에 사용할 템플릿을 선택합니다.
+1. Click **+ Create Flow**.
+2. Enter a flow name and select the object for sending. The purpose you set for sending determines which message channels and templates you can select.
+    * AlimTalk cannot be used if the purpose of sending is advertising.
+    * You can only select templates that match the purpose of sending.
+3. Click the **+** button to add a flow step.
+4. Drag the added flow step to adjust the sending order and select a message channel.
+5. In the Template Name column, click **Select** and select the template to use for the flow.
