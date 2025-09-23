@@ -39,8 +39,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-이 API는 요청 본문을 요구하지 않습니다.
-
+| 경로 | 타입 | 필수 | 설명 |
+| --- | --- | --- | --- |
+| file | Binary | Y | 업로드할 파일 |
+| fileName | String |  Y | 파일 명 | 
+| fileTypes | Array | N | 업로드할 파일 타입 |
 
 
 **응답 본문**
@@ -557,7 +560,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```
 {
-  "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT", "EMAIL_TEMPLATE", "SMS_TEMPLATE" ]
+  "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT", "RCS_DEFAULT", "FRIENDTALK_IMAGE", "FRIENDTALK_WIDE_IMAGE", "FRIENDTALK_WIDE_ITEMLIST", "FRIENDTALK_CAROUSEL_FEED", "ALIMTALK_IMAGE", "ALIMTALK_ITEM_HIGHLIGHT_IMAGE" ]
 }
 ```
 
@@ -680,7 +683,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultCode" : 0,
     "resultMessage" : "SUCCESS"
   },
-  "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT" ]
+  "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT", "RCS_DEFAULT", "FRIENDTALK_IMAGE", "FRIENDTALK_WIDE_IMAGE", "FRIENDTALK_WIDE_ITEMLIST", "FRIENDTALK_CAROUSEL_FEED", "ALIMTALK_IMAGE", "ALIMTALK_ITEM_HIGHLIGHT_IMAGE" ]
 }
 ```
 
