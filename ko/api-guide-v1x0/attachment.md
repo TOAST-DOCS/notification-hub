@@ -101,14 +101,12 @@ file=@BINARY_DATA_PATH
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/attachment/v1.0/attachments"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"  \
@@ -118,8 +116,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments"  \
 ```
 
 </details>
-
-
 <span id="attachmentV1x0002ReadAttachments"></span>
 
 ## 첨부 파일 목록 조회
@@ -216,22 +212,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/attachment/v1.0/attachments"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="attachmentV1x0003ReadAttachment"></span>
 
 ## 첨부 파일 단건 조회
@@ -325,22 +317,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="attachmentV1x0004DoValidateAttachments"></span>
 
 ## 업로드 전 첨부 파일 유효성 검사
@@ -429,14 +417,12 @@ file=@BINARY_DATA_PATH
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"  \
@@ -446,8 +432,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate"  \
 ```
 
 </details>
-
-
 <span id="attachmentV1x0005DoValidateAttachment"></span>
 
 ## 업로드된 첨부 파일 유효성 검사
@@ -544,14 +528,12 @@ X-NHN-Authorization: Bearer {accessToken}
   "fileTypes" : [ "EMAIL_DEFAULT" ]
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validate"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -562,8 +544,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 ```
 
 </details>
-
-
 <span id="attachmentV1x0006UpdateFileType"></span>
 
 ## 업로드된 첨부 파일의 파일 유형 수정
@@ -660,14 +640,12 @@ X-NHN-Authorization: Bearer {accessToken}
   "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT", "EMAIL_TEMPLATE", "SMS_TEMPLATE" ]
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -678,8 +656,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 ```
 
 </details>
-
-
 <span id="attachmentV1x0007ReadFileTypes"></span>
 
 ## 첨부 파일 유형 목록 조회
@@ -756,19 +732,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/attachment/v1.0/attachments/file-types"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-

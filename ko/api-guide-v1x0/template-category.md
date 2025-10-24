@@ -85,22 +85,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
 ## 템플릿 카테고리 단건 조회
@@ -190,22 +186,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
 
 ## 템플릿 카테고리 수정
@@ -296,14 +288,12 @@ X-NHN-Authorization: Bearer {accessToken}
   "parentCategoryId" : "00000000"
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -315,8 +305,6 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
-
-
 <span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
 
 ## 카테고리에 템플릿 추가
@@ -404,14 +392,12 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateId" : "11111111"
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -422,8 +408,6 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 ```
 
 </details>
-
-
 <span id="templateV10MessageChannelCategoriesGet"></span>
 
 ## 템플릿 카테고리 리스트 조회
@@ -508,22 +492,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV10MessageChannelCategoriesPost"></span>
 
 ## 템플릿 카테고리 등록
@@ -615,14 +595,12 @@ X-NHN-Authorization: Bearer {accessToken}
   "name" : "배송완료 안내 카테고리"
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -634,8 +612,6 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories"  \
 ```
 
 </details>
-
-
 <span id="templateV10MessageChannelCategoryTreesGet"></span>
 
 ## 템플릿 카테고리 트리 리스트 조회
@@ -731,19 +707,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/${messageChannel}/category-trees"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-

@@ -142,19 +142,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/stats/v1.0/stats?eventCategory=${eventCategory}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-

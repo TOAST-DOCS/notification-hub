@@ -186,22 +186,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/message/v1.0/contact-delivery-results"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
 ## 최종 발송 상태 메시지 목록 조회
@@ -372,19 +368,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/message/v1.0/final-contact-delivery-results"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-

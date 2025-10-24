@@ -116,22 +116,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="imageLayoutV1x0CreateImageLayout"></span>
 
 ## 이미지 레이아웃 등록
@@ -218,14 +214,12 @@ cardImage=@BINARY_DATA_PATH
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/image-layout/v1.0/image-layouts"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"  \
@@ -238,8 +232,6 @@ curl -X POST "${endpoint}/image-layout/v1.0/image-layouts"  \
 ```
 
 </details>
-
-
 <span id="imageLayoutV1x0DeleteImageLayout"></span>
 
 ## 이미지 레이아웃 삭제
@@ -313,22 +305,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="imageLayoutV1x0GetImageLayoutList"></span>
 
 ## 이미지 레이아웃 리스트 조회
@@ -424,22 +412,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/image-layout/v1.0/image-layouts"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="imageLayoutV1x0UpdateImageLayout"></span>
 
 ## 이미지 레이아웃 수정
@@ -525,14 +509,12 @@ cardImage=@BINARY_DATA_PATH
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"  \
@@ -545,5 +527,3 @@ curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}"  \
 ```
 
 </details>
-
-

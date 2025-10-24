@@ -136,14 +136,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/SMS/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -167,8 +165,6 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0002ReadSmsTemplateList"></span>
 
 ## SMS 템플릿 리스트 조회
@@ -265,22 +261,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/SMS/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0003ReadSmsTemplate"></span>
 
 ## SMS 템플릿 상세 조회
@@ -393,22 +385,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0004UpdateSmsTemplate"></span>
 
 ## SMS 템플릿 수정
@@ -529,14 +517,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -559,8 +545,6 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0005DeleteSmsTemplate"></span>
 
 ## SMS 템플릿 삭제
@@ -634,22 +618,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0006CreateAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 등록
@@ -972,14 +952,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -1073,8 +1051,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0007ReadAlimtalkTemplateList"></span>
 
 ## 알림톡 템플릿 리스트 조회
@@ -1173,22 +1149,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
 
 ## 알림톡 발신자와 관계된 템플릿 리스트 조회
@@ -1287,22 +1259,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0009ReadAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 상세 조회
@@ -1545,22 +1513,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0010UpdateAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 수정
@@ -1835,14 +1799,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -1919,8 +1881,6 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0011DeleteAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 삭제
@@ -1994,22 +1954,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0012InquireAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 문의하기
@@ -2096,14 +2052,12 @@ X-NHN-Authorization: Bearer {accessToken}
   "comment" : "문의 내용 예시"
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -2114,8 +2068,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ```
 
 </details>
-
-
 <span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
 
 ## 알림톡 템플릿 문의하기(파일 첨부)
@@ -2193,14 +2145,12 @@ attachments=@/path/to/file.txt
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries/do-with-file"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"  \
@@ -2209,8 +2159,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ```
 
 </details>
-
-
 <span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
 
 ## 알림톡 템플릿 수정 리스트 조회
@@ -2433,22 +2381,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifications"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
 
 ## 알림톡 템플릿 카테고리 리스트 조회
@@ -2534,22 +2478,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0016CreateFriendtalkTemplate"></span>
 
 ## 친구톡 템플릿 등록
@@ -2830,14 +2770,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/FRIENDTALK/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -2919,8 +2857,6 @@ curl -X POST "${endpoint}/template/v1.0/FRIENDTALK/templates"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0017ReadFriendtalkTemplateList"></span>
 
 ## 친구톡 템플릿 리스트 조회
@@ -3018,22 +2954,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/FRIENDTALK/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0018ReadFriendtalkTemplate"></span>
 
 ## 친구톡 템플릿 상세 조회
@@ -3246,22 +3178,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0019UpdateFriendtalkTemplate"></span>
 
 ## 친구톡 템플릿 수정
@@ -3538,14 +3466,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X PUT "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -3626,8 +3552,6 @@ curl -X PUT "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0020DeleteFriendtalkTemplate"></span>
 
 ## 친구톡 템플릿 삭제
@@ -3701,22 +3625,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X DELETE "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0021CreateEmailTemplate"></span>
 
 ## Email 템플릿 등록
@@ -3835,14 +3755,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/EMAIL/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -3864,8 +3782,6 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0022ReadEmailTemplate"></span>
 
 ## Email 템플릿 상세 조회
@@ -3974,22 +3890,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0022ReadEmailTemplateList"></span>
 
 ## Email 템플릿 리스트 조회
@@ -4086,22 +3998,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/EMAIL/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0023UpdateEmailTemplate"></span>
 
 ## Email 템플릿 수정
@@ -4216,14 +4124,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -4244,8 +4150,6 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0024DeleteEmailTemplate"></span>
 
 ## Email 템플릿 삭제
@@ -4319,22 +4223,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0025CreateRcsTemplate"></span>
 
 ## RCS 템플릿 등록
@@ -4578,14 +4478,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/RCS/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -4658,8 +4556,6 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0026ReadRcsTemplateList"></span>
 
 ## RCS 템플릿 리스트 조회
@@ -4756,22 +4652,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/RCS/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0027ReadRcsTemplate"></span>
 
 ## RCS 템플릿 상세 조회
@@ -4963,22 +4855,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0028UpdateRcsTemplate"></span>
 
 ## RCS 템플릿 수정
@@ -5218,14 +5106,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -5297,8 +5183,6 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0029DeleteRcsTemplate"></span>
 
 ## RCS 템플릿 삭제
@@ -5372,22 +5256,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0030CreatePushTemplate"></span>
 
 ## Push 템플릿 등록
@@ -5581,14 +5461,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/template/v1.0/PUSH/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -5650,8 +5528,6 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0031ReadPushTemplateList"></span>
 
 ## Push 템플릿 리스트 조회
@@ -5748,22 +5624,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/PUSH/templates"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0032ReadPushTemplate"></span>
 
 ## Push 템플릿 상세 조회
@@ -5907,22 +5779,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0033UpdatePushTemplate"></span>
 
 ## Push 템플릿 수정
@@ -6112,14 +5980,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -6180,8 +6046,6 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}"  \
 ```
 
 </details>
-
-
 <span id="templateV1x0034DeletePushTemplate"></span>
 
 ## Push 템플릿 삭제
@@ -6255,22 +6119,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="templateV1x0035ReadTemplateParameters"></span>
 
 ## 템플릿 파라미터 조회
@@ -6357,19 +6217,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}/parameters"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-

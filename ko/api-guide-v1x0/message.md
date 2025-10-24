@@ -186,14 +186,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -227,8 +225,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
-
-
 <span id="messageV1x0002FriendtalkFreeFormMessages"></span>
 
 ## 자유 양식 메시지 발송 요청 - 친구톡(FRIENDTALK)
@@ -537,14 +533,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePurpose}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -637,8 +631,6 @@ curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePu
 ```
 
 </details>
-
-
 <span id="messageV1x0003EmailFreeFormMessages"></span>
 
 ## 자유 양식 메시지 발송 요청 - 이메일(EMAIL)
@@ -777,14 +769,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -813,8 +803,6 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 ```
 
 </details>
-
-
 <span id="messageV1x0004RcsFreeFormMessages"></span>
 
 ## 자유 양식 메시지 발송 요청 - RCS
@@ -1097,14 +1085,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -1192,8 +1178,6 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
-
-
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
 ## 자유 양식 메시지 발송 요청 - PUSH
@@ -1407,14 +1391,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -1483,8 +1465,6 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 ```
 
 </details>
-
-
 <span id="messageV1x0006TemplateMessages"></span>
 
 ## 템플릿 메시지 발송 요청
@@ -1630,14 +1610,12 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123"
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${messagePurpose}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -1667,8 +1645,6 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 ```
 
 </details>
-
-
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 ## 알림톡 템플릿 메시지 발송
@@ -1821,14 +1797,12 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123"
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpose}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -1861,8 +1835,6 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 ```
 
 </details>
-
-
 <span id="messageV1x0008RcsTemplateMessages"></span>
 
 ## RCS 템플릿 메시지 발송
@@ -2028,14 +2000,12 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}"     \
 -d '{
   "statsKeyId" : "aA123456",
@@ -2073,8 +2043,6 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 ```
 
 </details>
-
-
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
 ## SMS 템플릿 메시지 발송
@@ -2224,14 +2192,12 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
   "id" : "alpha123"
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}"     \
 -d '{
   "statsKeyId" : "aA123456",
@@ -2263,8 +2229,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 ```
 
 </details>
-
-
 <span id="messageV1x0009FlowMessages"></span>
 
 ## 플로우 메시지 발송
@@ -2454,14 +2418,12 @@ X-NHN-Authorization: Bearer {accessToken}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"    \
@@ -2510,8 +2472,6 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}"  \
 ```
 
 </details>
-
-
 <span id="messageV1x0010InstantFlowMessages"></span>
 
 ## 인스턴트 플로우 메시지 발송
@@ -2682,14 +2642,12 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
   }
 }
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}"     \
 -d '{
   "statsKeyId" : "aA123456",
@@ -2733,8 +2691,6 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 ```
 
 </details>
-
-
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
 ## 메시지 발송 취소
@@ -2811,22 +2767,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
 <span id="messageV1x0101MessageIdDoConfirm"></span>
 
 ## 메시지 발송 확인
@@ -2901,19 +2853,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
-
 </details>
 
 <details>
     <summary><strong>cURL</strong></summary>
 
 ```http
-
 curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-confirm"  \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"   
 ```
 
 </details>
-
-
