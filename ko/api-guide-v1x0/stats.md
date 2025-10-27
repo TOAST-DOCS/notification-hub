@@ -138,9 +138,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/stats/v1.0/stats?eventCategory={{eventCategory}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -148,9 +145,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/stats/v1.0/stats?eventCategory=${eventCategory}"  \
+curl -X GET "${endpoint}/stats/v1.0/stats?eventCategory=${eventCategory}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>

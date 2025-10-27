@@ -164,8 +164,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/flow/v1.0/flows
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "flowName" : "플로우 이름",
   "description" : "플로우 설명",
@@ -183,9 +181,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/flow/v1.0/flows"  \
+curl -X POST "${endpoint}/flow/v1.0/flows" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "flowName" : "플로우 이름",
   "description" : "플로우 설명",
@@ -196,7 +194,6 @@ curl -X POST "${endpoint}/flow/v1.0/flows"  \
     "nextSteps" : [ ]
   } ]
 }'
-
 ```
 
 </details>
@@ -323,9 +320,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/flow/v1.0/flows
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -333,9 +327,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/flow/v1.0/flows"  \
+curl -X GET "${endpoint}/flow/v1.0/flows" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -462,9 +456,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/flow/v1.0/flows/{{flowId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -472,9 +463,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}"  \
+curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -574,8 +565,6 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/flow/v1.0/flows/{{flowId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "flowName" : "플로우 이름",
   "description" : "플로우 설명",
@@ -593,9 +582,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}"  \
+curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "flowName" : "플로우 이름",
   "description" : "플로우 설명",
@@ -606,7 +595,6 @@ curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}"  \
     "nextSteps" : [ ]
   } ]
 }'
-
 ```
 
 </details>
@@ -680,9 +668,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/flow/v1.0/flows/{{flowId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -690,9 +675,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}"  \
+curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -785,8 +770,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/flow/v1.0/flows/do-delete
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "flowIds" : [ "플로우의 아이디" ]
 }
@@ -797,13 +780,12 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/flow/v1.0/flows/do-delete"  \
+curl -X POST "${endpoint}/flow/v1.0/flows/do-delete" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "flowIds" : [ "플로우의 아이디" ]
 }'
-
 ```
 
 </details>

@@ -81,9 +81,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -91,9 +88,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}"  \
+curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -182,9 +179,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -192,9 +186,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}"  \
+curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -281,8 +275,6 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "name" : "배송완료 안내 카테고리",
   "parentCategoryId" : "00000000"
@@ -294,14 +286,13 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}"  \
+curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "name" : "배송완료 안내 카테고리",
   "parentCategoryId" : "00000000"
 }'
-
 ```
 
 </details>
@@ -386,8 +377,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateId" : "11111111"
 }
@@ -398,13 +387,12 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}/templates"  \
+curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateId" : "11111111"
 }'
-
 ```
 
 </details>
@@ -488,9 +476,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -498,9 +483,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories"  \
+curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -588,8 +573,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "parentCategoryId" : "00000000",
   "name" : "배송완료 안내 카테고리"
@@ -601,14 +584,13 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories"  \
+curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "parentCategoryId" : "00000000",
   "name" : "배송완료 안내 카테고리"
 }'
-
 ```
 
 </details>
@@ -703,9 +685,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/category-trees
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -713,9 +692,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/${messageChannel}/category-trees"  \
+curl -X GET "${endpoint}/template/v1.0/${messageChannel}/category-trees" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>

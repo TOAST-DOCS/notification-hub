@@ -70,7 +70,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -92,7 +93,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.title | String | N | 메시지 제목 |
 | content.body | String | Y | 메시지 본문 |
 | content.attachmentIds | Array | N | 첨부 파일 아이디 최대 3개 |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
 * 메시지 채널에 따라 **recipients[].contact.contactType**, **recipients[].contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
@@ -157,8 +158,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/SMS/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -183,7 +182,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -192,9 +192,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"  \
+curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -219,9 +219,9 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -339,7 +339,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "schemeIos" : "example://ios",
       "schemeAndroid" : "example://android"
     }
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -402,7 +403,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.coupon.linkPc | String | N | 대표 링크 PC 웹 링크 |
 | content.coupon.schemeIos | String | N | 대표 링크 iOS 앱 링크 |
 | content.coupon.schemeAndroid | String | N | 대표 링크 안드로이드 앱 링크 |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -445,8 +446,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/FRIENDTALK/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -530,7 +529,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "schemeIos" : "example://ios",
       "schemeAndroid" : "example://android"
     }
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -539,9 +539,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePurpose}"  \
+curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -625,9 +625,9 @@ curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePu
       "schemeIos" : "example://ios",
       "schemeAndroid" : "example://android"
     }
-  }
+  },
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -681,7 +681,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -702,7 +703,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.title | String | Y | 템플릿 메일 제목 |
 | content.body | String | Y | 템플릿 메일 본문 |
 | content.attachmentIds | Array | N | 템플릿 첨부 파일 ID |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -745,8 +746,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/EMAIL/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -766,7 +765,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -775,9 +775,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose}"  \
+curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -797,9 +797,9 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -912,7 +912,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -959,7 +960,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options | Object | N |  |
 | options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1002,8 +1003,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/RCS/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -1082,7 +1081,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -1091,9 +1091,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"  \
+curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -1172,9 +1172,9 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -1268,7 +1268,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -1284,7 +1285,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | N | 푸시 메시지 내용 |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1327,8 +1328,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/PUSH/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -1388,7 +1387,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -1397,9 +1397,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}"  \
+curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -1459,9 +1459,9 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -1525,7 +1525,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -1542,7 +1543,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | Y |  |
 | recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1585,8 +1586,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/{{messageChannel}}/template-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
@@ -1607,7 +1606,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 </details>
@@ -1616,9 +1616,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${messagePurpose}"  \
+curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
@@ -1639,9 +1639,9 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -1707,7 +1707,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -1726,7 +1727,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | Y |  |
 | recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1769,8 +1770,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/ALIMTALK/template-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "statsKeyId" : "aA123456",
   "sender" : {
@@ -1794,7 +1793,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 </details>
@@ -1803,9 +1803,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpose}"  \
+curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "sender" : {
@@ -1829,9 +1829,9 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -1900,7 +1900,8 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -1924,7 +1925,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | options | Object | N |  |
 | options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1965,8 +1966,6 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 ### RCS 템플릿 메시지 발송
 
 POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
-
-
 {
   "statsKeyId" : "aA123456",
   "sender" : {
@@ -1997,7 +1996,8 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -2006,7 +2006,7 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}"     \
+curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
   "sender" : {
@@ -2037,9 +2037,9 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -2102,7 +2102,8 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -2122,7 +2123,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 | recipients[].contacts | Array | Y |  |
 | recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2163,8 +2164,6 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 ### SMS 템플릿 메시지 발송
 
 POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
-
-
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
@@ -2189,7 +2188,8 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 </details>
@@ -2198,7 +2198,7 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}"     \
+curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
@@ -2223,9 +2223,9 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -2307,7 +2307,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -2331,7 +2332,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.steps[].content | Object | N | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].options | Object | N | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].nextSteps | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2374,8 +2375,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/flow-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
@@ -2415,7 +2414,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -2424,9 +2424,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}"  \
+curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
@@ -2466,9 +2466,9 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}"  \
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -2537,7 +2537,8 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -2560,7 +2561,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].options | Object | N | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].nextSteps | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다. |
-
+| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2601,8 +2602,6 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 ### 인스턴트 플로우 메시지 발송
 
 POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
-
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -2639,7 +2638,8 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -2648,7 +2648,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}"     \
+curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -2685,9 +2685,9 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }'
-
 ```
 
 </details>
@@ -2763,9 +2763,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/messages/{{messageId}}/do-cancel
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -2773,9 +2770,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel"  \
+curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -2849,9 +2846,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/messages/{{messageId}}/do-confirm
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -2859,9 +2853,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-confirm"  \
+curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-confirm" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>

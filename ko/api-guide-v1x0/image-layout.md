@@ -112,9 +112,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -122,9 +119,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}"  \
+curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -204,15 +201,12 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 name=name_example
 title=title_example
 body=body_example
 useBarcode=true
 backgroundImage=@BINARY_DATA_PATH
 cardImage=@BINARY_DATA_PATH
-
-
 ```
 </details>
 
@@ -220,15 +214,15 @@ cardImage=@BINARY_DATA_PATH
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/image-layout/v1.0/image-layouts"  \
+curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -F "name=name_example" \
 -F "title=title_example" \
 -F "body=body_example" \
--F "useBarcode=true"  \
+-F "useBarcode=true" \
 -F "backgroundImage=@BINARY_DATA_PATH" \
--F "cardImage=@BINARY_DATA_PATH" 
+-F "cardImage=@BINARY_DATA_PATH"
 ```
 
 </details>
@@ -301,9 +295,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -311,9 +302,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}"  \
+curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -408,9 +399,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -418,9 +406,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/image-layout/v1.0/image-layouts"  \
+curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -499,15 +487,12 @@ X-NHN-Authorization: Bearer {accessToken}
 PATCH {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 name=name_example
 title=title_example
 body=body_example
 useBarcode=true
 backgroundImage=@BINARY_DATA_PATH
 cardImage=@BINARY_DATA_PATH
-
-
 ```
 </details>
 
@@ -515,15 +500,15 @@ cardImage=@BINARY_DATA_PATH
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}"  \
+curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -F "name=name_example" \
 -F "title=title_example" \
 -F "body=body_example" \
--F "useBarcode=true"  \
+-F "useBarcode=true" \
 -F "backgroundImage=@BINARY_DATA_PATH" \
--F "cardImage=@BINARY_DATA_PATH" 
+-F "cardImage=@BINARY_DATA_PATH"
 ```
 
 </details>

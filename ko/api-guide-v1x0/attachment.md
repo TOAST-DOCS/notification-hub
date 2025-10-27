@@ -94,12 +94,9 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/attachment/v1.0/attachments
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 fileName=fileName_example
 fileTypes=
 file=@BINARY_DATA_PATH
-
-
 ```
 </details>
 
@@ -107,12 +104,12 @@ file=@BINARY_DATA_PATH
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/attachment/v1.0/attachments"  \
+curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -F "fileName=fileName_example" \
--F "fileTypes="  \
--F "file=@BINARY_DATA_PATH" 
+-F "fileTypes=" \
+-F "file=@BINARY_DATA_PATH"
 ```
 
 </details>
@@ -208,9 +205,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/attachment/v1.0/attachments
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -218,9 +212,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/attachment/v1.0/attachments"  \
+curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -313,9 +307,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/attachment/v1.0/attachments/{{attachmentId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -323,9 +314,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}"  \
+curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -410,12 +401,9 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/attachment/v1.0/attachments/do-validate
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 fileName=fileName_example
 fileTypes=
 file=@BINARY_DATA_PATH
-
-
 ```
 </details>
 
@@ -423,12 +411,12 @@ file=@BINARY_DATA_PATH
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate"  \
+curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -F "fileName=fileName_example" \
--F "fileTypes="  \
--F "file=@BINARY_DATA_PATH" 
+-F "fileTypes=" \
+-F "file=@BINARY_DATA_PATH"
 ```
 
 </details>
@@ -522,8 +510,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/attachment/v1.0/attachments/{{attachmentId}}/do-validate
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "fileTypes" : [ "EMAIL_DEFAULT" ]
 }
@@ -534,13 +520,12 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validate"  \
+curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validate" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "fileTypes" : [ "EMAIL_DEFAULT" ]
 }'
-
 ```
 
 </details>
@@ -634,8 +619,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/attachment/v1.0/attachments/{{attachmentId}}/file-types
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT", "EMAIL_TEMPLATE", "SMS_TEMPLATE" ]
 }
@@ -646,13 +629,12 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types"  \
+curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT", "EMAIL_TEMPLATE", "SMS_TEMPLATE" ]
 }'
-
 ```
 
 </details>
@@ -728,9 +710,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/attachment/v1.0/attachments/file-types
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -738,9 +717,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/attachment/v1.0/attachments/file-types"  \
+curl -X GET "${endpoint}/attachment/v1.0/attachments/file-types" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>

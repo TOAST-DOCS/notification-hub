@@ -182,9 +182,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/message/v1.0/contact-delivery-results
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -192,9 +189,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/message/v1.0/contact-delivery-results"  \
+curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -364,9 +361,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/message/v1.0/final-contact-delivery-results
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -374,9 +368,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/message/v1.0/final-contact-delivery-results"  \
+curl -X GET "${endpoint}/message/v1.0/final-contact-delivery-results" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>

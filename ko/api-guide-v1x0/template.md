@@ -117,8 +117,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/SMS/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -142,9 +140,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/SMS/templates"  \
+curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -161,7 +159,6 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates"  \
     "imageLayoutId" : "YaX2DA4Weab1"
   }
 }'
-
 ```
 
 </details>
@@ -257,9 +254,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/SMS/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -267,9 +261,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/SMS/templates"  \
+curl -X GET "${endpoint}/template/v1.0/SMS/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -381,9 +375,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -391,9 +382,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}"  \
+curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -499,8 +490,6 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -523,9 +512,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}"  \
+curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -541,7 +530,6 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}"  \
     "imageLayoutId" : "YaX2DA4Weab1"
   }
 }'
-
 ```
 
 </details>
@@ -614,9 +602,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -624,9 +609,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}"  \
+curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -863,8 +848,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/ALIMTALK/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -958,9 +941,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates"  \
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -1047,7 +1030,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates"  \
     "dormant" : false
   }
 }'
-
 ```
 
 </details>
@@ -1145,9 +1127,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/ALIMTALK/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -1155,9 +1134,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates"  \
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -1255,9 +1234,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/ALIMTALK/senders/{{senderKey}}/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -1265,9 +1241,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates"  \
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -1509,9 +1485,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -1519,9 +1492,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}"  \
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -1727,8 +1700,6 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -1805,9 +1776,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}"  \
+curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -1877,7 +1848,6 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}"  \
     "templateCode" : "templateCode"
   }
 }'
-
 ```
 
 </details>
@@ -1950,9 +1920,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -1960,9 +1927,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}"  \
+curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -2046,8 +2013,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/inquiries
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "comment" : "문의 내용 예시"
 }
@@ -2058,13 +2023,12 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries"  \
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "comment" : "문의 내용 예시"
 }'
-
 ```
 
 </details>
@@ -2139,11 +2103,8 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/inquiries/do-with-file
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 comment=comment_example
 attachments=@/path/to/file.txt
-
-
 ```
 </details>
 
@@ -2151,11 +2112,11 @@ attachments=@/path/to/file.txt
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries/do-with-file"  \
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries/do-with-file" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"  \
--F "comment=comment_example"  \
--F "attachments=@/path/to/file.txt" 
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-F "comment=comment_example" \
+-F "attachments=@/path/to/file.txt"
 ```
 
 </details>
@@ -2377,9 +2338,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/modifications
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -2387,9 +2345,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifications"  \
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifications" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -2474,9 +2432,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/ALIMTALK/template-categories
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -2484,9 +2439,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories"  \
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -2693,8 +2648,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/FRIENDTALK/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -2776,9 +2729,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/FRIENDTALK/templates"  \
+curl -X POST "${endpoint}/template/v1.0/FRIENDTALK/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -2853,7 +2806,6 @@ curl -X POST "${endpoint}/template/v1.0/FRIENDTALK/templates"  \
     }
   }
 }'
-
 ```
 
 </details>
@@ -2950,9 +2902,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/FRIENDTALK/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -2960,9 +2909,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/FRIENDTALK/templates"  \
+curl -X GET "${endpoint}/template/v1.0/FRIENDTALK/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -3174,9 +3123,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/FRIENDTALK/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -3184,9 +3130,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}"  \
+curl -X GET "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -3390,8 +3336,6 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/template/v1.0/FRIENDTALK/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -3472,9 +3416,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PUT "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}"  \
+curl -X PUT "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -3548,7 +3492,6 @@ curl -X PUT "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}"  \
     }
   }
 }'
-
 ```
 
 </details>
@@ -3621,9 +3564,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/template/v1.0/FRIENDTALK/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -3631,9 +3571,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}"  \
+curl -X DELETE "${endpoint}/template/v1.0/FRIENDTALK/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -3738,8 +3678,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/EMAIL/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -3761,9 +3699,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/EMAIL/templates"  \
+curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -3778,7 +3716,6 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates"  \
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
-
 ```
 
 </details>
@@ -3886,9 +3823,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -3896,9 +3830,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}"  \
+curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -3994,9 +3928,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/EMAIL/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -4004,9 +3935,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/EMAIL/templates"  \
+curl -X GET "${endpoint}/template/v1.0/EMAIL/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -4108,8 +4039,6 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -4130,9 +4059,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}"  \
+curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -4146,7 +4075,6 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}"  \
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
-
 ```
 
 </details>
@@ -4219,9 +4147,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -4229,9 +4154,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}"  \
+curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -4410,8 +4335,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/RCS/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -4484,9 +4407,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/RCS/templates"  \
+curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -4552,7 +4475,6 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates"  \
     } ]
   }
 }'
-
 ```
 
 </details>
@@ -4648,9 +4570,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/RCS/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -4658,9 +4577,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/RCS/templates"  \
+curl -X GET "${endpoint}/template/v1.0/RCS/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -4851,9 +4770,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -4861,9 +4777,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}"  \
+curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -5039,8 +4955,6 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -5112,9 +5026,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}"  \
+curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -5179,7 +5093,6 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}"  \
     } ]
   }
 }'
-
 ```
 
 </details>
@@ -5252,9 +5165,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -5262,9 +5172,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}"  \
+curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -5404,8 +5314,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/PUSH/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -5467,9 +5375,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${endpoint}/template/v1.0/PUSH/templates"  \
+curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "categoryId" : "20230131070811m2fDe1rXx80",
@@ -5524,7 +5432,6 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates"  \
     "customKey" : "customValue"
   }
 }'
-
 ```
 
 </details>
@@ -5620,9 +5527,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/PUSH/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -5630,9 +5534,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/PUSH/templates"  \
+curl -X GET "${endpoint}/template/v1.0/PUSH/templates" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -5775,9 +5679,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -5785,9 +5686,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}"  \
+curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -5924,8 +5825,6 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 {
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -5986,9 +5885,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}"  \
+curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"    \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
@@ -6042,7 +5941,6 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}"  \
     "customKey" : "customValue"
   }
 }'
-
 ```
 
 </details>
@@ -6115,9 +6013,6 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -6125,9 +6020,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}"  \
+curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -6213,9 +6108,6 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{{templateId}}/parameters
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
-
 ```
 </details>
 
@@ -6223,9 +6115,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}/parameters"  \
+curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}/parameters" \
 -H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"   
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
