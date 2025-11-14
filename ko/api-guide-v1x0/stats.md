@@ -114,15 +114,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| stats | Object | N|  |
-| stats.columns | Array | N| 이벤트 카테고리에 대한 이벤트가 칼럼으로 응답됩니다.<br>EVENT_DATE_TIME 칼럼은 이벤트 발생 일시를 나타냅니다.<br> |
-| stats.rows | Array | N| EVENT_DATE_TIME 필드을 제외한 나머지 필드은 이벤트 카테고리에 따라 응답됩니다.<br><br> |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| stats | Object |  |
+| stats.columns | Array | 이벤트 카테고리에 대한 이벤트가 칼럼으로 응답됩니다.<br>EVENT_DATE_TIME 칼럼은 이벤트 발생 일시를 나타냅니다.<br> |
+| stats.rows | Array | EVENT_DATE_TIME 필드을 제외한 나머지 필드은 이벤트 카테고리에 따라 응답됩니다.<br><br> |
 
 
 
@@ -138,7 +138,10 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/stats/v1.0/stats?eventCategory={{eventCategory}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -146,8 +149,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/stats/v1.0/stats?eventCategory=${eventCategory}" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>

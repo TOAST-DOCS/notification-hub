@@ -65,7 +65,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | flowName | String | Y | 플로우 이름입니다. |
 | description | String | N | 플로우 설명입니다. |
-| messagePurpose | String | Y | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| messagePurpose | String | Y | 발송 내용 유형<br>[NORMAL, AD, AUTH] |
 | steps | Array | Y | 플로우 단계입니다. |
 | steps[].messageChannel | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
 | steps[].templateId | String | N | 템플릿 아이디입니다. |
@@ -94,13 +94,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| flowId | String | N| 플로우 아이디입니다. |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| flowId | String | 플로우 아이디입니다. |
 
 ### 플로우 정의 예시
 #### 선형적인 순서를 가진 플로우
@@ -164,6 +164,7 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/flow/v1.0/flows
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
 {
   "flowName" : "플로우 이름",
   "description" : "플로우 설명",
@@ -175,6 +176,7 @@ X-NHN-Authorization: Bearer {accessToken}
   } ]
 }
 ```
+
 </details>
 
 <details>
@@ -182,8 +184,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/flow/v1.0/flows" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "flowName" : "플로우 이름",
   "description" : "플로우 설명",
@@ -289,22 +291,22 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| flows | Array | N|  |
-| flows[].flowId | String | N| 플로우 아이디입니다. |
-| flows[].flowName | String | N| 플로우 이름입니다. |
-| flows[].messagePurpose | String | N| 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| flows[].description | String | N| 플로우 설명입니다. |
-| flows[].steps | Array | N| 플로우 단계입니다. |
-| flows[].messageChannels | Array | N| 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
-| flows[].createdDateTime | String | N| 플로우 생성 시간입니다. |
-| flows[].updatedDateTime | String | N| 플로우 수정 시간입니다. |
-| totalCount | Integer | N| 플로우 전체 개수입니다. |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| flows | Array |  |
+| flows[].flowId | String | 플로우 아이디입니다. |
+| flows[].flowName | String | 플로우 이름입니다. |
+| flows[].messagePurpose | String | 발송 내용 유형<br>[NORMAL, AD, AUTH] |
+| flows[].description | String | 플로우 설명입니다. |
+| flows[].steps | Array | 플로우 단계입니다. |
+| flows[].messageChannels | Array | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
+| flows[].createdDateTime | String | 플로우 생성 시간입니다. |
+| flows[].updatedDateTime | String | 플로우 수정 시간입니다. |
+| totalCount | Integer | 플로우 전체 개수입니다. |
 
 
 
@@ -320,7 +322,10 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/flow/v1.0/flows
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -328,8 +333,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/flow/v1.0/flows" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
@@ -421,26 +426,26 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| flow | Object | N|  |
-| flow.flowId | String | N| 플로우 아이디입니다. |
-| flow.flowName | String | N| 플로우 이름입니다. |
-| flow.messagePurpose | String | N| 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
-| flow.description | String | N| 플로우 설명입니다. |
-| flow.steps | Array | N| 플로우 단계입니다. |
-| flow.steps[].messageChannel | String | N| 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
-| flow.steps[].template | Object | N|  |
-| flow.steps[].template.templateId | String | N| 템플릿 아이디입니다. |
-| flow.steps[].template.templateName | String | N| 템플릿 이름입니다. |
-| flow.steps[].nextSteps | Array | N| 다음 단계입니다. |
-| flow.messageChannels | Array | N| 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
-| flow.createdDateTime | String | N| 플로우 생성 시간입니다. |
-| flow.updatedDateTime | String | N| 플로우 수정 시간입니다. |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| flow | Object |  |
+| flow.flowId | String | 플로우 아이디입니다. |
+| flow.flowName | String | 플로우 이름입니다. |
+| flow.messagePurpose | String | 발송 내용 유형<br>[NORMAL, AD, AUTH] |
+| flow.description | String | 플로우 설명입니다. |
+| flow.steps | Array | 플로우 단계입니다. |
+| flow.steps[].messageChannel | String | 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
+| flow.steps[].template | Object |  |
+| flow.steps[].template.templateId | String | 템플릿 아이디입니다. |
+| flow.steps[].template.templateName | String | 템플릿 이름입니다. |
+| flow.steps[].nextSteps | Array | 다음 단계입니다. |
+| flow.messageChannels | Array | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
+| flow.createdDateTime | String | 플로우 생성 시간입니다. |
+| flow.updatedDateTime | String | 플로우 수정 시간입니다. |
 
 
 
@@ -456,7 +461,10 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/flow/v1.0/flows/{{flowId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -464,8 +472,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
@@ -518,7 +526,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | flowName | String | Y | 플로우 이름입니다. |
 | description | String | N | 플로우 설명입니다. |
-| messagePurpose | String | Y | 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>[NORMAL, AD, AUTH] |
+| messagePurpose | String | Y | 발송 내용 유형<br>[NORMAL, AD, AUTH] |
 | steps | Array | Y | 플로우 단계입니다. |
 | steps[].messageChannel | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
 | steps[].templateId | String | N | 템플릿 아이디입니다. |
@@ -543,13 +551,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| flowId | String | N| 플로우 아이디입니다. |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| flowId | String | 플로우 아이디입니다. |
 
 
 
@@ -565,6 +573,7 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/flow/v1.0/flows/{{flowId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
 {
   "flowName" : "플로우 이름",
   "description" : "플로우 설명",
@@ -576,6 +585,7 @@ X-NHN-Authorization: Bearer {accessToken}
   } ]
 }
 ```
+
 </details>
 
 <details>
@@ -583,8 +593,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "flowName" : "플로우 이름",
   "description" : "플로우 설명",
@@ -647,12 +657,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -668,7 +678,10 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/flow/v1.0/flows/{{flowId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -676,8 +689,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
@@ -745,16 +758,16 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| results | Array | N| 다중 처리 요청의 결과입니다. |
-| results[].isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| results[].resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| results[].resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| results | Array | 다중 처리 요청의 결과입니다. |
+| results[].isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| results[].resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| results[].resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -770,10 +783,12 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/flow/v1.0/flows/do-delete
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
 {
   "flowIds" : [ "플로우의 아이디" ]
 }
 ```
+
 </details>
 
 <details>
@@ -781,8 +796,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/flow/v1.0/flows/do-delete" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "flowIds" : [ "플로우의 아이디" ]
 }'
