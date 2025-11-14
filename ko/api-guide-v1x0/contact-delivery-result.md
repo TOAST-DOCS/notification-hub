@@ -44,7 +44,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contact | Query  | String | N | 연락처입니다. |
 | messageChannel | Query  | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
 | messagePurpose | Query  | String | N | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
-| statuses | Query  | List | N | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br> <br>[REQUESTED, SCHEDULED, READY, CONFIRM_WAITED, WAITED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, DELIVERY_FAILED, CANCELED] |
+| statuses | Query  | List | N | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다. <br>[REQUESTED(요청), SCHEDULED(예약됨), READY(준비), CONFIRM_WAITED(확인 대기), WAITED(대기), IN_PROGRESS(진행 중), SENT(발송 성공), SEND_FAILED(발송 실패), DELIVERED(수신 성공), OPENED(열람), DELIVERY_FAILED(수신 실패), CANCELED(취소됨)] |
 | scheduled | Query  | Boolean | N | 예약 발송 여부입니다. |
 | confirmBeforeSend | Query  | Boolean | N | 승인 후 발송 여부입니다. |
 | createdDateTimeFrom | Query  | Date | N | 요청 시작 일시입니다. 기본값은 7일 전입니다. |
@@ -123,50 +123,50 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| contactDeliveryResults | Array | N| 메시지 발송 결과입니다. |
-| contactDeliveryResults[].messageId | String | N| 메시지 ID |
-| contactDeliveryResults[].recipientIndex | Integer | N| 수신자 인덱스입니다. |
-| contactDeliveryResults[].contactIndex | Integer | N| 연락처 인덱스입니다. |
-| contactDeliveryResults[].contactType | String | N| 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| contactDeliveryResults[].contact | String | N| 연락처입니다. |
-| contactDeliveryResults[].sender | Object | N|  |
-| contactDeliveryResults[].sender.senderKey | String | N| 발신프로필 발신키 |
-| contactDeliveryResults[].sender.senderProfileId | String | N| 카카오톡 채널명 |
-| contactDeliveryResults[].sender.senderProfileType | String | N| 발신프로필 타입<br>[GROUP, NORMAL] |
-| contactDeliveryResults[].sender.senderPhoneNumber | String | N| 발신 번호 |
-| contactDeliveryResults[].sender.senderMailAddress | String | N| 발신 메일 주소 |
-| contactDeliveryResults[].sender.brandId | String | N| 브랜드 아이디 |
-| contactDeliveryResults[].sender.chatbotId | String | N| 대화방(챗봇) 아이디 |
-| contactDeliveryResults[].templateId | String | N| 템플릿 ID |
-| contactDeliveryResults[].flowId | String | N| 플로우 ID |
-| contactDeliveryResults[].statsKeyId | String | N| 통계 키 아이디 |
-| contactDeliveryResults[].clientReference | String | N| 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | N| 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| contactDeliveryResults[].messagePurpose | String | N| 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
-| contactDeliveryResults[].options | Object | N|  |
-| contactDeliveryResults[].options.expiryOption | Integer | N| 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| contactDeliveryResults[].options.groupId | String | N| RCS Biz Center 통계 연동을 위한 group ID |
-| contactDeliveryResults[].confirmBeforeSend | Boolean | N| 확인 후 발송 여부입니다. |
-| contactDeliveryResults[].confirmedDateTime | String | N| 메시지 발송 확인 시각입니다. |
-| contactDeliveryResults[].scheduled | Boolean | N| 예약 발송 여부입니다. |
-| contactDeliveryResults[].scheduledDateTime | String | N| 예약 발송 시각입니다. |
-| contactDeliveryResults[].status | String | N| 발송/수신 상태입니다.<br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, DELIVERY_FAILED, CANCELED] |
-| contactDeliveryResults[].resultCode | String | N| 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
-| contactDeliveryResults[].resultMessage | String | N| 발송 결과 메시지입니다. |
-| contactDeliveryResults[].templateParameters | Object | N| 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| contactDeliveryResults[].additionalProperty | Object | N|  |
-| contactDeliveryResults[].createdDateTime | String | N| 메시지가 생성된 시각입니다. |
-| contactDeliveryResults[].sentDateTime | String | N| 메시지가 발송된 시각입니다. |
-| contactDeliveryResults[].deliveredDateTime | String | N| 메시지가 수신된 시각입니다. |
-| contactDeliveryResults[].openedDateTime | String | N| 메시지가 열람된 시각입니다. |
-| contactDeliveryResults[].updatedDateTime | String | N| 메시지가 수정된 시각입니다. |
-| totalCount | Integer | N| 조회된 메시지 발송 결과의 총 개수입니다. |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| contactDeliveryResults | Array | 메시지 발송 결과입니다. |
+| contactDeliveryResults[].messageId | String | 메시지 ID |
+| contactDeliveryResults[].recipientIndex | Integer | 수신자 인덱스입니다. |
+| contactDeliveryResults[].contactIndex | Integer | 연락처 인덱스입니다. |
+| contactDeliveryResults[].contactType | String | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| contactDeliveryResults[].contact | String | 연락처입니다. |
+| contactDeliveryResults[].sender | Object |  |
+| contactDeliveryResults[].sender.senderKey | String | 발신프로필 발신키 |
+| contactDeliveryResults[].sender.senderProfileId | String | 카카오톡 채널명 |
+| contactDeliveryResults[].sender.senderProfileType | String | 발신프로필 타입<br>[GROUP, NORMAL] |
+| contactDeliveryResults[].sender.senderPhoneNumber | String | 발신 번호 |
+| contactDeliveryResults[].sender.senderMailAddress | String | 발신 메일 주소 |
+| contactDeliveryResults[].sender.brandId | String | 브랜드 아이디 |
+| contactDeliveryResults[].sender.chatbotId | String | 대화방(챗봇) 아이디 |
+| contactDeliveryResults[].templateId | String | 템플릿 ID |
+| contactDeliveryResults[].flowId | String | 플로우 ID |
+| contactDeliveryResults[].statsKeyId | String | 통계 키 아이디 |
+| contactDeliveryResults[].clientReference | String | 사용자 지정 필드 |
+| contactDeliveryResults[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| contactDeliveryResults[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| contactDeliveryResults[].options | Object |  |
+| contactDeliveryResults[].options.expiryOption | Integer | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
+| contactDeliveryResults[].options.groupId | String | RCS Biz Center 통계 연동을 위한 group ID |
+| contactDeliveryResults[].confirmBeforeSend | Boolean | 확인 후 발송 여부입니다. |
+| contactDeliveryResults[].confirmedDateTime | String | 메시지 발송 확인 시각입니다. |
+| contactDeliveryResults[].scheduled | Boolean | 예약 발송 여부입니다. |
+| contactDeliveryResults[].scheduledDateTime | String | 예약 발송 시각입니다. |
+| contactDeliveryResults[].status | String | 발송/수신 상태입니다.<br>[REQUESTED(요청), CONFIRM_WAITED(확인 대기), WAITED(대기), SCHEDULED(예약됨), IN_PROGRESS(진행 중), SENT(발송 성공), SEND_FAILED(발송 실패), DELIVERED(수신 성공), OPENED(열람), DELIVERY_FAILED(수신 실패), CANCELED(취소됨)] |
+| contactDeliveryResults[].resultCode | String | 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
+| contactDeliveryResults[].resultMessage | String | 발송 결과 메시지입니다. |
+| contactDeliveryResults[].templateParameters | Object | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| contactDeliveryResults[].additionalProperty | Object |  |
+| contactDeliveryResults[].createdDateTime | String | 메시지가 생성된 시각입니다. |
+| contactDeliveryResults[].sentDateTime | String | 메시지가 발송된 시각입니다. |
+| contactDeliveryResults[].deliveredDateTime | String | 메시지가 수신된 시각입니다. |
+| contactDeliveryResults[].openedDateTime | String | 메시지가 열람된 시각입니다. |
+| contactDeliveryResults[].updatedDateTime | String | 메시지가 수정된 시각입니다. |
+| totalCount | Integer | 조회된 메시지 발송 결과의 총 개수입니다. |
 
 
 
@@ -182,7 +182,10 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/message/v1.0/contact-delivery-results
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -190,8 +193,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
@@ -302,50 +305,50 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| contactDeliveryResults | Array | N| 메시지 발송 결과입니다. |
-| contactDeliveryResults[].messageId | String | N| 메시지 ID |
-| contactDeliveryResults[].recipientIndex | Integer | N| 수신자 인덱스입니다. |
-| contactDeliveryResults[].contactIndex | Integer | N| 연락처 인덱스입니다. |
-| contactDeliveryResults[].contactType | String | N| 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| contactDeliveryResults[].contact | String | N| 연락처입니다. |
-| contactDeliveryResults[].sender | Object | N|  |
-| contactDeliveryResults[].sender.senderKey | String | N| 발신프로필 발신키 |
-| contactDeliveryResults[].sender.senderProfileId | String | N| 카카오톡 채널명 |
-| contactDeliveryResults[].sender.senderProfileType | String | N| 발신프로필 타입<br>[GROUP, NORMAL] |
-| contactDeliveryResults[].sender.senderPhoneNumber | String | N| 발신 번호 |
-| contactDeliveryResults[].sender.senderMailAddress | String | N| 발신 메일 주소 |
-| contactDeliveryResults[].sender.brandId | String | N| 브랜드 아이디 |
-| contactDeliveryResults[].sender.chatbotId | String | N| 대화방(챗봇) 아이디 |
-| contactDeliveryResults[].templateId | String | N| 템플릿 ID |
-| contactDeliveryResults[].flowId | String | N| 플로우 ID |
-| contactDeliveryResults[].statsKeyId | String | N| 통계 키 아이디 |
-| contactDeliveryResults[].clientReference | String | N| 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | N| 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
-| contactDeliveryResults[].messagePurpose | String | N| 발송 내용 유형(NORMAL: 일반, AD: 광고, AUTH: 인증, default: NORMAL)<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
-| contactDeliveryResults[].options | Object | N|  |
-| contactDeliveryResults[].options.expiryOption | Integer | N| 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| contactDeliveryResults[].options.groupId | String | N| RCS Biz Center 통계 연동을 위한 group ID |
-| contactDeliveryResults[].confirmBeforeSend | Boolean | N| 확인 후 발송 여부입니다. |
-| contactDeliveryResults[].confirmedDateTime | String | N| 메시지 발송 확인 시각입니다. |
-| contactDeliveryResults[].scheduled | Boolean | N| 예약 발송 여부입니다. |
-| contactDeliveryResults[].scheduledDateTime | String | N| 예약 발송 시각입니다. |
-| contactDeliveryResults[].status | String | N| 발송/수신 상태입니다.<br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, DELIVERY_FAILED, CANCELED] |
-| contactDeliveryResults[].resultCode | String | N| 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
-| contactDeliveryResults[].resultMessage | String | N| 발송 결과 메시지입니다. |
-| contactDeliveryResults[].templateParameters | Object | N| 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| contactDeliveryResults[].additionalProperty | Object | N|  |
-| contactDeliveryResults[].createdDateTime | String | N| 메시지가 생성된 시각입니다. |
-| contactDeliveryResults[].sentDateTime | String | N| 메시지가 발송된 시각입니다. |
-| contactDeliveryResults[].deliveredDateTime | String | N| 메시지가 수신된 시각입니다. |
-| contactDeliveryResults[].openedDateTime | String | N| 메시지가 열람된 시각입니다. |
-| contactDeliveryResults[].updatedDateTime | String | N| 메시지가 수정된 시각입니다. |
-| totalCount | Integer | N| 조회된 메시지 발송 결과의 총 개수입니다. |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| contactDeliveryResults | Array | 메시지 발송 결과입니다. |
+| contactDeliveryResults[].messageId | String | 메시지 ID |
+| contactDeliveryResults[].recipientIndex | Integer | 수신자 인덱스입니다. |
+| contactDeliveryResults[].contactIndex | Integer | 연락처 인덱스입니다. |
+| contactDeliveryResults[].contactType | String | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| contactDeliveryResults[].contact | String | 연락처입니다. |
+| contactDeliveryResults[].sender | Object |  |
+| contactDeliveryResults[].sender.senderKey | String | 발신프로필 발신키 |
+| contactDeliveryResults[].sender.senderProfileId | String | 카카오톡 채널명 |
+| contactDeliveryResults[].sender.senderProfileType | String | 발신프로필 타입<br>[GROUP, NORMAL] |
+| contactDeliveryResults[].sender.senderPhoneNumber | String | 발신 번호 |
+| contactDeliveryResults[].sender.senderMailAddress | String | 발신 메일 주소 |
+| contactDeliveryResults[].sender.brandId | String | 브랜드 아이디 |
+| contactDeliveryResults[].sender.chatbotId | String | 대화방(챗봇) 아이디 |
+| contactDeliveryResults[].templateId | String | 템플릿 ID |
+| contactDeliveryResults[].flowId | String | 플로우 ID |
+| contactDeliveryResults[].statsKeyId | String | 통계 키 아이디 |
+| contactDeliveryResults[].clientReference | String | 사용자 지정 필드 |
+| contactDeliveryResults[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| contactDeliveryResults[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| contactDeliveryResults[].options | Object |  |
+| contactDeliveryResults[].options.expiryOption | Integer | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
+| contactDeliveryResults[].options.groupId | String | RCS Biz Center 통계 연동을 위한 group ID |
+| contactDeliveryResults[].confirmBeforeSend | Boolean | 확인 후 발송 여부입니다. |
+| contactDeliveryResults[].confirmedDateTime | String | 메시지 발송 확인 시각입니다. |
+| contactDeliveryResults[].scheduled | Boolean | 예약 발송 여부입니다. |
+| contactDeliveryResults[].scheduledDateTime | String | 예약 발송 시각입니다. |
+| contactDeliveryResults[].status | String | 발송/수신 상태입니다.<br>[REQUESTED(요청), CONFIRM_WAITED(확인 대기), WAITED(대기), SCHEDULED(예약됨), IN_PROGRESS(진행 중), SENT(발송 성공), SEND_FAILED(발송 실패), DELIVERED(수신 성공), OPENED(열람), DELIVERY_FAILED(수신 실패), CANCELED(취소됨)] |
+| contactDeliveryResults[].resultCode | String | 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
+| contactDeliveryResults[].resultMessage | String | 발송 결과 메시지입니다. |
+| contactDeliveryResults[].templateParameters | Object | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| contactDeliveryResults[].additionalProperty | Object |  |
+| contactDeliveryResults[].createdDateTime | String | 메시지가 생성된 시각입니다. |
+| contactDeliveryResults[].sentDateTime | String | 메시지가 발송된 시각입니다. |
+| contactDeliveryResults[].deliveredDateTime | String | 메시지가 수신된 시각입니다. |
+| contactDeliveryResults[].openedDateTime | String | 메시지가 열람된 시각입니다. |
+| contactDeliveryResults[].updatedDateTime | String | 메시지가 수정된 시각입니다. |
+| totalCount | Integer | 조회된 메시지 발송 결과의 총 개수입니다. |
 
 
 
@@ -361,7 +364,10 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/message/v1.0/final-contact-delivery-results
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -369,8 +375,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/message/v1.0/final-contact-delivery-results" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>

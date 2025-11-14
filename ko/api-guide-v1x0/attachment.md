@@ -32,9 +32,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| file | Form  | File | Y | 첨부 파일입니다. |
-| fileName | Form  | String | Y | 첨부 파일의 이름입니다. |
-| fileTypes | Form  | List | N | 업로드할 첨부 파일의 유형입니다. 첨부 파일이 사용될 수 있는 파일의 유형을 여러 개 선택할 수 있습니다. 설정된 파일 유형에 대한 유효성 검사를 통과해야 업로드가 성공합니다. |
 
 
 
@@ -71,17 +68,17 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| attachmentId | String | N| 첨부 파일 아이디입니다. |
-| results | Array | N|  |
-| results[].isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| results[].resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| results[].resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| attachmentId | String | 첨부 파일 아이디입니다. |
+| results | Array |  |
+| results[].isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| results[].resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| results[].resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -97,10 +94,10 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/attachment/v1.0/attachments
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-fileName=fileName_example
-fileTypes=
-file=@BINARY_DATA_PATH
+
+
 ```
+
 </details>
 
 <details>
@@ -108,11 +105,8 @@ file=@BINARY_DATA_PATH
 
 ```http
 curl -X POST "${endpoint}/attachment/v1.0/attachments" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}" \
--F "fileName=fileName_example" \
--F "fileTypes=" \
--F "file=@BINARY_DATA_PATH"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
@@ -178,21 +172,21 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| totalCount | Integer | N| 총 첨부 파일 수 |
-| attachments | Array | N| 첨부 파일 목록 |
-| attachments[].attachmentId | String | N| 파일 업로드 성공 시 생성되는 파일 고유 ID |
-| attachments[].fileName | String | N| 업로드 파일명 |
-| attachments[].fileFormat | String | N| 파일 형식 |
-| attachments[].fileSizeByte | Long | N| 첨부 파일의 사이즈 단위는 byte |
-| attachments[].createDateTime | String | N| 파일 업로드 일시 |
-| attachments[].expireDateTime | String | N| 파일 만료 일시 |
-| attachments[].uploadedFileTypes | Array | N| 개별 상품에 업로드된 파일 유형 목록 |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | 총 첨부 파일 수 |
+| attachments | Array | 첨부 파일 목록 |
+| attachments[].attachmentId | String | 파일 업로드 성공 시 생성되는 파일 고유 ID |
+| attachments[].fileName | String | 업로드 파일명 |
+| attachments[].fileFormat | String | 파일 형식 |
+| attachments[].fileSizeByte | Long | 첨부 파일의 사이즈 단위는 byte |
+| attachments[].createDateTime | String | 파일 업로드 일시 |
+| attachments[].expireDateTime | String | 파일 만료 일시 |
+| attachments[].uploadedFileTypes | Array | 개별 상품에 업로드된 파일 유형 목록 |
 
 
 
@@ -208,7 +202,10 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/attachment/v1.0/attachments
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -216,8 +213,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/attachment/v1.0/attachments" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
@@ -280,21 +277,21 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| attachment | Object | N|  |
-| attachment.attachmentId | String | N| 파일 업로드 성공 시 생성되는 파일 고유 ID |
-| attachment.fileName | String | N| 업로드 파일명 |
-| attachment.fileFormat | String | N| 파일 형식 |
-| attachment.previewUrl | String | N| 파일 미리보기 URL - 만료 시간 존재(상세 조회 호출 시 생성) |
-| attachment.fileSizeByte | Long | N| 첨부 파일의 사이즈 단위는 byte |
-| attachment.createDateTime | String | N| 파일 업로드 일시 |
-| attachment.expireDateTime | String | N| 파일 만료 일시 |
-| attachment.uploadedFileTypes | Array | N| 개별 상품에 업로드된 파일 유형 목록 |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| attachment | Object |  |
+| attachment.attachmentId | String | 파일 업로드 성공 시 생성되는 파일 고유 ID |
+| attachment.fileName | String | 업로드 파일명 |
+| attachment.fileFormat | String | 파일 형식 |
+| attachment.previewUrl | String | 파일 미리보기 URL - 만료 시간 존재(상세 조회 호출 시 생성) |
+| attachment.fileSizeByte | Long | 첨부 파일의 사이즈 단위는 byte |
+| attachment.createDateTime | String | 파일 업로드 일시 |
+| attachment.expireDateTime | String | 파일 만료 일시 |
+| attachment.uploadedFileTypes | Array | 개별 상품에 업로드된 파일 유형 목록 |
 
 
 
@@ -310,7 +307,10 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/attachment/v1.0/attachments/{{attachmentId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -318,8 +318,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
@@ -344,9 +344,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| file | Form  | File | Y | 첨부 파일입니다. |
-| fileName | Form  | String | Y | 첨부 파일의 이름입니다. |
-| fileTypes | Form  | List | N | 업로드할 첨부 파일의 유형입니다. 첨부 파일이 사용될 수 있는 파일의 유형을 여러 개 선택할 수 있습니다. 설정된 파일 유형에 대한 유효성 검사를 통과해야 업로드가 성공합니다. |
 
 
 
@@ -379,16 +376,16 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| results | Array | N|  |
-| results[].isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| results[].resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| results[].resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| results | Array |  |
+| results[].isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| results[].resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| results[].resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -404,10 +401,10 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/attachment/v1.0/attachments/do-validate
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-fileName=fileName_example
-fileTypes=
-file=@BINARY_DATA_PATH
+
+
 ```
+
 </details>
 
 <details>
@@ -415,11 +412,8 @@ file=@BINARY_DATA_PATH
 
 ```http
 curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}" \
--F "fileName=fileName_example" \
--F "fileTypes=" \
--F "file=@BINARY_DATA_PATH"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
@@ -488,16 +482,16 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| results | Array | N|  |
-| results[].isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| results[].resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| results[].resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| results | Array |  |
+| results[].isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| results[].resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| results[].resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -513,10 +507,12 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/attachment/v1.0/attachments/{{attachmentId}}/do-validate
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
 {
   "fileTypes" : [ "EMAIL_DEFAULT" ]
 }
 ```
+
 </details>
 
 <details>
@@ -524,8 +520,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validate" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "fileTypes" : [ "EMAIL_DEFAULT" ]
 }'
@@ -597,16 +593,16 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| results | Array | N| 다중 리소스 작업의 결과입니다. |
-| results[].isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| results[].resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| results[].resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| results | Array | 다중 리소스 작업의 결과입니다. |
+| results[].isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| results[].resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| results[].resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -622,10 +618,12 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/attachment/v1.0/attachments/{{attachmentId}}/file-types
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
 {
   "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT", "EMAIL_TEMPLATE", "SMS_TEMPLATE" ]
 }
 ```
+
 </details>
 
 <details>
@@ -633,8 +631,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "fileTypes" : [ "EMAIL_DEFAULT", "SMS_DEFAULT", "EMAIL_TEMPLATE", "SMS_TEMPLATE" ]
 }'
@@ -691,13 +689,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | Null 가능 | 설명 |
-| - | - | - | - |
-| header | Object | N|  |
-| header.isSuccessful | Boolean | N| 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | N| 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | N| 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| fileTypes | Array | N| 파일 유형 목록 |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| fileTypes | Array | 파일 유형 목록 |
 
 
 
@@ -713,7 +711,10 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/attachment/v1.0/attachments/file-types
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
+
 </details>
 
 <details>
@@ -721,8 +722,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/attachment/v1.0/attachments/file-types" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
