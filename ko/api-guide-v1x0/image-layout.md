@@ -329,6 +329,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | name | Query  | String | N | 이미지 레이아웃 이름(LIKE 검색) |
+| exact | Query  | Boolean | N | true인 경우 이미지 레이아웃 이름 완전 일치 검색, false인 경우 LIKE 검색 |
 | limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
 | offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
