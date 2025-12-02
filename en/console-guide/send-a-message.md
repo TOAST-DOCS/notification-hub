@@ -82,10 +82,12 @@ The template structure of the receiver contact list file is as follows.
     * [Stolen Number Text Blocking Service guide shortcut](./preconditions/preconditions-sms#fraud-number)
 * If the delivery result is successful, but the text is not received, check Mobile Carrier Spam Blocking Service.
     * [ Mobile Carrier Spam Blocking Service shortcuts](./preconditions/preconditions-sms#spam-number)
+* SMS messages for verification must include verification messages.
+      * Verification message: auth, password, verify, にんしょう, 認証, password, verified
 
 ##### MMS Attachable Image Specifications
 
-* MMS maximum size: files less than 1000\*1000
+* MMS maximum size: files less than 1,000\*1,000
 * MMS support specification: 300KB or less per image, if the number of images is 3, a total of 800KB or less/.jpg, .jpeg files
 
 
@@ -108,9 +110,15 @@ Concatenated Message feature is provided or limited depending on the number of b
 
 1. Select sender brand and chatroom (sender number).
 2. Select the purpose of delivery. If this is for advertising, select 080 Unsubscription number.
-3. Select the type of delivery: SMS, LMS, MMS, and RCS Biz Center templates.
+3. Select the type of delivery. To use the RCS Biz Center template, you must select **Enable** for the template. Otherwise, only SMS, LMS, and MMS are available.
     * SMS can have up to 100 characters in Korean/English, and 1 button can be set.
-    * LMS can have up to 30 characters in titles and 1,300 characters in content regardless of Korean or English, and up to 3 buttons.
+    * SMS messages for verification must include verification messages.
+      * Verification message: auth, password, verify, にんしょう, 認証, password, verified
+    * SMS messages for verification cannot add a button.
+    * LMS Standard type allows you to enter a title of up to 30 characters and content of up to 1,300 characters, regardless of whether it is in Korean or English, and you can set up to 3 buttons.
+    * In the case of the basic and title-emphasized LMS formats, the main title can be up to 17 characters long, the body title up to 30 characters long, and the body content up to 1,300 characters long. Up to two buttons can be set.
+        * For paragraph-based LMS formats, the main title can be up to 17 characters long, the body title up to 30 characters long, and the body content up to 1,300 characters long. Up to two buttons can be set within the body content.
+        * Up to three body texts can be added, and the combined total of all body titles and content can be up to 1,300 characters long.
     * MMS can have up to 30 characters of titles and 1,300 characters of content for each card regardless of Korean or English, and can set up to 1 image, and 2 buttons.
         * MMS can select horizontal, vertical, and slide types as detailed settings.
         * When selecting a slide type, you can add a minimum of 3 to a maximum of 6 slides.
@@ -118,8 +126,6 @@ Concatenated Message feature is provided or limited depending on the number of b
     * RCS Biz Center template requires pre-registration from the RCS Biz Center.
 
 ##### RCS button type
-SMS, LMS, MMS, and RCS Biz Center templates can all add buttons.
-
 * Open chat room
     * Send the message you set to the phone number you set.
     * Enter a name for the button, and then enter the phone number to send the message to.
