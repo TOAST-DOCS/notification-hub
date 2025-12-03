@@ -7,6 +7,12 @@
 
 **Notification > Notification Hub > Release Notes**
 
+### 2025. 12. 04.
+#### Feature Improvements
+* [API] The `exact` request parameter has been added to the image layout list retrieval API.
+    * Previously, when specifying a name using the `name` parameter, partial matching (LIKE) search was applied.
+    * Now, setting the `exact` parameter to `true` retrieves only image layouts with exactly matching names.
+
 ### 2025. 08. 26.
 #### Feature Improvements
 * [API/Console] Support for RCS image templates including financial compliance notice fields
