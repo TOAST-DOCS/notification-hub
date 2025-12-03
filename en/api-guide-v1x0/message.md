@@ -8,7 +8,7 @@
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
 <h1>Message</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > 메시지**
+**Notification > Notification Hub > API v1.0 User Guide > Message**
 
 
 
@@ -102,7 +102,7 @@ The additional description that will be added under the request parameter.
 | --- | --- | --- |
 | SMS | sender.senderPhoneNumber | Sender Number |
 | RCS | sender.brandId | Brand ID |
-| RCS | sender.chatbotId | Chatroom ID |
+| RCS | sender.chatbotId | Chatbot ID |
 | EMAIL | sender.senderMailAddress | Sender Email Address |
 | ALIMTALK, FRIENDTALK | sender.senderKey | Sender Key |
 | ALIMTALK | sender.senderProfileType | Sender Profile Type<br>GROUP, NORMAL |
@@ -240,7 +240,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -644,7 +644,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -814,7 +814,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -915,7 +915,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | confirmBeforeSend | Boolean | N | Whether to send after confirmation |
 | sender | Object | N | |
 | sender.brandId | String | Y | Brand ID |
-| sender.chatbotId | String | Y | Chatroom (chatbot) ID |
+| sender.chatbotId | String | Y | Chatbot ID |
 | recipients | Array | N | | |
 | recipients[].contacts | Array | N | | |
 | recipients[].templateParameters | Object | N | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
@@ -1187,7 +1187,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1481,7 +1481,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | Access token |
 | messageChannel | Path  | String | Y | Message channel.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1658,7 +1658,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1842,7 +1842,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1892,7 +1892,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | - | - | - | - |
 | statsKeyId | String | N | Statistics key ID |
 | sender | Object | N | |
-| sender.chatbotId | String | N | Chat room (chatbot) ID |
+| sender.chatbotId | String | N | Chatbot ID |
 | content | Object | N | |
 | content.unsubscribePhoneNumber | String | N | Unsubscribe phone number |
 | templateId | String | N | Template ID |
@@ -2055,7 +2055,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -2243,7 +2243,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -2473,7 +2473,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | For message.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
 
 
 

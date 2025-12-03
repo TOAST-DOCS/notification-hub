@@ -145,7 +145,7 @@
   "confirmBeforeSend": false,
   "sender": {
     "brandId": "Brand_ID",
-    "chatbotId": "Chat Room_ID"
+    "chatbotId": "Chatbot_ID"
   },
   "recipients": [
     {
@@ -217,7 +217,7 @@
   "confirmBeforeSend": false,
   "sender": {
     "brandId": "Brand_ID",
-    "chatbotId": "Chat Room_ID"
+    "chatbotId": "Chatbot_ID"
   },
   "recipients": [
     {
@@ -296,7 +296,7 @@
   "confirmBeforeSend": false,
   "sender": {
     "brandId": "Brand_ID",
-    "chatbotId": "Chat Room_ID"
+    "chatbotId": "Chatbot_ID"
   },
   "recipients": [
     {
@@ -377,7 +377,7 @@
   "confirmBeforeSend": false,
   "sender": {
     "brandId": "Brand_ID",
-    "chatbotId": "Chat Room_ID"
+    "chatbotId": "Chatbot_ID"
   },
   "recipients": [
     {
@@ -487,7 +487,7 @@
   "confirmBeforeSend": false,
   "sender": {
     "brandId": "Brand_ID",
-    "chatbotId": "Chat Room_ID"
+    "chatbotId": "Chatbot_ID"
   },
   "recipients": [
     {
@@ -560,7 +560,7 @@
   "confirmBeforeSend": false,
   "sender": {
     "brandId": "Brand_ID",
-    "chatbotId": "Chat Room_ID"
+    "chatbotId": "Chatbot_ID"
   },
   "recipients": [
     {
@@ -665,7 +665,7 @@
 
 * Since AlimTalk can only be sent after template registration and approval, only template and flow messages can be sent.
 * For AlimTalk's' **sender** and **content** fields, refer to the **request body** in **Sending a template message**.
-* FRIENDTALK only supports the NORMAL sending profile type. Sending will fail if a sender key from the GROUP sending profile type is used.
+* FRIENDTALK only supports the NORMAL sender profile type. Sending will fail if a sender key from the GROUP sender profile type is used.
 
 ```json
 {
@@ -673,7 +673,7 @@
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "Outgoing Profile_Outgoing Key"
+        "senderKey": "Sender Profile_Sender Key"
     },
     "recipients": [
         {
@@ -739,7 +739,7 @@
 
 ### Image / Wide Image Type
 
-* FRIENDTALK only supports the NORMAL sending profile type. Sending messages using a GROUP sending profile type key will fail.
+* FRIENDTALK only supports the NORMAL sender profile type. Sending messages using a GROUP sender profile type key will fail.
 
 ```json
 {
@@ -747,7 +747,7 @@
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "Outgoing Profile_Outgoing Key"
+        "senderKey": "Sender Profile_Sender Key"
     },
     "recipients": [
         {
@@ -824,7 +824,7 @@
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "Outgoing Profile_Outgoing Key"
+        "senderKey": "Sender Profile_Sender Key"
     },
     "recipients": [
         {
@@ -924,7 +924,7 @@
 
 ### Carousel Feed
 
-* FRIENDTALK only supports the NORMAL sending profile type. Sending messages using a GROUP sending profile type key will fail.
+* FRIENDTALK only supports the NORMAL sender profile type. Sending messages using a GROUP sender profile type key will fail.
 
 ```json
 {
@@ -932,7 +932,7 @@
     "scheduledDateTime": "2024-10-24T06:29:00+09:00",
     "confirmBeforeSend": false,
     "sender": {
-        "senderKey": "Outgoing Profile_Outgoing Key"
+        "senderKey": "Sender Profile_Sender Key"
     },
     "recipients": [
         {
