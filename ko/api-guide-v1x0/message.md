@@ -952,7 +952,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
 | options | Object | N |  |
 | options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 
 
@@ -1909,7 +1909,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | options | Object | N |  |
 | options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 
 
