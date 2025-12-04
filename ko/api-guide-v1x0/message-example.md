@@ -204,7 +204,7 @@
 | content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <span id="free-form-message-request-body-rcs-lms-standalone"></span>
 
@@ -276,7 +276,7 @@
 | content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <span id="free-form-message-request-body-rcs-lms-format-basic"></span>
 
@@ -359,7 +359,7 @@
 | content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 ### LMS 포맷 문단형 타입
 * mTitleMedia 아이콘 파일 ID 목록
@@ -476,7 +476,7 @@
 | content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 
 
@@ -551,7 +551,7 @@
 | content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 ### MMS 캐러셀
 
@@ -656,7 +656,7 @@
 | content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
-| options.groupId | String | N | RCS BizCenter 통계 연동을 위한 그룹 아이디 |
+| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 
 <span id="free-form-message-request-body-friendtalk-text"></span>
