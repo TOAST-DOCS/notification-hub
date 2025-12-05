@@ -83,7 +83,7 @@ The template structure of the receiver contact list file is as follows.
 * If the delivery result is successful, but the text is not received, check Mobile Carrier Spam Blocking Service.
     * [ Mobile Carrier Spam Blocking Service shortcuts](./preconditions/preconditions-sms#spam-number)
 * SMS messages for verification must include verification messages.
-      * Verification message: auth, password, verify, にんしょう, 認証, password, verified
+      * Verification message: auth, password, verif, にんしょう, 認証, 비밀번호, 인증
 
 ##### MMS Attachable Image Specifications
 
@@ -113,11 +113,11 @@ Concatenated Message feature is provided or limited depending on the number of b
 3. Select the type of delivery. To use the RCS Biz Center template, you must select **Enable** for the template. Otherwise, only SMS, LMS, and MMS are available.
     * SMS can have up to 100 characters in Korean/English, and 1 button can be set.
     * SMS messages for verification must include verification messages.
-      * Verification message: auth, password, verify, にんしょう, 認証, password, verified
+      * Verification message: auth, password, verif, にんしょう, 認証, 비밀번호, 인증
     * SMS messages for verification cannot add a button.
     * LMS Standard type allows you to enter a title of up to 30 characters and content of up to 1,300 characters, regardless of whether it is in Korean or English, and you can set up to 3 buttons.
     * In the case of the basic and title-emphasized LMS formats, the main title can be up to 17 characters long, the body title up to 30 characters long, and the body content up to 1,300 characters long. Up to two buttons can be set.
-        * For paragraph-based LMS formats, the main title can be up to 17 characters long, the body title up to 30 characters long, and the body content up to 1,300 characters long. Up to two buttons can be set within the body content.
+    * For paragraph-based LMS formats, the main title can be up to 17 characters long, the body title up to 30 characters long, and the body content up to 1,300 characters long. Up to two buttons can be set within the body content.
         * Up to three body texts can be added, and the combined total of all body titles and content can be up to 1,300 characters long.
     * MMS can have up to 30 characters of titles and 1,300 characters of content for each card regardless of Korean or English, and can set up to 1 image, and 2 buttons.
         * MMS can select horizontal, vertical, and slide types as detailed settings.

@@ -170,7 +170,7 @@ This API does not request a request body.
 
 
 
-**st Exa**
+**Request Example**
 
 
 <details>
