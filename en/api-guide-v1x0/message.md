@@ -92,7 +92,7 @@ The additional description that will be added under the request parameter.
 
 * The **sender** and **content** fields have different formats depending on the message channel.
 * The values ​​you can enter in the **recipients[].contact.contactType** and **recipients[].contact.contact** fields vary depending on the message channel.
-* For scheduled delivery, set **scheduledDateTime**. You can cancel a scheduled delivery request before it begins. You can do so by calling the Cancel Request API or by going to **Notification Hub Console** > **Send Tracking**.
+* For scheduled delivery, set **scheduledDateTime**. You can cancel a scheduled delivery request before it begins. You can do so by calling the Cancel Request API or by going to **Notification Hub Console** > **Delivery Result**.
 * For approved delivery, set **confirmBeforeSend** to **true**. After approval, the sender's message will be sent once you approve it in **Notification Hub Console** > **Delivery Result**.
 * You cannot set both scheduled and approved delivery at the same time.
 
