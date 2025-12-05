@@ -66,8 +66,8 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Card Type</td>
         <td>Card Count</td>
         <td>Maximum Message Length</td>
-        <td>By card</td>
-        <td>Button</td>
+        <td>Maximum Number of Buttons per Card</td>
+        <td>Maximum Button Name Length</td>
         <td>Image</td>
     </tr>
     <tr>
@@ -83,38 +83,85 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
     </tr>
     <tr>
         <td>2</td>
-        <td>LMS</td>
+        <td rowspan="4">LMS</td>
         <td>LMS</td>
         <td>Standalone</td>
         <td>1</td>
-        <td>1300</td>
+        <td>1,300</td>
         <td>3</td>
         <td>17</td>
         <td>-</td>
     </tr>
     <tr>
         <td>3</td>
-        <td rowspan="2">MMS</td>
+        <td>Basic</td>
+        <td>Format</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2</td>
+        <td>17</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Title emphasis</td>
+        <td>Format</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2</td>
+        <td>17</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Paragraph</td>
+        <td>Format</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2 per paragraph</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td rowspan="4">MMS</td>
         <td>Vertical (Tall)</td>
         <td>Standalone Media Top</td>
         <td>1</td>
-        <td>1300</td>
+        <td>1,300</td>
         <td>2</td>
         <td>17</td>
         <td>Tall (568x528)</td>
     </tr>
     <tr>
-        <td>4</td>
+        <td>7</td>
         <td>Vertical (Medium)</td>
         <td>Standalone Media Top</td>
         <td>1</td>
-        <td>1300</td>
+        <td>1,300</td>
         <td>2</td>
         <td>17</td>
-        <td>Medium(568x336)</td>
+        <td>Medium (568x336)</td>
     </tr>
     <tr>
+        <td>8</td>
+        <td>Slide (Medium)</td>
+        <td>Carousel Medium</td>
+        <td>2 <br/> to 6</td>
+        <td>1,300</td>
+        <td>2</td>
+        <td>13</td>
+        <td>Medium (696x504)</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Slide (Small)</td>
+        <td>Carousel Small</td>
+        <td>2 <br/> to 6</td>
+        <td>1,300</td>
+        <td>2</td>
         <td>5</td>
+        <td>Short (360x336)</td>
+    </tr>
+    <tr>
+        <td>10</td>
         <td rowspan="5">Text<br/>Template</td>
         <td>Description Template_Title Optional</td>
         <td>Description</td>
@@ -125,7 +172,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td rowspan="5">-</td>
     </tr>
     <tr>
-        <td>6</td>
+        <td>11</td>
         <td>Description Template_Title Freeform</td>
         <td>Description</td>
         <td>1</td>
@@ -134,7 +181,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>16</td>
     </tr>
     <tr>
-        <td>7</td>
+        <td>12</td>
         <td>Style Template_Title Optional</td>
         <td>Cell</td>
         <td>1</td>
@@ -143,7 +190,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>17</td>
     </tr>
     <tr>
-        <td>8</td>
+        <td>13</td>
         <td>Style Template_Title Freeform</td>
         <td>Cell</td>
         <td>1</td>
@@ -152,7 +199,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>16</td>
     </tr>
     <tr>
-        <td>9</td>
+        <td>14</td>
         <td>Default Template_Title Freeform</td>
         <td>Free</td>
         <td>1</td>
@@ -161,7 +208,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>0</td>
     </tr>
     <tr>
-        <td>10</td>
+        <td>15</td>
         <td rowspan="8">Image<br/>Template</td>
         <td>Image &amp; Title Highlighted (3:4)</td>
         <td>Highlighted Image n Title</td>
@@ -169,76 +216,132 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>500 characters</td>
         <td>2</td>
         <td>16</td>
-        <td>Long(900x1200)</td>
+        <td>Long (900x1200)</td>
     </tr>
     <tr>
-        <td>11</td>
+        <td>16</td>
         <td>Image &amp; Title Highlighted (1:1)</td>
         <td>Highlighted Image n Title</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
         <td>16</td>
-        <td>Square(900x900)</td>
+        <td>Square (900x900)</td>
     </tr>
     <tr>
-        <td>12</td>
+        <td>17</td>
         <td>Image Highlighted (3:4)</td>
         <td>Highlighted Image</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
         <td>16</td>
-        <td>Long(900x1200)</td>
+        <td>Long (900x1200)</td>
     </tr>
     <tr>
-        <td>13</td>
+        <td>18</td>
         <td>Image Highlighted (1:1)</td>
         <td>Highlighted Image</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
         <td>16</td>
-        <td>Square(900x900)</td>
+        <td>Square (900x900)</td>
     </tr>
     <tr>
-        <td>14</td>
-        <td>Thumbnail type(Vertical)</td>
+        <td>19</td>
+        <td>Thumbnail type (Vertical)</td>
         <td>Thumbnail</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
         <td>16</td>
-        <td>Vertical(900x560)</td>
+        <td>Vertical (900x560)</td>
     </tr>
     <tr>
-        <td>15</td>
-        <td>Thumbnail type(Horizontal)</td>
+        <td>20</td>
+        <td>Thumbnail type (Horizontal)</td>
         <td>Thumbnail</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
         <td>16</td>
-        <td>Horizontal(900x560)</td>
+        <td>Horizontal (900x560)</td>
     </tr>
     <tr>
-        <td>16</td>
+        <td>21</td>
         <td>Social media</td>
         <td>SNS</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
         <td>16</td>
-        <td>Square(900x900)</td>
+        <td>Square (900x900)</td>
     </tr>
     <tr>
-        <td>17</td>
+        <td>22</td>
         <td>Social (middle button)</td>
         <td>SNS</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
         <td>16</td>
-        <td>Rectangle(900x560)</td>
+        <td>Rectangle (900x560)</td>
+    </tr>
+    <tr>
+        <td>23</td>
+        <td rowspan="6">LMS<br/>template</td>
+        <td>Bill A-type</td>
+        <td>Description</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2</td>
+        <td>17</td>
+        <td rowspan="6">-</td>
+    </tr>
+    <tr>
+        <td>24</td>
+        <td>Bill C-type</td>
+        <td>Description</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2</td>
+        <td>17</td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td>Bill C-type</td>
+        <td>Description</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2</td>
+        <td>17</td>
+    </tr>
+    <tr>
+        <td>26</td>
+        <td>Basic</td>
+        <td>Description</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2</td>
+        <td>17</td>
+    </tr>
+    <tr>
+        <td>27</td>
+        <td>Title Emphasis</td>
+        <td>Description</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2</td>
+        <td>17</td>
+    </tr>
+    <tr>
+        <td>28</td>
+        <td>Paragraph</td>
+        <td>Description</td>
+        <td>1</td>
+        <td>1,300</td>
+        <td>2 per paragraph</td>
+        <td>7</td>
     </tr>
 </table>
