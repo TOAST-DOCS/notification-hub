@@ -33,8 +33,7 @@ You can view the reception results of the delivered message by receiver contacts
 | Full | Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Send (SEND_FAILED), received (DELIVERED) Fail to Receive (DELIVERY_FAILED) | Events that occurred during the sending process | 
 | SMS | Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive (DELIVERY_FAILED)    | | 
 | RCS | Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive (DELIVERY_FAILED)    | | 
-| AlimTalk| Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive (DELIVERY_FAILED)    | | 
-| FriendTalk | Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive (DELIVERY_FAILED)    | | 
+| AlimTalk| Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive (DELIVERY_FAILED)    | |
 | Push | Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive(DELIVERY_FAILED), open(OPENED) | Events for opening messages are also collected. | 
 | E-mail | Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive(DELIVERY_FAILED), open(OPENED) | Events for opening messages are also collected. | 
 | SMS | International Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive(DELIVERY_FAILED  | |
