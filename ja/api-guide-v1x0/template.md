@@ -75,11 +75,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | RCS | sender.brandId | ブランドID                   |
 | RCS | sender.chatbotId | チャットルームID                   |
 | EMAIL | sender.senderMailAddress | 発信者メールアドレス              |
-| ALIMTALK, FRIENDTALK | sender.senderKey | 発信キー                      |
+| ALIMTALK | sender.senderKey | 発信キー                      |
 | ALIMTALK | sender.senderProfileType | 発信プロフィールタイプ<br>GROUP, NORMAL |
 
 * お知らせトーク(ALIMTALK)は発信キー(senderKey)と発信プロフィールタイプ(senderProfileType)を必ず入力する必要があります。
-* カカともへのメッセージ(FRIENDTALK)はNORMAL(一般)発信プロフィールタイプのみ使用できます。 GROUP(グループ)発信プロフィールタイプの発信キーを使用すると送信に失敗します。
 * 発信者プロフィールタイプは**GROUP(グループ)**と **NORMAL(一般)**があります。**GROUP**はグループ発信者プロフィール、 **NORMAL**は一般発信者プロフィールです。
 
 ### お知らせトークテンプレート詳細リクエスト本文
@@ -981,7 +980,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | アプリキー |
 | accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 
 **リクエスト本文**
 
@@ -1070,7 +1069,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | アプリキー |
 | accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 
 **リクエスト本文**
 
@@ -1152,10 +1151,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- |--------------------------------------------------------|
 | appKey | Header | String | Y | アプリキー                                                   |
 | accessToken | Header | String | Y | 認証トークン                                                |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH  |
+| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH  |
 | categoryTemplateName | Query | String | N | カテゴリーまたはテンプレート名、プレフィックス(Prefix)検索可能                    |
-| senderProfileType | Query | String | N | 発信者プロフィールタイプ(GROUP, USER)、お知らせトークとカカともへのメッセージのみ該当               |
-| senderKey | Query | String | N | 発信者キー、お知らせトークとカカともへのメッセージのみ該当                                  |
 
 <!--TODO: statusフィールドがないため、必要かどうか確認が必要-->
 
@@ -1221,7 +1218,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | categories.[]categoryId | String        | カテゴリーID |
 | categories.[]categoryName            | String        | カテゴリー名 |
 | categories.[]parentCategoryId        | String        | 上位カテゴリーID |
-| categories.[]messageChannel          | String        | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| categories.[]messageChannel          | String        | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | categories.[]categories              | Object Array | 下位カテゴリーリスト |
 | categories.[]templates               | Object Array         | テンプレートリスト |
 | categories.[]templates.[]templateId  | String        | テンプレートID |
@@ -1271,7 +1268,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | アプリキー |
 | accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | カテゴリーID |
 
 **リクエスト本文**
@@ -1353,7 +1350,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | アプリキー |
 | accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | カテゴリーID |
 
 **リクエスト本文**
@@ -1439,7 +1436,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | アプリキー |
 | accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 
 **リクエスト本文**
 
@@ -1520,7 +1517,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | アプリキー |
 | accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | カテゴリーID |
 
 **リクエスト本文**

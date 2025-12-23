@@ -44,7 +44,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query | String | N  | Statistics Key ID |
 | sender | Query | String | N  | Sender |
 | contact | Query | String | N  | Contact |
-| messageChannel | Query | String | N  | Message channel<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Query | String | N  | Message channel<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | messagePurpose | Query | String | N  | Message purpose |
 | String | Query | String | N  | Status |
 | scheduled | Query | Boolean | N  | Scheduled sending or not |
@@ -136,9 +136,9 @@ This API does not require a request body.
 | contactDeliveryResults[].contactType | String| Contact type |
 | contactDeliveryResults[].contact | String| Contact|
 | contactDeliveryResults[].sender | Object| Sender|
-| contactDeliveryResults[].sender.senderKey | String| Sender profile’s sender key, only appears in AlimTalk and FriendTalk|
-| contactDeliveryResults[].sender.senderProfileId | String| Sender profile’s ID, only appears in AlimTalk and FriendTalk |
-| contactDeliveryResults[].sender.senderProfileType | String| Sender profile type, only appears in AlimTalk and FriendTalk|
+| contactDeliveryResults[].sender.senderKey | String| Sender profile's sender key, only appears in AlimTalk|
+| contactDeliveryResults[].sender.senderProfileId | String| Sender profile's ID, only appears in AlimTalk |
+| contactDeliveryResults[].sender.senderProfileType | String| Sender profile type, only appears in AlimTalk|
 | contactDeliveryResults[].sender.senderPhoneNumber | String| Sender’s phone number, only appears in SMS|
 | contactDeliveryResults[].sender.senderMailAddress | String| Sender email address, only appears in emails|
 | contactDeliveryResults[].sender.brandId | String| Brand ID, only appears in RCS |
@@ -146,7 +146,7 @@ This API does not require a request body.
 | contactDeliveryResults[].templateId | String| Template’s ID, only appears in template messages|
 | contactDeliveryResults[].flowId | String| Flow’s ID, only appears in template messages|
 | contactDeliveryResults[].statsKeyId | String| ID of the statistics key|
-| contactDeliveryResults[].messageChannel | String| Message channel<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| contactDeliveryResults[].messageChannel | String| Message channel<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | contactDeliveryResults[].messagePurpose | String| Message purpose |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | Whether to enable send after approval|
 | contactDeliveryResults[].confirmedDateTime | DateTime(ISO 86091) | Approval date (e.g., 2024-10-29T06:09:00+09:00)|

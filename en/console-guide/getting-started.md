@@ -161,7 +161,7 @@ For more information on issuing Push Credentials, check **Service Policy & Preco
 
 ### Manage Outgoing Profiles
 
-You need to create and register an outgoing profile to send a notification or Friendtalk.
+You need to create and register an outgoing profile to send a Alimtalk.
 
 Outgoing profiles can be created by Kakao Business.
 

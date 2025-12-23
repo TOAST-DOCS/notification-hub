@@ -33,10 +33,6 @@
 | RCS         | MMS              | .jpg、.jpeg、.png、.gif、.bmp                           | 1MB           |                                  |                               |
 | Alimtalk      | 画像           | .jpg、.png                                              | 500KB         | 横500px以上                  | (2:1)                         |
 | Alimtalk      | アイテムリスト    | .jpg、.png                                              | 500KB         | 横108px以上                  | (1:1)                         |
-| Chingutalk      | 画像           | .jpg、.png                                              | 5MB           | 横500px以上                  | (2:1)以上(3:4)以下         |
-| Chingutalk      | ワイド画像    | .jpg、.png                                              | 5MB           | 横800px、縦600px           |                               |
-| Chingutalk      | ワイドアイテムリスト | .jpg、.png                                          | 5MB           | 横400px以上800px以下、縦400px |                               |
-| Chingutalk      | カルーセルフィード      | .jpg、.png                                              | 5MB           | 横500px以上                  | (2:1)以上(3:4)以下         |
 | Eメール       | -                | .js、.exe、.bat、.cmd、.com、.cpl、.scr、.vbs、.wsrを除くすべての形式 | 30MB          |                                  |                               |
 
 ## 画像レイアウトの管理

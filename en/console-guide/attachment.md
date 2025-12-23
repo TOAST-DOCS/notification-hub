@@ -33,10 +33,6 @@ You can also manage attachments uploaded when registering templates and sending 
 | RCS         | MMS              | .jpg, .jpeg, .png, .gif, .bmp                           | 1MB           |                                  |                               |
 | Alimtalk      | Image           | .jpg, .png                                              | 500KB         | Width 500px or more                  | (2:1)                         |
 | Alimtalk      | Item List    | .jpg, .png                                              | 500KB         | Width 108px or more                  | (1:1)                         |
-| Friendtalk      | Image           | .jpg, .png                                              | 5MB           | Width 500px or more                  | Between 2:1 and 3:4         |
-| Friendtalk      | Wide Image    | .jpg, .png                                              | 5MB           | Width 800px, Height 600px           |                               |
-| Friendtalk      | Wide Item List | .jpg, .png                                          | 5MB           | Width between 400px and 800px, Height 400px |                               |
-| Friendtalk      | Carousel Feed      | .jpg, .png                                              | 5MB           | Width 500px or more                  | Between 2:1 and 3:4         |
 | Email       | -                | All formats except .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr | 30MB          |                                  |                               |
 
 ## Image Layout Management

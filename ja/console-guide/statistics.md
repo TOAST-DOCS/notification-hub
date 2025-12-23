@@ -34,7 +34,6 @@ Notification Hubで発生する様々なイベントを収集し、統計デー�
 | SMS | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)    | |
 | RCS | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)    | |
 | お知らせトーク | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)    | |
-| カカともへのメッセージ | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)    | |
 | Push | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)、閲覧済み(OPENED) | メッセージ閲覧に関するイベントも収集されます。 |
 | Email | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)、閲覧済み(OPENED) | メッセージ閲覧に関するイベントも収集されます。 |
 | SMS | 国際SMSメッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)  | |
