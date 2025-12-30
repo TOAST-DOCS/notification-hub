@@ -7,6 +7,12 @@
 
 **Notification > Notification Hub > Release Notes**
 
+### 2025. 12. 31.
+#### Feature Removal
+* [API, Console] FriendTalk Service End of Support 
+    * The FriendTalk service will end on Wednesday, December 31, 2025. 
+    * FriendTalk-related features will no longer be available in the console, and the FriendTalk API will no longer be available.
+
 ### 2025. 12. 04.
 #### Feature Improvements
 * [API] The `exact` request parameter has been added to the image layout list retrieval API.

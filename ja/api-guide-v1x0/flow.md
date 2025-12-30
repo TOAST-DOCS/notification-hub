@@ -62,7 +62,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String        | N | フローの説明                               |
 | messagePurpose | String        | Y | メッセージ目的<br>NORMAL(一般), AD(広告), AUTH(認証) |
 | steps | Object        | Y | フロー段階                                |
-| steps.messageChannel | String        | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| steps.messageChannel | String        | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | steps.templateId | String        | Y | テンプレートID                               |
 | steps.nextSteps | Object Array | N | 次のステップ                                 |
 

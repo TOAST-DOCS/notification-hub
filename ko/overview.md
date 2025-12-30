@@ -7,7 +7,7 @@
 
 **Notification > Notification Hub > 개요**
 
-SMS, 알림톡, 친구톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라우드 기반 통합 메시징 플랫폼입니다. Notification Hub는 다양한 메시지 채널을 통합하여 메시지를 발송하고 관리할 수 있습니다. 또한, 플로우 발송을 통해 여러 메시지 채널을 우선순위에 따라 순차적으로 발송할 수 있습니다. Notification의 다른 상품과 설정과 자원을 공유해 기존 Notification 고객이 빠르게 Notification Hub로 전환할 수 있습니다.
+SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라우드 기반 통합 메시징 플랫폼입니다. Notification Hub는 다양한 메시지 채널을 통합하여 메시지를 발송하고 관리할 수 있습니다. 또한, 플로우 발송을 통해 여러 메시지 채널을 우선순위에 따라 순차적으로 발송할 수 있습니다. Notification의 다른 상품과 설정과 자원을 공유해 기존 Notification 고객이 빠르게 Notification Hub로 전환할 수 있습니다.
 
 ![전체 구조](../img/overview_800.png)
 
@@ -15,7 +15,7 @@ SMS, 알림톡, 친구톡, RCS, Email, Push 메시지를 발송하고 관리하�
 
 ### 멀티 채널 메시징
 
-* SMS, 알림톡, 친구톡, RCS, Email, Push 6개의 메시지 채널로 메시지를 발송할 수 있습니다.
+* SMS, 알림톡, RCS, Email, Push 6개의 메시지 채널로 메시지를 발송할 수 있습니다.
     * 다양한 메시지 채널을 하나의 API로 통합 관리하여 간편하게 메시지를 전송할 수 있습니다.
 
 ### 주소록

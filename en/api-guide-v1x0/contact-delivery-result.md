@@ -42,7 +42,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query | String | N | Statistics Key ID. |
 | sender | Query | String | N | Sender information. |
 | contact | Query | String | N | Contact information. |
-| messageChannel | Query | String | N | Message channel.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, and PUSH] |
+| messageChannel | Query | String | N | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, and PUSH] |
 | messagePurpose | Query | String | N | The message purpose.<br>[AD, AUTH, NORMAL] |
 | statuses | Query | List | N | The message status. You can view the sending result.<br> When a message sending request is received, the message status is set to REQUESTED. <br>[REQUESTED, SCHEDULED, READY, CONFIRM_WAITED, WAITED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, and CANCELED] |
 | scheduled | Query | Boolean | N | Whether to schedule sending. |
@@ -147,7 +147,7 @@ This API does not request a request body.
 | contactDeliveryResults[].flowId | String | Flow ID |
 | contactDeliveryResults[].statsKeyId | String | Statistics key ID |
 | contactDeliveryResults[].clientReference | String | Custom field |
-| contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].options | Object | |
 | contactDeliveryResults[].options.expiryOption | Integer | The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
@@ -226,7 +226,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query | String | N | Statistics Key ID. |
 | sender | Query | String | N | Sender information. |
 | contact | Query | String | N | Contact information. |
-| messageChannel | Query | String | N | Message channel.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Query | String | N | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | messagePurpose | Query | String | N | The message purpose. <br>[AD, AUTH, NORMAL] |
 | scheduled | Query | Boolean | N | Whether to schedule sending. |
 | confirmBeforeSend | Query | Boolean | N | Whether to send after approval. |
@@ -329,7 +329,7 @@ This API does not request a request body.
 | contactDeliveryResults[].flowId | String | Flow ID |
 | contactDeliveryResults[].statsKeyId | String | Statistics key ID |
 | contactDeliveryResults[].clientReference | String | Custom field |
-| contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].options | Object | |
 | contactDeliveryResults[].options.expiryOption | Integer | The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
