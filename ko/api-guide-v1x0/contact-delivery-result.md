@@ -42,7 +42,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query  | String | N | 통계 키 아이디입니다. |
 | sender | Query  | String | N | 발신자 정보입니다. |
 | contact | Query  | String | N | 연락처입니다. |
-| messageChannel | Query  | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Query  | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | messagePurpose | Query  | String | N | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 | statuses | Query  | List | N | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다. <br>[REQUESTED(요청), SCHEDULED(예약됨), READY(준비), CONFIRM_WAITED(확인 대기), WAITED(대기), IN_PROGRESS(진행 중), SENT(발송 성공), SEND_FAILED(발송 실패), DELIVERED(수신 성공), OPENED(열람), DELIVERY_FAILED(수신 실패), CANCELED(취소됨)] |
 | scheduled | Query  | Boolean | N | 예약 발송 여부입니다. |
@@ -147,7 +147,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | 플로우 ID |
 | contactDeliveryResults[].statsKeyId | String | 통계 키 아이디 |
 | contactDeliveryResults[].clientReference | String | 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| contactDeliveryResults[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].options | Object |  |
 | contactDeliveryResults[].options.expiryOption | Integer | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
@@ -226,7 +226,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query  | String | N | 통계 키 아이디입니다. |
 | sender | Query  | String | N | 발신자 정보입니다. |
 | contact | Query  | String | N | 연락처입니다. |
-| messageChannel | Query  | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Query  | String | N | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | messagePurpose | Query  | String | N | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
 | scheduled | Query  | Boolean | N | 예약 발송 여부입니다. |
 | confirmBeforeSend | Query  | Boolean | N | 승인 후 발송 여부입니다. |
@@ -329,7 +329,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | 플로우 ID |
 | contactDeliveryResults[].statsKeyId | String | 통계 키 아이디 |
 | contactDeliveryResults[].clientReference | String | 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| contactDeliveryResults[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].options | Object |  |
 | contactDeliveryResults[].options.expiryOption | Integer | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |

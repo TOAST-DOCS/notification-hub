@@ -75,11 +75,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | RCS | sender.brandId | Brand ID                   |
 | RCS | sender.chatbotId | Room ID                   |
 | EMAIL | sender.senderMailAddress | Sender email address                |
-| ALIMTALK, FRIENDTALK | sender.senderKey | Sender key                       |
+| ALIMTALK | sender.senderKey | Sender key                       |
 | ALIMTALK | sender.senderProfileType | Sender profile type<br>GROUP, NORMAL |
 
 * AlimTalk requires a senderKey and senderProfileType to be entered.
-* FriendTalk can only use the NORMAL sender profile type. If you use a sending key with the GROUP sender profile type, the sending will fail.
 * There are two sender profile types: GROUP and NORMAL. **GROUP** is a group sender profile and **NORMAL**is a normal sender profile.
 
 ### AlimTalk template details request body
@@ -981,7 +980,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | Appkey |
 | accessToken | Header | String | Y | Authentication Token |
-| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 
 **Request Body**
 
@@ -1070,7 +1069,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | Appkey |
 | accessToken | Header | String | Y | Authentication Token |
-| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 
 **Request Body**
 
@@ -1152,7 +1151,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- |--------------------------------------------------------|
 | appKey | Header | String | Y | Appkey                                                     |
 | accessToken | Header | String | Y | Authentication Token                                                  |
-| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH  |
+| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, EMAIL, PUSH  |
 | categoryTemplateName | Query | String | N | Searchable by category, template name, prefix, or single character wildcard                      |
 | senderProfileType | Query | String | N | Sender profile type (GROUP, USER), Notification Chats and Friend Chats only                |
 | senderKey | Query | String | N | Sender ID, Notification Chats and Friend Chats only                                   |
@@ -1221,7 +1220,7 @@ This API does not require a request body.
 | categories.[]categoryId | String        | Category ID |
 | categories.[]categoryName            | String        | Category name |
 | categories.[]parentCategoryId        | String        | Parent Category ID |
-| categories.[]messageChannel          | String        | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| categories.[]messageChannel          | String        | Message channels<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | categories.[]categories              | Object Array | List of subcategories |
 | categories.[]templates               | Object Array         | Template list |
 | categories.[]templates.[]templateId  | String        | Template ID |
@@ -1271,7 +1270,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | Appkey |
 | accessToken | Header | String | Y | Authentication Token |
-| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | Category ID |
 
 **Request Body**
@@ -1353,7 +1352,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | Appkey |
 | accessToken | Header | String | Y | Authentication Token |
-| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | Category ID |
 
 **Request Body**
@@ -1439,7 +1438,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | Appkey |
 | accessToken | Header | String | Y | Authentication Token |
-| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 
 **Request Body**
 
@@ -1520,7 +1519,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- | --- |
 | appKey | Header | String | Y | Appkey |
 | accessToken | Header | String | Y | Authentication Token |
-| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Path | String | Y | Message channels<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | categoryId | Path | String | Y | Category ID |
 
 **Request Body**

@@ -34,7 +34,7 @@ You must have a registered flow to send a flow.
 ## Send individual message channels
 
 1. Select whether to use a template, and if you are using a template, select a template.
-    * For AlimTalk, FriendTalk, select an outgoing profile and select a template registered in the outgoing profile.
+    * For AlimTalk, select an outgoing profile and select a template registered in the outgoing profile.
 2. Set up receivers. You can set up receivers by entering directly, selecting from the address book, and uploading files.
     * For Entering Directly or selecting from the address book, enter the template substitutes together when setting up the receiver.
     * For file uploads, you must enter receiver information and template substituents in the file.
@@ -82,10 +82,12 @@ The template structure of the receiver contact list file is as follows.
     * [Stolen Number Text Blocking Service guide shortcut](./preconditions/preconditions-sms#fraud-number)
 * If the delivery result is successful, but the text is not received, check Mobile Carrier Spam Blocking Service.
     * [ Mobile Carrier Spam Blocking Service shortcuts](./preconditions/preconditions-sms#spam-number)
+* SMS messages for verification must include verification messages.
+      * Verification message: auth, password, verif, にんしょう, 認証, 비밀번호, 인증
 
 ##### MMS Attachable Image Specifications
 
-* MMS maximum size: files less than 1000\*1000
+* MMS maximum size: files less than 1,000\*1,000
 * MMS support specification: 300KB or less per image, if the number of images is 3, a total of 800KB or less/.jpg, .jpeg files
 
 
@@ -108,9 +110,15 @@ Concatenated Message feature is provided or limited depending on the number of b
 
 1. Select sender brand and chatroom (sender number).
 2. Select the purpose of delivery. If this is for advertising, select 080 Unsubscription number.
-3. Select the type of delivery: SMS, LMS, MMS, and RCS Biz Center templates.
+3. Select the type of delivery. To use the RCS Biz Center template, you must select **Enable** for the template. Otherwise, only SMS, LMS, and MMS are available.
     * SMS can have up to 100 characters in Korean/English, and 1 button can be set.
-    * LMS can have up to 30 characters in titles and 1,300 characters in content regardless of Korean or English, and up to 3 buttons.
+    * SMS messages for verification must include verification messages.
+      * Verification message: auth, password, verif, にんしょう, 認証, 비밀번호, 인증
+    * SMS messages for verification cannot add a button.
+    * LMS Standard type allows you to enter a title of up to 30 characters and content of up to 1,300 characters, regardless of whether it is in Korean or English, and you can set up to 3 buttons.
+    * In the case of the basic and title-emphasized LMS formats, the main title can be up to 17 characters long, the body title up to 30 characters long, and the body content up to 1,300 characters long. Up to two buttons can be set.
+    * For paragraph-based LMS formats, the main title can be up to 17 characters long, the body title up to 30 characters long, and the body content up to 1,300 characters long. Up to two buttons can be set within the body content.
+        * Up to three body texts can be added, and the combined total of all body titles and content can be up to 1,300 characters long.
     * MMS can have up to 30 characters of titles and 1,300 characters of content for each card regardless of Korean or English, and can set up to 1 image, and 2 buttons.
         * MMS can select horizontal, vertical, and slide types as detailed settings.
         * When selecting a slide type, you can add a minimum of 3 to a maximum of 6 slides.
@@ -118,8 +126,6 @@ Concatenated Message feature is provided or limited depending on the number of b
     * RCS Biz Center template requires pre-registration from the RCS Biz Center.
 
 ##### RCS button type
-SMS, LMS, MMS, and RCS Biz Center templates can all add buttons.
-
 * Open chat room
     * Send the message you set to the phone number you set.
     * Enter a name for the button, and then enter the phone number to send the message to.
@@ -151,38 +157,6 @@ SMS, LMS, MMS, and RCS Biz Center templates can all add buttons.
 
 * Select the outgoing profile and the template registered in the outgoing profile.
 * AlimTalk is only available for sending templates, so you do not need to enter the contents.
-
-#### FriendTalk
-1. If there is advertising information (special price, discount, event, promotion, etc.) in the content to be delivered, set the purpose of sending to 'Advertising'.
-2. Select a message type. See [FriendTalk Delivery Support Type](./preconditions/preconditions-ktb#ktb-supported-types) for a detailed guide by type.
-    * Default (text/image/wide image)
-        * Text: 1,000 characters of text, including spaces both for Korean and English + up to 5 link buttons (vertically arranged)
-        * Image: 400 characters of text, including spaces both for Korean and English + 1 image + up to 5 link buttons (vertically arranged)
-        * Wide image: 76 characters with spaces regardless of Korean/English text + 1 image + 1 link button
-    * Wide item list
-        * It is an advertisement-type product that allows you to add 3 to 4 lists (image + item) to one title.
-        * Text with spacing, regardless of Korean/English, first item title 25 characters, 2nd to 4th item title 30 characters + 3 to 4 image items + up to 2 link buttons (horizontal alignment)
-    * Carousel feeds
-        * It is an advertisement-type product that can contain up to 10 images and various text information.
-        * Up to 10 items consisting of 20 characters of ‘title' with spaces regardless of Korean or English text+ 'phrase' 180 characters of text + 'image + 2 link buttons (horizontally aligned)'
-    * Premium videos
-        * The attached video is the type automatically played on the speech bubble.
-        * The video link can only be used for videos uploaded to Kakao TV (e.g. https://tv.kakao.com/v/#{숫자} / https://tv.kakao.com/channel/#{숫자}/cliplink/#{숫자}).
-        * 20 characters of 'header' including spaces regardless of Korean/English text + 'phrase' 76 characters of text + 1 'video uploaded to Kakao TV' + 1 link button
-    * Commerce
-        * It is a speech bubble that can emphasize product price and discount information.
-        * 20 characters of 'title' with spaces regardless of Korean/English text + 'additional information' 34 characters of text + up to 2 links buttons (aligned horizontally)
-    * Carousel commerce
-        * It is a speech bubble that can organize information on various products in the form of a catalog.
-        * Up to 10 items consisting of 30 characters of ‘title' with spaces regardless of Korean or English text+ 'additional information' ' 34 characters of text + up to 2 link buttons (horizontally aligned)'
-        * All images used in carousel commerce must have the same proportions.
-3. Select an image, if any.
-    * To attach an image to a message, you must first register the image on the **Detailed Settings > Manage Attachment** tab.
-    * Image Link: Enter the link to be linked when clicking on the image (URL containing http://,https://를)
-    * All images used in carousel commerce must have the same proportions.
-4. You can insert web links, app links, bot keywords, message delivery, consultation talk switching, bot switching, and business form buttons.
-    * Up to 5 basic items, up to 2 carousels/wide items list
-5. If you need to highlight a coupon in the message, you can use the button to click it to move to the attached coupon.
 
 #### Email
 

@@ -44,7 +44,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query | String | N  | 統計キーID |
 | sender | Query | String | N  | 発信者 |
 | contact | Query | String | N  | 連絡先 |
-| messageChannel | Query | String | N  | メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| messageChannel | Query | String | N  | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | messagePurpose | Query | String | N  | メッセージの目的 |
 | status | Query | String | N  | 状態 |
 | scheduled | Query | Boolean | N  | 予約送信かどうか |
@@ -140,9 +140,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].contactType | String| 連絡先タイプ |
 | contactDeliveryResults[].contact | String| 連絡先|
 | contactDeliveryResults[].sender | Object| 発信者|
-| contactDeliveryResults[].sender.senderKey | String| 発信プロフィール発信キー、お知らせトークとカカともへのメッセージのみ表示|
-| contactDeliveryResults[].sender.senderProfileId | String| 発信プロフィールID、お知らせトークとカカともへのメッセージのみ表示 |
-| contactDeliveryResults[].sender.senderProfileType | String| 発信プロフィールタイプ、お知らせトークとカカともへのメッセージのみ表示|
 | contactDeliveryResults[].sender.senderPhoneNumber | String| 発信者電話番号、SMSのみ表示|
 | contactDeliveryResults[].sender.senderMailAddress | String| 発信者メールアドレス、メールのみ表示|
 | contactDeliveryResults[].sender.brandId | String| ブランドID, RCSのみ表示 |
@@ -153,7 +150,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].options | Object | 送信オプション |
 | contactDeliveryResults[].options.expiryOption | Integer | RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
 | contactDeliveryResults[].options.groupId | String | RCS BizCenter統計連動のためのグループID |
-| contactDeliveryResults[].messageChannel | String| メッセージチャンネル<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| contactDeliveryResults[].messageChannel | String| メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | contactDeliveryResults[].messagePurpose | String| メッセージの目的 |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 承認後送信を使用するかどうか|
 | contactDeliveryResults[].confirmedDateTime | DateTime(ISO 86091) | 承認日時(例：2024-10-29T06:09:00+09:00)|
@@ -354,7 +351,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].options | Object | 送信オプション |
 | contactDeliveryResults[].options.expiryOption | Integer | RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
 | contactDeliveryResults[].options.groupId | String | RCS BizCenter統計連動のためのグループID |
-| contactDeliveryResults[].messageChannel | Object | メッセージチャンネル<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| contactDeliveryResults[].messageChannel | Object | メッセージチャンネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | Object | 送信内容タイプ(NORMAL:一般、 AD:広告、 AUTH:認証、 default: NORMAL)<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 確認後に送信するかどうかを示します。 |
 | contactDeliveryResults[].confirmedDateTime | String | メッセージ送信確認時刻です。 |

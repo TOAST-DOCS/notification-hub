@@ -52,7 +52,7 @@ X-NHN-Authorization: Bearer {accessToken}
     | 메시지 채널 | 이벤트 카테고리 |
     | --- | --- |
     | SMS | MESSAGE_SEND, INTERNATIONAL_MESSAGE_SEND |
-    | ALIMTALK, FRIENDTALK, RCS, EMAIL, PUSH | MESSAGE_SEND |
+    | ALIMTALK, RCS, EMAIL, PUSH | MESSAGE_SEND |
 * 조회 시작 일시는 조회 기간에 포함이 되며, 조회 종료 일시는 조회 기간에 포함되지 않습니다.
     * 예: 2025년 1월 1일 하루 데이터를 조회하기 위해서는 eventDateTimeFrom을 2025-01-01T00:00:00.000+09:00로 설정하고 eventDateTimeTo를 2025-01-02T00:00:00.000+09:00로 설정해야 합니다.
 * 이벤트 외 추가로 데이터를 수집해 총 3개(extra1, extra2, extra3)의 추가 필드를 제공합니다.
