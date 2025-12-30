@@ -65,7 +65,7 @@ X-NHN-Authorization: Bearer {accessToken}
 * Template categories can be created using the Template Categories API.
 * Select one of the following for the template language: PLAIN_TEXT, FREE_MARKER.
 * If your template language is FREE_MARKER, you can use FREE_MARKER syntax in your template content.
-* The **sender**, **content** fields are identical to the request body of the professional message sending API.
+* The **sender**, **content** fields are identical to the request body of the free-form message sending API.
 
 #### Sender field per message channel
 
