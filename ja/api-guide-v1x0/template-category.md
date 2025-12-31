@@ -31,7 +31,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | categoryId | Path  | String | Y | 카테고리 아이디 |
 
 
@@ -117,7 +117,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | categoryId | Path  | String | Y | 카테고리 아이디 |
 
 
@@ -164,7 +164,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | category.categoryId | String | 카테고리 아이디 |
 | category.categoryName | String | 카테고리 이름 |
 | category.parentCategoryId | String | 상위 카테고리 아이디 |
-| category.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| category.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | category.categoryIds | Array | 카테고리에 속한 카테고리 아이디 리스트 |
 | category.templateIds | Array | 카테고리에 속한 템플릿 아이디 리스트 |
 
@@ -218,7 +218,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | categoryId | Path  | String | Y | 카테고리 아이디 |
 
 
@@ -324,7 +324,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | categoryId | Path  | String | Y | 카테고리 아이디 |
 
 
@@ -426,7 +426,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 
 
 
@@ -472,7 +472,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | categories[].categoryId | String | 카테고리 아이디 |
 | categories[].categoryName | String | 카테고리 이름 |
 | categories[].parentCategoryId | String | 상위 카테고리 아이디 |
-| categories[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| categories[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | categories[].categoryIds | Array | 카테고리에 속한 카테고리 아이디 리스트 |
 | categories[].templateIds | Array | 카테고리에 속한 템플릿 아이디 리스트 |
 
@@ -526,7 +526,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 
 
 
@@ -633,7 +633,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| messageChannel | Path  | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | categoryTemplateName | Query  | String | N | 카테고리/템플릿 이름 |
 | senderProfileType | Query  | String | N | 발신프로필 타입<br>[GROUP, NORMAL] |
 | senderKey | Query  | String | N | 발신 키 |
@@ -686,7 +686,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | categories[].categoryId | String | 카테고리 아이디, 루트 카테고리(ROOT) |
 | categories[].categoryName | String | 카테고리 이름, 루트 카테고리(Root Category) |
 | categories[].parentCategoryId | String | 상위 카테고리 아이디 |
-| categories[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, FRIENDTALK, EMAIL, RCS, PUSH] |
+| categories[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | categories[].categories | Array | 카테고리에 속한 카테고리 리스트 |
 | categories[].templates | Array | 카테고리에 속한 템플릿 리스트 |
 

@@ -62,7 +62,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String        | N | Flow description                                 |
 | messagePurpose | String        | Y | Message purpose<br>NORMAL, AD, AUTH, Authentication |
 | steps | Object        | Y | Flow step                                  |
-| steps.messageChannel | String        | Y | Message channel<br>SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH |
+| steps.messageChannel | String        | Y | Message channel<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | steps.templateId | String        | Y | Template ID                               |
 | steps.nextSteps | Object Array | N | Next step                                   |
 

@@ -7,13 +7,13 @@
 
 **Notification > Notification Hub > Overview**
 
-It is a cloud-based integrated messaging platform that sends and manages push, email, SMS, RCS, AlimTalk, and FriendTalk messages. Notification Hub integrates various message channels to send and manage messages. Flow sending also allow multiple message channels to be sent sequentially in order of priority. By sharing settings and resources with other Notification products, existing Notification customers can quickly transition to Notification Hub.
+It is a cloud-based integrated messaging platform that sends and manages push, email, SMS, RCS, and AlimTalk messages. Notification Hub integrates various message channels to send and manage messages. Flow sending also allow multiple message channels to be sent sequentially in order of priority. By sharing settings and resources with other Notification products, existing Notification customers can quickly transition to Notification Hub.
 
 ![Overall structure](../img/overview_800.png)
 
 ## Multichannel messaging
 
-* Sends messages to 6 messaging channels: SMS, Alim Talk, FriendTalk, RCS, Email, and Push.
+* Sends messages to 6 messaging channels: SMS, Alim Talk, RCS, Email, and Push.
   * Uses a single API to integrate and manage multiple message channels for easy sending
 
 ## Address Book
@@ -62,8 +62,8 @@ Existing NHN Cloud Notification users can easily switch to and use the Notificat
     * SMS limits the number of deliveries to 5,000 per month per organization.
       * Regardless of the type of delivery (SMS, LMS, MMS), it is calculated by summing both SMS and Notification Hub services.
       * Calculate the delivery volume based on delivery.
-  * AlimTalk/FriendTalk
-    * AlimTalk/FriendTalk limits the delivery volume to 1,000 per project per day.
+  * AlimTalk
+    * AlimTalk limits the delivery volume to 1,000 per project per day.
 * Monthly delivery volume can be seen in **Console**>**Organization**>**Project**>**Quarter Management**.
 * Contact **Customer Center**>**1:1:1 Inquiry** if you need to adjust your monthly delivery volume.
   * [1:1 Inquiry Shortcut](https://www.nhncloud.com/kr/support/inquiry)
