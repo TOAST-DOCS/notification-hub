@@ -134,9 +134,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| unsubscribePhoneNumber | Path  | String | N | 080 수신 거부 외부 번호 |
+| X-NC-APP-KEY | Header  | String | Y  | 앱키 |
+| X-NHN-Authorization | Header  | String | Y  | 액세스 토큰 |
+| unsubscribePhoneNumber | Path  | String | Y  | 080 수신 거부 외부 번호 |
 
 
 
@@ -327,7 +327,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| unsubscribePhoneNumber | Path  | String | N | 수신 거부 번호 |
+| unsubscribePhoneNumber | Path  | String | Y | 수신 거부 번호 |
 
 
 
@@ -351,7 +351,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultMessage" : "SUCCESS"
   },
   "unsubscribePhoneNumber" : {
-    "unsubscribePhoneNumber" : null,
+    "unsubscribePhoneNumber" : 0801234567,
     "corporationName" : "회사명",
     "shareStatus" : "PRIMARY",
     "provider" : "INTERNAL",
