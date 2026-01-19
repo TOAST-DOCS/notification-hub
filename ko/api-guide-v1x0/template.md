@@ -1881,7 +1881,7 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ## 알림톡 템플릿 문의하기 (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고하세요.
+    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고하세요.
 
 알림톡 템플릿을 문의합니다.
 
@@ -1985,7 +1985,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## 알림톡 템플릿 문의하기(파일 첨부) (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost) 를 참고하세요.
+    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost) 를 참고하세요.
 
 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
 
@@ -2073,7 +2073,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## 알림톡 템플릿 수정 리스트 조회 (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-* [알림톡 템플릿의 카카오 템플릿 목록 조회](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet) 를 참고하세요.
+    * [알림톡 템플릿의 카카오 템플릿 목록 조회](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet) 를 참고하세요.
 
 알림톡 템플릿 수정 리스트를 조회합니다.
 
