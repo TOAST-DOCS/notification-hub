@@ -1881,7 +1881,7 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ## 알림톡 템플릿 문의하기 (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고해주세요.
+* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고하세요.
 
 알림톡 템플릿을 문의합니다.
 
@@ -1985,7 +1985,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## 알림톡 템플릿 문의하기(파일 첨부) (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost) 를 참고해주세요.
+* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost) 를 참고하세요.
 
 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
 
@@ -2073,7 +2073,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## 알림톡 템플릿 수정 리스트 조회 (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-* [알림톡 템플릿의 카카오 템플릿 목록 조회](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet) 를 참고해주세요.
+* [알림톡 템플릿의 카카오 템플릿 목록 조회](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet) 를 참고하세요.
 
 알림톡 템플릿 수정 리스트를 조회합니다.
 
@@ -2432,53 +2432,53 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| totalCount | Integer | 총 건수 |
-| templates | Array |  |
-| templates[].kakaoTemplateCode | String | 카카오 템플릿 코드 |
-| templates[].kakaoTemplateName | String | 템플릿 이름 |
-| templates[].content | Object |  |
-| templates[].content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
+| 경로 | 타입 | 설명                                                                                                                       |
+| - | - |--------------------------------------------------------------------------------------------------------------------------|
+| header | Object |                                                                                                                          |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true                                                                                        |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0                                                                                                  |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS                                                                                           |
+| totalCount | Integer | 총 건수                                                                                                                     |
+| templates | Array |                                                                                                                          |
+| templates[].kakaoTemplateCode | String | 카카오 템플릿 코드                                                                                                               |
+| templates[].kakaoTemplateName | String | 템플릿 이름                                                                                                                   |
+| templates[].content | Object |                                                                                                                          |
+| templates[].content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA)                                                        |
 | templates[].content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
-| templates[].content.templateContent | String | 템플릿 본문 |
-| templates[].content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
-| templates[].content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
-| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
-| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
-| templates[].content.templateHeader | String | 템플릿 헤더, 변수 입력 가능 |
-| templates[].content.templateItem | Object |  |
-| templates[].content.templateItem.list | Array |  |
-| templates[].content.templateItem.summary | Object |  |
-| templates[].content.templateItem.summary.title | String | 요약 타이틀 |
-| templates[].content.templateItem.summary.description | String | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
-| templates[].content.templateItemHighlight | Object |  |
-| templates[].content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
-| templates[].content.templateItemHighlight.description | String | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
-| templates[].content.templateItemHighlight.attachmentId | String | 템플릿 첨부 파일 ID |
-| templates[].content.templateItemHighlight.imageUrl | String | 섬네일 이미지 주소 |
-| templates[].content.templateRepresentLink | Object |  |
-| templates[].content.templateRepresentLink.linkMo | String | 대표 링크 모바일 웹 링크 |
-| templates[].content.templateRepresentLink.linkPc | String | 대표 링크 PC 웹 링크 |
-| templates[].content.templateRepresentLink.schemeIos | String | 대표 링크 iOS 앱 링크 |
-| templates[].content.templateRepresentLink.schemeAndroid | String | 대표 링크 안드로이드 앱 링크 |
-| templates[].content.attachmentId | String | 템플릿 첨부 파일 ID |
-| templates[].content.templateImageName | String | 템플릿 이미지 이름 |
-| templates[].content.templateImageUrl | String | 템플릿 이미지 링크 |
-| templates[].content.securityFlag | Boolean | 템플릿 보안 여부(default: false) |
-| templates[].content.categoryCode | String | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
-| templates[].content.buttons | Array | 템플릿 버튼 |
-| templates[].content.quickReplies | Array | 템플릿 바로 연결 |
-| templates[].reviewStatus | String | REGISTERED:요청, REQUESTED:검수 중, APPROVED:승인, REJECTED: 반려<br>[REGISTERED, REQUESTED, APPROVED, REJECTED] |
-| templates[].comments | Array | 템플릿 문의 리스트 |
-| templates[].block | Boolean | 템플릿 차단 여부 |
-| templates[].dormant | Boolean | 템플릿 휴면 여부 |
-| templates[].createdDateTime | String | 템플릿 생성 시각 |
-| templates[].updatedDateTime | String | 템플릿 수정된 시각 |
+| templates[].content.templateContent | String | 템플릿 본문                                                                                                                   |
+| templates[].content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값)                                                                            |
+| templates[].content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능                                                       |
+| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리)                                                      |
+| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리)                                                           |
+| templates[].content.templateHeader | String | 템플릿 헤더, 변수 입력 가능                                                                                                         |
+| templates[].content.templateItem | Object |                                                                                                                          |
+| templates[].content.templateItem.list | Array |                                                                                                                          |
+| templates[].content.templateItem.summary | Object |                                                                                                                          |
+| templates[].content.templateItem.summary.title | String | 요약 타이틀                                                                                                                   |
+| templates[].content.templateItem.summary.description | String | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능)                                                                                    |
+| templates[].content.templateItemHighlight | Object |                                                                                                                          |
+| templates[].content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자)                                                                               |
+| templates[].content.templateItemHighlight.description | String | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자)                                                                                |
+| templates[].content.templateItemHighlight.attachmentId | String | 템플릿 첨부 파일 ID                                                                                                             |
+| templates[].content.templateItemHighlight.imageUrl | String | 섬네일 이미지 주소                                                                                                               |
+| templates[].content.templateRepresentLink | Object |                                                                                                                          |
+| templates[].content.templateRepresentLink.linkMo | String | 대표 링크 모바일 웹 링크                                                                                                           |
+| templates[].content.templateRepresentLink.linkPc | String | 대표 링크 PC 웹 링크                                                                                                            |
+| templates[].content.templateRepresentLink.schemeIos | String | 대표 링크 iOS 앱 링크                                                                                                           |
+| templates[].content.templateRepresentLink.schemeAndroid | String | 대표 링크 안드로이드 앱 링크                                                                                                         |
+| templates[].content.attachmentId | String | 템플릿 첨부 파일 ID                                                                                                             |
+| templates[].content.templateImageName | String | 템플릿 이미지 이름                                                                                                               |
+| templates[].content.templateImageUrl | String | 템플릿 이미지 링크                                                                                                               |
+| templates[].content.securityFlag | Boolean | 템플릿 보안 여부(default: false)                                                                                                |
+| templates[].content.categoryCode | String | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999)                                                                         |
+| templates[].content.buttons | Array | 템플릿 버튼                                                                                                                   |
+| templates[].content.quickReplies | Array | 템플릿 바로 연결                                                                                                                |
+| templates[].reviewStatus | String | REGISTERED: 요청, REQUESTED: 검수 중, APPROVED: 승인, REJECTED: 반려<br>[REGISTERED, REQUESTED, APPROVED, REJECTED]               |
+| templates[].comments | Array | 템플릿 문의 리스트                                                                                                               |
+| templates[].block | Boolean | 템플릿 차단 여부                                                                                                                |
+| templates[].dormant | Boolean | 템플릿 휴면 여부                                                                                                                |
+| templates[].createdDateTime | String | 템플릿 생성 시각                                                                                                                |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각                                                                                                               |
 
 
 
