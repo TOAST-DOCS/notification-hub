@@ -715,22 +715,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "additionalProperty" : {
     "templateCode" : "templateCode",
-    "kakaoTemplateCode" : "kakaoTemplateCode",
-    "comments" : [ {
-      "id" : 1,
-      "content" : "문의 내용 예시",
-      "userName" : "사용자 이름",
-      "createdAt" : "2024-10-29T06:00:01.000+09:00",
-      "attachments" : [ {
-        "originalFileName" : "파일명 예시",
-        "filePath" : "/path/to/file"
-      } ],
-      "status" : "REQ"
-    } ],
-    "status" : "APR",
-    "templateModificationStatus" : "APR",
-    "block" : false,
-    "dormant" : false
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
@@ -798,17 +783,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | additionalProperty | Object | N |  |
 | additionalProperty.templateCode | String | N | 템플릿 코드(영문, 숫자, -, _) |
 | additionalProperty.kakaoTemplateCode | String | N | 카카오 템플릿 코드 |
-| additionalProperty.comments | Array | N | 템플릿 문의 리스트 |
-| additionalProperty.comments[].id | Integer | Y | 문의 아이디 |
-| additionalProperty.comments[].content | String | N | 문의 내용 |
-| additionalProperty.comments[].userName | String | Y | 작성자 |
-| additionalProperty.comments[].createdAt | String | Y | 문의 생성 시각 |
-| additionalProperty.comments[].attachments | Array | N | 문의 첨부 파일 |
-| additionalProperty.comments[].status | String | Y | 문의 상태(REQ: 요청, INQ:문의, APR:승인, REJ:반려, REP: 답변)<br>[REQ, INQ, APR, REJ, REP] |
-| additionalProperty.status | String | N | REG:요청, REQ:검수 중, APR:승인, REJ: 반려<br>[REG, REQ, APR, REJ] |
-| additionalProperty.templateModificationStatus | String | N | REG:요청, REQ:검수 중, APR:승인, REJ: 반려<br>[REG, REQ, APR, REJ] |
-| additionalProperty.block | Boolean | N | 템플릿 차단 여부 |
-| additionalProperty.dormant | Boolean | N | 템플릿 휴면 여부 |
 
 
 
@@ -920,22 +894,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "additionalProperty" : {
     "templateCode" : "templateCode",
-    "kakaoTemplateCode" : "kakaoTemplateCode",
-    "comments" : [ {
-      "id" : 1,
-      "content" : "문의 내용 예시",
-      "userName" : "사용자 이름",
-      "createdAt" : "2024-10-29T06:00:01.000+09:00",
-      "attachments" : [ {
-        "originalFileName" : "파일명 예시",
-        "filePath" : "/path/to/file"
-      } ],
-      "status" : "REQ"
-    } ],
-    "status" : "APR",
-    "templateModificationStatus" : "APR",
-    "block" : false,
-    "dormant" : false
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
@@ -1017,22 +976,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
   },
   "additionalProperty" : {
     "templateCode" : "templateCode",
-    "kakaoTemplateCode" : "kakaoTemplateCode",
-    "comments" : [ {
-      "id" : 1,
-      "content" : "문의 내용 예시",
-      "userName" : "사용자 이름",
-      "createdAt" : "2024-10-29T06:00:01.000+09:00",
-      "attachments" : [ {
-        "originalFileName" : "파일명 예시",
-        "filePath" : "/path/to/file"
-      } ],
-      "status" : "REQ"
-    } ],
-    "status" : "APR",
-    "templateModificationStatus" : "APR",
-    "block" : false,
-    "dormant" : false
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }'
 ```
@@ -1328,8 +1272,7 @@ X-NHN-Authorization: Bearer {accessToken}
         } ],
         "status" : "REQ"
       } ],
-      "status" : "APR",
-      "templateModificationStatus" : "APR",
+      "status" : "APPROVED",
       "block" : false,
       "dormant" : false
     },
@@ -1545,11 +1488,6 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
-  "templateLanguage" : "PLAIN_TEXT",
-  "sender" : {
-    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
-    "senderProfileType" : "NORMAL"
-  },
   "content" : {
     "templateMessageType" : "BA",
     "templateEmphasizeType" : "NONE",
@@ -1608,7 +1546,7 @@ X-NHN-Authorization: Bearer {accessToken}
     } ]
   },
   "additionalProperty" : {
-    "templateCode" : "templateCode"
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
@@ -1619,10 +1557,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | 템플릿 이름 |
 | messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
-| sender | Object | N |  |
-| sender.senderKey | String | N | 발신프로필 발신키 |
-| sender.senderProfileType | String | N | 발신프로필 타입<br>[GROUP, NORMAL] |
 | content | Object | Y |  |
 | content.templateMessageType | String | N | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
 | content.templateEmphasizeType | String | N | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
@@ -1672,8 +1606,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.quickReplies[].schemeIos | String | N | 템플릿 바로연결 iOS 앱 링크 |
 | content.quickReplies[].schemeAndroid | String | N | 템플릿 바로연결 안드로이드 앱 링크 |
 | content.quickReplies[].bizFormId | Integer | N | 템플릿 바로연결 비즈니스폼 ID(BF 타입일 경우, 필수) |
-| additionalProperty | Object | N |  |
-| additionalProperty.templateCode | String | N | 템플릿 코드(영문, 숫자, -, _) |
+| additionalProperty | Object | Y |  |
+| additionalProperty.kakaoTemplateCode | String | Y | 카카오 템플릿 코드(영문, 숫자, -, _) |
 
 
 
@@ -1718,11 +1652,6 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
-  "templateLanguage" : "PLAIN_TEXT",
-  "sender" : {
-    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
-    "senderProfileType" : "NORMAL"
-  },
   "content" : {
     "templateMessageType" : "BA",
     "templateEmphasizeType" : "NONE",
@@ -1781,7 +1710,7 @@ X-NHN-Authorization: Bearer {accessToken}
     } ]
   },
   "additionalProperty" : {
-    "templateCode" : "templateCode"
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
@@ -1798,11 +1727,6 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 -d '{
   "templateName" : "템플릿 이름",
   "messagePurpose" : "NORMAL",
-  "templateLanguage" : "PLAIN_TEXT",
-  "sender" : {
-    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
-    "senderProfileType" : "NORMAL"
-  },
   "content" : {
     "templateMessageType" : "BA",
     "templateEmphasizeType" : "NONE",
@@ -1861,7 +1785,7 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
     } ]
   },
   "additionalProperty" : {
-    "templateCode" : "templateCode"
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }'
 ```
@@ -1954,7 +1878,10 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 </details>
 <span id="templateV1x0012InquireAlimtalkTemplate"></span>
 
-## 알림톡 템플릿 문의하기
+## 알림톡 템플릿 문의하기 (deprecated)
+
+!!! danger "더 이상 지원하지 않는 API입니다."
+    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost)를 참고하세요.
 
 알림톡 템플릿을 문의합니다.
 
@@ -2055,7 +1982,10 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 </details>
 <span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
 
-## 알림톡 템플릿 문의하기(파일 첨부)
+## 알림톡 템플릿 문의하기(파일 첨부) (deprecated)
+
+!!! danger "더 이상 지원하지 않는 API입니다."
+    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost)를 참고하세요.
 
 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
 
@@ -2140,7 +2070,10 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 </details>
 <span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
 
-## 알림톡 템플릿 수정 리스트 조회
+## 알림톡 템플릿 수정 리스트 조회 (deprecated)
+
+!!! danger "더 이상 지원하지 않는 API입니다."
+    * [알림톡 템플릿의 카카오 템플릿 목록 조회](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet)를 참고하세요.
 
 알림톡 템플릿 수정 리스트를 조회합니다.
 
@@ -2372,6 +2305,402 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 ```
 
 </details>
+
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
+
+## 알림톡 템플릿의 카카오 템플릿 목록 조회
+
+알림톡 템플릿의 카카오 템플릿 목록을 조회합니다.
+
+### 요청
+
+```
+GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | 앱키 |
+| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
+| templateId | Path | String | Y | 템플릿 아이디 |
+| limit | Query | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Integer | N | offset 설정하지 않으면 default 0 |
+
+
+
+### 요청 본문
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+### 응답 본문
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "kakaoTemplateCode" : "kakaoTemplateCode",
+    "kakaoTemplateName" : "템플릿 이름",
+    "content" : {
+      "templateMessageType" : "BA",
+      "templateEmphasizeType" : "NONE",
+      "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+      "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+      "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+      "templateTitle" : "123,450원",
+      "templateSubtitle" : "승인 내역",
+      "templateHeader" : "주문이 체결되었습니다.",
+      "templateItem" : {
+        "list" : [ {
+          "title" : "아이템 타이틀",
+          "description" : "아이템 설명"
+        } ],
+        "summary" : {
+          "title" : "요약 타이틀",
+          "description" : "요약 설명"
+        }
+      },
+      "templateItemHighlight" : {
+        "title" : "하이라이트 타이틀",
+        "description" : "하이라이트 설명",
+        "attachmentId" : "YaX2DA4Weab2",
+        "imageUrl" : "https://example.com/thumbnail.jpg"
+      },
+      "templateRepresentLink" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "attachmentId" : "YaX2DA4Weab2",
+      "templateImageName" : "image.png",
+      "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+      "securityFlag" : false,
+      "categoryCode" : "999999",
+      "buttons" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "버튼 이름",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ],
+      "quickReplies" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "바로연결 이름",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ]
+    },
+    "reviewStatus" : "APPROVED",
+    "comments" : [ {
+      "id" : 1,
+      "content" : "문의 내용 예시",
+      "userName" : "사용자 이름",
+      "createdAt" : "2024-10-29T06:00:01.000+09:00",
+      "attachments" : [ {
+        "originalFileName" : "파일명 예시",
+        "filePath" : "/path/to/file"
+      } ],
+      "status" : "REQ"
+    } ],
+    "block" : false,
+    "dormant" : false,
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명                                                                                                                       |
+| - | - |--------------------------------------------------------------------------------------------------------------------------|
+| header | Object |                                                                                                                          |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true                                                                                        |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0                                                                                                  |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS                                                                                           |
+| totalCount | Integer | 총 건수                                                                                                                     |
+| templates | Array |                                                                                                                          |
+| templates[].kakaoTemplateCode | String | 카카오 템플릿 코드                                                                                                               |
+| templates[].kakaoTemplateName | String | 템플릿 이름                                                                                                                   |
+| templates[].content | Object |                                                                                                                          |
+| templates[].content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA)                                                        |
+| templates[].content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default: NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| templates[].content.templateContent | String | 템플릿 본문                                                                                                                   |
+| templates[].content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값)                                                                            |
+| templates[].content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능                                                       |
+| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS: 2줄, 27자 이상 말줄임 처리)                                                      |
+| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS: 21자 이상 말줄임 처리)                                                           |
+| templates[].content.templateHeader | String | 템플릿 헤더, 변수 입력 가능                                                                                                         |
+| templates[].content.templateItem | Object |                                                                                                                          |
+| templates[].content.templateItem.list | Array |                                                                                                                          |
+| templates[].content.templateItem.summary | Object |                                                                                                                          |
+| templates[].content.templateItem.summary.title | String | 요약 타이틀                                                                                                                   |
+| templates[].content.templateItem.summary.description | String | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능)                                                                                    |
+| templates[].content.templateItemHighlight | Object |                                                                                                                          |
+| templates[].content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자)                                                                               |
+| templates[].content.templateItemHighlight.description | String | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자)                                                                                |
+| templates[].content.templateItemHighlight.attachmentId | String | 템플릿 첨부 파일 ID                                                                                                             |
+| templates[].content.templateItemHighlight.imageUrl | String | 섬네일 이미지 주소                                                                                                               |
+| templates[].content.templateRepresentLink | Object |                                                                                                                          |
+| templates[].content.templateRepresentLink.linkMo | String | 대표 링크 모바일 웹 링크                                                                                                           |
+| templates[].content.templateRepresentLink.linkPc | String | 대표 링크 PC 웹 링크                                                                                                            |
+| templates[].content.templateRepresentLink.schemeIos | String | 대표 링크 iOS 앱 링크                                                                                                           |
+| templates[].content.templateRepresentLink.schemeAndroid | String | 대표 링크 안드로이드 앱 링크                                                                                                         |
+| templates[].content.attachmentId | String | 템플릿 첨부 파일 ID                                                                                                             |
+| templates[].content.templateImageName | String | 템플릿 이미지 이름                                                                                                               |
+| templates[].content.templateImageUrl | String | 템플릿 이미지 링크                                                                                                               |
+| templates[].content.securityFlag | Boolean | 템플릿 보안 여부(default: false)                                                                                                |
+| templates[].content.categoryCode | String | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999)                                                                         |
+| templates[].content.buttons | Array | 템플릿 버튼                                                                                                                   |
+| templates[].content.quickReplies | Array | 템플릿 바로 연결                                                                                                                |
+| templates[].reviewStatus | String | REGISTERED: 요청, REQUESTED: 검수 중, APPROVED: 승인, REJECTED: 반려<br>[REGISTERED, REQUESTED, APPROVED, REJECTED]               |
+| templates[].comments | Array | 템플릿 문의 리스트                                                                                                               |
+| templates[].block | Boolean | 템플릿 차단 여부                                                                                                                |
+| templates[].dormant | Boolean | 템플릿 휴면 여부                                                                                                                |
+| templates[].createdDateTime | String | 템플릿 생성 시각                                                                                                                |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각                                                                                                               |
+
+
+
+### 요청 예시
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 알림톡 템플릿의 카카오 템플릿 목록 조회
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost"></span>
+
+## 파일을 첨부해 카카오 알림톡 템플릿 문의하기
+
+카카오 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
+
+### 요청
+
+```
+POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries/do-with-file
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | 앱키 |
+| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
+| templateId | Path | String | Y | 템플릿 아이디 |
+| kakaoTemplateCode | Path | String | Y | 카카오 템플릿 코드 |
+
+### 요청 본문
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| comment | String | Y | 문의 내용 |
+| file | Binary | Y | 문의 파일 |
+
+### 응답 본문
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+### 요청 예시
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 파일을 첨부해 카카오 알림톡 템플릿 문의하기
+
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates/{{kakaoTemplateCode}}/inquiries/do-with-file
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="comment"
+
+comment_example
+--boundary
+Content-Disposition: form-data; name="file"; filename="file.txt"
+Content-Type: text/plain
+
+< /path/to/file.txt
+--boundary--
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates/${kakaoTemplateCode}/inquiries/do-with-file" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-F "comment=comment_example" \
+-F "file=@/path/to/file.txt"
+```
+
+</details>
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></span>
+
+## 카카오 알림톡 템플릿 문의하기
+
+카카오 알림톡 템플릿을 문의합니다.
+
+### 요청
+
+```
+POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries
+```
+
+### 요청 파라미터
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | 앱키 |
+| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
+| templateId | Path | String | Y | 템플릿 아이디 |
+| kakaoTemplateCode | Path | String | Y | 카카오 템플릿 코드 |
+
+
+
+### 요청 본문
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "comment" : "문의 내용 예시"
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| comment | String | Y | 문의 내용 |
+
+
+
+### 응답 본문
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+### 요청 예시
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 카카오 알림톡 템플릿 문의하기
+
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates/{{kakaoTemplateCode}}/inquiries
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "comment" : "문의 내용 예시"
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates/${kakaoTemplateCode}/inquiries" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-d '{
+  "comment" : "문의 내용 예시"
+}'
+```
+
+</details>
+
 <span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
 
 ## 알림톡 템플릿 카테고리 리스트 조회
