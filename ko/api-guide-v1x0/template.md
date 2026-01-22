@@ -1881,7 +1881,7 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ## 알림톡 템플릿 문의하기 (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고하세요.
+    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost)를 참고하세요.
 
 알림톡 템플릿을 문의합니다.
 
@@ -1985,7 +1985,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## 알림톡 템플릿 문의하기(파일 첨부) (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost) 를 참고하세요.
+    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost)를 참고하세요.
 
 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
 
@@ -2073,7 +2073,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## 알림톡 템플릿 수정 리스트 조회 (deprecated)
 
 !!! danger "더 이상 지원하지 않는 API입니다."
-    * [알림톡 템플릿의 카카오 템플릿 목록 조회](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet) 를 참고하세요.
+    * [알림톡 템플릿의 카카오 템플릿 목록 조회](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet)를 참고하세요.
 
 알림톡 템플릿 수정 리스트를 조회합니다.
 
@@ -2312,13 +2312,13 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 
 알림톡 템플릿의 카카오 템플릿 목록을 조회합니다.
 
-**요청**
+### 요청
 
 ```
 GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -2330,7 +2330,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -2338,7 +2338,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -2444,12 +2444,12 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 | templates[].kakaoTemplateName | String | 템플릿 이름                                                                                                                   |
 | templates[].content | Object |                                                                                                                          |
 | templates[].content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA)                                                        |
-| templates[].content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| templates[].content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default: NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
 | templates[].content.templateContent | String | 템플릿 본문                                                                                                                   |
 | templates[].content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값)                                                                            |
 | templates[].content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능                                                       |
-| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리)                                                      |
-| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리)                                                           |
+| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS: 2줄, 27자 이상 말줄임 처리)                                                      |
+| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS: 21자 이상 말줄임 처리)                                                           |
 | templates[].content.templateHeader | String | 템플릿 헤더, 변수 입력 가능                                                                                                         |
 | templates[].content.templateItem | Object |                                                                                                                          |
 | templates[].content.templateItem.list | Array |                                                                                                                          |
@@ -2482,7 +2482,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
@@ -2513,13 +2513,13 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-te
 
 카카오 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
 
-**요청**
+### 요청
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries/do-with-file
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -2528,7 +2528,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 | templateId | Path | String | Y | 템플릿 아이디 |
 | kakaoTemplateCode | Path | String | Y | 카카오 템플릿 코드 |
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -2537,7 +2537,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 | comment | String | Y | 문의 내용 |
 | file | Binary | Y | 문의 파일 |
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -2562,7 +2562,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
@@ -2607,13 +2607,13 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 카카오 알림톡 템플릿을 문의합니다.
 
-**요청**
+### 요청
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -2624,7 +2624,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -2643,7 +2643,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -2668,7 +2668,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
