@@ -46,10 +46,8 @@ It is a cloud-based integrated messaging platform that sends and manages push, e
 Existing NHN Cloud Notification users can easily switch to and use the Notification Hub service.
   * Sharing items
     * Resource
-      * Address Book
-      * Outgoing Info
-      * Template
-      * Flow
+      * Address book
+      * Sender information
       * Statistics Key
       * Identity verification
     *  Feature setting
