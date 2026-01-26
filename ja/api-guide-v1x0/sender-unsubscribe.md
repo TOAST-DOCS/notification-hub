@@ -19,7 +19,7 @@
 080受信拒否外部番号の登録を申請します。
 
 
-### リクエスト
+**リクエスト**
 
 ```
 POST /sender/v1.0/unsubscribe-phone-numbers/external
@@ -27,7 +27,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-### リクエストパラメータ
+**リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
@@ -36,7 +36,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### リクエスト本文
+**リクエスト本文**
 
 <!--リクエスト本文が不要な場合は、「このAPIはリクエスト本文を必要としません」と入力してください。-->
 
@@ -57,7 +57,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### レスポンス本文
+**レスポンス本文**
 
 <!--レスポンス本文を返さない場合は「このAPIはレスポンス本文を返しません」と入力します。-->
 
@@ -82,7 +82,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### リクエスト例
+**リクエスト例**
 
 
 <details>
@@ -122,7 +122,7 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 080受信拒否外部登録番号を削除します。
 
 
-### リクエスト
+**リクエスト**
 
 ```
 DELETE /sender/v1.0/unsubscribe-phone-numbers/external/{unsubscribePhoneNumber}
@@ -130,7 +130,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-### リクエストパラメータ
+**リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
@@ -140,7 +140,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### リクエスト本文
+**リクエスト本文**
 
 <!--リクエスト本文が不要な場合は、「このAPIはリクエスト本文を必要としません」と入力してください。-->
 
@@ -148,7 +148,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### レスポンス本文
+**レスポンス本文**
 
 <!--レスポンス本文を返さない場合は「このAPIはレスポンス本文を返しません」と入力します。-->
 
@@ -173,7 +173,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### リクエスト例
+**リクエスト例**
 
 
 <details>
@@ -205,7 +205,7 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 080受信拒否番号リストを照会します。
 
 
-### リクエスト
+**リクエスト**
 
 ```
 GET /sender/v1.0/unsubscribe-phone-numbers
@@ -213,7 +213,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-### リクエストパラメータ
+**リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
@@ -225,7 +225,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### リクエスト本文
+**リクエスト本文**
 
 <!--リクエスト本文が不要な場合は、「このAPIはリクエスト本文を必要としません」と入力してください。-->
 
@@ -233,7 +233,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### レスポンス本文
+**レスポンス本文**
 
 <!--レスポンス本文を返さない場合は「このAPIはレスポンス本文を返しません」と入力します。-->
 
@@ -281,7 +281,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### リクエスト例
+**リクエスト例**
 
 
 <details>
@@ -313,7 +313,7 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 080受信拒否番号の単件を照会します。
 
 
-### リクエスト
+**リクエスト**
 
 ```
 GET /sender/v1.0/unsubscribe-phone-numbers/{unsubscribePhoneNumber}
@@ -321,7 +321,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-### リクエストパラメータ
+**リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
@@ -331,7 +331,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### リクエスト本文
+**リクエスト本文**
 
 <!--リクエスト本文が不要な場合は、「このAPIはリクエスト本文を必要としません」と入力してください。-->
 
@@ -339,7 +339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### レスポンス本文
+**レスポンス本文**
 
 <!--レスポンス本文を返さない場合は「このAPIはレスポンス本文を返しません」と入力します。-->
 
@@ -385,7 +385,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### リクエスト例
+**リクエスト例**
 
 
 <details>
