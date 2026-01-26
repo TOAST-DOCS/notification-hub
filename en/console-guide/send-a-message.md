@@ -30,6 +30,8 @@ You must have a registered flow to send a flow.
     * The time of scheduled delivery can be set up to 30 days from the time of delivery.
 5. Click **Send** to send the message.
 
+Use the **Copy Input (JSON)** button to copy your configuration as a JSON string.
+
 
 ## Send individual message channels
 
@@ -44,6 +46,8 @@ You must have a registered flow to send a flow.
 4. Set when to send, if it is a scheduled delivery, set the date and time of delivery.
     * The time of scheduled delivery can be set up to 30 days from the time of delivery.
 5. Click **Send** to send the message.
+
+Use the **Copy Input (JSON)** button to copy your configuration as a JSON string.
 
 ### How to Set Up receivers
 
