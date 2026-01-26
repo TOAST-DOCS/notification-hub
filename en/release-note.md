@@ -4,11 +4,19 @@
 }
 </style>
 <h1>Notification Hub Release Notes</h1>
+## January 27, 2026
+### Added Features
+* [API] Launch Alimtalk Template APIs and discontinue support for select APIs
+    * Due to changes in the Alimtalk template management structure, some legacy template APIs have been replaced with new ones. For more information, please refer to [API v1.0 User Guide > Template](./api-guide-v1x0/template).
+* [API] Release new APIs for managing external 080 opt-out numbers
+    * APIs for registering/deleting external 080 opt-out numbers and inquiring about opt-out lists are now available. For more details, please refer to [API v1.0 User Guide > Sender Information](./api-guide-v1x0/sender-unsubscribe).
+* [Console] Enable JSON extraction for dispatch request bodies
+    * JSON extraction is now available for configurations set in the Send menu. For more information, please refer to [Console User Guide > Send](./console-guide/send-a-message).
 
 **Notification > Notification Hub > Release Notes**
 
-### 2025. 12. 31.
-#### Feature Removal
+## 2025. 12. 31.
+### Feature Removal
 * [API, Console] FriendTalk Service End of Support 
     * The FriendTalk service will end on Wednesday, December 31, 2025. 
     * FriendTalk-related features will no longer be available in the console, and the FriendTalk API will no longer be available.
