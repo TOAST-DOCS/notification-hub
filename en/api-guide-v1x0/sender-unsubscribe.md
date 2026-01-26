@@ -19,7 +19,7 @@
 Request to register the external 080 opt-out number.
 
 
-### Request
+**Request**
 
 ```
 POST /sender/v1.0/unsubscribe-phone-numbers/external
@@ -27,7 +27,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-### Request parameter
+**Request parameter**
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
@@ -36,7 +36,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### Request body
+**Request body**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -57,7 +57,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### Response body
+**Response body**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -82,7 +82,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### Request example
+**Request example**
 
 
 <details>
@@ -122,7 +122,7 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 Deregister the external 080 opt-out number.
 
 
-### Request
+**Request**
 
 ```
 DELETE /sender/v1.0/unsubscribe-phone-numbers/external/{unsubscribePhoneNumber}
@@ -130,7 +130,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-### Request parameter
+**Request parameter**
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
@@ -140,7 +140,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### Request body
+**Request body**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -148,7 +148,7 @@ This API does not require a request body.
 
 
 
-### Response body
+**Response body**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -173,7 +173,7 @@ This API does not require a request body.
 
 
 
-### Request example
+**Request example**
 
 
 <details>
@@ -205,7 +205,7 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 View 080 opt-out number list.
 
 
-### Request
+**Request**
 
 ```
 GET /sender/v1.0/unsubscribe-phone-numbers
@@ -213,7 +213,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-### Request parameter
+**Request parameter**
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
@@ -225,7 +225,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### Request body
+**Request body**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -233,7 +233,7 @@ This API does not require a request body.
 
 
 
-### Response body
+**Response body**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -281,7 +281,7 @@ This API does not require a request body.
 
 
 
-### Request example
+**Request example**
 
 
 <details>
@@ -313,7 +313,7 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 Search single 080 opt-out number.
 
 
-### Request
+**Request**
 
 ```
 GET /sender/v1.0/unsubscribe-phone-numbers/{unsubscribePhoneNumber}
@@ -321,7 +321,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-### Request parameter
+**Request parameter**
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
@@ -331,7 +331,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-### Request body
+**Request body**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -339,7 +339,7 @@ This API does not require a request body.
 
 
 
-### Response body
+**Response body**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -385,7 +385,7 @@ This API does not require a request body.
 
 
 
-### Request example
+**Request example**
 
 
 <details>
