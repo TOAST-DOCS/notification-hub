@@ -1,23 +1,27 @@
+<!-- 新しい様式のために追加されたスタイルです。 -->
 <style>
-.page__rnb .lst_rnb_item .rnb_item:first-of-type a {
-    display: inline !important;
-}
+    .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
+        display: inline !important;
+    }
 </style>
+
+<!-- 新しい様式のためにタイトルを <h1> に変更しました。 -->
 <h1>テンプレート</h1>
 
 **Notification > Notification Hub > API v1.0使用ガイド > テンプレート**
 
-## テンプレート
 
-<span id="create-template"></span>
 
-### テンプレート作成
+<span id="templateV1x0001CreateSmsTemplate"></span>
+
+## SMSテンプレート登録
+
+テンプレートを登録します。
 
 **リクエスト**
 
 ```
-POST /template/v1.0/{messageChannel}/templates
-Content-Type: application/json
+POST /template/v1.0/SMS/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -25,178 +29,872 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
-**リクエスト本文**
 
-```json
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
 {
-  "templateName": "テンプレート_名前",
-  "categoryId": "テンプレート_カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderPhoneNumber": "01012341234"
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
   },
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--リクエストボディのフィールドを説明します。-->
 
-| 名前 | タイプ | 必須 | 説明                              |
-| --- | --- | --- |-----------------------------------|
-| templateName | String | Y | テンプレート名                          |
-| categoryId | String | Y | テンプレートカテゴリーID                      |
-| messagePurpose | String | Y | メッセージ目的                          |
-| templateLanguage | String | Y | テンプレート言語<br>PLAIN_TEXT, FREE_MARKER |
-| sender | Object | Y | 発信者                             |
-| content | Object | Y | 内容                              |
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| categoryId | String | N | カテゴリーID |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderPhoneNumber | String | N | 発信番号 |
+| content | Object | Y |  |
+| content.messageType | String | N | 送信メッセージタイプ(SMS、LMS、MMS)<br>[SMS、LMS、MMS] |
+| content.title | String | N | メッセージ件名 |
+| content.body | String | N | メッセージ本文 |
+| content.attachmentIds | Array | N | 添付ファイルID 最大3個 |
 
-* テンプレートカテゴリーはテンプレートカテゴリーAPIを利用して作成できます。
-* テンプレート言語はPLAIN_TEXT、FREE_MARKERのいずれかを選択します。
-* テンプレート言語がFREE_MARKERの場合テンプレート内容にFREE_MARKER文法を使用できます。
-* **sender**, **content**フィールドは自由形式メッセージ送信APIのリクエスト本文と同じです。
 
-#### メッセージチャンネル別senderフィールド
 
-| メッセージチャンネル | フィールド | 説明                      |
-| --- | --- |---------------------------|
-| SMS | sender.senderPhoneNumber | 発信者番号                  |
-| RCS | sender.brandId | ブランドID                   |
-| RCS | sender.chatbotId | チャットルームID                   |
-| EMAIL | sender.senderMailAddress | 発信者メールアドレス              |
-| ALIMTALK | sender.senderKey | 発信キー                      |
-| ALIMTALK | sender.senderProfileType | 発信プロフィールタイプ<br>GROUP, NORMAL |
+**レスポンスボディ**
 
-* お知らせトーク(ALIMTALK)は発信キー(senderKey)と発信プロフィールタイプ(senderProfileType)を必ず入力する必要があります。
-* 発信者プロフィールタイプは**GROUP(グループ)**と **NORMAL(一般)**があります。**GROUP**はグループ発信者プロフィール、 **NORMAL**は一般発信者プロフィールです。
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
 
-### お知らせトークテンプレート詳細リクエスト本文
-
-* お知らせトークを送信するためには、テンプレートの登録が必須です。
-* お知らせトークテンプレートを登録すると、カカオビジネスの検収と承認の過程を経て承認完了後に使用できます。
-* お知らせトークテンプレートは検収と承認過程でカカオビジネス検収担当者と絡を取り合うことができます。
-    * [カカオトークチャンネル管理者センター](https://center-pf.kakao.com)
-    * お知らせトークテンプレートは**お知らせトークテンプレートお問い合わせ**, **お知らせトークテンプレートファイル添付お問い合わせ**, **お知らせトークテンプレート修正履歴照会**APIを追加で提供します。
-
-```json
+```
 {
-  "templateName": "テンプレート名",
-  "categoryId": "カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderKey": "発信_キー",
-    "senderProfileType": "GROUP"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "content": {
-    "templateMessageType": "BA",
-    "templateEmphasizeType": "NONE",
-    "templateContent": "#{名前}さんの注文が完了しました。",
-    "templateAd": "チャンネルを追加し、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
-    "templateExtra": "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室が不可能な場合、予約がキャンセルされる場合があります。\\n* お問い合わせ電話: 1234-1234",
-    "templateTitle": "123,450KRW",
-    "templateSubtitle": "承認履歴",
-    "templateHeader": "注文が成立しました。",
-    "templateItem": {
-      "list": [],
-      "summary": {
-        "title": "string",
-        "description": "string"
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| templateId | String | テンプレート登録時に発行されたテンプレートID |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMSテンプレート登録
+
+POST {{endpoint}}/template/v1.0/SMS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0002ReadSmsTemplateList"></span>
+
+## SMSテンプレートリスト照会
+
+テンプレートリストを照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/SMS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateName | Query  | String | N | テンプレート名(LIKE検索) |
+| limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
+| offset | Query  | Integer | N | offsetを設定しない場合はデフォルト0 |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "配送完了",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| totalCount | Integer | 総件数 |
+| templates | Array |  |
+| templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
+| templates[].templateName | String | テンプレート名 |
+| templates[].categoryId | String | カテゴリーID |
+| templates[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | テンプレート作成日時 |
+| templates[].updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMSテンプレートリスト照会
+
+GET {{endpoint}}/template/v1.0/SMS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/SMS/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0003ReadSmsTemplate"></span>
+
+## SMSテンプレート詳細照会
+
+テンプレートを詳細照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/SMS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "テンプレート名",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "senderPhoneNumber" : "01012341234"
+    },
+    "content" : {
+      "messageType" : "SMS",
+      "title" : "祝日の営業時間のお知らせ",
+      "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+      "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| template | Object |  |
+| template.templateId | String | テンプレート登録時に発行されたテンプレートID |
+| template.templateName | String | テンプレート名 |
+| template.categoryId | String | カテゴリーID |
+| template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.sender | Object |  |
+| template.sender.senderPhoneNumber | String | 発信番号 |
+| template.content | Object |  |
+| template.content.messageType | String | 送信メッセージタイプ(SMS、LMS、MMS)<br>[SMS、LMS、MMS] |
+| template.content.title | String | メッセージ件名 |
+| template.content.body | String | メッセージ本文 |
+| template.content.attachmentIds | Array | 添付ファイルID 最大3個 |
+| template.createdDateTime | String | テンプレート作成日時 |
+| template.updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMSテンプレート詳細照会
+
+GET {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0004UpdateSmsTemplate"></span>
+
+## SMSテンプレート修正
+
+テンプレートを修正します。
+
+**リクエスト**
+
+```
+PUT /template/v1.0/SMS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderPhoneNumber | String | N | 発信番号 |
+| content | Object | Y |  |
+| content.messageType | String | N | 送信メッセージタイプ(SMS、LMS、MMS)<br>[SMS、LMS、MMS] |
+| content.title | String | N | メッセージ件名 |
+| content.body | String | N | メッセージ本文 |
+| content.attachmentIds | Array | N | 添付ファイルID 最大3個 |
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMSテンプレート修正
+
+PUT {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0005DeleteSmsTemplate"></span>
+
+## SMSテンプレート削除
+
+テンプレートを削除します。
+
+**リクエスト**
+
+```
+DELETE /template/v1.0/SMS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMSテンプレート削除
+
+DELETE {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0006CreateAlimtalkTemplate"></span>
+
+## お知らせトークテンプレート登録
+
+テンプレートを登録します。
+
+**リクエスト**
+
+```
+POST /template/v1.0/ALIMTALK/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{名前}様のご注文が完了しました。",
+    "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+    "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+    "templateTitle" : "123,450KRW",
+    "templateSubtitle" : "承認内訳",
+    "templateHeader" : "注文が確定しました。",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "description" : "アイテム説明"
+      } ],
+      "summary" : {
+        "title" : "サマリータイトル",
+        "description" : "サマリー説明"
       }
     },
-    "templateItemHighlight": {
-      "title": "string",
-      "description": "string",
-      "attachmentId": "YaX2DA4Weab2",
-      "imageUrl": "string"
+    "templateItemHighlight" : {
+      "title" : "ハイライトタイトル",
+      "description" : "ハイライト説明",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
     },
-    "templateRepresentLink": {
-      "linkMo": "string",
-      "linkPc": "string",
-      "schemeIos": "string",
-      "schemeAndroid": "string"
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
     },
-    "attachmentId": "YaX2DA4Weab2",
-    "templateImageName": "image.png",
-    "templateImageUrl": "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
-    "securityFlag": false,
-    "categoryCode": "999999",
-    "buttons": [],
-    "quickReplies": []
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ダイレクトリンク名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
   },
-  "additionalProperty": {
-    "templateCode": "templateCode",
-    "kakaoTemplateCode": "kakaoTemplateCode",
-    "comments": [],
-    "status": "APR",
-    "templateModificationStatus": "APR",
-    "block": false,
-    "dormant": false
+  "additionalProperty" : {
+    "templateCode" : "templateCode",
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--リクエストボディのフィールドを説明します。-->
 
-| 名前 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- |
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| categoryId | String | N | カテゴリーID |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderKey | String | N | 発信プロファイルの発信キー |
+| sender.senderProfileType | String | N | 発信プロファイルタイプ<br>[GROUP, NORMAL] |
+| content | Object | Y |  |
+| content.templateMessageType | String | N | テンプレートメッセージタイプ(BA: 基本型、EX: 付加情報型、AD: チャンネル追加型、MI: 複合型、default: BA) |
+| content.templateEmphasizeType | String | N | テンプレート強調表示タイプ(NONE : 基本、TEXT : 強調表示、IMAGE: 画像型、ITEM_LIST: アイテムリスト型、default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| content.templateContent | String | N | テンプレート本文 |
+| content.templateAd | String | N | チャンネル追加案内メッセージ(テンプレートメッセージタイプ: チャンネル追加型、複合型の場合は固定値) |
+| content.templateExtra | String | N | テンプレート付加情報(テンプレートメッセージタイプが[付加情報型/複合型]の場合は必須)、置換変数は使用不可、URLを含むことが可能 |
+| content.templateTitle | String | N | テンプレートタイトル(最大50文字、Android: 2行、23文字以上で省略表示、iOS: 2行、27文字以上で省略表示) |
+| content.templateSubtitle | String | N | テンプレート補助文言(最大50文字、Android: 18文字以上で省略表示、iOS: 21文字以上で省略表示) |
+| content.templateHeader | String | N | テンプレートヘッダ、変数の入力が可能 |
+| content.templateItem | Object | N |  |
+| content.templateItem.list | Array | N |  |
+| content.templateItem.list[].title | String | N | アイテムタイトル |
+| content.templateItem.list[].description | String | N | アイテム説明 |
+| content.templateItem.summary | Object | N |  |
+| content.templateItem.summary.title | String | N | サマリータイトル |
+| content.templateItem.summary.description | String | N | サマリー説明(変数及び通貨単位、数字、カンマ、ピリオドのみ使用可能) |
+| content.templateItemHighlight | Object | N |  |
+| content.templateItemHighlight.title | String | N | アイテムハイライトタイトル(最大30文字、サムネイル画像がある場合は21文字) |
+| content.templateItemHighlight.description | String | N | アイテムハイライト説明(最大19文字、サムネイル画像がある場合は13文字) |
+| content.templateItemHighlight.attachmentId | String | N | テンプレート添付ファイルID |
+| content.templateItemHighlight.imageUrl | String | N | サムネイル画像アドレス |
+| content.templateRepresentLink | Object | N |  |
+| content.templateRepresentLink.linkMo | String | N | 代表リンク モバイルWebリンク |
+| content.templateRepresentLink.linkPc | String | N | 代表リンクPC Webリンク |
+| content.templateRepresentLink.schemeIos | String | N | 代表リンクiOSアプリリンク |
+| content.templateRepresentLink.schemeAndroid | String | N | 代表リンクAndroidアプリリンク |
+| content.attachmentId | String | N | テンプレート添付ファイルID |
+| content.templateImageName | String | N | テンプレート画像名 |
+| content.templateImageUrl | String | N | テンプレート画像リンク |
+| content.securityFlag | Boolean | N | テンプレートセキュリティの有無(default: false) |
+| content.categoryCode | String | N | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参照、default: 999999) |
+| content.buttons | Array | N | テンプレートボタン |
+| content.buttons[].ordering | Integer | N | テンプレートボタン順序 |
+| content.buttons[].type | String | N | テンプレートボタンタイプ(WL: Webリンク、AL: アプリリンク、DS: 配送照会、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク切替、BT: ボット切替、AC: チャンネル追加、BF: ビジネスフォーム、P1: 画像セキュリティ送信プラグインID、P2: 個人情報利用プラグインID、P3: ワンクリック決済プラグインID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| content.buttons[].name | String | N | テンプレートボタン名 |
+| content.buttons[].linkMo | String | N | テンプレートボタン モバイルWebリンク |
+| content.buttons[].linkPc | String | N | テンプレートボタンPC Webリンク |
+| content.buttons[].schemeIos | String | N | テンプレートボタンiOSアプリリンク |
+| content.buttons[].schemeAndroid | String | N | テンプレートボタンAndroidアプリリンク |
+| content.buttons[].bizFormId | Integer | N | テンプレートボタン ビジネスフォームID(BFタイプの場合は必須) |
+| content.quickReplies | Array | N | テンプレートダイレクトリンク |
+| content.quickReplies[].ordering | Integer | N | テンプレートダイレクトリンク順序 |
+| content.quickReplies[].type | String | N | テンプレートダイレクトリンクタイプ(WL: Webリンク、AL: アプリリンク、BK: ボットキーワード、BC: 相談トーク切替、BT: ボット切替、BF: ビジネスフォーム)<br>[WL, AL, BK, BC, BT, BF] |
+| content.quickReplies[].name | String | N | テンプレートダイレクトリンク名 |
+| content.quickReplies[].linkMo | String | N | テンプレートダイレクトリンク モバイルWebリンク |
+| content.quickReplies[].linkPc | String | N | テンプレートダイレクトリンク PC Webリンク |
+| content.quickReplies[].schemeIos | String | N | テンプレートダイレクトリンク iOSアプリリンク |
+| content.quickReplies[].schemeAndroid | String | N | テンプレートダイレクトリンク Androidアプリリンク |
+| content.quickReplies[].bizFormId | Integer | N | テンプレートダイレクトリンク ビジネスフォームID(BFタイプの場合は必須) |
+| additionalProperty | Object | N |  |
+| additionalProperty.templateCode | String | N | テンプレートコード(英字、数字、-、_) |
+| additionalProperty.kakaoTemplateCode | String | N | カカオテンプレートコード |
 
-<!--TODO:リクエスト本文のフィールドを説明します。-->
 
 
-**レスポンス本文**
+**レスポンスボディ**
 
-```json
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "templateId": "テンプレート_ID"
+  "templateId" : "A9z0A9z0"
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| templateId | String | テンプレート登録時に発行されたテンプレートID |
+
+
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレート作成
-POST {{endpoint}}/template/v1.0/{{messageChannel}}/templates
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### お知らせトークテンプレート登録
+
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 {
-  "templateName": "テンプレート_名前",
-  "categoryId": "テンプレート_カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderPhoneNumber": "01012341234"
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+    "senderProfileType" : "NORMAL"
   },
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{名前}様のご注文が完了しました。",
+    "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+    "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+    "templateTitle" : "123,450KRW",
+    "templateSubtitle" : "承認内訳",
+    "templateHeader" : "注文が確定しました。",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "description" : "アイテム説明"
+      } ],
+      "summary" : {
+        "title" : "サマリータイトル",
+        "description" : "サマリー説明"
+      }
+    },
+    "templateItemHighlight" : {
+      "title" : "ハイライトタイトル",
+      "description" : "ハイライト説明",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ダイレクトリンク名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "templateCode" : "templateCode",
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
@@ -204,220 +902,905 @@ X-NHN-Authorization: {{authorization}}
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-        "templateName": "テンプレート_名前",
-        "categoryId": "テンプレート_カテゴリー_ID",
-        "messagePurpose": "NORMAL",
-        "templateLanguage": "PLAIN_TEXT",
-        "sender": {
-          "senderPhoneNumber": "01012341234"
-        },
-        "content": {
-          "messageType": "MMS",
-          "title": "[NHN Cloud Notification Hub]告知事項",
-          "body": "こんにちは。 NHN Cloud Notification Hubです。",
-          "attachmentIds": [
-            "添付_ファイル_ID"
-          ]
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{名前}様のご注文が完了しました。",
+    "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+    "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+    "templateTitle" : "123,450KRW",
+    "templateSubtitle" : "承認内訳",
+    "templateHeader" : "注文が確定しました。",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "description" : "アイテム説明"
+      } ],
+      "summary" : {
+        "title" : "サマリータイトル",
+        "description" : "サマリー説明"
+      }
+    },
+    "templateItemHighlight" : {
+      "title" : "ハイライトタイトル",
+      "description" : "ハイライト説明",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ダイレクトリンク名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "templateCode" : "templateCode",
+    "kakaoTemplateCode" : "kakaoTemplateCode"
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0007ReadAlimtalkTemplateList"></span>
+
+## お知らせトークテンプレートリスト照会
+
+テンプレートリストを照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/ALIMTALK/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateName | Query  | String | N | テンプレート名(LIKE検索) |
+| senderKey | Query  | String | N | 発信キー |
+| templateStatus | Query  | String | N | テンプレートステータス |
+| limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
+| offset | Query  | Integer | N | offsetを設定しない場合はデフォルト0 |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "配送完了",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| totalCount | Integer | 総件数 |
+| templates | Array |  |
+| templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
+| templates[].templateName | String | テンプレート名 |
+| templates[].categoryId | String | カテゴリーID |
+| templates[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | テンプレート作成日時 |
+| templates[].updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### お知らせトークテンプレートリスト照会
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
+
+## お知らせトーク発信者に関連するテンプレートリスト照会
+
+発信者に関連するテンプレートリストを照会します。(発信者または発信者が含まれるグループのテンプレート)
+
+**リクエスト**
+
+```
+GET /template/v1.0/ALIMTALK/senders/{senderKey}/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| senderKey | Path  | String | Y | 発信キー |
+| templateName | Query  | String | N | テンプレート名(LIKE検索) |
+| templateStatus | Query  | String | N | テンプレートステータス |
+| limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
+| offset | Query  | Integer | N | offsetを設定しない場合はデフォルト0 |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "配送完了",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| totalCount | Integer | 総件数 |
+| templates | Array |  |
+| templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
+| templates[].templateName | String | テンプレート名 |
+| templates[].categoryId | String | カテゴリーID |
+| templates[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | テンプレート作成日時 |
+| templates[].updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### お知らせトーク発信者に関連するテンプレートリスト照会
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/senders/{{senderKey}}/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0009ReadAlimtalkTemplate"></span>
+
+## お知らせトークテンプレート詳細照会
+
+テンプレートを詳細照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/ALIMTALK/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "テンプレート名",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "GROUP"
+    },
+    "additionalProperty" : {
+      "templateCode" : "templateCode",
+      "kakaoTemplateCode" : "kakaoTemplateCode",
+      "comments" : [ {
+        "id" : 1,
+        "content" : "お問い合わせ内容の例",
+        "userName" : "ユーザー名",
+        "createdAt" : "2024-10-29T06:00:01.000+09:00",
+        "attachments" : [ {
+          "originalFileName" : "ファイル名の例",
+          "filePath" : "/path/to/file"
+        } ],
+        "status" : "REQ"
+      } ],
+      "status" : "APPROVED",
+      "block" : false,
+      "dormant" : false
+    },
+    "content" : {
+      "templateMessageType" : "BA",
+      "templateEmphasizeType" : "NONE",
+      "templateContent" : "#{名前}様のご注文が完了しました。",
+      "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+      "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+      "templateTitle" : "123,450KRW",
+      "templateSubtitle" : "承認内訳",
+      "templateHeader" : "注文が確定しました。",
+      "templateItem" : {
+        "list" : [ {
+          "title" : "アイテムタイトル",
+          "description" : "アイテム説明"
+        } ],
+        "summary" : {
+          "title" : "サマリータイトル",
+          "description" : "サマリー説明"
         }
-      }'
-```
-
-</details>
-
-<span id="get-templates"></span>
-
-### テンプレートリスト照会
-
-**リクエスト**
-
-```
-GET /template/v1.0/{messageChannel}/templates
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前         | 区分 | タイプ | 必須 | 説明                      |
-|--------------| --- | --- | --- |---------------------------|
-| appKey       | Header | String | Y | アプリキー                      |
-| accessToken  | Header | String | Y | 認証トークン                   |
-| templateName | Query | String | N | テンプレート名、プレフィックス(Prefix)検索可能 |
-| limit        | Query | Integer | N | 照会数(デフォルト値: 20)            |
-| offset       | Query | Integer | N | 照会開始位置(デフォルト値: 0)          |
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "templates": [
-    {
-      "templateId": "テンプレート_ID",
-      "templateName": "テンプレート_名前",
-      "categoryId": "テンプレート_カテゴリー_ID",
-      "messagePurpose": "NORMAL",
-      "templateLanguage": "PLAIN_TEXT",
-      "sender": {
-        "senderPhoneNumber": "01012341234"
       },
-      "content": {
-        "messageType": "MMS",
-        "title": "[NHN Cloud Notification Hub]告知事項",
-        "body": "こんにちは。 NHN Cloud Notification Hubです。",
-        "attachmentIds": [
-          "添付_ファイル_ID"
-        ]
+      "templateItemHighlight" : {
+        "title" : "ハイライトタイトル",
+        "description" : "ハイライト説明",
+        "attachmentId" : "YaX2DA4Weab2",
+        "imageUrl" : "https://example.com/thumbnail.jpg"
       },
-      "createdDateTime": "2023-01-01T00:00:00Z",
-      "updatedDateTime": "2023-01-01T00:00:00Z"
-    }
-  ],
-  "totalCount": 1
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### テンプレートリスト照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
-
-</details>
-
-<span id="get-template"></span>
-
-### テンプレート照会
-
-**リクエスト**
-
-```
-GET /template/v1.0/{messageChannel}/templates/{templateId}
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "template": {
-    "templateId": "テンプレート_ID",
-    "templateName": "テンプレート_名前",
-    "categoryId": "テンプレート_カテゴリー_ID",
-    "messagePurpose": "NORMAL",
-    "templateLanguage": "PLAIN_TEXT",
-    "sender": {
-      "senderPhoneNumber": "01012341234"
+      "templateRepresentLink" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "attachmentId" : "YaX2DA4Weab2",
+      "templateImageName" : "image.png",
+      "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+      "securityFlag" : false,
+      "categoryCode" : "999999",
+      "buttons" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "ボタン名",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ],
+      "quickReplies" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "ダイレクトリンク名",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ]
     },
-    "content": {
-      "messageType": "MMS",
-      "title": "[NHN Cloud Notification Hub]告知事項",
-      "body": "こんにちは。 NHN Cloud Notification Hubです。",
-      "attachmentIds": [
-        "添付_ファイル_ID"
-      ]
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| template | Object |  |
+| template.templateId | String | テンプレート登録時に発行されたテンプレートID |
+| template.templateName | String | テンプレート名 |
+| template.categoryId | String | カテゴリーID |
+| template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.sender | Object |  |
+| template.sender.senderKey | String | 発信プロファイルの発信キー |
+| template.sender.senderProfileId | String | カカオトークチャンネル名 |
+| template.sender.senderProfileType | String | 発信プロファイルタイプ<br>[GROUP, NORMAL] |
+| template.additionalProperty | Object |  |
+| template.additionalProperty.templateCode | String | テンプレートコード(英字、数字、-、_) |
+| template.additionalProperty.kakaoTemplateCode | String | カカオテンプレートコード |
+| template.additionalProperty.comments | Array | テンプレート問い合わせリスト |
+| template.additionalProperty.comments[].id | Integer | 問い合わせID |
+| template.additionalProperty.comments[].content | String | 問い合わせ内容 |
+| template.additionalProperty.comments[].userName | String | 作成者 |
+| template.additionalProperty.comments[].createdAt | String | 問い合わせ作成日時 |
+| template.additionalProperty.comments[].attachments | Array | 問い合わせ添付ファイル |
+| template.additionalProperty.comments[].status | String | 問い合わせステータス(REQ: リクエスト、INQ: 問い合わせ、APR: 承認、REJ: 却下、REP: 回答)<br>[REQ, INQ, APR, REJ, REP] |
+| template.additionalProperty.status | String | REG: 申請、REQ: 審査中、APR: 承認、REJ: 却下<br>[REG, REQ, APR, REJ] |
+| template.additionalProperty.templateModificationStatus | String | REG: 申請、REQ: 審査中、APR: 承認、REJ: 却下<br>[REG, REQ, APR, REJ] |
+| template.additionalProperty.block | Boolean | テンプレートブロックの有無 |
+| template.additionalProperty.dormant | Boolean | テンプレート休眠の有無 |
+| template.content | Object |  |
+| template.content.templateMessageType | String | テンプレートメッセージタイプ(BA: 基本型、EX: 付加情報型、AD: チャンネル追加型、MI: 複合型、default: BA) |
+| template.content.templateEmphasizeType | String | テンプレート強調表示タイプ(NONE : 基本、TEXT : 強調表示、IMAGE: 画像型、ITEM_LIST: アイテムリスト型、default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| template.content.templateContent | String | テンプレート本文 |
+| template.content.templateAd | String | チャンネル追加案内メッセージ(テンプレートメッセージタイプ: チャンネル追加型、複合型の場合は固定値) |
+| template.content.templateExtra | String | テンプレート付加情報(テンプレートメッセージタイプが[付加情報型/複合型]の場合は必須)、置換変数は使用不可、URLを含むことが可能 |
+| template.content.templateTitle | String | テンプレートタイトル(最大50文字、Android: 2行、23文字以上で省略表示、iOS: 2行、27文字以上で省略表示) |
+| template.content.templateSubtitle | String | テンプレート補助文言(最大50文字、Android: 18文字以上で省略表示、iOS: 21文字以上で省略表示) |
+| template.content.templateHeader | String | テンプレートヘッダ、変数の入力が可能 |
+| template.content.templateItem | Object |  |
+| template.content.templateItem.list | Array |  |
+| template.content.templateItem.list[].title | String | アイテムタイトル |
+| template.content.templateItem.list[].description | String | アイテム説明 |
+| template.content.templateItem.summary | Object |  |
+| template.content.templateItem.summary.title | String | サマリータイトル |
+| template.content.templateItem.summary.description | String | サマリー説明(変数及び通貨単位、数字、カンマ、ピリオドのみ使用可能) |
+| template.content.templateItemHighlight | Object |  |
+| template.content.templateItemHighlight.title | String | アイテムハイライトタイトル(最大30文字、サムネイル画像がある場合は21文字) |
+| template.content.templateItemHighlight.description | String | アイテムハイライト説明(最大19文字、サムネイル画像がある場合は13文字) |
+| template.content.templateItemHighlight.attachmentId | String | テンプレート添付ファイルID |
+| template.content.templateItemHighlight.imageUrl | String | サムネイル画像アドレス |
+| template.content.templateRepresentLink | Object |  |
+| template.content.templateRepresentLink.linkMo | String | 代表リンク モバイルWebリンク |
+| template.content.templateRepresentLink.linkPc | String | 代表リンク PC Webリンク |
+| template.content.templateRepresentLink.schemeIos | String | 代表リンク iOSアプリリンク |
+| template.content.templateRepresentLink.schemeAndroid | String | 代表リンク Androidアプリリンク |
+| template.content.attachmentId | String | テンプレート添付ファイルID |
+| template.content.templateImageName | String | テンプレート画像名 |
+| template.content.templateImageUrl | String | テンプレート画像リンク |
+| template.content.securityFlag | Boolean | テンプレートセキュリティの有無(default: false) |
+| template.content.categoryCode | String | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参照、default: 999999) |
+| template.content.buttons | Array | テンプレートボタン |
+| template.content.buttons[].ordering | Integer | テンプレートボタン順序 |
+| template.content.buttons[].type | String | テンプレートボタンタイプ(WL: Webリンク、AL: アプリリンク、DS: 配送照会、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク切替、BT: ボット切替、AC: チャンネル追加、BF: ビジネスフォーム、P1: 画像セキュリティ送信プラグインID、P2: 個人情報利用プラグインID、P3: ワンクリック決済プラグインID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| template.content.buttons[].name | String | テンプレートボタン名 |
+| template.content.buttons[].linkMo | String | テンプレートボタン モバイルWebリンク |
+| template.content.buttons[].linkPc | String | テンプレートボタン PC Webリンク |
+| template.content.buttons[].schemeIos | String | テンプレートボタン iOSアプリリンク |
+| template.content.buttons[].schemeAndroid | String | テンプレートボタン Androidアプリリンク |
+| template.content.buttons[].bizFormId | Integer | テンプレートボタン ビジネスフォームID(BFタイプの場合は必須) |
+| template.content.quickReplies | Array | テンプレートダイレクトリンク |
+| template.content.quickReplies[].ordering | Integer | テンプレートダイレクトリンク順序 |
+| template.content.quickReplies[].type | String | テンプレートダイレクトリンクタイプ(WL: Webリンク、AL: アプリリンク、BK: ボットキーワード、BC: 相談トーク切替、BT: ボット切替、BF: ビジネスフォーム)<br>[WL, AL, BK, BC, BT, BF] |
+| template.content.quickReplies[].name | String | テンプレートダイレクトリンク名 |
+| template.content.quickReplies[].linkMo | String | テンプレートダイレクトリンク モバイルWebリンク |
+| template.content.quickReplies[].linkPc | String | テンプレートダイレクトリンク PC Webリンク |
+| template.content.quickReplies[].schemeIos | String | テンプレートダイレクトリンク iOSアプリリンク |
+| template.content.quickReplies[].schemeAndroid | String | テンプレートダイレクトリンク Androidアプリリンク |
+| template.content.quickReplies[].bizFormId | Integer | テンプレートダイレクトリンク ビジネスフォームID(BFタイプの場合は必須) |
+| template.createdDateTime | String | テンプレート作成日時 |
+| template.updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### お知らせトークテンプレート詳細照会
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0010UpdateAlimtalkTemplate"></span>
+
+## お知らせトークテンプレート修正
+
+テンプレートを修正します。
+
+**リクエスト**
+
+```
+PUT /template/v1.0/ALIMTALK/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{名前}様のご注文が完了しました。",
+    "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+    "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+    "templateTitle" : "123,450KRW",
+    "templateSubtitle" : "承認内訳",
+    "templateHeader" : "注文が確定しました。",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "description" : "アイテム説明"
+      } ],
+      "summary" : {
+        "title" : "サマリータイトル",
+        "description" : "サマリー説明"
+      }
     },
-    "createdDateTime": "2023-01-01T00:00:00Z",
-    "updatedDateTime": "2023-01-01T00:00:00Z"
+    "templateItemHighlight" : {
+      "title" : "ハイライトタイトル",
+      "description" : "ハイライト説明",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ダイレクトリンク名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| content | Object | Y |  |
+| content.templateMessageType | String | N | テンプレートメッセージタイプ(BA: 基本型、EX: 付加情報型、AD: チャンネル追加型、MI: 複合型、default: BA) |
+| content.templateEmphasizeType | String | N | テンプレート強調表示タイプ(NONE : 基本、TEXT : 強調表示、IMAGE: 画像型、ITEM_LIST: アイテムリスト型、default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| content.templateContent | String | N | テンプレート本文 |
+| content.templateAd | String | N | チャンネル追加案内メッセージ(テンプレートメッセージタイプ: チャンネル追加型、複合型の場合は固定値) |
+| content.templateExtra | String | N | テンプレート付加情報(テンプレートメッセージタイプが[付加情報型/複合型]の場合は必須)、置換変数は使用不可、URLを含むことが可能 |
+| content.templateTitle | String | N | テンプレートタイトル(最大50文字、Android: 2行、23文字以上で省略表示、iOS: 2行、27文字以上で省略表示) |
+| content.templateSubtitle | String | N | テンプレート補助文言(最大50文字、Android: 18文字以上で省略表示、iOS: 21文字以上で省略表示) |
+| content.templateHeader | String | N | テンプレートヘッダ、変数の入力が可能 |
+| content.templateItem | Object | N |  |
+| content.templateItem.list | Array | N |  |
+| content.templateItem.list[].title | String | N | アイテムタイトル |
+| content.templateItem.list[].description | String | N | アイテム説明 |
+| content.templateItem.summary | Object | N |  |
+| content.templateItem.summary.title | String | N | サマリータイトル |
+| content.templateItem.summary.description | String | N | サマリー説明(変数及び通貨単位、数字、カンマ、ピリオドのみ使用可能) |
+| content.templateItemHighlight | Object | N |  |
+| content.templateItemHighlight.title | String | N | アイテムハイライトタイトル(最大30文字、サムネイル画像がある場合は21文字) |
+| content.templateItemHighlight.description | String | N | アイテムハイライト説明(最大19文字、サムネイル画像がある場合は13文字) |
+| content.templateItemHighlight.attachmentId | String | N | テンプレート添付ファイルID |
+| content.templateItemHighlight.imageUrl | String | N | サムネイル画像アドレス |
+| content.templateRepresentLink | Object | N |  |
+| content.templateRepresentLink.linkMo | String | N | 代表リンク モバイルWebリンク |
+| content.templateRepresentLink.linkPc | String | N | 代表リンクPC Webリンク |
+| content.templateRepresentLink.schemeIos | String | N | 代表リンクiOSアプリリンク |
+| content.templateRepresentLink.schemeAndroid | String | N | 代表リンクAndroidアプリリンク |
+| content.attachmentId | String | N | テンプレート添付ファイルID |
+| content.templateImageName | String | N | テンプレート画像名 |
+| content.templateImageUrl | String | N | テンプレート画像リンク |
+| content.securityFlag | Boolean | N | テンプレートセキュリティの有無(default: false) |
+| content.categoryCode | String | N | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参照、default: 999999) |
+| content.buttons | Array | N | テンプレートボタン |
+| content.buttons[].ordering | Integer | N | テンプレートボタン順序 |
+| content.buttons[].type | String | N | テンプレートボタンタイプ(WL: Webリンク、AL: アプリリンク、DS: 配送照会、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク切替、BT: ボット切替、AC: チャンネル追加、BF: ビジネスフォーム、P1: 画像セキュリティ送信プラグインID、P2: 個人情報利用プラグインID、P3: ワンクリック決済プラグインID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| content.buttons[].name | String | N | テンプレートボタン名 |
+| content.buttons[].linkMo | String | N | テンプレートボタン モバイルWebリンク |
+| content.buttons[].linkPc | String | N | テンプレートボタンPC Webリンク |
+| content.buttons[].schemeIos | String | N | テンプレートボタンiOSアプリリンク |
+| content.buttons[].schemeAndroid | String | N | テンプレートボタンAndroidアプリリンク |
+| content.buttons[].bizFormId | Integer | N | テンプレートボタン ビジネスフォームID(BFタイプの場合は必須) |
+| content.quickReplies | Array | N | テンプレートダイレクトリンク |
+| content.quickReplies[].ordering | Integer | N | テンプレートダイレクトリンク順序 |
+| content.quickReplies[].type | String | N | テンプレートダイレクトリンクタイプ(WL: Webリンク、AL: アプリリンク、BK: ボットキーワード、BC: 相談トーク切替、BT: ボット切替、BF: ビジネスフォーム)<br>[WL, AL, BK, BC, BT, BF] |
+| content.quickReplies[].name | String | N | テンプレートダイレクトリンク名 |
+| content.quickReplies[].linkMo | String | N | テンプレートダイレクトリンク モバイルWebリンク |
+| content.quickReplies[].linkPc | String | N | テンプレートダイレクトリンク PC Webリンク |
+| content.quickReplies[].schemeIos | String | N | テンプレートダイレクトリンク iOSアプリリンク |
+| content.quickReplies[].schemeAndroid | String | N | テンプレートダイレクトリンク Androidアプリリンク |
+| content.quickReplies[].bizFormId | Integer | N | テンプレートダイレクトリンク ビジネスフォームID(BFタイプの場合は必須) |
+| additionalProperty | Object | Y |  |
+| additionalProperty.kakaoTemplateCode | String | Y | カカオテンプレートコード(英字、数字、-、_) |
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレート照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{templateId}
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
+### お知らせトークテンプレート修正
+
+PUT {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{名前}様のご注文が完了しました。",
+    "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+    "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+    "templateTitle" : "123,450KRW",
+    "templateSubtitle" : "承認内訳",
+    "templateHeader" : "注文が確定しました。",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "description" : "アイテム説明"
+      } ],
+      "summary" : {
+        "title" : "サマリータイトル",
+        "description" : "サマリー説明"
+      }
+    },
+    "templateItemHighlight" : {
+      "title" : "ハイライトタイトル",
+      "description" : "ハイライト説明",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ダイレクトリンク名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "kakaoTemplateCode" : "kakaoTemplateCode"
+  }
+}
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_ID}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```http
+curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{名前}様のご注文が完了しました。",
+    "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+    "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+    "templateTitle" : "123,450KRW",
+    "templateSubtitle" : "承認内訳",
+    "templateHeader" : "注文が確定しました。",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "description" : "アイテム説明"
+      } ],
+      "summary" : {
+        "title" : "サマリータイトル",
+        "description" : "サマリー説明"
+      }
+    },
+    "templateItemHighlight" : {
+      "title" : "ハイライトタイトル",
+      "description" : "ハイライト説明",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "ダイレクトリンク名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "kakaoTemplateCode" : "kakaoTemplateCode"
+  }
+}'
 ```
 
 </details>
+<span id="templateV1x0011DeleteAlimtalkTemplate"></span>
 
-<span id="put-template"></span>
+## お知らせトークテンプレート削除
 
-### テンプレート修正
+テンプレートを削除します。
 
 **リクエスト**
 
 ```
-PUT /template/v1.0/{messageChannel}/templates/{templateId}
-Content-Type: application/json
+DELETE /template/v1.0/ALIMTALK/templates/{templateId}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -425,184 +1808,87 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
 
-**リクエスト本文**
 
-```json
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "templateName": "テンプレート_名前",
-  "categoryId": "テンプレート_カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderPhoneNumber": "01012341234"
-  },
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   }
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--レスポンスボディのフィールドを説明します。-->
 
-**レスポンス本文**
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
 
-<!--レスポンス本文のフィールドを説明します。-->
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレート修正
-PUT {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{templateId}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### お知らせトークテンプレート削除
 
-{
-  "templateName": "テンプレート_名前",
-  "categoryId": "テンプレート_カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderPhoneNumber": "01012341234"
-  },
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
-  }
-}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X PUT "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_ID}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-        "templateName": "テンプレート_名前",
-        "categoryId": "テンプレート_カテゴリー_ID",
-        "messagePurpose": "NORMAL",
-        "templateLanguage": "PLAIN_TEXT",
-        "sender": {
-          "senderPhoneNumber": "01012341234"
-        },
-        "content": {
-          "messageType": "MMS",
-          "title": "[NHN Cloud Notification Hub]告知事項",
-          "body": "こんにちは。 NHN Cloud Notification Hubです。",
-          "attachmentIds": [
-            "添付_ファイル_ID"
-          ]
-        }
-      }'
-```
-
-</details>
-
-<span id="delete-template"></span>
-
-### テンプレート削除
-
-**リクエスト**
-
-```
-DELETE /template/v1.0/{messageChannel}/templates/{templateId}
+DELETE {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
 
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
+</details>
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
 ```http
-### テンプレート削除
-DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{templateId}
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
+curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
+<span id="templateV1x0012InquireAlimtalkTemplate"></span>
 
-<details>
-  <summary><strong>cURL</strong></summary>
+## お知らせトークテンプレート問い合わせ (deprecated)
 
-```curl
-curl -X DELETE "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_ID}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
+!!! danger "本APIはサポートを終了しました。"
+    * [カカオお知らせトークテンプレート問い合わせ](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost)を参照してください。
 
-</details>
-
-### お知らせトークテンプレートお問い合わせ
+お知らせトークテンプレートについて問い合わせます。
 
 **リクエスト**
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/inquiries
-Content-Type: application/json
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -610,80 +1896,103 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
 
-**リクエスト本文**
 
-```json
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
 {
-  "comment": "お問い合わせ内容"
+  "comment" : "お問い合わせ内容の例"
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--リクエストボディのフィールドを説明します。-->
 
-| 名前 | タイプ | 必須 | 説明              |
-| --- | --- | --- |-------------------|
-| comment | String | Y | お問い合わせ内容(最大長さ: 500) |
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| comment | String | Y | お問い合わせ内容 |
 
-**レスポンス本文**
 
-```json
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   }
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### お知らせトークテンプレートお問い合わせ
-POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{templateId}/inquiries
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### お知らせトークテンプレート問い合わせ
+
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/inquiries
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 {
-  "comment": "お問い合わせ内容"
+  "comment" : "お問い合わせ内容の例"
 }
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquiries" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-        "comment": "お問い合わせ内容"
-      }'
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "comment" : "お問い合わせ内容の例"
+}'
 ```
 
 </details>
+<span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
 
-### お知らせトークテンプレートファイル添付お問い合わせ
+## お知らせトークテンプレート問い合わせ(ファイル添付) (deprecated)
+
+!!! danger "本APIはサポートを終了しました。"
+    * [カカオお知らせトークテンプレート問い合わせ](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost)を参照してください。
+
+お知らせトークテンプレートを問い合わせる際、ファイルを添付して問い合わせます。
 
 **リクエスト**
 
 ```
-POST /template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquiries/do-with-file
-Content-Type: multipart/form-data
+POST /template/v1.0/ALIMTALK/templates/{templateId}/inquiries/do-with-file
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -691,81 +2000,87 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
-| comment | Query | String | Y | お問い合わせ内容(最大長さ: 500) |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
 
-**リクエスト本文**
 
-* ファイル添付は**multipart/form-data**でリクエストします。
-* **form-data**に**file** フィールドにファイルデータを設定します。
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
 
 ```
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="attachment.xlsx"
-Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-
-<ファイルデータ>
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
-```
-
-**レスポンス本文**
-
-```json
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   }
 }
 ```
 
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### お知らせトークテンプレートファイル添付お問い合わせ
-POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{templateId}/inquiries/do-with-file?fileName=attachment.xlsx
-Content-Type: multipart/form-data
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### お知らせトークテンプレート問い合わせ(ファイル添付)
 
---boundary
-Content-Disposition: form-data; name="file"; fileName="attachment.xlsx"
-Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/inquiries/do-with-file
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 
-< ./file/attachment.xlsx
---boundary--
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquiries/do-with-file?fileName=attachment.xlsx" \
-     -H "Content-Type: multipart/form-data" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -F "file=@./file/attachment.xlsx"
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries/do-with-file" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
+<span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
 
-### お知らせトークテンプレート修正履歴照会
+## お知らせトークテンプレート修正リスト照会 (deprecated)
+
+!!! danger "本APIはサポートを終了しました。"
+    * [お知らせトークテンプレートのカカオテンプレート一覧照会](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet)を参照してください。
+
+お知らせトークテンプレート修正リストを照会します。
 
 **リクエスト**
 
 ```
 GET /template/v1.0/ALIMTALK/templates/{templateId}/modifications
-Content-Type: application/json
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -773,573 +2088,629 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+| limit | Query  | Integer | N | limitを設定しない場合はデフォルト50(最大1000) |
+| offset | Query  | Integer | N | offsetを設定しない場合はデフォルト0 |
 
-**リクエスト本文**
 
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
 
-このAPIはリクエスト本文を要求しません。
+**リクエストボディ**
 
-**レスポンス本文**
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-```json
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "templates": [
-    {
-      "templateId": "テンプレート_ID",
-      "templateName": "テンプレート_名前",
-      "categoryId": "テンプレート_カテゴリー_ID",
-      "messageChannel": "ALIMTALK",
-      "messagePurpose": "NORMAL",
-      "templateLanguage": "PLAIN_TEXT",
-      "sender": {
-        "senderKey": "発信者_キー",
-        "senderProfileId": "発信者_プロフィール_ID",
-        "senderProfileType": "GROUP"
-      },
-      "content": {
-          "templateMessageType": "BA",
-          "templateEmphasizeType": "NONE",
-          "templateContent": "#{名前}さんの注文が完了しました。",
-            "templateAd": "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
-            "templateExtra": "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室が不可能な場合、予約がキャンセルされる場合があります。\\n* お問い合わせ電話: 1234-1234",
-            "templateTitle": "123,450KRW",
-            "templateSubtitle": "承認履歴",
-            "templateHeader": "注文が成立しました。",
-            "templateItem": {
-              "list": [
-                {
-                "title": "タイトル",
-                "description": "説明"
-                }
-              ],
-              "summary": {
-                "title": "タイトル",
-                "description": "説明"
-              }
-            },
-            "templateItemHighlight": {
-              "title": "タイトル",
-              "description": "説明",
-              "attachmentId": "ハイライト_すでに_添付ファイル_ID",
-              "imageUrl": "ハイライト_画像_リンク"
-            },
-            "templateRepresentLink": {
-              "linkMo": "モバイル_リンク",
-              "linkPc": "PC_リンク",
-              "schemeIos": "iOS_リンク",
-              "schemeAndroid": "Android_リンク"
-            },
-            "attachmentId": "添付_ファイル_ID",
-            "templateImageName": "画像_ファイル_名前",
-            "templateImageUrl": "画像_リンク",
-            "securityFlag": false,
-            "categoryCode": "999999",
-            "buttons": [
-              {
-                "ordering": 1,
-                "type": "WL",
-                "name": "ボタン_名前",
-                "linkMo": "モバイル_リンク",
-                "linkPc": "PC_リンク",
-                "schemeIos": "iOS_リンク",
-                "schemeAndroid": "Android_リンク",
-                "bizFormId": 1
-              }
-            ],
-            "quickReplies": [
-              {
-                "ordering": 1,
-                "type": "WL",
-                "name": "ボタン_名前",
-                "linkMo": "モバイル_リンク",
-                "linkPc": "PC_リンク",
-                "schemeIos": "iOS_リンク",
-                "schemeAndroid": "Android_リンク",
-                "bizFormId": 1
-              }
-            ]
-      },
-      "createdDateTime": "2023-01-01T00:00:00Z",
-      "updatedDateTime": "2023-01-01T00:00:00Z"
-    }
-  ],
-  "totalCount": 1
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-| 名前 | タイプ          | 説明              |
-| --- |---------------| ------------------|
-| templateCode         | String        | テンプレートコード(最大20文字) |
-| templateName         | String        | テンプレート名(最大150文字) |
-| templateContent      | String        | テンプレート本文(最大1000文字) |
-| templateMessageType  | String        | テンプレートメッセージタイプ<br>BA:基本型, EX:付加情報型, AD:チャンネル追加型, MI:複合型(デフォルト値: BA) |
-| templateEmphasizeType| String        | テンプレート強調表示タイプ<br>NONE:基本、 TEXT:強調表示、 IMAGE:画像型、 ITEM_LIST:アイテムリスト型(デフォルト値: NONE)<br>- TEXT選択時: templateTitle, templateSubtitle必須<br>- IMAGE選択時: templateImageName, templateImageUrl必須<br>- ITEM_LIST選択時:画像、ヘッダ、アイテムハイライト、アイテムリスト中1個以上必須 |
-| templateExtra        | String        | テンプレート付加情報<br>テンプレートメッセージタイプが付加情報型または複合型の場合必須 |
-| templateTitle        | String        | テンプレートタイトル(最大50文字)<br>Android: 2行、23文字以上の場合、短縮処理<br>iOS: 2行、27文字以上の場合、短縮処理 |
-| templateSubtitle     | String        | テンプレート補助文言(最大50文字)<br>Android: 18文字以上の場合、短縮処理<br>iOS: 21文字以上の場合、短縮処理 |
-| templateHeader       | String        | テンプレートヘッダ(最大16文字) |
-| templateItem         | Object        | アイテム |
-| templateItem.list    | Object Array | アイテムリスト(最小2個、最大10個) |
-| templateItem.list.title | String        | タイトル(最大6文字) |
-| templateItem.list.description | String        | ディスクリプション(最大23文字) |
-| templateItem.summary | Object        | アイテム要約情報 |
-| templateItem.summary.title | String        | タイトル(最大6文字) |
-| templateItem.summary.description | String        | ディスクリプション(変数及び貨幣単位、数字、カンマ、ピリオドのみ使用可能、最大14文字) |
-| templateItemHighlight | Object        | アイテムハイライト |
-| templateItemHighlight.title | String        | タイトル(最大30文字、サムネイル画像がある場合21文字) |
-| templateItemHighlight.description | String        | ディスクリプション(最大19文字、サムネイル画像がある場合13文字) |
-| templateItemHighlight.imageUrl | String        | サムネイル画像アドレス |
-| templateRepresentLink | Object        | 代表リンク |
-| templateRepresentLink.linkMo | String        | モバイルWebリンク(最大500文字) |
-| templateRepresentLink.linkPc | String        | PC Webリンク(最大500文字) |
-| templateRepresentLink.schemeIos | String        | iOSアプリリンク(最大500文字) |
-| templateRepresentLink.schemeAndroid | String        | Androidアプリリンク(最大500文字) |
-| templateImageName   | String        | 画像名(アップロードしたファイル名) |
-| templateImageUrl    | String        | 画像URL |
-| securityFlag        | Boolean       | セキュリティテンプレートかどうか<br>OTPなどセキュリティメッセージの場合に設定<br>送信時にメインデバイス以外のデバイスにメッセージテキストを表示しない(デフォルト値: false) |
-| categoryCode        | String        | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参考、デフォルト値: 999999)<br>カテゴリーその他の場合、最下位優先順位で審査 |
-| buttons             | Object Array | ボタンリスト(最大5個) |
-| buttons[].ordering    | Integer       | ボタン順序(1～5) |
-| buttons[].type        | String        | ボタンタイプ<br>WL: Webリンク、 AL:アプリリンク、 DS:配送照会、 BK: Botキーワード、 MD:メッセージ伝達、 BC:相談トーク切り替え, BT: Bot切り替え, AC:チャンネル追加、 BF:ビジネスフォーム, P1:画像セキュリティ送信プラグインID, P2:個人情報利用プラグインID, P3:ワンクリック決済プラグインID |
-| buttons[].name        | String        | ボタン名(ボタンがある場合必須、最大14文字) |
-| buttons[].linkMo      | String        | モバイルWebリンク(WLタイプの場合必須フィールド、最大500文字) |
-| buttons[].linkPc      | String        | PC Webリンク(WLタイプの場合選択フィールド、最大500文字) |
-| buttons[].schemeIos   | String        | iOSアプリリンク(ALタイプの場合必須フィールド、最大500文字) |
-| buttons[].schemeAndroid | String        | Androidアプリリンク(ALタイプの場合必須フィールド、最大500文字) |
-| buttons[].bizFormId   | Integer       | ビジネスフォームID (BFタイプの場合必須) |
-| buttons[].pluginId    | String        | プラグインID (最大24文字) |
-| quickReplies        | Object Array         | クイック接続リスト(最大5個) |
-| quickReplies[].ordering | Integer       | クイック接続順序(クイック接続がある場合、必須) |
-| quickReplies[].type   | String        | クイック接続タイプ<br>WL: Webリンク、 AL:アプリリンク、 BK: Botキーワード、 BC:相談トーク切り替え、 BT: Bot切り替え、 BF:ビジネスフォーム |
-| quickReplies[].name   | String        | クイック接続名(クイック接続がある場合必須、最大14文字) |
-| quickReplies[].linkMo | String        | モバイルWebリンク(WLタイプの場合必須フィールド、最大500文字) |
-| quickReplies[].linkPc | String        | PC Webリンク(WLタイプの場合、任意フィールド、最大500文字) |
-| quickReplies[].schemeIos | String        | iOSアプリリンク(ALタイプの場合必須フィールド、最大500文字) |
-| quickReplies[].schemeAndroid | String        | Androidアプリリンク(ALタイプの場合、必須フィールド、最大500文字) |
-| quickReplies[].bizFormId | Integer       | ビジネスフォームID (BFタイプの場合、必須) |
-
-* チャンネル追加型(AD)または複合型(MI)メッセージタイプテンプレート登録時、templateAd値が固定されます。
-* チャンネル追加型(AD)または複合型(MI)メッセージタイプテンプレート登録時、チャンネル追加(AC)ボタンが最初の順番に位置する必要があります。
-* チャンネル追加(AC)ボタンのボタン名は「チャンネル追加」に固定して登録する必要があります。
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### お知らせトークテンプレート修正履歴照会
-GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{templateId}/modifications
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/modifications" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
-
-</details>
-
----
-
-### テンプレートカテゴリー作成
-
-**リクエスト**
-
-```
-POST /template/v1.0/{messageChannel}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-
-**リクエスト本文**
-
-```json
-{
-  "parentCategoryId": "上位_カテゴリー_ID",
-  "name": "カテゴリー_名前"
-}
-```
-
-<!--リクエスト本文のフィールドを説明します。-->
-
-| 名前 | タイプ | 必須 | 説明              |
-| --- | --- | --- |-------------------|
-| parentCategoryId | String | 任意 | 上位カテゴリーID |
-| name | String | 必須 | カテゴリー名(最大50文字) |
-
-* 最上位カテゴリーはデフォルトで作成されています。最上位カテゴリーIDは**ROOT**です。
-* 新しいカテゴリーは最上位カテゴリーを下位から作成できます。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categoryId": "カテゴリー_ID"
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### カテゴリー作成
-POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-
-{
-  "parentCategoryId": "上位_カテゴリー_ID",
-  "name": "カテゴリー_名前"
-}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-     -d '{
-         "parentCategoryId": "上位_カテゴリー_ID",
-         "name": "カテゴリー_名前"
-     }'
-```
-
-</details>
-
-### カテゴリーリスト照会
-
-**リクエスト**
-
-```
-GET /template/v1.0/{messageChannel}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categories": [
-    {
-      "categoryId": "カテゴリー_ID",
-      "name": "カテゴリー_名前",
-      "parentCategoryId": "上位_カテゴリー_ID",
-      "categoryIds": [
-        "下位_カテゴリー_ID"
-      ],
-      "templateIds": [
-        "カテゴリーに属するテンプレート_ID"
-      ]
-    }
-  ]
-}
-```
-
-<!--TODO: categoryIds => childCategoryIdsに名前変更必要-->
-<!--TODO: totalCount追加必要-->
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### カテゴリーリスト照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
-
-</details>
-
-### カテゴリーツリー照会
-
-**リクエスト**
-
-```
-GET /template/v1.0/{messageChannel}/category-tree
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明                                                   |
-| --- | --- | --- | --- |--------------------------------------------------------|
-| appKey | Header | String | Y | アプリキー                                                   |
-| accessToken | Header | String | Y | 認証トークン                                                |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH  |
-| categoryTemplateName | Query | String | N | カテゴリーまたはテンプレート名、プレフィックス(Prefix)検索可能                    |
-
-<!--TODO: statusフィールドがないため、必要かどうか確認が必要-->
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categories": [
-    {
-      "categoryId": "ROOT",
-      "categoryName": "Root Category",
-      "parentCategoryId": null,
-      "messageChannel": "SMS",
-      "categories": [
-        {
-          "categoryId": "カテゴリー_ID",
-          "categoryName": "カテゴリー_名前",
-          "parentCategoryId": "ROOT",
-          "messageChannel": "SMS",
-          "categories": [
-            {
-              "categoryId": "カテゴリー_ID",
-              "categoryName": "カテゴリー_名前",
-              "parentCategoryId": "6XAeH2yo",
-              "messageChannel": "SMS",
-              "categories": [],
-              "templates": [
-                {
-                  "templateId": "テンプレート_ID",
-                  "templateName": "テンプレート_名前"
-                },
-                {
-                  "templateId": "テンプレート_ID",
-                  "templateName": "テンプレート_名前"
-                }
-              ]
-            }
-          ],
-          "templates": []
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "テンプレート名",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "GROUP"
+    },
+    "additionalProperty" : {
+      "templateCode" : "templateCode",
+      "kakaoTemplateCode" : "kakaoTemplateCode",
+      "comments" : [ {
+        "id" : 1,
+        "content" : "お問い合わせ内容の例",
+        "userName" : "ユーザー名",
+        "createdAt" : "2024-10-29T06:00:01.000+09:00",
+        "attachments" : [ {
+          "originalFileName" : "ファイル名の例",
+          "filePath" : "/path/to/file"
+        } ],
+        "status" : "REQ"
+      } ],
+      "status" : "APR",
+      "block" : false,
+      "dormant" : false,
+      "activated" : false
+    },
+    "content" : {
+      "templateMessageType" : "BA",
+      "templateEmphasizeType" : "NONE",
+      "templateContent" : "#{名前}様のご注文が完了しました。",
+      "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+      "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+      "templateTitle" : "123,450KRW",
+      "templateSubtitle" : "承認内訳",
+      "templateHeader" : "注文が確定しました。",
+      "templateItem" : {
+        "list" : [ {
+          "title" : "アイテムタイトル",
+          "description" : "アイテム説明"
+        } ],
+        "summary" : {
+          "title" : "サマリータイトル",
+          "description" : "サマリー説明"
         }
-      ],
-      "templates": []
-    }
-  ]
+      },
+      "templateItemHighlight" : {
+        "title" : "ハイライトタイトル",
+        "description" : "ハイライト説明",
+        "attachmentId" : "YaX2DA4Weab2",
+        "imageUrl" : "https://example.com/thumbnail.jpg"
+      },
+      "templateRepresentLink" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "attachmentId" : "YaX2DA4Weab2",
+      "templateImageName" : "image.png",
+      "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+      "securityFlag" : false,
+      "categoryCode" : "999999",
+      "buttons" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "ボタン名",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ],
+      "quickReplies" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "ダイレクトリンク名",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ]
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--レスポンスボディのフィールドを説明します。-->
 
-| 名前                    | タイプ          | 説明              |
-|-------------------------|---------------|-------------------|
-| categories.[]categoryId | String        | カテゴリーID |
-| categories.[]categoryName            | String        | カテゴリー名 |
-| categories.[]parentCategoryId        | String        | 上位カテゴリーID |
-| categories.[]messageChannel          | String        | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| categories.[]categories              | Object Array | 下位カテゴリーリスト |
-| categories.[]templates               | Object Array         | テンプレートリスト |
-| categories.[]templates.[]templateId  | String        | テンプレートID |
-| categories.[]templates.[]templateName| String        | テンプレート名 |
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| totalCount | Integer | 総件数 |
+| templates | Array |  |
+| templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
+| templates[].templateName | String | テンプレート名 |
+| templates[].categoryId | String | カテゴリーID |
+| templates[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templates[].sender | Object |  |
+| templates[].sender.senderKey | String | 発信プロファイルの発信キー |
+| templates[].sender.senderProfileId | String | カカオトークチャンネル名 |
+| templates[].sender.senderProfileType | String | 発信プロファイルタイプ<br>[GROUP, NORMAL] |
+| templates[].additionalProperty | Object |  |
+| templates[].additionalProperty.templateCode | String | テンプレートコード(英字、数字、-、_) |
+| templates[].additionalProperty.kakaoTemplateCode | String | カカオテンプレートコード |
+| templates[].additionalProperty.comments | Array | テンプレート問い合わせリスト |
+| templates[].additionalProperty.status | String | REG: 申請、REQ: 審査中、APR: 承認、REJ: 却下<br>[REG, REQ, APR, REJ] |
+| templates[].additionalProperty.block | Boolean | テンプレートブロックの有無 |
+| templates[].additionalProperty.dormant | Boolean | テンプレート休眠の有無 |
+| templates[].additionalProperty.activated | Boolean | 有効かどうか |
+| templates[].content | Object |  |
+| templates[].content.templateMessageType | String | テンプレートメッセージタイプ(BA: 基本型、EX: 付加情報型、AD: チャンネル追加型、MI: 複合型、default: BA) |
+| templates[].content.templateEmphasizeType | String | テンプレート強調表示タイプ(NONE : 基本、TEXT : 強調表示、IMAGE: 画像型、ITEM_LIST: アイテムリスト型、default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| templates[].content.templateContent | String | テンプレート本文 |
+| templates[].content.templateAd | String | チャンネル追加案内メッセージ(テンプレートメッセージタイプ: チャンネル追加型、複合型の場合は固定値) |
+| templates[].content.templateExtra | String | テンプレート付加情報(テンプレートメッセージタイプが[付加情報型/複合型]の場合は必須)、置換変数は使用不可、URLを含むことが可能 |
+| templates[].content.templateTitle | String | テンプレートタイトル(最大50文字、Android: 2行、23文字以上で省略表示、iOS: 2行、27文字以上で省略表示) |
+| templates[].content.templateSubtitle | String | テンプレート補助文言(最大50文字、Android: 18文字以上で省略表示、iOS: 21文字以上で省略表示) |
+| templates[].content.templateHeader | String | テンプレートヘッダ、変数の入力が可能 |
+| templates[].content.templateItem | Object |  |
+| templates[].content.templateItem.list | Array |  |
+| templates[].content.templateItem.summary | Object |  |
+| templates[].content.templateItem.summary.title | String | サマリータイトル |
+| templates[].content.templateItem.summary.description | String | サマリー説明(変数及び通貨単位、数字、カンマ、ピリオドのみ使用可能) |
+| templates[].content.templateItemHighlight | Object |  |
+| templates[].content.templateItemHighlight.title | String | アイテムハイライトタイトル(最大30文字、サムネイル画像がある場合は21文字) |
+| templates[].content.templateItemHighlight.description | String | アイテムハイライト説明(最大19文字、サムネイル画像がある場合は13文字) |
+| templates[].content.templateItemHighlight.attachmentId | String | テンプレート添付ファイルID |
+| templates[].content.templateItemHighlight.imageUrl | String | サムネイル画像アドレス |
+| templates[].content.templateRepresentLink | Object |  |
+| templates[].content.templateRepresentLink.linkMo | String | 代表リンク モバイルWebリンク |
+| templates[].content.templateRepresentLink.linkPc | String | 代表リンク PC Webリンク |
+| templates[].content.templateRepresentLink.schemeIos | String | 代表リンク iOSアプリリンク |
+| templates[].content.templateRepresentLink.schemeAndroid | String | 代表リンク Androidアプリリンク |
+| templates[].content.attachmentId | String | テンプレート添付ファイルID |
+| templates[].content.templateImageName | String | テンプレート画像名 |
+| templates[].content.templateImageUrl | String | テンプレート画像リンク |
+| templates[].content.securityFlag | Boolean | テンプレートセキュリティの有無(default: false) |
+| templates[].content.categoryCode | String | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参照、default: 999999) |
+| templates[].content.buttons | Array | テンプレートボタン |
+| templates[].content.quickReplies | Array | テンプレートダイレクトリンク |
+| templates[].createdDateTime | String | テンプレート作成日時 |
+| templates[].updatedDateTime | String | テンプレート修正日時 |
+
+
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### カテゴリーツリー照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/category-tree
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### お知らせトークテンプレート修正リスト照会
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/modifications
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/category-tree" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifications" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
 
-### カテゴリー照会
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
 
-**リクエスト**
+## お知らせトークのカカオテンプレート一覧照会
+
+お知らせトークのカカオテンプレート一覧を照会します。
+
+### リクエスト
 
 ```
-GET /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
+GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 ```
 
-**リクエストパラメータ**
+### リクエストパラメータ
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| categoryId | Path | String | Y | カテゴリーID |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | アプリキー |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| templateId | Path | String | Y | テンプレートID |
+| limit | Query | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
+| offset | Query | Integer | N | offsetを設定しない場合はデフォルト0 |
 
-**リクエスト本文**
 
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
 
-このAPIはリクエスト本文を要求しません。
+### リクエストボディ
 
-**レスポンス本文**
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-```json
+このAPIはリクエストボディを必要としません。
+
+
+
+### レスポンスボディ
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "category": {
-    "categoryId": "カテゴリー_ID",
-    "categoryName": "カテゴリー_名前",
-    "parentCategoryId": "上位_カテゴリー_ID",
-    "messageChannel": "SMS",
-    "categoryIds": [
-      "下位_カテゴリー_ID"
-    ],
-    "templateIds": [
-      "カテゴリーに_属する_テンプレート_ID"
-    ]
+  "totalCount" : 1,
+  "templates" : [ {
+    "kakaoTemplateCode" : "kakaoTemplateCode",
+    "kakaoTemplateName" : "テンプレート名",
+    "content" : {
+      "templateMessageType" : "BA",
+      "templateEmphasizeType" : "NONE",
+      "templateContent" : "#{名前}様のご注文が完了しました。",
+      "templateAd" : "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
+      "templateExtra" : "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室できない場合は予約がキャンセルされることがあります。\\n* お問い合わせ: 1234-1234",
+      "templateTitle" : "123,450KRW",
+      "templateSubtitle" : "承認内訳",
+      "templateHeader" : "注文が確定しました。",
+      "templateItem" : {
+        "list" : [ {
+          "title" : "アイテムタイトル",
+          "description" : "アイテム説明"
+        } ],
+        "summary" : {
+          "title" : "サマリータイトル",
+          "description" : "サマリー説明"
+        }
+      },
+      "templateItemHighlight" : {
+        "title" : "ハイライトタイトル",
+        "description" : "ハイライト説明",
+        "attachmentId" : "YaX2DA4Weab2",
+        "imageUrl" : "https://example.com/thumbnail.jpg"
+      },
+      "templateRepresentLink" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "attachmentId" : "YaX2DA4Weab2",
+      "templateImageName" : "image.png",
+      "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+      "securityFlag" : false,
+      "categoryCode" : "999999",
+      "buttons" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "ボタン名",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ],
+      "quickReplies" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "ダイレクトリンク名",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ]
+    },
+    "reviewStatus" : "APPROVED",
+    "comments" : [ {
+      "id" : 1,
+      "content" : "お問い合わせ内容の例",
+      "userName" : "ユーザー名",
+      "createdAt" : "2024-10-29T06:00:01.000+09:00",
+      "attachments" : [ {
+        "originalFileName" : "ファイル名の例",
+        "filePath" : "/path/to/file"
+      } ],
+      "status" : "REQ"
+    } ],
+    "block" : false,
+    "dormant" : false,
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明                                                                                                                       |
+| - | - |--------------------------------------------------------------------------------------------------------------------------|
+| header | Object |                                                                                                                          |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true                                                                                        |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0                                                                                                  |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS                                                                                           |
+| totalCount | Integer | 総件数                                                                                                                    |
+| templates | Array |                                                                                                                          |
+| templates[].kakaoTemplateCode | String | カカオテンプレートコード                                                                                                              |
+| templates[].kakaoTemplateName | String | テンプレート名                                                                                                                  |
+| templates[].content | Object |                                                                                                                          |
+| templates[].content.templateMessageType | String | テンプレートメッセージタイプ(BA: 基本型、EX: 付加情報型、AD: チャンネル追加型、MI: 複合型、default: BA)                                                        |
+| templates[].content.templateEmphasizeType | String | テンプレート強調表示タイプ(NONE : 基本、TEXT : 強調表示、IMAGE: 画像型、ITEM_LIST: アイテムリスト型、default: NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| templates[].content.templateContent | String | テンプレート本文                                                                                                                  |
+| templates[].content.templateAd | String | チャンネル追加案内メッセージ(テンプレートメッセージタイプ: チャンネル追加型、複合型の場合は固定値)                                                                            |
+| templates[].content.templateExtra | String | テンプレート付加情報(テンプレートメッセージタイプが[付加情報型/複合型]の場合は必須)、置換変数は使用不可、URLを含むことが可能                                                       |
+| templates[].content.templateTitle | String | テンプレートタイトル(最大50文字、Android: 2行、23文字以上で省略表示、iOS: 2行、27文字以上で省略表示)                                                      |
+| templates[].content.templateSubtitle | String | テンプレート補助文言(最大50文字、Android: 18文字以上で省略表示、iOS: 21文字以上で省略表示)                                                           |
+| templates[].content.templateHeader | String | テンプレートヘッダ、変数の入力が可能                                                                                                         |
+| templates[].content.templateItem | Object |                                                                                                                          |
+| templates[].content.templateItem.list | Array |                                                                                                                          |
+| templates[].content.templateItem.summary | Object |                                                                                                                          |
+| templates[].content.templateItem.summary.title | String | サマリータイトル                                                                                                                   |
+| templates[].content.templateItem.summary.description | String | サマリー説明(変数及び通貨単位、数字、カンマ、ピリオドのみ使用可能)                                                                                    |
+| templates[].content.templateItemHighlight | Object |                                                                                                                          |
+| templates[].content.templateItemHighlight.title | String | アイテムハイライトタイトル(最大30文字、サムネイル画像がある場合は21文字)                                                                               |
+| templates[].content.templateItemHighlight.description | String | アイテムハイライト説明(最大19文字、サムネイル画像がある場合は13文字)                                                                                |
+| templates[].content.templateItemHighlight.attachmentId | String | テンプレート添付ファイルID                                                                                                             |
+| templates[].content.templateItemHighlight.imageUrl | String | サムネイル画像アドレス                                                                                                              |
+| templates[].content.templateRepresentLink | Object |                                                                                                                          |
+| templates[].content.templateRepresentLink.linkMo | String | 代表リンク モバイルWebリンク                                                                                                           |
+| templates[].content.templateRepresentLink.linkPc | String | 代表リンクPC Webリンク                                                                                                           |
+| templates[].content.templateRepresentLink.schemeIos | String | 代表リンク iOSアプリリンク                                                                                                           |
+| templates[].content.templateRepresentLink.schemeAndroid | String | 代表リンク Androidアプリリンク                                                                                                         |
+| templates[].content.attachmentId | String | テンプレート添付ファイルID                                                                                                             |
+| templates[].content.templateImageName | String | テンプレート画像名                                                                                                              |
+| templates[].content.templateImageUrl | String | テンプレート画像リンク                                                                                                              |
+| templates[].content.securityFlag | Boolean | テンプレートセキュリティの有無(default: false)                                                                                                |
+| templates[].content.categoryCode | String | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参照、default: 999999)                                                                         |
+| templates[].content.buttons | Array | テンプレートボタン                                                                                                                  |
+| templates[].content.quickReplies | Array | テンプレートダイレクトリンク                                                                                                                |
+| templates[].reviewStatus | String | REGISTERED: 申請、REQUESTED: 審査中、APPROVED: 承認、REJECTED: 却下<br>[REGISTERED, REQUESTED, APPROVED, REJECTED]               |
+| templates[].comments | Array | テンプレート問い合わせリスト                                                                                                               |
+| templates[].block | Boolean | テンプレートブロックの有無                                                                                                                |
+| templates[].dormant | Boolean | テンプレート休眠の有無                                                                                                                |
+| templates[].createdDateTime | String | テンプレート作成日時                                                                                                                |
+| templates[].updatedDateTime | String | テンプレート修正日時                                                                                                               |
+
+
+
+### リクエスト例
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### お知らせトークのカカオテンプレート一覧照会
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost"></span>
+
+## ファイルを添付してカカオお知らせトークテンプレートを問い合わせる
+
+カカオお知らせトークテンプレートを問い合わせる際、ファイルを添付して問い合わせます。
+
+### リクエスト
+
+```
+POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries/do-with-file
+```
+
+### リクエストパラメータ
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | アプリキー |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| templateId | Path | String | Y | テンプレートID |
+| kakaoTemplateCode | Path | String | Y | カカオテンプレートコード |
+
+### リクエストボディ
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| comment | String | Y | お問い合わせ内容 |
+| file | Binary | Y | 問い合わせファイル |
+
+### レスポンスボディ
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   }
 }
 ```
 
-<!--TODO:カテゴリー名をname or categoryNameにするか統一必要、 nameに変更必要-->
+<!--レスポンスボディのフィールドを説明します。-->
 
-<!--レスポンス本文のフィールドを説明します。-->
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
-**リクエスト例**
+
+
+### リクエスト例
 
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### メッセージチャンネル別カテゴリー照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
+### ファイルを添付してカカオお知らせトークテンプレートを問い合わせる
 
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates/{{kakaoTemplateCode}}/inquiries/do-with-file
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="comment"
+
+comment_example
+--boundary
+Content-Disposition: form-data; name="file"; filename="file.txt"
+Content-Type: text/plain
+
+< /path/to/file.txt
+--boundary--
+```
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/{categoryId}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates/${kakaoTemplateCode}/inquiries/do-with-file" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-F "comment=comment_example" \
+-F "file=@/path/to/file.txt"
+```
+
+</details>
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></span>
+
+## カカオお知らせトークテンプレート問い合わせ
+
+カカオお知らせトークテンプレートについて問い合わせます。
+
+### リクエスト
+
+```
+POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries
+```
+
+### リクエストパラメータ
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | アプリキー |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| templateId | Path | String | Y | テンプレートID |
+| kakaoTemplateCode | Path | String | Y | カカオテンプレートコード |
+
+
+
+### リクエストボディ
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "comment" : "お問い合わせ内容の例"
+}
+```
+
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| comment | String | Y | お問い合わせ内容 |
+
+
+
+### レスポンスボディ
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+### リクエスト例
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### カカオお知らせトークテンプレート問い合わせ
+
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates/{{kakaoTemplateCode}}/inquiries
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "comment" : "お問い合わせ内容の例"
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates/${kakaoTemplateCode}/inquiries" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-d '{
+  "comment" : "お問い合わせ内容の例"
+}'
 ```
 
 </details>
 
-### カテゴリー修正
+<span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
+
+## お知らせトークテンプレートカテゴリーリスト照会
+
+お知らせトークテンプレートカテゴリーリストを照会します。
 
 **リクエスト**
 
 ```
-PUT /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
+GET /template/v1.0/ALIMTALK/template-categories
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -1347,85 +2718,97 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| categoryId | Path | String | Y | カテゴリーID |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
-**リクエスト本文**
 
-```json
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "parentCategoryId": "上位_カテゴリー_ID",
-  "name": "カテゴリー_名前"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "categories" : [ {
+    "name" : "購入",
+    "subCategories" : [ {
+      "code" : "002001",
+      "name" : "購入完了",
+      "groupName" : "購入",
+      "inclusion" : "注文完了、購入完了テンプレートが対象です。",
+      "exclusion" : "日程に関連して予約、予約番号があるテンプレートの場合、購入完了から除外し、予約に分類します。"
+    } ]
+  } ]
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--レスポンスボディのフィールドを説明します。-->
 
-| 名前 | タイプ | 必須 | 説明              |
-| --- | --- | --- |-------------------|
-| parentCategoryId | String | 任意 | 上位カテゴリーID |
-| name | String | 必須 | カテゴリー名(最大50文字) |
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| categories | Array |  |
+| categories[].name | String | 大分類カテゴリー名 |
+| categories[].subCategories | Array | サブカテゴリー |
 
-**レスポンス本文**
 
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### カテゴリー修正
-PUT {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### お知らせトークテンプレートカテゴリーリスト照会
 
-{
-  "parentCategoryId": "上位_カテゴリー_ID",
-  "name": "カテゴリー_名前"
-}
+GET {{endpoint}}/template/v1.0/ALIMTALK/template-categories
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X PUT "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/{categoryId}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-         "parentCategoryId": "上位_カテゴリー_ID",
-         "name": "カテゴリー_名前"
-     }'
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
 
-### テンプレートカテゴリーにテンプレート追加
+<span id="templateV1x0021CreateEmailTemplate"></span>
+
+## Emailテンプレート登録
+
+テンプレートを登録します。
 
 **リクエスト**
 
 ```
-POST /template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY_ID}/templates
-Content-Type: application/json
+POST /template/v1.0/EMAIL/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -1433,80 +2816,143 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
-**リクエスト本文**
 
-```json
-{
-  "templateId": "テンプレート_ID"
-}
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
 ```
-
-<!--リクエスト本文のフィールドを説明します。-->
-
-| 名前 | タイプ | 必須 | 説明              |
-| --- | --- | --- |-------------------|
-| templateId | String | 必須 | テンプレートID |
-
-**レスポンス本文**
-
-```json
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| categoryId | String | N | カテゴリーID |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderMailAddress | String | Y | 発信メールアドレス |
+| content | Object | Y |  |
+| content.title | String | N | テンプレートメール件名 |
+| content.body | String | N | テンプレートメール本文 |
+| content.attachmentIds | Array | N | テンプレート添付ファイルID |
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| templateId | String | テンプレート登録時に発行されたテンプレートID |
+
+
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレートカテゴリーにテンプレート追加
-POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}/templates
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### Emailテンプレート登録
+
+POST {{endpoint}}/template/v1.0/EMAIL/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 {
-  "templateId": "テンプレート_ID"
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
 }
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY_ID}/templates" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-         "templateId": "テンプレート_ID"
-     }'
+```http
+curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
 ```
 
 </details>
+<span id="templateV1x0022ReadEmailTemplate"></span>
 
-### カテゴリー削除
+## Emailテンプレート詳細照会
+
+テンプレートを詳細照会します。
 
 **リクエスト**
 
 ```
-DELETE /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
+GET /template/v1.0/EMAIL/templates/{templateId}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -1514,54 +2960,2428 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| categoryId | Path | String | Y | カテゴリーID |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
 
-**リクエスト本文**
 
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-このAPIはリクエスト本文を要求しません。
 
-**レスポンス本文**
+**リクエストボディ**
 
-```json
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "テンプレート名",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "senderMailAddress" : "abcde@nhn.com"
+    },
+    "content" : {
+      "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+      "body" : "こんにちは。本日お客様の商品が入荷されました。",
+      "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| template | Object |  |
+| template.templateId | String | テンプレート登録時に発行されたテンプレートID |
+| template.templateName | String | テンプレート名 |
+| template.categoryId | String | カテゴリーID |
+| template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.sender | Object |  |
+| template.sender.senderMailAddress | String | 発信メールアドレス |
+| template.content | Object |  |
+| template.content.title | String | テンプレートメール件名 |
+| template.content.body | String | テンプレートメール本文 |
+| template.content.attachmentIds | Array | テンプレート添付ファイルID |
+| template.createdDateTime | String | テンプレート作成日時 |
+| template.updatedDateTime | String | テンプレート修正日時 |
+
+
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### カテゴリー削除
-DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### Emailテンプレート詳細照会
+
+GET {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X DELETE "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY_ID}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```http
+curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0022ReadEmailTemplateList"></span>
+
+## Emailテンプレートリスト照会
+
+テンプレートリストを照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/EMAIL/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateName | Query  | String | N | テンプレート名(LIKE検索) |
+| limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
+| offset | Query  | Integer | N | offsetを設定しない場合はデフォルト0 |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "配送完了",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| totalCount | Integer | 総件数 |
+| templates | Array |  |
+| templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
+| templates[].templateName | String | テンプレート名 |
+| templates[].categoryId | String | カテゴリーID |
+| templates[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | テンプレート作成日時 |
+| templates[].updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Emailテンプレートリスト照会
+
+GET {{endpoint}}/template/v1.0/EMAIL/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/EMAIL/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0023UpdateEmailTemplate"></span>
+
+## Emailテンプレート修正
+
+テンプレートを修正します。
+
+**リクエスト**
+
+```
+PUT /template/v1.0/EMAIL/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderMailAddress | String | Y | 発信メールアドレス |
+| content | Object | Y |  |
+| content.title | String | N | テンプレートメール件名 |
+| content.body | String | N | テンプレートメール本文 |
+| content.attachmentIds | Array | N | テンプレート添付ファイルID |
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Emailテンプレート修正
+
+PUT {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0024DeleteEmailTemplate"></span>
+
+## Emailテンプレート削除
+
+テンプレートを削除します。
+
+**リクエスト**
+
+```
+DELETE /template/v1.0/EMAIL/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Emailテンプレート削除
+
+DELETE {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0025CreateRcsTemplate"></span>
+
+## RCSテンプレート登録
+
+テンプレートを登録します。
+
+**リクエスト**
+
+```
+POST /template/v1.0/RCS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル1",
+      "title2" : "タイトル2",
+      "title3" : "タイトル3",
+      "description1" : "本文1",
+      "description2" : "本文2",
+      "description3" : "本文3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定説明"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定説明"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}
+```
+
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| categoryId | String | N | カテゴリーID |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | Y |  |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | トークルーム(チャットボット)ID |
+| content | Object | Y |  |
+| content.messageType | String | N | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
+| content.title | String | N | メッセージ件名 |
+| content.body | String | N | メッセージ本文 |
+| content.smsType | String | N | SMSタイプ<br>[STANDALONE] |
+| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.messagebaseId | String | N | RCS Biz CenterテンプレートID |
+| content.unsubscribePhoneNumber | String | N | 配信停止番号(広告送信の場合は必須) |
+| content.cards | Array | N | RCSカード |
+| content.cards[].title | String | N | タイトル |
+| content.cards[].description | String | N | 本文 |
+| content.cards[].attachmentId | String | N | 画像添付ファイルID |
+| content.cards[].mTitle | String | N | メインタイトル |
+| content.cards[].mTitleMedia | String | N | メインタイトルロゴファイルID |
+| content.cards[].title1 | String | N | タイトル1 |
+| content.cards[].title2 | String | N | タイトル2 |
+| content.cards[].title3 | String | N | タイトル3 |
+| content.cards[].description1 | String | N | 本文1 |
+| content.cards[].description2 | String | N | 本文2 |
+| content.cards[].description3 | String | N | 本文3 |
+| content.cards[].buttons | Array | N |  |
+| content.buttons | Array | N | RCSボタンリスト |
+| content.buttons[].buttonType | String | N | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonに含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在地を共有する(MAP_SHARE)、URLに接続する(URL)、日程を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonJson | Object | N |  |
+| content.buttons[].buttonJson.action | Object | N | ボタンアクション |
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| templateId | String | テンプレート登録時に発行されたテンプレートID |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCSテンプレート登録
+
+POST {{endpoint}}/template/v1.0/RCS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル1",
+      "title2" : "タイトル2",
+      "title3" : "タイトル3",
+      "description1" : "本文1",
+      "description2" : "本文2",
+      "description3" : "本文3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定説明"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定説明"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル1",
+      "title2" : "タイトル2",
+      "title3" : "タイトル3",
+      "description1" : "本文1",
+      "description2" : "本文2",
+      "description3" : "本文3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定説明"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定説明"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0026ReadRcsTemplateList"></span>
+
+## RCSテンプレートリスト照会
+
+テンプレートリストを照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/RCS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateName | Query  | String | N | テンプレート名(LIKE検索) |
+| limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
+| offset | Query  | Integer | N | offsetを設定しない場合はデフォルト0 |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "配送完了",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| totalCount | Integer | 総件数 |
+| templates | Array |  |
+| templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
+| templates[].templateName | String | テンプレート名 |
+| templates[].categoryId | String | カテゴリーID |
+| templates[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | テンプレート作成日時 |
+| templates[].updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCSテンプレートリスト照会
+
+GET {{endpoint}}/template/v1.0/RCS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/RCS/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0027ReadRcsTemplate"></span>
+
+## RCSテンプレート詳細照会
+
+テンプレートを詳細照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/RCS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "テンプレート名",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "brandId" : "AR.lj0eOjEI7Y",
+      "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+    },
+    "content" : {
+      "messageType" : "SMS",
+      "title" : "祝日の営業時間のお知らせ",
+      "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+      "smsType" : "STANDALONE",
+      "lmsType" : "HORIZONTAL",
+      "mmsType" : "HORIZONTAL",
+      "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+      "messagebaseformId" : "SS000000",
+      "unsubscribePhoneNumber" : "08012341234",
+      "cards" : [ {
+        "title" : "タイトル",
+        "description" : "本文",
+        "attachmentId" : "20240814125609swLmoZTsGr0",
+        "mTitle" : "メインタイトル",
+        "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+        "title1" : "タイトル1",
+        "title2" : "タイトル2",
+        "title3" : "タイトル3",
+        "description1" : "本文1",
+        "description2" : "本文2",
+        "description3" : "本文3",
+        "buttons" : [ {
+          "buttonType" : "CALENDAR",
+          "buttonJson" : {
+            "action" : {
+              "displayText" : "予定を登録する",
+              "calendarAction" : {
+                "createCalendarEvent" : {
+                  "startTime" : "2024-01-01T00:00:00.000+09:00",
+                  "endTime" : "2024-01-01T00:00:00.000+09:00",
+                  "title" : "予定タイトル",
+                  "description" : "予定説明"
+                }
+              }
+            }
+          }
+        } ]
+      } ],
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定説明"
+              }
+            }
+          }
+        }
+      } ]
+    },
+    "additionalProperty" : {
+      "status" : "SUCCESS",
+      "approvedDateTime" : "2024-10-29T06:00:01.000+09:00"
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| template | Object |  |
+| template.templateId | String | テンプレート登録時に発行されたテンプレートID |
+| template.templateName | String | テンプレート名 |
+| template.categoryId | String | カテゴリーID |
+| template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.sender | Object |  |
+| template.sender.brandId | String | ブランドID |
+| template.sender.chatbotId | String | トークルーム(チャットボット)ID |
+| template.content | Object |  |
+| template.content.messageType | String | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
+| template.content.title | String | メッセージ件名 |
+| template.content.body | String | メッセージ本文 |
+| template.content.smsType | String | SMSタイプ<br>[STANDALONE] |
+| template.content.lmsType | String | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| template.content.mmsType | String | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| template.content.messagebaseId | String | RCS Biz CenterテンプレートID |
+| template.content.messagebaseformId | String | RCS Biz Centerで指定したmessageBase様式<br><br>[SS000000(基本型)、SL000000(基本型)、OL00000001(LMS Format基本型)、OL00000002(LMS Formatタイトル強調型)、OL00000003(LMS Format段落型)、SMwThT00(MMS縦型)、SMwThM00(MMS横型)、CMwMhM0200(MMSスライド中型(2))、CMwMhM0300(MMSスライド中型(3))、CMwMhM0400(MMSスライド中型(4))、CMwMhM0500(MMSスライド中型(5))、CMwMhM0600(MMSスライド中型(6))、CMwShS0200(MMSスライド小型(2))、CMwShS0300(MMSスライド小型(3))、CMwShS0400(MMSスライド小型(4))、CMwShS0500(MMSスライド小型(5))、CMwShS0600(MMSスライド小型(6))、CLI00001(アイテム詳細型)、ITTBNV(サムネイル型(縦))、ITTBNH(サムネイル型(横))、ITHIMS(画像強調型(1:1))、ITHIMV(画像強調型(3:4))、ITSNSS(SNS型)、ITSNSH(SNS型(中間ボタン))、ITHITS(画像＆タイトル強調型(1:1))、ITHITV(画像＆タイトル強調型(3:4))、ITCRM2(スライド型(2))、ITCRM3(スライド型(3))、ITCRM4(スライド型(4))、ITCRM5(スライド型(5))、ITCRM6(スライド型(6))、CLT00001(アイテム強調型 DESC)、CLT00002(アイテム強調型 TABLE)、TATA001C(タイトル自由型 FREE)、TATA001D(タイトル自由型 CELL)、TATA001F(タイトル自由型 DESC)、FF005C(タイトル選択型 FREE)、FF005D(明細書 CELL)、FF004C(明細書 DESC)、FF004D(キャンセル CELL)、GG003C(キャンセル DESC)、GG003D(案内 CELL)、GG002C(案内 DESC)、GG002D(認証 CELL)、GG001C(認証 DESC)、GG001D(会員登録 CELL)、GG000F(会員登録 DESC)、EE001C(予約 CELL)、EE001D(予約 DESC)、CC003C(配送 CELL)、CC003D(配送 DESC)、FF002C(入金 CELL)、FF002D(入金 DESC)、FF001C(承認 CELL)、FF001D(承認 DESC)、CC002C(注文 CELL)、CC002D(注文 DESC)、CC001C(出庫 CELL)、CC001D(出庫 DESC)、FF003C(出金 CELL)、FF003D(出金 DESC)、CLL00001(LMS明細書 A)、CLL00002(LMS段落型)、CLL00003(LMSタイトル強調型)、CLL00004(LMS基本型)、CLL00005(LMS明細書 B)、CLL00006(LMS明細書 C)] |
+| template.content.unsubscribePhoneNumber | String | 配信停止番号(広告送信の場合は必須) |
+| template.content.cards | Array | RCSカード |
+| template.content.cards[].title | String | タイトル |
+| template.content.cards[].description | String | 本文 |
+| template.content.cards[].attachmentId | String | 画像添付ファイルID |
+| template.content.cards[].mTitle | String | メインタイトル |
+| template.content.cards[].mTitleMedia | String | メインタイトルロゴファイルID |
+| template.content.cards[].title1 | String | タイトル1 |
+| template.content.cards[].title2 | String | タイトル2 |
+| template.content.cards[].title3 | String | タイトル3 |
+| template.content.cards[].description1 | String | 本文1 |
+| template.content.cards[].description2 | String | 本文2 |
+| template.content.cards[].description3 | String | 本文3 |
+| template.content.cards[].buttons | Array |  |
+| template.content.buttons | Array | RCSボタンリスト |
+| template.content.buttons[].buttonType | String | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonに含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在地を共有する(MAP_SHARE)、URLに接続する(URL)、日程を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| template.content.buttons[].buttonJson | Object |  |
+| template.content.buttons[].buttonJson.action | Object | ボタンアクション |
+| template.additionalProperty | Object |  |
+| template.additionalProperty.status | String | テンプレートステータス<br>- SAVE: 保存<br>- APPROVE_WAIT: 承認待ち<br>- INSPECTION_START: 審査開始<br>- INSPECTION_FINISH: 審査完了<br>- APPROVE: 承認<br>- REJECT: 拒否<br>- MODIFY_APPROVE_WAIT: 修正承認待ち<br>- MODIFY_INSPECTION_START: 修正審査開始<br>- MODIFY_INSPECTION_FINISH: 修正審査完了<br>- MODIFY_REJECT: 修正拒否<br><br>[SAVE, APPROVE_WAIT, INSPECTION_START, INSPECTION_FINISH, APPROVE, REJECT, MODIFY_APPROVE_WAIT, MODIFY_INSPECTION_START, MODIFY_INSPECTION_FINISH, MODIFY_REJECT] |
+| template.additionalProperty.approvedDateTime | String | テンプレート承認日時 |
+| template.createdDateTime | String | テンプレート作成日時 |
+| template.updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCSテンプレート詳細照会
+
+GET {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0028UpdateRcsTemplate"></span>
+
+## RCSテンプレート修正
+
+テンプレートを修正します。
+
+**リクエスト**
+
+```
+PUT /template/v1.0/RCS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル1",
+      "title2" : "タイトル2",
+      "title3" : "タイトル3",
+      "description1" : "本文1",
+      "description2" : "本文2",
+      "description3" : "本文3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定説明"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定説明"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}
+```
+
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | トークルーム(チャットボット)ID |
+| content | Object | Y |  |
+| content.messageType | String | N | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
+| content.title | String | N | メッセージ件名 |
+| content.body | String | N | メッセージ本文 |
+| content.smsType | String | N | SMSタイプ<br>[STANDALONE] |
+| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.messagebaseId | String | N | RCS Biz CenterテンプレートID |
+| content.unsubscribePhoneNumber | String | N | 配信停止番号(広告送信の場合は必須) |
+| content.cards | Array | N | RCSカード |
+| content.cards[].title | String | N | タイトル |
+| content.cards[].description | String | N | 本文 |
+| content.cards[].attachmentId | String | N | 画像添付ファイルID |
+| content.cards[].mTitle | String | N | メインタイトル |
+| content.cards[].mTitleMedia | String | N | メインタイトルロゴファイルID |
+| content.cards[].title1 | String | N | タイトル1 |
+| content.cards[].title2 | String | N | タイトル2 |
+| content.cards[].title3 | String | N | タイトル3 |
+| content.cards[].description1 | String | N | 本文1 |
+| content.cards[].description2 | String | N | 本文2 |
+| content.cards[].description3 | String | N | 本文3 |
+| content.cards[].buttons | Array | N |  |
+| content.buttons | Array | N | RCSボタンリスト |
+| content.buttons[].buttonType | String | N | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonに含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在地を共有する(MAP_SHARE)、URLに接続する(URL)、日程を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonJson | Object | N |  |
+| content.buttons[].buttonJson.action | Object | N | ボタンアクション |
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCSテンプレート修正
+
+PUT {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル1",
+      "title2" : "タイトル2",
+      "title3" : "タイトル3",
+      "description1" : "本文1",
+      "description2" : "本文2",
+      "description3" : "本文3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定説明"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定説明"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル1",
+      "title2" : "タイトル2",
+      "title3" : "タイトル3",
+      "description1" : "本文1",
+      "description2" : "本文2",
+      "description3" : "本文3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定説明"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定説明"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0029DeleteRcsTemplate"></span>
+
+## RCSテンプレート削除
+
+テンプレートを削除します。
+
+**リクエスト**
+
+```
+DELETE /template/v1.0/RCS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCSテンプレート削除
+
+DELETE {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0030CreatePushTemplate"></span>
+
+## Pushテンプレート登録
+
+テンプレートを登録します。
+
+**リクエスト**
+
+```
+POST /template/v1.0/PUSH/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押したときに遷移するリンク",
+        "hint" : "ボタンに関するヒント"
+      } ],
+      "media" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに関する説明"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| categoryId | String | N | カテゴリーID |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| content | Object | Y | プッシュメッセージ内容 |
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| templateId | String | テンプレート登録時に発行されたテンプレートID |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Pushテンプレート登録
+
+POST {{endpoint}}/template/v1.0/PUSH/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押したときに遷移するリンク",
+        "hint" : "ボタンに関するヒント"
+      } ],
+      "media" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに関する説明"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押したときに遷移するリンク",
+        "hint" : "ボタンに関するヒント"
+      } ],
+      "media" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに関する説明"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0031ReadPushTemplateList"></span>
+
+## Pushテンプレートリスト照会
+
+テンプレートリストを照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/PUSH/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateName | Query  | String | N | テンプレート名(LIKE検索) |
+| limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
+| offset | Query  | Integer | N | offsetを設定しない場合はデフォルト0 |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "配送完了",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| totalCount | Integer | 総件数 |
+| templates | Array |  |
+| templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
+| templates[].templateName | String | テンプレート名 |
+| templates[].categoryId | String | カテゴリーID |
+| templates[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | テンプレート作成日時 |
+| templates[].updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Pushテンプレートリスト照会
+
+GET {{endpoint}}/template/v1.0/PUSH/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/PUSH/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0032ReadPushTemplate"></span>
+
+## Pushテンプレート詳細照会
+
+テンプレートを詳細照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/PUSH/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "テンプレート名",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "content" : {
+      "unsubscribePhoneNumber" : "代表番号",
+      "unsubscribeGuide" : "メニュー > 設定",
+      "title" : "タイトル",
+      "body" : "内容",
+      "richMessage" : {
+        "buttons" : [ {
+          "name" : "ボタン名",
+          "submitName" : "送信ボタン名",
+          "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+          "link" : "ボタンを押したときに遷移するリンク",
+          "hint" : "ボタンに関するヒント"
+        } ],
+        "media" : {
+          "sourceType" : "メディアの位置、REMOTE、LOCAL",
+          "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+          "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+          "extension" : "メディアファイルの拡張子、jpg、png",
+          "expandable" : true
+        },
+        "androidMedia" : {
+          "sourceType" : "メディアの位置、REMOTE、LOCAL",
+          "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+          "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+          "extension" : "メディアファイルの拡張子、jpg、png",
+          "expandable" : true
+        },
+        "iosMedia" : {
+          "sourceType" : "メディアの位置、REMOTE、LOCAL",
+          "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+          "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+          "extension" : "メディアファイルの拡張子、jpg、png",
+          "expandable" : true
+        },
+        "largeIcon" : {
+          "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+          "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE"
+        },
+        "group" : {
+          "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+          "description" : "グループに関する説明"
+        }
+      },
+      "style" : {
+        "useHtmlStyle" : true
+      },
+      "customKey" : "customValue"
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| template | Object |  |
+| template.templateId | String | テンプレート登録時に発行されたテンプレートID |
+| template.templateName | String | テンプレート名 |
+| template.categoryId | String | カテゴリーID |
+| template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.content | Object | プッシュメッセージ内容 |
+| template.createdDateTime | String | テンプレート作成日時 |
+| template.updatedDateTime | String | テンプレート修正日時 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Pushテンプレート詳細照会
+
+GET {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0033UpdatePushTemplate"></span>
+
+## Pushテンプレート修正
+
+テンプレートを修正します。
+
+**リクエスト**
+
+```
+PUT /template/v1.0/PUSH/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+
+```
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押したときに遷移するリンク",
+        "hint" : "ボタンに関するヒント"
+      } ],
+      "media" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに関する説明"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+<!--リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| templateName | String | Y | テンプレート名 |
+| messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| content | Object | Y | プッシュメッセージ内容 |
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Pushテンプレート修正
+
+PUT {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押したときに遷移するリンク",
+        "hint" : "ボタンに関するヒント"
+      } ],
+      "media" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに関する説明"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "テンプレート名",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押したときに遷移するリンク",
+        "hint" : "ボタンに関するヒント"
+      } ],
+      "media" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアの配置場所のアドレス、URL、LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに関する説明"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0034DeletePushTemplate"></span>
+
+## Pushテンプレート削除
+
+テンプレートを削除します。
+
+**リクエスト**
+
+```
+DELETE /template/v1.0/PUSH/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Pushテンプレート削除
+
+DELETE {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0035ReadTemplateParameters"></span>
+
+## テンプレートパラメータ照会
+
+テンプレートに含まれているパラメータリストを照会します。
+
+**リクエスト**
+
+```
+GET /template/v1.0/{messageChannel}/templates/{templateId}/parameters
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messageChannel | Path  | String | Y | メッセージチャネルです。<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| templateId | Path  | String | Y | テンプレートID |
+
+
+
+**リクエストボディ**
+
+<!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
+
+このAPIはリクエストボディを必要としません。
+
+
+
+**レスポンスボディ**
+
+<!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateParameter" : {
+    "validateTimestamp" : "",
+    "timestamp" : "",
+    "validateFailDomainList" : [ {
+      "domain" : "",
+      "verifyYn" : "",
+      "spfYn" : "",
+      "dkimVerifyYn" : "",
+      "dmarcYn" : ""
+    } ]
+  }
+}
+```
+
+<!--レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| templateParameter | Object | テンプレートパラメータ結果JSON |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### テンプレートパラメータ照会
+
+GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{{templateId}}/parameters
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}/parameters" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
