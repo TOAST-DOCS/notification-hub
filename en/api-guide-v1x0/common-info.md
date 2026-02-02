@@ -23,33 +23,7 @@
 
 ## Authentication and Authorization
 
-```
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-* Obtain an issued authorization token and set it in the **X-NHN-Authorization** request header when calling the Notification Hub API.
-
-### Example of Authentication Token Issuance
-
-#### IntelliJ HTTP
-
-```http
-POST https://oauth.api.nhncloudservice.com/oauth2/token/create
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic {{oauthAuthorization}}
-```
-
-#### cURL
-
-```curl
-curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
-     -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Authorization: Basic {{oauthAuthorization}}"
-```
-
-* **oauthAuthorization** is the Base64-encoded value of the **User Access Key ID** and **Secret Access Key** combined with **USER_ACCESS_KEY_ID:SECRET_ACCESS_KEY**.
-* **User Access Key ID** and **Secret Access Key** can be created and managed in **API Security Settings** in the**top right corner** after logging in.
-* For more information about authentication token issuance, please refer to **User Guide** > **NHN Cloud** > **Public API** > **API Authentication** > **Authentication Token**.
+Notification Hub uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key. For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](docs.nhncloud.com/en/nhncloud/en/public-api/user-access-key-token).
 
 <span id="date-time-format"></span>
 
