@@ -23,33 +23,7 @@
 
 ## 인증 및 권한
 
-```
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-* 인증 토큰을 발급 받아 Notification Hub API 호출 시 **X-NHN-Authorization** 요청 헤더에 인증 토큰을 설정합니다.
-
-### 인증 토큰 발급 예시
-
-#### IntelliJ HTTP
-
-```http
-POST https://oauth.api.nhncloudservice.com/oauth2/token/create
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic {{oauthAuthorization}}
-```
-
-#### cURL
-
-```curl
-curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
-     -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Authorization: Basic {{oauthAuthorization}}"
-```
-
-* **oauthAuthorization**은 **User Access Key ID**와 **Secret Access Key**를 **USER_ACCESS_KEY_ID:SECRET_ACCESS_KEY**로 합쳐 Base64 인코딩한 값입니다.
-* **User Access Key ID**와 **Secret Access Key**는 로그인 후 **오른쪽 상단의 메일 주소** > **API 보안 설정**에서 생성 및 관리할 수 있습니다.
-* 인증 토큰 발급에 대한 자세한 내용은 **사용자 가이드** > **NHN Cloud** > **Public API** > **API 인증** > **인증 토큰** 항목을 확인 부탁드립니다.
+Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](docs.nhncloud.com/ko/nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
 
 <span id="date-time-format"></span>
 

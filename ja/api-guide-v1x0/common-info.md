@@ -23,33 +23,7 @@
 
 ## 認証及び権限
 
-```
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-* 認証トークンを発行し、Notification Hub APIを呼び出す際、**X-NHN-Authorization** リクエストヘッダに認証トークンを設定します。
-
-### 認証トークン発行例
-
-#### IntelliJ HTTP
-
-```http
-POST https://oauth.api.nhncloudservice.com/oauth2/token/create
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic {{oauthAuthorization}}
-```
-
-#### cURL
-
-```curl
-curl -X POST "https://oauth.api.gov-nhncloudservice.com/oauth2/token/create" \
-     -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Authorization: Basic {{oauthAuthorization}}"
-```
-
-* **oauthAuthorization**は**User Access Key ID**と **Secret Access Key**を **USER_ACCESS_KEY_ID:SECRET_ACCESS_KEY**としてBase64エンコードした値です。
-* **User Access Key ID**と**Secret Access Key**はログイン後、**右上のメールアドレス** > **APIセキュリティ設定**で作成・管理できます。
-* 認証トークン発行の詳細については、**ユーザーガイド** > **NHN Cloud** > **Public API** > **API認証** > **認証トークン**の項目をご確認ください。
+Notification Hubは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](docs.nhncloud.com/ja/nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
 <span id="date-time-format"></span>
 
