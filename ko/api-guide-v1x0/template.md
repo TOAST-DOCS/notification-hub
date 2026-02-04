@@ -2312,13 +2312,13 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 
 알림톡 템플릿의 카카오 템플릿 목록을 조회합니다.
 
-**요청**
+### 요청
 
 ```
 GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -2330,7 +2330,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -2338,7 +2338,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -2482,7 +2482,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
@@ -2513,13 +2513,13 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-te
 
 카카오 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
 
-**요청**
+### 요청
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries/do-with-file
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -2528,7 +2528,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 | templateId | Path | String | Y | 템플릿 아이디 |
 | kakaoTemplateCode | Path | String | Y | 카카오 템플릿 코드 |
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -2537,7 +2537,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 | comment | String | Y | 문의 내용 |
 | file | Binary | Y | 문의 파일 |
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -2562,7 +2562,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
@@ -2607,13 +2607,13 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 카카오 알림톡 템플릿을 문의합니다.
 
-**요청**
+### 요청
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -2624,7 +2624,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -2643,7 +2643,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -2668,7 +2668,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>

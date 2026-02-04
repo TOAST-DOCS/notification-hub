@@ -19,7 +19,7 @@
 080 수신 거부 외부 번호 등록을 신청합니다.
 
 
-**요청**
+### 요청
 
 ```
 POST /sender/v1.0/unsubscribe-phone-numbers/external
@@ -27,7 +27,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -36,7 +36,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -57,7 +57,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -82,7 +82,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
@@ -122,7 +122,7 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 080 수신 거부 외부 등록 번호를 해지합니다.
 
 
-**요청**
+### 요청
 
 ```
 DELETE /sender/v1.0/unsubscribe-phone-numbers/external/{unsubscribePhoneNumber}
@@ -130,7 +130,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -140,7 +140,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -148,7 +148,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -173,7 +173,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
@@ -205,7 +205,7 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 080 수신 거부 번호 목록을 조회합니다.
 
 
-**요청**
+### 요청
 
 ```
 GET /sender/v1.0/unsubscribe-phone-numbers
@@ -213,7 +213,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -225,7 +225,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -233,7 +233,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -281,7 +281,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
@@ -313,7 +313,7 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 080 수신 거부 번호 단건을 조회합니다.
 
 
-**요청**
+### 요청
 
 ```
 GET /sender/v1.0/unsubscribe-phone-numbers/{unsubscribePhoneNumber}
@@ -321,7 +321,7 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+### 요청 파라미터
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
@@ -331,7 +331,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 본문**
+### 요청 본문
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
@@ -339,7 +339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**응답 본문**
+### 응답 본문
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -385,7 +385,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 예시**
+### 요청 예시
 
 
 <details>
