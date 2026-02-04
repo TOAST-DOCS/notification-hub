@@ -1,202 +1,900 @@
+<!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
-.page__rnb .lst_rnb_item .rnb_item:first-of-type a {
-    display: inline !important;
-}
+    .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
+        display: inline !important;
+    }
 </style>
-<h1>テンプレート</h1>
 
-**Notification > Notification Hub > API v1.0使用ガイド > テンプレート**
+<!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
+<h1>템플릿</h1>
 
-## テンプレート
+**Notification > Notification Hub > API v1.0 사용 가이드 > 템플릿**
 
-<span id="create-template"></span>
 
-### テンプレート作成
 
-**リクエスト**
+<span id="templateV1x0001CreateSmsTemplate"></span>
+
+## SMS 템플릿 등록
+
+템플릿을 등록합니다.
+
+**요청**
 
 ```
-POST /template/v1.0/{messageChannel}/templates
-Content-Type: application/json
+POST /template/v1.0/SMS/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 
-**リクエスト本文**
 
-```json
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
 {
-  "templateName": "テンプレート_名前",
-  "categoryId": "テンプレート_カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderPhoneNumber": "01012341234"
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
   },
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--요청 본문의 필드를 설명합니다.-->
 
-| 名前 | タイプ | 必須 | 説明                              |
-| --- | --- | --- |-----------------------------------|
-| templateName | String | Y | テンプレート名                          |
-| categoryId | String | Y | テンプレートカテゴリーID                      |
-| messagePurpose | String | Y | メッセージ目的                          |
-| templateLanguage | String | Y | テンプレート言語<br>PLAIN_TEXT, FREE_MARKER |
-| sender | Object | Y | 発信者                             |
-| content | Object | Y | 内容                              |
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| categoryId | String | N | 카테고리 아이디 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderPhoneNumber | String | N | 발신 번호 |
+| content | Object | Y |  |
+| content.messageType | String | N | 발송 메시지 유형(SMS, LMS, MMS)<br>[SMS, LMS, MMS] |
+| content.title | String | N | 메시지 제목 |
+| content.body | String | N | 메시지 본문 |
+| content.attachmentIds | Array | N | 첨부 파일 아이디 최대 3개 |
 
-* テンプレートカテゴリーはテンプレートカテゴリーAPIを利用して作成できます。
-* テンプレート言語はPLAIN_TEXT、FREE_MARKERのいずれかを選択します。
-* テンプレート言語がFREE_MARKERの場合テンプレート内容にFREE_MARKER文法を使用できます。
-* **sender**, **content**フィールドは自由形式メッセージ送信APIのリクエスト本文と同じです。
 
-#### メッセージチャンネル別senderフィールド
 
-| メッセージチャンネル | フィールド | 説明                      |
-| --- | --- |---------------------------|
-| SMS | sender.senderPhoneNumber | 発信者番号                  |
-| RCS | sender.brandId | ブランドID                   |
-| RCS | sender.chatbotId | チャットルームID                   |
-| EMAIL | sender.senderMailAddress | 発信者メールアドレス              |
-| ALIMTALK | sender.senderKey | 発信キー                      |
-| ALIMTALK | sender.senderProfileType | 発信プロフィールタイプ<br>GROUP, NORMAL |
+**응답 본문**
 
-* お知らせトーク(ALIMTALK)は発信キー(senderKey)と発信プロフィールタイプ(senderProfileType)を必ず入力する必要があります。
-* 発信者プロフィールタイプは**GROUP(グループ)**と **NORMAL(一般)**があります。**GROUP**はグループ発信者プロフィール、 **NORMAL**は一般発信者プロフィールです。
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
-### お知らせトークテンプレート詳細リクエスト本文
-
-* お知らせトークを送信するためには、テンプレートの登録が必須です。
-* お知らせトークテンプレートを登録すると、カカオビジネスの検収と承認の過程を経て承認完了後に使用できます。
-* お知らせトークテンプレートは検収と承認過程でカカオビジネス検収担当者と絡を取り合うことができます。
-    * [カカオトークチャンネル管理者センター](https://center-pf.kakao.com)
-    * お知らせトークテンプレートは**お知らせトークテンプレートお問い合わせ**, **お知らせトークテンプレートファイル添付お問い合わせ**, **お知らせトークテンプレート修正履歴照会**APIを追加で提供します。
-
-```json
+```
 {
-  "templateName": "テンプレート名",
-  "categoryId": "カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderKey": "発信_キー",
-    "senderProfileType": "GROUP"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "content": {
-    "templateMessageType": "BA",
-    "templateEmphasizeType": "NONE",
-    "templateContent": "#{名前}さんの注文が完了しました。",
-    "templateAd": "チャンネルを追加し、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
-    "templateExtra": "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室が不可能な場合、予約がキャンセルされる場合があります。\\n* お問い合わせ電話: 1234-1234",
-    "templateTitle": "123,450KRW",
-    "templateSubtitle": "承認履歴",
-    "templateHeader": "注文が成立しました。",
-    "templateItem": {
-      "list": [],
-      "summary": {
-        "title": "string",
-        "description": "string"
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMS 템플릿 등록
+
+POST {{endpoint}}/template/v1.0/SMS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0002ReadSmsTemplateList"></span>
+
+## SMS 템플릿 리스트 조회
+
+템플릿 리스트를 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/SMS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "배송 완료",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | 총 건수 |
+| templates | Array |  |
+| templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| templates[].templateName | String | 템플릿명 |
+| templates[].categoryId | String | 카테고리 아이디 |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | 템플릿 생성 시각 |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMS 템플릿 리스트 조회
+
+GET {{endpoint}}/template/v1.0/SMS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/SMS/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0003ReadSmsTemplate"></span>
+
+## SMS 템플릿 상세 조회
+
+템플릿을 상세 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/SMS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "템플릿 이름",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "senderPhoneNumber" : "01012341234"
+    },
+    "content" : {
+      "messageType" : "SMS",
+      "title" : "명절 운영시간 공지",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+      "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| template | Object |  |
+| template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| template.templateName | String | 템플릿 이름 |
+| template.categoryId | String | 카테고리 아이디 |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.sender | Object |  |
+| template.sender.senderPhoneNumber | String | 발신 번호 |
+| template.content | Object |  |
+| template.content.messageType | String | 발송 메시지 유형(SMS, LMS, MMS)<br>[SMS, LMS, MMS] |
+| template.content.title | String | 메시지 제목 |
+| template.content.body | String | 메시지 본문 |
+| template.content.attachmentIds | Array | 첨부 파일 아이디 최대 3개 |
+| template.createdDateTime | String | 템플릿 생성 시각 |
+| template.updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMS 템플릿 상세 조회
+
+GET {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0004UpdateSmsTemplate"></span>
+
+## SMS 템플릿 수정
+
+템플릿을 수정합니다.
+
+**요청**
+
+```
+PUT /template/v1.0/SMS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderPhoneNumber | String | N | 발신 번호 |
+| content | Object | Y |  |
+| content.messageType | String | N | 발송 메시지 유형(SMS, LMS, MMS)<br>[SMS, LMS, MMS] |
+| content.title | String | N | 메시지 제목 |
+| content.body | String | N | 메시지 본문 |
+| content.attachmentIds | Array | N | 첨부 파일 아이디 최대 3개 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMS 템플릿 수정
+
+PUT {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0005DeleteSmsTemplate"></span>
+
+## SMS 템플릿 삭제
+
+템플릿을 삭제합니다.
+
+**요청**
+
+```
+DELETE /template/v1.0/SMS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMS 템플릿 삭제
+
+DELETE {{endpoint}}/template/v1.0/SMS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0006CreateAlimtalkTemplate"></span>
+
+## 알림톡 템플릿 등록
+
+템플릿을 등록합니다.
+
+**요청**
+
+```
+POST /template/v1.0/ALIMTALK/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+    "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+    "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+    "templateTitle" : "123,450원",
+    "templateSubtitle" : "승인 내역",
+    "templateHeader" : "주문이 체결되었습니다.",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "아이템 타이틀",
+        "description" : "아이템 설명"
+      } ],
+      "summary" : {
+        "title" : "요약 타이틀",
+        "description" : "요약 설명"
       }
     },
-    "templateItemHighlight": {
-      "title": "string",
-      "description": "string",
-      "attachmentId": "YaX2DA4Weab2",
-      "imageUrl": "string"
+    "templateItemHighlight" : {
+      "title" : "하이라이트 타이틀",
+      "description" : "하이라이트 설명",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
     },
-    "templateRepresentLink": {
-      "linkMo": "string",
-      "linkPc": "string",
-      "schemeIos": "string",
-      "schemeAndroid": "string"
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
     },
-    "attachmentId": "YaX2DA4Weab2",
-    "templateImageName": "image.png",
-    "templateImageUrl": "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
-    "securityFlag": false,
-    "categoryCode": "999999",
-    "buttons": [],
-    "quickReplies": []
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "버튼 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "바로연결 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
   },
-  "additionalProperty": {
-    "templateCode": "templateCode",
-    "kakaoTemplateCode": "kakaoTemplateCode",
-    "comments": [],
-    "status": "APR",
-    "templateModificationStatus": "APR",
-    "block": false,
-    "dormant": false
+  "additionalProperty" : {
+    "templateCode" : "templateCode",
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--요청 본문의 필드를 설명합니다.-->
 
-| 名前 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- |
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| categoryId | String | N | 카테고리 아이디 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderKey | String | N | 발신프로필 발신키 |
+| sender.senderProfileType | String | N | 발신프로필 타입<br>[GROUP, NORMAL] |
+| content | Object | Y |  |
+| content.templateMessageType | String | N | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
+| content.templateEmphasizeType | String | N | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| content.templateContent | String | N | 템플릿 본문 |
+| content.templateAd | String | N | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
+| content.templateExtra | String | N | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
+| content.templateTitle | String | N | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
+| content.templateSubtitle | String | N | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
+| content.templateHeader | String | N | 템플릿 헤더, 변수 입력 가능 |
+| content.templateItem | Object | N |  |
+| content.templateItem.list | Array | N |  |
+| content.templateItem.list[].title | String | N | 아이템 타이틀 |
+| content.templateItem.list[].description | String | N | 아이템 설명 |
+| content.templateItem.summary | Object | N |  |
+| content.templateItem.summary.title | String | N | 요약 타이틀 |
+| content.templateItem.summary.description | String | N | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
+| content.templateItemHighlight | Object | N |  |
+| content.templateItemHighlight.title | String | N | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
+| content.templateItemHighlight.description | String | N | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
+| content.templateItemHighlight.attachmentId | String | N | 템플릿 첨부 파일 ID |
+| content.templateItemHighlight.imageUrl | String | N | 섬네일 이미지 주소 |
+| content.templateRepresentLink | Object | N |  |
+| content.templateRepresentLink.linkMo | String | N | 대표 링크 모바일 웹 링크 |
+| content.templateRepresentLink.linkPc | String | N | 대표 링크 PC 웹 링크 |
+| content.templateRepresentLink.schemeIos | String | N | 대표 링크 iOS 앱 링크 |
+| content.templateRepresentLink.schemeAndroid | String | N | 대표 링크 안드로이드 앱 링크 |
+| content.attachmentId | String | N | 템플릿 첨부 파일 ID |
+| content.templateImageName | String | N | 템플릿 이미지 이름 |
+| content.templateImageUrl | String | N | 템플릿 이미지 링크 |
+| content.securityFlag | Boolean | N | 템플릿 보안 여부(default: false) |
+| content.categoryCode | String | N | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
+| content.buttons | Array | N | 템플릿 버튼 |
+| content.buttons[].ordering | Integer | N | 템플릿 버튼 순서 |
+| content.buttons[].type | String | N | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비지니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| content.buttons[].name | String | N | 템플릿 버튼 이름 |
+| content.buttons[].linkMo | String | N | 템플릿 버튼 모바일 웹 링크 |
+| content.buttons[].linkPc | String | N | 템플릿 버튼 PC 웹 링크 |
+| content.buttons[].schemeIos | String | N | 템플릿 버튼 iOS 앱 링크 |
+| content.buttons[].schemeAndroid | String | N | 템플릿 버튼 안드로이드 앱 링크 |
+| content.buttons[].bizFormId | Integer | N | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
+| content.quickReplies | Array | N | 템플릿 바로 연결 |
+| content.quickReplies[].ordering | Integer | N | 템플릿 바로연결 순서 |
+| content.quickReplies[].type | String | N | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
+| content.quickReplies[].name | String | N | 템플릿 바로연결 이름 |
+| content.quickReplies[].linkMo | String | N | 템플릿 바로연결 모바일 웹 링크 |
+| content.quickReplies[].linkPc | String | N | 템플릿 바로연결 PC 웹 링크 |
+| content.quickReplies[].schemeIos | String | N | 템플릿 바로연결 iOS 앱 링크 |
+| content.quickReplies[].schemeAndroid | String | N | 템플릿 바로연결 안드로이드 앱 링크 |
+| content.quickReplies[].bizFormId | Integer | N | 템플릿 바로연결 비즈니스폼 ID(BF 타입일 경우, 필수) |
+| additionalProperty | Object | N |  |
+| additionalProperty.templateCode | String | N | 템플릿 코드(영문, 숫자, -, _) |
+| additionalProperty.kakaoTemplateCode | String | N | 카카오 템플릿 코드 |
 
-<!--TODO:リクエスト本文のフィールドを説明します。-->
 
 
-**レスポンス本文**
+**응답 본문**
 
-```json
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "templateId": "テンプレート_ID"
+  "templateId" : "A9z0A9z0"
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--응답 본문의 필드를 설명합니다.-->
 
-**リクエスト例**
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+
+
+
+**요청 예시**
+
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレート作成
-POST {{endpoint}}/template/v1.0/{{messageChannel}}/templates
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### 알림톡 템플릿 등록
+
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 {
-  "templateName": "テンプレート_名前",
-  "categoryId": "テンプレート_カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderPhoneNumber": "01012341234"
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+    "senderProfileType" : "NORMAL"
   },
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+    "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+    "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+    "templateTitle" : "123,450원",
+    "templateSubtitle" : "승인 내역",
+    "templateHeader" : "주문이 체결되었습니다.",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "아이템 타이틀",
+        "description" : "아이템 설명"
+      } ],
+      "summary" : {
+        "title" : "요약 타이틀",
+        "description" : "요약 설명"
+      }
+    },
+    "templateItemHighlight" : {
+      "title" : "하이라이트 타이틀",
+      "description" : "하이라이트 설명",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "버튼 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "바로연결 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "templateCode" : "templateCode",
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
@@ -204,1364 +902,4486 @@ X-NHN-Authorization: {{authorization}}
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-        "templateName": "テンプレート_名前",
-        "categoryId": "テンプレート_カテゴリー_ID",
-        "messagePurpose": "NORMAL",
-        "templateLanguage": "PLAIN_TEXT",
-        "sender": {
-          "senderPhoneNumber": "01012341234"
-        },
-        "content": {
-          "messageType": "MMS",
-          "title": "[NHN Cloud Notification Hub]告知事項",
-          "body": "こんにちは。 NHN Cloud Notification Hubです。",
-          "attachmentIds": [
-            "添付_ファイル_ID"
-          ]
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+    "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+    "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+    "templateTitle" : "123,450원",
+    "templateSubtitle" : "승인 내역",
+    "templateHeader" : "주문이 체결되었습니다.",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "아이템 타이틀",
+        "description" : "아이템 설명"
+      } ],
+      "summary" : {
+        "title" : "요약 타이틀",
+        "description" : "요약 설명"
+      }
+    },
+    "templateItemHighlight" : {
+      "title" : "하이라이트 타이틀",
+      "description" : "하이라이트 설명",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "버튼 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "바로연결 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "templateCode" : "templateCode",
+    "kakaoTemplateCode" : "kakaoTemplateCode"
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0007ReadAlimtalkTemplateList"></span>
+
+## 알림톡 템플릿 리스트 조회
+
+템플릿 리스트를 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/ALIMTALK/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
+| senderKey | Query  | String | N | 발신키 |
+| templateStatus | Query  | String | N | 템플릿 상태 |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "배송 완료",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | 총 건수 |
+| templates | Array |  |
+| templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| templates[].templateName | String | 템플릿명 |
+| templates[].categoryId | String | 카테고리 아이디 |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | 템플릿 생성 시각 |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 알림톡 템플릿 리스트 조회
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
+
+## 알림톡 발신자와 관계된 템플릿 리스트 조회
+
+발신자와 관계된 템플릿 리스트를 조회합니다.(발신자 또는 발신자가 포함된 그룹의 템플릿)
+
+**요청**
+
+```
+GET /template/v1.0/ALIMTALK/senders/{senderKey}/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| senderKey | Path  | String | Y | 발신키 |
+| templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
+| templateStatus | Query  | String | N | 템플릿 상태 |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "배송 완료",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | 총 건수 |
+| templates | Array |  |
+| templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| templates[].templateName | String | 템플릿명 |
+| templates[].categoryId | String | 카테고리 아이디 |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | 템플릿 생성 시각 |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 알림톡 발신자와 관계된 템플릿 리스트 조회
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/senders/{{senderKey}}/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0009ReadAlimtalkTemplate"></span>
+
+## 알림톡 템플릿 상세 조회
+
+템플릿을 상세 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/ALIMTALK/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "템플릿 이름",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "GROUP"
+    },
+    "additionalProperty" : {
+      "templateCode" : "templateCode",
+      "kakaoTemplateCode" : "kakaoTemplateCode",
+      "comments" : [ {
+        "id" : 1,
+        "content" : "문의 내용 예시",
+        "userName" : "사용자 이름",
+        "createdAt" : "2024-10-29T06:00:01.000+09:00",
+        "attachments" : [ {
+          "originalFileName" : "파일명 예시",
+          "filePath" : "/path/to/file"
+        } ],
+        "status" : "REQ"
+      } ],
+      "status" : "APPROVED",
+      "block" : false,
+      "dormant" : false
+    },
+    "content" : {
+      "templateMessageType" : "BA",
+      "templateEmphasizeType" : "NONE",
+      "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+      "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+      "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+      "templateTitle" : "123,450원",
+      "templateSubtitle" : "승인 내역",
+      "templateHeader" : "주문이 체결되었습니다.",
+      "templateItem" : {
+        "list" : [ {
+          "title" : "아이템 타이틀",
+          "description" : "아이템 설명"
+        } ],
+        "summary" : {
+          "title" : "요약 타이틀",
+          "description" : "요약 설명"
         }
-      }'
-```
-
-</details>
-
-<span id="get-templates"></span>
-
-### テンプレートリスト照会
-
-**リクエスト**
-
-```
-GET /template/v1.0/{messageChannel}/templates
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前         | 区分 | タイプ | 必須 | 説明                      |
-|--------------| --- | --- | --- |---------------------------|
-| appKey       | Header | String | Y | アプリキー                      |
-| accessToken  | Header | String | Y | 認証トークン                   |
-| templateName | Query | String | N | テンプレート名、プレフィックス(Prefix)検索可能 |
-| limit        | Query | Integer | N | 照会数(デフォルト値: 20)            |
-| offset       | Query | Integer | N | 照会開始位置(デフォルト値: 0)          |
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "templates": [
-    {
-      "templateId": "テンプレート_ID",
-      "templateName": "テンプレート_名前",
-      "categoryId": "テンプレート_カテゴリー_ID",
-      "messagePurpose": "NORMAL",
-      "templateLanguage": "PLAIN_TEXT",
-      "sender": {
-        "senderPhoneNumber": "01012341234"
       },
-      "content": {
-        "messageType": "MMS",
-        "title": "[NHN Cloud Notification Hub]告知事項",
-        "body": "こんにちは。 NHN Cloud Notification Hubです。",
-        "attachmentIds": [
-          "添付_ファイル_ID"
-        ]
+      "templateItemHighlight" : {
+        "title" : "하이라이트 타이틀",
+        "description" : "하이라이트 설명",
+        "attachmentId" : "YaX2DA4Weab2",
+        "imageUrl" : "https://example.com/thumbnail.jpg"
       },
-      "createdDateTime": "2023-01-01T00:00:00Z",
-      "updatedDateTime": "2023-01-01T00:00:00Z"
-    }
-  ],
-  "totalCount": 1
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### テンプレートリスト照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
-
-</details>
-
-<span id="get-template"></span>
-
-### テンプレート照会
-
-**リクエスト**
-
-```
-GET /template/v1.0/{messageChannel}/templates/{templateId}
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "template": {
-    "templateId": "テンプレート_ID",
-    "templateName": "テンプレート_名前",
-    "categoryId": "テンプレート_カテゴリー_ID",
-    "messagePurpose": "NORMAL",
-    "templateLanguage": "PLAIN_TEXT",
-    "sender": {
-      "senderPhoneNumber": "01012341234"
+      "templateRepresentLink" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "attachmentId" : "YaX2DA4Weab2",
+      "templateImageName" : "image.png",
+      "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+      "securityFlag" : false,
+      "categoryCode" : "999999",
+      "buttons" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "버튼 이름",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ],
+      "quickReplies" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "바로연결 이름",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ]
     },
-    "content": {
-      "messageType": "MMS",
-      "title": "[NHN Cloud Notification Hub]告知事項",
-      "body": "こんにちは。 NHN Cloud Notification Hubです。",
-      "attachmentIds": [
-        "添付_ファイル_ID"
-      ]
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| template | Object |  |
+| template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| template.templateName | String | 템플릿 이름 |
+| template.categoryId | String | 카테고리 아이디 |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.sender | Object |  |
+| template.sender.senderKey | String | 발신프로필 발신키 |
+| template.sender.senderProfileId | String | 카카오톡 채널명 |
+| template.sender.senderProfileType | String | 발신프로필 타입<br>[GROUP, NORMAL] |
+| template.additionalProperty | Object |  |
+| template.additionalProperty.templateCode | String | 템플릿 코드(영문, 숫자, -, _) |
+| template.additionalProperty.kakaoTemplateCode | String | 카카오 템플릿 코드 |
+| template.additionalProperty.comments | Array | 템플릿 문의 리스트 |
+| template.additionalProperty.comments[].id | Integer | 문의 아이디 |
+| template.additionalProperty.comments[].content | String | 문의 내용 |
+| template.additionalProperty.comments[].userName | String | 작성자 |
+| template.additionalProperty.comments[].createdAt | String | 문의 생성 시각 |
+| template.additionalProperty.comments[].attachments | Array | 문의 첨부 파일 |
+| template.additionalProperty.comments[].status | String | 문의 상태(REQ: 요청, INQ:문의, APR:승인, REJ:반려, REP: 답변)<br>[REQ, INQ, APR, REJ, REP] |
+| template.additionalProperty.status | String | REG:요청, REQ:검수 중, APR:승인, REJ: 반려<br>[REG, REQ, APR, REJ] |
+| template.additionalProperty.templateModificationStatus | String | REG:요청, REQ:검수 중, APR:승인, REJ: 반려<br>[REG, REQ, APR, REJ] |
+| template.additionalProperty.block | Boolean | 템플릿 차단 여부 |
+| template.additionalProperty.dormant | Boolean | 템플릿 휴면 여부 |
+| template.content | Object |  |
+| template.content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
+| template.content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| template.content.templateContent | String | 템플릿 본문 |
+| template.content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
+| template.content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
+| template.content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
+| template.content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
+| template.content.templateHeader | String | 템플릿 헤더, 변수 입력 가능 |
+| template.content.templateItem | Object |  |
+| template.content.templateItem.list | Array |  |
+| template.content.templateItem.list[].title | String | 아이템 타이틀 |
+| template.content.templateItem.list[].description | String | 아이템 설명 |
+| template.content.templateItem.summary | Object |  |
+| template.content.templateItem.summary.title | String | 요약 타이틀 |
+| template.content.templateItem.summary.description | String | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
+| template.content.templateItemHighlight | Object |  |
+| template.content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
+| template.content.templateItemHighlight.description | String | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
+| template.content.templateItemHighlight.attachmentId | String | 템플릿 첨부 파일 ID |
+| template.content.templateItemHighlight.imageUrl | String | 섬네일 이미지 주소 |
+| template.content.templateRepresentLink | Object |  |
+| template.content.templateRepresentLink.linkMo | String | 대표 링크 모바일 웹 링크 |
+| template.content.templateRepresentLink.linkPc | String | 대표 링크 PC 웹 링크 |
+| template.content.templateRepresentLink.schemeIos | String | 대표 링크 iOS 앱 링크 |
+| template.content.templateRepresentLink.schemeAndroid | String | 대표 링크 안드로이드 앱 링크 |
+| template.content.attachmentId | String | 템플릿 첨부 파일 ID |
+| template.content.templateImageName | String | 템플릿 이미지 이름 |
+| template.content.templateImageUrl | String | 템플릿 이미지 링크 |
+| template.content.securityFlag | Boolean | 템플릿 보안 여부(default: false) |
+| template.content.categoryCode | String | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
+| template.content.buttons | Array | 템플릿 버튼 |
+| template.content.buttons[].ordering | Integer | 템플릿 버튼 순서 |
+| template.content.buttons[].type | String | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비지니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| template.content.buttons[].name | String | 템플릿 버튼 이름 |
+| template.content.buttons[].linkMo | String | 템플릿 버튼 모바일 웹 링크 |
+| template.content.buttons[].linkPc | String | 템플릿 버튼 PC 웹 링크 |
+| template.content.buttons[].schemeIos | String | 템플릿 버튼 iOS 앱 링크 |
+| template.content.buttons[].schemeAndroid | String | 템플릿 버튼 안드로이드 앱 링크 |
+| template.content.buttons[].bizFormId | Integer | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
+| template.content.quickReplies | Array | 템플릿 바로 연결 |
+| template.content.quickReplies[].ordering | Integer | 템플릿 바로연결 순서 |
+| template.content.quickReplies[].type | String | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
+| template.content.quickReplies[].name | String | 템플릿 바로연결 이름 |
+| template.content.quickReplies[].linkMo | String | 템플릿 바로연결 모바일 웹 링크 |
+| template.content.quickReplies[].linkPc | String | 템플릿 바로연결 PC 웹 링크 |
+| template.content.quickReplies[].schemeIos | String | 템플릿 바로연결 iOS 앱 링크 |
+| template.content.quickReplies[].schemeAndroid | String | 템플릿 바로연결 안드로이드 앱 링크 |
+| template.content.quickReplies[].bizFormId | Integer | 템플릿 바로연결 비즈니스폼 ID(BF 타입일 경우, 필수) |
+| template.createdDateTime | String | 템플릿 생성 시각 |
+| template.updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 알림톡 템플릿 상세 조회
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0010UpdateAlimtalkTemplate"></span>
+
+## 알림톡 템플릿 수정
+
+템플릿을 수정합니다.
+
+**요청**
+
+```
+PUT /template/v1.0/ALIMTALK/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+    "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+    "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+    "templateTitle" : "123,450원",
+    "templateSubtitle" : "승인 내역",
+    "templateHeader" : "주문이 체결되었습니다.",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "아이템 타이틀",
+        "description" : "아이템 설명"
+      } ],
+      "summary" : {
+        "title" : "요약 타이틀",
+        "description" : "요약 설명"
+      }
     },
-    "createdDateTime": "2023-01-01T00:00:00Z",
-    "updatedDateTime": "2023-01-01T00:00:00Z"
+    "templateItemHighlight" : {
+      "title" : "하이라이트 타이틀",
+      "description" : "하이라이트 설명",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "버튼 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "바로연결 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "kakaoTemplateCode" : "kakaoTemplateCode"
   }
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--요청 본문의 필드를 설명합니다.-->
 
-**リクエスト例**
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| content | Object | Y |  |
+| content.templateMessageType | String | N | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
+| content.templateEmphasizeType | String | N | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| content.templateContent | String | N | 템플릿 본문 |
+| content.templateAd | String | N | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
+| content.templateExtra | String | N | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
+| content.templateTitle | String | N | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
+| content.templateSubtitle | String | N | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
+| content.templateHeader | String | N | 템플릿 헤더, 변수 입력 가능 |
+| content.templateItem | Object | N |  |
+| content.templateItem.list | Array | N |  |
+| content.templateItem.list[].title | String | N | 아이템 타이틀 |
+| content.templateItem.list[].description | String | N | 아이템 설명 |
+| content.templateItem.summary | Object | N |  |
+| content.templateItem.summary.title | String | N | 요약 타이틀 |
+| content.templateItem.summary.description | String | N | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
+| content.templateItemHighlight | Object | N |  |
+| content.templateItemHighlight.title | String | N | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
+| content.templateItemHighlight.description | String | N | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
+| content.templateItemHighlight.attachmentId | String | N | 템플릿 첨부 파일 ID |
+| content.templateItemHighlight.imageUrl | String | N | 섬네일 이미지 주소 |
+| content.templateRepresentLink | Object | N |  |
+| content.templateRepresentLink.linkMo | String | N | 대표 링크 모바일 웹 링크 |
+| content.templateRepresentLink.linkPc | String | N | 대표 링크 PC 웹 링크 |
+| content.templateRepresentLink.schemeIos | String | N | 대표 링크 iOS 앱 링크 |
+| content.templateRepresentLink.schemeAndroid | String | N | 대표 링크 안드로이드 앱 링크 |
+| content.attachmentId | String | N | 템플릿 첨부 파일 ID |
+| content.templateImageName | String | N | 템플릿 이미지 이름 |
+| content.templateImageUrl | String | N | 템플릿 이미지 링크 |
+| content.securityFlag | Boolean | N | 템플릿 보안 여부(default: false) |
+| content.categoryCode | String | N | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
+| content.buttons | Array | N | 템플릿 버튼 |
+| content.buttons[].ordering | Integer | N | 템플릿 버튼 순서 |
+| content.buttons[].type | String | N | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비지니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| content.buttons[].name | String | N | 템플릿 버튼 이름 |
+| content.buttons[].linkMo | String | N | 템플릿 버튼 모바일 웹 링크 |
+| content.buttons[].linkPc | String | N | 템플릿 버튼 PC 웹 링크 |
+| content.buttons[].schemeIos | String | N | 템플릿 버튼 iOS 앱 링크 |
+| content.buttons[].schemeAndroid | String | N | 템플릿 버튼 안드로이드 앱 링크 |
+| content.buttons[].bizFormId | Integer | N | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
+| content.quickReplies | Array | N | 템플릿 바로 연결 |
+| content.quickReplies[].ordering | Integer | N | 템플릿 바로연결 순서 |
+| content.quickReplies[].type | String | N | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
+| content.quickReplies[].name | String | N | 템플릿 바로연결 이름 |
+| content.quickReplies[].linkMo | String | N | 템플릿 바로연결 모바일 웹 링크 |
+| content.quickReplies[].linkPc | String | N | 템플릿 바로연결 PC 웹 링크 |
+| content.quickReplies[].schemeIos | String | N | 템플릿 바로연결 iOS 앱 링크 |
+| content.quickReplies[].schemeAndroid | String | N | 템플릿 바로연결 안드로이드 앱 링크 |
+| content.quickReplies[].bizFormId | Integer | N | 템플릿 바로연결 비즈니스폼 ID(BF 타입일 경우, 필수) |
+| additionalProperty | Object | Y |  |
+| additionalProperty.kakaoTemplateCode | String | Y | 카카오 템플릿 코드(영문, 숫자, -, _) |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレート照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{templateId}
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
+### 알림톡 템플릿 수정
+
+PUT {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+    "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+    "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+    "templateTitle" : "123,450원",
+    "templateSubtitle" : "승인 내역",
+    "templateHeader" : "주문이 체결되었습니다.",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "아이템 타이틀",
+        "description" : "아이템 설명"
+      } ],
+      "summary" : {
+        "title" : "요약 타이틀",
+        "description" : "요약 설명"
+      }
+    },
+    "templateItemHighlight" : {
+      "title" : "하이라이트 타이틀",
+      "description" : "하이라이트 설명",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "버튼 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "바로연결 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "kakaoTemplateCode" : "kakaoTemplateCode"
+  }
+}
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_ID}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```http
+curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "templateMessageType" : "BA",
+    "templateEmphasizeType" : "NONE",
+    "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+    "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+    "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+    "templateTitle" : "123,450원",
+    "templateSubtitle" : "승인 내역",
+    "templateHeader" : "주문이 체결되었습니다.",
+    "templateItem" : {
+      "list" : [ {
+        "title" : "아이템 타이틀",
+        "description" : "아이템 설명"
+      } ],
+      "summary" : {
+        "title" : "요약 타이틀",
+        "description" : "요약 설명"
+      }
+    },
+    "templateItemHighlight" : {
+      "title" : "하이라이트 타이틀",
+      "description" : "하이라이트 설명",
+      "attachmentId" : "YaX2DA4Weab2",
+      "imageUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "templateRepresentLink" : {
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "attachmentId" : "YaX2DA4Weab2",
+    "templateImageName" : "image.png",
+    "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "securityFlag" : false,
+    "categoryCode" : "999999",
+    "buttons" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "버튼 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "quickReplies" : [ {
+      "ordering" : 1,
+      "type" : "WL",
+      "name" : "바로연결 이름",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ]
+  },
+  "additionalProperty" : {
+    "kakaoTemplateCode" : "kakaoTemplateCode"
+  }
+}'
 ```
 
 </details>
+<span id="templateV1x0011DeleteAlimtalkTemplate"></span>
 
-<span id="put-template"></span>
+## 알림톡 템플릿 삭제
 
-### テンプレート修正
+템플릿을 삭제합니다.
 
-**リクエスト**
+**요청**
 
 ```
-PUT /template/v1.0/{messageChannel}/templates/{templateId}
-Content-Type: application/json
+DELETE /template/v1.0/ALIMTALK/templates/{templateId}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
 
-**リクエスト本文**
 
-```json
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
 {
-  "templateName": "テンプレート_名前",
-  "categoryId": "テンプレート_カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderPhoneNumber": "01012341234"
-  },
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   }
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--응답 본문의 필드를 설명합니다.-->
 
-**レスポンス本文**
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
 
-<!--レスポンス本文のフィールドを説明します。-->
 
-**リクエスト例**
+**요청 예시**
+
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレート修正
-PUT {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{templateId}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### 알림톡 템플릿 삭제
 
-{
-  "templateName": "テンプレート_名前",
-  "categoryId": "テンプレート_カテゴリー_ID",
-  "messagePurpose": "NORMAL",
-  "templateLanguage": "PLAIN_TEXT",
-  "sender": {
-    "senderPhoneNumber": "01012341234"
-  },
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
-  }
-}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X PUT "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_ID}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-        "templateName": "テンプレート_名前",
-        "categoryId": "テンプレート_カテゴリー_ID",
-        "messagePurpose": "NORMAL",
-        "templateLanguage": "PLAIN_TEXT",
-        "sender": {
-          "senderPhoneNumber": "01012341234"
-        },
-        "content": {
-          "messageType": "MMS",
-          "title": "[NHN Cloud Notification Hub]告知事項",
-          "body": "こんにちは。 NHN Cloud Notification Hubです。",
-          "attachmentIds": [
-            "添付_ファイル_ID"
-          ]
-        }
-      }'
-```
-
-</details>
-
-<span id="delete-template"></span>
-
-### テンプレート削除
-
-**リクエスト**
-
-```
-DELETE /template/v1.0/{messageChannel}/templates/{templateId}
+DELETE {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
 
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
+</details>
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
 ```http
-### テンプレート削除
-DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{templateId}
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
+curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
+<span id="templateV1x0012InquireAlimtalkTemplate"></span>
 
-<details>
-  <summary><strong>cURL</strong></summary>
+## 알림톡 템플릿 문의하기 (deprecated)
 
-```curl
-curl -X DELETE "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/templates/${TEMPLATE_ID}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
+!!! danger "더 이상 지원하지 않는 API입니다."
+* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost)를 참고하세요.
 
-</details>
+알림톡 템플릿을 문의합니다.
 
-### お知らせトークテンプレートお問い合わせ
-
-**リクエスト**
+**요청**
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/inquiries
-Content-Type: application/json
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
 
-**リクエスト本文**
 
-```json
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
 {
-  "comment": "お問い合わせ内容"
+  "comment" : "문의 내용 예시"
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--요청 본문의 필드를 설명합니다.-->
 
-| 名前 | タイプ | 必須 | 説明              |
-| --- | --- | --- |-------------------|
-| comment | String | Y | お問い合わせ内容(最大長さ: 500) |
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| comment | String | Y | 문의 내용 |
 
-**レスポンス本文**
 
-```json
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   }
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--응답 본문의 필드를 설명합니다.-->
 
-**リクエスト例**
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### お知らせトークテンプレートお問い合わせ
-POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{templateId}/inquiries
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### 알림톡 템플릿 문의하기
+
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/inquiries
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 {
-  "comment": "お問い合わせ内容"
+  "comment" : "문의 내용 예시"
 }
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquiries" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-        "comment": "お問い合わせ内容"
-      }'
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "comment" : "문의 내용 예시"
+}'
 ```
 
 </details>
+<span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
 
-### お知らせトークテンプレートファイル添付お問い合わせ
+## 알림톡 템플릿 문의하기(파일 첨부) (deprecated)
 
-**リクエスト**
+!!! danger "더 이상 지원하지 않는 API입니다."
+* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost)를 참고하세요.
+
+알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
+
+**요청**
 
 ```
-POST /template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquiries/do-with-file
-Content-Type: multipart/form-data
+POST /template/v1.0/ALIMTALK/templates/{templateId}/inquiries/do-with-file
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
-| comment | Query | String | Y | お問い合わせ内容(最大長さ: 500) |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
 
-**リクエスト本文**
 
-* ファイル添付は**multipart/form-data**でリクエストします。
-* **form-data**に**file** フィールドにファイルデータを設定します。
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
 ```
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="attachment.xlsx"
-Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-
-<ファイルデータ>
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
-```
-
-**レスポンス本文**
-
-```json
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   }
 }
 ```
 
-**リクエスト例**
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### お知らせトークテンプレートファイル添付お問い合わせ
-POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{templateId}/inquiries/do-with-file?fileName=attachment.xlsx
-Content-Type: multipart/form-data
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### 알림톡 템플릿 문의하기(파일 첨부)
 
---boundary
-Content-Disposition: form-data; name="file"; fileName="attachment.xlsx"
-Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/inquiries/do-with-file
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 
-< ./file/attachment.xlsx
---boundary--
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/inquiries/do-with-file?fileName=attachment.xlsx" \
-     -H "Content-Type: multipart/form-data" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -F "file=@./file/attachment.xlsx"
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiries/do-with-file" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
+<span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
 
-### お知らせトークテンプレート修正履歴照会
+## 알림톡 템플릿 수정 리스트 조회 (deprecated)
 
-**リクエスト**
+!!! danger "더 이상 지원하지 않는 API입니다."
+* [알림톡 템플릿의 카카오 템플릿 목록 조회](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet)를 참고하세요.
+
+알림톡 템플릿 수정 리스트를 조회합니다.
+
+**요청**
 
 ```
 GET /template/v1.0/ALIMTALK/templates/{templateId}/modifications
-Content-Type: application/json
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| templateId | Path | String | Y | テンプレートID |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 50(최대 1000) |
+| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
 
-**リクエスト本文**
 
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
 
-このAPIはリクエスト本文を要求しません。
+**요청 본문**
 
-**レスポンス本文**
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-```json
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "templates": [
-    {
-      "templateId": "テンプレート_ID",
-      "templateName": "テンプレート_名前",
-      "categoryId": "テンプレート_カテゴリー_ID",
-      "messageChannel": "ALIMTALK",
-      "messagePurpose": "NORMAL",
-      "templateLanguage": "PLAIN_TEXT",
-      "sender": {
-        "senderKey": "発信者_キー",
-        "senderProfileId": "発信者_プロフィール_ID",
-        "senderProfileType": "GROUP"
-      },
-      "content": {
-          "templateMessageType": "BA",
-          "templateEmphasizeType": "NONE",
-          "templateContent": "#{名前}さんの注文が完了しました。",
-            "templateAd": "チャンネルを追加して、このチャンネルのマーケティングメッセージなどをカカオトークで受け取る",
-            "templateExtra": "* リアルタイム予約の特性上、重複予約が発生する可能性があり、入室が不可能な場合、予約がキャンセルされる場合があります。\\n* お問い合わせ電話: 1234-1234",
-            "templateTitle": "123,450KRW",
-            "templateSubtitle": "承認履歴",
-            "templateHeader": "注文が成立しました。",
-            "templateItem": {
-              "list": [
-                {
-                "title": "タイトル",
-                "description": "説明"
-                }
-              ],
-              "summary": {
-                "title": "タイトル",
-                "description": "説明"
-              }
-            },
-            "templateItemHighlight": {
-              "title": "タイトル",
-              "description": "説明",
-              "attachmentId": "ハイライト_すでに_添付ファイル_ID",
-              "imageUrl": "ハイライト_画像_リンク"
-            },
-            "templateRepresentLink": {
-              "linkMo": "モバイル_リンク",
-              "linkPc": "PC_リンク",
-              "schemeIos": "iOS_リンク",
-              "schemeAndroid": "Android_リンク"
-            },
-            "attachmentId": "添付_ファイル_ID",
-            "templateImageName": "画像_ファイル_名前",
-            "templateImageUrl": "画像_リンク",
-            "securityFlag": false,
-            "categoryCode": "999999",
-            "buttons": [
-              {
-                "ordering": 1,
-                "type": "WL",
-                "name": "ボタン_名前",
-                "linkMo": "モバイル_リンク",
-                "linkPc": "PC_リンク",
-                "schemeIos": "iOS_リンク",
-                "schemeAndroid": "Android_リンク",
-                "bizFormId": 1
-              }
-            ],
-            "quickReplies": [
-              {
-                "ordering": 1,
-                "type": "WL",
-                "name": "ボタン_名前",
-                "linkMo": "モバイル_リンク",
-                "linkPc": "PC_リンク",
-                "schemeIos": "iOS_リンク",
-                "schemeAndroid": "Android_リンク",
-                "bizFormId": 1
-              }
-            ]
-      },
-      "createdDateTime": "2023-01-01T00:00:00Z",
-      "updatedDateTime": "2023-01-01T00:00:00Z"
-    }
-  ],
-  "totalCount": 1
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-| 名前 | タイプ          | 説明              |
-| --- |---------------| ------------------|
-| templateCode         | String        | テンプレートコード(最大20文字) |
-| templateName         | String        | テンプレート名(最大150文字) |
-| templateContent      | String        | テンプレート本文(最大1000文字) |
-| templateMessageType  | String        | テンプレートメッセージタイプ<br>BA:基本型, EX:付加情報型, AD:チャンネル追加型, MI:複合型(デフォルト値: BA) |
-| templateEmphasizeType| String        | テンプレート強調表示タイプ<br>NONE:基本、 TEXT:強調表示、 IMAGE:画像型、 ITEM_LIST:アイテムリスト型(デフォルト値: NONE)<br>- TEXT選択時: templateTitle, templateSubtitle必須<br>- IMAGE選択時: templateImageName, templateImageUrl必須<br>- ITEM_LIST選択時:画像、ヘッダ、アイテムハイライト、アイテムリスト中1個以上必須 |
-| templateExtra        | String        | テンプレート付加情報<br>テンプレートメッセージタイプが付加情報型または複合型の場合必須 |
-| templateTitle        | String        | テンプレートタイトル(最大50文字)<br>Android: 2行、23文字以上の場合、短縮処理<br>iOS: 2行、27文字以上の場合、短縮処理 |
-| templateSubtitle     | String        | テンプレート補助文言(最大50文字)<br>Android: 18文字以上の場合、短縮処理<br>iOS: 21文字以上の場合、短縮処理 |
-| templateHeader       | String        | テンプレートヘッダ(最大16文字) |
-| templateItem         | Object        | アイテム |
-| templateItem.list    | Object Array | アイテムリスト(最小2個、最大10個) |
-| templateItem.list.title | String        | タイトル(最大6文字) |
-| templateItem.list.description | String        | ディスクリプション(最大23文字) |
-| templateItem.summary | Object        | アイテム要約情報 |
-| templateItem.summary.title | String        | タイトル(最大6文字) |
-| templateItem.summary.description | String        | ディスクリプション(変数及び貨幣単位、数字、カンマ、ピリオドのみ使用可能、最大14文字) |
-| templateItemHighlight | Object        | アイテムハイライト |
-| templateItemHighlight.title | String        | タイトル(最大30文字、サムネイル画像がある場合21文字) |
-| templateItemHighlight.description | String        | ディスクリプション(最大19文字、サムネイル画像がある場合13文字) |
-| templateItemHighlight.imageUrl | String        | サムネイル画像アドレス |
-| templateRepresentLink | Object        | 代表リンク |
-| templateRepresentLink.linkMo | String        | モバイルWebリンク(最大500文字) |
-| templateRepresentLink.linkPc | String        | PC Webリンク(最大500文字) |
-| templateRepresentLink.schemeIos | String        | iOSアプリリンク(最大500文字) |
-| templateRepresentLink.schemeAndroid | String        | Androidアプリリンク(最大500文字) |
-| templateImageName   | String        | 画像名(アップロードしたファイル名) |
-| templateImageUrl    | String        | 画像URL |
-| securityFlag        | Boolean       | セキュリティテンプレートかどうか<br>OTPなどセキュリティメッセージの場合に設定<br>送信時にメインデバイス以外のデバイスにメッセージテキストを表示しない(デフォルト値: false) |
-| categoryCode        | String        | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参考、デフォルト値: 999999)<br>カテゴリーその他の場合、最下位優先順位で審査 |
-| buttons             | Object Array | ボタンリスト(最大5個) |
-| buttons[].ordering    | Integer       | ボタン順序(1～5) |
-| buttons[].type        | String        | ボタンタイプ<br>WL: Webリンク、 AL:アプリリンク、 DS:配送照会、 BK: Botキーワード、 MD:メッセージ伝達、 BC:相談トーク切り替え, BT: Bot切り替え, AC:チャンネル追加、 BF:ビジネスフォーム, P1:画像セキュリティ送信プラグインID, P2:個人情報利用プラグインID, P3:ワンクリック決済プラグインID |
-| buttons[].name        | String        | ボタン名(ボタンがある場合必須、最大14文字) |
-| buttons[].linkMo      | String        | モバイルWebリンク(WLタイプの場合必須フィールド、最大500文字) |
-| buttons[].linkPc      | String        | PC Webリンク(WLタイプの場合選択フィールド、最大500文字) |
-| buttons[].schemeIos   | String        | iOSアプリリンク(ALタイプの場合必須フィールド、最大500文字) |
-| buttons[].schemeAndroid | String        | Androidアプリリンク(ALタイプの場合必須フィールド、最大500文字) |
-| buttons[].bizFormId   | Integer       | ビジネスフォームID (BFタイプの場合必須) |
-| buttons[].pluginId    | String        | プラグインID (最大24文字) |
-| quickReplies        | Object Array         | クイック接続リスト(最大5個) |
-| quickReplies[].ordering | Integer       | クイック接続順序(クイック接続がある場合、必須) |
-| quickReplies[].type   | String        | クイック接続タイプ<br>WL: Webリンク、 AL:アプリリンク、 BK: Botキーワード、 BC:相談トーク切り替え、 BT: Bot切り替え、 BF:ビジネスフォーム |
-| quickReplies[].name   | String        | クイック接続名(クイック接続がある場合必須、最大14文字) |
-| quickReplies[].linkMo | String        | モバイルWebリンク(WLタイプの場合必須フィールド、最大500文字) |
-| quickReplies[].linkPc | String        | PC Webリンク(WLタイプの場合、任意フィールド、最大500文字) |
-| quickReplies[].schemeIos | String        | iOSアプリリンク(ALタイプの場合必須フィールド、最大500文字) |
-| quickReplies[].schemeAndroid | String        | Androidアプリリンク(ALタイプの場合、必須フィールド、最大500文字) |
-| quickReplies[].bizFormId | Integer       | ビジネスフォームID (BFタイプの場合、必須) |
-
-* チャンネル追加型(AD)または複合型(MI)メッセージタイプテンプレート登録時、templateAd値が固定されます。
-* チャンネル追加型(AD)または複合型(MI)メッセージタイプテンプレート登録時、チャンネル追加(AC)ボタンが最初の順番に位置する必要があります。
-* チャンネル追加(AC)ボタンのボタン名は「チャンネル追加」に固定して登録する必要があります。
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### お知らせトークテンプレート修正履歴照会
-GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{templateId}/modifications
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/ALIMTALK/templates/${TEMPLATE_ID}/modifications" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
-
-</details>
-
----
-
-### テンプレートカテゴリー作成
-
-**リクエスト**
-
-```
-POST /template/v1.0/{messageChannel}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-
-**リクエスト本文**
-
-```json
-{
-  "parentCategoryId": "上位_カテゴリー_ID",
-  "name": "カテゴリー_名前"
-}
-```
-
-<!--リクエスト本文のフィールドを説明します。-->
-
-| 名前 | タイプ | 必須 | 説明              |
-| --- | --- | --- |-------------------|
-| parentCategoryId | String | 任意 | 上位カテゴリーID |
-| name | String | 必須 | カテゴリー名(最大50文字) |
-
-* 最上位カテゴリーはデフォルトで作成されています。最上位カテゴリーIDは**ROOT**です。
-* 新しいカテゴリーは最上位カテゴリーを下位から作成できます。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categoryId": "カテゴリー_ID"
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### カテゴリー作成
-POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-
-{
-  "parentCategoryId": "上位_カテゴリー_ID",
-  "name": "カテゴリー_名前"
-}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-     -d '{
-         "parentCategoryId": "上位_カテゴリー_ID",
-         "name": "カテゴリー_名前"
-     }'
-```
-
-</details>
-
-### カテゴリーリスト照会
-
-**リクエスト**
-
-```
-GET /template/v1.0/{messageChannel}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categories": [
-    {
-      "categoryId": "カテゴリー_ID",
-      "name": "カテゴリー_名前",
-      "parentCategoryId": "上位_カテゴリー_ID",
-      "categoryIds": [
-        "下位_カテゴリー_ID"
-      ],
-      "templateIds": [
-        "カテゴリーに属するテンプレート_ID"
-      ]
-    }
-  ]
-}
-```
-
-<!--TODO: categoryIds => childCategoryIdsに名前変更必要-->
-<!--TODO: totalCount追加必要-->
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### カテゴリーリスト照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
-
-</details>
-
-### カテゴリーツリー照会
-
-**リクエスト**
-
-```
-GET /template/v1.0/{messageChannel}/category-tree
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明                                                   |
-| --- | --- | --- | --- |--------------------------------------------------------|
-| appKey | Header | String | Y | アプリキー                                                   |
-| accessToken | Header | String | Y | 認証トークン                                                |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH  |
-| categoryTemplateName | Query | String | N | カテゴリーまたはテンプレート名、プレフィックス(Prefix)検索可能                    |
-
-<!--TODO: statusフィールドがないため、必要かどうか確認が必要-->
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "categories": [
-    {
-      "categoryId": "ROOT",
-      "categoryName": "Root Category",
-      "parentCategoryId": null,
-      "messageChannel": "SMS",
-      "categories": [
-        {
-          "categoryId": "カテゴリー_ID",
-          "categoryName": "カテゴリー_名前",
-          "parentCategoryId": "ROOT",
-          "messageChannel": "SMS",
-          "categories": [
-            {
-              "categoryId": "カテゴリー_ID",
-              "categoryName": "カテゴリー_名前",
-              "parentCategoryId": "6XAeH2yo",
-              "messageChannel": "SMS",
-              "categories": [],
-              "templates": [
-                {
-                  "templateId": "テンプレート_ID",
-                  "templateName": "テンプレート_名前"
-                },
-                {
-                  "templateId": "テンプレート_ID",
-                  "templateName": "テンプレート_名前"
-                }
-              ]
-            }
-          ],
-          "templates": []
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "템플릿 이름",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "GROUP"
+    },
+    "additionalProperty" : {
+      "templateCode" : "templateCode",
+      "kakaoTemplateCode" : "kakaoTemplateCode",
+      "comments" : [ {
+        "id" : 1,
+        "content" : "문의 내용 예시",
+        "userName" : "사용자 이름",
+        "createdAt" : "2024-10-29T06:00:01.000+09:00",
+        "attachments" : [ {
+          "originalFileName" : "파일명 예시",
+          "filePath" : "/path/to/file"
+        } ],
+        "status" : "REQ"
+      } ],
+      "status" : "APR",
+      "block" : false,
+      "dormant" : false,
+      "activated" : false
+    },
+    "content" : {
+      "templateMessageType" : "BA",
+      "templateEmphasizeType" : "NONE",
+      "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+      "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+      "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+      "templateTitle" : "123,450원",
+      "templateSubtitle" : "승인 내역",
+      "templateHeader" : "주문이 체결되었습니다.",
+      "templateItem" : {
+        "list" : [ {
+          "title" : "아이템 타이틀",
+          "description" : "아이템 설명"
+        } ],
+        "summary" : {
+          "title" : "요약 타이틀",
+          "description" : "요약 설명"
         }
-      ],
-      "templates": []
-    }
-  ]
+      },
+      "templateItemHighlight" : {
+        "title" : "하이라이트 타이틀",
+        "description" : "하이라이트 설명",
+        "attachmentId" : "YaX2DA4Weab2",
+        "imageUrl" : "https://example.com/thumbnail.jpg"
+      },
+      "templateRepresentLink" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "attachmentId" : "YaX2DA4Weab2",
+      "templateImageName" : "image.png",
+      "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+      "securityFlag" : false,
+      "categoryCode" : "999999",
+      "buttons" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "버튼 이름",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ],
+      "quickReplies" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "바로연결 이름",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ]
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--응답 본문의 필드를 설명합니다.-->
 
-| 名前                    | タイプ          | 説明              |
-|-------------------------|---------------|-------------------|
-| categories.[]categoryId | String        | カテゴリーID |
-| categories.[]categoryName            | String        | カテゴリー名 |
-| categories.[]parentCategoryId        | String        | 上位カテゴリーID |
-| categories.[]messageChannel          | String        | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| categories.[]categories              | Object Array | 下位カテゴリーリスト |
-| categories.[]templates               | Object Array         | テンプレートリスト |
-| categories.[]templates.[]templateId  | String        | テンプレートID |
-| categories.[]templates.[]templateName| String        | テンプレート名 |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | 총 건수 |
+| templates | Array |  |
+| templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| templates[].templateName | String | 템플릿 이름 |
+| templates[].categoryId | String | 카테고리 아이디 |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templates[].sender | Object |  |
+| templates[].sender.senderKey | String | 발신프로필 발신키 |
+| templates[].sender.senderProfileId | String | 카카오톡 채널명 |
+| templates[].sender.senderProfileType | String | 발신프로필 타입<br>[GROUP, NORMAL] |
+| templates[].additionalProperty | Object |  |
+| templates[].additionalProperty.templateCode | String | 템플릿 코드(영문, 숫자, -, _) |
+| templates[].additionalProperty.kakaoTemplateCode | String | 카카오 템플릿 코드 |
+| templates[].additionalProperty.comments | Array | 템플릿 문의 리스트 |
+| templates[].additionalProperty.status | String | REG:요청, REQ:검수 중, APR:승인, REJ: 반려<br>[REG, REQ, APR, REJ] |
+| templates[].additionalProperty.block | Boolean | 템플릿 차단 여부 |
+| templates[].additionalProperty.dormant | Boolean | 템플릿 휴면 여부 |
+| templates[].additionalProperty.activated | Boolean | 활성화 여부 |
+| templates[].content | Object |  |
+| templates[].content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
+| templates[].content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| templates[].content.templateContent | String | 템플릿 본문 |
+| templates[].content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값) |
+| templates[].content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능 |
+| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS : 2줄, 27자 이상 말줄임 처리) |
+| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS : 21자 이상 말줄임 처리) |
+| templates[].content.templateHeader | String | 템플릿 헤더, 변수 입력 가능 |
+| templates[].content.templateItem | Object |  |
+| templates[].content.templateItem.list | Array |  |
+| templates[].content.templateItem.summary | Object |  |
+| templates[].content.templateItem.summary.title | String | 요약 타이틀 |
+| templates[].content.templateItem.summary.description | String | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
+| templates[].content.templateItemHighlight | Object |  |
+| templates[].content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자) |
+| templates[].content.templateItemHighlight.description | String | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자) |
+| templates[].content.templateItemHighlight.attachmentId | String | 템플릿 첨부 파일 ID |
+| templates[].content.templateItemHighlight.imageUrl | String | 섬네일 이미지 주소 |
+| templates[].content.templateRepresentLink | Object |  |
+| templates[].content.templateRepresentLink.linkMo | String | 대표 링크 모바일 웹 링크 |
+| templates[].content.templateRepresentLink.linkPc | String | 대표 링크 PC 웹 링크 |
+| templates[].content.templateRepresentLink.schemeIos | String | 대표 링크 iOS 앱 링크 |
+| templates[].content.templateRepresentLink.schemeAndroid | String | 대표 링크 안드로이드 앱 링크 |
+| templates[].content.attachmentId | String | 템플릿 첨부 파일 ID |
+| templates[].content.templateImageName | String | 템플릿 이미지 이름 |
+| templates[].content.templateImageUrl | String | 템플릿 이미지 링크 |
+| templates[].content.securityFlag | Boolean | 템플릿 보안 여부(default: false) |
+| templates[].content.categoryCode | String | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
+| templates[].content.buttons | Array | 템플릿 버튼 |
+| templates[].content.quickReplies | Array | 템플릿 바로 연결 |
+| templates[].createdDateTime | String | 템플릿 생성 시각 |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각 |
 
-**リクエスト例**
+
+
+**요청 예시**
+
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### カテゴリーツリー照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/category-tree
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### 알림톡 템플릿 수정 리스트 조회
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/modifications
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/category-tree" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifications" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
 
-### カテゴリー照会
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
 
-**リクエスト**
+## 알림톡 템플릿의 카카오 템플릿 목록 조회
+
+알림톡 템플릿의 카카오 템플릿 목록을 조회합니다.
+
+**요청**
 
 ```
-GET /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
+GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| categoryId | Path | String | Y | カテゴリーID |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | 앱키 |
+| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
+| templateId | Path | String | Y | 템플릿 아이디 |
+| limit | Query | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Integer | N | offset 설정하지 않으면 default 0 |
 
-**リクエスト本文**
 
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
 
-このAPIはリクエスト本文を要求しません。
+**요청 본문**
 
-**レスポンス本文**
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-```json
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "category": {
-    "categoryId": "カテゴリー_ID",
-    "categoryName": "カテゴリー_名前",
-    "parentCategoryId": "上位_カテゴリー_ID",
-    "messageChannel": "SMS",
-    "categoryIds": [
-      "下位_カテゴリー_ID"
-    ],
-    "templateIds": [
-      "カテゴリーに_属する_テンプレート_ID"
-    ]
+  "totalCount" : 1,
+  "templates" : [ {
+    "kakaoTemplateCode" : "kakaoTemplateCode",
+    "kakaoTemplateName" : "템플릿 이름",
+    "content" : {
+      "templateMessageType" : "BA",
+      "templateEmphasizeType" : "NONE",
+      "templateContent" : "#{이름}님의 주문이 완료되었습니다.",
+      "templateAd" : "채널 추가하고 이 채널의 마케팅 메시지 등을 카카오톡으로 받기",
+      "templateExtra" : "* 실시간 예약 특성상 중복 예약이 발생할 수 있으며, 입실이 불가할 경우 예약이 취소될 수 있습니다.\\n* 문의전화: 1234-1234",
+      "templateTitle" : "123,450원",
+      "templateSubtitle" : "승인 내역",
+      "templateHeader" : "주문이 체결되었습니다.",
+      "templateItem" : {
+        "list" : [ {
+          "title" : "아이템 타이틀",
+          "description" : "아이템 설명"
+        } ],
+        "summary" : {
+          "title" : "요약 타이틀",
+          "description" : "요약 설명"
+        }
+      },
+      "templateItemHighlight" : {
+        "title" : "하이라이트 타이틀",
+        "description" : "하이라이트 설명",
+        "attachmentId" : "YaX2DA4Weab2",
+        "imageUrl" : "https://example.com/thumbnail.jpg"
+      },
+      "templateRepresentLink" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "attachmentId" : "YaX2DA4Weab2",
+      "templateImageName" : "image.png",
+      "templateImageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+      "securityFlag" : false,
+      "categoryCode" : "999999",
+      "buttons" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "버튼 이름",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ],
+      "quickReplies" : [ {
+        "ordering" : 1,
+        "type" : "WL",
+        "name" : "바로연결 이름",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ]
+    },
+    "reviewStatus" : "APPROVED",
+    "comments" : [ {
+      "id" : 1,
+      "content" : "문의 내용 예시",
+      "userName" : "사용자 이름",
+      "createdAt" : "2024-10-29T06:00:01.000+09:00",
+      "attachments" : [ {
+        "originalFileName" : "파일명 예시",
+        "filePath" : "/path/to/file"
+      } ],
+      "status" : "REQ"
+    } ],
+    "block" : false,
+    "dormant" : false,
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명                                                                                                                       |
+| - | - |--------------------------------------------------------------------------------------------------------------------------|
+| header | Object |                                                                                                                          |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true                                                                                        |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0                                                                                                  |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS                                                                                           |
+| totalCount | Integer | 총 건수                                                                                                                     |
+| templates | Array |                                                                                                                          |
+| templates[].kakaoTemplateCode | String | 카카오 템플릿 코드                                                                                                               |
+| templates[].kakaoTemplateName | String | 템플릿 이름                                                                                                                   |
+| templates[].content | Object |                                                                                                                          |
+| templates[].content.templateMessageType | String | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA)                                                        |
+| templates[].content.templateEmphasizeType | String | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default: NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| templates[].content.templateContent | String | 템플릿 본문                                                                                                                   |
+| templates[].content.templateAd | String | 채널 추가 안내 메시지(템플릿 메시지 유형: 채널 추가형, 복합형일 경우 고정값)                                                                            |
+| templates[].content.templateExtra | String | 템플릿 부가 정보(템플릿 메시지 유형이 [부가 정보형/복합형]일 경우 필수), 치환 변수 사용 불가, URL 포함 가능                                                       |
+| templates[].content.templateTitle | String | 템플릿 제목(최대 50자, Android: 2줄, 23자 이상 말줄임 처리, iOS: 2줄, 27자 이상 말줄임 처리)                                                      |
+| templates[].content.templateSubtitle | String | 템플릿 보조 문구(최대 50자, Android: 18자 이상 말줄임 처리, iOS: 21자 이상 말줄임 처리)                                                           |
+| templates[].content.templateHeader | String | 템플릿 헤더, 변수 입력 가능                                                                                                         |
+| templates[].content.templateItem | Object |                                                                                                                          |
+| templates[].content.templateItem.list | Array |                                                                                                                          |
+| templates[].content.templateItem.summary | Object |                                                                                                                          |
+| templates[].content.templateItem.summary.title | String | 요약 타이틀                                                                                                                   |
+| templates[].content.templateItem.summary.description | String | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능)                                                                                    |
+| templates[].content.templateItemHighlight | Object |                                                                                                                          |
+| templates[].content.templateItemHighlight.title | String | 아이템 하이라이트 타이틀(최대 30자, 섬네일 이미지가 있을 경우, 21자)                                                                               |
+| templates[].content.templateItemHighlight.description | String | 아이템 하이라이트 설명(최대 19자, 섬네일 이미지가 있을 경우, 13자)                                                                                |
+| templates[].content.templateItemHighlight.attachmentId | String | 템플릿 첨부 파일 ID                                                                                                             |
+| templates[].content.templateItemHighlight.imageUrl | String | 섬네일 이미지 주소                                                                                                               |
+| templates[].content.templateRepresentLink | Object |                                                                                                                          |
+| templates[].content.templateRepresentLink.linkMo | String | 대표 링크 모바일 웹 링크                                                                                                           |
+| templates[].content.templateRepresentLink.linkPc | String | 대표 링크 PC 웹 링크                                                                                                            |
+| templates[].content.templateRepresentLink.schemeIos | String | 대표 링크 iOS 앱 링크                                                                                                           |
+| templates[].content.templateRepresentLink.schemeAndroid | String | 대표 링크 안드로이드 앱 링크                                                                                                         |
+| templates[].content.attachmentId | String | 템플릿 첨부 파일 ID                                                                                                             |
+| templates[].content.templateImageName | String | 템플릿 이미지 이름                                                                                                               |
+| templates[].content.templateImageUrl | String | 템플릿 이미지 링크                                                                                                               |
+| templates[].content.securityFlag | Boolean | 템플릿 보안 여부(default: false)                                                                                                |
+| templates[].content.categoryCode | String | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999)                                                                         |
+| templates[].content.buttons | Array | 템플릿 버튼                                                                                                                   |
+| templates[].content.quickReplies | Array | 템플릿 바로 연결                                                                                                                |
+| templates[].reviewStatus | String | REGISTERED: 요청, REQUESTED: 검수 중, APPROVED: 승인, REJECTED: 반려<br>[REGISTERED, REQUESTED, APPROVED, REJECTED]               |
+| templates[].comments | Array | 템플릿 문의 리스트                                                                                                               |
+| templates[].block | Boolean | 템플릿 차단 여부                                                                                                                |
+| templates[].dormant | Boolean | 템플릿 휴면 여부                                                                                                                |
+| templates[].createdDateTime | String | 템플릿 생성 시각                                                                                                                |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각                                                                                                               |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 알림톡 템플릿의 카카오 템플릿 목록 조회
+
+GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost"></span>
+
+## 파일을 첨부해 카카오 알림톡 템플릿 문의하기
+
+카카오 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
+
+**요청**
+
+```
+POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries/do-with-file
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | 앱키 |
+| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
+| templateId | Path | String | Y | 템플릿 아이디 |
+| kakaoTemplateCode | Path | String | Y | 카카오 템플릿 코드 |
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| comment | String | Y | 문의 내용 |
+| file | Binary | Y | 문의 파일 |
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   }
 }
 ```
 
-<!--TODO:カテゴリー名をname or categoryNameにするか統一必要、 nameに変更必要-->
+<!--응답 본문의 필드를 설명합니다.-->
 
-<!--レスポンス本文のフィールドを説明します。-->
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
-**リクエスト例**
+
+
+**요청 예시**
 
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### メッセージチャンネル別カテゴリー照会
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
-```
+### 파일을 첨부해 카카오 알림톡 템플릿 문의하기
 
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates/{{kakaoTemplateCode}}/inquiries/do-with-file
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="comment"
+
+comment_example
+--boundary
+Content-Disposition: form-data; name="file"; filename="file.txt"
+Content-Type: text/plain
+
+< /path/to/file.txt
+--boundary--
+```
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X GET "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/{categoryId}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates/${kakaoTemplateCode}/inquiries/do-with-file" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-F "comment=comment_example" \
+-F "file=@/path/to/file.txt"
+```
+
+</details>
+<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></span>
+
+## 카카오 알림톡 템플릿 문의하기
+
+카카오 알림톡 템플릿을 문의합니다.
+
+**요청**
+
+```
+POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | 앱키 |
+| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
+| templateId | Path | String | Y | 템플릿 아이디 |
+| kakaoTemplateCode | Path | String | Y | 카카오 템플릿 코드 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "comment" : "문의 내용 예시"
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| comment | String | Y | 문의 내용 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 카카오 알림톡 템플릿 문의하기
+
+POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/kakao-templates/{{kakaoTemplateCode}}/inquiries
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "comment" : "문의 내용 예시"
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-templates/${kakaoTemplateCode}/inquiries" \
+-H "X-NC-APP-KEY: {appKey}"  \
+-H "X-NHN-Authorization: Bearer {accessToken}"  \
+-d '{
+  "comment" : "문의 내용 예시"
+}'
 ```
 
 </details>
 
-### カテゴリー修正
+<span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
 
-**リクエスト**
+## 알림톡 템플릿 카테고리 리스트 조회
+
+알림톡 템플릿 카테고리 리스트를 조회합니다.
+
+**요청**
 
 ```
-PUT /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
+GET /template/v1.0/ALIMTALK/template-categories
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| categoryId | Path | String | Y | カテゴリーID |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 
-**リクエスト本文**
 
-```json
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
 {
-  "parentCategoryId": "上位_カテゴリー_ID",
-  "name": "カテゴリー_名前"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "categories" : [ {
+    "name" : "구매",
+    "subCategories" : [ {
+      "code" : "002001",
+      "name" : "구매완료",
+      "groupName" : "구매",
+      "inclusion" : "주문완료, 구매완료 템플릿이 대상입니다.",
+      "exclusion" : "일정관련 되어 예약, 예약번호가 있는 템플릿의 경우 구매완료에서 제외하고 예약으로 분류합니다."
+    } ]
+  } ]
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!--응답 본문의 필드를 설명합니다.-->
 
-| 名前 | タイプ | 必須 | 説明              |
-| --- | --- | --- |-------------------|
-| parentCategoryId | String | 任意 | 上位カテゴリーID |
-| name | String | 必須 | カテゴリー名(最大50文字) |
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| categories | Array |  |
+| categories[].name | String | 대분류 카테고리 이름 |
+| categories[].subCategories | Array | 서브 카테고리 |
 
-**レスポンス本文**
 
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
 
-<!--レスポンス本文のフィールドを説明します。-->
+**요청 예시**
 
-**リクエスト例**
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### カテゴリー修正
-PUT {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### 알림톡 템플릿 카테고리 리스트 조회
 
-{
-  "parentCategoryId": "上位_カテゴリー_ID",
-  "name": "カテゴリー_名前"
-}
+GET {{endpoint}}/template/v1.0/ALIMTALK/template-categories
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X PUT "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/{categoryId}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-         "parentCategoryId": "上位_カテゴリー_ID",
-         "name": "カテゴリー_名前"
-     }'
+```http
+curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
 
-### テンプレートカテゴリーにテンプレート追加
+<span id="templateV1x0021CreateEmailTemplate"></span>
 
-**リクエスト**
+## Email 템플릿 등록
+
+템플릿을 등록합니다.
+
+**요청**
 
 ```
-POST /template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY_ID}/templates
-Content-Type: application/json
+POST /template/v1.0/EMAIL/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 
-**リクエスト本文**
 
-```json
-{
-  "templateId": "テンプレート_ID"
-}
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
 ```
-
-<!--リクエスト本文のフィールドを説明します。-->
-
-| 名前 | タイプ | 必須 | 説明              |
-| --- | --- | --- |-------------------|
-| templateId | String | 必須 | テンプレートID |
-
-**レスポンス本文**
-
-```json
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--요청 본문의 필드를 설명합니다.-->
 
-**リクエスト例**
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| categoryId | String | N | 카테고리 아이디 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderMailAddress | String | Y | 발신 메일 주소 |
+| content | Object | Y |  |
+| content.title | String | N | 템플릿 메일 제목 |
+| content.body | String | N | 템플릿 메일 본문 |
+| content.attachmentIds | Array | N | 템플릿 첨부 파일 ID |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+
+
+
+**요청 예시**
+
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレートカテゴリーにテンプレート追加
-POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}/templates
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### Email 템플릿 등록
+
+POST {{endpoint}}/template/v1.0/EMAIL/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 {
-  "templateId": "テンプレート_ID"
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
 }
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY_ID}/templates" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-         "templateId": "テンプレート_ID"
-     }'
+```http
+curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
 ```
 
 </details>
+<span id="templateV1x0022ReadEmailTemplate"></span>
 
-### カテゴリー削除
+## Email 템플릿 상세 조회
 
-**リクエスト**
+템플릿을 상세 조회합니다.
+
+**요청**
 
 ```
-DELETE /template/v1.0/{messageChannel}/categories/{categoryId}
-Content-Type: application/json
+GET /template/v1.0/EMAIL/templates/{templateId}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**요청 파라미터**
 
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| categoryId | Path | String | Y | カテゴリーID |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
 
-**リクエスト本文**
 
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-このAPIはリクエスト本文を要求しません。
 
-**レスポンス本文**
+**요청 본문**
 
-```json
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "템플릿 이름",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "senderMailAddress" : "abcde@nhn.com"
+    },
+    "content" : {
+      "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+      "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!--응답 본문의 필드를 설명합니다.-->
 
-**リクエスト例**
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| template | Object |  |
+| template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| template.templateName | String | 템플릿 이름 |
+| template.categoryId | String | 카테고리 아이디 |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.sender | Object |  |
+| template.sender.senderMailAddress | String | 발신 메일 주소 |
+| template.content | Object |  |
+| template.content.title | String | 템플릿 메일 제목 |
+| template.content.body | String | 템플릿 메일 본문 |
+| template.content.attachmentIds | Array | 템플릿 첨부 파일 ID |
+| template.createdDateTime | String | 템플릿 생성 시각 |
+| template.updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### カテゴリー削除
-DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorization}}
+### Email 템플릿 상세 조회
+
+GET {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
 ```
 
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X DELETE "${ENDPOINT}/template/v1.0/${MESSAGE_CHANNEL}/categories/${CATEGORY_ID}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
+```http
+curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0022ReadEmailTemplateList"></span>
+
+## Email 템플릿 리스트 조회
+
+템플릿 리스트를 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/EMAIL/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "배송 완료",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | 총 건수 |
+| templates | Array |  |
+| templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| templates[].templateName | String | 템플릿명 |
+| templates[].categoryId | String | 카테고리 아이디 |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | 템플릿 생성 시각 |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Email 템플릿 리스트 조회
+
+GET {{endpoint}}/template/v1.0/EMAIL/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/EMAIL/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0023UpdateEmailTemplate"></span>
+
+## Email 템플릿 수정
+
+템플릿을 수정합니다.
+
+**요청**
+
+```
+PUT /template/v1.0/EMAIL/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.senderMailAddress | String | Y | 발신 메일 주소 |
+| content | Object | Y |  |
+| content.title | String | N | 템플릿 메일 제목 |
+| content.body | String | N | 템플릿 메일 본문 |
+| content.attachmentIds | Array | N | 템플릿 첨부 파일 ID |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Email 템플릿 수정
+
+PUT {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0024DeleteEmailTemplate"></span>
+
+## Email 템플릿 삭제
+
+템플릿을 삭제합니다.
+
+**요청**
+
+```
+DELETE /template/v1.0/EMAIL/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Email 템플릿 삭제
+
+DELETE {{endpoint}}/template/v1.0/EMAIL/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0025CreateRcsTemplate"></span>
+
+## RCS 템플릿 등록
+
+템플릿을 등록합니다.
+
+**요청**
+
+```
+POST /template/v1.0/RCS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "제목",
+      "description" : "본문",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "메인 타이틀",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "제목 1",
+      "title2" : "제목 2",
+      "title3" : "제목 3",
+      "description1" : "본문 1",
+      "description2" : "본문 2",
+      "description3" : "본문 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "일정 등록하기",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "일정 제목",
+                "description" : "일정 설명"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "일정 등록하기",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "일정 제목",
+              "description" : "일정 설명"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| categoryId | String | N | 카테고리 아이디 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | Y |  |
+| sender.brandId | String | Y | 브랜드 아이디 |
+| sender.chatbotId | String | Y | 대화방(챗봇) 아이디 |
+| content | Object | Y |  |
+| content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| content.title | String | N | 메시지 제목 |
+| content.body | String | N | 메시지 본문 |
+| content.smsType | String | N | SMS 타입<br>[STANDALONE] |
+| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
+| content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
+| content.cards | Array | N | RCS 카드 |
+| content.cards[].title | String | N | 제목 |
+| content.cards[].description | String | N | 본문 |
+| content.cards[].attachmentId | String | N | 이미지 첨부 파일 아이디 |
+| content.cards[].mTitle | String | N | 메인 타이틀 |
+| content.cards[].mTitleMedia | String | N | 메인 타이틀 로고 파일 ID |
+| content.cards[].title1 | String | N | 제목 1 |
+| content.cards[].title2 | String | N | 제목 2 |
+| content.cards[].title3 | String | N | 제목 3 |
+| content.cards[].description1 | String | N | 본문 1 |
+| content.cards[].description2 | String | N | 본문 2 |
+| content.cards[].description3 | String | N | 본문 3 |
+| content.cards[].buttons | Array | N |  |
+| content.buttons | Array | N | RCS 버튼 리스트 |
+| content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonJson | Object | N |  |
+| content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCS 템플릿 등록
+
+POST {{endpoint}}/template/v1.0/RCS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "제목",
+      "description" : "본문",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "메인 타이틀",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "제목 1",
+      "title2" : "제목 2",
+      "title3" : "제목 3",
+      "description1" : "본문 1",
+      "description2" : "본문 2",
+      "description3" : "본문 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "일정 등록하기",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "일정 제목",
+                "description" : "일정 설명"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "일정 등록하기",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "일정 제목",
+              "description" : "일정 설명"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "제목",
+      "description" : "본문",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "메인 타이틀",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "제목 1",
+      "title2" : "제목 2",
+      "title3" : "제목 3",
+      "description1" : "본문 1",
+      "description2" : "본문 2",
+      "description3" : "본문 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "일정 등록하기",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "일정 제목",
+                "description" : "일정 설명"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "일정 등록하기",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "일정 제목",
+              "description" : "일정 설명"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0026ReadRcsTemplateList"></span>
+
+## RCS 템플릿 리스트 조회
+
+템플릿 리스트를 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/RCS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "배송 완료",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | 총 건수 |
+| templates | Array |  |
+| templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| templates[].templateName | String | 템플릿명 |
+| templates[].categoryId | String | 카테고리 아이디 |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | 템플릿 생성 시각 |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCS 템플릿 리스트 조회
+
+GET {{endpoint}}/template/v1.0/RCS/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/RCS/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0027ReadRcsTemplate"></span>
+
+## RCS 템플릿 상세 조회
+
+템플릿을 상세 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/RCS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "템플릿 이름",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "sender" : {
+      "brandId" : "AR.lj0eOjEI7Y",
+      "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+    },
+    "content" : {
+      "messageType" : "SMS",
+      "title" : "명절 운영시간 공지",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+      "smsType" : "STANDALONE",
+      "lmsType" : "HORIZONTAL",
+      "mmsType" : "HORIZONTAL",
+      "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+      "messagebaseformId" : "SS000000",
+      "unsubscribePhoneNumber" : "08012341234",
+      "cards" : [ {
+        "title" : "제목",
+        "description" : "본문",
+        "attachmentId" : "20240814125609swLmoZTsGr0",
+        "mTitle" : "메인 타이틀",
+        "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+        "title1" : "제목 1",
+        "title2" : "제목 2",
+        "title3" : "제목 3",
+        "description1" : "본문 1",
+        "description2" : "본문 2",
+        "description3" : "본문 3",
+        "buttons" : [ {
+          "buttonType" : "CALENDAR",
+          "buttonJson" : {
+            "action" : {
+              "displayText" : "일정 등록하기",
+              "calendarAction" : {
+                "createCalendarEvent" : {
+                  "startTime" : "2024-01-01T00:00:00.000+09:00",
+                  "endTime" : "2024-01-01T00:00:00.000+09:00",
+                  "title" : "일정 제목",
+                  "description" : "일정 설명"
+                }
+              }
+            }
+          }
+        } ]
+      } ],
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "일정 등록하기",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "일정 제목",
+                "description" : "일정 설명"
+              }
+            }
+          }
+        }
+      } ]
+    },
+    "additionalProperty" : {
+      "status" : "SUCCESS",
+      "approvedDateTime" : "2024-10-29T06:00:01.000+09:00"
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| template | Object |  |
+| template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| template.templateName | String | 템플릿 이름 |
+| template.categoryId | String | 카테고리 아이디 |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.sender | Object |  |
+| template.sender.brandId | String | 브랜드 아이디 |
+| template.sender.chatbotId | String | 대화방(챗봇) 아이디 |
+| template.content | Object |  |
+| template.content.messageType | String | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| template.content.title | String | 메시지 제목 |
+| template.content.body | String | 메시지 본문 |
+| template.content.smsType | String | SMS 타입<br>[STANDALONE] |
+| template.content.lmsType | String | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| template.content.mmsType | String | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| template.content.messagebaseId | String | RCS Biz Center 템플릿 아이디 |
+| template.content.messagebaseformId | String | RCS Biz Center 에서 지정한 messageBase 양식<br><br>[SS000000(기본형), SL000000(기본형), OL00000001(LMS Format 기본형), OL00000002(LMS Format 타이틀 강조형), OL00000003(LMS Format 문단형), SMwThT00(MMS 세로형), SMwThM00(MMS 가로형), CMwMhM0200(MMS 슬라이드 중간형(2)), CMwMhM0300(MMS 슬라이드 중간형(3)), CMwMhM0400(MMS 슬라이드 중간형(4)), CMwMhM0500(MMS 슬라이드 중간형(5)), CMwMhM0600(MMS 슬라이드 중간형(6)), CMwShS0200(MMS 슬라이드 작은형(2)), CMwShS0300(MMS 슬라이드 작은형(3)), CMwShS0400(MMS 슬라이드 작은형(4)), CMwShS0500(MMS 슬라이드 작은형(5)), CMwShS0600(MMS 슬라이드 작은형(6)), CLI00001(아이템 상세형), ITTBNV(썸네일형(세로)), ITTBNH(썸네일형(가로)), ITHIMS(이미지 강조형(1:1)), ITHIMV(이미지 강조형(3:4)), ITSNSS(SNS형), ITSNSH(SNS형(중간버튼)), ITHITS(이미지 & 타이틀 강조형(1:1)), ITHITV(이미지 & 타이틀 강조형(3:4)), ITCRM2(슬라이드 형(2)), ITCRM3(슬라이드 형(3)), ITCRM4(슬라이드 형(4)), ITCRM5(슬라이드 형(5)), ITCRM6(슬라이드 형(6)), CLT00001(아이템 강조형 DESC), CLT00002(아이템 강조형 TABLE), TATA001C(타이틀 자유형 FREE), TATA001D(타이틀 자유형 CELL), TATA001F(타이틀 자유형 DESC), FF005C(타이틀 선택형 FREE), FF005D(명세서 CELL), FF004C(명세서 DESC), FF004D(취소 CELL), GG003C(취소 DESC), GG003D(안내 CELL), GG002C(안내 DESC), GG002D(인증 CELL), GG001C(인증 DESC), GG001D(회원 가입 CELL), GG000F(회원 가입 DESC), EE001C(예약 CELL), EE001D(예약 DESC), CC003C(배송 CELL), CC003D(배송 DESC), FF002C(입금 CELL), FF002D(입금 DESC), FF001C(승인 CELL), FF001D(승인 DESC), CC002C(주문 CELL), CC002D(주문 DESC), CC001C(출고 CELL), CC001D(출고 DESC), FF003C(출금 CELL), FF003D(출금 DESC), CLL00001(LMS 명세서 A), CLL00002(LMS 문단형), CLL00003(LMS 타이들 강조형), CLL00004(LMS 기본형), CLL00005(LMS 명세서 B), CLL00006(LMS 명세서 C)] |
+| template.content.unsubscribePhoneNumber | String | 수신 거부 번호(광고 발송일 경우 필수) |
+| template.content.cards | Array | RCS 카드 |
+| template.content.cards[].title | String | 제목 |
+| template.content.cards[].description | String | 본문 |
+| template.content.cards[].attachmentId | String | 이미지 첨부 파일 아이디 |
+| template.content.cards[].mTitle | String | 메인 타이틀 |
+| template.content.cards[].mTitleMedia | String | 메인 타이틀 로고 파일 ID |
+| template.content.cards[].title1 | String | 제목 1 |
+| template.content.cards[].title2 | String | 제목 2 |
+| template.content.cards[].title3 | String | 제목 3 |
+| template.content.cards[].description1 | String | 본문 1 |
+| template.content.cards[].description2 | String | 본문 2 |
+| template.content.cards[].description3 | String | 본문 3 |
+| template.content.cards[].buttons | Array |  |
+| template.content.buttons | Array | RCS 버튼 리스트 |
+| template.content.buttons[].buttonType | String | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| template.content.buttons[].buttonJson | Object |  |
+| template.content.buttons[].buttonJson.action | Object | 버튼 액션 |
+| template.additionalProperty | Object |  |
+| template.additionalProperty.status | String | 템플릿 상태<br>- SAVE: 저장<br>- APPROVE_WAIT: 승인 대기<br>- INSPECTION_START: 검수 시작<br>- INSPECTION_FINISH: 검수 완료<br>- APPROVE: 승인<br>- REJECT: 거부<br>- MODIFY_APPROVE_WAIT: 수정 승인 대기<br>- MODIFY_INSPECTION_START: 수정 검수 시작<br>- MODIFY_INSPECTION_FINISH: 수정 검수 완료<br>- MODIFY_REJECT: 수정 거부<br><br>[SAVE, APPROVE_WAIT, INSPECTION_START, INSPECTION_FINISH, APPROVE, REJECT, MODIFY_APPROVE_WAIT, MODIFY_INSPECTION_START, MODIFY_INSPECTION_FINISH, MODIFY_REJECT] |
+| template.additionalProperty.approvedDateTime | String | 템플릿 승인 시각 |
+| template.createdDateTime | String | 템플릿 생성 시각 |
+| template.updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCS 템플릿 상세 조회
+
+GET {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0028UpdateRcsTemplate"></span>
+
+## RCS 템플릿 수정
+
+템플릿을 수정합니다.
+
+**요청**
+
+```
+PUT /template/v1.0/RCS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "제목",
+      "description" : "본문",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "메인 타이틀",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "제목 1",
+      "title2" : "제목 2",
+      "title3" : "제목 3",
+      "description1" : "본문 1",
+      "description2" : "본문 2",
+      "description3" : "본문 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "일정 등록하기",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "일정 제목",
+                "description" : "일정 설명"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "일정 등록하기",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "일정 제목",
+              "description" : "일정 설명"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| sender | Object | N |  |
+| sender.brandId | String | Y | 브랜드 아이디 |
+| sender.chatbotId | String | Y | 대화방(챗봇) 아이디 |
+| content | Object | Y |  |
+| content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| content.title | String | N | 메시지 제목 |
+| content.body | String | N | 메시지 본문 |
+| content.smsType | String | N | SMS 타입<br>[STANDALONE] |
+| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
+| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
+| content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
+| content.cards | Array | N | RCS 카드 |
+| content.cards[].title | String | N | 제목 |
+| content.cards[].description | String | N | 본문 |
+| content.cards[].attachmentId | String | N | 이미지 첨부 파일 아이디 |
+| content.cards[].mTitle | String | N | 메인 타이틀 |
+| content.cards[].mTitleMedia | String | N | 메인 타이틀 로고 파일 ID |
+| content.cards[].title1 | String | N | 제목 1 |
+| content.cards[].title2 | String | N | 제목 2 |
+| content.cards[].title3 | String | N | 제목 3 |
+| content.cards[].description1 | String | N | 본문 1 |
+| content.cards[].description2 | String | N | 본문 2 |
+| content.cards[].description3 | String | N | 본문 3 |
+| content.cards[].buttons | Array | N |  |
+| content.buttons | Array | N | RCS 버튼 리스트 |
+| content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonJson | Object | N |  |
+| content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCS 템플릿 수정
+
+PUT {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "제목",
+      "description" : "본문",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "메인 타이틀",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "제목 1",
+      "title2" : "제목 2",
+      "title3" : "제목 3",
+      "description1" : "본문 1",
+      "description2" : "본문 2",
+      "description3" : "본문 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "일정 등록하기",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "일정 제목",
+                "description" : "일정 설명"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "일정 등록하기",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "일정 제목",
+              "description" : "일정 설명"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "명절 운영시간 공지",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "제목",
+      "description" : "본문",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "메인 타이틀",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "제목 1",
+      "title2" : "제목 2",
+      "title3" : "제목 3",
+      "description1" : "본문 1",
+      "description2" : "본문 2",
+      "description3" : "본문 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "일정 등록하기",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "일정 제목",
+                "description" : "일정 설명"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "일정 등록하기",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "일정 제목",
+              "description" : "일정 설명"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0029DeleteRcsTemplate"></span>
+
+## RCS 템플릿 삭제
+
+템플릿을 삭제합니다.
+
+**요청**
+
+```
+DELETE /template/v1.0/RCS/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### RCS 템플릿 삭제
+
+DELETE {{endpoint}}/template/v1.0/RCS/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0030CreatePushTemplate"></span>
+
+## Push 템플릿 등록
+
+템플릿을 등록합니다.
+
+**요청**
+
+```
+POST /template/v1.0/PUSH/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "대표 번호",
+    "unsubscribeGuide" : "매뉴 > 설정",
+    "title" : "제목",
+    "body" : "내용",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "버튼 이름",
+        "submitName" : "전송 버튼 이름",
+        "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
+      } ],
+      "media" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
+        "description" : "그룹에대한 설명"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| categoryId | String | N | 카테고리 아이디 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| content | Object | Y | 푸시 메시지 내용 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Push 템플릿 등록
+
+POST {{endpoint}}/template/v1.0/PUSH/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "대표 번호",
+    "unsubscribeGuide" : "매뉴 > 설정",
+    "title" : "제목",
+    "body" : "내용",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "버튼 이름",
+        "submitName" : "전송 버튼 이름",
+        "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
+      } ],
+      "media" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
+        "description" : "그룹에대한 설명"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "대표 번호",
+    "unsubscribeGuide" : "매뉴 > 설정",
+    "title" : "제목",
+    "body" : "내용",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "버튼 이름",
+        "submitName" : "전송 버튼 이름",
+        "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
+      } ],
+      "media" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
+        "description" : "그룹에대한 설명"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0031ReadPushTemplateList"></span>
+
+## Push 템플릿 리스트 조회
+
+템플릿 리스트를 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/PUSH/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateName | Query  | String | N | 템플릿 이름(LIKE 검색) |
+| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "배송 완료",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | 총 건수 |
+| templates | Array |  |
+| templates[].templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| templates[].templateName | String | 템플릿명 |
+| templates[].categoryId | String | 카테고리 아이디 |
+| templates[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templates[].messagePurposes | Array |  |
+| templates[].createdDateTime | String | 템플릿 생성 시각 |
+| templates[].updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Push 템플릿 리스트 조회
+
+GET {{endpoint}}/template/v1.0/PUSH/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/PUSH/templates" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0032ReadPushTemplate"></span>
+
+## Push 템플릿 상세 조회
+
+템플릿을 상세 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/PUSH/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "템플릿 이름",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "templateLanguage" : "PLAIN_TEXT",
+    "content" : {
+      "unsubscribePhoneNumber" : "대표 번호",
+      "unsubscribeGuide" : "매뉴 > 설정",
+      "title" : "제목",
+      "body" : "내용",
+      "richMessage" : {
+        "buttons" : [ {
+          "name" : "버튼 이름",
+          "submitName" : "전송 버튼 이름",
+          "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
+          "link" : "버튼을 눌렀을때, 연결되는 링크",
+          "hint" : "버튼에대한 힌트"
+        } ],
+        "media" : {
+          "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+          "extension" : "미디어 파일의 확장자, jpg, png",
+          "expandable" : true
+        },
+        "androidMedia" : {
+          "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+          "extension" : "미디어 파일의 확장자, jpg, png",
+          "expandable" : true
+        },
+        "iosMedia" : {
+          "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+          "extension" : "미디어 파일의 확장자, jpg, png",
+          "expandable" : true
+        },
+        "largeIcon" : {
+          "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        },
+        "group" : {
+          "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
+          "description" : "그룹에대한 설명"
+        }
+      },
+      "style" : {
+        "useHtmlStyle" : true
+      },
+      "customKey" : "customValue"
+    },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| template | Object |  |
+| template.templateId | String | 템플릿 등록 시, 발급된 템플릿 아이디 |
+| template.templateName | String | 템플릿 이름 |
+| template.categoryId | String | 카테고리 아이디 |
+| template.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messagePurpose | String | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array |  |
+| template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.content | Object | 푸시 메시지 내용 |
+| template.createdDateTime | String | 템플릿 생성 시각 |
+| template.updatedDateTime | String | 템플릿 수정된 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Push 템플릿 상세 조회
+
+GET {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0033UpdatePushTemplate"></span>
+
+## Push 템플릿 수정
+
+템플릿을 수정합니다.
+
+**요청**
+
+```
+PUT /template/v1.0/PUSH/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "대표 번호",
+    "unsubscribeGuide" : "매뉴 > 설정",
+    "title" : "제목",
+    "body" : "내용",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "버튼 이름",
+        "submitName" : "전송 버튼 이름",
+        "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
+      } ],
+      "media" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
+        "description" : "그룹에대한 설명"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | Y | 템플릿 이름 |
+| messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
+| templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| content | Object | Y | 푸시 메시지 내용 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Push 템플릿 수정
+
+PUT {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "대표 번호",
+    "unsubscribeGuide" : "매뉴 > 설정",
+    "title" : "제목",
+    "body" : "내용",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "버튼 이름",
+        "submitName" : "전송 버튼 이름",
+        "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
+      } ],
+      "media" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
+        "description" : "그룹에대한 설명"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "templateName" : "템플릿 이름",
+  "messagePurpose" : "NORMAL",
+  "templateLanguage" : "PLAIN_TEXT",
+  "content" : {
+    "unsubscribePhoneNumber" : "대표 번호",
+    "unsubscribeGuide" : "매뉴 > 설정",
+    "title" : "제목",
+    "body" : "내용",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "버튼 이름",
+        "submitName" : "전송 버튼 이름",
+        "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
+      } ],
+      "media" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "미디어의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "extension" : "미디어 파일의 확장자, jpg, png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
+        "description" : "그룹에대한 설명"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}'
+```
+
+</details>
+<span id="templateV1x0034DeletePushTemplate"></span>
+
+## Push 템플릿 삭제
+
+템플릿을 삭제합니다.
+
+**요청**
+
+```
+DELETE /template/v1.0/PUSH/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Push 템플릿 삭제
+
+DELETE {{endpoint}}/template/v1.0/PUSH/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="templateV1x0035ReadTemplateParameters"></span>
+
+## 템플릿 파라미터 조회
+
+템플릿이 포함하고 있는 파라미터 목록을 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/{messageChannel}/templates/{templateId}/parameters
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | 앱키 |
+| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| messageChannel | Path  | String | Y | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| templateId | Path  | String | Y | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateParameter" : {
+    "validateTimestamp" : "",
+    "timestamp" : "",
+    "validateFailDomainList" : [ {
+      "domain" : "",
+      "verifyYn" : "",
+      "spfYn" : "",
+      "dkimVerifyYn" : "",
+      "dmarcYn" : ""
+    } ]
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 설명 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templateParameter | Object | 템플릿 파라미터 결과 JSON |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 템플릿 파라미터 조회
+
+GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{{templateId}}/parameters
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}/parameters" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
 ```
 
 </details>
