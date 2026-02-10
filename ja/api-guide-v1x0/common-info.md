@@ -23,7 +23,7 @@
 
 ## 認証及び権限
 
-Notification Hubは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](docs.nhncloud.com/ja/nhncloud/ja/public-api/user-access-key-token)を参照してください。
+Notification Hubは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](../../../../nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
 <span id="date-time-format"></span>
 
