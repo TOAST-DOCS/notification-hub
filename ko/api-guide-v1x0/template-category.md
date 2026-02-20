@@ -410,7 +410,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 
 ## 템플릿 카테고리 목록 조회
 
-템플릿 카테고리 목록를 조회합니다.
+템플릿 카테고리 목록을 조회합니다.
 
 **요청**
 
@@ -617,7 +617,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 
 ## 템플릿 카테고리 트리 목록 조회
 
-템플릿 카테고리 트리 목록를 조회합니다.
+템플릿 카테고리 트리 목록을 조회합니다.
 
 **요청**
 
