@@ -288,7 +288,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | attachment.fileName | String | 업로드 파일 이름 |
 | attachment.fileFormat | String | 파일 형식 |
 | attachment.previewUrl | String | 파일 미리보기 URL - 만료 시간 존재(상세 조회 호출 시 생성) |
-| attachment.fileSizeByte | Long | 첨부 파일의 사이즈 단위는 byte |
+| attachment.fileSizeByte | Long | 첨부 파일 크기(단위: Byte) |
 | attachment.createDateTime | String | 파일 업로드 일시 |
 | attachment.expireDateTime | String | 파일 만료 일시 |
 | attachment.uploadedFileTypes | Array | 개별 상품에 업로드된 파일 유형 목록 |
