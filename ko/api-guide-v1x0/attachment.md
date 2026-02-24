@@ -183,7 +183,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | attachments[].attachmentId | String | 파일 업로드 성공 시 생성되는 파일 고유 ID |
 | attachments[].fileName | String | 업로드 파일 이름 |
 | attachments[].fileFormat | String | 파일 형식 |
-| attachments[].fileSizeByte | Long | 첨부 파일의 사이즈 단위는 byte |
+| attachments[].fileSizeByte | Long | 첨부 파일 크기(단위: Byte) |
 | attachments[].createDateTime | String | 파일 업로드 일시 |
 | attachments[].expireDateTime | String | 파일 만료 일시 |
 | attachments[].uploadedFileTypes | Array | 개별 상품에 업로드된 파일 유형 목록 |
