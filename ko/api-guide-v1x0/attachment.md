@@ -43,7 +43,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- |
 | file | Binary | Y | 업로드할 파일 |
 | fileName | String | Y | 파일 이름 | 
-| fileTypes | Array | N | 업로드할 파일 타입 |
+| fileTypes | Array | N | 업로드할 파일 유형 |
 
 
 **응답 본문**
