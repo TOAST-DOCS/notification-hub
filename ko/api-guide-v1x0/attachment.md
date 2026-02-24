@@ -134,7 +134,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | fileType | Query | V1x0FileType | N | 파일 유형 |
 | fileName | Query | String | N | 파일 이름 |
 | limit | Query | Integer | N | limit 설정하지 않으면 default 50(최대 1000) |
-| offset | Query | Integer | N | offset 설정하지 않으면 default 0 |
+| offset | Query | Integer | N | offset 설정하지 않으면 기본값 0 |
 
 
 
