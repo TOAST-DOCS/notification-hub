@@ -1,25 +1,25 @@
-<!-- 새로운 양식을 위해 추가된 style 입니다. -->
+<!-- 新しい書式のために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
         display: inline !important;
     }
 </style>
 
-<!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>통계</h1>
+<!-- 新しい書式のために見出しを<h1>に変更しました。 -->
+<h1>統計</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > 통계**
+**Notification > Notification Hub > API v1.0 使用ガイド > 統計**
 
 
 
 <span id="statsV1x0001ReadStats"></span>
 
-## 통계 조회
+## 統計照会
 
-통계 이벤트를 이벤트가 발생한 시간 기준으로 조회합니다.<br>
+統計イベントをイベント発生時間基準で照会します。<br>
 
 
-**요청**
+**リクエスト**
 
 ```
 GET /stats/v1.0/stats
@@ -27,54 +27,54 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| eventCategory | Query  | V1x0EventCategory | Y | 이벤트 카테고리  |
-| messageChannel | Query  | V1x0MessageChannel | N | 메시지 채널입니다. 설정하지 않으면 메시지 채널 전체에 대해 통계 데이터가 조회되며, 이벤트 카테고리는 메시지 발송(MESSAGE_SEND)만 설정할 수 있습니다.<br>  |
-| statsKeyId | Query  | String | N | 통계 키 아이디입니다.  |
-| messageId | Query  | String | N | 메시지 아이디입니다.  |
-| templateId | Query  | String | N | 템플릿 아이디입니다.  |
-| eventDateTimeFrom | Query  | Date | N | 통계 이벤트 조회 시작 일시(포함)입니다. 연월일시분까지 적용됩니다. 초와 밀리초는 사용되지 않습니다.<br> 예로, \"2023-12-31T00:00:30.999+09:00\"는 \"2023-12-31T00:00:00.000+09:00\"으로 처리됩니다.  |
-| eventDateTimeTo | Query  | Date | N | 통계 이벤트 조회 종료 일시(미포함)입니다. 연월일시분까지 적용됩니다. 초와 밀리초는 사용되지 않습니다.<br> 예로, \"2024-01-01T00:00:30.999+09:00\"는 \"2024-01-01T00:00:00.000+09:00\"으로 처리됩니다.  |
-| statsType | Query  | V1x0StatsType | N | 통계 유형<br> - MINUTELY: 0분 ~ 59분 사이 그룹핑<br> - HOURLY: 0시 ~ 23시 사이 그룹핑<br> - DAILY: 0일 ~ 30일 사이 그룹핑<br> - BY_DAY_OF_WEEK: 월화수목금토일 그룹핑<br> 예: timeGrouping을 BY_DAY_OF_WEEK로 설정하면, 30일치를 조회하더라도 요일(월~일) 기준으로 데이터가 그룹화됩니다.  |
-| timeZone | Query  | String | N | 통계 조회 타임존(시간대)입니다. 예: Asia/Seoul, UTC, America/New_York <br> 통계 조회 시 데이터를 받을 때 원하는 시간대로 설정해서 받을 수 있습니다. 일반적으로 조회하는 클라이언트/브라우저의 시간대를 설정하면 됩니다.<br> 예를 들어, 요일별로 그룹핑된 통계 데이터를 한국이 아닌 다른 곳에서 조회한 경우 시간대가 다르기 때문에 원하는 데이터가 조회되지 않을 수 있습니다.  |
-| statsCriteria | Query  | List | N | 조회 기준입니다. 설정된 이벤트 카테고리에 따라 설정할 수 있는 조회 기준이 달라집니다.<br>  |
-| extra1 | Query  | String | N | 추가 수집되는 데이터입니다.  |
-| extra2 | Query  | String | N | 추가 수집되는 데이터입니다.  |
-| extra3 | Query  | String | N | 추가 수집되는 데이터입니다.  |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| eventCategory | Query | V1x0EventCategory | Y | イベントカテゴリー |
+| messageChannel | Query | V1x0MessageChannel | N | メッセージチャネルです。設定しない場合、メッセージチャネル全体に対する統計データが照会され、イベントカテゴリーはメッセージ送信(MESSAGE_SEND)のみ設定できます。<br> |
+| statsKeyId | Query | String | N | 統計キーIDです。 |
+| messageId | Query | String | N | メッセージIDです。 |
+| templateId | Query | String | N | テンプレートIDです。 |
+| eventDateTimeFrom | Query | Date | N | 統計イベントの照会開始日時(含む)です。年月日時分まで適用されます。秒とミリ秒は使用されません。<br> 例として、\"2023-12-31T00:00:30.999+09:00\"は\"2023-12-31T00:00:00.000+09:00\"として処理されます。 |
+| eventDateTimeTo | Query | Date | N | 統計イベントの照会終了日時(含まない)です。年月日時分まで適用されます。秒とミリ秒は使用されません。<br> 例として、\"2024-01-01T00:00:30.999+09:00\"は\"2024-01-01T00:00:00.000+09:00\"として処理されます。 |
+| statsType | Query | V1x0StatsType | N | 統計タイプ<br> - MINUTELY：0分～59分の間でグルーピング<br> - HOURLY：0時～23時の間でグルーピング<br> - DAILY：0日～30日の間でグルーピング<br> - BY_DAY_OF_WEEK：月火水木金土日でグルーピング<br> 例：timeGroupingをBY_DAY_OF_WEEKに設定すると、30日分を照会しても曜日(月～日)基準でデータがグループ化されます。 |
+| timeZone | Query | String | N | 統計照会のタイムゾーンです。例：Asia/Seoul、UTC、America/New_York <br> 統計照会時、データを受け取る際に任意のタイムゾーンに設定して受け取ることができます。一般的に、照会するクライアント/ブラウザーのタイムゾーンを設定します。<br> 例えば、曜日別にグルーピングされた統計データを韓国以外の場所で照会した場合、タイムゾーンが異なるため、目的のデータが照会されない場合があります。 |
+| statsCriteria | Query | List | N | 照会基準です。設定されたイベントカテゴリーに応じて、設定できる照会基準が変わります。<br> |
+| extra1 | Query | String | N | 追加収集されるデータです。 |
+| extra2 | Query | String | N | 追加収集されるデータです。 |
+| extra3 | Query | String | N | 追加収集されるデータです。 |
 
-* 메시지 채널에 따라 설정할 수 있는 이벤트 카테고리가 달라집니다.
+* メッセージチャネルに応じて、設定できるイベントカテゴリーが変わります。
 
-    | 메시지 채널 | 이벤트 카테고리 |
+    | メッセージチャネル | イベントカテゴリー |
     | --- | --- |
     | SMS | MESSAGE_SEND, INTERNATIONAL_MESSAGE_SEND |
     | ALIMTALK, RCS, EMAIL, PUSH | MESSAGE_SEND |
-* 조회 시작 일시는 조회 기간에 포함이 되며, 조회 종료 일시는 조회 기간에 포함되지 않습니다.
-    * 예: 2025년 1월 1일 하루 데이터를 조회하기 위해서는 eventDateTimeFrom을 2025-01-01T00:00:00.000+09:00로 설정하고 eventDateTimeTo를 2025-01-02T00:00:00.000+09:00로 설정해야 합니다.
-* 이벤트 외 추가로 데이터를 수집해 총 3개(extra1, extra2, extra3)의 추가 필드를 제공합니다.
-설정된 이벤트 카테고리에 따라 추가 수집되는 데이터의 종류가 다릅니다.
+* 照会開始日時は照会期間に含まれ、照会終了日時は照会期間に含まれません。
+    * 例：2025年1月1日の1日分のデータを照会するためには、eventDateTimeFromを2025-01-01T00:00:00.000+09:00に設定し、eventDateTimeToを2025-01-02T00:00:00.000+09:00に設定する必要があります。
+* イベント以外に追加でデータを収集し、計3つ(extra1、extra2、extra3)の追加フィールドを提供します。
+設定されたイベントカテゴリーに応じて、追加収集されるデータの種類が異なります。
 
-    | 이벤트 카테고리 | 추가 데이터 1 | 추가 데이터 2 | 추가 데이터 3 |
+    | イベントカテゴリー | 追加データ 1 | 追加データ 2 | 追加データ 3 |
     | --- | --- | --- | --- |
-    | MESSAGE_SEND | 발송 유형(SMS, LMS, MMS 등) | 발송 목적(NORMAL, AUTH, AD) | 발신 정보(발신 번호, 발신 도메인 등) |
-    | INTERNATIONAL_MESSAGE_SEND | 발송 유형(SMS, LMS, MMS 등) | 발송 목적(NORMAL, AUTH, AD) | 발신 정보(발신 번호, 발신 도메인 등) |
+    | MESSAGE_SEND | 送信タイプ(SMS、LMS、MMSなど) | 送信目的(NORMAL、AUTH、AD) | 送信元情報(送信元番号、送信元ドメインなど) |
+    | INTERNATIONAL_MESSAGE_SEND | 送信タイプ(SMS、LMS、MMSなど) | 送信目的(NORMAL、AUTH、AD) | 送信元情報(送信元番号、送信元ドメインなど) |
 
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
 
-이 API는 요청 본문을 요구하지 않습니다.
+このAPIはリクエスト本文を要求しません。
 
 
 
-**응답 본문**
+**レスポンス本文**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
 
 ```
 {
@@ -112,28 +112,28 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!-- レスポンス本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 설명 |
+| パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| header.isSuccessful | Boolean | 作業の成否を示します。<br>デフォルト値：true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
 | stats | Object |  |
-| stats.columns | Array | 이벤트 카테고리에 대한 이벤트가 칼럼으로 응답됩니다.<br>EVENT_DATE_TIME 칼럼은 이벤트 발생 일시를 나타냅니다.<br> |
-| stats.rows | Array | EVENT_DATE_TIME 필드을 제외한 나머지 필드은 이벤트 카테고리에 따라 응답됩니다.<br><br> |
+| stats.columns | Array | イベントカテゴリーに対するイベントがカラムとしてレスポンスされます。<br>EVENT_DATE_TIMEカラムはイベント発生日時を示します。<br> |
+| stats.rows | Array | EVENT_DATE_TIMEフィールドを除く残りのフィールドは、イベントカテゴリーに応じてレスポンスされます。<br><br> |
 
 
 
-**요청 예시**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 통계 조회
+### 統計照会
 
 GET {{endpoint}}/stats/v1.0/stats?eventCategory={{eventCategory}}
 X-NC-APP-KEY: {appKey}
