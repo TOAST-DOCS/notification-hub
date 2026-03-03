@@ -1,23 +1,23 @@
-<!-- 새로운 양식을 위해 추가된 style 입니다. -->
+<!-- 新しい書式のために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
         display: inline !important;
     }
 </style>
 
-<!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>템플릿 카테고리</h1>
+<!-- 新しい書式のために見出しを<h1>に変更しました。 -->
+<h1>テンプレートカテゴリー</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > 템플릿 카테고리**
+**Notification > Notification Hub > API v1.0 使用ガイド > テンプレートカテゴリー**
 
 
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
 
-## 템플릿 카테고리 삭제
+## テンプレートカテゴリーの削除
 
-템플릿 카테고리를 삭제합니다.
+テンプレートカテゴリーを削除します。
 
-**요청**
+**リクエスト**
 
 ```
 DELETE /template/v1.0/{messageChannel}/categories/{categoryId}
@@ -25,28 +25,28 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryId | Path | String | Y | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| messageChannel | Path | String | Y | メッセージチャネル<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| categoryId | Path | String | Y | カテゴリーID |
 
 
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
 
-이 API는 요청 본문을 요구하지 않습니다.
+このAPIはリクエスト本文を要求しません。
 
 
 
-**응답 본문**
+**レスポンス本文**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
 
 ```
 {
@@ -58,25 +58,25 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!-- レスポンス本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 설명 |
+| パス | タイプ | 説明 |
 | - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値：true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
 
 
 
-**요청 예시**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 삭제
+### テンプレートカテゴリーの削除
 
 DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
@@ -99,11 +99,11 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 </details>
 <span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
-## 템플릿 카테고리 단건 조회
+## テンプレートカテゴリー単件照会
 
-템플릿 카테고리 단건 조회합니다.
+テンプレートカテゴリーを単件照会します。
 
-**요청**
+**リクエスト**
 
 ```
 GET /template/v1.0/{messageChannel}/categories/{categoryId}
@@ -111,28 +111,28 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryId | Path | String | Y | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| messageChannel | Path | String | Y | メッセージチャネル<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| categoryId | Path | String | Y | カテゴリーID |
 
 
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
 
-이 API는 요청 본문을 요구하지 않습니다.
+このAPIはリクエスト本文を要求しません。
 
 
 
-**응답 본문**
+**レスポンス本文**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
 
 ```
 {
@@ -143,7 +143,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "category" : {
     "categoryId" : "A9z0A9z0",
-    "categoryName" : "배송완료 안내 카테고리",
+    "categoryName" : "配送完了案内カテゴリー",
     "parentCategoryId" : "00000000",
     "messageChannel" : "SMS",
     "categoryIds" : [ "[1,2,3]" ],
@@ -152,32 +152,32 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!-- レスポンス本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 설명 |
+| パス | タイプ | 説明 |
 | - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| category | Object | |
-| category.categoryId | String | 카테고리 아이디 |
-| category.categoryName | String | 카테고리 이름 |
-| category.parentCategoryId | String | 상위 카테고리 아이디 |
-| category.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| category.categoryIds | Array | 카테고리에 속한 카테고리 아이디 목록 |
-| category.templateIds | Array | 카테고리에 속한 템플릿 아이디 목록 |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値：true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
+| category | Object |  |
+| category.categoryId | String | カテゴリーID |
+| category.categoryName | String | カテゴリー名 |
+| category.parentCategoryId | String | 上位カテゴリーID |
+| category.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| category.categoryIds | Array | カテゴリーに属するカテゴリーIDリスト |
+| category.templateIds | Array | カテゴリーに属するテンプレートIDリスト |
 
 
 
-**요청 예시**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 단건 조회
+### テンプレートカテゴリー単件照会
 
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
@@ -200,11 +200,11 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 </details>
 <span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
 
-## 템플릿 카테고리 수정
+## テンプレートカテゴリーの修正
 
-템플릿 카테고리를 수정합니다.
+テンプレートカテゴリーを修正します。
 
-**요청**
+**リクエスト**
 
 ```
 PUT /template/v1.0/{messageChannel}/categories/{categoryId}
@@ -212,41 +212,41 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryId | Path | String | Y | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| messageChannel | Path | String | Y | メッセージチャネル<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| categoryId | Path | String | Y | カテゴリーID |
 
 
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
 
 
 ```
 {
-  "name" : "배송완료 안내 카테고리",
+  "name" : "配送完了案内カテゴリー",
   "parentCategoryId" : "00000000"
 }
 ```
 
-<!--요청 본문의 필드를 설명합니다.-->
+<!-- リクエスト本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 필수 | 설명 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| name | String | Y | 카테고리 이름 |
-| parentCategoryId | String | N | 상위 카테고리 아이디 |
+| name | String | Y | カテゴリー名 |
+| parentCategoryId | String | N | 上位カテゴリーID |
 
 
 
-**응답 본문**
+**レスポンス本文**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
 
 ```
 {
@@ -258,32 +258,32 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!-- レスポンス本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 설명 |
+| パス | タイプ | 説明 |
 | - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値：true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
 
 
 
-**요청 예시**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 수정
+### テンプレートカテゴリーの修正
 
 PUT {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 
 {
-  "name" : "배송완료 안내 카테고리",
+  "name" : "配送完了案内カテゴリー",
   "parentCategoryId" : "00000000"
 }
 ```
@@ -298,7 +298,7 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 -H "X-NC-APP-KEY: {appKey}"  \ 
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
-  "name" : "배송완료 안내 카테고리",
+  "name" : "配送完了案内カテゴリー",
   "parentCategoryId" : "00000000"
 }'
 ```
@@ -306,11 +306,11 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 </details>
 <span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
 
-## 카테고리에 템플릿 추가
+## カテゴリーにテンプレートを追加
 
-카테고리에 템플릿 추가합니다.
+カテゴリーにテンプレートを追加します。
 
-**요청**
+**リクエスト**
 
 ```
 POST /template/v1.0/{messageChannel}/categories/{categoryId}/templates
@@ -318,20 +318,20 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryId | Path | String | Y | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| messageChannel | Path | String | Y | メッセージチャネル<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| categoryId | Path | String | Y | カテゴリーID |
 
 
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
 
 
 ```
@@ -340,17 +340,17 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--요청 본문의 필드를 설명합니다.-->
+<!-- リクエスト本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 필수 | 설명 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| templateId | String | N | 템플릿 아이디 |
+| templateId | String | N | テンプレートID |
 
 
 
-**응답 본문**
+**レスポンス本文**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
 
 ```
 {
@@ -362,25 +362,25 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!-- レスポンス本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 설명 |
+| パス | タイプ | 説明 |
 | - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値：true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
 
 
 
-**요청 예시**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 카테고리에 템플릿 추가
+### カテゴリーにテンプレートを追加
 
 POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}/templates
 X-NC-APP-KEY: {appKey}
@@ -408,11 +408,11 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 </details>
 <span id="templateV10MessageChannelCategoriesGet"></span>
 
-## 템플릿 카테고리 목록 조회
+## テンプレートカテゴリー一覧照会
 
-템플릿 카테고리 목록을 조회합니다.
+テンプレートカテゴリー一覧を照会します。
 
-**요청**
+**リクエスト**
 
 ```
 GET /template/v1.0/{messageChannel}/categories
@@ -420,27 +420,27 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명                                         |
-| - | - | - | - |---------------------------------------------|
-| X-NC-APP-KEY | Header | String | Y | 앱키                                         |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰                                     |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-
-
-
-**요청 본문**
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-
-이 API는 요청 본문을 요구하지 않습니다.
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| messageChannel | Path | String | Y | メッセージチャネル<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 
 
 
-**응답 본문**
+**リクエスト本文**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
+
+このAPIはリクエスト本文を要求しません。
+
+
+
+**レスポンス本文**
+
+<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
 
 ```
 {
@@ -451,7 +451,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "categories" : [ {
     "categoryId" : "A9z0A9z0",
-    "categoryName" : "배송완료 안내 카테고리",
+    "categoryName" : "配送完了案内カテゴリー",
     "parentCategoryId" : "00000000",
     "messageChannel" : "SMS",
     "categoryIds" : [ "[1,2,3]" ],
@@ -460,32 +460,32 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!-- レスポンス本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 설명 |
+| パス | タイプ | 説明 |
 | - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| categories | Array | |
-| categories[].categoryId | String | 카테고리 아이디 |
-| categories[].categoryName | String | 카테고리 이름 |
-| categories[].parentCategoryId | String | 상위 카테고리 아이디 |
-| categories[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| categories[].categoryIds | Array | 카테고리에 속한 카테고리 아이디 목록 |
-| categories[].templateIds | Array | 카테고리에 속한 템플릿 아이디 목록 |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値：true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
+| categories | Array |  |
+| categories[].categoryId | String | カテゴリーID |
+| categories[].categoryName | String | カテゴリー名 |
+| categories[].parentCategoryId | String | 上位カテゴリーID |
+| categories[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| categories[].categoryIds | Array | カテゴリーに属するカテゴリーIDリスト |
+| categories[].templateIds | Array | カテゴリーに属するテンプレートIDリスト |
 
 
 
-**요청 예시**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 목록 조회
+### テンプレートカテゴリー一覧照会
 
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories
 X-NC-APP-KEY: {appKey}
@@ -508,11 +508,11 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 </details>
 <span id="templateV10MessageChannelCategoriesPost"></span>
 
-## 템플릿 카테고리 등록
+## テンプレートカテゴリーの登録
 
-템플릿 카테고리를 등록합니다.
+テンプレートカテゴリーを登録します。
 
-**요청**
+**リクエスト**
 
 ```
 POST /template/v1.0/{messageChannel}/categories
@@ -520,40 +520,40 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| messageChannel | Path | String | Y | メッセージチャネル<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 
 
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
 
 
 ```
 {
   "parentCategoryId" : "00000000",
-  "name" : "배송완료 안내 카테고리"
+  "name" : "配送完了案内カテゴリー"
 }
 ```
 
-<!--요청 본문의 필드를 설명합니다.-->
+<!-- リクエスト本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 필수 | 설명 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| parentCategoryId | String | N | 상위 카테고리 아이디 |
-| name | String | Y | 카테고리 이름 |
+| parentCategoryId | String | N | 上位カテゴリーID |
+| name | String | Y | カテゴリー名 |
 
 
 
-**응답 본문**
+**レスポンス本文**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
 
 ```
 {
@@ -566,26 +566,26 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!-- レスポンス本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 설명 |
+| パス | タイプ | 説明 |
 | - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| categoryId | String | 카테고리 아이디 |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値：true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
+| categoryId | String | No description |
 
 
 
-**요청 예시**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 등록
+### テンプレートカテゴリーの登録
 
 POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories
 X-NC-APP-KEY: {appKey}
@@ -593,7 +593,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 {
   "parentCategoryId" : "00000000",
-  "name" : "배송완료 안내 카테고리"
+  "name" : "配送完了案内カテゴリー"
 }
 ```
 
@@ -608,18 +608,18 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 -H "X-NHN-Authorization: Bearer {accessToken}"  \ 
 -d '{
   "parentCategoryId" : "00000000",
-  "name" : "배송완료 안내 카테고리"
+  "name" : "配送完了案内カテゴリー"
 }'
 ```
 
 </details>
 <span id="templateV10MessageChannelCategoryTreesGet"></span>
 
-## 템플릿 카테고리 트리 목록 조회
+## テンプレートカテゴリーツリー一覧照会
 
-템플릿 카테고리 트리 목록을 조회합니다.
+テンプレートカテゴリーのツリー一覧を照会します。
 
-**요청**
+**リクエスト**
 
 ```
 GET /template/v1.0/{messageChannel}/category-trees
@@ -627,31 +627,31 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**リクエストパラメータ**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryTemplateName | Query | String | N | 카테고리/템플릿 이름 |
-| senderProfileType | Query | String | N | 발신프로필 타입<br>[GROUP, NORMAL] |
-| senderKey | Query | String | N | 발신 키 |
-| status | Query | String | N | 템플릿 상태 |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
+| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| messageChannel | Path | String | Y | メッセージチャネル<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| categoryTemplateName | Query  | String | N | カテゴリー/テンプレート名 |
+| senderProfileType | Query | String | N | 送信元プロファイルタイプ<br>[GROUP, NORMAL] |
+| senderKey | Query | String | N | 送信キー |
+| status | Query  | String | N | テンプレート状態 |
 
 
 
-**요청 본문**
+**リクエスト本文**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
 
-이 API는 요청 본문을 요구하지 않습니다.
+このAPIはリクエスト本文を要求しません。
 
 
 
-**응답 본문**
+**レスポンス本文**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
 
 ```
 {
@@ -662,44 +662,44 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "categories" : [ {
     "categoryId" : "A9z0A9z0",
-    "categoryName" : "배송완료 안내 카테고리",
+    "categoryName" : "配送完了案内カテゴリー",
     "parentCategoryId" : "00000000",
     "messageChannel" : "SMS",
     "categories" : null,
     "templates" : [ {
       "templateId" : "11111111",
-      "templateName" : "배송 완료 템플릿"
+      "templateName" : "配送完了テンプレート"
     } ]
   } ]
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!-- レスポンス本文のフィールドを説明します。-->
 
-| 경로 | 타입 | 설명 |
+| パス | タイプ | 説明 |
 | - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| categories | Array | |
-| categories[].categoryId | String | 카테고리 아이디, 루트 카테고리(ROOT) |
-| categories[].categoryName | String | 카테고리 이름, 루트 카테고리(Root Category) |
-| categories[].parentCategoryId | String | 상위 카테고리 아이디 |
-| categories[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| categories[].categories | Array | 카테고리에 속한 카테고리 목록 |
-| categories[].templates | Array | 카테고리에 속한 템플릿 목록 |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値：true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
+| categories | Array |  |
+| categories[].categoryId | String | カテゴリーID、ルートカテゴリー(ROOT) |
+| categories[].categoryName | String | カテゴリー名、ルートカテゴリー(Root Category) |
+| categories[].parentCategoryId | String | 上位カテゴリーID |
+| categories[].messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| categories[].categories | Array | カテゴリーに属するカテゴリーリスト |
+| categories[].templates | Array | カテゴリーに属するテンプレートリスト |
 
 
 
-**요청 예시**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 트리 목록 조회
+### テンプレートカテゴリーツリー一覧照会
 
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/category-trees
 X-NC-APP-KEY: {appKey}
