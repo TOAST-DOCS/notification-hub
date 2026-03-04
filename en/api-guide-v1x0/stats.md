@@ -6,20 +6,20 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>통계</h1>
+<h1>Statistics</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > 통계**
+**Notification > Notification Hub > API v1.0 User Guide > Statistics**
 
 
 
 <span id="statsV1x0001ReadStats"></span>
 
-## 통계 조회
+## Query Statistics
 
-통계 이벤트를 이벤트가 발생한 시간 기준으로 조회합니다.<br>
+Retrieve statistical events based on the event timestamp.<br>
 
 
-**요청**
+**Request**
 
 ```
 GET /stats/v1.0/stats
@@ -27,52 +27,52 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**요청 파라미터**
+**Request Parameter**
 
-| 이름 | 구분 | 타입 | 필수 | 설명 |
+| Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| eventCategory | Query  | V1x0EventCategory | Y | 이벤트 카테고리  |
-| messageChannel | Query  | V1x0MessageChannel | N | 메시지 채널입니다. 설정하지 않으면 메시지 채널 전체에 대해 통계 데이터가 조회되며, 이벤트 카테고리는 메시지 발송(MESSAGE_SEND)만 설정할 수 있습니다.<br>  |
-| statsKeyId | Query  | String | N | 통계 키 아이디입니다.  |
-| messageId | Query  | String | N | 메시지 아이디입니다.  |
-| templateId | Query  | String | N | 템플릿 아이디입니다.  |
-| eventDateTimeFrom | Query  | Date | N | 통계 이벤트 조회 시작 일시(포함)입니다. 연월일시분까지 적용됩니다. 초와 밀리초는 사용되지 않습니다.<br> 예로, \"2023-12-31T00:00:30.999+09:00\"는 \"2023-12-31T00:00:00.000+09:00\"으로 처리됩니다.  |
-| eventDateTimeTo | Query  | Date | N | 통계 이벤트 조회 종료 일시(미포함)입니다. 연월일시분까지 적용됩니다. 초와 밀리초는 사용되지 않습니다.<br> 예로, \"2024-01-01T00:00:30.999+09:00\"는 \"2024-01-01T00:00:00.000+09:00\"으로 처리됩니다.  |
-| statsType | Query  | V1x0StatsType | N | 통계 유형<br> - MINUTELY: 0분 ~ 59분 사이 그룹핑<br> - HOURLY: 0시 ~ 23시 사이 그룹핑<br> - DAILY: 0일 ~ 30일 사이 그룹핑<br> - BY_DAY_OF_WEEK: 월화수목금토일 그룹핑<br> 예: timeGrouping을 BY_DAY_OF_WEEK로 설정하면, 30일치를 조회하더라도 요일(월~일) 기준으로 데이터가 그룹화됩니다.  |
-| timeZone | Query  | String | N | 통계 조회 타임존(시간대)입니다. 예: Asia/Seoul, UTC, America/New_York <br> 통계 조회 시 데이터를 받을 때 원하는 시간대로 설정해서 받을 수 있습니다. 일반적으로 조회하는 클라이언트/브라우저의 시간대를 설정하면 됩니다.<br> 예를 들어, 요일별로 그룹핑된 통계 데이터를 한국이 아닌 다른 곳에서 조회한 경우 시간대가 다르기 때문에 원하는 데이터가 조회되지 않을 수 있습니다.  |
-| statsCriteria | Query  | List | N | 조회 기준입니다. 설정된 이벤트 카테고리에 따라 설정할 수 있는 조회 기준이 달라집니다.<br>  |
-| extra1 | Query  | String | N | 추가 수집되는 데이터입니다.  |
-| extra2 | Query  | String | N | 추가 수집되는 데이터입니다.  |
-| extra3 | Query  | String | N | 추가 수집되는 데이터입니다.  |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | Access token |
+| eventCategory | Query  | V1x0EventCategory | Y | Event category  |
+| messageChannel | Query  | V1x0MessageChannel | N | The message channel. If left blank, statistics for all channels are retrieved. In this case, the event category is restricted to 'MESSAGE_SEND'.<br>  |
+| statsKeyId | Query  | String | N | Statistics key ID.  |
+| messageId | Query  | String | N | Message ID.  |
+| templateId | Query  | String | N | Template ID.  |
+| eventDateTimeFrom | Query  | Date | N | Start timestamp for statistics (inclusive). Applied up to the minute. Seconds and milliseconds are ignored.<br> e.g., \"2023-12-31T00:00:30.999+09:00\" is treated as \"2023-12-31T00:00:00.000+09:00\".  |
+| eventDateTimeTo | Query  | Date | N | End timestamp for statistics (exclusive). Applied up to the minute. Seconds and milliseconds are ignored.<br> e.g., \"2024-01-01T00:00:30.999+09:00\" is treated as \"2024-01-01T00:00:00.000+09:00\".  |
+| statsType | Query  | V1x0StatsType | N | Statistics type<br> - MINUTELY: Groups data by minute (0–59)<br> - HOURLY: Groups data by hour (0–23)<br> - DAILY: Groups data by day of the month (1–30)<br> - BY_DAY_OF_WEEK: Groups data by day of the week (Mon–Sun)<br> e.g., If set timeGrouping to BY_DAY_OF_WEEK, a 30-day data range will be aggregated into 7 groups, one for each day of the week.  |
+| timeZone | Query  | String | N | Specifies the timezone for statistics (e.g., Asia/Seoul, UTC) <br> Set this to your local or browser timezone to ensure data is correctly grouped and displayed according to your local time. Set this to your local or browser timezone. This ensures that time-based grouping (e.g., daily statistics) accurately reflects your local time and prevents data discrepancies across different regions.  |
+| statsCriteria | Query  | List | N | Query criteria. Options are dynamically updated based on the selected event category.<br>  |
+| extra1 | Query  | String | N | Additional data collected.  |
+| extra2 | Query  | String | N | Additional data collected.  |
+| extra3 | Query  | String | N | Additional data collected.  |
 
-* 메시지 채널에 따라 설정할 수 있는 이벤트 카테고리가 달라집니다.
+* The configurable event categories depend on message channels.
 
-    | 메시지 채널 | 이벤트 카테고리 |
+    | Message channel | Event category |
     | --- | --- |
     | SMS | MESSAGE_SEND, INTERNATIONAL_MESSAGE_SEND |
     | ALIMTALK, RCS, EMAIL, PUSH | MESSAGE_SEND |
-* 조회 시작 일시는 조회 기간에 포함이 되며, 조회 종료 일시는 조회 기간에 포함되지 않습니다.
-    * 예: 2025년 1월 1일 하루 데이터를 조회하기 위해서는 eventDateTimeFrom을 2025-01-01T00:00:00.000+09:00로 설정하고 eventDateTimeTo를 2025-01-02T00:00:00.000+09:00로 설정해야 합니다.
-* 이벤트 외 추가로 데이터를 수집해 총 3개(extra1, extra2, extra3)의 추가 필드를 제공합니다.
-설정된 이벤트 카테고리에 따라 추가 수집되는 데이터의 종류가 다릅니다.
+* The start date and time are inclusive, while the end date and time are exclusive.
+    * e.g., To retrieve data for January 1, 2025, set eventDateTimeFrom to 2025-01-01T00:00:00.000+09:00 and eventDateTimeTo to 2025-01-02T00:00:00.000+09:00.
+* Three additional fields (extra1, extra2, extra3) are provided for supplemental data collection.
+The type of data collected in these additional fields varies depending on the configured event category.
 
-    | 이벤트 카테고리 | 추가 데이터 1 | 추가 데이터 2 | 추가 데이터 3 |
+    | Event category | Additional data 1 | Additional data 2 | Additional data 3 |
     | --- | --- | --- | --- |
-    | MESSAGE_SEND | 발송 유형(SMS, LMS, MMS 등) | 발송 목적(NORMAL, AUTH, AD) | 발신 정보(발신 번호, 발신 도메인 등) |
-    | INTERNATIONAL_MESSAGE_SEND | 발송 유형(SMS, LMS, MMS 등) | 발송 목적(NORMAL, AUTH, AD) | 발신 정보(발신 번호, 발신 도메인 등) |
+    | MESSAGE_SEND | Delivery type (SMS, LMS, MMS) | Delivery purpose (NORMAL, AUTH, AD) | Sender information (sender ID, sender domain, etc.) |
+    | INTERNATIONAL_MESSAGE_SEND | Delivery type (SMS, LMS, MMS, etc.) | Delivery purpose (NORMAL, AUTH, AD) | Sender information (sender ID, sender domain, etc.) |
 
 
-**요청 본문**
+**Request Body**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-이 API는 요청 본문을 요구하지 않습니다.
+This API does not require a request body.
 
 
 
-**응답 본문**
+**Response Body**
 
 <!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
 
@@ -114,26 +114,26 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
+| Path | Type | Description |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | 작업이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| stats | Object |  |
-| stats.columns | Array | 이벤트 카테고리에 대한 이벤트가 칼럼으로 응답됩니다.<br>EVENT_DATE_TIME 칼럼은 이벤트 발생 일시를 나타냅니다.<br> |
-| stats.rows | Array | EVENT_DATE_TIME 필드을 제외한 나머지 필드은 이벤트 카테고리에 따라 응답됩니다.<br><br> |
+| header.isSuccessful | Boolean | Indicates whether the operation was successful.<br>Default: true |
+| header.resultCode | Integer | The result code of the request.<br>Default: 0 |
+| header.resultMessage | String | The result message of the request.<br>Default: SUCCESS |
+| stats | Object | |
+| stats.columns | Array | Events for each event category are responded with columns.<br>The EVENT_DATE_TIME column indicates the date and time the event occurred.<br> |
+| stats.rows | Array | Except for the EVENT_DATE_TIME field, all other fields are responded with according to the event category.<br><br> |
 
 
 
-**요청 예시**
+**Request Example**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 통계 조회
+### Retrieve Statistics
 
 GET {{endpoint}}/stats/v1.0/stats?eventCategory={{eventCategory}}
 X-NC-APP-KEY: {appKey}
