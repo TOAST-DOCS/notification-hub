@@ -37,7 +37,7 @@
   ],
   "content": {
     "messageType": "SMS",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "body": "안녕하세요. NHN Cloud Notification Hub입니다."
   }
 }
 ```
@@ -74,7 +74,7 @@
   "content": {
     "messageType": "LMS",
     "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다."
+    "body": "안녕하세요. NHN Cloud Notification Hub입니다."
   }
 }
 ```
@@ -112,7 +112,7 @@
   "content": {
     "messageType": "MMS",
     "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "body": "안녕하세요. NHN Cloud Notification Hub입니다.",
     "attachmentIds": [
       "첨부_파일_아이디"
     ]
@@ -127,7 +127,7 @@
 | content | Object | Y | 메시지 내용 |
 | content.messageType | String | Y | MMS |
 | content.body | String | Y | 내용 |
-| content.attachmentIds | String Array | Y | 첨부 파일 아이디<br>첨부 이미지 제한 사항.<br>지원 코덱: .jpg, .jpeg<br>첨부 이미지 개수: 3개 이하.<br>첨부 이미지 사이즈: 1개당 300KB 이하. 단, 첨부한 이미지의 개수가 3개일 경우 합산 800KB 이하.<br>첨부 이미지 해상도: 1000*1000 이하. |
+| content.attachmentIds | String Array | Y | 첨부 파일 아이디<br>첨부 이미지 제한 사항.<br>지원 형식: .jpg, .jpeg<br>첨부 이미지 개수: 3개 이하.<br>첨부 이미지 크기: 1개당 300KB 이하. 단, 첨부한 이미지의 개수가 3개일 경우 합산 800KB 이하.<br>첨부 이미지 해상도: 1000×1000 이하. |
 
 
 <span id="rcs"></span>
@@ -164,7 +164,7 @@
     "smsType": "STANDALONE",
     "cards": [
         {
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -188,7 +188,7 @@
 
 
 | 이름 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | sender | Object | Y | 발신자 |
 | sender.brandId | String | Y | 브랜드 아이디 |
 | sender.chatbotId | String | Y | 대화방 아이디 |
@@ -201,7 +201,7 @@
 | content.cards[].description | String | Y | 내용 |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -237,7 +237,7 @@
     "cards": [
         {
           "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -273,7 +273,7 @@
 | content.cards[].description | String | Y | 내용 |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -318,7 +318,7 @@
           "mTitle":"[NHN Cloud] 공지사항",
           "mTitleMedia":"LT-messagebase.common-DdWk6s",
           "title":"공지 1",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -341,7 +341,7 @@
 ```
 
 | 이름 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | sender | Object | Y | 발신자 |
 | sender.brandId | String | Y | 브랜드 아이디 |
 | sender.chatbotId | String | Y | 대화방 아이디 |
@@ -356,7 +356,7 @@
 | content.cards[].description | String | Y | 내용 |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -399,11 +399,11 @@
           "mTitle":"[NHN Cloud] 공지사항",
           "mTitleMedia":"LT-messagebase.common-DdWk6s",
           "title1":"공지 1",
-          "description1":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description1":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "title2":"공지 2",
-          "description2":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description2":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "title3":"공지 3",
-          "description3":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description3":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -454,7 +454,7 @@
 ```
 
 | 이름 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | sender | Object | Y | 발신자 |
 | sender.brandId | String | Y | 브랜드 아이디 |
 | sender.chatbotId | String | Y | 대화방 아이디 |
@@ -473,7 +473,7 @@
 | content.cards[].description3 | String | Y | 내용(문단 3) |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -509,7 +509,7 @@
     "cards": [
         {
           "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
@@ -534,7 +534,7 @@
 
 
 | 이름 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | sender | Object | Y | 발신자 |
 | sender.brandId | String | Y | 브랜드 아이디 |
 | sender.chatbotId | String | Y | 대화방 아이디 |
@@ -548,7 +548,7 @@
 | content.cards[].attachmentId | String | Y | 첨부 파일 아이디 |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -582,7 +582,7 @@
     "cards": [
         {
           "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
@@ -598,7 +598,7 @@
         },
         {
           "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
@@ -614,7 +614,7 @@
         },
         {
           "title":"[NHN Cloud] 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다.",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다.",
           "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
@@ -639,7 +639,7 @@
 
 
 | 이름 | 타입 | 필수 | 설명 |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | sender | Object | Y | 발신자 |
 | sender.brandId | String | Y | 브랜드 아이디 |
 | sender.chatbotId | String | Y | 대화방 아이디 |
@@ -653,7 +653,7 @@
 | content.cards[].attachmentId | String | Y | 첨부 파일 아이디 |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기) |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -688,7 +688,7 @@
     "smsType": "UNIFIED_STANDALONE",
     "cards": [
         {
-          "description":"(광고) 안녕하세요. NHN Cloud Notification Hub 입니다. 무료수신거부 08012341234",
+          "description":"(광고) 안녕하세요. NHN Cloud Notification Hub입니다. 무료수신거부 08012341234",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -724,7 +724,7 @@
 | content.cards[].description | String | Y | 내용<br>통합 SMS 카드는 제목이 없으므로 광고 발송 시 본문 첫 부분에 (광고) 문구를 포함해야 하며, 본문 끝에 무료수신거부 문구 및 080 번호를 포함해야 합니다. |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br><br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다. |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -760,7 +760,7 @@
     "cards": [
         {
           "title":"(광고) NHN Cloud 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다. 무료수신거부 08012341234",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다. 무료수신거부 08012341234",
           "buttons" : [
             {
               "buttonType" : "URL",
@@ -797,7 +797,7 @@
 | content.cards[].description | String | Y | 내용<br>광고 발송 시 본문 끝에 무료수신거부 문구 및 080 번호를 포함해야 합니다. |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br><br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다. |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -833,7 +833,7 @@
     "cards": [
         {
           "title":"(광고) NHN Cloud 공지사항",
-          "description":"안녕하세요. NHN Cloud Notification Hub 입니다. 무료수신거부 08012341234",
+          "description":"안녕하세요. NHN Cloud Notification Hub입니다. 무료수신거부 08012341234",
           "attachmentId":"첨부 파일 아이디",
           "buttons" : [
             {
@@ -872,7 +872,7 @@
 | content.cards[].attachmentId | String | Y | 첨부 파일 아이디<br>※ GIF 이미지를 첨부하면 iOS 기기에서는 수신이 불가능합니다. |
 | content.cards[].buttons | Object Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | Y | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br><br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다. |
-| content.cards[].buttons[].buttonJson | Object | Y | 버튼 Json, 버튼 타입에 맞는 포맷 확인 |
+| content.cards[].buttons[].buttonJson | Object | Y | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
 | options | Object | N | 발송 옵션 |
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
@@ -898,7 +898,7 @@
   ],
   "content": {
     "title": "[NHN Cloud Notification Hub] 공지사항",
-    "body": "안녕하세요. NHN Cloud Notification Hub 입니다.",
+    "body": "안녕하세요. NHN Cloud Notification Hub입니다.",
     "attachmentIds": [
       "첨부_파일_아이디"
     ]
@@ -907,18 +907,18 @@
 ```
 
 | 이름 | 타입 | 필수 | 설명 |
-| --- |---------------| --- | --- |
+| --- | --- | --- | --- |
 | sender | Object | N | 발신자, 푸시 외 다른 메시지 채널은 필수 |
-| sender.senderMailAddress | Object | N | 발신자 이메일 주소 |
+| sender.senderMailAddress | String | N | 발신자 이메일 주소 |
 | content | Object | Y | 메시지 내용 |
-| content.title | Object | Y | 제목 |
-| content.Object | Y | 내용 |
+| content.title | String | Y | 제목 |
+| content.body | String | Y | 내용 |
 | content.attachmentIds | String Array | N | 첨부 파일 아이디 |
 
 * 발신자 이메일 주소의 도메인은 소유 인증이 완료되어야 합니다.
 * 첨부 파일은 30MB 이하로 최대 10개까지 업로드할 수 있습니다.
 * 첨부 파일은 총합이 최대 30MB를 초과할 수 없습니다.
-* 최대 30MB까지 첨부 가능하지만 수신하는 이메일 시스템(gmail.com, naver.com 등)의 첨부 파일 제한 정책에 따라 **제한 초과**로 거부되거나 스팸 판정률이 높아질 수 있으므로 10MB 이내로 첨부할 것을 권장합니다.
+* 최대 30MB까지 첨부 가능하지만 수신하는 이메일 시스템(gmail.com, naver.com 등)의 첨부 파일 제한 정책에 따라 '제한 초과'로 거부되거나 스팸 판정률이 높아질 수 있으므로 10MB 이내로 첨부할 것을 권장합니다.
 * **recipients[].contacts[].contactType** 필드에는 **EMAIL_ADDRESS**만 사용 가능합니다. 
 * **recipients[].contacts[].contact** 필드에는 수신자 이메일 주소를 입력합니다.
 
