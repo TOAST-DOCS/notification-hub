@@ -127,7 +127,7 @@
 | content | Object | Y | Message Content |
 | content.messageType | String | Y | MMS |
 | content.body | String | Y | Content |
-| content.attachmentIds | String Array | Y | Attachment File ID<br>Attached Image Restrictions.<br>Supported Codecs: .jpg, .jpeg<br>Number of Attached Images: 3 or less.<br>Attached Image Size: 300KB or less per image. However, if there are 3 attached images, the total size of the images must be 800KB or less.<br>Attached Image Resolution: 1,000*1,000 or less. |
+| content.attachmentIds | String Array | Y | Attachment File ID<br>Attached Image Restrictions.<br>Supported Codecs: .jpg, .jpeg<br>Number of Attached Images: 3 or less.<br>Attached Image Size: 300KB or less per image. However, if there are 3 attached images, the total size of the images must be 800KB or less.<br>Attached Image Resolution: 1,000×1,000 or less. |
 
 
 <span id="rcs"></span>
@@ -195,13 +195,13 @@
 | content | Object | Y | Message content |
 | content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
 | content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
-| content.smsType | String | Y | SMS type, required if the message type is SMS, STANDALONE (standard) |
+| content.smsType | String | Y | SMS type, required if the message type is SMS, STANDALONE (standard), UNIFIED_STANDALONE (Integrated SMS card) |
 | content.cards | Object Array | Y | Card |
 | content.cards[].title | String | N | Title |
 | content.cards[].description | String | Y | Content |
 | content.cards[].buttons | Object Array | N | Button |
 | content.cards[].buttons[].buttonType | String | Y | Button Type<br>COMPOSE (Open Chat), CLIPBOARD (Copy), DIALER (Make a Call), MAP_SHOW (Show Map), MAP_QUERY (Search Map), MAP_SHARE (Share Current Location), URL (Connect URL), CALENDAR (Register Schedule) |
-| content.cards[].buttons[].buttonJson | Object | Y | Button Json, check the format for the button type |
+| content.cards[].buttons[].buttonJson | Object | Y | Button JSON, check the format for the button type |
 | options | Object | N | Sending Options |
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting value (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
@@ -267,13 +267,13 @@
 | content | Object | Y | Message content |
 | content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
 | content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
-| content.lmsType | String | Y | LMS type, required if the message type is LMS, STANDALONE (Standard), FORMAT_BASIC (Basic format), FORMAT_TITLE_HIGHLIGHT (Highlighted title format), FORMAT_PARAGRAPH (Paragraph format) |
+| content.lmsType | String | Y | LMS type, required if the message type is LMS, STANDALONE (Standard), FORMAT_BASIC (Basic format), FORMAT_TITLE_HIGHLIGHT (Highlighted title format), FORMAT_PARAGRAPH (Paragraph format), UNIFIED_STANDALONE (Integrated LMS card) |
 | content.cards | Object Array | Y | Card |
 | content.cards[].title | String | N | Title |
 | content.cards[].description | String | Y | Content |
 | content.cards[].buttons | Object Array | N | Button |
 | content.cards[].buttons[].buttonType | String | Y | Button Type<br>COMPOSE (Open Chat), CLIPBOARD (Copy), DIALER (Make a Call), MAP_SHOW (Show Map), MAP_QUERY (Search Map), MAP_SHARE (Share Current Location), URL (Connect URL), CALENDAR (Register Schedule) |
-| content.cards[].buttons[].buttonJson | Object | Y | Button Json, Check the format for the button type |
+| content.cards[].buttons[].buttonJson | Object | Y | Button JSON, Check the format for the button type |
 | options | Object | N | Sending Options |
 | options.expiryOption | Integer | N | RCS message reception wait expiration setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
@@ -348,7 +348,7 @@
 | content | Object | Y | Message content |
 | content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
 | content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
-| content.lmsType | String | Y | LMS type, required if the message type is LMS, STANDALONE (Standard), FORMAT_BASIC (Basic format), FORMAT_TITLE_HIGHLIGHT (Highlighted title format), FORMAT_PARAGRAPH (Paragraph format) |
+| content.lmsType | String | Y | LMS type, required if the message type is LMS, STANDALONE (Standard), FORMAT_BASIC (Basic format), FORMAT_TITLE_HIGHLIGHT (Highlighted title format), FORMAT_PARAGRAPH (Paragraph format), UNIFIED_STANDALONE (Integrated LMS Card) |
 | content.cards | Object Array | Y | Card |
 | content.cards[].mTitle | String | Y | Main Title |
 | content.cards[].mTitleMedia | String | N | Main Title Icon |
@@ -356,7 +356,7 @@
 | content.cards[].description | String | Y | Content |
 | content.cards[].buttons | Object Array | N | Button |
 | content.cards[].buttons[].buttonType | String | Y | Button Type<br>COMPOSE (Open Chat Room), CLIPBOARD (Copy), DIALER (Make a Call), MAP_SHOW (Show Map), MAP_QUERY (Search Map), MAP_SHARE (Share Current Location), URL (Connect URL), CALENDAR (Register Schedule) |
-| content.cards[].buttons[].buttonJson | Object | Y | Button Json, check the format for the button type |
+| content.cards[].buttons[].buttonJson | Object | Y | Button JSON, check the format for the button type |
 | options | Object | N | Sending Options |
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
@@ -461,7 +461,7 @@
 | content | Object | Y | Message content |
 | content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
 | content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
-| content.lmsType | String | Y | LMS type, required if the message type is LMS, STANDALONE (Standard), FORMAT_BASIC (Basic format), FORMAT_TITLE_HIGHLIGHT (Highlighted title format), FORMAT_PARAGRAPH (Paragraph format) |
+| content.lmsType | String | Y | LMS type, required if the message type is LMS, STANDALONE (Standard), FORMAT_BASIC (Basic format), FORMAT_TITLE_HIGHLIGHT (Highlighted title format), FORMAT_PARAGRAPH (Paragraph format), UNIFIED_STANDALONE (Integrated LMS card) |
 | content.cards | Object Array | Y | Card |
 | content.cards[].mTitle | String | Y | Main Title |
 | content.cards[].mTitleMedia | String | N | Main Title Icon |
@@ -539,14 +539,14 @@
 | content | Object | Y | Message content |
 | content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
 | content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
-| content.mmsType | String | Y | MMS type, required if the message type is MMS, HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL |
+| content.mmsType | String | Y | MMS type, required if the message type is MMS, HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL (Integrated MMS card horizontal), UNIFIED_VERTICAL (Integrated MMS card vertical) |
 | content.cards | Object Array | Y | Cards |
 | content.cards[].title | String | N | Title |
 | content.cards[].description | String | Y | Content |
 | content.cards[].attachmentId | String | Y | Attachment ID |
 | content.cards[].buttons | Object Array | N | Button |
 | content.cards[].buttons[].buttonType | String | Y | Button Type<br>COMPOSE (Open Chat), CLIPBOARD (Copy), DIALER (Make a Call), MAP_SHOW (Show Map), MAP_QUERY (Search Map), MAP_SHARE (Share Current Location), URL (Connect URL), CALENDAR (Register Schedule) |
-| content.cards[].buttons[].buttonJson | Object | Y | Button Json, Check the format for the button type |
+| content.cards[].buttons[].buttonJson | Object | Y | Button JSON, Check the format for the button type |
 | options | Object | N | Sending Options |
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
@@ -644,7 +644,7 @@
 | content | Object | Y | Message content |
 | content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
 | content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
-| content.mmsType | String | Y | MMS type, required if the message type is MMS, HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL |
+| content.mmsType | String | Y | MMS type, required if the message type is MMS, HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL (Integrated MMS card horizontal), UNIFIED_VERTICAL (Integrated MMS card vertical) |
 | content.cards | Object Array | Y | Cards |
 | content.cards[].title | String | N | Title |
 | content.cards[].description | String | Y | Content |
@@ -654,7 +654,223 @@
 | content.cards[].buttons[].buttonJson | Object | Y | Button Json, Check the format for the button type |
 | options | Object | N | Sending Options |
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
-| options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
+| options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
+
+<span id="free-form-message-request-body-rcs-unified-sms"></span>
+
+### Integrated SMS Card
+
+```json
+{
+  "statsKeyId": "Statistics_Key_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "Brand_ID",
+    "chatbotId": "Chatbot_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "Client_Reference"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "SMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "smsType": "UNIFIED_STANDALONE",
+    "cards": [
+        {
+          "description":"(Advertisement) Hi, this is NHN Cloud Notification Hub. Opt-out: 08012341234",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Go to Homepage"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| sender | Object | Y | Sender |
+| sender.brandId | String | Y | Brand ID |
+| sender.chatbotId | String | Y | Chat room ID |
+| content | Object | Y | Message content |
+| content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
+| content.smsType | String | Y | SMS type, required if the message type is SMS, STANDALONE (Standard), UNIFIED_STANDALONE (Integrated SMS Card) |
+| content.cards | Object Array | Y | Card |
+| content.cards[].description | String | Y | Content<br>As the Integrated SMS Card has no subject line, the "(Advertisement)" label must be included at the beginning of the body, and opt-out instructions and an 080 number must be included at the end of the body when sending for advertising purposes. |
+| content.cards[].buttons | Object Array | N | Button |
+| content.cards[].buttons[].buttonType | String | Y | Button Type<br>COMPOSE (Open Chat), CLIPBOARD (Copy), DIALER (Make a Call), MAP_SHOW (Show Map), MAP_QUERY (Search Map), MAP_SHARE (Share Current Location), URL (Connect URL), CALENDAR (Register Schedule)<br><br>※ If a CLIPBOARD (Copy) button is used in integrated message types, the message cannot be received on iOS devices. |
+| content.cards[].buttons[].buttonJson | Object | Y | Button JSON, check the format for the button type |
+| options | Object | N | Sending Options |
+| options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
+| options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
+
+---
+
+### Integrated LMS Card
+
+```json
+{
+  "statsKeyId": "Statistics_Key_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "Brand_ID",
+    "chatbotId": "Chatbot_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "Client_Reference"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "LMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "lmsType": "UNIFIED_STANDALONE",
+    "cards": [
+        {
+          "title":"(Advertisement) NHN Cloud Notice",
+          "description":"Hi, this is NHN Cloud Notification Hub. Opt-out: 08012341234",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Go to Homepage"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| sender | Object | Y | Sender |
+| sender.brandId | String | Y | Brand ID |
+| sender.chatbotId | String | Y | Chat room ID |
+| content | Object | Y | Message content |
+| content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
+| content.lmsType | String | Y | LMS type, required if the message type is LMS, STANDALONE (Standard), FORMAT_BASIC (Basic format), FORMAT_TITLE_HIGHLIGHT (Highlighted title format), FORMAT_PARAGRAPH (Paragraph format), UNIFIED_STANDALONE (Integrated LMS Card) |
+| content.cards | Object Array | Y | Card |
+| content.cards[].title | String | N | Title<br>When sending for advertising purposes, the "(Advertisement)" label must be included at the beginning of the subject line. |
+| content.cards[].description | String | Y | Content<br>When sending for advertising purposes, opt-out instructions and an 080 number must be included at the end of the body. |
+| content.cards[].buttons | Object Array | N | Button |
+| content.cards[].buttons[].buttonType | String | Y | Button Type<br>COMPOSE (Open Chat), CLIPBOARD (Copy), DIALER (Make a Call), MAP_SHOW (Show Map), MAP_QUERY (Search Map), MAP_SHARE (Share Current Location), URL (Connect URL), CALENDAR (Register Schedule)<br><br>※ If a CLIPBOARD (Copy) button is used in integrated message types, the message cannot be received on iOS devices. |
+| content.cards[].buttons[].buttonJson | Object | Y | Button JSON, check the format for the button type |
+| options | Object | N | Sending Options |
+| options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
+| options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
+
+<span id="free-form-message-request-body-rcs-unified-mms"></span>
+
+### Integrated MMS Card Horizontal, Vertical
+
+```json
+{
+  "statsKeyId": "Statistics_Key_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "Brand_ID",
+    "chatbotId": "Chatbot_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "Client_Reference"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "MMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "mmsType": "UNIFIED_HORIZONTAL",
+    "cards": [
+        {
+          "title":"(Advertisement) NHN Cloud Notice",
+          "description":"Hi, this is NHN Cloud Notification Hub. Opt-out: 08012341234",
+          "attachmentId":"Attachment_ID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "Go to Homepage"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| sender | Object | Y | Sender |
+| sender.brandId | String | Y | Brand ID |
+| sender.chatbotId | String | Y | Chat room ID |
+| content | Object | Y | Message content |
+| content.messageType | String | Y | Message type in RCS, SMS, LMS, MMS, RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080 opt-out number, required if the sending purpose is advertising |
+| content.mmsType | String | Y | MMS type, required if the message type is MMS, HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL (Integrated MMS Card Horizontal), UNIFIED_VERTICAL (Integrated MMS Card Vertical) |
+| content.cards | Object Array | Y | Card |
+| content.cards[].title | String | N | Title<br>When sending for advertising purposes, the "(Advertisement)" label must be included at the beginning of the subject line. |
+| content.cards[].description | String | Y | Content<br>When sending for advertising purposes, opt-out instructions and an 080 number must be included at the end of the body. |
+| content.cards[].attachmentId | String | Y | Attachment ID<br>※ If a GIF image is attached, the message cannot be received on iOS devices. |
+| content.cards[].buttons | Object Array | N | Button |
+| content.cards[].buttons[].buttonType | String | Y | Button Type<br>COMPOSE (Open Chat), CLIPBOARD (Copy), DIALER (Make a Call), MAP_SHOW (Show Map), MAP_QUERY (Search Map), MAP_SHARE (Share Current Location), URL (Connect URL), CALENDAR (Register Schedule)<br><br>※ If a CLIPBOARD (Copy) button is used in integrated message types, the message cannot be received on iOS devices. |
+| content.cards[].buttons[].buttonJson | Object | Y | Button JSON, check the format for the button type |
+| options | Object | N | Sending Options |
+| options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
+| options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
 
 <span id="free-form-message-request-body-email"></span>
@@ -687,17 +903,17 @@
 ```
 
 | Name | Type | Required | Description |
-| --- |--------------| --- | --- |
+| --- | --- | --- | --- |
 | sender | Object | N | Sender, required for message channels other than push |
-| sender.senderMailAddress | Object | N | Sender email address |
+| sender.senderMailAddress | String | N | Sender email address |
 | content | Object | Y | Message content |
-| content.title | Object | Y | Title |
-| content.Object | Y | Content |
+| content.title | String | Y | Title |
+| content.body | String | Content |
 | content.attachmentIds | String Array | N | Attachment ID |
 
 * The domain of the sender's email address must be verified.
 * Up to 10 attachments can be uploaded, each with a maximum size of 30MB.
-* The total size of attachments cannot exceed 30MB. * You can attach up to 30MB, but depending on the attachment limit policy of the receiving email system (e.g., gmail.com, naver.com), it may be rejected as **exceeding the limit** or may increase the spam rating, so we recommend keeping attachments under 10MB.
+* The total size of attachments cannot exceed 30MB. * You can attach up to 30MB, but depending on the attachment limit policy of the receiving email system (e.g., gmail.com, naver.com), it may be rejected as 'exceeding the limit' or may increase the spam rating, so we recommend keeping attachments under 10MB.
 * Only **EMAIL_ADDRESS** can be used in the **recipients[].contacts[].contactType** field.
 * Enter the recipient's email address in the **recipients[].contacts[].contact** field.
 
