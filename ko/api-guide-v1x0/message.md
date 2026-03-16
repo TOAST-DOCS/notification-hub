@@ -524,9 +524,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
 | content.title | String | N | 메시지 제목 |
 | content.body | String | N | 메시지 본문 |
-| content.smsType | String | N | SMS 타입<br>[STANDALONE] |
-| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.smsType | String | N | SMS 타입<br>[STANDALONE, UNIFIED_STANDALONE] |
+| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
