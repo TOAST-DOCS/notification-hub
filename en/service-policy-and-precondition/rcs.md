@@ -72,28 +72,37 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
     </tr>
     <tr>
         <td>1</td>
-        <td>SMS</td>
+        <td rowspan="2">SMS</td>
         <td>SMS</td>
         <td>Standalone</td>
         <td>1</td>
         <td>100</td>
         <td>1</td>
         <td>17</td>
-        <td>-</td>
+        <td rowspan="2">-</td>
     </tr>
     <tr>
         <td>2</td>
-        <td rowspan="4">LMS</td>
+        <td>Integrated SMS card</td>
+        <td>Standalone</td>
+        <td>1 sheet</td>
+        <td>100 chars</td>
+        <td>1 ea</td>
+        <td>7 chars</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td rowspan="5">LMS</td>
         <td>LMS</td>
         <td>Standalone</td>
         <td>1</td>
         <td>1,300</td>
         <td>3</td>
         <td>17</td>
-        <td>-</td>
+        <td rowspan="5">-</td>
     </tr>
     <tr>
-        <td>3</td>
+        <td>4</td>
         <td>Basic</td>
         <td>Format</td>
         <td>1</td>
@@ -102,7 +111,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>17</td>
     </tr>
     <tr>
-        <td>4</td>
+        <td>5</td>
         <td>Title emphasis</td>
         <td>Format</td>
         <td>1</td>
@@ -111,7 +120,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>17</td>
     </tr>
     <tr>
-        <td>5</td>
+        <td>6</td>
         <td>Paragraph</td>
         <td>Format</td>
         <td>1</td>
@@ -120,8 +129,17 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>7</td>
     </tr>
     <tr>
-        <td>6</td>
-        <td rowspan="4">MMS</td>
+        <td>7</td>
+        <td>Integrated LMS card</td>
+        <td>Standalone</td>
+        <td>1 sheet</td>
+        <td>1,300 chars</td>
+        <td>3 ea</td>
+        <td>7 chars</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td rowspan="6">MMS</td>
         <td>Vertical (Tall)</td>
         <td>Standalone Media Top</td>
         <td>1</td>
@@ -131,7 +149,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Tall (568x528)</td>
     </tr>
     <tr>
-        <td>7</td>
+        <td>9</td>
         <td>Vertical (Medium)</td>
         <td>Standalone Media Top</td>
         <td>1</td>
@@ -141,7 +159,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Medium (568x336)</td>
     </tr>
     <tr>
-        <td>8</td>
+        <td>10</td>
         <td>Slide (Medium)</td>
         <td>Carousel Medium</td>
         <td>2 <br/> to 6</td>
@@ -151,7 +169,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Medium (696x504)</td>
     </tr>
     <tr>
-        <td>9</td>
+        <td>11</td>
         <td>Slide (Small)</td>
         <td>Carousel Small</td>
         <td>2 <br/> to 6</td>
@@ -161,18 +179,38 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Short (360x336)</td>
     </tr>
     <tr>
-        <td>10</td>
-        <td rowspan="5">Text<br/>Template</td>
+        <td>12</td>
+        <td>Integrated MMS card M</td>
+        <td>Standalone Media Top</td>
+        <td>1 sheet</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>7 chars</td>
+        <td>Medium(900x504)</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>Integrated MMS card T</td>
+        <td>Standalone Media Top</td>
+        <td>1 sheet</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>7 chars</td>
+        <td>Tall(900x792)</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td rowspan="7">Text<br/>template</td>
         <td>Description Template_Title Optional</td>
         <td>Description</td>
         <td>1</td>
         <td>90 characters</td>
         <td>2</td>
         <td>17</td>
-        <td rowspan="5">-</td>
+        <td rowspan="7">-</td>
     </tr>
     <tr>
-        <td>11</td>
+        <td>15</td>
         <td>Description Template_Title Freeform</td>
         <td>Description</td>
         <td>1</td>
@@ -181,7 +219,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>16</td>
     </tr>
     <tr>
-        <td>12</td>
+        <td>16</td>
         <td>Style Template_Title Optional</td>
         <td>Cell</td>
         <td>1</td>
@@ -190,7 +228,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>17</td>
     </tr>
     <tr>
-        <td>13</td>
+        <td>17</td>
         <td>Style Template_Title Freeform</td>
         <td>Cell</td>
         <td>1</td>
@@ -199,7 +237,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>16</td>
     </tr>
     <tr>
-        <td>14</td>
+        <td>18</td>
         <td>Default Template_Title Freeform</td>
         <td>Free</td>
         <td>1</td>
@@ -208,8 +246,26 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>0</td>
     </tr>
     <tr>
-        <td>15</td>
-        <td rowspan="8">Image<br/>Template</td>
+        <td>19</td>
+        <td>Integrated informational template</td>
+        <td>Description</td>
+        <td>1 sheet</td>
+        <td>90 chars</td>
+        <td>2 ea</td>
+        <td>7 chars</td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td>Integrated free template</td>
+        <td>Free</td>
+        <td>1 sheet</td>
+        <td>90 chars</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>21</td>
+        <td rowspan="10">Imgage<br/>template</td>
         <td>Image &amp; Title Highlighted (3:4)</td>
         <td>Highlighted Image n Title</td>
         <td>1</td>
@@ -219,7 +275,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Long (900x1200)</td>
     </tr>
     <tr>
-        <td>16</td>
+        <td>22</td>
         <td>Image &amp; Title Highlighted (1:1)</td>
         <td>Highlighted Image n Title</td>
         <td>1</td>
@@ -229,7 +285,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Square (900x900)</td>
     </tr>
     <tr>
-        <td>17</td>
+        <td>23</td>
         <td>Image Highlighted (3:4)</td>
         <td>Highlighted Image</td>
         <td>1</td>
@@ -239,7 +295,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Long (900x1200)</td>
     </tr>
     <tr>
-        <td>18</td>
+        <td>24</td>
         <td>Image Highlighted (1:1)</td>
         <td>Highlighted Image</td>
         <td>1</td>
@@ -249,7 +305,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Square (900x900)</td>
     </tr>
     <tr>
-        <td>19</td>
+        <td>25</td>
         <td>Thumbnail type (Vertical)</td>
         <td>Thumbnail</td>
         <td>1</td>
@@ -259,7 +315,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Vertical (900x560)</td>
     </tr>
     <tr>
-        <td>20</td>
+        <td>26</td>
         <td>Thumbnail type (Horizontal)</td>
         <td>Thumbnail</td>
         <td>1</td>
@@ -269,7 +325,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Horizontal (900x560)</td>
     </tr>
     <tr>
-        <td>21</td>
+        <td>27</td>
         <td>Social media</td>
         <td>SNS</td>
         <td>1</td>
@@ -279,7 +335,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Square (900x900)</td>
     </tr>
     <tr>
-        <td>22</td>
+        <td>28</td>
         <td>Social (middle button)</td>
         <td>SNS</td>
         <td>1</td>
@@ -289,7 +345,27 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>Rectangle (900x560)</td>
     </tr>
     <tr>
-        <td>23</td>
+        <td>29</td>
+        <td>Integrated image template M</td>
+        <td>Standalone Media Top</td>
+        <td>1 sheet</td>
+        <td>500 chars</td>
+        <td>2 ea</td>
+        <td>7 chars</td>
+        <td>Medium(900x504)</td>
+    </tr>
+    <tr>
+        <td>30</td>
+        <td>Integrated image template T</td>
+        <td>Standalone Media Top</td>
+        <td>1 sheet</td>
+        <td>500 chars</td>
+        <td>2 ea</td>
+        <td>7 chars</td>
+        <td>Tall(900x792)</td>
+    </tr>
+    <tr>
+        <td>31</td>
         <td rowspan="6">LMS<br/>template</td>
         <td>Bill A-type</td>
         <td>Description</td>
@@ -300,7 +376,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td rowspan="6">-</td>
     </tr>
     <tr>
-        <td>24</td>
+        <td>32</td>
         <td>Bill C-type</td>
         <td>Description</td>
         <td>1</td>
@@ -309,7 +385,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>17</td>
     </tr>
     <tr>
-        <td>25</td>
+        <td>33</td>
         <td>Bill C-type</td>
         <td>Description</td>
         <td>1</td>
@@ -318,7 +394,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>17</td>
     </tr>
     <tr>
-        <td>26</td>
+        <td>34</td>
         <td>Basic</td>
         <td>Description</td>
         <td>1</td>
@@ -327,7 +403,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>17</td>
     </tr>
     <tr>
-        <td>27</td>
+        <td>35</td>
         <td>Title Emphasis</td>
         <td>Description</td>
         <td>1</td>
@@ -336,7 +412,7 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
         <td>17</td>
     </tr>
     <tr>
-        <td>28</td>
+        <td>36</td>
         <td>Paragraph</td>
         <td>Description</td>
         <td>1</td>

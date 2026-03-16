@@ -121,6 +121,7 @@
 | false        | 400002     | Invalid email address. {0}                                                                                                          |
 | false        | 400002     | Invalid recipient number.                                                                                                              |
 | false        | 400002     | The RCS recipient number is empty.                                                                                                            |
+| false        | 400002     | The body must include the "(Advertisement)" label and opt-out instructions.                                                                                             |
 | false        | 400002     | The template parameters are empty.                                                                                                              |
 | false        | 400002     | Template parameter {0} is missing.                                                                                                       |
 | false        | 400002     | Invalid template.                                                                                                                 |
