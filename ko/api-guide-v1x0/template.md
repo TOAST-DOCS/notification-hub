@@ -3504,17 +3504,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.chatbotId | String | Y | 대화방(챗봇) 아이디 |
 | content | Object | Y |  |
 | content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| content.title | String | N | 메시지 제목 |
-| content.body | String | N | 메시지 본문 |
-| content.smsType | String | N | SMS 타입<br>[STANDALONE] |
-| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.title | String | N | (Deprecated) 메시지 제목 |
+| content.body | String | N | (Deprecated) 메시지 본문 |
+| content.smsType | String | N | SMS 타입<br>[STANDALONE, UNIFIED_STANDALONE] |
+| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
 | content.cards[].title | String | N | 제목 |
 | content.cards[].description | String | N | 본문 |
-| content.cards[].attachmentId | String | N | 이미지 첨부 파일 아이디 |
+| content.cards[].attachmentId | String | N | 첨부 파일 아이디<br>※ 통합 MMS 카드에서 GIF 이미지를 첨부하면 iOS 기기에서는 수신이 불가능합니다. |
 | content.cards[].mTitle | String | N | 메인 타이틀 |
 | content.cards[].mTitleMedia | String | N | 메인 타이틀 로고 파일 ID |
 | content.cards[].title1 | String | N | 제목 1 |
@@ -3523,8 +3523,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description1 | String | N | 본문 1 |
 | content.cards[].description2 | String | N | 본문 2 |
 | content.cards[].description3 | String | N | 본문 3 |
-| content.cards[].buttons | Array | N |  |
-| content.buttons | Array | N | RCS 버튼 리스트 |
+| content.cards[].buttons | Array | N | 버튼 |
+| content.cards[].buttons[].buttonType | String | N | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br><br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | N | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
+| content.buttons | Array | N | (Deprecated) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
@@ -3965,18 +3967,18 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.sender.chatbotId | String | 대화방(챗봇) 아이디 |
 | template.content | Object |  |
 | template.content.messageType | String | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| template.content.title | String | 메시지 제목 |
-| template.content.body | String | 메시지 본문 |
-| template.content.smsType | String | SMS 타입<br>[STANDALONE] |
-| template.content.lmsType | String | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| template.content.mmsType | String | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| template.content.title | String | (Deprecated) 메시지 제목 |
+| template.content.body | String | (Deprecated) 메시지 본문 |
+| template.content.smsType | String | SMS 타입<br>[STANDALONE, UNIFIED_STANDALONE] |
+| template.content.lmsType | String | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| template.content.mmsType | String | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | template.content.messagebaseId | String | RCS Biz Center 템플릿 아이디 |
 | template.content.messagebaseformId | String | RCS Biz Center 에서 지정한 messageBase 양식<br><br>[SS000000(기본형), SL000000(기본형), OL00000001(LMS Format 기본형), OL00000002(LMS Format 타이틀 강조형), OL00000003(LMS Format 문단형), SMwThT00(MMS 세로형), SMwThM00(MMS 가로형), CMwMhM0200(MMS 슬라이드 중간형(2)), CMwMhM0300(MMS 슬라이드 중간형(3)), CMwMhM0400(MMS 슬라이드 중간형(4)), CMwMhM0500(MMS 슬라이드 중간형(5)), CMwMhM0600(MMS 슬라이드 중간형(6)), CMwShS0200(MMS 슬라이드 작은형(2)), CMwShS0300(MMS 슬라이드 작은형(3)), CMwShS0400(MMS 슬라이드 작은형(4)), CMwShS0500(MMS 슬라이드 작은형(5)), CMwShS0600(MMS 슬라이드 작은형(6)), CLI00001(아이템 상세형), ITTBNV(썸네일형(세로)), ITTBNH(썸네일형(가로)), ITHIMS(이미지 강조형(1:1)), ITHIMV(이미지 강조형(3:4)), ITSNSS(SNS형), ITSNSH(SNS형(중간버튼)), ITHITS(이미지 & 타이틀 강조형(1:1)), ITHITV(이미지 & 타이틀 강조형(3:4)), ITCRM2(슬라이드 형(2)), ITCRM3(슬라이드 형(3)), ITCRM4(슬라이드 형(4)), ITCRM5(슬라이드 형(5)), ITCRM6(슬라이드 형(6)), CLT00001(아이템 강조형 DESC), CLT00002(아이템 강조형 TABLE), TATA001C(타이틀 자유형 FREE), TATA001D(타이틀 자유형 CELL), TATA001F(타이틀 자유형 DESC), FF005C(타이틀 선택형 FREE), FF005D(명세서 CELL), FF004C(명세서 DESC), FF004D(취소 CELL), GG003C(취소 DESC), GG003D(안내 CELL), GG002C(안내 DESC), GG002D(인증 CELL), GG001C(인증 DESC), GG001D(회원 가입 CELL), GG000F(회원 가입 DESC), EE001C(예약 CELL), EE001D(예약 DESC), CC003C(배송 CELL), CC003D(배송 DESC), FF002C(입금 CELL), FF002D(입금 DESC), FF001C(승인 CELL), FF001D(승인 DESC), CC002C(주문 CELL), CC002D(주문 DESC), CC001C(출고 CELL), CC001D(출고 DESC), FF003C(출금 CELL), FF003D(출금 DESC), CLL00001(LMS 명세서 A), CLL00002(LMS 문단형), CLL00003(LMS 타이들 강조형), CLL00004(LMS 기본형), CLL00005(LMS 명세서 B), CLL00006(LMS 명세서 C)] |
 | template.content.unsubscribePhoneNumber | String | 수신 거부 번호(광고 발송일 경우 필수) |
 | template.content.cards | Array | RCS 카드 |
 | template.content.cards[].title | String | 제목 |
 | template.content.cards[].description | String | 본문 |
-| template.content.cards[].attachmentId | String | 이미지 첨부 파일 아이디 |
+| template.content.cards[].attachmentId | String | 첨부 파일 아이디<br>※ 통합 MMS 카드에서 GIF 이미지를 첨부하면 iOS 기기에서는 수신이 불가능합니다. |
 | template.content.cards[].mTitle | String | 메인 타이틀 |
 | template.content.cards[].mTitleMedia | String | 메인 타이틀 로고 파일 ID |
 | template.content.cards[].title1 | String | 제목 1 |
@@ -3985,8 +3987,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.cards[].description1 | String | 본문 1 |
 | template.content.cards[].description2 | String | 본문 2 |
 | template.content.cards[].description3 | String | 본문 3 |
-| template.content.cards[].buttons | Array |  |
-| template.content.buttons | Array | RCS 버튼 리스트 |
+| template.content.cards[].buttons | Array | 버튼 |
+| template.content.cards[].buttons[].buttonType | String | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br><br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| template.content.cards[].buttons[].buttonJson | Object | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
+| template.content.buttons | Array | (Deprecated) RCS 버튼 리스트 |
 | template.content.buttons[].buttonType | String | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | template.content.buttons[].buttonJson | Object |  |
 | template.content.buttons[].buttonJson.action | Object | 버튼 액션 |
@@ -4134,17 +4138,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.chatbotId | String | Y | 대화방(챗봇) 아이디 |
 | content | Object | Y |  |
 | content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| content.title | String | N | 메시지 제목 |
-| content.body | String | N | 메시지 본문 |
-| content.smsType | String | N | SMS 타입<br>[STANDALONE] |
-| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.title | String | N | (Deprecated) 메시지 제목 |
+| content.body | String | N | (Deprecated) 메시지 본문 |
+| content.smsType | String | N | SMS 타입<br>[STANDALONE, UNIFIED_STANDALONE] |
+| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | N | RCS 카드 |
 | content.cards[].title | String | N | 제목 |
 | content.cards[].description | String | N | 본문 |
-| content.cards[].attachmentId | String | N | 이미지 첨부 파일 아이디 |
+| content.cards[].attachmentId | String | N | 첨부 파일 아이디<br>※ 통합 MMS 카드에서 GIF 이미지를 첨부하면 iOS 기기에서는 수신이 불가능합니다. |
 | content.cards[].mTitle | String | N | 메인 타이틀 |
 | content.cards[].mTitleMedia | String | N | 메인 타이틀 로고 파일 ID |
 | content.cards[].title1 | String | N | 제목 1 |
@@ -4153,8 +4157,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description1 | String | N | 본문 1 |
 | content.cards[].description2 | String | N | 본문 2 |
 | content.cards[].description3 | String | N | 본문 3 |
-| content.cards[].buttons | Array | N |  |
-| content.buttons | Array | N | RCS 버튼 리스트 |
+| content.cards[].buttons | Array | N | 버튼 |
+| content.cards[].buttons[].buttonType | String | N | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br><br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | N | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
+| content.buttons | Array | N | (Deprecated) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
