@@ -33,10 +33,14 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 765f75a (#10468 Update API documents and add not-null info)
 
 **요청 본문**
 
@@ -68,7 +72,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -76,20 +81,21 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| sender | Object | N |  |
-| sender.senderPhoneNumber | String | Y | 발신 번호 |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| content | Object | N |  |
-| content.messageType | String | Y | 발송 메시지 유형(SMS, LMS, MMS)<br>[SMS, LMS, MMS] |
-| content.title | String | N | 메시지 제목 |
-| content.body | String | Y | 메시지 본문 |
-| content.attachmentIds | Array | N | 첨부 파일 아이디 최대 3개 |
+| statsKeyId | String | X | 통계 키 아이디 |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| sender | Object | X |  |
+| sender.senderPhoneNumber | String | O | 발신 번호 |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| content | Object | X |  |
+| content.messageType | String | O | 발송 메시지 유형(SMS, LMS, MMS)<br>[SMS, LMS, MMS] |
+| content.title | String | X | 메시지 제목 |
+| content.body | String | O | 메시지 본문 |
+| content.attachmentIds | Array | X | 첨부 파일 아이디 최대 3개 |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
 * 메시지 채널에 따라 **recipients[].contact.contactType**, **recipients[].contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
@@ -105,7 +111,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | RCS | sender.brandId | 브랜드 아이디 |
 | RCS | sender.chatbotId | 대화방 아이디 |
 | EMAIL | sender.senderMailAddress | 발신자 이메일 주소 |
-| ALIMTALK | sender.senderKey | 발신 키 |
+| ALIMTALK, FRIENDTALK | sender.senderKey | 발신 키 |
 | ALIMTALK | sender.senderProfileType | 발신 프로필 유형<br>GROUP, NORMAL |
 
 * 알림톡(ALIMTALK)은 발신 키(senderKey)와 발신 프로필 유형(senderProfileType)을 필수로 입력해야 합니다.
@@ -130,13 +136,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 **요청 예시**
@@ -151,7 +157,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/SMS/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -176,10 +181,10 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -187,8 +192,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -213,12 +218,418 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
 </details>
+<span id="messageV1x0002FriendtalkFreeFormMessages"></span>
 
+## 자유 양식 메시지 발송 요청 - 친구톡(FRIENDTALK)
+
+친구톡(FRIENDTALK)에 대한 자유 양식 메시지 발송을 요청합니다.
+
+
+**요청**
+
+```
+POST /message/v1.0/FRIENDTALK/free-form-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "TEXT",
+    "content" : null,
+    "attachmentId" : "20230131070811m2fDe1rXx80",
+    "imageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "imageLink" : "https://www.naver.com",
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "Button Name",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormKey" : "bizFormKey123"
+    } ],
+    "header" : "헤더",
+    "item" : {
+      "list" : [ {
+        "title" : "Item Title",
+        "attachmentId" : "20230131070811m2fDe1rXx80",
+        "imageUrl" : "https://example.com/image.jpg",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "carousel" : {
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "attachment" : {
+          "buttons" : [ {
+            "schemeAndroid" : "example://android",
+            "name" : "Button Name",
+            "linkMo" : "https://m.example.com",
+            "schemeIos" : "example://ios",
+            "linkPc" : "https://www.example.com",
+            "type" : "WL",
+            "bizFormKey" : "bizFormKey123",
+            "target" : "out"
+          } ],
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg",
+            "imageLink" : "https://www.example.com"
+          }
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "coupon" : {
+      "title" : "Coupon Title",
+      "description" : "Coupon Description",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  },
+  "dryRun" : false
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| statsKeyId | String | X | 통계 키 아이디 |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| sender | Object | X |  |
+| sender.senderKey | String | O | 발신프로필 발신키 |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| content | Object | X |  |
+| content.messageType | String | X | 템플릿 메시지 유형(TEXT: 텍스트형, IMAGE: 이미지형, WIDE_IMAGE: 와이드 이미지형, WIDE_ITEMLIST: 와이드아이템리스트형, CAROUSEL_FEED: 캐러셀피드형, default: TEXT) |
+| content.content | String | X | 템플릿 본문 |
+| content.attachmentId | String | X | 첨부 파일 아이디 |
+| content.imageUrl | String | X | 템플릿 이미지 URL |
+| content.imageLink | String | X | 템플릿 이미지 링크 |
+| content.buttons | Array | X | 템플릿 버튼 |
+| content.buttons[].type | String | X | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BF: 비지니스폼)<br>[WL, AL, BK, MD, BF] |
+| content.buttons[].name | String | X | 템플릿 버튼 이름 |
+| content.buttons[].linkMo | String | X | 템플릿 버튼 모바일 웹 링크 |
+| content.buttons[].linkPc | String | X | 템플릿 버튼 PC 웹 링크 |
+| content.buttons[].schemeIos | String | X | 템플릿 버튼 iOS 앱 링크 |
+| content.buttons[].schemeAndroid | String | X | 템플릿 버튼 안드로이드 앱 링크 |
+| content.buttons[].bizFormKey | String | X | BF(비즈니스 폼) 타입 버튼 시, 비즈폼 키 |
+| content.header | String | X | 헤더(와이드 아이템리스트 메시지 타입 사용 시, 필수, 최대 25자) |
+| content.item | Object | X |  |
+| content.item.list | Array | X |  |
+| content.item.list[].title | String | X | 아이템 타이틀 첫번째 아이템 25자, 2~4번째 30자 |
+| content.item.list[].attachmentId | String | X | 첨부 파일 아이디 |
+| content.item.list[].imageUrl | String | X | 아이템 이미지 URL |
+| content.item.list[].linkMo | String | X | 대표 링크 모바일 웹 링크 |
+| content.item.list[].linkPc | String | X | 대표 링크 PC 웹 링크 |
+| content.item.list[].schemeIos | String | X | 대표 링크 iOS 앱 링크 |
+| content.item.list[].schemeAndroid | String | X | 대표 링크 안드로이드 앱 링크 |
+| content.carousel | Object | X |  |
+| content.carousel.list | Array | X |  |
+| content.carousel.list[].header | String | X | 캐러셀 아이템 제목 |
+| content.carousel.list[].message | String | X | 캐러셀 아이템 메시지 |
+| content.carousel.list[].attachment | Object | X |  |
+| content.carousel.list[].attachment.buttons | Array | X |  |
+| content.carousel.list[].attachment.image | Object | X |  |
+| content.carousel.list[].attachment.image.attachmentId | String | X | 첨부 파일 아이디 |
+| content.carousel.list[].attachment.image.imageUrl | String | X | 캐러셀 아이템 이미지 URL |
+| content.carousel.list[].attachment.image.imageLink | String | X | 캐러셀 아이템 이미지 링크 |
+| content.carousel.tail | Object | X |  |
+| content.carousel.tail.linkMo | String | X | 대표 링크 모바일 웹 링크 |
+| content.carousel.tail.linkPc | String | X | 대표 링크 PC 웹 링크 |
+| content.carousel.tail.schemeIos | String | X | 대표 링크 iOS 앱 링크 |
+| content.carousel.tail.schemeAndroid | String | X | 대표 링크 안드로이드 앱 링크 |
+| content.coupon | Object | X |  |
+| content.coupon.title | String | X | 쿠폰 이름 |
+| content.coupon.description | String | X | 쿠폰 상세 설명(일반 텍스트, 이미지형 최대 12자 / 와이드 이미지형, 와이드 아이템리스트형 최대 18자) |
+| content.coupon.linkMo | String | X | 대표 링크 모바일 웹 링크 |
+| content.coupon.linkPc | String | X | 대표 링크 PC 웹 링크 |
+| content.coupon.schemeIos | String | X | 대표 링크 iOS 앱 링크 |
+| content.coupon.schemeAndroid | String | X | 대표 링크 안드로이드 앱 링크 |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 자유 양식 메시지 발송 요청 - 친구톡(FRIENDTALK)
+
+POST {{endpoint}}/message/v1.0/FRIENDTALK/free-form-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "TEXT",
+    "content" : null,
+    "attachmentId" : "20230131070811m2fDe1rXx80",
+    "imageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "imageLink" : "https://www.naver.com",
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "Button Name",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormKey" : "bizFormKey123"
+    } ],
+    "header" : "헤더",
+    "item" : {
+      "list" : [ {
+        "title" : "Item Title",
+        "attachmentId" : "20230131070811m2fDe1rXx80",
+        "imageUrl" : "https://example.com/image.jpg",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "carousel" : {
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "attachment" : {
+          "buttons" : [ {
+            "schemeAndroid" : "example://android",
+            "name" : "Button Name",
+            "linkMo" : "https://m.example.com",
+            "schemeIos" : "example://ios",
+            "linkPc" : "https://www.example.com",
+            "type" : "WL",
+            "bizFormKey" : "bizFormKey123",
+            "target" : "out"
+          } ],
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg",
+            "imageLink" : "https://www.example.com"
+          }
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "coupon" : {
+      "title" : "Coupon Title",
+      "description" : "Coupon Description",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  },
+  "dryRun" : false
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "TEXT",
+    "content" : null,
+    "attachmentId" : "20230131070811m2fDe1rXx80",
+    "imageUrl" : "https://mud-kage.kakao.com/dn/hAtIc/btshc5wAvF0/sA8gjabh4J34IMqCk0hkBK/img_l.jpg",
+    "imageLink" : "https://www.naver.com",
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "Button Name",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormKey" : "bizFormKey123"
+    } ],
+    "header" : "헤더",
+    "item" : {
+      "list" : [ {
+        "title" : "Item Title",
+        "attachmentId" : "20230131070811m2fDe1rXx80",
+        "imageUrl" : "https://example.com/image.jpg",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "carousel" : {
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "attachment" : {
+          "buttons" : [ {
+            "schemeAndroid" : "example://android",
+            "name" : "Button Name",
+            "linkMo" : "https://m.example.com",
+            "schemeIos" : "example://ios",
+            "linkPc" : "https://www.example.com",
+            "type" : "WL",
+            "bizFormKey" : "bizFormKey123",
+            "target" : "out"
+          } ],
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg",
+            "imageLink" : "https://www.example.com"
+          }
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "coupon" : {
+      "title" : "Coupon Title",
+      "description" : "Coupon Description",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  },
+  "dryRun" : false
+}'
+```
+
+</details>
 <span id="messageV1x0003EmailFreeFormMessages"></span>
 
 ## 자유 양식 메시지 발송 요청 - 이메일(EMAIL)
@@ -238,9 +649,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -269,7 +680,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -277,19 +689,20 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| sender | Object | N |  |
-| sender.senderMailAddress | String | Y | 발신 메일 주소 |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| content | Object | N |  |
-| content.title | String | Y | 템플릿 메일 제목 |
-| content.body | String | Y | 템플릿 메일 본문 |
-| content.attachmentIds | Array | N | 템플릿 첨부 파일 ID |
+| statsKeyId | String | X | 통계 키 아이디 |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| sender | Object | X |  |
+| sender.senderMailAddress | String | O | 발신 메일 주소 |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| content | Object | X |  |
+| content.title | String | O | 템플릿 메일 제목 |
+| content.body | String | O | 템플릿 메일 본문 |
+| content.attachmentIds | Array | X | 템플릿 첨부 파일 ID |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -310,13 +723,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -332,7 +745,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/EMAIL/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -352,10 +764,10 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -363,8 +775,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -384,7 +796,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -408,9 +821,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -498,7 +911,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -567,13 +981,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -589,7 +1003,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/RCS/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -668,10 +1081,10 @@ X-NHN-Authorization: Bearer {accessToken}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -679,8 +1092,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -759,7 +1172,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -783,9 +1197,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -854,7 +1268,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -862,14 +1277,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| content | Object | N | 푸시 메시지 내용 |
+| statsKeyId | String | X | 통계 키 아이디 |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| content | Object | X | 푸시 메시지 내용 |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -890,13 +1306,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -912,7 +1328,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/PUSH/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -972,10 +1387,10 @@ X-NHN-Authorization: Bearer {accessToken}
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -983,8 +1398,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -1044,7 +1459,8 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -1076,10 +1492,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageChannel | Path  | String | Y | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messageChannel | Path  | Enum | O | 메시지 채널입니다. |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -1109,7 +1525,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -1117,15 +1534,16 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| templateId | String | N | 템플릿 ID |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| statsKeyId | String | X | 통계 키 아이디 |
+| templateId | String | X | 템플릿 ID |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1146,13 +1564,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -1168,7 +1586,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/{{messageChannel}}/template-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
@@ -1189,10 +1606,10 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -1200,8 +1617,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${messagePurpose}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
@@ -1222,7 +1639,8 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }'
 ```
 
@@ -1254,9 +1672,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -1289,7 +1707,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -1297,17 +1716,18 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| sender | Object | N |  |
-| sender.senderKey | String | Y | 발신프로필 발신키 |
-| templateId | String | N | 템플릿 ID |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| statsKeyId | String | X | 통계 키 아이디 |
+| sender | Object | X |  |
+| sender.senderKey | String | O | 발신프로필 발신키 |
+| templateId | String | X | 템플릿 ID |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1328,13 +1748,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -1350,7 +1770,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/ALIMTALK/template-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "statsKeyId" : "aA123456",
   "sender" : {
@@ -1374,10 +1793,10 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -1385,8 +1804,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpose}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "sender" : {
@@ -1410,7 +1829,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }'
 ```
 
@@ -1440,7 +1860,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -1480,7 +1900,8 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -1488,22 +1909,23 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| sender | Object | N |  |
-| sender.chatbotId | String | N | 대화방(챗봇) 아이디 |
-| content | Object | N |  |
-| content.unsubscribePhoneNumber | String | N | 수신거부 전화번호 |
-| templateId | String | N | 템플릿 ID |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| options | Object | N |  |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
+| statsKeyId | String | X | 통계 키 아이디 |
+| sender | Object | X |  |
+| sender.chatbotId | String | X | 대화방(챗봇) 아이디 |
+| content | Object | X |  |
+| content.unsubscribePhoneNumber | String | X | 수신거부 전화번호 |
+| templateId | String | X | 템플릿 ID |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| options | Object | X |  |
+| options.expiryOption | Integer | X | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
+| options.groupId | String | X | RCS Biz Center 통계 연동을 위한 group ID |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1524,13 +1946,13 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -1544,7 +1966,6 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 ### RCS 템플릿 메시지 발송
 
 POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
-
 {
   "statsKeyId" : "aA123456",
   "sender" : {
@@ -1575,10 +1996,10 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -1616,7 +2037,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -1631,17 +2053,9 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
-  <br>
-  예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
-  확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
-
-이미지 레이아웃이 연동된 MMS 템플릿 발송 시 다음 사항을 유의해야 합니다.
-* **필수 템플릿 파라미터**: `cardNumber`, `scratchNumber`를 반드시 포함해야 합니다.
-    * `cardNumber`: 바코드 생성에 사용되며, 반드시 16자리 숫자로 구성되어야 합니다.
-    * `scratchNumber`: 별도 제약 조건이 없습니다.
-* **이미지 레이아웃 Override**: 요청 본문에 `content.imageLayoutId` 또는 `content.imageLayoutName`을 포함하여 템플릿에 설정된 이미지 레이아웃을 변경할 수 있습니다.
-    * `content.imageLayoutId`와 `content.imageLayoutName` 중 하나만 사용해야 합니다.
-    * 두 필드 모두 포함되지 않으면 템플릿 생성 시 연동한 기본 이미지 레이아웃이 사용됩니다.
+<br>
+예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
+확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
 **요청**
@@ -1654,7 +2068,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -1689,6 +2103,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
     }
   } ],
   "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -1696,19 +2111,19 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| templateId | String | N | 템플릿 ID |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| content | Object | N |  |
-| content.imageLayoutId | String | N | 이미지 레이아웃 아이디 |
-| content.imageLayoutName | String | N | 이미지 레이아웃 이름 |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | Y |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| dryRun | Boolean | N | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
+| statsKeyId | String | X | 통계 키 아이디 |
+| templateId | String | X | 템플릿 ID |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| content | Object | X |  |
+| content.imageLayoutId | String | X | 이미지 레이아웃 아이디 |
+| content.imageLayoutName | String | X | 이미지 레이아웃 이름 |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1729,13 +2144,13 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -1749,7 +2164,6 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 ### SMS 템플릿 메시지 발송
 
 POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
-
 {
   "statsKeyId" : "aA123456",
   "templateId" : "aA123456",
@@ -1774,10 +2188,10 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -1810,6 +2224,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
     }
   } ],
   "id" : "alpha123",
+  "dryRun" : false
 }'
 ```
 
@@ -1841,9 +2256,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -1892,7 +2307,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -1900,22 +2316,23 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| flowId | String | N | 플로우 ID |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| flow | Object | N |  |
-| flow.steps | Array | Y |  |
-| flow.steps[].messageChannel | String | Y | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| flow.steps[].sender | Object | N | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| flow.steps[].content | Object | N | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| flow.steps[].options | Object | N | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| flow.steps[].nextSteps | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
+| statsKeyId | String | X | 통계 키 아이디 |
+| flowId | String | X | 플로우 ID |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| flow | Object | X |  |
+| flow.steps | Array | O |  |
+| flow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), FRIENDTALK(친구톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| flow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| flow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| flow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| flow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1936,13 +2353,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -1958,7 +2375,6 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/flow-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
@@ -1998,10 +2414,10 @@ X-NHN-Authorization: Bearer {accessToken}
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -2009,8 +2425,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
@@ -2050,7 +2466,8 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -2074,7 +2491,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
+| messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
 
 
@@ -2120,7 +2537,8 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -2128,21 +2546,22 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| statsKeyId | String | N | 통계 키 아이디 |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| recipients | Array | Y |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| instantFlow | Object | Y |  |
-| instantFlow.steps | Array | Y |  |
-| instantFlow.steps[].messageChannel | String | Y | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| instantFlow.steps[].sender | Object | N | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].content | Object | N | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].options | Object | N | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].templateId | String | N | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
-| instantFlow.steps[].nextSteps | Array | N | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다. |
+| statsKeyId | String | X | 통계 키 아이디 |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| recipients | Array | O |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| instantFlow | Object | O |  |
+| instantFlow.steps | Array | O |  |
+| instantFlow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), FRIENDTALK(친구톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| instantFlow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| instantFlow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| instantFlow.steps[].templateId | String | X | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
+| instantFlow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다. |
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2163,13 +2582,13 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
 
 
 
@@ -2183,7 +2602,6 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 ### 인스턴트 플로우 메시지 발송
 
 POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -2220,10 +2638,10 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
-
 </details>
 
 <details>
@@ -2267,7 +2685,8 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -2293,9 +2712,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageId | Path  | String | Y | null |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messageId | Path  | String | O |  |
 
 
 
@@ -2323,12 +2742,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -2344,10 +2763,7 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/messages/{{messageId}}/do-cancel
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -2355,8 +2771,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -2379,9 +2795,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| messageId | Path  | String | Y | null |
+| X-NC-APP-KEY | Header  | String | O | 앱키 |
+| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| messageId | Path  | String | O |  |
 
 
 
@@ -2409,12 +2825,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -2430,10 +2846,7 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/message/v1.0/messages/{{messageId}}/do-confirm
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -2441,8 +2854,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-confirm" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
