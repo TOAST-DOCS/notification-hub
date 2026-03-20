@@ -729,8 +729,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | N | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL, AD, AUTH] |
 | templateLanguage | String | N | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
-| sender.senderKey | String | N | 발신프로필 발신키 |
-| sender.senderProfileType | String | N | 발신프로필 타입<br>[GROUP, NORMAL] |
+| sender.senderKey | String | N | 발신 프로필 발신키 |
+| sender.senderProfileType | String | N | 발신 프로필 타입<br>[GROUP, NORMAL] |
 | content | Object | Y |  |
 | content.templateMessageType | String | N | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
 | content.templateEmphasizeType | String | N | 템플릿 강조 표시 타입(NONE : 기본, TEXT : 강조 표시, IMAGE: 이미지형, ITEM_LIST: 아이템리스트형, default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
@@ -764,7 +764,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.categoryCode | String | N | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
 | content.buttons | Array | N | 템플릿 버튼 |
 | content.buttons[].ordering | Integer | N | 템플릿 버튼 순서 |
-| content.buttons[].type | String | N | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비지니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| content.buttons[].type | String | N | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비즈니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
 | content.buttons[].name | String | N | 템플릿 버튼 이름 |
 | content.buttons[].linkMo | String | N | 템플릿 버튼 모바일 웹 링크 |
 | content.buttons[].linkPc | String | N | 템플릿 버튼 PC 웹 링크 |
@@ -773,7 +773,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].bizFormId | Integer | N | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | content.quickReplies | Array | N | 템플릿 바로 연결 |
 | content.quickReplies[].ordering | Integer | N | 템플릿 바로연결 순서 |
-| content.quickReplies[].type | String | N | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
+| content.quickReplies[].type | String | N | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비즈니스폼)<br>[WL, AL, BK, BC, BT, BF] |
 | content.quickReplies[].name | String | N | 템플릿 바로연결 이름 |
 | content.quickReplies[].linkMo | String | N | 템플릿 바로연결 모바일 웹 링크 |
 | content.quickReplies[].linkPc | String | N | 템플릿 바로연결 PC 웹 링크 |
@@ -1356,9 +1356,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messagePurposes | Array |  |
 | template.templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
-| template.sender.senderKey | String | 발신프로필 발신키 |
+| template.sender.senderKey | String | 발신 프로필 발신키 |
 | template.sender.senderProfileId | String | 카카오톡 채널명 |
-| template.sender.senderProfileType | String | 발신프로필 타입<br>[GROUP, NORMAL] |
+| template.sender.senderProfileType | String | 발신 프로필 타입<br>[GROUP, NORMAL] |
 | template.additionalProperty | Object |  |
 | template.additionalProperty.templateCode | String | 템플릿 코드(영문, 숫자, -, _) |
 | template.additionalProperty.kakaoTemplateCode | String | 카카오 템플릿 코드 |
@@ -1406,7 +1406,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.categoryCode | String | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
 | template.content.buttons | Array | 템플릿 버튼 |
 | template.content.buttons[].ordering | Integer | 템플릿 버튼 순서 |
-| template.content.buttons[].type | String | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비지니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| template.content.buttons[].type | String | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비즈니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
 | template.content.buttons[].name | String | 템플릿 버튼 이름 |
 | template.content.buttons[].linkMo | String | 템플릿 버튼 모바일 웹 링크 |
 | template.content.buttons[].linkPc | String | 템플릿 버튼 PC 웹 링크 |
@@ -1415,7 +1415,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.buttons[].bizFormId | Integer | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | template.content.quickReplies | Array | 템플릿 바로 연결 |
 | template.content.quickReplies[].ordering | Integer | 템플릿 바로연결 순서 |
-| template.content.quickReplies[].type | String | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
+| template.content.quickReplies[].type | String | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비즈니스폼)<br>[WL, AL, BK, BC, BT, BF] |
 | template.content.quickReplies[].name | String | 템플릿 바로연결 이름 |
 | template.content.quickReplies[].linkMo | String | 템플릿 바로연결 모바일 웹 링크 |
 | template.content.quickReplies[].linkPc | String | 템플릿 바로연결 PC 웹 링크 |
@@ -1590,7 +1590,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.categoryCode | String | N | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
 | content.buttons | Array | N | 템플릿 버튼 |
 | content.buttons[].ordering | Integer | N | 템플릿 버튼 순서 |
-| content.buttons[].type | String | N | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비지니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| content.buttons[].type | String | N | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비즈니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
 | content.buttons[].name | String | N | 템플릿 버튼 이름 |
 | content.buttons[].linkMo | String | N | 템플릿 버튼 모바일 웹 링크 |
 | content.buttons[].linkPc | String | N | 템플릿 버튼 PC 웹 링크 |
@@ -1599,7 +1599,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].bizFormId | Integer | N | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | content.quickReplies | Array | N | 템플릿 바로 연결 |
 | content.quickReplies[].ordering | Integer | N | 템플릿 바로연결 순서 |
-| content.quickReplies[].type | String | N | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
+| content.quickReplies[].type | String | N | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비즈니스폼)<br>[WL, AL, BK, BC, BT, BF] |
 | content.quickReplies[].name | String | N | 템플릿 바로연결 이름 |
 | content.quickReplies[].linkMo | String | N | 템플릿 바로연결 모바일 웹 링크 |
 | content.quickReplies[].linkPc | String | N | 템플릿 바로연결 PC 웹 링크 |
@@ -2230,9 +2230,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].messagePurposes | Array |  |
 | templates[].templateLanguage | String | 템플릿 타입<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | templates[].sender | Object |  |
-| templates[].sender.senderKey | String | 발신프로필 발신키 |
+| templates[].sender.senderKey | String | 발신 프로필 발신키 |
 | templates[].sender.senderProfileId | String | 카카오톡 채널명 |
-| templates[].sender.senderProfileType | String | 발신프로필 타입<br>[GROUP, NORMAL] |
+| templates[].sender.senderProfileType | String | 발신 프로필 타입<br>[GROUP, NORMAL] |
 | templates[].additionalProperty | Object |  |
 | templates[].additionalProperty.templateCode | String | 템플릿 코드(영문, 숫자, -, _) |
 | templates[].additionalProperty.kakaoTemplateCode | String | 카카오 템플릿 코드 |

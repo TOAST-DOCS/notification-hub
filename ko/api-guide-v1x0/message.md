@@ -18,7 +18,7 @@
 
 SMS에 대한 자유 양식 메시지 발송을 요청합니다. 메시지 내용을 요청 본문에 입력한 뒤 발송을 요청합니다.
 
-각 메시지 채널로 메시지를 발송하기 위해서는 각 메시지 채널의 발신 정보가 등록되어 있어야 합니다. 발신 정보 등록은 **Notification Hub 콘솔** > **발신 정보 탭**에서 진행할 수 있습니다. 메시지 채널의 발신 정보에 대한 자세한 설명은 **Notification** > **Notification Hub** > **이용 정책 및 사전 설정 안내**에서 확인할 수 있습니다.
+각 메시지 채널로 메시지를 발송하려면 각 메시지 채널의 발신 정보가 등록되어 있어야 합니다. 발신 정보 등록은 **Notification Hub 콘솔** > **발신 정보 탭**에서 진행할 수 있습니다. 메시지 채널의 발신 정보에 대한 자세한 설명은 **Notification** > **Notification Hub** > **이용 정책 및 사전 설정 안내**에서 확인할 수 있습니다.
 
 
 **요청**
@@ -36,8 +36,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header  | String | Y | 앱키 |
 | X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
 | messagePurpose | Path  | String | Y | 메시지 목적입니다.<br>[AD, AUTH, NORMAL] |
-
-요청 파라미터 밑에 추가될 추가 설명입니다.
 
 
 **요청 본문**
@@ -112,7 +110,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 * 알림톡(ALIMTALK)은 발신 키(senderKey)와 발신 프로필 유형(senderProfileType)을 필수로 입력해야 합니다.
 * 알림톡(ALIMTALK)은 발송 시 템플릿이 반드시 필요합니다. 자유 양식 메시지 발송을 지원하지 않습니다.
-* 발신자 프로필 유형은 **GROUP(그룹)**과 **NORMAL(일반)**이 있습니다. **GROUP**은 그룹 발신자 프로필, **NORMAL**은 일반 발신자 프로필입니다.
+* 발신 프로필 유형은 **GROUP(그룹)**과 **NORMAL(일반)**이 있습니다. **GROUP**은 그룹 발신자 프로필, **NORMAL**은 일반 발신자 프로필입니다.
 
 
 **응답 본문**
@@ -139,8 +137,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
-
-응답 밑에 추가될 추가 설명입니다.
 
 
 **요청 예시**
@@ -813,7 +809,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "매뉴 > 설정",
+    "unsubscribeGuide" : "메뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -822,26 +818,26 @@ X-NHN-Authorization: Bearer {accessToken}
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
         "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에대한 힌트"
+        "hint" : "버튼에 대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
@@ -851,7 +847,7 @@ X-NHN-Authorization: Bearer {accessToken}
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에대한 설명"
+        "description" : "그룹에 대한 설명"
       }
     },
     "style" : {
@@ -931,7 +927,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "매뉴 > 설정",
+    "unsubscribeGuide" : "메뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -940,26 +936,26 @@ X-NHN-Authorization: Bearer {accessToken}
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
         "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에대한 힌트"
+        "hint" : "버튼에 대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
@@ -969,7 +965,7 @@ X-NHN-Authorization: Bearer {accessToken}
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에대한 설명"
+        "description" : "그룹에 대한 설명"
       }
     },
     "style" : {
@@ -1003,7 +999,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "매뉴 > 설정",
+    "unsubscribeGuide" : "메뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -1012,26 +1008,26 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
         "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에대한 힌트"
+        "hint" : "버튼에 대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
@@ -1041,7 +1037,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에대한 설명"
+        "description" : "그룹에 대한 설명"
       }
     },
     "style" : {
