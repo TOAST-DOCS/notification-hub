@@ -522,8 +522,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | N |  |
 | content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| content.title | String | N | (Deprecated) 메시지 제목 |
-| content.body | String | N | (Deprecated) 메시지 본문 |
+| content.title | String | N | (Deprecated, content.cards[].title 사용) 메시지 제목 |
+| content.body | String | N | (Deprecated, content.cards[].description 사용) 메시지 본문 |
 | content.smsType | String | N | SMS 타입<br>[STANDALONE, UNIFIED_STANDALONE] |
 | content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
 | content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
@@ -544,7 +544,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].buttons | Array | N | 버튼 |
 | content.cards[].buttons[].buttonType | String | N | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br><br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.cards[].buttons[].buttonJson | Object | N | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
-| content.buttons | Array | N | (Deprecated) RCS 버튼 리스트 |
+| content.buttons | Array | N | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
