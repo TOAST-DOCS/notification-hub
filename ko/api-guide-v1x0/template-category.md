@@ -6,9 +6,7 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>NHN Cloud Notification Hub Public API - Template Category v1.0</h1>
-
-
+<h1>템플릿 카테고리</h1>
 
 
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
