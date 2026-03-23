@@ -16,7 +16,7 @@
 
 ## 080 수신 거부 외부 번호 등록 신청
 
-080 수신 거부 외부 번호 등록을 신청합니다.
+080 수신 거부 외부 번호 등록 신청을 합니다.
 
 
 **요청**
@@ -31,8 +31,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -52,9 +52,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| unsubscribePhoneNumber | String | Y | 080 수신 거부 외부 번호 |
-| corporationName | String | Y | 회사명 |
+| unsubscribePhoneNumber | String | O | 080 수신 거부 외부 번호 |
+| corporationName | String | O | 회사명 |
 
+080 수신 거부 외부 번호 등록 신청 정보
 
 
 **응답 본문**
@@ -73,12 +74,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -134,9 +135,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y  | 앱키 |
-| X-NHN-Authorization | Header  | String | Y  | 액세스 토큰 |
-| unsubscribePhoneNumber | Path  | String | Y  | 080 수신 거부 외부 번호 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| unsubscribePhoneNumber | Path | String | O | 080 수신 거부 외부 등록 번호 |
 
 
 
@@ -164,12 +165,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -217,11 +218,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| unsubscribePhoneNumber | Query  | String | N | 수신 거부 번호(LIKE 검색) |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 50(최대 1000) |
-| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| unsubscribePhoneNumber | Query | String | X | 080 수신 거부 번호(LIKE 검색) |
+| limit | Query | Number | X | limit 설정하지 않으면 default 50(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -261,23 +262,23 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| totalCount | Integer | 총 건수 |
-| unsubscribePhoneNumbers | Array | 080 수신 거부 번호 목록 |
-| unsubscribePhoneNumbers[].unsubscribePhoneNumber | String | 080 수신 거부 번호 |
-| unsubscribePhoneNumbers[].corporationName | String | 회사명 |
-| unsubscribePhoneNumbers[].shareStatus | String | 080 수신 거부 번호 공유 상태<br>[PRIMARY(직접 등록한 080 번호), SECONDARY(공유 받은 080 번호)] |
-| unsubscribePhoneNumbers[].provider | String | 080 수신 거부 번호 제공처 유형<br>[INTERNAL(내부 발급 번호), EXTERNAL(외부 등록 번호)] |
-| unsubscribePhoneNumbers[].status | String | 080 수신 거부 번호 상태<br>[READY(준비), RESERVE_USE(심사 중), IN_USE(사용 중), TERMINATED(해지)] |
-| unsubscribePhoneNumbers[].terminable | Boolean | 해지 가능 여부 |
-| unsubscribePhoneNumbers[].requestedDateTime | String | 신청 일시 |
-| unsubscribePhoneNumbers[].startedDateTime | String | 개통 일시 |
-| unsubscribePhoneNumbers[].deletedDateTime | String | 해지 일시 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | X | 총 건수 |
+| unsubscribePhoneNumbers | Array | X | 080 수신 거부 번호 목록 |
+| unsubscribePhoneNumbers[].unsubscribePhoneNumber | String | O | 080 수신 거부 번호 |
+| unsubscribePhoneNumbers[].corporationName | String | O | 회사명 |
+| unsubscribePhoneNumbers[].shareStatus | String | O | 080 수신 거부 번호 공유 상태<br>[PRIMARY(직접 등록한 080 번호), SECONDARY(공유 받은 080 번호)] |
+| unsubscribePhoneNumbers[].provider | String | O | 080 수신 거부 번호 제공처 유형<br>[INTERNAL(내부 발급 번호), EXTERNAL(외부 등록 번호)] |
+| unsubscribePhoneNumbers[].status | String | O | 080 수신 거부 번호 상태<br>[READY(준비), RESERVE_USE(심사 중), IN_USE(사용 중), TERMINATED(해지)] |
+| unsubscribePhoneNumbers[].terminable | Boolean | O | 해지 가능 여부 |
+| unsubscribePhoneNumbers[].requestedDateTime | String | O | 신청 일시 |
+| unsubscribePhoneNumbers[].startedDateTime | String | X | 개통 일시 |
+| unsubscribePhoneNumbers[].deletedDateTime | String | X | 해지 일시 |
 
 
 
@@ -325,9 +326,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| unsubscribePhoneNumber | Path  | String | Y | 수신 거부 번호 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| unsubscribePhoneNumber | Path | String | O | 080 수신 거부 번호 |
 
 
 
@@ -351,7 +352,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultMessage" : "SUCCESS"
   },
   "unsubscribePhoneNumber" : {
-    "unsubscribePhoneNumber" : 0801234567,
+    "unsubscribePhoneNumber" : null,
     "corporationName" : "회사명",
     "shareStatus" : "PRIMARY",
     "provider" : "INTERNAL",
@@ -366,22 +367,22 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| unsubscribePhoneNumber | Object |  |
-| unsubscribePhoneNumber.unsubscribePhoneNumber | String | 080 수신 거부 번호 |
-| unsubscribePhoneNumber.corporationName | String | 회사명 |
-| unsubscribePhoneNumber.shareStatus | String | 080 수신 거부 번호 공유 상태<br>[PRIMARY(직접 등록한 080 번호), SECONDARY(공유 받은 080 번호)] |
-| unsubscribePhoneNumber.provider | String | 080 수신 거부 번호 제공처 유형<br>[INTERNAL(내부 발급 번호), EXTERNAL(외부 등록 번호)] |
-| unsubscribePhoneNumber.status | String | 080 수신 거부 번호 상태<br>[READY(준비), RESERVE_USE(심사 중), IN_USE(사용 중), TERMINATED(해지)] |
-| unsubscribePhoneNumber.terminable | Boolean | 해지 가능 여부 |
-| unsubscribePhoneNumber.requestedDateTime | String | 신청 일시 |
-| unsubscribePhoneNumber.startedDateTime | String | 개통 일시 |
-| unsubscribePhoneNumber.deletedDateTime | String | 해지 일시 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| unsubscribePhoneNumber | Object | X |  |
+| unsubscribePhoneNumber.unsubscribePhoneNumber | String | O | 080 수신 거부 번호 |
+| unsubscribePhoneNumber.corporationName | String | O | 회사명 |
+| unsubscribePhoneNumber.shareStatus | String | O | 080 수신 거부 번호 공유 상태<br>[PRIMARY(직접 등록한 080 번호), SECONDARY(공유 받은 080 번호)] |
+| unsubscribePhoneNumber.provider | String | O | 080 수신 거부 번호 제공처 유형<br>[INTERNAL(내부 발급 번호), EXTERNAL(외부 등록 번호)] |
+| unsubscribePhoneNumber.status | String | O | 080 수신 거부 번호 상태<br>[READY(준비), RESERVE_USE(심사 중), IN_USE(사용 중), TERMINATED(해지)] |
+| unsubscribePhoneNumber.terminable | Boolean | O | 해지 가능 여부 |
+| unsubscribePhoneNumber.requestedDateTime | String | O | 신청 일시 |
+| unsubscribePhoneNumber.startedDateTime | String | X | 개통 일시 |
+| unsubscribePhoneNumber.deletedDateTime | String | X | 해지 일시 |
 
 
 

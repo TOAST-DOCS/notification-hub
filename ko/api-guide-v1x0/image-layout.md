@@ -30,9 +30,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| id | Path  | String | Y | 이미지 레이아웃 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| id | Path | String | O | 이미지 레이아웃 아이디 |
 
 
 
@@ -66,8 +66,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "fileName" : "cardImage.png",
       "filePreviewUrl" : "https://example.com/background.png"
     },
-    "title" : "#{user}님이 보내신\n#{promotion} 기프트 카드가 도착했어요.",
-    "body" : "* 상품명: 오늘의 상품\n*유효기간: #{expirydate}까지\n*사용처: 온/오프라인 매장(일부 매장 제외)",
+    "title" : "%user%님이 보내신\\n%promotion% 기프트 카드가 도착했어요.",
+    "body" : "* 상품명: 오늘의 상품\\n*유효기간: %expirydate%까지\\n*사용처: 온/오프라인 매장(일부 매장 제외)",
     "useBarcode" : true,
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
     "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
@@ -77,26 +77,26 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| imageLayout | Object |  |
-| imageLayout.id | String | 이미지 레이아웃 아이디 |
-| imageLayout.name | String | 이미지 레이아웃 이름 |
-| imageLayout.backgroundImage | Object |  |
-| imageLayout.backgroundImage.fileName | String | 배경 이미지 파일 이름 |
-| imageLayout.backgroundImage.filePreviewUrl | String | 배경 이미지 미리보기 URL |
-| imageLayout.cardImage | Object |  |
-| imageLayout.cardImage.fileName | String | 카드 이미지 파일 이름 |
-| imageLayout.cardImage.filePreviewUrl | String | 카드 이미지 미리보기 URL |
-| imageLayout.title | String | 제목 |
-| imageLayout.body | String | 본문 |
-| imageLayout.useBarcode | Boolean | 바코드 사용 여부 |
-| imageLayout.createdDateTime | String | 이미지 레이아웃 생성 일시 |
-| imageLayout.updatedDateTime | String | 이미지 레이아웃 수정 일시 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| imageLayout | Object | O |  |
+| imageLayout.id | String | O | 이미지 레이아웃 아이디 |
+| imageLayout.name | String | O | 이미지 레이아웃 이름 |
+| imageLayout.backgroundImage | Object | O |  |
+| imageLayout.backgroundImage.fileName | String | O | 배경 이미지 파일 이름 |
+| imageLayout.backgroundImage.filePreviewUrl | String | O | 배경 이미지 미리보기 URL |
+| imageLayout.cardImage | Object | O |  |
+| imageLayout.cardImage.fileName | String | O | 카드 이미지 파일 이름 |
+| imageLayout.cardImage.filePreviewUrl | String | O | 카드 이미지 미리보기 URL |
+| imageLayout.title | String | O | 제목 |
+| imageLayout.body | String | O | 본문 |
+| imageLayout.useBarcode | Boolean | O | 바코드 사용 여부 |
+| imageLayout.createdDateTime | String | O | 이미지 레이아웃 생성 일시 |
+| imageLayout.updatedDateTime | String | O | 이미지 레이아웃 수정 일시 |
 
 
 
@@ -112,10 +112,7 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -123,8 +120,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -140,15 +137,14 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 POST /image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-Content-Type: multipart/form-data
 ```
 
 **요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -156,15 +152,16 @@ Content-Type: multipart/form-data
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-
-| 이름 | 타입 | 필수 | 설명 |
+| 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| name | String | Y | 이미지 레이아웃 이름 |
-| backgroundImage | File | Y | 배경 이미지 파일 |
-| cardImage | File | Y | 카드 이미지 파일 |
-| title | String | Y | 제목 |
-| body | String | Y | 본문 |
-| useBarcode | Boolean | Y | 바코드 사용 여부 |
+| backgroundImage | File | O | 배경 이미지 파일 |
+| cardImage | File | O | 카드 이미지 파일 |
+| name | String | O | 이미지 레이아웃 이름 |
+| title | String | O | 제목 |
+| body | String | O | 본문 |
+| useBarcode | Boolean | O | 바코드 사용 여부 |
+
+
 
 **응답 본문**
 
@@ -183,13 +180,13 @@ Content-Type: multipart/form-data
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| id | String | 이미지 레이아웃 아이디 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| id | String | O | 이미지 레이아웃 아이디 |
 
 
 
@@ -205,16 +202,13 @@ Content-Type: multipart/form-data
 POST {{endpoint}}/image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-Content-Type: multipart/form-data
-
-name=이미지-레이아웃
-title=제목
-body=본문
+name=name_example
+title=title_example
+body=body_example
 useBarcode=true
-backgroundImage=@{{pathToImage}}
-cardImage=@{{pathToImage}}
+backgroundImage=@BINARY_DATA_PATH
+cardImage=@BINARY_DATA_PATH
 ```
-
 </details>
 
 <details>
@@ -222,15 +216,14 @@ cardImage=@{{pathToImage}}
 
 ```http
 curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \
--H 'Content-Type: multipart/form-data' \
--F "name=이미지-레이아웃" \
--F "backgroundImage=@{pathToImage}" \
--F "cardImage=@{pathToImage}" \
--F "title=제목" \
--F "body=본문" \
--F "useBarcode=true"
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-F "name=name_example" \
+-F "title=title_example" \
+-F "body=body_example" \
+-F "useBarcode=true" \
+-F "backgroundImage=@BINARY_DATA_PATH" \
+-F "cardImage=@BINARY_DATA_PATH"
 ```
 
 </details>
@@ -252,9 +245,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| id | Path  | String | Y | 이미지 레이아웃 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| id | Path | String | O | 이미지 레이아웃 아이디 |
 
 
 
@@ -282,12 +275,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -303,10 +296,7 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -314,8 +304,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -337,12 +327,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
-| name | Query  | String | N | 이미지 레이아웃 이름 |
-| exact | Query  | Boolean | N | true인 경우 이미지 레이아웃 이름 완전 일치 검색, false인 경우 LIKE 검색 |
-| limit | Query  | Integer | N | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query  | Integer | N | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| name | Query | String | X | 이미지 레이아웃 이름 |
+| exact | Query | Boolean | X | true인 경우 이미지 레이아웃 이름 완전 일치 검색, false인 경우 LIKE 검색 |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -375,27 +365,27 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| totalCount | Integer | 총 건수 |
-| imageLayouts | Array |  |
-| imageLayouts[].id | String | 이미지 레이아웃 아이디 |
-| imageLayouts[].name | String | 이미지 레이아웃 이름 |
-| imageLayouts[].backgroundImage | Object |  |
-| imageLayouts[].backgroundImage.fileName | String | 배경 이미지 파일 이름 |
-| imageLayouts[].backgroundImage.filePreviewUrl | String | 배경 이미지 미리보기 URL |
-| imageLayouts[].cardImage | Object |  |
-| imageLayouts[].cardImage.fileName | String | 카드 이미지 파일 이름 |
-| imageLayouts[].cardImage.filePreviewUrl | String | 카드 이미지 미리보기 URL |
-| imageLayouts[].title | String | 제목 |
-| imageLayouts[].body | String | 본문 |
-| imageLayouts[].useBarcode | Boolean | 바코드 사용 여부 |
-| imageLayouts[].createdDateTime | String | 이미지 레이아웃 생성 일시 |
-| imageLayouts[].updatedDateTime | String | 이미지 레이아웃 수정 일시 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| totalCount | Integer | O | 총 건수 |
+| imageLayouts | Array | O |  |
+| imageLayouts[].id | String | O | 이미지 레이아웃 아이디 |
+| imageLayouts[].name | String | O | 이미지 레이아웃 이름 |
+| imageLayouts[].backgroundImage | Object | O |  |
+| imageLayouts[].backgroundImage.fileName | String | O | 배경 이미지 파일 이름 |
+| imageLayouts[].backgroundImage.filePreviewUrl | String | O | 배경 이미지 미리보기 URL |
+| imageLayouts[].cardImage | Object | O |  |
+| imageLayouts[].cardImage.fileName | String | O | 카드 이미지 파일 이름 |
+| imageLayouts[].cardImage.filePreviewUrl | String | O | 카드 이미지 미리보기 URL |
+| imageLayouts[].title | String | O | 제목 |
+| imageLayouts[].body | String | O | 본문 |
+| imageLayouts[].useBarcode | Boolean | O | 바코드 사용 여부 |
+| imageLayouts[].createdDateTime | String | O | 이미지 레이아웃 생성 일시 |
+| imageLayouts[].updatedDateTime | String | O | 이미지 레이아웃 수정 일시 |
 
 
 
@@ -411,10 +401,7 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/image-layout/v1.0/image-layouts
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -422,8 +409,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -431,7 +418,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 
 ## 이미지 레이아웃 수정
 
-이미지 레이아웃을 수정합니다. 수정이 필요한 필드만 입력하여 부분 수정이 가능합니다.
+이미지 레이아웃을 수정합니다.
 
 **요청**
 
@@ -439,30 +426,31 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 PATCH /image-layout/v1.0/image-layouts/{id}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-Content-Type: multipart/form-data
 ```
 
 **요청 파라미터**
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | 앱키 |
-| X-NHN-Authorization | Header  | String | Y | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| id | Path | String | O | 이미지 레이아웃 아이디 |
+
 
 
 **요청 본문**
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-
-| 이름 | 타입 | 필수 | 설명 |
+| 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| name | String | N | 이미지 레이아웃 이름 |
-| backgroundImage | String | N | 배경 이미지 파일 |
-| cardImage | String | N | 카드 이미지 파일 |
-| title | String | N | 제목 |
-| body | String | N | 본문 |
-| useBarcode | Bolean | N | 바코드 사용 여부 |
+| backgroundImage | File | X | 배경 이미지 파일 |
+| cardImage | File | X | 카드 이미지 파일 |
+| name | String | X | 이미지 레이아웃 이름 |
+| title | String | X | 제목 |
+| body | String | X | 본문 |
+| useBarcode | Boolean | X | 바코드 사용 여부 |
+
 
 
 **응답 본문**
@@ -481,12 +469,12 @@ Content-Type: multipart/form-data
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -502,16 +490,13 @@ Content-Type: multipart/form-data
 PATCH {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-Content-Type: multipart/form-data
-
-name=이미지-레이아웃
-title=제목
-body=본문
+name=name_example
+title=title_example
+body=body_example
 useBarcode=true
-backgroundImage=@{{pathToImage}}
-cardImage=@{{pathToImage}}
+backgroundImage=@BINARY_DATA_PATH
+cardImage=@BINARY_DATA_PATH
 ```
-
 </details>
 
 <details>
@@ -519,15 +504,14 @@ cardImage=@{{pathToImage}}
 
 ```http
 curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \
--H 'Content-Type: multipart/form-data' \
--F "name=이미지-레이아웃" \
--F "backgroundImage=@{pathToImage}" \
--F "cardImage=@{pathToImage}" \
--F "title=제목" \
--F "body=본문" \
--F "useBarcode=true"
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-F "name=name_example" \
+-F "title=title_example" \
+-F "body=body_example" \
+-F "useBarcode=true" \
+-F "backgroundImage=@BINARY_DATA_PATH" \
+-F "cardImage=@BINARY_DATA_PATH"
 ```
 
 </details>
