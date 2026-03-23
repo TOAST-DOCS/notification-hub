@@ -67,7 +67,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | 플로우 설명입니다. |
 | messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | steps | Array | O | 플로우 단계입니다. |
-| steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | steps[].templateId | String | X | 템플릿 아이디입니다. |
 | steps[].nextSteps | Array | X | 다음 단계입니다. |
 
@@ -301,7 +301,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flows[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | flows[].description | String | X | 플로우 설명입니다. |
 | flows[].steps | Array | O | 플로우 단계입니다. |
-| flows[].messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
+| flows[].messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
 | flows[].createdDateTime | String | O | 플로우 생성 시간입니다. |
 | flows[].updatedDateTime | String | O | 플로우 수정 시간입니다. |
 | totalCount | Integer | O | 플로우 전체 개수입니다. |
@@ -433,12 +433,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | flow.description | String | X | 플로우 설명입니다. |
 | flow.steps | Array | O | 플로우 단계입니다. |
-| flow.steps[].messageChannel | String | O | 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
+| flow.steps[].messageChannel | String | O | 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
 | flow.steps[].template | Object | O |  |
 | flow.steps[].template.templateId | String | O | 템플릿 아이디입니다. |
 | flow.steps[].template.templateName | String | X | 템플릿 이름입니다. |
 | flow.steps[].nextSteps | Array | X | 다음 단계입니다. |
-| flow.messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, FRIENDTALK, PUSH, RCS, SMS] |
+| flow.messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
 | flow.createdDateTime | String | O | 플로우 생성 시간입니다. |
 | flow.updatedDateTime | String | O | 플로우 수정 시간입니다. |
 
@@ -520,7 +520,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | 플로우 설명입니다. |
 | messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | steps | Array | O | 플로우 단계입니다. |
-| steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, FRIENDTALK, EMAIL, PUSH] |
+| steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | steps[].templateId | String | X | 템플릿 아이디입니다. |
 | steps[].nextSteps | Array | X | 다음 단계입니다. |
 

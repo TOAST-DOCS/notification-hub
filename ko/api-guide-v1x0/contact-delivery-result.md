@@ -147,11 +147,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | X | 플로우 ID |
 | contactDeliveryResults[].statsKeyId | String | X | 통계 키 아이디 |
 | contactDeliveryResults[].clientReference | String | X | 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), FRIENDTALK(친구톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | contactDeliveryResults[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | contactDeliveryResults[].options | Object | X |  |
 | contactDeliveryResults[].options.expiryOption | Integer | X | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| contactDeliveryResults[].options.groupId | String | X | RCS Biz Center 통계 연동을 위한 group ID |
+| contactDeliveryResults[].options.groupId | String | X | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | O | 확인 후 발송 여부입니다. |
 | contactDeliveryResults[].confirmedDateTime | String | X | 메시지 발송 확인 시각입니다. |
 | contactDeliveryResults[].scheduled | Boolean | O | 예약 발송 여부입니다. |
@@ -326,11 +326,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | X | 플로우 ID |
 | contactDeliveryResults[].statsKeyId | String | X | 통계 키 아이디 |
 | contactDeliveryResults[].clientReference | String | X | 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), FRIENDTALK(친구톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | contactDeliveryResults[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | contactDeliveryResults[].options | Object | X |  |
 | contactDeliveryResults[].options.expiryOption | Integer | X | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| contactDeliveryResults[].options.groupId | String | X | RCS Biz Center 통계 연동을 위한 group ID |
+| contactDeliveryResults[].options.groupId | String | X | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | O | 확인 후 발송 여부입니다. |
 | contactDeliveryResults[].confirmedDateTime | String | X | 메시지 발송 확인 시각입니다. |
 | contactDeliveryResults[].scheduled | Boolean | O | 예약 발송 여부입니다. |

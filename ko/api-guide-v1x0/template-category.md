@@ -161,7 +161,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | category.categoryId | String | O | 카테고리 아이디 |
 | category.categoryName | String | O | 카테고리 이름 |
 | category.parentCategoryId | String | X | 상위 카테고리 아이디 |
-| category.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), FRIENDTALK(친구톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| category.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | category.categoryIds | Array | O | 카테고리에 속한 카테고리 아이디 리스트 |
 | category.templateIds | Array | O | 카테고리에 속한 템플릿 아이디 리스트 |
 
@@ -460,7 +460,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | categories[].categoryId | String | O | 카테고리 아이디 |
 | categories[].categoryName | String | O | 카테고리 이름 |
 | categories[].parentCategoryId | String | X | 상위 카테고리 아이디 |
-| categories[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), FRIENDTALK(친구톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| categories[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 
 
 
@@ -667,7 +667,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | categories[].categoryId | String | O | 카테고리 아이디, 루트 카테고리(ROOT) |
 | categories[].categoryName | String | O | 카테고리 이름, 루트 카테고리(Root Category) |
 | categories[].parentCategoryId | String | X | 상위 카테고리 아이디 |
-| categories[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), FRIENDTALK(친구톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| categories[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | categories[].categories | Array | O | 카테고리에 속한 카테고리 리스트 |
 | categories[].templates | Array | O | 카테고리에 속한 템플릿 리스트 |
 
