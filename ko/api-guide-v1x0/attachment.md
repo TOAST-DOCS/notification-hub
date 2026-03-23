@@ -30,8 +30,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -132,13 +132,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Query  | Enum | X | 메시지 채널 |
-| fileType | Query  | Enum | X | 파일 유형 |
-| fileName | Query  | String | X | 파일 이름 |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 50(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Query | Enum | X | 메시지 채널 |
+| fileType | Query | Enum | X | 파일 유형 |
+| fileName | Query | String | X | 파일 이름 |
+| limit | Query | Number | X | limit 설정하지 않으면 default 50(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -238,9 +238,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| attachmentId | Path  | String | O | 첨부 파일 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| attachmentId | Path | String | O | 첨부 파일 아이디 |
 
 
 
@@ -340,8 +340,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -441,9 +441,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| attachmentId | Path  | String | O | 첨부 파일 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| attachmentId | Path | String | O | 첨부 파일 아이디 |
 
 
 
@@ -550,9 +550,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| attachmentId | Path  | String | O | 첨부 파일 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| attachmentId | Path | String | O | 첨부 파일 아이디 |
 
 
 
@@ -659,9 +659,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Query  | Enum | X | 메시지 채널 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Query | Enum | X | 메시지 채널 |
 
 
 

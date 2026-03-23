@@ -31,21 +31,21 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| eventCategory | Query  | Enum | O | 이벤트 카테고리  |
-| messageChannel | Query  | Enum | X | 메시지 채널입니다. 설정하지 않으면 메시지 채널 전체에 대해 통계 데이터가 조회되며, 이벤트 카테고리는 메시지 발송(MESSAGE_SEND)만 설정할 수 있습니다.<br>  |
-| statsKeyId | Query  | String | X | 통계 키 아이디입니다.  |
-| messageId | Query  | String | X | 메시지 아이디입니다.  |
-| templateId | Query  | String | X | 템플릿 아이디입니다.  |
-| eventDateTimeFrom | Query  | DateTime | X | 통계 이벤트 조회 시작 일시(포함)입니다. 연월일시분까지 적용됩니다. 초와 밀리초는 사용되지 않습니다.<br> 예로, \"2023-12-31T00:00:30.999+09:00\"는 \"2023-12-31T00:00:00.000+09:00\"으로 처리됩니다.  |
-| eventDateTimeTo | Query  | DateTime | X | 통계 이벤트 조회 종료 일시(미포함)입니다. 연월일시분까지 적용됩니다. 초와 밀리초는 사용되지 않습니다.<br> 예로, \"2024-01-01T00:00:30.999+09:00\"는 \"2024-01-01T00:00:00.000+09:00\"으로 처리됩니다.  |
-| statsType | Query  | Enum | X | 통계 유형<br> - MINUTELY: 0분 ~ 59분 사이 그룹핑<br> - HOURLY: 0시 ~ 23시 사이 그룹핑<br> - DAILY: 0일 ~ 30일 사이 그룹핑<br> - BY_DAY_OF_WEEK: 월화수목금토일 그룹핑<br> 예: timeGrouping을 BY_DAY_OF_WEEK로 설정하면, 30일치를 조회하더라도 요일(월~일) 기준으로 데이터가 그룹화됩니다.  |
-| timeZone | Query  | String | X | 통계 조회 타임존(시간대)입니다. 예: Asia/Seoul, UTC, America/New_York <br> 통계 조회 시 데이터를 받을 때 원하는 시간대로 설정해서 받을 수 있습니다. 일반적으로 조회하는 클라이언트/브라우저의 시간대를 설정하면 됩니다.<br> 예를 들어, 요일별로 그룹핑된 통계 데이터를 한국이 아닌 다른 곳에서 조회한 경우 시간대가 다르기 때문에 원하는 데이터가 조회되지 않을 수 있습니다.  |
-| statsCriteria | Query  | Array | X | 조회 기준입니다. 설정된 이벤트 카테고리에 따라 설정할 수 있는 조회 기준이 달라집니다.<br>  |
-| extra1 | Query  | String | X | 추가 수집되는 데이터입니다.  |
-| extra2 | Query  | String | X | 추가 수집되는 데이터입니다.  |
-| extra3 | Query  | String | X | 추가 수집되는 데이터입니다.  |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| eventCategory | Query | Enum | O | 이벤트 카테고리  |
+| messageChannel | Query | Enum | X | 메시지 채널입니다. 설정하지 않으면 메시지 채널 전체에 대해 통계 데이터가 조회되며, 이벤트 카테고리는 메시지 발송(MESSAGE_SEND)만 설정할 수 있습니다.<br>  |
+| statsKeyId | Query | String | X | 통계 키 아이디입니다.  |
+| messageId | Query | String | X | 메시지 아이디입니다.  |
+| templateId | Query | String | X | 템플릿 아이디입니다.  |
+| eventDateTimeFrom | Query | DateTime | X | 통계 이벤트 조회 시작 일시(포함)입니다. 연월일시분까지 적용됩니다. 초와 밀리초는 사용되지 않습니다.<br> 예로, \"2023-12-31T00:00:30.999+09:00\"는 \"2023-12-31T00:00:00.000+09:00\"으로 처리됩니다.  |
+| eventDateTimeTo | Query | DateTime | X | 통계 이벤트 조회 종료 일시(미포함)입니다. 연월일시분까지 적용됩니다. 초와 밀리초는 사용되지 않습니다.<br> 예로, \"2024-01-01T00:00:30.999+09:00\"는 \"2024-01-01T00:00:00.000+09:00\"으로 처리됩니다.  |
+| statsType | Query | Enum | X | 통계 유형<br> - MINUTELY: 0분 ~ 59분 사이 그룹핑<br> - HOURLY: 0시 ~ 23시 사이 그룹핑<br> - DAILY: 0일 ~ 30일 사이 그룹핑<br> - BY_DAY_OF_WEEK: 월화수목금토일 그룹핑<br> 예: timeGrouping을 BY_DAY_OF_WEEK로 설정하면, 30일치를 조회하더라도 요일(월~일) 기준으로 데이터가 그룹화됩니다.  |
+| timeZone | Query | String | X | 통계 조회 타임존(시간대)입니다. 예: Asia/Seoul, UTC, America/New_York <br> 통계 조회 시 데이터를 받을 때 원하는 시간대로 설정해서 받을 수 있습니다. 일반적으로 조회하는 클라이언트/브라우저의 시간대를 설정하면 됩니다.<br> 예를 들어, 요일별로 그룹핑된 통계 데이터를 한국이 아닌 다른 곳에서 조회한 경우 시간대가 다르기 때문에 원하는 데이터가 조회되지 않을 수 있습니다.  |
+| statsCriteria | Query | Array | X | 조회 기준입니다. 설정된 이벤트 카테고리에 따라 설정할 수 있는 조회 기준이 달라집니다.<br>  |
+| extra1 | Query | String | X | 추가 수집되는 데이터입니다.  |
+| extra2 | Query | String | X | 추가 수집되는 데이터입니다.  |
+| extra3 | Query | String | X | 추가 수집되는 데이터입니다.  |
 
 * 메시지 채널에 따라 설정할 수 있는 이벤트 카테고리가 달라집니다.
 

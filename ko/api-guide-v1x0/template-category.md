@@ -29,10 +29,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Path  | Enum | O | 메시지 채널 |
-| categoryId | Path  | String | O | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryId | Path | String | O | 카테고리 아이디 |
 
 
 
@@ -112,10 +112,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Path  | Enum | O | 메시지 채널 |
-| categoryId | Path  | String | O | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryId | Path | String | O | 카테고리 아이디 |
 
 
 
@@ -210,10 +210,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Path  | Enum | O | 메시지 채널 |
-| categoryId | Path  | String | O | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryId | Path | String | O | 카테고리 아이디 |
 
 
 
@@ -314,10 +314,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Path  | Enum | O | 메시지 채널 |
-| categoryId | Path  | String | O | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryId | Path | String | O | 카테고리 아이디 |
 
 
 
@@ -414,9 +414,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Path  | Enum | O | 메시지 채널 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
 
 
 
@@ -507,9 +507,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Path  | Enum | O | 메시지 채널 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
 
 
 
@@ -612,13 +612,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Path  | Enum | O | 메시지 채널 |
-| categoryTemplateName | Query  | String | X | 카테고리/템플릿 이름 |
-| senderProfileType | Query  | Enum | X | 발신프로필 타입 |
-| senderKey | Query  | String | X | 발신 키 |
-| status | Query  | String | X | 템플릿 상태 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryTemplateName | Query | String | X | 카테고리/템플릿 이름 |
+| senderProfileType | Query | Enum | X | 발신프로필 타입 |
+| senderKey | Query | String | X | 발신 키 |
+| status | Query | String | X | 템플릿 상태 |
 
 
 
@@ -670,6 +670,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | categories[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | categories[].categories | Array | O | 카테고리에 속한 카테고리 리스트 |
 | categories[].templates | Array | O | 카테고리에 속한 템플릿 리스트 |
+| categories[].templates[].templateId | String | O | 템플릿 아이디 |
+| categories[].templates[].templateName | String | O | 템플릿 이름 |
 
 
 

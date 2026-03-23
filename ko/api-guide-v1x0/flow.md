@@ -36,8 +36,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -217,12 +217,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| flowName | Query  | String | X | 플로우 이름(LIKE 검색) |
-| flowId | Query  | String | X | 플로우 아이디입니다. |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 50(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| flowName | Query | String | X | 플로우 이름(LIKE 검색) |
+| flowId | Query | String | X | 플로우 아이디입니다. |
+| limit | Query | Number | X | limit 설정하지 않으면 default 50(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -301,6 +301,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | flows[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | flows[].description | String | X | 플로우 설명입니다. |
 | flows[].steps | Array | O | 플로우 단계입니다. |
+| flows[].steps[].messageChannel | String | O | 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flows[].steps[].template | Object | O |  |
+| flows[].steps[].template.templateId | String | O | 템플릿 아이디입니다. |
+| flows[].steps[].template.templateName | String | X | 템플릿 이름입니다. |
+| flows[].steps[].nextSteps | Array | X | 다음 단계입니다. |
 | flows[].messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
 | flows[].createdDateTime | String | O | 플로우 생성 시간입니다. |
 | flows[].updatedDateTime | String | O | 플로우 수정 시간입니다. |
@@ -353,9 +358,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| flowId | Path  | String | O | 플로우 아이디입니다. |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| flowId | Path | String | O | 플로우 아이디입니다. |
 
 
 
@@ -488,9 +493,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| flowId | Path  | String | O | 플로우 아이디입니다. |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| flowId | Path | String | O | 플로우 아이디입니다. |
 
 
 
@@ -617,9 +622,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| flowId | Path  | String | O | 플로우 아이디입니다. |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| flowId | Path | String | O | 플로우 아이디입니다. |
 
 
 
@@ -700,8 +705,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 

@@ -28,9 +28,9 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| templateId | Path  | String | O | 템플릿 아이디 |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| templateId | Path | String | O | 템플릿 아이디 |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -157,6 +157,8 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 | templates[].content.templateHeader | String | X | 템플릿 헤더, 변수 입력 가능 |
 | templates[].content.templateItem | Object | X |  |
 | templates[].content.templateItem.list | Array | O |  |
+| templates[].content.templateItem.list[].title | String | O | 아이템 타이틀 |
+| templates[].content.templateItem.list[].description | String | O | 아이템 설명 |
 | templates[].content.templateItem.summary | Object | X |  |
 | templates[].content.templateItem.summary.title | String | O | 요약 타이틀 |
 | templates[].content.templateItem.summary.description | String | O | 요약 설명(변수 및 화폐 단위, 숫자, 쉼표, 마침표만 사용 가능) |
@@ -176,9 +178,33 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 | templates[].content.securityFlag | Boolean | X | 템플릿 보안 여부(default: false) |
 | templates[].content.categoryCode | String | X | 템플릿 카테고리 코드(템플릿 카테고리 조회 API 참고, default: 999999) |
 | templates[].content.buttons | Array | X | 템플릿 버튼 |
+| templates[].content.buttons[].ordering | Integer | O | 템플릿 버튼 순서 |
+| templates[].content.buttons[].type | String | O | 템플릿 버튼 타입(WL: 웹 링크, AL: 앱 링크, DS: 배송 조회, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 봇 전환, AC: 채널 추가, BF: 비지니스폼, P1: 이미지 보안 전송 플러그인 ID, P2: 개인정보이용 플러그인 ID, P3: 원클릭 결제 플러그인 ID, TN: 전화하기)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3, TN] |
+| templates[].content.buttons[].name | String | O | 템플릿 버튼 이름 |
+| templates[].content.buttons[].linkMo | String | X | 템플릿 버튼 모바일 웹 링크 |
+| templates[].content.buttons[].linkPc | String | X | 템플릿 버튼 PC 웹 링크 |
+| templates[].content.buttons[].schemeIos | String | X | 템플릿 버튼 iOS 앱 링크 |
+| templates[].content.buttons[].schemeAndroid | String | X | 템플릿 버튼 안드로이드 앱 링크 |
+| templates[].content.buttons[].bizFormId | Integer | X | 템플릿 버튼 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | templates[].content.quickReplies | Array | X | 템플릿 바로 연결 |
+| templates[].content.quickReplies[].ordering | Integer | O | 템플릿 바로연결 순서 |
+| templates[].content.quickReplies[].type | String | O | 템플릿 바로연결 타입(WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, BC: 상담톡 전환, BT: 봇 전환, BF: 비지니스폼)<br>[WL, AL, BK, BC, BT, BF] |
+| templates[].content.quickReplies[].name | String | O | 템플릿 바로연결 이름 |
+| templates[].content.quickReplies[].linkMo | String | X | 템플릿 바로연결 모바일 웹 링크 |
+| templates[].content.quickReplies[].linkPc | String | X | 템플릿 바로연결 PC 웹 링크 |
+| templates[].content.quickReplies[].schemeIos | String | X | 템플릿 바로연결 iOS 앱 링크 |
+| templates[].content.quickReplies[].schemeAndroid | String | X | 템플릿 바로연결 안드로이드 앱 링크 |
+| templates[].content.quickReplies[].bizFormId | Integer | X | 템플릿 바로연결 비즈니스폼 ID(BF 타입일 경우, 필수) |
 | templates[].reviewStatus | String | O | REGISTERED:요청, REQUESTED:검수 중, APPROVED:승인, REJECTED: 반려<br>[REGISTERED, REQUESTED, APPROVED, REJECTED] |
 | templates[].comments | Array | O | 템플릿 문의 리스트 |
+| templates[].comments[].id | Integer | O | 문의 아이디 |
+| templates[].comments[].content | String | X | 문의 내용 |
+| templates[].comments[].userName | String | O | 작성자 |
+| templates[].comments[].createdAt | String | O | 문의 생성 시각 |
+| templates[].comments[].attachments | Array | O | 문의 첨부 파일 |
+| templates[].comments[].attachments[].originalFileName | String | O | 첨부 파일명 |
+| templates[].comments[].attachments[].filePath | String | O | 첨부 파일 경로 |
+| templates[].comments[].status | String | O | 문의 상태(REQ: 요청, INQ:문의, APR:승인, REJ:반려, REP: 답변)<br>[REQ, INQ, APR, REJ, REP] |
 | templates[].block | Boolean | O | 템플릿 차단 여부 |
 | templates[].dormant | Boolean | O | 템플릿 휴면 여부 |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -223,8 +249,8 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| templateId | Path  | String | O | 템플릿 아이디 |
-| kakaoTemplateCode | Path  | String | O | 카카오 템플릿 코드 |
+| templateId | Path | String | O | 템플릿 아이디 |
+| kakaoTemplateCode | Path | String | O | 카카오 템플릿 코드 |
 
 
 
@@ -305,8 +331,8 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| templateId | Path  | String | O | 템플릿 아이디 |
-| kakaoTemplateCode | Path  | String | O | 카카오 템플릿 코드 |
+| templateId | Path | String | O | 템플릿 아이디 |
+| kakaoTemplateCode | Path | String | O | 카카오 템플릿 코드 |
 
 
 
@@ -399,8 +425,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -549,11 +575,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateName | Query  | String | X | 템플릿 이름(LIKE 검색) |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateName | Query | String | X | 템플릿 이름(LIKE 검색) |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -654,9 +680,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -775,9 +801,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -920,9 +946,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -1002,8 +1028,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -1364,13 +1390,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateName | Query  | String | X | 템플릿 이름(LIKE 검색) |
-| senderKey | Query  | String | X | 발신키 |
-| templateStatus | Query  | String | X | 템플릿 상태 |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateName | Query | String | X | 템플릿 이름(LIKE 검색) |
+| senderKey | Query | String | X | 발신키 |
+| templateStatus | Query | String | X | 템플릿 상태 |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -1471,13 +1497,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| senderKey | Path  | String | O | 발신키 |
-| templateName | Query  | String | X | 템플릿 이름(LIKE 검색) |
-| templateStatus | Query  | String | X | 템플릿 상태 |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| senderKey | Path | String | O | 발신키 |
+| templateName | Query | String | X | 템플릿 이름(LIKE 검색) |
+| templateStatus | Query | String | X | 템플릿 상태 |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -1578,9 +1604,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -1726,6 +1752,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.additionalProperty.comments[].userName | String | O | 작성자 |
 | template.additionalProperty.comments[].createdAt | String | O | 문의 생성 시각 |
 | template.additionalProperty.comments[].attachments | Array | O | 문의 첨부 파일 |
+| template.additionalProperty.comments[].attachments[].originalFileName | String | O | 첨부 파일명 |
+| template.additionalProperty.comments[].attachments[].filePath | String | O | 첨부 파일 경로 |
 | template.additionalProperty.comments[].status | String | O | 문의 상태(REQ: 요청, INQ:문의, APR:승인, REJ:반려, REP: 답변)<br>[REQ, INQ, APR, REJ, REP] |
 | template.additionalProperty.status | String | X | REGISTERED:요청, REQUESTED:검수 중, APPROVED:승인, REJECTED: 반려<br>[REGISTERED, REQUESTED, APPROVED, REJECTED] |
 | template.additionalProperty.block | Boolean | O | 템플릿 차단 여부<br>기본값: false |
@@ -1827,9 +1855,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -2161,9 +2189,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -2243,9 +2271,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -2324,9 +2352,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -2395,11 +2423,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 50(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
+| limit | Query | Number | X | limit 설정하지 않으면 default 50(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -2461,8 +2489,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -2509,6 +2537,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | categories | Array | O |  |
 | categories[].name | String | O | 대분류 카테고리 이름 |
 | categories[].subCategories | Array | X | 서브 카테고리 |
+| categories[].subCategories[].code | String | O | 카테고리 코드 |
+| categories[].subCategories[].name | String | O | 중분류 카테고리 이름 |
+| categories[].subCategories[].groupName | String | O | 대분류 카테고리 이름 |
+| categories[].subCategories[].inclusion | String | O | 카테고리 대상 설명 |
+| categories[].subCategories[].exclusion | String | O | 카테고리 제외 설명 |
 
 
 
@@ -2555,8 +2588,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -2697,9 +2730,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -2814,11 +2847,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateName | Query  | String | X | 템플릿 이름(LIKE 검색) |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateName | Query | String | X | 템플릿 이름(LIKE 검색) |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -2919,9 +2952,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -3056,9 +3089,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -3138,8 +3171,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -3249,6 +3282,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description2 | String | X | 본문 2 |
 | content.cards[].description3 | String | X | 본문 3 |
 | content.cards[].buttons | Array | X | RCS 버튼 리스트 |
+| content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | content.buttons | Array | X | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | X |  |
@@ -3456,11 +3492,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateName | Query  | String | X | 템플릿 이름(LIKE 검색) |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateName | Query | String | X | 템플릿 이름(LIKE 검색) |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -3561,9 +3597,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -3706,6 +3742,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.cards[].description2 | String | X | 본문 2 |
 | template.content.cards[].description3 | String | X | 본문 3 |
 | template.content.cards[].buttons | Array | X | RCS 버튼 리스트 |
+| template.content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| template.content.cards[].buttons[].buttonJson | Object | X |  |
+| template.content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | template.content.buttons | Array | X | RCS 버튼 리스트 |
 | template.content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | template.content.buttons[].buttonJson | Object | X |  |
@@ -3761,9 +3800,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -3871,6 +3910,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description2 | String | X | 본문 2 |
 | content.cards[].description3 | String | X | 본문 3 |
 | content.cards[].buttons | Array | X | RCS 버튼 리스트 |
+| content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | content.buttons | Array | X | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | X |  |
@@ -4074,9 +4116,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -4156,8 +4198,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -4413,11 +4455,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateName | Query  | String | X | 템플릿 이름(LIKE 검색) |
-| limit | Query  | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query  | Number | X | offset 설정하지 않으면 default 0 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateName | Query | String | X | 템플릿 이름(LIKE 검색) |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
 
 
 
@@ -4518,9 +4560,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -4670,9 +4712,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -4922,9 +4964,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 
@@ -5004,10 +5046,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageChannel | Path  | Enum | O | 메시지 채널입니다. |
-| templateId | Path  | String | O | 템플릿 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널입니다. |
+| templateId | Path | String | O | 템플릿 아이디 |
 
 
 

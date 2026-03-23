@@ -34,23 +34,23 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageId | Query  | String | X | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
-| templateId | Query  | String | X | 템플릿 아이디입니다. |
-| flowId | Query  | String | X | 플로우 아이디입니다. |
-| statsKeyId | Query  | String | X | 통계 키 아이디입니다. |
-| sender | Query  | String | X | 발신자 정보입니다. |
-| contact | Query  | String | X | 연락처입니다. |
-| messageChannel | Query  | Enum | X | 메시지 채널입니다. |
-| messagePurpose | Query  | Enum | X | 메시지 목적입니다. |
-| statuses | Query  | Enum | X | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br>  |
-| scheduled | Query  | Boolean | X | 예약 발송 여부입니다. |
-| confirmBeforeSend | Query  | Boolean | X | 승인 후 발송 여부입니다. |
-| createdDateTimeFrom | Query  | DateTime | X | 요청 시작 일시입니다. 기본값은 7일 전입니다. |
-| createdDateTimeTo | Query  | DateTime | X | 요청 종료 일시입니다. 기본값은 현재 일시입니다. |
-| limit | Query  | Number | X | 조회할 메시지 수입니다. 기본값은 10입니다. |
-| offset | Query  | Number | X | 조회할 메시지의 시작 위치입니다. 기본값은 0입니다. |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageId | Query | String | X | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| templateId | Query | String | X | 템플릿 아이디입니다. |
+| flowId | Query | String | X | 플로우 아이디입니다. |
+| statsKeyId | Query | String | X | 통계 키 아이디입니다. |
+| sender | Query | String | X | 발신자 정보입니다. |
+| contact | Query | String | X | 연락처입니다. |
+| messageChannel | Query | Enum | X | 메시지 채널입니다. |
+| messagePurpose | Query | Enum | X | 메시지 목적입니다. |
+| statuses | Query | Enum | X | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br>  |
+| scheduled | Query | Boolean | X | 예약 발송 여부입니다. |
+| confirmBeforeSend | Query | Boolean | X | 승인 후 발송 여부입니다. |
+| createdDateTimeFrom | Query | DateTime | X | 요청 시작 일시입니다. 기본값은 7일 전입니다. |
+| createdDateTimeTo | Query | DateTime | X | 요청 종료 일시입니다. 기본값은 현재 일시입니다. |
+| limit | Query | Number | X | 조회할 메시지 수입니다. 기본값은 10입니다. |
+| offset | Query | Number | X | 조회할 메시지의 시작 위치입니다. 기본값은 0입니다. |
 
 * **createdDateTimeFrom**과 **createdDateTimeTo**의 최대 조회 기간은 7일입니다.
 
@@ -215,22 +215,22 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| messageId | Query  | String | X | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
-| templateId | Query  | String | X | 템플릿 아이디입니다. |
-| flowId | Query  | String | X | 플로우 아이디입니다. |
-| statsKeyId | Query  | String | X | 통계 키 아이디입니다. |
-| sender | Query  | String | X | 발신자 정보입니다. |
-| contact | Query  | String | X | 연락처입니다. |
-| messageChannel | Query  | Enum | X | 메시지 채널입니다. |
-| messagePurpose | Query  | Enum | X | 메시지 목적입니다. |
-| scheduled | Query  | Boolean | X | 예약 발송 여부입니다. |
-| confirmBeforeSend | Query  | Boolean | X | 승인 후 발송 여부입니다. |
-| updatedDateTimeFrom | Query  | DateTime | X | 발송 상태 업데이트 시작 일시입니다. 기본값은 7일 전입니다. |
-| updatedDateTimeTo | Query  | DateTime | X | 발송 상태 업데이트 종료 일시입니다. 기본값은 현재 일시입니다. |
-| limit | Query  | Number | X | 조회할 메시지 수입니다. 기본값은 10입니다. |
-| offset | Query  | Number | X | 조회할 메시지의 시작 위치입니다. 기본값은 0입니다. |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageId | Query | String | X | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+| templateId | Query | String | X | 템플릿 아이디입니다. |
+| flowId | Query | String | X | 플로우 아이디입니다. |
+| statsKeyId | Query | String | X | 통계 키 아이디입니다. |
+| sender | Query | String | X | 발신자 정보입니다. |
+| contact | Query | String | X | 연락처입니다. |
+| messageChannel | Query | Enum | X | 메시지 채널입니다. |
+| messagePurpose | Query | Enum | X | 메시지 목적입니다. |
+| scheduled | Query | Boolean | X | 예약 발송 여부입니다. |
+| confirmBeforeSend | Query | Boolean | X | 승인 후 발송 여부입니다. |
+| updatedDateTimeFrom | Query | DateTime | X | 발송 상태 업데이트 시작 일시입니다. 기본값은 7일 전입니다. |
+| updatedDateTimeTo | Query | DateTime | X | 발송 상태 업데이트 종료 일시입니다. 기본값은 현재 일시입니다. |
+| limit | Query | Number | X | 조회할 메시지 수입니다. 기본값은 10입니다. |
+| offset | Query | Number | X | 조회할 메시지의 시작 위치입니다. 기본값은 0입니다. |
 
 
 
