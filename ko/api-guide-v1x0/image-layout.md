@@ -154,12 +154,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| backgroundImage | Form  | File | O |  |
-| cardImage | Form  | File | O |  |
-| name | Form  | String | O |  |
-| title | Form  | String | O |  |
-| body | Form  | String | O |  |
-| useBarcode | Form  | Boolean | O |  |
+| backgroundImage | File | O | 배경 이미지 파일 |
+| cardImage | File | O | 카드 이미지 파일 |
+| name | String | O | 이미지 레이아웃 이름 |
+| title | String | O | 제목 |
+| body | String | O | 본문 |
+| useBarcode | Boolean | O | 바코드 사용 여부 |
 
 
 
@@ -444,12 +444,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| backgroundImage | Form  | File | X |  |
-| cardImage | Form  | File | X |  |
-| name | Form  | String | X |  |
-| title | Form  | String | X |  |
-| body | Form  | String | X |  |
-| useBarcode | Form  | Boolean | X |  |
+| backgroundImage | File | X | 배경 이미지 파일 |
+| cardImage | File | X | 카드 이미지 파일 |
+| name | String | X | 이미지 레이아웃 이름 |
+| title | String | X | 제목 |
+| body | String | X | 본문 |
+| useBarcode | Boolean | X | 바코드 사용 여부 |
 
 
 

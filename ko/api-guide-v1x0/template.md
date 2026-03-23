@@ -2528,8 +2528,8 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| file | Form  | Object | O | 문의 파일 |
-| comment | Form  | String | O | 문의 내용 |
+| file | Array | O | 문의 파일 |
+| comment | String | O | 문의 내용 |
 
 
 
@@ -4016,7 +4016,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.additionalProperty.templateCode | String | O | 템플릿 코드(영문, 숫자, -, _) |
 | template.additionalProperty.comments | Array | O | 템플릿 문의 리스트 |
 | template.additionalProperty.comments[].id | Integer | O | 문의 아이디 |
-| template.additionalProperty.comments[].content | String | O | 문의 내용 |
+| template.additionalProperty.comments[].content | String | X | 문의 내용 |
 | template.additionalProperty.comments[].userName | String | O | 작성자 |
 | template.additionalProperty.comments[].createdAt | String | O | 문의 생성 시각 |
 | template.additionalProperty.comments[].attachments | Array | O | 문의 첨부 파일 |
@@ -4630,8 +4630,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| file | Form  | Object | O | 문의 파일 |
-| comment | Form  | String | O | 문의 내용 |
+| file | Array | O | 문의 파일 |
+| comment | String | O | 문의 내용 |
 
 
 

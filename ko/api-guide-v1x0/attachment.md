@@ -41,9 +41,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| file | Form  | File | O | 첨부 파일입니다. |
-| fileName | Form  | String | O | 첨부 파일의 이름입니다. |
-| fileTypes | Form  | Object | X | 업로드할 첨부 파일의 유형입니다. 첨부 파일이 사용될 수 있는 파일의 유형을 여러 개 선택할 수 있습니다. 설정된 파일 유형에 대한 유효성 검사를 통과해야 업로드가 성공합니다. |
+| file | File | O | 첨부 파일입니다. |
+| fileName | String | O | 첨부 파일의 이름입니다. |
+| fileTypes | Array | X | 업로드할 첨부 파일의 유형입니다. 첨부 파일이 사용될 수 있는 파일의 유형을 여러 개 선택할 수 있습니다. 설정된 파일 유형에 대한 유효성 검사를 통과해야 업로드가 성공합니다. |
 
 
 
@@ -351,9 +351,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| file | Form  | File | O | 첨부 파일입니다. |
-| fileName | Form  | String | O | 첨부 파일의 이름입니다. |
-| fileTypes | Form  | Object | X | 업로드할 첨부 파일의 유형입니다. 첨부 파일이 사용될 수 있는 파일의 유형을 여러 개 선택할 수 있습니다. 설정된 파일 유형에 대한 유효성 검사를 통과해야 업로드가 성공합니다. |
+| file | File | O | 첨부 파일입니다. |
+| fileName | String | O | 첨부 파일의 이름입니다. |
+| fileTypes | Array | X | 업로드할 첨부 파일의 유형입니다. 첨부 파일이 사용될 수 있는 파일의 유형을 여러 개 선택할 수 있습니다. 설정된 파일 유형에 대한 유효성 검사를 통과해야 업로드가 성공합니다. |
 
 
 
