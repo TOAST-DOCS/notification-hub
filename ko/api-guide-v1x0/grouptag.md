@@ -6,16 +6,16 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>그룹 태그</h1>
+<h1>NHN Cloud Notification Hub Public API - KakaoBizCenter GroupTag v1.0</h1>
 
 
 
 
 <span id="kakaobizcenterV10GroupTagsGet"></span>
 
-## 그룹 태그 전체 목록 조회
+## 그룹태그 전체 목록 조회
 
-카카오 비즈센터 그룹 태그 전체 목록을 조회합니다.
+카카오 비즈센터 그룹태그 전체 목록을 조회합니다.
 
 **요청**
 
@@ -29,9 +29,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| senderKey | Query  | String | O | 발신 프로필 키 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| senderKey | Query | String | O | 발신프로필 키 |
 
 
 
@@ -70,8 +70,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | groupTags | Array | O |  |
-| groupTags[].groupTagKey | String | O | 그룹 태그 키 |
-| groupTags[].groupTagName | String | O | 그룹 태그 이름 |
+| groupTags[].groupTagKey | String | O | 그룹태그 키 |
+| groupTags[].groupTagName | String | O | 그룹태그 이름 |
 
 
 
@@ -82,7 +82,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 그룹 태그 전체 목록 조회
+### 그룹태그 전체 목록 조회
 
 GET {{endpoint}}/kakaobizcenter/v1.0/group-tags?senderKey={{senderKey}}
 X-NC-APP-KEY: {appKey}
@@ -102,9 +102,9 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" 
 </details>
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyDelete"></span>
 
-## 그룹 태그 삭제
+## 그룹태그 삭제
 
-카카오 비즈센터 그룹 태그를 삭제합니다.
+카카오 비즈센터 그룹태그를 삭제합니다.
 
 **요청**
 
@@ -118,10 +118,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| groupTagKey | Path  | String | O | 그룹 태그 키 |
-| senderKey | Query  | String | O | 발신 프로필 키 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| groupTagKey | Path | String | O | 그룹태그 키 |
+| senderKey | Query | String | O | 발신프로필 키 |
 
 
 
@@ -165,7 +165,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 그룹 태그 삭제
+### 그룹태그 삭제
 
 DELETE {{endpoint}}/kakaobizcenter/v1.0/group-tags/{{groupTagKey}}?senderKey={{senderKey}}
 X-NC-APP-KEY: {appKey}
@@ -185,9 +185,9 @@ curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?sender
 </details>
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyGet"></span>
 
-## 그룹 태그 단건 조회
+## 그룹태그 한 건 조회
 
-카카오 비즈센터 그룹 태그 단건을 조회합니다.
+카카오 비즈센터 그룹태그 한 건을 조회합니다.
 
 **요청**
 
@@ -201,10 +201,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| groupTagKey | Path  | String | O | 그룹 태그 키 |
-| senderKey | Query  | String | O | 발신 프로필 키 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| groupTagKey | Path | String | O | 그룹태그 키 |
+| senderKey | Query | String | O | 발신프로필 키 |
 
 
 
@@ -243,8 +243,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | groupTag | Object | O |  |
-| groupTag.groupTagKey | String | O | 그룹 태그 키 |
-| groupTag.groupTagName | String | O | 그룹 태그 이름 |
+| groupTag.groupTagKey | String | O | 그룹태그 키 |
+| groupTag.groupTagName | String | O | 그룹태그 이름 |
 
 
 
@@ -255,7 +255,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 그룹 태그 단건 조회
+### 그룹태그 한 건 조회
 
 GET {{endpoint}}/kakaobizcenter/v1.0/group-tags/{{groupTagKey}}?senderKey={{senderKey}}
 X-NC-APP-KEY: {appKey}
@@ -275,9 +275,9 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey
 </details>
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyPut"></span>
 
-## 그룹 태그 수정
+## 그룹태그 수정
 
-카카오 비즈센터 그룹 태그를 수정합니다.
+카카오 비즈센터 그룹태그를 수정합니다.
 
 **요청**
 
@@ -291,9 +291,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
-| groupTagKey | Path  | String | O | 그룹 태그 키 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| groupTagKey | Path | String | O | 그룹태그 키 |
 
 
 
@@ -313,8 +313,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| senderKey | String | O | 발신 프로필 키 |
-| newGroupTagName | String | O | 새 그룹 태그 이름 |
+| senderKey | String | O | 발신프로필 키 |
+| newGroupTagName | String | O | 새 그룹태그 이름 |
 
 
 
@@ -345,8 +345,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | groupTag | Object | O |  |
-| groupTag.groupTagKey | String | O | 그룹 태그 키 |
-| groupTag.groupTagName | String | O | 그룹 태그 이름 |
+| groupTag.groupTagKey | String | O | 그룹태그 키 |
+| groupTag.groupTagName | String | O | 그룹태그 이름 |
 
 
 
@@ -357,7 +357,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 그룹 태그 수정
+### 그룹태그 수정
 
 PUT {{endpoint}}/kakaobizcenter/v1.0/group-tags/{{groupTagKey}}
 X-NC-APP-KEY: {appKey}
@@ -385,9 +385,9 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 </details>
 <span id="kakaobizcenterV10GroupTagsPost"></span>
 
-## 그룹 태그 등록
+## 그룹태그 등록
 
-카카오 비즈센터 그룹 태그를 등록합니다.
+카카오 비즈센터 그룹태그를 등록합니다.
 
 **요청**
 
@@ -401,8 +401,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | O | 앱키 |
-| X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 
 
 
@@ -422,8 +422,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| senderKey | String | O | 발신 프로필 키 |
-| groupTagName | String | O | 그룹 태그 이름 |
+| senderKey | String | O | 발신프로필 키 |
+| groupTagName | String | O | 그룹태그 이름 |
 
 
 
@@ -454,8 +454,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | groupTag | Object | O |  |
-| groupTag.groupTagKey | String | O | 그룹 태그 키 |
-| groupTag.groupTagName | String | O | 그룹 태그 이름 |
+| groupTag.groupTagKey | String | O | 그룹태그 키 |
+| groupTag.groupTagName | String | O | 그룹태그 이름 |
 
 
 
@@ -466,7 +466,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 그룹 태그 등록
+### 그룹태그 등록
 
 POST {{endpoint}}/kakaobizcenter/v1.0/group-tags
 X-NC-APP-KEY: {appKey}
