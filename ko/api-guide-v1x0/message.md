@@ -18,7 +18,7 @@
 
 SMS에 대한 자유 양식 메시지 발송을 요청합니다. 메시지 내용을 요청 본문에 입력한 뒤 발송을 요청합니다.
 
-각 메시지 채널로 메시지를 발송하려면 각 메시지 채널의 발신 정보가 등록되어 있어야 합니다. 발신 정보 등록은 **Notification Hub 콘솔** > **발신 정보 탭**에서 진행할 수 있습니다. 메시지 채널의 발신 정보에 대한 자세한 설명은 **Notification** > **Notification Hub** > **이용 정책 및 사전 설정 안내**에서 확인할 수 있습니다.
+각 메시지 채널로 메시지를 발송하기 위해서는 각 메시지 채널의 발신 정보가 등록되어 있어야 합니다. 발신 정보 등록은 **Notification Hub 콘솔** > **발신 정보 탭**에서 진행할 수 있습니다. 메시지 채널의 발신 정보에 대한 자세한 설명은 **Notification** > **Notification Hub** > **이용 정책 및 사전 설정 안내**에서 확인할 수 있습니다.
 
 
 **요청**
@@ -37,10 +37,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NHN-Authorization | Header  | String | O | 액세스 토큰 |
 | messagePurpose | Path  | Enum | O | 메시지 목적입니다. |
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 765f75a (#10468 Update API documents and add not-null info)
 
 **요청 본문**
 
@@ -72,7 +69,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -94,7 +92,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.title | String | X | 메시지 제목 |
 | content.body | String | O | 메시지 본문 |
 | content.attachmentIds | Array | X | 첨부 파일 아이디 최대 3개 |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 * 메시지 채널에 따라 **sender**, **content** 필드는 서로 다른 형식을 가집니다.
 * 메시지 채널에 따라 **recipients[].contact.contactType**, **recipients[].contact.contact** 필드에 입력할 수 있는 값이 달라집니다.
@@ -115,7 +113,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 * 알림톡(ALIMTALK)은 발신 키(senderKey)와 발신 프로필 유형(senderProfileType)을 필수로 입력해야 합니다.
 * 알림톡(ALIMTALK)은 발송 시 템플릿이 반드시 필요합니다. 자유 양식 메시지 발송을 지원하지 않습니다.
-* 발신 프로필 유형은 **GROUP(그룹)**과 **NORMAL(일반)**이 있습니다. **GROUP**은 그룹 발신자 프로필, **NORMAL**은 일반 발신자 프로필입니다.
+* 친구톡(FRIENDTALK)은 NORMAL(일반) 발신 프로필 유형만 사용할 수 있습니다. GROUP(그룹) 발신 프로필 유형의 발신 키를 사용하면 발송에 실패합니다.
+* 발신자 프로필 유형은 **GROUP(그룹)**과 **NORMAL(일반)**이 있습니다. **GROUP**은 그룹 발신자 프로필, **NORMAL**은 일반 발신자 프로필입니다.
 
 
 **응답 본문**
@@ -142,6 +141,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+
 
 
 **요청 예시**
@@ -180,7 +180,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -216,7 +217,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
     "title" : "명절 운영시간 공지",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -335,7 +337,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "schemeIos" : "example://ios",
       "schemeAndroid" : "example://android"
     }
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -398,7 +401,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.coupon.linkPc | String | X | 대표 링크 PC 웹 링크 |
 | content.coupon.schemeIos | String | X | 대표 링크 iOS 앱 링크 |
 | content.coupon.schemeAndroid | String | X | 대표 링크 안드로이드 앱 링크 |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -524,7 +527,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "schemeIos" : "example://ios",
       "schemeAndroid" : "example://android"
     }
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -619,7 +623,8 @@ curl -X POST "${endpoint}/message/v1.0/FRIENDTALK/free-form-messages/${messagePu
       "schemeIos" : "example://ios",
       "schemeAndroid" : "example://android"
     }
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -674,7 +679,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -695,7 +701,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.title | String | O | 템플릿 메일 제목 |
 | content.body | String | O | 템플릿 메일 본문 |
 | content.attachmentIds | Array | X | 템플릿 첨부 파일 ID |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -757,7 +763,8 @@ X-NHN-Authorization: Bearer {accessToken}
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -788,7 +795,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
     "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -902,7 +910,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -910,49 +919,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-<<<<<<< HEAD
-| statsKeyId | String | N | 통계 키 아이디 |
-| scheduledDateTime | String | N | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | N | 확인 후 발송 여부 |
-| sender | Object | N |  |
-| sender.brandId | String | Y | 브랜드 아이디 |
-| sender.chatbotId | String | Y | 대화방(챗봇) 아이디 |
-| recipients | Array | N |  |
-| recipients[].contacts | Array | N |  |
-| recipients[].templateParameters | Object | N | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| id | String | N | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| content | Object | N |  |
-| content.messageType | String | N | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| content.title | String | N | (Deprecated, content.cards[].title 사용) 메시지 제목 |
-| content.body | String | N | (Deprecated, content.cards[].description 사용) 메시지 본문 |
-| content.smsType | String | N | SMS 타입<br>[STANDALONE, UNIFIED_STANDALONE] |
-| content.lmsType | String | N | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
-| content.mmsType | String | N | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
-| content.messagebaseId | String | N | RCS Biz Center 템플릿 아이디 |
-| content.unsubscribePhoneNumber | String | N | 수신 거부 번호(광고 발송일 경우 필수) |
-| content.cards | Array | N | RCS 카드 |
-| content.cards[].title | String | N | 제목 |
-| content.cards[].description | String | N | 본문 |
-| content.cards[].attachmentId | String | N | 첨부 파일 아이디<br>※ 통합 MMS 카드에서 GIF 이미지를 첨부하면 iOS 기기에서는 수신이 불가능합니다. |
-| content.cards[].mTitle | String | N | 메인 타이틀 |
-| content.cards[].mTitleMedia | String | N | 메인 타이틀 로고 파일 ID |
-| content.cards[].title1 | String | N | 제목 1 |
-| content.cards[].title2 | String | N | 제목 2 |
-| content.cards[].title3 | String | N | 제목 3 |
-| content.cards[].description1 | String | N | 본문 1 |
-| content.cards[].description2 | String | N | 본문 2 |
-| content.cards[].description3 | String | N | 본문 3 |
-| content.cards[].buttons | Array | N | 버튼 |
-| content.cards[].buttons[].buttonType | String | N | 버튼 타입<br>COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br><br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | N | 버튼 JSON, 버튼 타입에 맞는 포맷 확인 |
-| content.buttons | Array | N | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
-| content.buttons[].buttonType | String | N | buttonType 값과 동일한 이름을 가진 Action 객체가 buttonJson으로 포함됨.<br>버튼 타입 대화방 열기(COMPOSE), 복사하기(CLIPBOARD), 전화 걸기(DIALER), 지도 보여주기(MAP_SHOW), 지도 검색하기(MAP_QUERY), 현재 위치 공유하기(MAP_SHARE), URL 연결하기(URL), 일정 등록하기(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | N |  |
-| content.buttons[].buttonJson.action | Object | N | 버튼 액션 |
-| options | Object | N |  |
-| options.expiryOption | Integer | N | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
-| options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
-=======
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -992,8 +958,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options | Object | X |  |
 | options.expiryOption | Integer | X | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
 | options.groupId | String | X | RCS Biz Center 통계 연동을 위한 group ID |
-
->>>>>>> 8d8aa75 (#10468 Update API docs)
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1114,7 +1079,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -1204,7 +1170,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -1254,7 +1221,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -1263,26 +1230,26 @@ X-NHN-Authorization: Bearer {accessToken}
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
         "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
@@ -1292,14 +1259,15 @@ X-NHN-Authorization: Bearer {accessToken}
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -1315,7 +1283,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X | 푸시 메시지 내용 |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1372,7 +1340,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -1381,26 +1349,26 @@ X-NHN-Authorization: Bearer {accessToken}
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
         "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
@@ -1410,14 +1378,15 @@ X-NHN-Authorization: Bearer {accessToken}
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -1443,7 +1412,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -1452,26 +1421,26 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
         "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
         "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
@@ -1481,14 +1450,15 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
       "useHtmlStyle" : true
     },
     "customKey" : "customValue"
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -1553,7 +1523,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -1570,7 +1541,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1633,7 +1604,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 </details>
@@ -1665,7 +1637,8 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }'
 ```
 
@@ -1732,7 +1705,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -1751,7 +1725,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -1817,7 +1791,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 </details>
@@ -1852,7 +1827,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }'
 ```
 
@@ -1922,7 +1898,8 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -1946,7 +1923,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | options | Object | X |  |
 | options.expiryOption | Integer | X | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
 | options.groupId | String | X | RCS Biz Center 통계 연동을 위한 group ID |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2017,7 +1994,8 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -2057,7 +2035,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
   "options" : {
     "expiryOption" : 1,
     "groupId" : "20240814125609swLmoZTsGr0"
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -2121,7 +2100,8 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 
@@ -2141,7 +2121,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 | recipients[].contacts | Array | O |  |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2206,7 +2186,8 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }
 ```
 </details>
@@ -2240,7 +2221,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
       "key2" : "value2"
     }
   } ],
-  "id" : "alpha123"
+  "id" : "alpha123",
+  "dryRun" : false
 }'
 ```
 
@@ -2323,7 +2305,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -2347,7 +2330,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2429,7 +2412,8 @@ X-NHN-Authorization: Bearer {accessToken}
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -2480,7 +2464,8 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
         "messageChannel" : "RCS"
       } ]
     } ]
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
@@ -2550,7 +2535,8 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 
@@ -2573,7 +2559,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].templateId | String | X | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다. |
-
+| dryRun | Boolean | X | 발송을 시뮬레이션 모드로 실행합니다. 실제 발송은 하지 않습니다.<br>연락처별 수신 결과 상태는 발송 실패(SEND_FAILED)로 설정됩니다.<br><br>기본값: false |
 
 
 
@@ -2650,7 +2636,8 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }
 ```
 </details>
@@ -2696,7 +2683,8 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
       "templateId" : "템플릿_아이디",
       "nextSteps" : [ ]
     } ]
-  }
+  },
+  "dryRun" : false
 }'
 ```
 
