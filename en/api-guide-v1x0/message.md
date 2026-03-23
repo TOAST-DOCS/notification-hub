@@ -1705,7 +1705,6 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 | recipients[].contacts | Array | Y | | |
 | recipients[].templateParameters | Object | N | Template parameters. They consist of key (key, placeholder) and value (value) pairs.<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
 | id | String | N | ID generated upon successful bulk recipient list and file upload |
-| dryRun | Boolean | N | Sending is executed in simulation mode. No actual sending occurs.<br>The reception result status for each contact is set to SEND_FAILED.<br><br>Default: false |
 
 
 

@@ -91,7 +91,7 @@ The template structure of the receiver contact list file is as follows.
 
 ##### MMS Attachable Image Specifications
 
-* MMS maximum size: files less than 1,000\*1,000
+* MMS maximum size: files less than 1,000×1,000
 * MMS support specification: 300KB or less per image, if the number of images is 3, a total of 800KB or less/.jpg, .jpeg files
 
 
@@ -128,6 +128,13 @@ Concatenated Message feature is provided or limited depending on the number of b
         * When selecting a slide type, you can add a minimum of 3 to a maximum of 6 slides.
     * If you select a free template from RCS Biz Center template, you can enter up to 90 characters for the message.
     * RCS Biz Center template requires pre-registration from the RCS Biz Center.
+    * If integrated message types are sent for advertising purposes, the message must include the "(Advertisement)" label and opt-out instructions.
+    * For the Integrated SMS Card, as there is no subject line, the "(Advertisement)" label must be included at the beginning of the body, and opt-out instructions and an 080 number must be included at the end of the body.
+    * For the Integrated LMS Card and Integrated MMS Card, the "(Advertisement)" label must be included at the beginning of the subject line, and opt-out instructions and an 080 number must be included at the end of the body.
+
+!!! danger "Caution"
+    * If a Copy button is included in integrated message types (Integrated SMS Card, Integrated LMS Card, Integrated MMS Card), the message cannot be received on iOS devices.
+    * If a GIF image is attached to the Integrated MMS Card, the message cannot be received on iOS devices.
 
 ##### RCS button type
 * Open chat room
@@ -231,8 +238,8 @@ NHN Cloud provides the following technical measures for 'advertising mail' to co
 
 #### Button
 
-|Name| Content                                                               |
-|---|------------------------------------------------------------------|
+| Name | Content |
+| --- | --- |
 | Name | The name of button                                                           |
 | Type | Type of button, Reply, Open App (OPEN_APP), Open URL (OPEN_URL), Close (DISMISS) |
 | Transfer button name | If the button type is a response button, you can set the transfer button name on iOS.                       |
@@ -255,12 +262,12 @@ NHN Cloud provides the following technical measures for 'advertising mail' to co
 
 #### Media
 
-|Name| Content                                                |
-|---|---------------------------------------------------|
+| Name | Content |
+| --- | --- |
 | Location | Where the media is located, 'REMOTE' or 'LOCAL'                   |
 | Address | It can be the address where the media is located, URL, URI, etc.                |
 | Type | You can select images, GIFs, videos, and sounds. (Android is image only) |
-| Extension | media extensions                                          | Extensions of media such as .png, .avi, etc. |
+| Extension | media extensions. Extensions of media such as .png, .avi, etc. |
 | Unfold | Media unfold feature, only on Android.                      |
 
 #### Specify media files
@@ -312,16 +319,16 @@ The supported image formats are png, jpg, and gif. (Currently, media in video an
 #### Big icon
 This feature is only available on Android. Specify a large icon for the notification. The file assignment method is the same as the media file assignment method.
 
-|Name| Content                                 |
-|---|------------------------------------|
+| Name | Content |
+| --- | --- |
 | Location | Where it is located, 'REMOTE' or 'LOCAL'         |
 | Address | It can be the address where the image is located, URL, URI, etc. |
 
 #### Groups
 This feature is only available on Android. Set up a group for notifications and collect and express notifications with the same group key.
 
-|Name| Content        |
-|---|-----------|
+| Name | Content |
+| --- | --- |
 | Key | Group Key     |
 | Description | Description of the group |
 

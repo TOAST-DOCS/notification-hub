@@ -9,7 +9,7 @@
 
 ## 브랜드 생성 및 등록
 
-RCS Bizmessage 서비스를 이용하기 위해서는 RCS Biz Center 가입 후 브랜드를 등록해야 합니다. [[RCS Biz Center 바로 가기]](https://www.rcsbizcenter.com/main)
+RCS Bizmessage 서비스를 이용하려면 RCS Biz Center 가입 후 브랜드를 등록해야 합니다. [RCS Biz Center 바로 가기](https://www.rcsbizcenter.com/main)
 
 ### 브랜드 생성
 1. RCS Biz Center에서 **회원가입** > **기업 담당자 회원가입**을 클릭해 회원 가입 후 승인을 받습니다.
@@ -21,11 +21,11 @@ RCS Bizmessage 서비스를 이용하기 위해서는 RCS Biz Center 가입 후 
     * RCS 담당자가 승인하며 브랜드 생성 승인까지 2 영업일 정도 소요됩니다.
 
 ### 브랜드 대행사 설정
-RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 설정합니다.
+RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’로 설정합니다.
 
 1. RCS Biz Center에서 **기업 대시보드 > 브랜드 대시보드 > 브랜드 운영 관리**로 이동합니다.
 
-2. **대행사 권한 추가**를 클릭한 뒤 대행사명에서 '엔이치엔클라우드'를 검색해 선택합니다.
+2. **대행사 권한 추가**를 클릭한 뒤 대행사명에서 '엔에이치엔클라우드'를 검색해 선택합니다.
 
 ### 대화방(발신 번호) 등록
 메시지 앱의 대화방에서 메시지를 받고 확인할 수 있습니다. 대화방 단위로 메시지를 보내고, 확인할 수 있습니다.
@@ -46,15 +46,15 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
 1. **기업 대시보드 > 브랜드 대시보드 > 템플릿 등록**으로 이동하여, 템플릿을 등록합니다.
     * **템플릿 가이드**를 클릭해 관련 가이드를 참고할 수 있습니다.
       * [RCS Biz Center - 템플릿 가이드 바로 가기](https://www.rcsbizcenter.com/RcsMessageType#section04)
-    * 텍스트/이미지 템플릿 한해서 등록이 가능합니다. 아래 **지원하는 발송 유형** 항목을 참고하세요.
-    * RCS 담당자가 승인하며 대화방 승인까지 2 영업일 정도 소요됩니다.
+    * 텍스트/이미지 템플릿에 한해서 등록이 가능합니다. 아래 **지원하는 발송 유형** 항목을 참고하세요.
+    * RCS 담당자가 승인하며 템플릿 승인까지 2 영업일 정도 소요됩니다.
 
 2. 템플릿 등록이 완료(승인)되었다면, **Notification** > **RCS Bizmessage** > **RCS Bizmessage 관리** > **브랜드 관리** 탭에서 NHN Cloud 콘솔에 연동이 가능합니다.
 
 ### Notification Hub 콘솔에서 브랜드 연동
 브랜드 생성 및 대행사 설정, 대화방(발신 번호) 등록, 템플릿 등록이 완료(승인)되었으면 콘솔에서 브랜드를 연동합니다.
 
-**Notification Hub** > **발신 정보** > **브랜드 관리** 탭에서 연동이 가능합니다. 연동 후에 변경 사항이 있는 경우에는 **+ 브랜드 연동** 버튼을 누르면 동기화가 진행됩니다.
+**Notification Hub** > **발신 정보** > **브랜드 관리** 탭에서 연동이 가능합니다. 연동 후에 변경 사항이 있으면 **+ 브랜드 연동** 버튼을 누르면 동기화가 진행됩니다.
 
 ## 지원하는 발송 유형
 
@@ -72,28 +72,37 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
     </tr>
     <tr>
         <td>1</td>
-        <td>SMS</td>
+        <td rowspan="2">SMS</td>
         <td>SMS</td>
         <td>Standalone</td>
         <td>1장</td>
         <td>100자</td>
         <td>1개</td>
         <td>17자</td>
-        <td>-</td>
+        <td rowspan="2">-</td>
     </tr>
     <tr>
         <td>2</td>
-        <td rowspan="4">LMS</td>
+        <td>통합 SMS 카드</td>
+        <td>Standalone</td>
+        <td>1장</td>
+        <td>100자</td>
+        <td>1개</td>
+        <td>7자</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td rowspan="5">LMS</td>
         <td>LMS</td>
         <td>Standalone</td>
         <td>1장</td>
         <td>1300자</td>
         <td>3개</td>
         <td>17자</td>
-        <td>-</td>
+        <td rowspan="5">-</td>
     </tr>
     <tr>
-        <td>3</td>
+        <td>4</td>
         <td>기본형</td>
         <td>Format</td>
         <td>1장</td>
@@ -102,7 +111,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>17자</td>
     </tr>
     <tr>
-        <td>4</td>
+        <td>5</td>
         <td>타이틀 강조형</td>
         <td>Format</td>
         <td>1장</td>
@@ -111,7 +120,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>17자</td>
     </tr>
     <tr>
-        <td>5</td>
+        <td>6</td>
         <td>문단형</td>
         <td>Format</td>
         <td>1장</td>
@@ -120,8 +129,17 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>7자</td>
     </tr>
     <tr>
-        <td>6</td>
-        <td rowspan="4">MMS</td>
+        <td>7</td>
+        <td>통합 LMS 카드</td>
+        <td>Standalone</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>3개</td>
+        <td>7자</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td rowspan="6">MMS</td>
         <td>세로형(Tall)</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
@@ -131,7 +149,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Tall(568x528)</td>
     </tr>
     <tr>
-        <td>7</td>
+        <td>9</td>
         <td>세로형(Medium)</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
@@ -141,7 +159,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Medium(568x336)</td>
     </tr>
     <tr>
-        <td>8</td>
+        <td>10</td>
         <td>슬라이드형(Medium)</td>
         <td>Carousel Medium</td>
         <td>2장 <br/> ~ 6장</td>
@@ -151,7 +169,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Medium(696x504)</td>
     </tr>
     <tr>
-        <td>9</td>
+        <td>11</td>
         <td>슬라이드형(Small)</td>
         <td>Carousel Small</td>
         <td>2장 <br/> ~ 6장</td>
@@ -161,18 +179,38 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Short(360x336)</td>
     </tr>
     <tr>
-        <td>10</td>
-        <td rowspan="5">텍스트<br/>템플릿</td>
+        <td>12</td>
+        <td>통합 MMS 카드 M</td>
+        <td>Standalone Media Top</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>7자</td>
+        <td>Medium(900x504)</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>통합 MMS 카드 T</td>
+        <td>Standalone Media Top</td>
+        <td>1장</td>
+        <td>1300자</td>
+        <td>2개</td>
+        <td>7자</td>
+        <td>Tall(900x792)</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td rowspan="7">텍스트<br/>템플릿</td>
         <td>서술 템플릿_타이틀 선택형</td>
         <td>Description</td>
         <td>1장</td>
         <td>90자</td>
         <td>2개</td>
         <td>17자</td>
-        <td rowspan="5">-</td>
+        <td rowspan="7">-</td>
     </tr>
     <tr>
-        <td>11</td>
+        <td>15</td>
         <td>서술 템플릿_타이틀 자유형</td>
         <td>Description</td>
         <td>1장</td>
@@ -181,7 +219,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>16자</td>
     </tr>
     <tr>
-        <td>12</td>
+        <td>16</td>
         <td>스타일 템플릿_타이틀 선택형</td>
         <td>Cell</td>
         <td>1장</td>
@@ -190,7 +228,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>17자</td>
     </tr>
     <tr>
-        <td>13</td>
+        <td>17</td>
         <td>스타일 템플릿_타이틀 자유형</td>
         <td>Cell</td>
         <td>1장</td>
@@ -199,7 +237,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>16자</td>
     </tr>
     <tr>
-        <td>14</td>
+        <td>18</td>
         <td>기본 템플릿_타이틀 자유형</td>
         <td>Free</td>
         <td>1장</td>
@@ -208,8 +246,26 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>-</td>
     </tr>
     <tr>
-        <td>15</td>
-        <td rowspan="8">이미지<br/>템플릿</td>
+        <td>19</td>
+        <td>통합 정보성 템플릿</td>
+        <td>Description</td>
+        <td>1장</td>
+        <td>90자</td>
+        <td>2개</td>
+        <td>7자</td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td>통합 프리 템플릿</td>
+        <td>Free</td>
+        <td>1장</td>
+        <td>90자</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>21</td>
+        <td rowspan="10">이미지<br/>템플릿</td>
         <td>이미지 & 타이틀 강조형(3:4)</td>
         <td>Highlighted Image n Title</td>
         <td>1장</td>
@@ -219,7 +275,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Long(900x1200)</td>
     </tr>
     <tr>
-        <td>16</td>
+        <td>22</td>
         <td>이미지 & 타이틀 강조형(1:1)</td>
         <td>Highlighted Image n Title</td>
         <td>1장</td>
@@ -229,7 +285,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Square(900x900)</td>
     </tr>
     <tr>
-        <td>17</td>
+        <td>23</td>
         <td>이미지 강조형(3:4)</td>
         <td>Highlighted Image</td>
         <td>1장</td>
@@ -239,7 +295,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Long(900x1200)</td>
     </tr>
     <tr>
-        <td>18</td>
+        <td>24</td>
         <td>이미지 강조형(1:1)</td>
         <td>Highlighted Image</td>
         <td>1장</td>
@@ -249,7 +305,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Square(900x900)</td>
     </tr>
     <tr>
-        <td>19</td>
+        <td>25</td>
         <td>썸네일형(세로)</td>
         <td>Thumbnail</td>
         <td>1장</td>
@@ -259,7 +315,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Vertical(900x560)</td>
     </tr>
     <tr>
-        <td>20</td>
+        <td>26</td>
         <td>썸네일형(가로)</td>
         <td>Thumbnail</td>
         <td>1장</td>
@@ -269,7 +325,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Horizontal(900x560)</td>
     </tr>
     <tr>
-        <td>21</td>
+        <td>27</td>
         <td>SNS형</td>
         <td>SNS</td>
         <td>1장</td>
@@ -279,7 +335,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Square(900x900)</td>
     </tr>
     <tr>
-        <td>22</td>
+        <td>28</td>
         <td>SNS형(중간 버튼)</td>
         <td>SNS</td>
         <td>1장</td>
@@ -289,7 +345,27 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>Rectangle(900x560)</td>
     </tr>
     <tr>
-        <td>23</td>
+        <td>29</td>
+        <td>통합 이미지 템플릿 M</td>
+        <td>Standalone Media Top</td>
+        <td>1장</td>
+        <td>500자</td>
+        <td>2개</td>
+        <td>7자</td>
+        <td>Medium(900x504)</td>
+    </tr>
+    <tr>
+        <td>30</td>
+        <td>통합 이미지 템플릿 T</td>
+        <td>Standalone Media Top</td>
+        <td>1장</td>
+        <td>500자</td>
+        <td>2개</td>
+        <td>7자</td>
+        <td>Tall(900x792)</td>
+    </tr>
+    <tr>
+        <td>31</td>
         <td rowspan="6">LMS<br/>템플릿</td>
         <td>명세서 A형</td>
         <td>Description</td>
@@ -300,7 +376,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td rowspan="6">-</td>
     </tr>
     <tr>
-        <td>24</td>
+        <td>32</td>
         <td>명세서 B형</td>
         <td>Description</td>
         <td>1장</td>
@@ -309,7 +385,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>17자</td>
     </tr>
     <tr>
-        <td>25</td>
+        <td>33</td>
         <td>명세서 C형</td>
         <td>Description</td>
         <td>1장</td>
@@ -318,7 +394,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>17자</td>
     </tr>
     <tr>
-        <td>26</td>
+        <td>34</td>
         <td>기본형</td>
         <td>Description</td>
         <td>1장</td>
@@ -327,7 +403,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>17자</td>
     </tr>
     <tr>
-        <td>27</td>
+        <td>35</td>
         <td>타이틀 강조형</td>
         <td>Description</td>
         <td>1장</td>
@@ -336,7 +412,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
         <td>17자</td>
     </tr>
     <tr>
-        <td>28</td>
+        <td>36</td>
         <td>문단형</td>
         <td>Description</td>
         <td>1장</td>

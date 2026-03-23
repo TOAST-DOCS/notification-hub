@@ -6,22 +6,21 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>이미지 레이아웃</h1>
-
-**Notification > Notification Hub > API v1.0 사용 가이드 > 이미지 레이아웃**
+<h1>NHN Cloud Notification Hub Public API - KakaoBizCenter GroupTag v1.0</h1>
 
 
 
-<span id="imageLayoutV1x0003GetImageLayout"></span>
 
-## 이미지 레이아웃 단건 조회
+<span id="kakaobizcenterV10GroupTagsGet"></span>
 
-이미지 레이아웃을 ID 기반으로 단건 조회합니다.
+## 그룹태그 전체 목록 조회
+
+카카오 비즈센터 그룹태그 전체 목록을 조회합니다.
 
 **요청**
 
 ```
-GET /image-layout/v1.0/image-layouts/{id}
+GET /kakaobizcenter/v1.0/group-tags
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -32,7 +31,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| id | Path | String | O | 이미지 레이아웃 아이디 |
+| senderKey | Query | String | O | 발신프로필 키 |
 
 
 
@@ -55,310 +54,9 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultCode" : 0,
     "resultMessage" : "SUCCESS"
   },
-  "imageLayout" : {
-    "id" : "A9z0A9z0",
-    "name" : "2025_프로모션_쿠폰",
-    "backgroundImage" : {
-      "fileName" : "background.png",
-      "filePreviewUrl" : "https://example.com/background.png"
-    },
-    "cardImage" : {
-      "fileName" : "cardImage.png",
-      "filePreviewUrl" : "https://example.com/background.png"
-    },
-    "title" : "%user%님이 보내신\\n%promotion% 기프트 카드가 도착했어요.",
-    "body" : "* 상품명: 오늘의 상품\\n*유효기간: %expirydate%까지\\n*사용처: 온/오프라인 매장(일부 매장 제외)",
-    "useBarcode" : true,
-    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
-    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
-  }
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-| 경로 | 타입 | Not Null | 설명 |
-| - | - | - | - |
-| header | Object | O |  |
-| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| imageLayout | Object | O |  |
-| imageLayout.id | String | O | 이미지 레이아웃 아이디 |
-| imageLayout.name | String | O | 이미지 레이아웃 이름 |
-| imageLayout.backgroundImage | Object | O |  |
-| imageLayout.backgroundImage.fileName | String | O | 배경 이미지 파일 이름 |
-| imageLayout.backgroundImage.filePreviewUrl | String | O | 배경 이미지 미리보기 URL |
-| imageLayout.cardImage | Object | O |  |
-| imageLayout.cardImage.fileName | String | O | 카드 이미지 파일 이름 |
-| imageLayout.cardImage.filePreviewUrl | String | O | 카드 이미지 미리보기 URL |
-| imageLayout.title | String | O | 제목 |
-| imageLayout.body | String | O | 본문 |
-| imageLayout.useBarcode | Boolean | O | 바코드 사용 여부 |
-| imageLayout.createdDateTime | String | O | 이미지 레이아웃 생성 일시 |
-| imageLayout.updatedDateTime | String | O | 이미지 레이아웃 수정 일시 |
-
-
-
-**요청 예시**
-
-
-<details>
-    <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 이미지 레이아웃 단건 조회
-
-GET {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-</details>
-
-<details>
-    <summary><strong>cURL</strong></summary>
-
-```http
-curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
-```
-
-</details>
-<span id="imageLayoutV1x0CreateImageLayout"></span>
-
-## 이미지 레이아웃 등록
-
-이미지 레이아웃을 등록합니다.
-
-**요청**
-
-```
-POST /image-layout/v1.0/image-layouts
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**요청 파라미터**
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | O | 앱키 |
-| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-
-
-
-**요청 본문**
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-
-| 경로 | 타입 | 필수 | 설명 |
-| - | - | - | - |
-| backgroundImage | File | O | 배경 이미지 파일 |
-| cardImage | File | O | 카드 이미지 파일 |
-| name | String | O | 이미지 레이아웃 이름 |
-| title | String | O | 제목 |
-| body | String | O | 본문 |
-| useBarcode | Boolean | O | 바코드 사용 여부 |
-
-
-
-**응답 본문**
-
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
-
-```
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 0,
-    "resultMessage" : "SUCCESS"
-  },
-  "id" : "A9z0A9z0"
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-| 경로 | 타입 | Not Null | 설명 |
-| - | - | - | - |
-| header | Object | O |  |
-| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| id | String | O | 이미지 레이아웃 아이디 |
-
-
-
-**요청 예시**
-
-
-<details>
-    <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 이미지 레이아웃 등록
-
-POST {{endpoint}}/image-layout/v1.0/image-layouts
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-name=name_example
-title=title_example
-body=body_example
-useBarcode=true
-backgroundImage=@BINARY_DATA_PATH
-cardImage=@BINARY_DATA_PATH
-```
-</details>
-
-<details>
-    <summary><strong>cURL</strong></summary>
-
-```http
-curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}" \
--F "name=name_example" \
--F "title=title_example" \
--F "body=body_example" \
--F "useBarcode=true" \
--F "backgroundImage=@BINARY_DATA_PATH" \
--F "cardImage=@BINARY_DATA_PATH"
-```
-
-</details>
-<span id="imageLayoutV1x0DeleteImageLayout"></span>
-
-## 이미지 레이아웃 삭제
-
-이미지 레이아웃을 삭제합니다.
-
-**요청**
-
-```
-DELETE /image-layout/v1.0/image-layouts/{id}
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**요청 파라미터**
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | O | 앱키 |
-| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| id | Path | String | O | 이미지 레이아웃 아이디 |
-
-
-
-**요청 본문**
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-
-이 API는 요청 본문을 요구하지 않습니다.
-
-
-
-**응답 본문**
-
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
-
-```
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 0,
-    "resultMessage" : "SUCCESS"
-  }
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-| 경로 | 타입 | Not Null | 설명 |
-| - | - | - | - |
-| header | Object | O |  |
-| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-
-
-
-**요청 예시**
-
-
-<details>
-    <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 이미지 레이아웃 삭제
-
-DELETE {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-</details>
-
-<details>
-    <summary><strong>cURL</strong></summary>
-
-```http
-curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
-```
-
-</details>
-<span id="imageLayoutV1x0GetImageLayoutList"></span>
-
-## 이미지 레이아웃 리스트 조회
-
-이미지 레이아웃을 리스트로 조회합니다.
-
-**요청**
-
-```
-GET /image-layout/v1.0/image-layouts
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**요청 파라미터**
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | O | 앱키 |
-| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| name | Query | String | X | 이미지 레이아웃 이름 |
-| exact | Query | Boolean | X | true인 경우 이미지 레이아웃 이름 완전 일치 검색, false인 경우 LIKE 검색 |
-| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
-| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
-
-
-
-**요청 본문**
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-
-이 API는 요청 본문을 요구하지 않습니다.
-
-
-
-**응답 본문**
-
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
-
-```
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 0,
-    "resultMessage" : "SUCCESS"
-  },
-  "totalCount" : 1,
-  "imageLayouts" : [ {
-    "id" : "A9z0A9z0",
-    "name" : "2025_프로모션_쿠폰"
+  "groupTags" : [ {
+    "groupTagKey" : "b85552999bbb335777d16fbbbbbb552b3078aaa",
+    "groupTagName" : "20240619-00001"
   } ]
 }
 ```
@@ -371,21 +69,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| totalCount | Integer | O | 총 건수 |
-| imageLayouts | Array | O |  |
-| imageLayouts[].id | String | O | 이미지 레이아웃 아이디 |
-| imageLayouts[].name | String | O | 이미지 레이아웃 이름 |
-| imageLayouts[].backgroundImage | Object | O |  |
-| imageLayouts[].backgroundImage.fileName | String | O | 배경 이미지 파일 이름 |
-| imageLayouts[].backgroundImage.filePreviewUrl | String | O | 배경 이미지 미리보기 URL |
-| imageLayouts[].cardImage | Object | O |  |
-| imageLayouts[].cardImage.fileName | String | O | 카드 이미지 파일 이름 |
-| imageLayouts[].cardImage.filePreviewUrl | String | O | 카드 이미지 미리보기 URL |
-| imageLayouts[].title | String | O | 제목 |
-| imageLayouts[].body | String | O | 본문 |
-| imageLayouts[].useBarcode | Boolean | O | 바코드 사용 여부 |
-| imageLayouts[].createdDateTime | String | O | 이미지 레이아웃 생성 일시 |
-| imageLayouts[].updatedDateTime | String | O | 이미지 레이아웃 수정 일시 |
+| groupTags | Array | O |  |
+| groupTags[].groupTagKey | String | O | 그룹태그 키 |
+| groupTags[].groupTagName | String | O | 그룹태그 이름 |
 
 
 
@@ -396,9 +82,9 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 이미지 레이아웃 리스트 조회
+### 그룹태그 전체 목록 조회
 
-GET {{endpoint}}/image-layout/v1.0/image-layouts
+GET {{endpoint}}/kakaobizcenter/v1.0/group-tags?senderKey={{senderKey}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -408,22 +94,22 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
+curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
-<span id="imageLayoutV1x0UpdateImageLayout"></span>
+<span id="kakaobizcenterV10GroupTagsGroupTagKeyDelete"></span>
 
-## 이미지 레이아웃 수정
+## 그룹태그 삭제
 
-이미지 레이아웃을 수정합니다.
+카카오 비즈센터 그룹태그를 삭제합니다.
 
 **요청**
 
 ```
-PATCH /image-layout/v1.0/image-layouts/{id}
+DELETE /kakaobizcenter/v1.0/group-tags/{groupTagKey}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -434,7 +120,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| id | Path | String | O | 이미지 레이아웃 아이디 |
+| groupTagKey | Path | String | O | 그룹태그 키 |
+| senderKey | Query | String | O | 발신프로필 키 |
 
 
 
@@ -442,14 +129,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-| 경로 | 타입 | 필수 | 설명 |
-| - | - | - | - |
-| backgroundImage | File | X | 배경 이미지 파일 |
-| cardImage | File | X | 카드 이미지 파일 |
-| name | String | X | 이미지 레이아웃 이름 |
-| title | String | X | 제목 |
-| body | String | X | 본문 |
-| useBarcode | Boolean | X | 바코드 사용 여부 |
+이 API는 요청 본문을 요구하지 않습니다.
 
 
 
@@ -485,17 +165,11 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 이미지 레이아웃 수정
+### 그룹태그 삭제
 
-PATCH {{endpoint}}/image-layout/v1.0/image-layouts/{{id}}
+DELETE {{endpoint}}/kakaobizcenter/v1.0/group-tags/{{groupTagKey}}?senderKey={{senderKey}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-name=name_example
-title=title_example
-body=body_example
-useBarcode=true
-backgroundImage=@BINARY_DATA_PATH
-cardImage=@BINARY_DATA_PATH
 ```
 </details>
 
@@ -503,15 +177,318 @@ cardImage=@BINARY_DATA_PATH
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
+curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey=${senderKey}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+<span id="kakaobizcenterV10GroupTagsGroupTagKeyGet"></span>
+
+## 그룹태그 한 건 조회
+
+카카오 비즈센터 그룹태그 한 건을 조회합니다.
+
+**요청**
+
+```
+GET /kakaobizcenter/v1.0/group-tags/{groupTagKey}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| groupTagKey | Path | String | O | 그룹태그 키 |
+| senderKey | Query | String | O | 발신프로필 키 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "groupTag" : {
+    "groupTagKey" : "b85552999bbb335777d16fbbbbbb552b3078aaa",
+    "groupTagName" : "20240619-00001"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| groupTag | Object | O |  |
+| groupTag.groupTagKey | String | O | 그룹태그 키 |
+| groupTag.groupTagName | String | O | 그룹태그 이름 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 그룹태그 한 건 조회
+
+GET {{endpoint}}/kakaobizcenter/v1.0/group-tags/{{groupTagKey}}?senderKey={{senderKey}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey=${senderKey}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+<span id="kakaobizcenterV10GroupTagsGroupTagKeyPut"></span>
+
+## 그룹태그 수정
+
+카카오 비즈센터 그룹태그를 수정합니다.
+
+**요청**
+
+```
+PUT /kakaobizcenter/v1.0/group-tags/{groupTagKey}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| groupTagKey | Path | String | O | 그룹태그 키 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "senderKey" : "883b8b5375fd0960caa1cdeb4bd870c8cdfa403a",
+  "newGroupTagName" : "20240619-00001"
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| senderKey | String | O | 발신프로필 키 |
+| newGroupTagName | String | O | 새 그룹태그 이름 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "groupTag" : {
+    "groupTagKey" : "b85552999bbb335777d16fbbbbbb552b3078aaa",
+    "groupTagName" : "20240619-00001"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| groupTag | Object | O |  |
+| groupTag.groupTagKey | String | O | 그룹태그 키 |
+| groupTag.groupTagName | String | O | 그룹태그 이름 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 그룹태그 수정
+
+PUT {{endpoint}}/kakaobizcenter/v1.0/group-tags/{{groupTagKey}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "senderKey" : "883b8b5375fd0960caa1cdeb4bd870c8cdfa403a",
+  "newGroupTagName" : "20240619-00001"
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}" \
--F "name=name_example" \
--F "title=title_example" \
--F "body=body_example" \
--F "useBarcode=true" \
--F "backgroundImage=@BINARY_DATA_PATH" \
--F "cardImage=@BINARY_DATA_PATH"
+-d '{
+  "senderKey" : "883b8b5375fd0960caa1cdeb4bd870c8cdfa403a",
+  "newGroupTagName" : "20240619-00001"
+}'
+```
+
+</details>
+<span id="kakaobizcenterV10GroupTagsPost"></span>
+
+## 그룹태그 등록
+
+카카오 비즈센터 그룹태그를 등록합니다.
+
+**요청**
+
+```
+POST /kakaobizcenter/v1.0/group-tags
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "senderKey" : "883b8b5375fd0960caa1cdeb4bd870c8cdfa403a",
+  "groupTagName" : "20240619-00001"
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| senderKey | String | O | 발신프로필 키 |
+| groupTagName | String | O | 그룹태그 이름 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "groupTag" : {
+    "groupTagKey" : "b85552999bbb335777d16fbbbbbb552b3078aaa",
+    "groupTagName" : "20240619-00001"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| groupTag | Object | O |  |
+| groupTag.groupTagKey | String | O | 그룹태그 키 |
+| groupTag.groupTagName | String | O | 그룹태그 이름 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 그룹태그 등록
+
+POST {{endpoint}}/kakaobizcenter/v1.0/group-tags
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "senderKey" : "883b8b5375fd0960caa1cdeb4bd870c8cdfa403a",
+  "groupTagName" : "20240619-00001"
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/kakaobizcenter/v1.0/group-tags" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "senderKey" : "883b8b5375fd0960caa1cdeb4bd870c8cdfa403a",
+  "groupTagName" : "20240619-00001"
+}'
 ```
 
 </details>
