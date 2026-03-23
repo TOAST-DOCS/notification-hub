@@ -9,8 +9,6 @@
 <h1>템플릿 카테고리</h1>
 
 
-
-
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
 
 ## 템플릿 카테고리 삭제
