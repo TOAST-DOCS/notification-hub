@@ -6,6 +6,16 @@
 <h1>Notification Hubリリースノート</h1>
 
 **Notification > Notification Hub > リリースノート**
+## 2026. 03. 24.
+### 機能追加
+* [API, Console] 統合RCSメッセージをサポート
+  * Android、iOSデバイスの両方で受信可能な統合RCSメッセージ送信をサポートします。
+  * 送信可能な統合RCSメッセージタイプは[利用ポリシー及び事前設定のご案内 > RCS](./service-policy-and-precondition/rcs)を参考にしてください。
+* [Console] Kakao Biz Centerの統計を提供
+  * Kakao Biz Centerで提供されるお知らせトーク、ブランドメッセージの統計データを照会できる機能を提供します。
+* [API, Console] Kakao Biz Centerのグループタグ管理機能を提供
+  * Kakao Biz Centerで提供されるグループタグを管理できる機能を提供します。
+  
 ## 2026. 01. 27.
 ### 機能追加
 * [API] お知らせトークテンプレートAPIの新規提供及び一部APIのサポート終了
@@ -94,7 +104,7 @@
 ### 機能追加
 * [API] 連絡先別最終送信結果一覧照会APIが追加されました。
     * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別最終送信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#_2)をご参照ください。
-* [API] RCS Bizcenterテンプレート送信時にチャットルームID、受信拒否番号を追加できるように改善されました。
+* [API] RCS Bizcenterテンプレート送信時にトークルームID、受信拒否番号を追加できるように改善されました。
 
 ### 機能改善
 * [Console] 送信照会時に詳細結果コードおよびメッセージを確認できるように改善されました。

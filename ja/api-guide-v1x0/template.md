@@ -30,7 +30,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
 
@@ -67,10 +67,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
-| sender.senderPhoneNumber | String | N | 発信番号 |
+| sender.senderPhoneNumber | String | N | 送信元番号 |
 | content | Object | Y |  |
 | content.messageType | String | N | 送信メッセージタイプ(SMS、LMS、MMS)<br>[SMS、LMS、MMS] |
-| content.title | String | N | メッセージ件名 |
+| content.title | String | N | メッセージタイトル |
 | content.body | String | N | メッセージ本文 |
 | content.attachmentIds | Array | N | 添付ファイルID 最大3個 |
 
@@ -96,7 +96,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | templateId | String | テンプレート登録時に発行されたテンプレートID |
@@ -162,9 +162,9 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
 </details>
 <span id="templateV1x0002ReadSmsTemplateList"></span>
 
-## SMSテンプレートリスト照会
+## SMSテンプレート一覧照会
 
-テンプレートリストを照会します。
+テンプレート一覧を照会します。
 
 **リクエスト**
 
@@ -178,7 +178,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateName | Query  | String | N | テンプレート名(LIKE検索) |
 | limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
@@ -190,7 +190,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -224,7 +224,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | totalCount | Integer | 総件数 |
@@ -247,7 +247,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### SMSテンプレートリスト照会
+### SMSテンプレート一覧照会
 
 GET {{endpoint}}/template/v1.0/SMS/templates
 X-NC-APP-KEY: {appKey}
@@ -286,7 +286,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -296,7 +296,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -339,7 +339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | template | Object |  |
@@ -351,10 +351,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messagePurposes | Array |  |
 | template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
-| template.sender.senderPhoneNumber | String | 発信番号 |
+| template.sender.senderPhoneNumber | String | 送信元番号 |
 | template.content | Object |  |
 | template.content.messageType | String | 送信メッセージタイプ(SMS、LMS、MMS)<br>[SMS、LMS、MMS] |
-| template.content.title | String | メッセージ件名 |
+| template.content.title | String | メッセージタイトル |
 | template.content.body | String | メッセージ本文 |
 | template.content.attachmentIds | Array | 添付ファイルID 最大3個 |
 | template.createdDateTime | String | テンプレート作成日時 |
@@ -408,7 +408,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -444,10 +444,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
-| sender.senderPhoneNumber | String | N | 発信番号 |
+| sender.senderPhoneNumber | String | N | 送信元番号 |
 | content | Object | Y |  |
 | content.messageType | String | N | 送信メッセージタイプ(SMS、LMS、MMS)<br>[SMS、LMS、MMS] |
-| content.title | String | N | メッセージ件名 |
+| content.title | String | N | メッセージタイトル |
 | content.body | String | N | メッセージ本文 |
 | content.attachmentIds | Array | N | 添付ファイルID 最大3個 |
 
@@ -472,7 +472,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -551,7 +551,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -561,7 +561,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -584,7 +584,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -636,7 +636,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
 
@@ -729,8 +729,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
-| sender.senderKey | String | N | 発信プロファイルの発信キー |
-| sender.senderProfileType | String | N | 発信プロファイルタイプ<br>[GROUP, NORMAL] |
+| sender.senderKey | String | N | 送信元プロフィールの送信元キー |
+| sender.senderProfileType | String | N | 送信元プロフィールタイプ<br>[GROUP, NORMAL] |
 | content | Object | Y |  |
 | content.templateMessageType | String | N | テンプレートメッセージタイプ(BA: 基本型、EX: 付加情報型、AD: チャンネル追加型、MI: 複合型、default: BA) |
 | content.templateEmphasizeType | String | N | テンプレート強調表示タイプ(NONE : 基本、TEXT : 強調表示、IMAGE: 画像型、ITEM_LIST: アイテムリスト型、default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
@@ -806,7 +806,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | templateId | String | テンプレート登録時に発行されたテンプレートID |
@@ -984,9 +984,9 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
 </details>
 <span id="templateV1x0007ReadAlimtalkTemplateList"></span>
 
-## お知らせトークテンプレートリスト照会
+## お知らせトークテンプレート一覧照会
 
-テンプレートリストを照会します。
+テンプレート一覧を照会します。
 
 **リクエスト**
 
@@ -1000,10 +1000,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateName | Query  | String | N | テンプレート名(LIKE検索) |
-| senderKey | Query  | String | N | 発信キー |
+| senderKey | Query  | String | N | 送信元キー |
 | templateStatus | Query  | String | N | テンプレートステータス |
 | limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
 | offset | Query  | Integer | N | offsetを設定しない場合はデフォルト0 |
@@ -1014,7 +1014,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -1048,7 +1048,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | totalCount | Integer | 総件数 |
@@ -1071,7 +1071,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### お知らせトークテンプレートリスト照会
+### お知らせトークテンプレート一覧照会
 
 GET {{endpoint}}/template/v1.0/ALIMTALK/templates
 X-NC-APP-KEY: {appKey}
@@ -1094,9 +1094,9 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
 </details>
 <span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
 
-## お知らせトーク発信者に関連するテンプレートリスト照会
+## お知らせトーク送信元に関連するテンプレート一覧照会
 
-発信者に関連するテンプレートリストを照会します。(発信者または発信者が含まれるグループのテンプレート)
+送信元に関連するテンプレート一覧を照会します。(送信元または送信元が含まれるグループのテンプレート)
 
 **リクエスト**
 
@@ -1110,9 +1110,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
-| senderKey | Path  | String | Y | 発信キー |
+| senderKey | Path  | String | Y | 送信元キー |
 | templateName | Query  | String | N | テンプレート名(LIKE検索) |
 | templateStatus | Query  | String | N | テンプレートステータス |
 | limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
@@ -1124,7 +1124,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -1158,7 +1158,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | totalCount | Integer | 総件数 |
@@ -1181,7 +1181,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### お知らせトーク発信者に関連するテンプレートリスト照会
+### お知らせトーク送信元に関連するテンプレート一覧照会
 
 GET {{endpoint}}/template/v1.0/ALIMTALK/senders/{{senderKey}}/templates
 X-NC-APP-KEY: {appKey}
@@ -1220,7 +1220,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -1230,7 +1230,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -1344,7 +1344,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | template | Object |  |
@@ -1356,13 +1356,13 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messagePurposes | Array |  |
 | template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
-| template.sender.senderKey | String | 発信プロファイルの発信キー |
+| template.sender.senderKey | String | 送信元プロフィールの送信元キー |
 | template.sender.senderProfileId | String | カカオトークチャンネル名 |
-| template.sender.senderProfileType | String | 発信プロファイルタイプ<br>[GROUP, NORMAL] |
+| template.sender.senderProfileType | String | 送信元プロフィールタイプ<br>[GROUP, NORMAL] |
 | template.additionalProperty | Object |  |
 | template.additionalProperty.templateCode | String | テンプレートコード(英字、数字、-、_) |
 | template.additionalProperty.kakaoTemplateCode | String | カカオテンプレートコード |
-| template.additionalProperty.comments | Array | テンプレート問い合わせリスト |
+| template.additionalProperty.comments | Array | テンプレート問い合わせ一覧 |
 | template.additionalProperty.comments[].id | Integer | 問い合わせID |
 | template.additionalProperty.comments[].content | String | 問い合わせ内容 |
 | template.additionalProperty.comments[].userName | String | 作成者 |
@@ -1473,7 +1473,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -1630,7 +1630,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -1809,7 +1809,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -1819,7 +1819,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -1842,7 +1842,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -1897,7 +1897,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -1941,7 +1941,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -2001,7 +2001,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -2011,7 +2011,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -2034,7 +2034,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -2070,12 +2070,12 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 </details>
 <span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
 
-## お知らせトークテンプレート修正リスト照会 (deprecated)
+## お知らせトークテンプレート修正一覧照会 (deprecated)
 
 !!! danger "本APIはサポートを終了しました。"
     * [お知らせトークテンプレートのカカオテンプレート一覧照会](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet)を参照してください。
 
-お知らせトークテンプレート修正リストを照会します。
+お知らせトークテンプレート修正一覧を照会します。
 
 **リクエスト**
 
@@ -2089,7 +2089,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 | limit | Query  | Integer | N | limitを設定しない場合はデフォルト50(最大1000) |
@@ -2101,7 +2101,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -2217,7 +2217,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | totalCount | Integer | 総件数 |
@@ -2230,13 +2230,13 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].messagePurposes | Array |  |
 | templates[].templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | templates[].sender | Object |  |
-| templates[].sender.senderKey | String | 発信プロファイルの発信キー |
+| templates[].sender.senderKey | String | 送信元プロフィールの送信元キー |
 | templates[].sender.senderProfileId | String | カカオトークチャンネル名 |
-| templates[].sender.senderProfileType | String | 発信プロファイルタイプ<br>[GROUP, NORMAL] |
+| templates[].sender.senderProfileType | String | 送信元プロフィールタイプ<br>[GROUP, NORMAL] |
 | templates[].additionalProperty | Object |  |
 | templates[].additionalProperty.templateCode | String | テンプレートコード(英字、数字、-、_) |
 | templates[].additionalProperty.kakaoTemplateCode | String | カカオテンプレートコード |
-| templates[].additionalProperty.comments | Array | テンプレート問い合わせリスト |
+| templates[].additionalProperty.comments | Array | テンプレート問い合わせ一覧 |
 | templates[].additionalProperty.status | String | REG: 申請、REQ: 審査中、APR: 承認、REJ: 却下<br>[REG, REQ, APR, REJ] |
 | templates[].additionalProperty.block | Boolean | テンプレートブロックの有無 |
 | templates[].additionalProperty.dormant | Boolean | テンプレート休眠の有無 |
@@ -2284,7 +2284,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### お知らせトークテンプレート修正リスト照会
+### お知らせトークテンプレート修正一覧照会
 
 GET {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/modifications
 X-NC-APP-KEY: {appKey}
@@ -2322,7 +2322,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | アプリキー |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
 | X-NHN-Authorization | Header | String | Y | アクセストークン |
 | templateId | Path | String | Y | テンプレートID |
 | limit | Query | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
@@ -2334,7 +2334,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -2435,7 +2435,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 | パス | タイプ | 説明                                                                                                                       |
 | - | - |--------------------------------------------------------------------------------------------------------------------------|
 | header | Object |                                                                                                                          |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true                                                                                        |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true                                                                                |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0                                                                                                  |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS                                                                                           |
 | totalCount | Integer | 総件数                                                                                                                    |
@@ -2474,7 +2474,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 | templates[].content.buttons | Array | テンプレートボタン                                                                                                                  |
 | templates[].content.quickReplies | Array | テンプレートダイレクトリンク                                                                                                                |
 | templates[].reviewStatus | String | REGISTERED: 申請、REQUESTED: 審査中、APPROVED: 承認、REJECTED: 却下<br>[REGISTERED, REQUESTED, APPROVED, REJECTED]               |
-| templates[].comments | Array | テンプレート問い合わせリスト                                                                                                               |
+| templates[].comments | Array | テンプレート問い合わせ一覧                                                                                                                |
 | templates[].block | Boolean | テンプレートブロックの有無                                                                                                                |
 | templates[].dormant | Boolean | テンプレート休眠の有無                                                                                                                |
 | templates[].createdDateTime | String | テンプレート作成日時                                                                                                                |
@@ -2523,7 +2523,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | アプリキー |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
 | X-NHN-Authorization | Header | String | Y | アクセストークン |
 | templateId | Path | String | Y | テンプレートID |
 | kakaoTemplateCode | Path | String | Y | カカオテンプレートコード |
@@ -2556,7 +2556,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -2617,7 +2617,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | アプリキー |
+| X-NC-APP-KEY | Header | String | Y | Appkey |
 | X-NHN-Authorization | Header | String | Y | アクセストークン |
 | templateId | Path | String | Y | テンプレートID |
 | kakaoTemplateCode | Path | String | Y | カカオテンプレートコード |
@@ -2662,7 +2662,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -2705,7 +2705,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 ## お知らせトークテンプレートカテゴリーリスト照会
 
-お知らせトークテンプレートカテゴリーリストを照会します。
+お知らせトークテンプレートカテゴリー一覧を照会します。
 
 **リクエスト**
 
@@ -2719,7 +2719,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
 
@@ -2728,7 +2728,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -2761,7 +2761,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | categories | Array |  |
@@ -2817,7 +2817,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
 
@@ -2853,7 +2853,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
-| sender.senderMailAddress | String | Y | 発信メールアドレス |
+| sender.senderMailAddress | String | Y | 送信元メールアドレス |
 | content | Object | Y |  |
 | content.title | String | N | テンプレートメール件名 |
 | content.body | String | N | テンプレートメール本文 |
@@ -2881,7 +2881,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | templateId | String | テンプレート登録時に発行されたテンプレートID |
@@ -2961,7 +2961,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -2971,7 +2971,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -3013,7 +3013,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | template | Object |  |
@@ -3025,7 +3025,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messagePurposes | Array |  |
 | template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | template.sender | Object |  |
-| template.sender.senderMailAddress | String | 発信メールアドレス |
+| template.sender.senderMailAddress | String | 送信元メールアドレス |
 | template.content | Object |  |
 | template.content.title | String | テンプレートメール件名 |
 | template.content.body | String | テンプレートメール本文 |
@@ -3065,9 +3065,9 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 </details>
 <span id="templateV1x0022ReadEmailTemplateList"></span>
 
-## Emailテンプレートリスト照会
+## Emailテンプレート一覧照会
 
-テンプレートリストを照会します。
+テンプレート一覧を照会します。
 
 **リクエスト**
 
@@ -3081,7 +3081,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateName | Query  | String | N | テンプレート名(LIKE検索) |
 | limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
@@ -3093,7 +3093,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -3127,7 +3127,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | totalCount | Integer | 総件数 |
@@ -3150,7 +3150,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### Emailテンプレートリスト照会
+### Emailテンプレート一覧照会
 
 GET {{endpoint}}/template/v1.0/EMAIL/templates
 X-NC-APP-KEY: {appKey}
@@ -3189,7 +3189,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -3224,7 +3224,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
 | sender | Object | N |  |
-| sender.senderMailAddress | String | Y | 発信メールアドレス |
+| sender.senderMailAddress | String | Y | 送信元メールアドレス |
 | content | Object | Y |  |
 | content.title | String | N | テンプレートメール件名 |
 | content.body | String | N | テンプレートメール本文 |
@@ -3251,7 +3251,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -3328,7 +3328,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -3338,7 +3338,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -3361,7 +3361,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -3413,7 +3413,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
 
@@ -3504,17 +3504,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.chatbotId | String | Y | トークルーム(チャットボット)ID |
 | content | Object | Y |  |
 | content.messageType | String | N | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
-| content.title | String | N | メッセージ件名 |
-| content.body | String | N | メッセージ本文 |
-| content.smsType | String | N | SMSタイプ<br>[STANDALONE] |
-| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.title | String | N | (Deprecated、content.cards[].title を使用) メッセージタイトル |
+| content.body | String | N | (Deprecated、content.cards[].description を使用) メッセージ本文 |
+| content.smsType | String | N | SMSタイプ<br>[STANDALONE, UNIFIED_STANDALONE] |
+| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | content.messagebaseId | String | N | RCS Biz CenterテンプレートID |
 | content.unsubscribePhoneNumber | String | N | 配信停止番号(広告送信の場合は必須) |
 | content.cards | Array | N | RCSカード |
 | content.cards[].title | String | N | タイトル |
 | content.cards[].description | String | N | 本文 |
-| content.cards[].attachmentId | String | N | 画像添付ファイルID |
+| content.cards[].attachmentId | String | N | 添付ファイルID<br>※ 統合MMSカードでGIF画像を添付すると、iOSデバイスでは受信できません。 |
 | content.cards[].mTitle | String | N | メインタイトル |
 | content.cards[].mTitleMedia | String | N | メインタイトルロゴファイルID |
 | content.cards[].title1 | String | N | タイトル1 |
@@ -3523,9 +3523,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description1 | String | N | 本文1 |
 | content.cards[].description2 | String | N | 本文2 |
 | content.cards[].description3 | String | N | 本文3 |
-| content.cards[].buttons | Array | N |  |
-| content.buttons | Array | N | RCSボタンリスト |
-| content.buttons[].buttonType | String | N | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonに含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在地を共有する(MAP_SHARE)、URLに接続する(URL)、日程を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons | Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | N | ボタンタイプ<br>COMPOSE(トークルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(地図を表示する)、MAP_QUERY(地図を検索する)、MAP_SHARE(現在位置を共有する)、URL(URLを開く)、CALENDAR(予定を登録する)<br><br>※ 統合メッセージタイプにCLIPBOARD(コピーする)ボタンを使用すると、iOSデバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | N | ボタンJSON、ボタンタイプに合ったフォーマットを確認 |
+| content.buttons | Array | N | (Deprecated、content.cards[].buttons を使用) RCSボタン一覧 |
+| content.buttons[].buttonType | String | N | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonに含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在地を共有する(MAP_SHARE)、URLを開く(URL)、日程を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | ボタンアクション |
 
@@ -3551,7 +3553,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | templateId | String | テンプレート登録時に発行されたテンプレートID |
@@ -3717,9 +3719,9 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
 </details>
 <span id="templateV1x0026ReadRcsTemplateList"></span>
 
-## RCSテンプレートリスト照会
+## RCSテンプレート一覧照会
 
-テンプレートリストを照会します。
+テンプレート一覧を照会します。
 
 **リクエスト**
 
@@ -3733,7 +3735,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateName | Query  | String | N | テンプレート名(LIKE検索) |
 | limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
@@ -3745,7 +3747,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -3779,7 +3781,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | totalCount | Integer | 総件数 |
@@ -3802,7 +3804,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### RCSテンプレートリスト照会
+### RCSテンプレート一覧照会
 
 GET {{endpoint}}/template/v1.0/RCS/templates
 X-NC-APP-KEY: {appKey}
@@ -3841,7 +3843,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -3851,7 +3853,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -3949,7 +3951,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | template | Object |  |
@@ -3965,18 +3967,18 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.sender.chatbotId | String | トークルーム(チャットボット)ID |
 | template.content | Object |  |
 | template.content.messageType | String | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
-| template.content.title | String | メッセージ件名 |
-| template.content.body | String | メッセージ本文 |
-| template.content.smsType | String | SMSタイプ<br>[STANDALONE] |
-| template.content.lmsType | String | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| template.content.mmsType | String | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| template.content.title | String | (Deprecated、template.content.cards[].title を使用) メッセージタイトル |
+| template.content.body | String | (Deprecated、template.content.cards[].description を使用) メッセージ本文 |
+| template.content.smsType | String | SMSタイプ<br>[STANDALONE, UNIFIED_STANDALONE] |
+| template.content.lmsType | String | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| template.content.mmsType | String | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | template.content.messagebaseId | String | RCS Biz CenterテンプレートID |
 | template.content.messagebaseformId | String | RCS Biz Centerで指定したmessageBase様式<br><br>[SS000000(基本型)、SL000000(基本型)、OL00000001(LMS Format基本型)、OL00000002(LMS Formatタイトル強調型)、OL00000003(LMS Format段落型)、SMwThT00(MMS縦型)、SMwThM00(MMS横型)、CMwMhM0200(MMSスライド中型(2))、CMwMhM0300(MMSスライド中型(3))、CMwMhM0400(MMSスライド中型(4))、CMwMhM0500(MMSスライド中型(5))、CMwMhM0600(MMSスライド中型(6))、CMwShS0200(MMSスライド小型(2))、CMwShS0300(MMSスライド小型(3))、CMwShS0400(MMSスライド小型(4))、CMwShS0500(MMSスライド小型(5))、CMwShS0600(MMSスライド小型(6))、CLI00001(アイテム詳細型)、ITTBNV(サムネイル型(縦))、ITTBNH(サムネイル型(横))、ITHIMS(画像強調型(1:1))、ITHIMV(画像強調型(3:4))、ITSNSS(SNS型)、ITSNSH(SNS型(中間ボタン))、ITHITS(画像＆タイトル強調型(1:1))、ITHITV(画像＆タイトル強調型(3:4))、ITCRM2(スライド型(2))、ITCRM3(スライド型(3))、ITCRM4(スライド型(4))、ITCRM5(スライド型(5))、ITCRM6(スライド型(6))、CLT00001(アイテム強調型 DESC)、CLT00002(アイテム強調型 TABLE)、TATA001C(タイトル自由型 FREE)、TATA001D(タイトル自由型 CELL)、TATA001F(タイトル自由型 DESC)、FF005C(タイトル選択型 FREE)、FF005D(明細書 CELL)、FF004C(明細書 DESC)、FF004D(キャンセル CELL)、GG003C(キャンセル DESC)、GG003D(案内 CELL)、GG002C(案内 DESC)、GG002D(認証 CELL)、GG001C(認証 DESC)、GG001D(会員登録 CELL)、GG000F(会員登録 DESC)、EE001C(予約 CELL)、EE001D(予約 DESC)、CC003C(配送 CELL)、CC003D(配送 DESC)、FF002C(入金 CELL)、FF002D(入金 DESC)、FF001C(承認 CELL)、FF001D(承認 DESC)、CC002C(注文 CELL)、CC002D(注文 DESC)、CC001C(出庫 CELL)、CC001D(出庫 DESC)、FF003C(出金 CELL)、FF003D(出金 DESC)、CLL00001(LMS明細書 A)、CLL00002(LMS段落型)、CLL00003(LMSタイトル強調型)、CLL00004(LMS基本型)、CLL00005(LMS明細書 B)、CLL00006(LMS明細書 C)] |
 | template.content.unsubscribePhoneNumber | String | 配信停止番号(広告送信の場合は必須) |
 | template.content.cards | Array | RCSカード |
 | template.content.cards[].title | String | タイトル |
 | template.content.cards[].description | String | 本文 |
-| template.content.cards[].attachmentId | String | 画像添付ファイルID |
+| template.content.cards[].attachmentId | String | 添付ファイルID<br>※ 統合MMSカードでGIF画像を添付すると、iOSデバイスでは受信できません。 |
 | template.content.cards[].mTitle | String | メインタイトル |
 | template.content.cards[].mTitleMedia | String | メインタイトルロゴファイルID |
 | template.content.cards[].title1 | String | タイトル1 |
@@ -3985,9 +3987,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.cards[].description1 | String | 本文1 |
 | template.content.cards[].description2 | String | 本文2 |
 | template.content.cards[].description3 | String | 本文3 |
-| template.content.cards[].buttons | Array |  |
-| template.content.buttons | Array | RCSボタンリスト |
-| template.content.buttons[].buttonType | String | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonに含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在地を共有する(MAP_SHARE)、URLに接続する(URL)、日程を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| template.content.cards[].buttons | Array | ボタン |
+| template.content.cards[].buttons[].buttonType | String | ボタンタイプ<br>COMPOSE(トークルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(地図を表示する)、MAP_QUERY(地図を検索する)、MAP_SHARE(現在位置を共有する)、URL(URLを開く)、CALENDAR(予定を登録する)<br><br>※ 統合メッセージタイプにCLIPBOARD(コピーする)ボタンを使用すると、iOSデバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| template.content.cards[].buttons[].buttonJson | Object | ボタンJSON、ボタンタイプに合ったフォーマットを確認 |
+| template.content.buttons | Array | (Deprecated、template.content.cards[].buttons を使用) RCSボタン一覧 |
+| template.content.buttons[].buttonType | String | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonに含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在地を共有する(MAP_SHARE)、URLを開く(URL)、日程を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | template.content.buttons[].buttonJson | Object |  |
 | template.content.buttons[].buttonJson.action | Object | ボタンアクション |
 | template.additionalProperty | Object |  |
@@ -4044,7 +4048,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -4134,17 +4138,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.chatbotId | String | Y | トークルーム(チャットボット)ID |
 | content | Object | Y |  |
 | content.messageType | String | N | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
-| content.title | String | N | メッセージ件名 |
-| content.body | String | N | メッセージ本文 |
-| content.smsType | String | N | SMSタイプ<br>[STANDALONE] |
-| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.title | String | N | (Deprecated、content.cards[].title を使用) メッセージタイトル |
+| content.body | String | N | (Deprecated、content.cards[].description を使用) メッセージ本文 |
+| content.smsType | String | N | SMSタイプ<br>[STANDALONE, UNIFIED_STANDALONE] |
+| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | content.messagebaseId | String | N | RCS Biz CenterテンプレートID |
 | content.unsubscribePhoneNumber | String | N | 配信停止番号(広告送信の場合は必須) |
 | content.cards | Array | N | RCSカード |
 | content.cards[].title | String | N | タイトル |
 | content.cards[].description | String | N | 本文 |
-| content.cards[].attachmentId | String | N | 画像添付ファイルID |
+| content.cards[].attachmentId | String | N | 添付ファイルID<br>※ 統合MMSカードでGIF画像を添付すると、iOSデバイスでは受信できません。 |
 | content.cards[].mTitle | String | N | メインタイトル |
 | content.cards[].mTitleMedia | String | N | メインタイトルロゴファイルID |
 | content.cards[].title1 | String | N | タイトル1 |
@@ -4153,8 +4157,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description1 | String | N | 本文1 |
 | content.cards[].description2 | String | N | 本文2 |
 | content.cards[].description3 | String | N | 本文3 |
-| content.cards[].buttons | Array | N |  |
-| content.buttons | Array | N | RCSボタンリスト |
+| content.cards[].buttons | Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | N | ボタンタイプ<br>COMPOSE(トークルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(地図を表示する)、MAP_QUERY(地図を検索する)、MAP_SHARE(現在位置を共有する)、URL(URLを開く)、CALENDAR(予定を登録する)<br><br>※ 統合メッセージタイプにCLIPBOARD(コピーする)ボタンを使用すると、iOSデバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | N | ボタンJSON、ボタンタイプに合ったフォーマットを確認 |
+| content.buttons | Array | N | (Deprecated、content.cards[].buttons を使用) RCSボタン一覧 |
 | content.buttons[].buttonType | String | N | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonに含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在地を共有する(MAP_SHARE)、URLに接続する(URL)、日程を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N |  |
 | content.buttons[].buttonJson.action | Object | N | ボタンアクション |
@@ -4180,7 +4186,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -4359,7 +4365,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -4369,7 +4375,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -4392,7 +4398,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -4444,7 +4450,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 
 
@@ -4543,7 +4549,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | templateId | String | テンプレート登録時に発行されたテンプレートID |
@@ -4687,9 +4693,9 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
 </details>
 <span id="templateV1x0031ReadPushTemplateList"></span>
 
-## Pushテンプレートリスト照会
+## Pushテンプレート一覧照会
 
-テンプレートリストを照会します。
+テンプレート一覧を照会します。
 
 **リクエスト**
 
@@ -4703,7 +4709,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateName | Query  | String | N | テンプレート名(LIKE検索) |
 | limit | Query  | Integer | N | limitを設定しない場合はデフォルト20(最大1000) |
@@ -4715,7 +4721,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -4749,7 +4755,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | totalCount | Integer | 総件数 |
@@ -4772,7 +4778,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### Pushテンプレートリスト照会
+### Pushテンプレート一覧照会
 
 GET {{endpoint}}/template/v1.0/PUSH/templates
 X-NC-APP-KEY: {appKey}
@@ -4811,7 +4817,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -4821,7 +4827,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -4903,7 +4909,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | template | Object |  |
@@ -4966,7 +4972,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -5063,7 +5069,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -5220,7 +5226,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | templateId | Path  | String | Y | テンプレートID |
 
@@ -5230,7 +5236,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -5253,7 +5259,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
@@ -5305,7 +5311,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | アプリキー |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
 | X-NHN-Authorization | Header  | String | Y | アクセストークン |
 | messageChannel | Path  | String | Y | メッセージチャネルです。<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
 | templateId | Path  | String | Y | テンプレートID |
@@ -5316,7 +5322,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
-このAPIはリクエストボディを必要としません。
+このAPIはリクエストボディを要求しません。
 
 
 
@@ -5350,7 +5356,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
 | header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
 | header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 | templateParameter | Object | テンプレートパラメータ結果JSON |
