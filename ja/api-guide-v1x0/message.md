@@ -1,30 +1,30 @@
+<!-- 新しいフォームのために追加されたstyleです。 -->
 <style>
-.page__rnb .lst_rnb_item .rnb_item:first-of-type a {
-    display: inline !important;
-}
+    .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
+        display: inline !important;
+    }
 </style>
+
+<!-- 新しいフォームのためにタイトルを<h1>に変更しました。 -->
 <h1>メッセージ</h1>
 
-**Notification > Notification Hub > API v1.0使用ガイド > メッセージ**
+**Notification > Notification Hub > API v1.0 使用ガイド > メッセージ**
 
-<span id="free-form-message-sending-request"></span>
 
-## 自由形式のメッセージ送信リクエスト
 
-リクエスト本文にメッセージ内容を入力し、メッセージを送信リクエストします。
+<span id="messageV1x0001SmsFreeFormMessages"></span>
 
-各メッセージチャンネルにメッセージを送信するためには、各メッセージチャンネルの送信情報が登録されている必要があります。送信情報の登録は、**Notification Hubコンソール** > **送信情報**タブで行うことができます。メッセージチャンネルの発信情報の詳細な説明は、**Notification** > **Notification Hub** > **利用ポリシー及び事前設定案内**で確認できます。
+## 自由形式メッセージ送信リクエスト - SMS
 
-<!-- !!! tip 「知っておくべきこと」-->
-<!-- APIを使用する際、ユーザーが知っておくと良い注意事項や追加情報を提供する際に使用します。 -->
+SMSに対する自由形式メッセージの送信をリクエストします。メッセージ内容をリクエストボディに入力した後、送信をリクエストします。
 
-<!-- !!! warning 「注意」-->
-<!--APIを使用する際、従わない場合、サービスの異常または非効率的な動作が発生する可能性がある注意事項を表記する際に使用します。 -->
+各メッセージチャネルにメッセージを送信するには、各メッセージチャネルの送信元情報が登録されている必要があります。送信元情報の登録は**Notification Hubコンソール** > **送信元情報タブ**で進行できます。メッセージチャネルの送信元情報の詳細については、**Notification** > **Notification Hub** > **利用ポリシー及び事前設定のご案内**で確認できます。
+
 
 **リクエスト**
 
 ```
-POST /message/v1.0/{messageChannel}/free-form-messages/{messagePurpose}
+POST /message/v1.0/SMS/free-form-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -32,130 +32,150 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| messagePurpose | Path | String | Y | メッセージ目的<br>NORMAL, AD, AUTH |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
 
-**共通リクエスト本文**
 
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
+**リクエストボディ**
 
-メッセージチャンネルによるリクエスト本文の詳細は、下記の**メッセージチャンネル別詳細リクエスト本文**をご確認ください。
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
 
-```json
+
+```
 {
-  "statsKeyId": "統計_ID",
-  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "...": "メッセージ_チャンネルに_よって_異なる_形式"
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
   },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ]
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
     }
-  ],
-  "content": {
-    "...": "メッセージ_チャンネルに_よって_異なる_形式"
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!-- リクエストボディのフィールドを説明します。-->
 
-| 名前 | タイプ | 必須 | 説明                                                                                                                                  |
-| --- | --- |-----|---------------------------------------------------------------------------------------------------------------------------------------|
-| statsKeyId | String | N   | 統計キーID                                                                                                                              |
-| scheduledDateTime | DateTime(ISO 8601) | N   | 予約送信日時(例：2024-10-29T06:29:00+09:00)                                                                                                |
-| confirmBeforeSend | Boolean | N   | 送信前に確認するかどうか(デフォルト値false)                                                                                                                 |
-| sender | Object | Y/N | 発信者、プッシュ以外のメッセージチャンネルは必須                                                                                                             |
-| recipients | Object Array | Y   | 受信者配列                                                                                                                              |
-| recipients[].contacts | Object Array | Y   | 受信者の連絡先配列                                                                                                                         |
-| recipients[].contacts[].contactType | String | Y   | 連絡先タイプ<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_FCM, TOKEN_APNS, TOKEN_ADM, TOKEN_APNS_SANDBOX, TOKEN_APNS_VOIP, TOKEN_APNS_VOIP_SANDBOX |
-| recipients[].contacts[].contact | String | Y   | 連絡先                                                                                                                                 |
-| content | Object | Y   | メッセージ内容                                                                                                                              |
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| sender | Object | N |  |
+| sender.senderPhoneNumber | String | Y | 送信元番号 |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
+| content | Object | N |  |
+| content.messageType | String | Y | 送信メッセージタイプ(SMS、LMS、MMS)<br>[SMS, LMS, MMS] |
+| content.title | String | N | メッセージタイトル |
+| content.body | String | Y | メッセージ本文 |
+| content.attachmentIds | Array | N | 添付ファイルID 最大3個 |
 
-* メッセージチャンネルによって**sender**, **content**フィールドは異なる形式を持ちます。
-* メッセージチャンネルによって **recipients[].contacts.contactType**, **recipients[].contacts.contact**フィールドに入力できる値が異なります。
-* 予約送信の場合、**scheduledDateTime**を設定します。送信開始前の予約送信は、リクエストのキャンセルが可能です。リクエストキャンセルAPIを呼び出すか、**Notification Hubコンソール** > **送信照会**でキャンセルできます。
-* 承認後送信の場合、**confirmBeforeSend**を**true**に設定します。承認後送信のメッセージは**Notification Hubコンソール** > **送信照会**で承認すると送信が行われます。
+* メッセージチャネルによって**sender**、**content**フィールドは異なる形式を持ちます。
+* メッセージチャネルによって**recipients[].contact.contactType**、**recipients[].contact.contact**フィールドに入力できる値が異なります。
+* 予約送信の場合は**scheduledDateTime**を設定します。送信が開始される前の予約送信はリクエストのキャンセルが可能です。リクエストキャンセルAPIを呼び出すか、**Notification Hubコンソール** > **送信照会**でキャンセルできます。
+* 承認後送信の場合は**confirmBeforeSend**を**true**に設定します。承認後送信のメッセージは、**Notification Hubコンソール** > **送信照会**で承認を行うと送信が進行されます。
 * 予約送信と承認後送信は同時に設定できません。
 
-### メッセージチャンネル別senderフィールド
+### メッセージチャネル別のsenderフィールド
 
-| メッセージチャンネル | フィールド | 説明 |
+| メッセージチャネル | フィールド | 説明 |
 | --- | --- | --- |
-| SMS | sender.senderPhoneNumber | 発信者番号 |
+| SMS | sender.senderPhoneNumber | 送信元番号 |
 | RCS | sender.brandId | ブランドID |
-| RCS | sender.chatbotId | チャットルームID |
-| EMAIL | sender.senderMailAddress | 発信者メールアドレス |
-| ALIMTALK | sender.senderKey | 発信キー |
-| ALIMTALK | sender.senderProfileType | 発信プロフィールタイプ<br>GROUP, NORMAL |
+| RCS | sender.chatbotId | トークルームID |
+| EMAIL | sender.senderMailAddress | 送信元メールアドレス |
+| ALIMTALK | sender.senderKey | 送信元キー |
+| ALIMTALK | sender.senderProfileType | 送信プロフィールタイプ<br>GROUP、NORMAL |
 
-* お知らせトーク(ALIMTALK)は発信キー(senderKey)と発信プロフィールタイプ(senderProfileType)を必ず入力する必要があります。
-* 発信者プロフィールタイプは**GROUP(グループ)**と **NORMAL(一般)**があります。**GROUP**はグループ発信者プロフィール、 **NORMAL**は一般発信者プロフィールです。
+* お知らせトーク(ALIMTALK)は、送信元キー(senderKey)と送信プロフィールタイプ(senderProfileType)を必須で入力する必要があります。
+* お知らせトーク(ALIMTALK)は、送信時にテンプレートが必ず必要です。自由形式メッセージの送信はサポートしていません。
+* 送信プロフィールタイプには**GROUP(グループ)**と**NORMAL(一般)**があります。**GROUP**はグループ送信元プロフィール、**NORMAL**は一般送信元プロフィールです。
 
-**レスポンス本文**
 
-<!--レスポンス本文を返さない場合は、「このAPIは応答本文を返しません」と入力します。 -->
+**レスポンスボディ**
 
-```json
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "messageId": "メッセージ_ID"
+  "messageId" : "aA123456"
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!-- レスポンスボディのフィールドを説明します。-->
 
-| 名前 | タイプ | 説明 |
-| --- | --- | --- |
-| header.isSuccessful | Boolean | APIリクエスト成否 |
-| header.resultCode | Integer | 結果コード |
-| header.resultMessage | String | 結果メッセージ |
-| messageId | String | リクエスト成功したメッセージID |
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 自由形式メッセージ送信
-POST {{endpoint}}/message/v1.0/PUSH/free-form-messages/{messagePurpose}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
+### 自由形式メッセージ送信リクエスト - SMS
+
+POST {{endpoint}}/message/v1.0/SMS/free-form-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
 
 {
-  "confirmBeforeSend": false,
-  "sender": {
-    "senderPhoneNumber": "01012341234"
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
   },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ]
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
     }
-  ],
-  "content": {
-    "messageType": "SMS",
-    "body": "こんにちは。 NHN Cloudの新規商品Notification Hubがリリースされました。"
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
@@ -163,759 +183,886 @@ X-NHN-Authorization: {{authorizationToken}}
 </details>
 
 <details>
-  <summary><strong>cURL</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
-```curl
-curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-        "confirmBeforeSend": false,
-        "sender": {
-            "senderPhoneNumber": "01012341234"
-        },
-        "recipients": [
-            {
-            "contacts": [
-                {
-                "contactType": "PHONE_NUMBER",
-                "contact": "01012345678"
-                }
-            ]
-            }
-        ],
-        "content": {
-            "messageType": "SMS",
-            "body": "こんにちは。 NHN Cloudの新規商品Notification Hubがリリースされました。"
-        }
-    }'
+```http
+curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderPhoneNumber" : "01012341234"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。ご来店ください^^",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
 ```
 
 </details>
 
-<span id="free-form-message-request-body"></span>
+<span id="messageV1x0003EmailFreeFormMessages"></span>
 
-## メッセージチャンネル別自由形式メッセージ送信リクエスト本文例
+## 自由形式メッセージ送信リクエスト - メール(EMAIL)
 
-<span id="free-form-message-request-body-sms"></span>
+メール(EMAIL)に対する自由形式メッセージの送信をリクエストします。
 
-### SMS
 
-```json
+**リクエスト**
+
+```
+POST /message/v1.0/EMAIL/free-form-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+
+```
 {
-  "statsKeyId": "統計_キー_ID",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "senderPhoneNumber": "01012341234"
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
   },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "messageType": "MMS",
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "EMAIL_ADDRESS",
+      "contact" : "recipient@example.com",
+      "clientReference" : "1234:abcd:011-asd"
+    } ]
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
 
-| 名前 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- |
-| sender | Object | Y | 発信者、プッシュ以外のメッセージチャンネルは必須 |
-| sender.senderPhoneNumber | String | N | 発信者番号 |
-| content | Object | Y | メッセージ内容 |
-| content.messageType | String | Y | メッセージタイプ<br>SMS(短文), LMS(長文), MMS(メディア長文) |
-| content.title | String | Y | タイトル |
-| content.body | String | Y | 内容 |
-| content.attachmentIds | String Array | N | 添付ファイルID |
+<!-- リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| sender | Object | N |  |
+| sender.senderMailAddress | String | Y | 送信元メールアドレス |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
+| content | Object | N |  |
+| content.title | String | Y | テンプレートメールタイトル |
+| content.body | String | Y | テンプレートメール本文 |
+| content.attachmentIds | Array | N | テンプレート添付ファイルID |
 
 
-<span id="free-form-message-request-body-rcs-sms-standalone"></span>
 
-### RCS - SMS
+**レスポンスボディ**
 
-```json
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "statsKeyId": "統計_キー_ID",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "brandId": "ブランド_ID",
-    "chatbotId": "チャットルーム_ID"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ]
+  "messageId" : "aA123456"
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 自由形式メッセージ送信リクエスト - メール(EMAIL)
+
+POST {{endpoint}}/message/v1.0/EMAIL/free-form-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "EMAIL_ADDRESS",
+      "contact" : "recipient@example.com",
+      "clientReference" : "1234:abcd:011-asd"
+    } ]
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "senderMailAddress" : "abcde@nhn.com"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "EMAIL_ADDRESS",
+      "contact" : "recipient@example.com",
+      "clientReference" : "1234:abcd:011-asd"
+    } ]
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。",
+    "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
+  }
+}'
+```
+
+</details>
+<span id="messageV1x0004RcsFreeFormMessages"></span>
+
+## 自由形式メッセージ送信リクエスト - RCS
+
+RCSに対する自由形式メッセージの送信をリクエストします。
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/RCS/free-form-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
     }
-  ],
-  "content": {
-    "messageType": "SMS",
-    "unsubscribePhoneNumber": "08012341234",
-    "smsType": "STANDALONE",
-    "cards": [
-        {
-          "description":"こんにちは。NHN Cloud Notification Hubです。",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "Webサイトへ移動"
-                }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル 1",
+      "title2" : "タイトル 2",
+      "title3" : "タイトル 3",
+      "description1" : "本文 1",
+      "description2" : "本文 2",
+      "description3" : "本文 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定の説明"
               }
             }
-          ]
+          }
         }
-    ]
-  },
-  "options": {
-    "expiryOption": 1,
-    "groupId":"groupId"
-  }
-}
-```
-
-
-| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
-| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| sender | Object | Y | 発信者                                                                                                                                                             |
-| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
-| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
-| content | Object | Y | メッセージ内容                                                                                                                                                        |
-| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
-| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.smsType | String | Y | SMSタイプ、メッセージタイプがSMSの場合は必須、STANDALONE(スタンダード)                                                                                                      |
-| content.cards | Object Array | Y | カード                                                                                                                                                 |
-| content.cards[].title | String | N | タイトル                                                                                                                                               |
-| content.cards[].description | String | Y | 内容                                                                                                                                         |
-| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
-| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
-| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
-| options | Object | N | 送信オプション                                                                                                                                                         |
-| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
-| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                       |
-
-<span id="free-form-message-request-body-rcs-lms-standalone"></span>
-
-### RCS - LMSスタンダード
-
-```json
-{
-  "statsKeyId": "統計_キー_ID",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "brandId": "ブランド_ID",
-    "chatbotId": "チャットルーム_ID"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678",
-          "clientReference": "test"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "messageType": "LMS",
-    "unsubscribePhoneNumber": "08012341234",
-    "lmsType": "STANDALONE",
-    "cards": [
-        {
-          "title":"[NHN Cloud]告知事項",
-          "description":"こんにちは。NHN Cloud Notification Hubです。",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "Webサイトへ移動"
-                }
-              }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定の説明"
             }
-          ]
+          }
         }
-    ]
-  },
-  "options": {
-    "expiryOption": 1,
-    "groupId":"groupId"
-  }
-}
-```
-
-| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
-| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| sender | Object | Y | 発信者                                                                                                                                                             |
-| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
-| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
-| content | Object | Y | メッセージ内容                                                                                                                                                        |
-| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
-| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード), FORMAT_BASIC(フォーマット基本型), FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型), FORMAT_PARAGRAPH(フォーマット段落型)           |
-| content.cards | Object Array | Y | カード                                                                                                                                                 |
-| content.cards[].title | String | N | タイトル                                                                                                                                               |
-| content.cards[].description | String | Y | 内容                                                                                                                                         |
-| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
-| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
-| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
-| options | Object | N | 送信オプション                                                                                                                                                         |
-| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
-| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
-
-<span id="free-form-message-request-body-rcs-lms-format-basic"></span>
-
-### RCS - LMSフォーマット基本型及びフォーマットタイトル強調型
-* mTitleMediaアイコンファイルIDリスト
-  * プロモーション: LT-messagebase.common-DdWk6s
-  * クーポン: LT-messagebase.common-5Weq00
-  * イベント: LT-messagebase.common-jUAJX2
-  * 予約: LT-messagebase.common-2Yxt2H
-  * 領収書: LT-messagebase.common-2k8ydI
-  * 通知: LT-messagebase.common-YCVd02
-
-```json
-{
-  "statsKeyId": "統計_キー_ID",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "brandId": "ブランド_ID",
-    "chatbotId": "チャットルーム_ID"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678",
-          "clientReference": "test"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "messageType": "LMS",
-    "unsubscribePhoneNumber": "08012341234",
-    "lmsType": "FORMAT_BASIC",
-    "cards": [
-        {
-          "mTitle":"[NHN Cloud]告知事項",
-          "mTitleMedia":"LT-messagebase.common-DdWk6s",
-          "title":"告知1",
-          "description":"こんにちは。NHN Cloud Notification Hubです。",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "Webサイトへ移動"
-                }
-              }
-            }
-          ]
-        }
-    ]
-  },
-  "options": {
-    "expiryOption": 1,
-    "groupId":"groupId"
-  }
-}
-```
-
-| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
-| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| sender | Object | Y | 発信者                                                                                                                                                             |
-| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
-| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
-| content | Object | Y | メッセージ内容                                                                                                                                                        |
-| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
-| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード), FORMAT_BASIC(フォーマット基本型), FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型), FORMAT_PARAGRAPH(フォーマット段落型)           |
-| content.cards | Object Array | Y | カード                                                                                                                                                 |
-| content.cards[].mTitle | String | Y | メインタイトル                                                                                                                                         |
-| content.cards[].mTitleMedia | String | N | メインタイトルアイコン                                                                                                                            |
-| content.cards[].title | String | N | タイトル                                                                                                                                               |
-| content.cards[].description | String | Y | 内容                                                                                                                                         |
-| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
-| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
-| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
-| options | Object | N | 送信オプション                                                                                                                                                         |
-| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
-| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
-
-### RCS - LMSフォーマット段落型タイプ
-* mTitleMediaアイコンファイルIDリスト
-  * プロモーション: LT-messagebase.common-DdWk6s
-  * クーポン: LT-messagebase.common-5Weq00
-  * イベント: LT-messagebase.common-jUAJX2
-  * 予約: LT-messagebase.common-2Yxt2H
-  * 領収書: LT-messagebase.common-2k8ydI
-  * 通知: LT-messagebase.common-YCVd02
-
-```json
-{
-  "statsKeyId": "統計_キー_ID",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "brandId": "ブランド_ID",
-    "chatbotId": "チャットルーム_ID"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678",
-          "clientReference": "test"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "messageType": "LMS",
-    "unsubscribePhoneNumber": "08012341234",
-    "lmsType": "FORMAT_PARAGRAPH",
-    "cards": [
-        {
-          "mTitle":"[NHN Cloud]告知事項",
-          "mTitleMedia":"LT-messagebase.common-DdWk6s",
-          "title1":"告知1",
-          "description1":"こんにちは。NHN Cloud Notification Hubです。",
-          "title2":"告知2",
-          "description2":"こんにちは。NHN Cloud Notification Hubです。",
-          "title3":"告知3",
-          "description3":"こんにちは。NHN Cloud Notification Hubです。",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "告知1ボタン"
-                }
-              }
-            },
-            {},
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "告知2ボタン"
-                }
-              }
-            },
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "告知2ボタン"
-                }
-              }
-            },
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "告知3ボタン"
-                }
-              }
-            },
-          ]
-        }
-    ]
-  },
-  "options": {
-    "expiryOption": 1,
-    "groupId":"groupId"
-  }
-}
-```
-
-| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
-| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| sender | Object | Y | 発信者                                                                                                                                                             |
-| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
-| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
-| content | Object | Y | メッセージ内容                                                                                                                                                        |
-| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
-| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード), FORMAT_BASIC(フォーマット基本型), FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型), FORMAT_PARAGRAPH(フォーマット段落型)           |
-| content.cards | Object Array | Y | カード                                                                                                                                                 |
-| content.cards[].mTitle | String | Y | メインタイトル                                                                                                                                         |
-| content.cards[].mTitleMedia | String | N | メインタイトルアイコン                                                                                                                              |
-| content.cards[].title1 | String | N | タイトル(段落1)                                                                                                                                        |
-| content.cards[].description1 | String | Y | 内容(段落1)                                                                                                                                  |
-| content.cards[].title2 | String | N | タイトル(段落2)                                                                                                                                        |
-| content.cards[].description2 | String | Y | 内容(段落2)                                                                                                                                  |
-| content.cards[].title3 | String | N | タイトル(段落3)                                                                                                                                        |
-| content.cards[].description3 | String | Y | 内容(段落3)                                                                                                                                  |
-| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
-| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
-| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
-| options | Object | N | 送信オプション                                                                                                                                                         |
-| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
-| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
-
-
-
-### RCS - MMS横型、縦型
-
-```json
-{
-  "statsKeyId": "統計_キー_ID",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "brandId": "ブランド_ID",
-    "chatbotId": "チャットルーム_ID"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678",
-          "clientReference": "test"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "messageType": "MMS",
-    "unsubscribePhoneNumber": "08012341234",
-    "mmsType": "HORIZONTAL",
-    "cards": [
-        {
-          "title":"[NHN Cloud]告知事項",
-          "description":"こんにちは。NHN Cloud Notification Hubです。",
-          "attachmentId":"添付ファイルID",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "Webサイトへ移動"
-                }
-              }
-            }
-          ]
-        }
-    ]
-  },
-  "options": {
-    "expiryOption": 1,
-    "groupId":"groupId"
-  }
-}
-```
-
-
-| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
-| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| sender | Object | Y | 発信者                                                                                                                                                             |
-| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
-| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
-| content | Object | Y | メッセージ内容                                                                                                                                                        |
-| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
-| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.mmsType | String | Y | MMSタイプ、メッセージタイプがMMSの場合必須、HORIZONTAL(横型), VERTICAL(縦型), CAROUSEL_MEDIUM(カルーセル中型), CAROUSEL_SMALL(カルーセル小型)                                  |
-| content.cards | Object Array | Y | カード                                                                                                                                                 |
-| content.cards[].title | String | N | タイトル                                                                                                                                               |
-| content.cards[].description | String | Y | 内容                                                                                                                                         |
-| content.cards[].attachmentId | String | Y | 添付ファイルID                                                                                                                                           |
-| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
-| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
-| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
-| options | Object | N | 送信オプション                                                                                                                                                         |
-| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
-| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
-
-### RCS - MMSカルーセル
-
-```json
-{
-  "statsKeyId": "統計_キー_ID",
-  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "sender": {
-    "brandId": "ブランド_ID",
-    "chatbotId": "チャットルーム_ID"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-            "buttonType": "URL",
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678",
-          "clientReference": "test"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "messageType": "MMS",
-    "unsubscribePhoneNumber": "08012341234",
-    "mmsType": "CAROUSEL_MEDIUM",
-    "cards": [
-        {
-          "title":"[NHN Cloud]告知事項",
-          "description":"こんにちは。NHN Cloud Notification Hubです。",
-          "attachmentId":"添付ファイルID",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "Webサイトへ移動"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "title":"[NHN Cloud]告知事項",
-          "description":"こんにちは。NHN Cloud Notification Hubです。",
-          "attachmentId":"添付ファイルID",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "Webサイトへ移動"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "title":"[NHN Cloud]告知事項",
-          "description":"こんにちは。NHN Cloud Notification Hubです。",
-          "attachmentId":"添付ファイルID",
-          "buttons" : [
-            {
-              "buttonType" : "URL",
-              "buttonJson" : {
-                "action": {
-                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
-                  "displayText": "Webサイトへ移動"
-                }
-              }
-            }
-          ]
-        }
-    ]
-  },
-  "options": {
-    "expiryOption": 1,
-    "groupId":"groupId"    
-  }
-}
-```
-
-
-| 名前 | タイプ | 必須 | 説明                                                                                                                                                                   |
-| --- | --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| sender | Object | Y | 発信者                                                                                                                                                             |
-| sender.brandId | String | Y | ブランドID                                                                                                                                                  |
-| sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
-| content | Object | Y | メッセージ内容                                                                                                                                                        |
-| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
-| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.mmsType | String | Y | MMSタイプ、メッセージタイプがMMSの場合必須、HORIZONTAL(横型), VERTICAL(縦型), CAROUSEL_MEDIUM(カルーセル中型), CAROUSEL_SMALL(カルーセル小型)                                  |
-
-
-
-| content.cards | Object Array | Y | カード                                                                                                                                                 |
-| content.cards[].title | String | N | タイトル                                                                                                                                               |
-| content.cards[].description | String | Y | 内容                                                                                                                                         |
-| content.cards[].attachmentId | String | Y | 添付ファイルID                                                                                                                                           |
-| content.cards[].buttons | Object Array | N | ボタン                                                                                                                                       |
-| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE(チャットルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(マップを表示する), MAP_QUERY(マップを検索する), MAP_SHARE(現在位置を共有する), URL(URLを接続する), CALENDAR(スケジュールを登録する) |
-| content.cards[].buttons[].buttonJson | Object | Y | ボタンJson、ボタンタイプに合ったフォーマット確認                                                                                                     |
-| options | Object | N | 送信オプション                                                                                                                                                         |
-| options.expiryOption | Integer | N | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)                                                                                      |
-| options.groupId | String | N | RCS BizCenter統計連動のためのグループID                                                                                                                        |
-
-
-<span id="free-form-message-request-body-email"></span>
-
-### Email
-
-```json
-{
-  "sender": {
-    "senderMailAddress": "sender@example.com"
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "EMAIL_ADDRESS",
-          "contact": "recipient@example.com"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "title": "[NHN Cloud Notification Hub]告知事項",
-    "body": "こんにちは。 NHN Cloud Notification Hubです。",
-    "attachmentIds": [
-      "添付_ファイル_ID"
-    ]
-  }
-}
-```
-
-| 名前 | タイプ          | 必須 | 説明 |
-| --- |---------------|----| --- |
-| sender | Object        | N  | 発信者、プッシュ以外のメッセージチャンネルは必須 |
-| sender.senderMailAddress | Object        | N  | 発信者メールアドレス |
-| content | Object        | Y  | メッセージ内容 |
-| content.title | Object        | Y  | タイトル |
-| content.Object | Y             | 内容 |
-| content.attachmentIds | String Array | N  | 添付ファイルID |
-
-* 発信者メールアドレスのドメインは所有認証が完了している必要があります。
-* 添付ファイルは30MB以下で最大10個までアップロードできます。
-* 添付ファイルの合計が最大30MBを超えることはできません。
-* 最大30MBまで添付可能ですが、受信するメールシステム(gmail.com, naver.comなど)の添付ファイル制限ポリシーにより**制限超過**で拒否されたり、スパム判定率が高くなる可能性があるため、10MB以内で添付することを推奨します。
-* **recipients[].contacts[].contactType** フィールドには **EMAIL_ADDRESS**のみ使用可能です。 
-* **recipients[].contacts[].contact** フィールドには受信者メールアドレスを入力します。
-
-<span id="free-form-message-request-body-push"></span>
-
-### Push
-
-```json
-{
-  "statsId": "統計_ID",
-  "scheduledDateTime": "2024-10-29T06:29:00+09:00",
-  "confirmBeforeSend": false,
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "TOKEN_FCM",
-          "contact": "トークン"
-        }
-      ]
-    }
-  ],
-  "content": {
-    "unsubscribePhoneNumber": "1234-1234",
-    "unsubscribeGuide": "設定 > メニュー",
-    "style": {
-      "useHtmlStyle": true
-    },
-    "title" : "<b>NHN Cloud </b> Notification",
-    "body" : "<b>リリースイベント</b> <i>告知事項確認</i>",
-    "richMessage" : {
-      "buttons" : [{
-        "name" : "ボタン名",
-        "submitName": "送信ボタン名",
-        "buttonType" : "REPLY",
-        "link" : "myapp://product_detail?product_id=1234",
-        "hint" : "ボタンに関するヒント"
       }
-      ],
+    } ]
+  },
+  "options" : {
+    "expiryOption" : 1,
+    "groupId" : "20240814125609swLmoZTsGr0"
+  }
+}
+```
+
+<!-- リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| sender | Object | N |  |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | トークルーム(チャットボット)ID |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
+| content | Object | N |  |
+| content.messageType | String | N | RCS送信メッセージタイプ<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| content.title | String | N | (Deprecated、content.cards[].title を使用) メッセージタイトル |
+| content.body | String | N | (Deprecated、content.cards[].description を使用) メッセージ本文 |
+| content.smsType | String | N | SMSタイプ<br>[STANDALONE, UNIFIED_STANDALONE] |
+| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
+| content.messagebaseId | String | N | RCS Biz CenterテンプレートID |
+| content.unsubscribePhoneNumber | String | N | 受信拒否番号(広告送信の場合は必須) |
+| content.cards | Array | N | RCSカード |
+| content.cards[].title | String | N | タイトル |
+| content.cards[].description | String | N | 本文 |
+| content.cards[].attachmentId | String | N | 添付ファイルID<br>※ 統合MMSカードでGIF画像を添付すると、iOSデバイスでは受信できません。 |
+| content.cards[].mTitle | String | N | メインタイトル |
+| content.cards[].mTitleMedia | String | N | メインタイトルロゴファイルID |
+| content.cards[].title1 | String | N | タイトル 1 |
+| content.cards[].title2 | String | N | タイトル 2 |
+| content.cards[].title3 | String | N | タイトル 3 |
+| content.cards[].description1 | String | N | 本文 1 |
+| content.cards[].description2 | String | N | 本文 2 |
+| content.cards[].description3 | String | N | 本文 3 |
+| content.cards[].buttons | Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | N | ボタンタイプ<br>COMPOSE(トークルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(地図を表示する)、MAP_QUERY(地図を検索する)、MAP_SHARE(現在位置を共有する)、URL(URLを開く)、CALENDAR(予定を登録する)<br><br>※ 統合メッセージタイプにCLIPBOARD(コピーする)ボタンを使用すると、iOSデバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | N | ボタンJSON、ボタンタイプに合ったフォーマットを確認 |
+| content.buttons | Array | N | (Deprecated、content.cards[].buttons を使用) RCSボタン一覧 |
+| content.buttons[].buttonType | String | N | buttonType値と同じ名前を持つActionオブジェクトがbuttonJsonとして含まれます。<br>ボタンタイプ トークルームを開く(COMPOSE)、コピーする(CLIPBOARD)、電話をかける(DIALER)、地図を表示する(MAP_SHOW)、地図を検索する(MAP_QUERY)、現在位置を共有する(MAP_SHARE)、URLを開く(URL)、予定を登録する(CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonJson | Object | N |  |
+| content.buttons[].buttonJson.action | Object | N | ボタンアクション |
+| options | Object | N |  |
+| options.expiryOption | Integer | N | キャリアからデバイスへの送信を試みる時間(1: 1日、2: 40秒、3: 3分、4: 1時間)<br>デフォルト値: 1 |
+| options.groupId | String | N | RCS Biz Centerの統計連携のためのgroup ID [ガイド](../console-guide/send-a-message/#RCS) (最大20 Byte) |
+
+
+
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 自由形式メッセージ送信リクエスト - RCS
+
+POST {{endpoint}}/message/v1.0/RCS/free-form-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル 1",
+      "title2" : "タイトル 2",
+      "title3" : "タイトル 3",
+      "description1" : "本文 1",
+      "description2" : "本文 2",
+      "description3" : "本文 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定の説明"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定の説明"
+            }
+          }
+        }
+      }
+    } ]
+  },
+  "options" : {
+    "expiryOption" : 1,
+    "groupId" : "20240814125609swLmoZTsGr0"
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "sender" : {
+    "brandId" : "AR.lj0eOjEI7Y",
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "SMS",
+    "title" : "祝日の営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。ご来店ください^^",
+    "smsType" : "STANDALONE",
+    "lmsType" : "HORIZONTAL",
+    "mmsType" : "HORIZONTAL",
+    "messagebaseId" : "44o4SUjpqnjDuUcH+uHvPg==",
+    "unsubscribePhoneNumber" : "08012341234",
+    "cards" : [ {
+      "title" : "タイトル",
+      "description" : "本文",
+      "attachmentId" : "20240814125609swLmoZTsGr0",
+      "mTitle" : "メインタイトル",
+      "mTitleMedia" : "LT-messagebase.common-2k8ydI",
+      "title1" : "タイトル 1",
+      "title2" : "タイトル 2",
+      "title3" : "タイトル 3",
+      "description1" : "本文 1",
+      "description2" : "本文 2",
+      "description3" : "本文 3",
+      "buttons" : [ {
+        "buttonType" : "CALENDAR",
+        "buttonJson" : {
+          "action" : {
+            "displayText" : "予定を登録する",
+            "calendarAction" : {
+              "createCalendarEvent" : {
+                "startTime" : "2024-01-01T00:00:00.000+09:00",
+                "endTime" : "2024-01-01T00:00:00.000+09:00",
+                "title" : "予定タイトル",
+                "description" : "予定の説明"
+              }
+            }
+          }
+        }
+      } ]
+    } ],
+    "buttons" : [ {
+      "buttonType" : "CALENDAR",
+      "buttonJson" : {
+        "action" : {
+          "displayText" : "予定を登録する",
+          "calendarAction" : {
+            "createCalendarEvent" : {
+              "startTime" : "2024-01-01T00:00:00.000+09:00",
+              "endTime" : "2024-01-01T00:00:00.000+09:00",
+              "title" : "予定タイトル",
+              "description" : "予定の説明"
+            }
+          }
+        }
+      }
+    } ]
+  },
+  "options" : {
+    "expiryOption" : 1,
+    "groupId" : "20240814125609swLmoZTsGr0"
+  }
+}'
+```
+
+</details>
+<span id="messageV1x0005PushFreeFormMessages"></span>
+
+## 自由形式メッセージ送信リクエスト - PUSH
+
+PUSHに対する自由形式メッセージの送信をリクエストします。
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/PUSH/free-form-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "TOKEN_FCM",
+      "contact" : "TOKEN_FCM",
+      "clientReference" : "1234:abcd:011-asd"
+    } ]
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押した時にリンクされるリンク",
+        "hint" : "ボタンに対するヒント"
+      } ],
       "media" : {
-        "source" : "URL",
-        "mediaType" : "IMAGE",
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
-      "androidMedia": {
-        "source" : "URL",
-        "mediaType" : "IMAGE",
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
-      "iosMedia": {
-        "source" : "URL",
-        "mediaType" : "IMAGE",
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "largeIcon" : {
-        "source" : "URL"
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE"
       },
       "group" : {
-        "key" : "グループのキー",
-        "description" : "グループについての説明"
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに対する説明"
       }
+    },
+    "style" : {
+      "useHtmlStyle" : true
     },
     "customKey" : "customValue"
   }
 }
 ```
 
-| 名前 | タイプ                  | 必須 | 説明 |
-| --- |-----------------------| --- | --- |
-| content | Object                | Y | メッセージ内容 |
-| content.unsubscribePhoneNumber | String                | プッシュメッセージ受信拒否のための代表番号 |
-| content.unsubscribeGuide | String                | プッシュメッセージ受信拒否のための案内 |
-| content.title | String                | Y | タイトル |
-| content.String | Y                     | 内容 |
-| content.style.useHtmlStyle | Boolean               | Y | HTMLスタイル使用(Androidでのみ可能) |
-| content.richMessage | Object                | リッチメッセージ |
-| content.richMessage | Object                | N | リッチメッセージ使用時に必要 |
-| content.richMessage.buttons | Object Array         | N | リッチメッセージに追加されるボタン、最大3個まで可能 |
-| content.richMessage.button.name | String                | ボタン名 |
-| content.richMessage.button.buttonType | String                | ボタンタイプ、 REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
-| content.richMessage.button.link | String                | ボタンを押した時に接続されるリンク |
-| content.richMessage.button.hint | String                | ボタンについてのヒント |
-| content.richMessage.media | Object                | N | リッチメッセージに追加されるメディア |
-| content.richMessage.media.source | String                | メディアの位置のアドレス、 URL, LOCAL_RESOURCE可能 |
-| content.richMessage.media.mediaType | String                | N | メディアのタイプ、 IMAGE, GIF, VEDIO, AUDIO. AndroidでのみIMAGEのみサポート |
-| content.richMessage.media.expandable | Boolean               | N | Androidでメディアをクリックした時に展開機能を使用するかどうか |
-| content.richMessage.androidMedia | Object                | N |  Android端末で使用されるメディア。形式はmediaと同じ。 |
-| content.richMessage.iosMedia | Object                | N |  iOS端末使用されるメディア。形式はmediaと同じ。 |
-| content.richMessage.largeIcon | Object                | N | リッチメッセージに追加される大きなアイコン、 Androidでのみサポート |
-| content.richMessage.largeIcon.source | String                | Y | メディアの位置のアドレス |
-| content.richMessage.group | Object                | N | 複数のメッセージをグループ単位でまとめる機能、Androidのみサポート |
-| content.richMessage.group.key | String                | Y | グループのキー |
-| content.richMessage.group.description | String                | Y | グループについての説明 |
-| content.customKey | Object Array or String Array | N | ユーザー定義キーと値 |
+<!-- リクエストボディのフィールドを説明します。-->
 
-* プッシュは**sender**フィールドが必要ありません。
-* プッシュはユーザーが定義したキーと値を追加して**content**フィールドを作成できます。
-* **recipients[].contacts[].contactType** フィールドは **TOKEN_FCM**, **TOKEN_APNS**, **TOKEN_ADM**, **TOKEN_APNS_SANDBOX**, **TOKEN_APNS_VOIP**, **TOKEN_APNS_VOIP_SANDBOX**のいずれかでなければなりません。
-* **recipients[].contacts[].contact**フィールドには**プッシュトークン**を入力します。
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
+| content | Object | N | プッシュメッセージの内容 |
 
 
-<span id="template-message-sending-request"></span>
+
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 自由形式メッセージ送信リクエスト - PUSH
+
+POST {{endpoint}}/message/v1.0/PUSH/free-form-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "TOKEN_FCM",
+      "contact" : "TOKEN_FCM",
+      "clientReference" : "1234:abcd:011-asd"
+    } ]
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押した時にリンクされるリンク",
+        "hint" : "ボタンに対するヒント"
+      } ],
+      "media" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに対する説明"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "TOKEN_FCM",
+      "contact" : "TOKEN_FCM",
+      "clientReference" : "1234:abcd:011-asd"
+    } ]
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "unsubscribePhoneNumber" : "代表番号",
+    "unsubscribeGuide" : "メニュー > 設定",
+    "title" : "タイトル",
+    "body" : "内容",
+    "richMessage" : {
+      "buttons" : [ {
+        "name" : "ボタン名",
+        "submitName" : "送信ボタン名",
+        "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
+        "link" : "ボタンを押した時にリンクされるリンク",
+        "hint" : "ボタンに対するヒント"
+      } ],
+      "media" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "androidMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "iosMedia" : {
+        "sourceType" : "メディアの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "extension" : "メディアファイルの拡張子、jpg、png",
+        "expandable" : true
+      },
+      "largeIcon" : {
+        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
+        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE"
+      },
+      "group" : {
+        "key" : "グループのキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
+        "description" : "グループに対する説明"
+      }
+    },
+    "style" : {
+      "useHtmlStyle" : true
+    },
+    "customKey" : "customValue"
+  }
+}'
+```
+
+</details>
+<span id="messageV1x0006TemplateMessages"></span>
 
 ## テンプレートメッセージ送信リクエスト
+
+登録したテンプレートを使用してメッセージを送信します。<br>
+登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
+<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者(recipient)<br>
+* 大量/グループ受信者(id)<br>
+<br>
+予約送信の場合は「scheduledDateTime」を設定します。<br>
+確認後送信の場合は「confirmBeforeSend」をtrueに設定します。<br>
+
 
 **リクエスト**
 
@@ -928,584 +1075,177 @@ X-NHN-Authorization: Bearer {accessToken}
 **リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageChannel | Path | String | Y | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| messagePurpose | Path | String | Y | メッセージ目的<br>NORMAL, AD, AUTH |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messageChannel | Path  | String | Y | メッセージチャネルです。<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
 
-**リクエスト本文**
 
-```json
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+
+```
 {
-  "statsKeyId": "統計_ID",
-  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-  "confirmBeforeSend": false,
-  "templateId": "テンプレート_ID",
-  "templateParameters": {
-    "key1": "value1",
-    "key2": "value2",
-    "key3": {
-        "key4": "value4",
-        "key5": "value5"
-    }
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
   },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ],
-      "templateParameters": {
-        "key3": {
-          "key4": "value4",
-          "key5": "value5"
-        },
-        "key6": "value6"
-      }
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
     }
-  ],
-  "sender": {
-    "senderKey": "発信_キー",
-    "chatbotId": "チャットルーム_ID"
-  },
-  "content": {
-    "unsubscribePhoneNumber": "08012341234"
-  }
+  } ],
+  "id" : "alpha123"
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!-- リクエストボディのフィールドを説明します。-->
 
-| 名前 | タイプ               | 必須 | 説明 |
-| --- |--------------------| --- | --- |
-| statsKeyId | String             | N | 統計キーID |
-| scheduledDateTime | DateTime(ISO 8601) | N | 予約送信日時(例：2024-10-29T06:29:00+09:00) |
-| confirmBeforeSend | Boolean            | N | 送信前確認を行うかどうか(デフォルト値false) |
-| templateId | String             | Y | テンプレートID |
-| templateParameters | Object             | N | テンプレートパラメータ |
-| recipients | Object Array      | Y | 受信者配列 |
-| recipients[].contacts | Object Array              | Y | 受信者の連絡先配列 |
-| recipients[].contacts[].contactType | String             | Y | 連絡先タイプ |
-| recipients[].contacts[].contact | String             | Y | 連絡先 |
-| recipients[].templateParameters | Object             | N | テンプレートパラメータ |
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| templateId | String | N | テンプレートID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
 
-* テンプレートパラメータはテンプレートに定義されたパラメータと一致する必要があります。
-* テンプレートパラメータは共通テンプレートパラメータ、受信者テンプレートパラメータに区分されます。
-* 共通テンプレートパラメータは、すべての受信者に同じように適用されるパラメータです。受信者テンプレートパラメータは、受信者ごとに異なるパラメータを適用する際に使用します。
-* 受信者テンプレートパラメータがない場合は、共通テンプレートパラメータのみ適用されます。共通テンプレートパラメータと受信者テンプレートパラメータが重複する場合、受信者テンプレートパラメータが優先的に適用されます。
-* テンプレートパラメータの値のタイプは、文字列または配列、オブジェクトのいずれかを指定できます。配列やオブジェクトタイプはFREE_MARKERテンプレートで使用できます。
 
-**レスポンス本文**
 
-```json
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "messageId": "メッセージ_ID"
+  "messageId" : "aA123456"
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
+
 
 **リクエスト例**
 
+
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### テンプレートメッセージ送信
-POST {{endpoint}}/message/v1.0/SMS/template-messages/NORMAL
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
+### テンプレートメッセージ送信リクエスト
 
-{
-  "statsKeyId": "統計_ID",
-  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-  "confirmBeforeSend": false,
-  "templateId": "テンプレート_ID",
-  "templateParameters": {
-    "key1": "value1",
-    "key2": "value2",
-    "key3": {
-        "key4": "value4",
-        "key5": "value5"
-    }
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678"
-        }
-      ],
-      "templateParameters": {
-        "key3": {
-          "key4": "value4",
-          "key5": "value5"
-        },
-        "key6": "value6"
-      }
-    }
-  ]
-}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-        "statsKeyId": "統計_ID",
-        "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-        "confirmBeforeSend": false,
-        "templateId": "テンプレート_ID",
-        "templateParameters": {
-            "key1": "value1",
-            "key2": "value2",
-            "key3": {
-                "key4": "value4",
-                "key5": "value5"
-            }
-        },
-        "recipients": [
-            {
-            "contacts": [
-                {
-                "contactType": "PHONE_NUMBER",
-                "contact": "01012345678"
-                }
-            ],
-            "templateParameters": {
-                "key3": {
-                "key4": "value4",
-                "key5": "value5"
-                },
-                "key6": "value6"
-            }
-            }
-        ]
-    }'
-```
-
-</details>
-
-
-<span id="template-message-sending-request-rcs"></span>
-
-### RCSテンプレートメッセージ送信リクエスト本文例
-```json
-{
-  "statsKeyId": "統計_ID",
-  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-  "confirmBeforeSend": false,
-  "templateId": "テンプレート_ID",
-  "templateParameters": {
-    "key1": "value1",
-    "key2": "value2",
-    "key3": {
-        "key4": "value4",
-        "key5": "value5"
-    }
-  },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345678",
-          "clientReference": "test"
-        }
-      ],
-      "templateParameters": {
-        "key3": {
-          "key4": "value4",
-          "key5": "value5"
-        },
-        "key6": "value6"
-      }
-    }
-  ],
-  "sender": {
-    "brandId": "ブランド_ID",
-    "chatbotId": "チャットルーム_ID"
-  },
-  "content": {
-    "unsubscribePhoneNumber": "08012341234"
-  },
-  "options": {
-    "expiryOption": 1,
-    "groupId":"groupId"
-  }
-}
-```
-
-<!--リクエスト本文のフィールドを説明します。-->
-
-| 名前                                    | タイプ               | 必須 | 説明                                                 |
-|-----------------------------------------|--------------------|----|------------------------------------------------------|
-| sender                                  | Object             | N  | 発信者情報                                             |
-| sender.chatbotId                        | String             | N  | チャットルームID(RCS Bizcenterテンプレートの場合必須)               |
-| content                                 | Object             | N  | メッセージ内容                                             |
-| content.unsubscribePhoneNumber          | String             | N  | 080受信拒否番号(広告目的のRCS Bizcenterテンプレートを送信する場合、必須) |
-| options                                 | Object             | N  | 送信オプション                                               |
-| options.expiryOption                    | Integer            | N  | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)  |
-| options.groupId                         | String             | N  | RCS BizCenter統計連動のためのグループID                     |
-
-
-<span id="flow-message-sending-request"></span>
-
-## フローメッセージ送信リクエスト
-
-**リクエスト**
-
-```
-POST /message/v1.0/flow-messages/{messagePurpose}
+POST {{endpoint}}/message/v1.0/{{messageChannel}}/template-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-```
 
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messagePurpose | Path | String | Y | メッセージ目的<br>NORMAL, AD, AUTH |
-
-**リクエスト本文**
-
-
-```json
 {
-  "statsKeyId": "統計_ID",
-  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-  "confirmBeforeSend": false,
-  "flowId": "テンプレート_ID",
-  "templateParameters": {
-    "key1": "value1",
-    "key2": "value2",
-    "key3": {
-        "key4": "value4",
-        "key5": "value5"
-    }
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
   },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "TOKEN_FCM",
-          "contact": "token"
-        },
-        {
-          "contactType": "EMAIL_ADDRESS",
-          "contact": "recipient@example.com"
-        },
-        {
-          "contactType": "PHONE_NUMBER",
-          "contact": "01012345679"
-        }
-      ],
-      "templateParameters": {
-        "key3": {
-          "key4": "value4",
-          "key5": "value5"
-        },
-        "key6": "value6"
-      }
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
     }
-  ],
-  "flow": {
-    "steps": [
-      {
-        "messageChannel": "SMS",
-        "nextSteps": [
-          {
-            "messageChannel": "RCS",
-            "sender": {
-              "chatbotId": "チャットルーム_ID"
-            },
-            "content": {
-              "unsubscribePhoneNumber": "08012341234"
-            },
-            "options": {
-              "expiryOption": 1,
-              "groupId":"groupId"
-            }
-          }
-        ]
-      }
-    ]
-  }
+  } ],
+  "id" : "alpha123"
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
-
-| 名前                                    | タイプ           | 必須 | 説明                                   |
-|-----------------------------------------| ----------------|----|----------------------------------------|
-| statsKeyId                              | String         | N  | 統計キーID                               |
-| scheduledDateTime                       | DateTime(ISO 8601) | N  | 予約送信日時(例：2024-10-29T06:29:00+09:00) |
-| confirmBeforeSend                       | Boolean        | N  | 送信前に確認するかどうか(デフォルト値false)                  |
-| flowId                                  | String         | Y  | フローID                                |
-| templateParameters                      | Object         | N  | メッセージ共通テンプレートパラメータ                      |
-| recipients                              | Object Array          | Y  | 受信者配列                               |
-| recipients[].contacts                   | Object Array          | Y  | 受信者の連絡先配列                          |
-| recipients[].contacts[].contactType     | String         | Y  | 連絡先タイプ                               |
-| recipients[].contacts[].contact         | String         | Y  | 連絡先                                  |
-| recipients[].contacts[].clientReference | String         | N  | ユーザーカスタムフィールド                      |
-| recipients[].templateParameters         | Object         | N  | 受信者別テンプレートパラメータ                       |
-| flow                                    | Object | N  | フロー(必須値が必要なテンプレートを使用するフローの場合必須) |
-| flow.steps[]                            | Array | Y  | フロー段階(メッセージチャンネル別flow stepsスペック参照) |
-
-* フローメッセージ送信もテンプレートメッセージ送信と同じようにテンプレートパラメータを使用します。
-* 受信者の連絡先はフローで使用するメッセージチャンネルに必要な連絡先が全て含まれている必要があります。
-* 必須値が必要なテンプレートを使用するフローの場合、flowで必須値を指定できます。この時、flowの構成は送信しようとするflowIdのflowと同じように構成する必要があります。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  },
-  "messageId": "メッセージ_ID"
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
+</details>
 
 <details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
+    <summary><strong>cURL</strong></summary>
 
 ```http
-### フローメッセージ送信
-POST {{endpoint}}/message/v1.0/flow-messages/{{messagePurpose}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{authorizationToken}}
-
-{
-  "statsKeyId": "統計_ID",
-  "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-  "confirmBeforeSend": false,
-  "flowId": "テンプレート_ID",
-  "templateParameters": {
-    "key1": "value1",
-    "key2": "value2",
-    "key3": {
-        "key4": "value4",
-        "key5": "value5"
-    }
+curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
   },
-  "recipients": [
-    {
-      "contacts": [
-        {
-          "contactType": "TOKEN_FCM",
-          "contact": "token"
-        },
-        {
-          "contactType": "EMAIL_ADDRESS",
-          "contact": "recipient@example.com"
-        }
-      ],
-        "templateParameters": {
-          "key3": {
-            "key4": "value4",
-            "key5": "value5"
-          },
-          "key6": "value6"
-        }
-      }
-    ]
-}
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}'
 ```
 
 </details>
+<span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
-<details>
-  <summary><strong>cURL</strong></summary>
+## お知らせトークテンプレートメッセージ送信
 
-```curl
-curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}" \
-     -d '{
-       "statsKeyId": "統計_ID",
-       "scheduledDateTime": "2024-10-29T00:06:29+09:00",
-       "confirmBeforeSend": false,
-       "flowId": "テンプレート_ID",
-       "templateParameters": {
-         "key1": "value1",
-         "key2": "value2",
-         "key3": {
-           "key4": "value4",
-           "key5": "value5"
-         }
-       },
-       "recipients": [
-         {
-           "contacts": [
-             {
-               "contactType": "TOKEN_FCM",
-               "contact": "token"
-             },
-             {
-               "contactType": "EMAIL_ADDRESS",
-               "contact": "recipient@example.com"
-             }
-           ],
-           "templateParameters": {
-             "key3": {
-               "key4": "value4",
-               "key5": "value5"
-             },
-             "key6": "value6"
-           }
-         }
-       ]
-     }'
-```
+登録したテンプレートを使用してメッセージを送信します。<br>
+登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
+<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者(recipient)<br>
+* 大量/グループ受信者(id)<br>
+<br>
+予約送信の場合は「scheduledDateTime」を設定します。<br>
+確認後送信の場合は「confirmBeforeSend」をtrueに設定します。<br>
 
-</details>
-
-<span id="flow-message-sending-request-rcs-step"></span>
-
-### フローメッセージ送信リクエスト本文 - RCS flow step
-* RCS Step 1つだけのフローで送信する場合のflow.stepsの例です。
-
-```json
-{
-  "flow": {
-    "steps": [
-      {
-        "messageChannel": "RCS",
-        "sender": {
-          "chatbotId": "チャットルーム_ID"
-        },
-        "content": {
-          "unsubscribePhoneNumber": "08012341234"
-        },
-        "options": {
-          "expiryOption": 1,
-          "groupId":"groupId"
-        },
-        "nextSteps": []
-      }
-    ]
-  }
-}
-```
-
-<!--リクエスト本文のフィールドを説明します。-->
-
-| 名前                                    | タイプ           | 必須 | 説明                                   |
-|-----------------------------------------| ----------------|----|-------------------------------------------|
-| flow.steps[]                            | Array | Y  | フロー段階 |
-| flow.steps[].messageChannel             | String | Y  | メッセージチャンネル<br>SMS, ALIMTALK, EMAIL, RCS, PUSH |
-| flow.steps[].sender                     | Object         | N  | 発信者情報                                  |
-| flow.steps[].sender.chatbotId           | String         | N  | チャットルームID(RCS Bizcenterテンプレートの場合必須)    |
-| flow.steps[].content                    | Object         | N  | メッセージ内容                                  |
-| flow.steps[].content.unsubscribePhoneNumber | String     | N  | 080受信拒否番号(広告目的のRCS Bizcenterテンプレートを送信する場合、必須) |
-| flow.steps[].options                    | Object         | N  | 送信オプション                                   |
-| flow.steps[].options.expiryOption       | Integer        | N  | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)  |
-| flow.steps[].options.groupId            | String         | N  | RCS BizCenter統計連動のためのグループID         |
-| flow.steps[].nextSteps[]                | Object Array   | N  | 次の段階です。                               |
-
-<span id="cancel-message-sending-request"></span>
-
-## メッセージリクエストキャンセル
-
-送信前の予約メッセージ、承認後の送信メッセージの送信要求をキャンセルします。リクエストキャンセルされたメッセージは、連絡先別受信結果照会で照会できます。
 
 **リクエスト**
 
 ```
-POST /message/v1.0/messages/{messageId}/do-cancel
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**リクエストパラメータ**
-
-| 名前 | 区分 | タイプ | 必須 | 説明 |
-| --- | --- | --- | --- | --- |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messageId | Path | String | Y | メッセージID |
-
-
-**リクエスト本文**
-
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。 -->
-
-このAPIはリクエスト本文を要求しません。
-
-**レスポンス本文**
-
-```json
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
-  }
-}
-```
-
-<!--レスポンス本文のフィールドを説明します。-->
-
-**リクエスト例**
-
-<details>
-  <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### メッセージリクエストキャンセル
-POST {{endpoint}}/message/v1.0/messages/{{messageId}}/do-cancel
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{accessToken}}
-```
-
-</details>
-
-<details>
-  <summary><strong>cURL</strong></summary>
-
-```curl
-curl -X POST "${ENDPOINT}/message/v1.0/messages/${MESSAGE_ID}/do-cancel" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-```
-
-</details>
-
-## インスタントフローメッセージ送信リクエスト
-**リクエスト**
-
-```
-POST /message/v1.0/instant-flow-messages/{messagePurpose}
+POST /message/v1.0/ALIMTALK/template-messages/{messagePurpose}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
@@ -1514,13 +1254,199 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| appKey | Header | String | Y | アプリキー |
-| accessToken | Header | String | Y | 認証トークン |
-| messagePurpose | Path | String | Y | メッセージ目的<br>NORMAL, AD, AUTH |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
 
-**リクエスト本文**
 
-<!--リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}
+```
+
+<!-- リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| sender | Object | N |  |
+| sender.senderKey | String | Y | 送信プロフィール送信元キー |
+| templateId | String | N | テンプレートID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
+
+
+
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### お知らせトークテンプレートメッセージ送信
+
+POST {{endpoint}}/message/v1.0/ALIMTALK/template-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "statsKeyId" : "aA123456",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "statsKeyId" : "aA123456",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}'
+```
+
+</details>
+<span id="messageV1x0008RcsTemplateMessages"></span>
+
+## RCSテンプレートメッセージ送信
+
+登録したテンプレートを使用してメッセージを送信します。<br>
+登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
+<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者(recipient)<br>
+* 大量/グループ受信者(id)<br>
+<br>
+予約送信の場合は「scheduledDateTime」を設定します。<br>
+確認後送信の場合は「confirmBeforeSend」をtrueに設定します。<br>
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/RCS/template-messages/{messagePurpose}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
 
 
 ```
@@ -1558,29 +1484,32 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+<!-- リクエストボディのフィールドを説明します。-->
 
 | パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | N   | 統計キーID                                                                                                                              |
-| scheduledDateTime | DateTime(ISO 8601) | N   | 予約送信日時(例：2024-10-29T06:29:00+09:00)                                                                                                |
-| confirmBeforeSend | Boolean | N   | 送信前に確認するかどうか(デフォルト値false)      
-| templateParameters | Object | N | テンプレートパラメータです。テンプレートIDを設定する場合必須です。|
-| recipients[] | Array | Y | 受信者リスト |
-| recipients[].contacts[] | Array | N | 受信者連絡先リストです。|
-| recipients[].contacts[].contactType | String | Y | 連絡先タイプ<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP |
-| recipients[].contacts[].contact | String | Y | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String         | N | ユーザーカスタムフィールド                      |
-| recipients[].templateParameters |  | N | テンプレートパラメータです。テンプレートIDを設定する場合必須です。 |
-| instantFlow | Object | Y | インスタントフローです。フローを作成せずに定義できます。 |
-| instantFlow.steps[] | Array | Y | インスタントフロー段階です。(メッセージチャンネル別インスタントフロー段階スペックを参照)|
+| statsKeyId | String | N | 統計キーID |
+| sender | Object | N |  |
+| sender.chatbotId | String | N | トークルーム(チャットボット)ID |
+| content | Object | N |  |
+| content.unsubscribePhoneNumber | String | N | 受信拒否電話番号 |
+| templateId | String | N | テンプレートID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
+| options | Object | N |  |
+| options.expiryOption | Integer | N | キャリアからデバイスへの送信を試みる時間(1: 1日、2: 40秒、3: 3分、4: 1時間)<br>デフォルト値: 1 |
+| options.groupId | String | N | RCS Biz Centerの統計連携のためのgroup ID [ガイド](../console-guide/send-a-message/#RCS) (最大20 Byte) |
 
-* 一度使用したメッセージチャンネルは、次の段階では使用できません。
-* 1つの段階は複数の次の段階を持つことができます。
 
-**レスポンス本文**
 
-<!--レスポンス本文を返さない場合は「このAPIは応答本文を返しません」と入力します。-->
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
 
 ```
 {
@@ -1593,34 +1522,15 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--レスポンス本文のフィールドを説明します。-->
+<!-- レスポンスボディのフィールドを説明します。-->
 
 | パス | タイプ | 説明 |
 | - | - | - |
 | header | Object |  |
-| header.isSuccessful | Boolean | true |
-| header.resultCode | Integer | 0 |
-| header.resultMessage | String | SUCCESS |
-| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取った時に作成される値です。 |
-
-**失敗レスポンス - 重複受信者**
-
-```
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 400004,
-    "resultMessage" : 「受信者の連絡先が重複しています」
-  },
-  "duplicatedContacts" : [
-    {
-      "contactType": "PHONE_NUMBER",
-      "contact": "0123456789"
-    }
-  ]
-}
-```
-
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
 
 
 
@@ -1631,35 +1541,462 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### インスタントフローメッセージ送信
-POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
-Content-Type: application/json
-X-NC-APP-KEY: {{appKey}}
-X-NHN-Authorization: {{accessToken}}
+### RCSテンプレートメッセージ送信
+
+POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
 
 {
   "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2021-01-01T00:00:00Z",
+  "sender" : {
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "unsubscribePhoneNumber" : "08012341234"
+  },
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
-  "templateParameters" : "templateParameters" : {
-    "key": "value"
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
   },
   "recipients" : [ {
     "contacts" : [ {
       "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678"
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
     } ],
     "templateParameters" : {
-      "key": "value"
+      "key1" : "value1",
+      "key2" : "value2"
     }
   } ],
-  "instantFlow" : {
+  "id" : "alpha123",
+  "options" : {
+    "expiryOption" : 1,
+    "groupId" : "20240814125609swLmoZTsGr0"
+  }
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" \
+-d '{
+  "statsKeyId" : "aA123456",
+  "sender" : {
+    "chatbotId" : "44o4SUjpqnjDuUcH+uHvPg=="
+  },
+  "content" : {
+    "unsubscribePhoneNumber" : "08012341234"
+  },
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "options" : {
+    "expiryOption" : 1,
+    "groupId" : "20240814125609swLmoZTsGr0"
+  }
+}'
+```
+
+</details>
+<span id="messageV1x0008SmsTemplateMessages"></span>
+
+## SMSテンプレートメッセージ送信
+
+登録したテンプレートを使用してメッセージを送信します。<br>
+登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
+<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者(recipient)<br>
+* 大量/グループ受信者(id)<br>
+  <br>
+  予約送信の場合は「scheduledDateTime」を設定します。<br>
+  確認後送信の場合は「confirmBeforeSend」をtrueに設定します。<br>
+
+画像レイアウトが連携されたMMSテンプレート送信時に、以下の事項に注意する必要があります。
+* **必須テンプレートパラメータ**: `cardNumber`、`scratchNumber`を必ず含める必要があります。
+    * `cardNumber`: バーコード生成に使用され、必ず16桁の数字で構成される必要があります。
+    * `scratchNumber`: 別途の制約条件はありません。
+* **画像レイアウトOverride**: リクエストボディに`content.imageLayoutId`または`content.imageLayoutName`を含めて、テンプレートに設定された画像レイアウトを変更できます。
+    * `content.imageLayoutId`と`content.imageLayoutName`のいずれか1つのみを使用する必要があります。
+    * 両方のフィールドが含まれていない場合は、テンプレート作成時に連携したデフォルトの画像レイアウトが使用されます。
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/SMS/template-messages/{messagePurpose}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "content" : {
+    "imageLayoutId" : "aA123456",
+    "imageLayoutName" : "2025-プロモーション-レイアウト"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+}
+```
+
+<!-- リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| templateId | String | N | テンプレートID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| content | Object | N |  |
+| content.imageLayoutId | String | N | 画像レイアウトID |
+| content.imageLayoutName | String | N | 画像レイアウト名 |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | Y |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
+| dryRun | Boolean | N | 送信をシミュレーションモードで実行します。実際の送信は行いません。<br>連絡先別の受信結果状態は送信失敗(SEND_FAILED)に設定されます。<br><br>デフォルト値: false |
+
+
+
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### SMSテンプレートメッセージ送信
+
+POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
+
+{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "content" : {
+    "imageLayoutId" : "aA123456",
+    "imageLayoutName" : "2025-プロモーション-レイアウト"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" \
+-d '{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "content" : {
+    "imageLayoutId" : "aA123456",
+    "imageLayoutName" : "2025-プロモーション-レイアウト"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+}'
+```
+
+</details>
+<span id="messageV1x0009FlowMessages"></span>
+
+## フローメッセージ送信
+
+登録したフローを使用してメッセージを送信します。<br>
+フローを登録していない場合は、フローを登録して送信する必要があります。<br>
+<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者(recipient)<br>
+* 大量/グループ受信者(id)<br>
+<br>
+予約送信の場合は「scheduledDateTime」を設定します。<br>
+確認後送信の場合は「confirmBeforeSend」をtrueに設定します。<br>
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/flow-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "flowId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "flow" : {
     "steps" : [ {
-      "messageChannel" : "RCS",
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "タイトル",
+        "body" : "本文"
+      },
       "options" : {
-        "expiryOption:" : 1,      
-        "groupId" : "groupId"
-      }
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
+      "nextSteps" : [ {
+        "messageChannel" : "RCS"
+      } ]
+    } ]
+  }
+}
+```
+
+<!-- リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| flowId | String | N | フローID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| recipients | Array | N |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| id | String | N | 大量受信者一覧及びファイルアップロード成功時に作成されるID |
+| flow | Object | N |  |
+| flow.steps | Array | Y |  |
+| flow.steps[].messageChannel | String | Y | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| flow.steps[].sender | Object | N | 送信元情報です。送信元情報はメッセージチャネルによって異なるように構成される場合があります。<br> |
+| flow.steps[].content | Object | N | メッセージ内容です。メッセージ内容はメッセージチャネルによって異なるように構成される場合があります。<br> |
+| flow.steps[].options | Object | N | 送信オプションです。送信オプションはメッセージチャネルによって異なるように構成される場合があります。<br> |
+| flow.steps[].nextSteps | Array | N | 次のステップです。次のステップがない場合、メッセージ送信が終了します。<br> |
+
+
+
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### フローメッセージ送信
+
+POST {{endpoint}}/message/v1.0/flow-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+{
+  "statsKeyId" : "aA123456",
+  "flowId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "flow" : {
+    "steps" : [ {
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "タイトル",
+        "body" : "本文"
+      },
+      "options" : {
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
+      "nextSteps" : [ {
+        "messageChannel" : "RCS"
+      } ]
     } ]
   }
 }
@@ -1671,33 +2008,217 @@ X-NHN-Authorization: {{accessToken}}
     <summary><strong>cURL</strong></summary>
 
 ```http
-curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
-     -H "Content-Type: application/json" \
-     -H "X-NC-APP-KEY: ${APP_KEY}" \
-     -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
-     -d '{
-      "statsKeyId" : "aA123456",
-      "scheduledDateTime" : "2021-01-01T00:00:00Z",
-      "confirmBeforeSend" : false,
-      "templateParameters" : {
-          "key": "value"
+curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-d '{
+  "statsKeyId" : "aA123456",
+  "flowId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "flow" : {
+    "steps" : [ {
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
       },
-      "recipients" : [ {
-        "contacts" : [ {
-          "contactType" : "PHONE_NUMBER",
-          "contact" : "01012345678"
-        } ],
-        "templateParameters" : {
-          "key": "value"
-        }
-      } ],
-      "instantFlow" : {
-        "steps" : [ {
-      "messageChannel" : "RCS",
+      "content" : {
+        "title" : "タイトル",
+        "body" : "本文"
+      },
       "options" : {
-        "expiryOption:" : 1,      
-        "groupId" : "groupId"
-      }
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
+      "nextSteps" : [ {
+        "messageChannel" : "RCS"
+      } ]
+    } ]
+  }
+}'
+```
+
+</details>
+<span id="messageV1x0010InstantFlowMessages"></span>
+
+## インスタントフローメッセージ送信
+
+メッセージ送信リクエスト時にフローを定義してメッセージの送信をリクエストします。<br>
+<br>
+インスタントフロー入力時にテンプレートを使用して送信リクエストするか、直接送信元情報、内容を入力して送信リクエストできます。
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/instant-flow-messages/{messagePurpose}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| messagePurpose | Path  | String | Y | メッセージの目的です。<br>[AD, AUTH, NORMAL] |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "instantFlow" : {
+    "steps" : [ {
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "タイトル",
+        "body" : "本文"
+      },
+      "options" : {
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
+      "templateId" : "テンプレート_ID",
+      "nextSteps" : [ ]
+    } ]
+  }
+}
+```
+
+<!-- リクエストボディのフィールドを説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| statsKeyId | String | N | 統計キーID |
+| scheduledDateTime | String | N | 予約送信時間 |
+| confirmBeforeSend | Boolean | N | 確認後送信の有無 |
+| templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| recipients | Array | Y |  |
+| recipients[].contacts | Array | N |  |
+| recipients[].templateParameters | Object | N | テンプレートパラメータです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータは、メッセージのテンプレートパラメータより優先されます。<br><br> |
+| instantFlow | Object | Y |  |
+| instantFlow.steps | Array | Y |  |
+| instantFlow.steps[].messageChannel | String | Y | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| instantFlow.steps[].sender | Object | N | 送信元情報です。送信元情報はメッセージチャネルによって異なるように構成される場合があります。<br> |
+| instantFlow.steps[].content | Object | N | メッセージ内容です。メッセージ内容はメッセージチャネルによって異なるように構成される場合があります。<br> |
+| instantFlow.steps[].options | Object | N | 送信オプションです。送信オプションはメッセージチャネルによって異なるように構成される場合があります。<br> |
+| instantFlow.steps[].templateId | String | N | テンプレートIDです。テンプレートIDを設定した場合、リクエスト時に送信元情報(sender)とメッセージ内容(content)が適用されません。<br>インスタントフローメッセージでテンプレートIDを設定しない場合、送信元情報(sender)とメッセージ内容(content)が必ず必要です。<br> |
+| instantFlow.steps[].nextSteps | Array | N | 次のステップです。次のステップがない場合、メッセージ送信が終了します。 |
+
+
+
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### インスタントフローメッセージ送信
+
+POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
+
+{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "instantFlow" : {
+    "steps" : [ {
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "タイトル",
+        "body" : "本文"
+      },
+      "options" : {
+        "expiryOption:" : 1,
+        "groupId\"" : "groupId"
+      },
+      "templateId" : "テンプレート_ID",
+      "nextSteps" : [ ]
     } ]
   }
 }
@@ -1705,33 +2226,223 @@ curl -X POST "${ENDPOINT}/message/v1.0/instant-flow-messages/{messagePurpose}" \
 
 </details>
 
-<span id="instant-flow-message-sending-request-rcs-step"></span>
+<details>
+    <summary><strong>cURL</strong></summary>
 
-### インスタントフローメッセージ送信リクエスト本文RCS Step例
-* RCS Step 1つだけで構成されたインスタントフロー送信時のinstantFlow.steps例です。
-
-```json
-{
+```http
+curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
+-d '{
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
   "instantFlow" : {
     "steps" : [ {
-      "messageChannel" : "RCS",
-           "options" : {
+      "messageChannel" : "SMS",
+      "sender" : {
+        "senderPhoneNumber" : "0123456789"
+      },
+      "content" : {
+        "title" : "タイトル",
+        "body" : "本文"
+      },
+      "options" : {
         "expiryOption:" : 1,
-        "groupId" : "groupId"
-      }
+        "groupId\"" : "groupId"
+      },
+      "templateId" : "テンプレート_ID",
+      "nextSteps" : [ ]
     } ]
   }
 }'
 ```
 
-<!--リクエスト本文のフィールドを説明します。-->
+</details>
+<span id="messageV1x0100MessageIdDoCancel"></span>
 
-| 名前                                    | タイプ           | 必須 | 説明                                   |
-|-----------------------------------------| ----------------|----|-------------------------------------------|
-| instantFlow.steps[]                            | Array          | Y  | フロー段階                                  |
-| instantFlow.steps[].messageChannel             | String         | Y  | メッセージチャンネル<br>SMS, ALIMTALK, EMAIL, RCS, PUSH |
-| instantFlow.steps[].templateId | String | N | テンプレートIDです。テンプレートIDを設定した場合、リクエスト時に発信者情報(sender)とメッセージ内容(content)が適用されません。<br>インスタントフローメッセージでテンプレートIDを設定しない場合、発信者情報(sender)とメッセージ内容(content)が必ず必要です。<br> |
-| instantFlow.steps[].sender                     | Object         | N  | 発信者情報(自由形式メッセージ送信リクエストRCS本文例参照) |
-| instantFlow.steps[].content                    | Object         | N  | メッセージ内容(自由形式メッセージ送信リクエストRCS本文例参照)  |
-| instantFlow.steps[].options                    | Object         | N  | 送信オプション(自由形式メッセージ送信リクエストRCS本文例参照)  |
-| instantFlow.steps[].nextSteps[]                | Object Array   | N  | 次の段階です。                               |
+## メッセージ送信キャンセル
+
+送信をキャンセルするメッセージIDを入力して送信をキャンセルします。<br>
+メッセージ送信時にレスポンスとして受け取ったメッセージIDを使用して送信をキャンセルできます。<br>
+メッセージ内の全てのリクエストがキャンセルされます。<br>
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/messages/{messageId}/do-cancel
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messageId | Path  | String | Y | null |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+このAPIはリクエストボディを要求しません。
+
+
+
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### メッセージ送信キャンセル
+
+POST {{endpoint}}/message/v1.0/messages/{{messageId}}/do-cancel
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
+<span id="messageV1x0101MessageIdDoConfirm"></span>
+
+## メッセージ送信確認
+
+確認後送信リクエストしたメッセージを確認します。<br>
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/messages/{messageId}/do-confirm
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメータ**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header  | String | Y | Appkey |
+| X-NHN-Authorization | Header  | String | Y | アクセストークン |
+| messageId | Path  | String | Y | null |
+
+
+
+**リクエストボディ**
+
+<!-- リクエストボディを要求しない場合は「このAPIはリクエストボディを要求しません」と入力します。-->
+
+このAPIはリクエストボディを要求しません。
+
+
+
+**レスポンスボディ**
+
+<!-- レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!-- レスポンスボディのフィールドを説明します。-->
+
+| パス | タイプ | 説明 |
+| - | - | - |
+| header | Object |  |
+| header.isSuccessful | Boolean | リクエストの成否を示します。<br>デフォルト値: true |
+| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### メッセージ送信確認
+
+POST {{endpoint}}/message/v1.0/messages/{{messageId}}/do-confirm
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+
+
+```
+
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-confirm" \
+-H "X-NC-APP-KEY: {appKey}"  \ 
+-H "X-NHN-Authorization: Bearer {accessToken}" 
+```
+
+</details>
