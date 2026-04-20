@@ -70,7 +70,7 @@
 
 | contactPhoneNumber | contactEmailAddress | contactTokenJson1..6 | 
 | - | - | - | 
-| 受信者の携帯電話番号 | 受信者のメールアドレス | {"contactType": "連絡先_タイプ", "contact": "プッシュ_トークン" } |
+| 受信者の携帯電話番号 | 受信者のメールアドレス | {"contactType": "連絡先_タイプ", "token": "プッシュ_トークン" } |
 
 ### メッセージのタイトルと内容作成方法
 
