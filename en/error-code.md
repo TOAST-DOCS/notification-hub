@@ -26,6 +26,8 @@
 | false        | 400001     | Email local part length exceeded.                                                                                                          |
 | false        | 400001     | Email address length exceeded.                                                                                                             |
 | false        | 400001     | Email domain length exceeded.                                                                                                            |
+| false        | 400001     | 이메일 개별 발송 시에는 수신 타입을 사용할 수 없습니다.                                                                                                 |
+| false        | 400001     | 이메일 일반 발송 시에는 수신 타입은 필수입니다.                                                                                                  |
 | false        | 400001     | The phone number is empty.                                                                                                                  |
 | false        | 400001     | The phone number {0} contains a non-numeric value.                                                                                                  |
 | false        | 400001     | Invalid phone number. {0}                                                                                                            |
