@@ -289,12 +289,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
 | recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].emailReceiveType | String | X | 이메일 수신 타입입니다. 연락처가 이메일이고 개별 발송(emailSendEach)이 false인 경우 사용됩니다. TO, CC, BCC 중 하나를 선택할 수 있습니다.<br>[TO, CC, BCC] |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
 | content.title | String | O | 템플릿 메일 제목 |
 | content.body | String | O | 템플릿 메일 본문 |
 | content.attachmentIds | Array | X | 템플릿 첨부 파일 ID |
+| emailSendEach | Boolean | X | 이메일 발송 시 각 수신자에게 개별 발송할지 여부입니다. 입력하지 않을 시 true입니다.<br>기본값: true |
 
 
 
@@ -1133,8 +1135,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
 | recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].emailReceiveType | String | X | 이메일 수신 타입입니다. 연락처가 이메일이고 개별 발송(emailSendEach)이 false인 경우 사용됩니다. TO, CC, BCC 중 하나를 선택할 수 있습니다.<br>[TO, CC, BCC] |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+| emailSendEach | Boolean | X | 이메일 발송 시 각 수신자에게 개별 발송할지 여부입니다. 입력하지 않을 시 true입니다.<br>기본값: true |
 
 
 
