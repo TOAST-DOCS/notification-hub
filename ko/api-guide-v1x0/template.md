@@ -233,6 +233,7 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-te
 ```
 
 </details>
+
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost"></span>
 
 ## 파일을 첨부해 카카오 알림톡 템플릿 문의하기
@@ -315,6 +316,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 ```
 
 </details>
+
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></span>
 
 ## 카카오 알림톡 템플릿 문의하기
@@ -407,6 +409,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 ```
 
 </details>
+
 <span id="templateV1x0001CreateSmsTemplate"></span>
 
 ## SMS 템플릿 등록
@@ -557,6 +560,7 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0002ReadSmsTemplateList"></span>
 
 ## SMS 템플릿 리스트 조회
@@ -662,6 +666,7 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0003ReadSmsTemplate"></span>
 
 ## SMS 템플릿 상세 조회
@@ -783,6 +788,7 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0004UpdateSmsTemplate"></span>
 
 ## SMS 템플릿 수정
@@ -928,6 +934,7 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0005DeleteSmsTemplate"></span>
 
 ## SMS 템플릿 삭제
@@ -1010,6 +1017,7 @@ curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0006CreateAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 등록
@@ -1372,6 +1380,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0007ReadAlimtalkTemplateList"></span>
 
 ## 알림톡 템플릿 리스트 조회
@@ -1479,6 +1488,7 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
 
 ## 알림톡 발신자와 관계된 템플릿 리스트 조회
@@ -1586,6 +1596,7 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates" 
 ```
 
 </details>
+
 <span id="templateV1x0009ReadAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 상세 조회
@@ -1837,6 +1848,7 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0010UpdateAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 수정
@@ -2171,6 +2183,7 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0011DeleteAlimtalkTemplate"></span>
 
 ## 알림톡 템플릿 삭제
@@ -2253,11 +2266,16 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0012InquireAlimtalkTemplate"></span>
 
-## 알림톡 템플릿 문의하기
+## 알림톡 템플릿 문의하기 - Deprecated
+
+!!! danger "더 이상 지원하지 않는 API입니다."
+    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고하세요.
 
 알림톡 템플릿을 문의합니다.
+
 
 **요청**
 
@@ -2310,7 +2328,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 알림톡 템플릿 문의하기
+### 알림톡 템플릿 문의하기 - Deprecated
 
 POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/inquiries
 X-NC-APP-KEY: {appKey}
@@ -2334,11 +2352,16 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ```
 
 </details>
+
 <span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
 
-## 알림톡 템플릿 문의하기(파일 첨부)
+## 알림톡 템플릿 문의하기(파일 첨부) - Deprecated
+
+!!! danger "더 이상 지원하지 않는 API입니다."
+    * [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고하세요.
 
 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
+
 
 **요청**
 
@@ -2383,7 +2406,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 알림톡 템플릿 문의하기(파일 첨부)
+### 알림톡 템플릿 문의하기(파일 첨부) - Deprecated
 
 POST {{endpoint}}/template/v1.0/ALIMTALK/templates/{{templateId}}/inquiries/do-with-file
 X-NC-APP-KEY: {appKey}
@@ -2405,6 +2428,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ```
 
 </details>
+
 <span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
 
 ## 알림톡 템플릿 수정 리스트 조회
@@ -2471,6 +2495,7 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 ```
 
 </details>
+
 <span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
 
 ## 알림톡 템플릿 카테고리 리스트 조회
@@ -2570,6 +2595,7 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories" \
 ```
 
 </details>
+
 <span id="templateV1x0021CreateEmailTemplate"></span>
 
 ## Email 템플릿 등록
@@ -2712,6 +2738,7 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0022ReadEmailTemplate"></span>
 
 ## Email 템플릿 상세 조회
@@ -2829,6 +2856,7 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0022ReadEmailTemplateList"></span>
 
 ## Email 템플릿 리스트 조회
@@ -2934,6 +2962,7 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0023UpdateEmailTemplate"></span>
 
 ## Email 템플릿 수정
@@ -3071,6 +3100,7 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0024DeleteEmailTemplate"></span>
 
 ## Email 템플릿 삭제
@@ -3153,6 +3183,7 @@ curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0025CreateRcsTemplate"></span>
 
 ## RCS 템플릿 등록
@@ -3474,6 +3505,7 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0026ReadRcsTemplateList"></span>
 
 ## RCS 템플릿 리스트 조회
@@ -3579,6 +3611,7 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0027ReadRcsTemplate"></span>
 
 ## RCS 템플릿 상세 조회
@@ -3782,6 +3815,7 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0028UpdateRcsTemplate"></span>
 
 ## RCS 템플릿 수정
@@ -4098,6 +4132,7 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0029DeleteRcsTemplate"></span>
 
 ## RCS 템플릿 삭제
@@ -4180,6 +4215,7 @@ curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0030CreatePushTemplate"></span>
 
 ## Push 템플릿 등록
@@ -4437,6 +4473,7 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0031ReadPushTemplateList"></span>
 
 ## Push 템플릿 리스트 조회
@@ -4542,6 +4579,7 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates" \
 ```
 
 </details>
+
 <span id="templateV1x0032ReadPushTemplate"></span>
 
 ## Push 템플릿 상세 조회
@@ -4694,6 +4732,7 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0033UpdatePushTemplate"></span>
 
 ## Push 템플릿 수정
@@ -4946,6 +4985,7 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0034DeletePushTemplate"></span>
 
 ## Push 템플릿 삭제
@@ -5028,6 +5068,7 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 ```
 
 </details>
+
 <span id="templateV1x0035ReadTemplateParameters"></span>
 
 ## 템플릿 파라미터 조회
@@ -5123,3 +5164,4 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}
 ```
 
 </details>
+

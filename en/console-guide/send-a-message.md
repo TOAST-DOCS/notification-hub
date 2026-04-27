@@ -70,7 +70,7 @@ The template structure of the receiver contact list file is as follows.
 
 | contactPhoneNumber | contactEmailAddress | contactTokenJson1..6 | 
 | - | - | - | 
-| receiver mobile number | receiver email address | {"contactType": "contacts_type", "contact": "push_token" } |
+| receiver mobile number | receiver email address | {"contactType": "contacts_type", "token": "push_token" } |
 
 ### How to write a message title and content
 
