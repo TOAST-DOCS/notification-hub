@@ -90,7 +90,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
-| content.messageType | String | O | 발송 메시지 유형(SMS, LMS, MMS)<br>[SMS, LMS, MMS] |
+| content.messageType | String | O | 발송 메시지 유형(SMS, LMS, MMS)<br>[SMS(단문 메시지), LMS(장문 메시지), MMS(멀티미디어 메시지)] |
 | content.title | String | X | 메시지 제목 |
 | content.body | String | O | 메시지 본문 |
 | content.attachmentIds | Array | X | 첨부 파일 아이디 최대 3개 |
@@ -221,6 +221,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
+
 <span id="messageV1x0003EmailFreeFormMessages"></span>
 
 ## 자유 양식 메시지 발송 요청 - 이메일(EMAIL)
@@ -392,6 +393,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 ```
 
 </details>
+
 <span id="messageV1x0004RcsFreeFormMessages"></span>
 
 ## 자유 양식 메시지 발송 요청 - RCS
@@ -512,7 +514,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
-| sender | Object | X |  |
+| sender | Object | O |  |
 | sender.brandId | String | O | 브랜드 아이디 |
 | sender.chatbotId | String | O | 대화방(챗봇) 아이디 |
 | recipients | Array | X |  |
@@ -523,12 +525,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
-| content.messageType | String | X | RCS 발송 메시지 유형<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
+| content.messageType | String | X | RCS 발송 메시지 유형<br>[SMS(단문 메시지), LMS(장문 메시지), MMS(멀티미디어 메시지), RBC_TEMPLATE(RCS Biz Center 템플릿)] |
 | content.title | String | X | (Deprecated, content.cards[].title 사용) 메시지 제목 |
 | content.body | String | X | (Deprecated, content.cards[].description 사용) 메시지 본문 |
-| content.smsType | String | X | SMS 타입<br>[STANDALONE, UNIFIED_STANDALONE] |
-| content.lmsType | String | X | LMS 타입<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
-| content.mmsType | String | X | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
+| content.smsType | String | X | SMS 타입<br>[STANDALONE(독립형), UNIFIED_STANDALONE(통합 독립형)] |
+| content.lmsType | String | X | LMS 타입<br>[STANDALONE(독립형), FORMAT_BASIC(기본 형식), FORMAT_TITLE_HIGHLIGHT(제목 강조 형식), FORMAT_PARAGRAPH(문단 형식), UNIFIED_STANDALONE(통합 독립형)] |
+| content.mmsType | String | X | MMS 타입(MMS 발송일 경우 필수)<br>[HORIZONTAL(가로형), VERTICAL(세로형), CAROUSEL_MEDIUM(캐러셀 중간형), CAROUSEL_SMALL(캐러셀 소형), UNIFIED_HORIZONTAL(통합 가로형), UNIFIED_VERTICAL(통합 세로형)] |
 | content.messagebaseId | String | X | RCS Biz Center 템플릿 아이디 |
 | content.unsubscribePhoneNumber | String | X | 수신 거부 번호(광고 발송일 경우 필수) |
 | content.cards | Array | X | RCS 카드 |
@@ -769,6 +771,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
+
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
 ## 자유 양식 메시지 발송 요청 - PUSH
@@ -1055,6 +1058,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 ```
 
 </details>
+
 <span id="messageV1x0006TemplateMessages"></span>
 
 ## 템플릿 메시지 발송 요청
@@ -1065,9 +1069,9 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
-<br>
-예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
-확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
+  <br>
+  예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
+  확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
 **요청**
@@ -1234,6 +1238,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 ```
 
 </details>
+
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 ## 알림톡 템플릿 메시지 발송
@@ -1244,9 +1249,9 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
-<br>
-예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
-확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
+  <br>
+  예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
+  확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
 **요청**
@@ -1307,7 +1312,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | String | X | 통계 키 아이디 |
 | sender | Object | X |  |
 | sender.senderKey | String | O | 발신프로필 발신키 |
-| templateId | String | X | 템플릿 ID |
+| templateId | String | O | 템플릿 ID |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
 | templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
@@ -1423,6 +1428,186 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 ```
 
 </details>
+
+<span id="messageV1x0008EmailTemplateMessages"></span>
+
+## 이메일 템플릿 메시지 발송
+
+등록한 템플릿을 이용해 메시지를 발송합니다.<br>
+등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
+<br>
+수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
+* 단건 수신자(recipient)<br>
+* 대량/그룹 수신자(id)<br>
+  <br>
+  예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
+  확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
+
+
+**요청**
+
+```
+POST /message/v1.0/EMAIL/template-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| statsKeyId | String | X | 통계 키 아이디 |
+| templateId | String | X | 템플릿 ID |
+| scheduledDateTime | String | X | 예약 발송 시간 |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
+| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| messageId | String | O | 메시지 아이디입니다. 메시지 발송 요청을 받으면 생성되는 값입니다. |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 이메일 템플릿 메시지 발송
+
+POST {{endpoint}}/message/v1.0/EMAIL/template-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}'
+```
+
+</details>
+
 <span id="messageV1x0008RcsTemplateMessages"></span>
 
 ## RCS 템플릿 메시지 발송
@@ -1433,9 +1618,9 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
-<br>
-예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
-확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
+  <br>
+  예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
+  확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
 **요청**
@@ -1630,6 +1815,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 ```
 
 </details>
+
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
 ## SMS 템플릿 메시지 발송
@@ -1646,11 +1832,11 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 이미지 레이아웃이 연동된 MMS 템플릿 발송 시 다음 사항을 유의해야 합니다.
 * **필수 템플릿 파라미터**: cardNumber, scratchNumber를 반드시 포함해야 합니다.
-    * cardNumber: 바코드 생성에 사용되며, 반드시 16자리 숫자로 구성되어야 합니다.
-    * scratchNumber: 별도 제약 조건이 없습니다.
+  * cardNumber: 바코드 생성에 사용되며, 반드시 16자리 숫자로 구성되어야 합니다.
+  * scratchNumber: 별도 제약 조건이 없습니다.
 * **이미지 레이아웃 Override**: 요청 본문에 content.imageLayoutId 또는 content.imageLayoutName을 포함하여 템플릿에 설정된 이미지 레이아웃을 변경할 수 있습니다.
-    * content.imageLayoutId와 content.imageLayoutName 중 하나만 사용해야 합니다.
-    * 두 필드 모두 포함되지 않으면 템플릿 생성 시 연동한 기본 이미지 레이아웃이 사용됩니다.
+  * content.imageLayoutId와 content.imageLayoutName 중 하나만 사용해야 합니다.
+  * 두 필드 모두 포함되지 않으면 템플릿 생성 시 연동한 기본 이미지 레이아웃이 사용됩니다.
 
 
 **요청**
@@ -1823,6 +2009,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 ```
 
 </details>
+
 <span id="messageV1x0009FlowMessages"></span>
 
 ## 플로우 메시지 발송
@@ -1833,9 +2020,9 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
-<br>
-예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
-확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
+  <br>
+  예약 발송의 경우 'scheduledDateTime'을 설정합니다.<br>
+  확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.<br>
 
 
 **요청**
@@ -2065,6 +2252,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 ```
 
 </details>
+
 <span id="messageV1x0010InstantFlowMessages"></span>
 
 ## 인스턴트 플로우 메시지 발송
@@ -2127,7 +2315,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
         "expiryOption:" : 1,
         "groupId\"" : "groupId"
       },
-      "templateId" : "템플릿_아이디",
+      "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
     } ]
   }
@@ -2229,7 +2417,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
         "expiryOption:" : 1,
         "groupId\"" : "groupId"
       },
-      "templateId" : "템플릿_아이디",
+      "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
     } ]
   }
@@ -2275,7 +2463,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
         "expiryOption:" : 1,
         "groupId\"" : "groupId"
       },
-      "templateId" : "템플릿_아이디",
+      "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
     } ]
   }
@@ -2283,6 +2471,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 ```
 
 </details>
+
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
 ## 메시지 발송 취소
@@ -2368,6 +2557,7 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 ```
 
 </details>
+
 <span id="messageV1x0101MessageIdDoConfirm"></span>
 
 ## 메시지 발송 확인
@@ -2451,3 +2641,4 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-confirm" \
 ```
 
 </details>
+
