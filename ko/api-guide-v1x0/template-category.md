@@ -6,7 +6,9 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>템플릿 카테고리</h1>
+<h1>NHN Cloud Notification Hub Public API - Template Category v1.0</h1>
+
+
 
 
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
@@ -92,11 +94,12 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
 ## 템플릿 카테고리 단건 조회
 
-템플릿 카테고리 단건 조회합니다.
+템플릿 카테고리를 단건 조회합니다.
 
 **요청**
 
@@ -190,6 +193,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
 
 ## 템플릿 카테고리 수정
@@ -294,11 +298,12 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
 
 ## 카테고리에 템플릿 추가
 
-카테고리에 템플릿 추가합니다.
+카테고리에 템플릿을 추가합니다.
 
 **요청**
 
@@ -394,6 +399,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesGet"></span>
 
 ## 템플릿 카테고리 리스트 조회
@@ -487,6 +493,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesPost"></span>
 
 ## 템플릿 카테고리 등록
@@ -592,6 +599,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoryTreesGet"></span>
 
 ## 템플릿 카테고리 트리 리스트 조회
@@ -614,7 +622,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 | messageChannel | Path | Enum | O | 메시지 채널 |
 | categoryTemplateName | Query | String | X | 카테고리/템플릿 이름 |
-| senderProfileType | Query | Enum | X | 발신프로필 타입 |
+| senderProfileType | Query | Enum | X | 발신 프로필 유형 |
 | senderKey | Query | String | X | 발신 키 |
 | status | Query | String | X | 템플릿 상태 |
 
@@ -698,3 +706,4 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/category-trees" \
 ```
 
 </details>
+
