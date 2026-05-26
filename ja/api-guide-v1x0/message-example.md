@@ -661,7 +661,7 @@
 
 <span id="free-form-message-request-body-email"></span>
 
-### Email
+## Email
 
 ```json
 {
@@ -706,7 +706,7 @@
 
 <span id="free-form-message-request-body-push"></span>
 
-### Push
+## Push
 
 ```json
 {
