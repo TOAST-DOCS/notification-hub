@@ -6,7 +6,7 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>Group Tag</h1>
+<h1>NHN Cloud Notification Hub Public API - KakaoBizCenter GroupTag v1.0</h1>
 
 
 
@@ -100,6 +100,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" 
 ```
 
 </details>
+
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyDelete"></span>
 
 ## Delete a Group Tag
@@ -183,6 +184,7 @@ curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?sender
 ```
 
 </details>
+
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyGet"></span>
 
 ## Get a Group Tag
@@ -273,6 +275,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey
 ```
 
 </details>
+
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyPut"></span>
 
 ## Modify a Group Tag
@@ -383,6 +386,7 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 ```
 
 </details>
+
 <span id="kakaobizcenterV10GroupTagsPost"></span>
 
 ## Register a Group Tag

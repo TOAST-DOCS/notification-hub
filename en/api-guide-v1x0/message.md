@@ -30,9 +30,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | App Key |
-| X-NHN-Authorization | Header | String | Y | Access Token |
-| messagePurpose | Path | String | Y | Message purpose.<br>[AD, AUTH, NORMAL] |
+| X-NC-APP-KEY | Header | String | O | App Key |
+| X-NHN-Authorization | Header | String | O | Access Token |
+| messagePurpose | Path | String | O | Message purpose.<br>[AD, AUTH, NORMAL] |
 
 The additional description that will be added under the request parameter.
 
@@ -75,20 +75,20 @@ The additional description that will be added under the request parameter.
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| sender | Object | N | |
-| sender.senderPhoneNumber | String | Y | Sender number |
-| recipients | Array | N | | |
-| recipients[].contacts | Array | N | | |
-| recipients[].templateParameters | Object | N | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated upon successful bulk recipient list and file upload |
-| content | Object | N | |
-| content.messageType | String | Y | Sent message type (SMS, LMS, MMS)<br>[SMS, LMS, MMS] |
-| content.title | String | N | Message title |
-| content.body | String | Y | Message body |
-| content.attachmentIds | Array | N | Up to 3 attachment IDs |
+| statsKeyId | String | X | Statistics key ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| sender | Object | X | |
+| sender.senderPhoneNumber | String | O | Sender number |
+| recipients | Array | X | | |
+| recipients[].contacts | Array | X | | |
+| recipients[].templateParameters | Object | X | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated upon successful bulk recipient list and file upload |
+| content | Object | X | |
+| content.messageType | String | O | Sent message type (SMS, LMS, MMS)<br>[Short message service (SMS), long message service (LMS), and media long message service (MMS)] |
+| content.title | String | X | Message title |
+| content.body | String | O | Message body |
+| content.attachmentIds | Array | X | Up to 3 attachment IDs |
 
 * The **sender** and **content** fields have different formats depending on the message channel.
 * The values ​​you can enter in the **recipients[].contact.contactType** and **recipients[].contact.contact** fields vary depending on the message channel.
@@ -239,9 +239,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| X-NC-APP-KEY | Header  | String | O | Appkey |
+| X-NHN-Authorization | Header  | String | O | Access token |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -278,19 +278,19 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| sender | Object | N | |
-| sender.senderMailAddress | String | Y | Sender email address |
-| recipients | Array | N | | |
-| recipients[].contacts | Array | N | | |
-| recipients[].templateParameters | Object | N | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated upon successful bulk recipient list and file upload |
-| content | Object | N | |
-| content.title | String | Y | Template Email Title |
-| content.body | String | Y | Template Email Body |
-| content.attachmentIds | Array | N | Template Attachment ID |
+| statsKeyId | String | X | Statistics key ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| sender | Object | X | |
+| sender.senderMailAddress | String | O | Sender email address |
+| recipients | Array | X | | |
+| recipients[].contacts | Array | X | | |
+| recipients[].templateParameters | Object | X | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated upon successful bulk recipient list and file upload |
+| content | Object | X | |
+| content.title | String | O | Template Email Title |
+| content.body | String | O | Template Email Body |
+| content.attachmentIds | Array | X | Template Attachment ID |
 
 
 
@@ -390,6 +390,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 ```
 
 </details>
+
 <span id="messageV1x0004RcsFreeFormMessages"></span>
 
 ## Request to Send a Free-Form Message - RCS
@@ -409,9 +410,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| X-NC-APP-KEY | Header  | String | O | Appkey |
+| X-NHN-Authorization | Header  | String | O | Access token |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -507,47 +508,47 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| sender | Object | N | |
-| sender.brandId | String | Y | Brand ID |
-| sender.chatbotId | String | Y | Chatbot ID |
-| recipients | Array | N | | |
-| recipients[].contacts | Array | N | | |
-| recipients[].templateParameters | Object | N | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated upon successful bulk recipient list and file upload |
-| content | Object | N | |
-| content.messageType | String | N | RCS message type <br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| content.title | String | N | (Use deprecated, content.cards[].title) Message title |
-| content.body | String | N | (Use deprecated, content.cards[].description) Message body |
-| content.smsType | String | N | SMS type <br>[STANDALONE, UNIFIED_STANDALONE] |
-| content.lmsType | String | N | LMS type <br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
-| content.mmsType | String | N | MMS type (required for MMS transmission) <br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
-| content.messagebaseId | String | N | RCS Biz Center Template ID |
-| content.unsubscribePhoneNumber | String | N | Unsubscribe Number (required for advertisements) |
-| content.cards | Array | N | RCS Card |
-| content.cards[].title | String | N | Title |
-| content.cards[].description | String | N | Body |
-| content.cards[].attachmentId | String | N | Attachment File ID<br>※ If a GIF image is attached to an Integrated MMS Card, it cannot be received on iOS devices. | |
-| content.cards[].mTitle | String | N | Main Title |
-| content.cards[].mTitleMedia | String | N | Main Title Logo File ID |
-| content.cards[].title1 | String | N | Title 1 |
-| content.cards[].title2 | String | N | Title 2 |
-| content.cards[].title3 | String | N | Title 3 |
-| content.cards[].description1 | String | N | Body 1 |
-| content.cards[].description2 | String | N | Body 2 |
-| content.cards[].description3 | String | N | Body 3 |
-| content.cards[].buttons | Array | N | Button |
-| content.cards[].buttons[].buttonType | String | N | Button type<br>COMPOSE (Open chat room), CLIPBOARD (Copy), DIALER (Make a call), MAP_SHOW (Show map), MAP_QUERY (Search map), MAP_SHARE (Share current location), URL (Connect URL), CALENDAR (Add to calendar)<br><br>※ If a CLIPBOARD (Copy) button is used in an integrated message type, it cannot be received on iOS devices.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | N | Button JSON, check format for each button type |
-| content.buttons | Array | N | (Use deprecated, content.cards[].buttons) RCS button list |
-| content.buttons[].buttonType | String | N | An Action object with the same name as the buttonType value is included as buttonJson.<br>Button Types: Open Chat Room (COMPOSE), Copy (CLIPBOARD), Make a Call (DIALER), Show Map (MAP_SHOW), Search Map (MAP_QUERY), Share Current Location (MAP_SHARE), Connect to URL (URL), Register Schedule (CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | N | |
-| content.buttons[].buttonJson.action | Object | N | Button Action |
-| options | Object | N | | |
-| options.expiryOption | Integer | N | The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
-| options.groupId | String | N | Group ID for RCS Biz Center statistics integration |
+| statsKeyId | String | X | Statistics key ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | O | Whether to send after confirmation |
+| sender | Object | X | |
+| sender.brandId | String | O | Brand ID |
+| sender.chatbotId | String | O | Chatbot ID |
+| recipients | Array | X | | |
+| recipients[].contacts | Array | X | | |
+| recipients[].templateParameters | Object | X | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated upon successful bulk recipient list and file upload |
+| content | Object | X | |
+| content.messageType | String | X | RCS message type <br>[Short message service (SMS), long message service (LMS), media long message service (MMS), and RBC_TEMPLATE (RCS Biz Center template)] |
+| content.title | String | X | (Use deprecated, content.cards[].title) Message title |
+| content.body | String | X | (Use deprecated, content.cards[].description) Message body |
+| content.smsType | String | X | SMS type<br>[STANDALONE (standalone), UNIFIED_STANDALONE (unified standalone)] |
+| content.lmsType | String | X | LMS type<br>[STANDALONE (standalone), FORMAT_BASIC (basic format), FORMAT_TITLE_HIGHLIGHT (title highlight format), FORMAT_PARAGRAPH (paragraph format), UNIFIED_STANDALONE (unified standalone)] |
+| content.mmsType | String | X | MMS type (required when sending MMS)<br>[HORIZONTAL (horizontal), VERTICAL (vertical), CAROUSEL_MEDIUM (carousel medium), CAROUSEL_SMALL (carousel small), UNIFIED_HORIZONTAL (unified horizontal), UNIFIED_VERTICAL (unified vertical)] |
+| content.messagebaseId | String | X | RCS Biz Center Template ID |
+| content.unsubscribePhoneNumber | String | X | Unsubscribe Number (required for advertisements) |
+| content.cards | Array | X | RCS Card |
+| content.cards[].title | String | X | Title |
+| content.cards[].description | String | X | Body |
+| content.cards[].attachmentId | String | X | Attachment File ID<br>※ If a GIF image is attached to an Integrated MMS Card, it cannot be received on iOS devices. | |
+| content.cards[].mTitle | String | X | Main Title |
+| content.cards[].mTitleMedia | String | X | Main Title Logo File ID |
+| content.cards[].title1 | String | X | Title 1 |
+| content.cards[].title2 | String | X | Title 2 |
+| content.cards[].title3 | String | X | Title 3 |
+| content.cards[].description1 | String | X | Body 1 |
+| content.cards[].description2 | String | X | Body 2 |
+| content.cards[].description3 | String | X | Body 3 |
+| content.cards[].buttons | Array | X | Button |
+| content.cards[].buttons[].buttonType | String | X | Button type<br>COMPOSE (Open chat room), CLIPBOARD (Copy), DIALER (Make a call), MAP_SHOW (Show map), MAP_QUERY (Search map), MAP_SHARE (Share current location), URL (Connect URL), CALENDAR (Add to calendar)<br><br>※ If a CLIPBOARD (Copy) button is used in an integrated message type, it cannot be received on iOS devices.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | X | Button JSON, check format for each button type |
+| content.buttons | Array | X | (Use deprecated, content.cards[].buttons) RCS button list |
+| content.buttons[].buttonType | String | X | An Action object with the same name as the buttonType value is included as buttonJson.<br>Button Types: Open Chat Room (COMPOSE), Copy (CLIPBOARD), Make a Call (DIALER), Show Map (MAP_SHOW), Search Map (MAP_QUERY), Share Current Location (MAP_SHARE), Connect to URL (URL), Register Schedule (CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonJson | Object | X | |
+| content.buttons[].buttonJson.action | Object | X | Button Action |
+| options | Object | X | | |
+| options.expiryOption | Integer | X | The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
+| options.groupId | String | X | Group ID for RCS Biz Center statistics integration |
 
 
 
@@ -765,6 +766,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
+
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
 ## Request to Send a Free-Form Message - PUSH
@@ -784,9 +786,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| X-NC-APP-KEY | Header  | String | O | Appkey |
+| X-NHN-Authorization | Header  | String | O | Access token |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -824,21 +826,21 @@ X-NHN-Authorization: Bearer {accessToken}
       "media" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
@@ -863,14 +865,14 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| recipients | Array | N | |
-| recipients[].contacts | Array | N | | |
-| recipients[].templateParameters | Object | N | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated upon successful bulk recipient list and file upload |
-| content | Object | N | Push message content |
+| statsKeyId | String | X | Statistics key ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| recipients | Array | X | |
+| recipients[].contacts | Array | X | | |
+| recipients[].templateParameters | Object | X | Template parameters. Consist of key (Key, placeholder) and value (Value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated upon successful bulk recipient list and file upload |
+| content | Object | X | Push message content |
 
 
 
@@ -942,21 +944,21 @@ X-NHN-Authorization: Bearer {accessToken}
       "media" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
@@ -1014,21 +1016,21 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
       "media" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "Media location, REMOTE, LOCAL",
         "source" : "Address of where the media is located, URL, LOCAL_RESOURCE",
-        "mediaType" : "Media type, IMAGE, GIF, VEDIO, AUDIO. Only IMAGE supported in Android",
+        "mediaType" : "Media type, IMAGE, GIF, VIDEO, AUDIO. Only IMAGE supported in Android",
         "extension" : "Media file extension, jpg, png",
         "expandable" : true
       },
@@ -1050,6 +1052,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 ```
 
 </details>
+
 <span id="messageV1x0006TemplateMessages"></span>
 
 ## Request Template Message Sending
@@ -1060,9 +1063,9 @@ If no template is registered, register a template first and then send the messag
 The recipient settings must be set to one of the following: Single Recipient, Bulk Recipient, or Group Query.<br>
 * Single Recipient (recipient)<br>
 * Bulk/Group Recipient (id)<br>
-<br>
-For scheduled sending, set 'scheduledDateTime'.<br>
-For confirmation-based sending, set 'confirmBeforeSend' to true.<br>
+  <br>
+  For scheduled sending, set 'scheduledDateTime'.<br>
+  For confirmation-based sending, set 'confirmBeforeSend' to true.<br>
 
 
 **Request**
@@ -1077,10 +1080,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| messageChannel | Path  | String | Y | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| X-NC-APP-KEY | Header  | String | O | Appkey |
+| X-NHN-Authorization | Header  | String | O | Access token |
+| messageChannel | Path  | String | O | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1118,15 +1121,15 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| templateId | String | N | Template ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| templateParameters | Object | N | Template parameters. It consists of a pair of key (Key, placeholder) and value (Value).<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| recipients | Array | N | | |
-| recipients[].contacts | Array | N | |
-| recipients[].templateParameters | Object | N | Template parameters. It consists of a pair of keys (key, placeholder) and values ​​(value).<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated when bulk recipient list and file upload are successful |
+| statsKeyId | String | X | Statistics key ID |
+| templateId | String | X | Template ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| templateParameters | Object | X | Template parameters. It consists of a pair of key (Key, placeholder) and value (Value).<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| recipients | Array | X | | |
+| recipients[].contacts | Array | X | |
+| recipients[].templateParameters | Object | X | Template parameters. It consists of a pair of keys (key, placeholder) and values ​​(value).<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated when bulk recipient list and file upload are successful |
 
 
 
@@ -1228,6 +1231,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 ```
 
 </details>
+
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 ## Send AlimTalk Template Message
@@ -1238,9 +1242,9 @@ If no template has been registered, register a template first and then send.<br>
 You must select one of the following recipients: Single Recipient, Bulk Recipient, or Group Query.<br>
 * Single Recipient (recipient)<br>
 * Bulk/Group Recipient (id)<br>
-<br>
-For scheduled delivery, set 'scheduledDateTime'.<br>
-For confirmation-based delivery, set 'confirmBeforeSend' to true.<br>
+  <br>
+  For scheduled delivery, set 'scheduledDateTime'.<br>
+  For confirmation-based delivery, set 'confirmBeforeSend' to true.<br>
 
 
 **Request**
@@ -1255,9 +1259,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| X-NC-APP-KEY | Header  | String | O | Appkey |
+| X-NHN-Authorization | Header  | String | O | Access token |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1298,17 +1302,17 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| sender | Object | N | |
-| sender.senderKey | String | Y | Sender profile sender key |
-| templateId | String | N | Template ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| templateParameters | Object | N | Template parameters. It consists of a pair of key (Key, placeholder) and value (Value).<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| recipients | Array | N | | |
-| recipients[].contacts | Array | N | | |
-| recipients[].templateParameters | Object | N | Template parameter. It consists of a pair of key (key, placeholder) and value (value).<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for each recipient take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated upon successful bulk recipient list and file upload |
+| statsKeyId | String | X | Statistics key ID |
+| sender | Object | X | |
+| sender.senderKey | String | O | Sender profile sender key |
+| templateId | String | O | Template ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| templateParameters | Object | X | Template parameters. It consists of a pair of key (Key, placeholder) and value (Value).<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| recipients | Array | X | | |
+| recipients[].contacts | Array | X | | |
+| recipients[].templateParameters | Object | X | Template parameter. It consists of a pair of key (key, placeholder) and value (value).<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for each recipient take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated upon successful bulk recipient list and file upload |
 
 
 
@@ -1416,6 +1420,186 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 ```
 
 </details>
+
+<span id="messageV1x0008EmailTemplateMessages"></span>
+
+## Send Email Template Message
+
+Sends a message using a registered template.<br>
+If no template has been registered, register a template first before sending.<br>
+<br>
+The recipient configuration must be set by selecting one of the following: single recipient, bulk recipients, or group query.<br>
+* Single recipient (recipient)<br>
+* Bulk/group recipients (id)<br>
+  <br>
+  For scheduled sending, set 'scheduledDateTime'.<br>
+  For send after confirmation, set 'confirmBeforeSend' to true.<br>
+
+
+**Request**
+
+```
+POST /message/v1.0/EMAIL/template-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**Request parameters**
+
+| Name | In | Type | Required | Description |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | Appkey |
+| X-NHN-Authorization | Header | String | O | Access token |
+| messagePurpose | Path | Enum | O | Message purpose. |
+
+
+
+**Request body**
+
+<!--If no request body is required, enter "This API does not require a request body."-->
+
+
+```
+{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}
+```
+
+<!--Describes the fields in the request body.-->
+
+| Path | Type | Required | Description |
+| - | - | - | - |
+| statsKeyId | String | X | Statistics key ID |
+| templateId | String | X | Template ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| templateParameters | Object | X | Template parameters. Consists of key (substitution variable) and value pairs.<br><br>Recipient-specific template parameters cannot be specified for group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].contacts[].contactType | String | O | Contact type<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | Contact. Messages can be sent by entering a contact directly without specifying a recipient. |
+| recipients[].contacts[].clientReference | String | X | A user-defined field that can be assigned per recipient. |
+| recipients[].templateParameters | Object | X | Template parameters. Consists of key (substitution variable) and value pairs.<br><br>Recipient-specific template parameters cannot be specified for group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated when bulk recipient list and file upload are successful |
+
+
+
+**Response body**
+
+<!--If no response body is returned, enter "This API does not return a response body."-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--Describes the fields in the response body.-->
+
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+| messageId | String | O | Message ID. A value generated when a message sending request is received. |
+
+
+
+**Request example**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Send email template message
+
+POST {{endpoint}}/message/v1.0/EMAIL/template-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "statsKeyId" : "aA123456",
+  "templateId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false,
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123"
+}'
+```
+
+</details>
+
 <span id="messageV1x0008RcsTemplateMessages"></span>
 
 ## Send RCS Template Message
@@ -1426,9 +1610,9 @@ If no template is registered, register a template first and then send.<br>
 The recipient settings must be set to one of the following: Single Recipient, Bulk Recipient, or Group Query.<br>
 * Single Recipient (recipient)<br>
 * Bulk/Group Recipient (id)<br>
-<br>
-For scheduled sending, set 'scheduledDateTime'.<br>
-For confirmation-based sending, set 'confirmBeforeSend' to true.<br>
+  <br>
+  For scheduled sending, set 'scheduledDateTime'.<br>
+  For confirmation-based sending, set 'confirmBeforeSend' to true.<br>
 
 
 **Request**
@@ -1441,7 +1625,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1489,22 +1673,22 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| sender | Object | N | |
-| sender.chatbotId | String | N | Chatbot ID |
-| content | Object | N | |
-| content.unsubscribePhoneNumber | String | N | Unsubscribe phone number |
-| templateId | String | N | Template ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| templateParameters | Object | N | Template parameters. Consists of key (key, placeholder) and value (value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| recipients | Array | N | |
-| recipients[].contacts | Array | N | |
-| recipients[].templateParameters | Object | N | Template parameters. They consist of key (placeholder) and value (value) pairs.<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated upon successful bulk recipient list and file upload |
-| options | Object | N | | |
-| options.expiryOption | Integer | N | Time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
-| options.groupId | String | N | Group ID for RCS Biz Center statistics integration |
+| statsKeyId | String | X | Statistics key ID |
+| sender | Object | X | |
+| sender.chatbotId | String | X | Chatbot ID |
+| content | Object | X | |
+| content.unsubscribePhoneNumber | String | X | Unsubscribe phone number |
+| templateId | String | O | Template ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| templateParameters | Object | X | Template parameters. Consists of key (key, placeholder) and value (value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| recipients | Array | X | |
+| recipients[].contacts | Array | X | |
+| recipients[].templateParameters | Object | X | Template parameters. They consist of key (placeholder) and value (value) pairs.<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated upon successful bulk recipient list and file upload |
+| options | Object | X | | |
+| options.expiryOption | Integer | X | Time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
+| options.groupId | String | X | Group ID for RCS Biz Center statistics integration |
 
 
 
@@ -1622,6 +1806,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 ```
 
 </details>
+
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
 ## Send SMS Template Message
@@ -1638,10 +1823,10 @@ The recipient settings must be set to either a single recipient, a bulk recipien
 
 When sending an MMS template with an image layout, keep the following in mind:
 * **Required template parameters**: `cardNumber` and `scratchNumber` must be included.
-    * `cardNumber`: Used to generate a barcode and must be a 16-digit number.
-    * `scratchNumber`: No restrictions. * **Image Layout Override**: You can override the image layout set in the template by including `content.imageLayoutId` or `content.imageLayoutName` in the request body.
-    * You must use only one of `content.imageLayoutId` and `content.imageLayoutName`.
-    * If neither field is included, the default image layout associated with the template will be used.
+  * `cardNumber`: Used to generate a barcode and must be a 16-digit number.
+  * `scratchNumber`: No restrictions. * **Image Layout Override**: You can override the image layout set in the template by including `content.imageLayoutId` or `content.imageLayoutName` in the request body.
+  * You must use only one of `content.imageLayoutId` and `content.imageLayoutName`.
+  * If neither field is included, the default image layout associated with the template will be used.
 
 
 **Request**
@@ -1654,7 +1839,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1696,17 +1881,17 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| templateId | String | N | Template ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| templateParameters | Object | N | Template parameters. Consist of key (placeholder) and value (value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| content | Object | N | | | | content.imageLayoutId | String | N | Image layout ID |
-| content.imageLayoutName | String | N | Image layout name |
-| recipients | Array | N | | |
-| recipients[].contacts | Array | Y | | |
-| recipients[].templateParameters | Object | N | Template parameters. They consist of key (key, placeholder) and value (value) pairs.<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated upon successful bulk recipient list and file upload |
+| statsKeyId | String | X | Statistics key ID |
+| templateId | String | X | Template ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| templateParameters | Object | X | Template parameters. Consist of key (placeholder) and value (value) pairs.<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| content | Object | X | | | | content.imageLayoutId | String | X | Image layout ID |
+| content.imageLayoutName | String | X | Image layout name |
+| recipients | Array | X | | |
+| recipients[].contacts | Array | O | | |
+| recipients[].templateParameters | Object | X | Template parameters. They consist of key (key, placeholder) and value (value) pairs.<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated upon successful bulk recipient list and file upload |
 
 
 
@@ -1812,6 +1997,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 ```
 
 </details>
+
 <span id="messageV1x0009FlowMessages"></span>
 
 ## Send Flow Message
@@ -1822,9 +2008,9 @@ If you haven't registered a flow, you must register one and send it.<br>
 The recipient settings must be set to either a single recipient, bulk recipient, or group query.<br>
 * Single recipient (recipient)<br>
 * Bulk/group recipient (id)<br>
-<br>
-For scheduled delivery, set 'scheduledDateTime'.<br>
-For confirmation-based delivery, set 'confirmBeforeSend' to true.<br>
+  <br>
+  For scheduled delivery, set 'scheduledDateTime'.<br>
+  For confirmation-based delivery, set 'confirmBeforeSend' to true.<br>
 
 
 **Request**
@@ -1839,9 +2025,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| X-NC-APP-KEY | Header  | String | O | Appkey |
+| X-NHN-Authorization | Header  | String | O | Access token |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -1898,21 +2084,21 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| flowId | String | N | Flow ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| templateParameters | Object | N | Template parameters. It consists of a pair of key (Key, placeholder) and value (Value).<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| recipients | Array | N | | | | recipients[].contacts | Array | N | | |
-| recipients[].templateParameters | Object | N | Template parameters. It consists of a pair of keys (keys, placeholders) and values ​​(values).<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| id | String | N | ID generated upon successful bulk recipient list and file upload |
-| flow | Object | N | |
-| flow.steps | Array | Y | | |
-| flow.steps[].messageChannel | String | Y | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| flow.steps[].sender | Object | N | Sender information. Sender information may be configured differently depending on the message channel.<br> |
-| flow.steps[].content | Object | N | Message content. Message content may be configured differently depending on the message channel.<br> |
-| flow.steps[].options | Object | N | Sending options. Sending options can be configured differently depending on the message channel.<br> |
-| flow.steps[].nextSteps | Array | N | The next step. If there is no next step, message sending will end.<br> |
+| statsKeyId | String | X | Statistics key ID |
+| flowId | String | X | Flow ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| templateParameters | Object | X | Template parameters. It consists of a pair of key (Key, placeholder) and value (Value).<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| recipients | Array | X | | | | recipients[].contacts | Array | X | | |
+| recipients[].templateParameters | Object | X | Template parameters. It consists of a pair of keys (keys, placeholders) and values ​​(values).<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| id | String | X | ID generated upon successful bulk recipient list and file upload |
+| flow | Object | X | |
+| flow.steps | Array | O | | |
+| flow.steps[].messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| flow.steps[].sender | Object | X | Sender information. Sender information may be configured differently depending on the message channel.<br> |
+| flow.steps[].content | Object | X | Message content. Message content may be configured differently depending on the message channel.<br> |
+| flow.steps[].options | Object | X | Sending options. Sending options can be configured differently depending on the message channel.<br> |
+| flow.steps[].nextSteps | Array | X | The next step. If there is no next step, message sending will end.<br> |
 
 
 
@@ -2052,6 +2238,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 ```
 
 </details>
+
 <span id="messageV1x0010InstantFlowMessages"></span>
 
 ## Send an Instant Flow Message
@@ -2071,7 +2258,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path  | String | Y | Message purpose<br>NORMAL, AD, AUTH |
+| messagePurpose | Path  | String | O | Message purpose<br>NORMAL, AD, AUTH |
 
 
 
@@ -2114,7 +2301,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
         "expiryOption:" : 1,
         "groupId\"" : "groupId"
       },
-      "templateId" : "Template_ID",
+      "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
     } ]
   }
@@ -2125,21 +2312,21 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| statsKeyId | String | N | Statistics key ID |
-| scheduledDateTime | String | N | Scheduled sending time |
-| confirmBeforeSend | Boolean | N | Whether to send after confirmation |
-| templateParameters | Object | N | Template parameters. It consists of a pair of key (Key, placeholder) and value (Value).<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| recipients | Array | Y | | |
-| recipients[].contacts | Array | N | |
-| recipients[].templateParameters | Object | N | Template parameters. It consists of a pair of key (key, placeholder) and value (value).<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| instantFlow | Object | Y | |
-| instantFlow.steps | Array | Y | |
-| instantFlow.steps[].messageChannel | String | Y | Message Channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| instantFlow.steps[].sender | Object | N | Sender information. Sender information can be configured differently depending on the message channel.<br> |
-| instantFlow.steps[].content | Object | N | Message content. Message content can be configured differently depending on the message channel.<br> |
-| instantFlow.steps[].options | Object | N | Sending options. Sending options can be configured differently depending on the message channel.<br> |
-| instantFlow.steps[].templateId | String | N | Template ID. If a template ID is set, the sender information (sender) and message content (content) will not be applied to the request.<br>If a template ID is not set in an instant flow message, the sender information (sender) and message content (content) are required.<br> |
-| instantFlow.steps[].nextSteps | Array | N | The next step. If there is no next step, message sending will end. |
+| statsKeyId | String | X | Statistics key ID |
+| scheduledDateTime | String | X | Scheduled sending time |
+| confirmBeforeSend | Boolean | X | Whether to send after confirmation |
+| templateParameters | Object | X | Template parameters. It consists of a pair of key (Key, placeholder) and value (Value).<br><br>Template parameters cannot be specified for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| recipients | Array | O | | |
+| recipients[].contacts | Array | X | |
+| recipients[].templateParameters | Object | X | Template parameters. It consists of a pair of key (key, placeholder) and value (value).<br><br>You cannot specify template parameters for each recipient in group sending.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| instantFlow | Object | O | |
+| instantFlow.steps | Array | O | |
+| instantFlow.steps[].messageChannel | String | O | Message Channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| instantFlow.steps[].sender | Object | X | Sender information. Sender information can be configured differently depending on the message channel.<br> |
+| instantFlow.steps[].content | Object | X | Message content. Message content can be configured differently depending on the message channel.<br> |
+| instantFlow.steps[].options | Object | X | Sending options. Sending options can be configured differently depending on the message channel.<br> |
+| instantFlow.steps[].templateId | String | X | Template ID. If a template ID is set, the sender information (sender) and message content (content) will not be applied to the request.<br>If a template ID is not set in an instant flow message, the sender information (sender) and message content (content) are required.<br> |
+| instantFlow.steps[].nextSteps | Array | X | The next step. If there is no next step, message sending will end. |
 
 
 
@@ -2214,7 +2401,7 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
         "expiryOption:" : 1,
         "groupId\"" : "groupId"
       },
-      "templateId" : "Template_ID",
+      "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
     } ]
   }
@@ -2261,7 +2448,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
         "expiryOption:" : 1,
         "groupId\"" : "groupId"
       },
-      "templateId" : "Template_ID",
+      "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
     } ]
   }
@@ -2269,6 +2456,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 ```
 
 </details>
+
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
 ## Cancel Sending Message
@@ -2290,9 +2478,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| messageId | Path  | String | Y | null |
+| X-NC-APP-KEY | Header  | String | O | Appkey |
+| X-NHN-Authorization | Header  | String | O | Access token |
+| messageId | Path  | String | O | null |
 
 
 
@@ -2357,6 +2545,7 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 ```
 
 </details>
+
 <span id="messageV1x0101MessageIdDoConfirm"></span>
 
 ## Confirm Message Delivery
@@ -2376,9 +2565,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| messageId | Path  | String | Y | null |
+| X-NC-APP-KEY | Header  | String | O | Appkey |
+| X-NHN-Authorization | Header  | String | O | Access token |
+| messageId | Path  | String | O | null |
 
 
 

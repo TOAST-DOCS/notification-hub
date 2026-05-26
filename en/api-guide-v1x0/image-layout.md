@@ -128,6 +128,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0CreateImageLayout"></span>
 
 ## Create Image Layout
@@ -234,6 +235,7 @@ curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0DeleteImageLayout"></span>
 
 ## Delete Image Layout
@@ -319,6 +321,7 @@ curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0GetImageLayoutList"></span>
 
 ## Retrieve Image Layout List
@@ -426,6 +429,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0UpdateImageLayout"></span>
 
 ## Update Image Layout
