@@ -67,7 +67,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -86,7 +86,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
@@ -178,7 +178,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -214,7 +214,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -270,7 +270,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -289,7 +289,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
@@ -355,7 +355,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -386,7 +386,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
   "id" : "alpha123",
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -448,7 +448,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -521,7 +521,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
@@ -621,7 +621,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -711,7 +711,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
+    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -817,7 +817,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "매뉴 > 설정",
+    "unsubscribeGuide" : "메뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -825,37 +825,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에대한 힌트"
+        "link" : "버튼을 눌렀을 때, 연결되는 링크",
+        "hint" : "버튼에 대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에대한 설명"
+        "description" : "그룹에 대한 설명"
       }
     },
     "style" : {
@@ -877,7 +877,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X | 푸시 메시지 내용 |
@@ -937,7 +937,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "매뉴 > 설정",
+    "unsubscribeGuide" : "메뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -945,37 +945,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에대한 힌트"
+        "link" : "버튼을 눌렀을 때, 연결되는 링크",
+        "hint" : "버튼에 대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에대한 설명"
+        "description" : "그룹에 대한 설명"
       }
     },
     "style" : {
@@ -1008,7 +1008,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
   "id" : "alpha123",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "매뉴 > 설정",
+    "unsubscribeGuide" : "메뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -1016,37 +1016,37 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을때, 연결되는 링크",
-        "hint" : "버튼에대한 힌트"
+        "link" : "버튼을 눌렀을 때, 연결되는 링크",
+        "hint" : "버튼에 대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에대한 설명"
+        "description" : "그룹에 대한 설명"
       }
     },
     "style" : {
@@ -1136,7 +1136,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 
@@ -1311,7 +1311,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | statsKeyId | String | X | 통계 키 아이디 |
 | sender | Object | X |  |
-| sender.senderKey | String | O | 발신프로필 발신키 |
+| sender.senderKey | String | O | 발신 프로필 발신키 |
 | templateId | String | O | 템플릿 ID |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -1320,7 +1320,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 
@@ -1505,7 +1505,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 
@@ -1685,7 +1685,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | sender | Object | X |  |
 | sender.chatbotId | String | X | 대화방(챗봇) 아이디 |
 | content | Object | X |  |
-| content.unsubscribePhoneNumber | String | X | 수신거부 전화번호 |
+| content.unsubscribePhoneNumber | String | X | 수신 거부 전화번호 |
 | templateId | String | X | 템플릿 ID |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -1694,7 +1694,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | options | Object | X |  |
@@ -1903,7 +1903,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 
@@ -2105,7 +2105,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | flow | Object | X |  |
@@ -2334,7 +2334,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | recipients[].contacts | Array | O |  |
 | recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
+| recipients[].contacts[].clientReference | String | X | 수신자별로 부여할 수 있는 사용자 지정 필드입니다. |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | instantFlow | Object | O |  |
 | instantFlow.steps | Array | O |  |
@@ -2342,7 +2342,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].templateId | String | X | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
+| instantFlow.steps[].templateId | String | X | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)이 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
 
 

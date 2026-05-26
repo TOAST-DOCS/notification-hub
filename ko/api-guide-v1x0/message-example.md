@@ -955,7 +955,7 @@
         "submitName": "전송 버튼 이름",
         "buttonType" : "REPLY",
         "link" : "myapp://product_detail?product_id=1234",
-        "hint" : "버튼에대한 힌트"
+        "hint" : "버튼에 대한 힌트"
       }
       ],
       "media" : {
@@ -978,7 +978,7 @@
       },
       "group" : {
         "key" : "그룹의 키",
-        "description" : "그룹에대한 설명"
+        "description" : "그룹에 대한 설명"
       }
     },
     "customKey" : "customValue"

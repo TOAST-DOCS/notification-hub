@@ -31,7 +31,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| senderKey | Query | String | O | 발신프로필 키 |
+| senderKey | Query | String | O | 발신 프로필 키 |
 
 
 
@@ -122,7 +122,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 | groupTagKey | Path | String | O | 그룹태그 키 |
-| senderKey | Query | String | O | 발신프로필 키 |
+| senderKey | Query | String | O | 발신 프로필 키 |
 
 
 
@@ -206,7 +206,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 | groupTagKey | Path | String | O | 그룹태그 키 |
-| senderKey | Query | String | O | 발신프로필 키 |
+| senderKey | Query | String | O | 발신 프로필 키 |
 
 
 
@@ -316,7 +316,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| senderKey | String | O | 발신프로필 키 |
+| senderKey | String | O | 발신 프로필 키 |
 | newGroupTagName | String | O | 새 그룹태그 이름 |
 
 
@@ -426,7 +426,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| senderKey | String | O | 발신프로필 키 |
+| senderKey | String | O | 발신 프로필 키 |
 | groupTagName | String | O | 그룹태그 이름 |
 
 

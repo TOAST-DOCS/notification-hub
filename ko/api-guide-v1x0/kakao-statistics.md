@@ -10,7 +10,7 @@
 
 **Notification > Notification Hub > API v1.0 사용 가이드 > 카카오 통계**
 
-카카오비즈센터에서 제공하는 통계 데이터를 조회합니다.
+카카오 비즈센터에서 제공하는 통계 데이터를 조회합니다.
 통계 데이터는 발신 키 기준으로 일별(DAILY) 또는 월별(MONTHLY)로 조회할 수 있습니다.
 DAILY: 최근 90일 이내 데이터만 조회 가능하며, 조회 범위는 최대 90일입니다.
 MONTHLY: 최근 3개월 이내 데이터만 조회 가능하며, 조회 범위는 최대 3개월입니다.
@@ -63,7 +63,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | endDate | Query | String | O | 조회 종료 날짜입니다. (DAILY: YYYY-MM-DD, MONTHLY: YYYY-MM) startDate ~ endDate는 최대 3개월입니다. |
 | messageType | Query | Enum | X | 메시지 유형입니다. |
 | receiveUserType | Query | Enum | X | 발송 식별자입니다. |
-| limit | Query | Number | X | limit을 설정하지 않으면 기본값은 500입니다. (최대 1000) |
+| limit | Query | Number | X | limit을 설정하지 않으면 기본값은 500입니다. (최대 1,000) |
 | offset | Query | Number | X | offset을 설정하지 않으면 기본값은 0입니다. |
 
 
@@ -111,7 +111,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | alimtalkDeliveryStatistics | Array | O |  |
 | alimtalkDeliveryStatistics[].date | String | O | 날짜 (일별: YYYY-MM-DD, 월별: YYYY-MM) |
 | alimtalkDeliveryStatistics[].messageType | String | O | 알림톡 메시지 유형<br>[AT(일반 알림톡), AI(이미지 알림톡)] |
-| alimtalkDeliveryStatistics[].receiveUserType | String | O | 발송 식별자<br>[PhoneNumber(전화번호), AppUserId(앱유저 아이디), UserKey(유저키), None(수신자 식별자 없음)] |
+| alimtalkDeliveryStatistics[].receiveUserType | String | O | 발송 식별자<br>[PhoneNumber(전화번호), AppUserId(앱 유저 아이디), UserKey(유저 키), None(수신자 식별자 없음)] |
 | alimtalkDeliveryStatistics[].totalSendRequestCount | Integer | O | 총 발송 요청 수 |
 | alimtalkDeliveryStatistics[].validSendRequestCount | Integer | O | 유효 발송 요청 수 |
 | alimtalkDeliveryStatistics[].validReadCount | Integer | O | 유효 읽음 수 |
@@ -174,7 +174,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | endDate | Query | String | O | 조회 종료 날짜입니다. (DAILY: YYYY-MM-DD, MONTHLY: YYYY-MM) startDate ~ endDate는 최대 3개월입니다. |
 | kakaoTemplateCode | Query | String | X | 카카오 템플릿 코드입니다. |
 | messageType | Query | Enum | X | 메시지 유형입니다. |
-| limit | Query | Number | X | limit을 설정하지 않으면 기본값은 500입니다. (최대 1000) |
+| limit | Query | Number | X | limit을 설정하지 않으면 기본값은 500입니다. (최대 1,000) |
 | offset | Query | Number | X | offset을 설정하지 않으면 기본값은 0입니다. |
 
 
@@ -257,9 +257,9 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/template-statistic
 
 <span id="kakaobizcenterV1x0003ReadBrandmessageDeliveryStatistics"></span>
 
-## 브랜드메시지 발송 통계 조회
+## 브랜드 메시지 발송 통계 조회
 
-브랜드메시지 발송 통계를 조회합니다.
+브랜드 메시지 발송 통계를 조회합니다.
 발신 프로필을 기준으로 일별 발송 수, 유효 읽음 수, 클릭 수를 조회합니다. 기간, 발송 식별자, 메시지 타입 등을 설정해 조회할 수 있습니다.
 
 조회 기간(startDate ~ endDate)은 최대 3개월입니다.
@@ -288,7 +288,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | targeting | Query | Enum | X | 발송 타겟팅 여부입니다. |
 | friendType | Query | Enum | X | 친구 타입입니다. |
 | receiveUserType | Query | Enum | X | 발송 식별자입니다. |
-| limit | Query | Number | X | limit을 설정하지 않으면 기본값은 500입니다. (최대 1000) |
+| limit | Query | Number | X | limit을 설정하지 않으면 기본값은 500입니다. (최대 1,000) |
 | offset | Query | Number | X | offset을 설정하지 않으면 기본값은 0입니다. |
 
 
@@ -339,11 +339,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | totalCount | Integer | O | 총 건수 |
 | brandmessageDeliveryStatistics | Array | O |  |
 | brandmessageDeliveryStatistics[].date | String | O | 날짜 (일별: YYYY-MM-DD, 월별: YYYY-MM) |
-| brandmessageDeliveryStatistics[].receiveUserType | String | O | 발송 식별자<br>[PhoneNumber(전화번호), AppUserId(앱유저 아이디), UserKey(유저키), None(수신자 식별자 없음)] |
+| brandmessageDeliveryStatistics[].receiveUserType | String | O | 발송 식별자<br>[PhoneNumber(전화번호), AppUserId(앱 유저 아이디), UserKey(유저 키), None(수신자 식별자 없음)] |
 | brandmessageDeliveryStatistics[].messageSpec | String | O | 발송 타입<br>[BASIC(기본형), FREESTYLE(자유형)] |
 | brandmessageDeliveryStatistics[].chatBubbleType | String | O | 메시지 타입<br>[TEXT(텍스트형), IMAGE(이미지형), WIDE(와이드 이미지형), WIDE_ITEM_LIST(와이드 아이템리스트형), CAROUSEL_FEED(캐러셀 피드형), PREMIUM_VIDEO(프리미엄 비디오형), COMMERCE(커머스형), CAROUSEL_COMMERCE(캐러셀 커머스형)] |
 | brandmessageDeliveryStatistics[].friendType | String | O | 친구 타입<br>[F(친구), N(비친구)] |
-| brandmessageDeliveryStatistics[].targeting | String | O | 발송 타겟팅 여부<br>[M(마케팅 수신동의 유저 전체), N(채널 친구 제외), I(채널 친구만), F(채널 친구 전체)] |
+| brandmessageDeliveryStatistics[].targeting | String | O | 발송 타겟팅 여부<br>[M(마케팅 수신 동의 유저 전체), N(채널 친구 제외), I(채널 친구만), F(채널 친구 전체)] |
 | brandmessageDeliveryStatistics[].totalSendRequestCount | Integer | O | 총 발송 요청 수 |
 | brandmessageDeliveryStatistics[].validSendRequestCount | Integer | O | 유효 발송 요청 수 |
 | brandmessageDeliveryStatistics[].validReadCount | Integer | O | 유효 읽음 수 |
@@ -358,7 +358,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 브랜드메시지 발송 통계 조회
+### 브랜드 메시지 발송 통계 조회
 
 GET {{endpoint}}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistics/BRANDMESSAGE?senderKey={{senderKey}}&periodType={{periodType}}&startDate={{startDate}}&endDate={{endDate}}
 X-NC-APP-KEY: {appKey}
@@ -379,9 +379,9 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 
 <span id="kakaobizcenterV1x0004ReadBrandmessageTemplateStatistics"></span>
 
-## 브랜드메시지 템플릿 통계 조회
+## 브랜드 메시지 템플릿 통계 조회
 
-브랜드메시지 템플릿 통계를 조회합니다.
+브랜드 메시지 템플릿 통계를 조회합니다.
 템플릿 및 그룹 태그를 기준으로 일별 발송 수, 유효 읽음 수, 클릭 수를 조회합니다. 기간, 메시지 타입 등을 설정해 조회할 수 있습니다.
 
 조회 기간(startDate ~ endDate)은 최대 3개월입니다.
@@ -406,12 +406,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | startDate | Query | String | O | 조회 시작 날짜입니다. (DAILY: YYYY-MM-DD, MONTHLY: YYYY-MM) |
 | endDate | Query | String | O | 조회 종료 날짜입니다. (DAILY: YYYY-MM-DD, MONTHLY: YYYY-MM) startDate ~ endDate는 최대 3개월입니다. |
 | kakaoTemplateCode | Query | String | X | 카카오 템플릿 코드입니다. |
-| groupTagKey | Query | String | X | 그룹태그 키입니다. |
+| groupTagKey | Query | String | X | 그룹 태그 키입니다. |
 | messageSpec | Query | Enum | X | 발송 타입입니다. |
 | chatBubbleType | Query | Enum | X | 메시지 타입입니다. |
 | targeting | Query | Enum | X | 발송 타겟팅 여부입니다. |
 | friendType | Query | Enum | X | 친구 타입입니다. |
-| limit | Query | Number | X | limit을 설정하지 않으면 기본값은 500입니다. (최대 1000) |
+| limit | Query | Number | X | limit을 설정하지 않으면 기본값은 500입니다. (최대 1,000) |
 | offset | Query | Number | X | offset을 설정하지 않으면 기본값은 0입니다. |
 
 
@@ -463,11 +463,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | brandmessageTemplateStatistics | Array | O |  |
 | brandmessageTemplateStatistics[].date | String | O | 날짜 (일별: YYYY-MM-DD, 월별: YYYY-MM) |
 | brandmessageTemplateStatistics[].templateCode | String | O | 템플릿 코드 |
-| brandmessageTemplateStatistics[].groupTagKey | String | X | 그룹태그키 |
+| brandmessageTemplateStatistics[].groupTagKey | String | X | 그룹 태그 키 |
 | brandmessageTemplateStatistics[].messageSpec | String | O | 발송 타입<br>[BASIC(기본형), FREESTYLE(자유형)] |
 | brandmessageTemplateStatistics[].chatBubbleType | String | O | 메시지 타입<br>[TEXT(텍스트형), IMAGE(이미지형), WIDE(와이드 이미지형), WIDE_ITEM_LIST(와이드 아이템리스트형), CAROUSEL_FEED(캐러셀 피드형), PREMIUM_VIDEO(프리미엄 비디오형), COMMERCE(커머스형), CAROUSEL_COMMERCE(캐러셀 커머스형)] |
 | brandmessageTemplateStatistics[].friendType | String | O | 친구 타입<br>[F(친구), N(비친구)] |
-| brandmessageTemplateStatistics[].targeting | String | O | 발송 타겟팅 여부<br>[M(마케팅 수신동의 유저 전체), N(채널 친구 제외), I(채널 친구만), F(채널 친구 전체)] |
+| brandmessageTemplateStatistics[].targeting | String | O | 발송 타겟팅 여부<br>[M(마케팅 수신 동의 유저 전체), N(채널 친구 제외), I(채널 친구만), F(채널 친구 전체)] |
 | brandmessageTemplateStatistics[].totalSendSuccessCount | Integer | O | 총 발송 성공 수 |
 | brandmessageTemplateStatistics[].validReadCount | Integer | O | 유효 읽음 수 |
 | brandmessageTemplateStatistics[].totalClickCount | Integer | O | 총 클릭 수 |
@@ -481,7 +481,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 브랜드메시지 템플릿 통계 조회
+### 브랜드 메시지 템플릿 통계 조회
 
 GET {{endpoint}}/kakaobizcenter/v1.0/kakao-statistics/template-statistics/BRANDMESSAGE?senderKey={{senderKey}}&periodType={{periodType}}&startDate={{startDate}}&endDate={{endDate}}
 X-NC-APP-KEY: {appKey}
