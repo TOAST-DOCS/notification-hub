@@ -125,6 +125,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0CreateImageLayout"></span>
 
 ## 이미지 레이아웃 등록
@@ -227,6 +228,7 @@ curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0DeleteImageLayout"></span>
 
 ## 이미지 레이아웃 삭제
@@ -309,6 +311,7 @@ curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0GetImageLayoutList"></span>
 
 ## 이미지 레이아웃 리스트 조회
@@ -414,6 +417,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0UpdateImageLayout"></span>
 
 ## 이미지 레이아웃 수정
@@ -515,3 +519,4 @@ curl -X PATCH "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 ```
 
 </details>
+

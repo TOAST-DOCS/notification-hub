@@ -114,6 +114,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 ```
 
 </details>
+
 <span id="attachmentV1x0002ReadAttachments"></span>
 
 ## 첨부 파일 목록 조회
@@ -219,6 +220,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 ```
 
 </details>
+
 <span id="attachmentV1x0003ReadAttachment"></span>
 
 ## 첨부 파일 단건 조회
@@ -288,7 +290,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | attachment.attachmentId | String | O | 파일 업로드 성공 시 생성되는 파일 고유 ID |
 | attachment.fileName | String | O | 업로드 파일명 |
 | attachment.fileFormat | String | O | 파일 형식 |
-| attachment.previewUrl | String | O | 파일 미리보기 URL - 만료 시간 존재(상세 조회 호출 시 생성) |
+| attachment.previewUrl | String | X | 파일 미리보기 URL - 만료 시간 존재(상세 조회 호출 시 생성) |
 | attachment.fileSizeByte | Long | O | 첨부 파일의 사이즈 단위는 byte |
 | attachment.createDateTime | String | O | 파일 업로드 일시 |
 | attachment.expireDateTime | String | O | 파일 만료 일시 |
@@ -321,6 +323,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 ```
 
 </details>
+
 <span id="attachmentV1x0004DoValidateAttachments"></span>
 
 ## 업로드 전 첨부 파일 유효성 검사
@@ -422,6 +425,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 ```
 
 </details>
+
 <span id="attachmentV1x0005DoValidateAttachment"></span>
 
 ## 업로드된 첨부 파일 유효성 검사
@@ -531,6 +535,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 ```
 
 </details>
+
 <span id="attachmentV1x0006UpdateFileType"></span>
 
 ## 업로드된 첨부 파일의 파일 유형 수정
@@ -571,7 +576,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| fileTypes | Array | X | 개별 상품 첨부 파일 업로드 시 지정할 파일 유형 목록, 하나 이상 입력 가능. 템플릿 업로드간 사용시 EMAIL은 EMAIL_TEMPLATE, SMS는 SMS_TEMPLATE로 업로드 요청 필요 |
+| fileTypes | Array | X | 개별 상품 첨부 파일 업로드 시 지정할 파일 유형 목록입니다. 하나 이상 입력할 수 있습니다. 템플릿 업로드 시 EMAIL은 EMAIL_TEMPLATE, SMS는 SMS_TEMPLATE로 업로드를 요청합니다. |
 
 
 
@@ -640,6 +645,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 ```
 
 </details>
+
 <span id="attachmentV1x0007ReadFileTypes"></span>
 
 ## 첨부 파일 유형 목록 조회
@@ -725,3 +731,4 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/file-types" \
 ```
 
 </details>
+
