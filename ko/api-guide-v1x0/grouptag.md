@@ -6,7 +6,7 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>그룹태그</h1>
+<h1>NHN Cloud Notification Hub Public API - KakaoBizCenter GroupTag v1.0</h1>
 
 
 
@@ -31,7 +31,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| senderKey | Query | String | O | 발신프로필 키 |
+| senderKey | Query | String | O | 발신 프로필 키 |
 
 
 
@@ -100,6 +100,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" 
 ```
 
 </details>
+
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyDelete"></span>
 
 ## 그룹태그 삭제
@@ -121,7 +122,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 | groupTagKey | Path | String | O | 그룹태그 키 |
-| senderKey | Query | String | O | 발신프로필 키 |
+| senderKey | Query | String | O | 발신 프로필 키 |
 
 
 
@@ -183,6 +184,7 @@ curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?sender
 ```
 
 </details>
+
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyGet"></span>
 
 ## 그룹태그 한 건 조회
@@ -204,7 +206,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
 | groupTagKey | Path | String | O | 그룹태그 키 |
-| senderKey | Query | String | O | 발신프로필 키 |
+| senderKey | Query | String | O | 발신 프로필 키 |
 
 
 
@@ -273,6 +275,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey
 ```
 
 </details>
+
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyPut"></span>
 
 ## 그룹태그 수정
@@ -313,7 +316,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| senderKey | String | O | 발신프로필 키 |
+| senderKey | String | O | 발신 프로필 키 |
 | newGroupTagName | String | O | 새 그룹태그 이름 |
 
 
@@ -383,6 +386,7 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 ```
 
 </details>
+
 <span id="kakaobizcenterV10GroupTagsPost"></span>
 
 ## 그룹태그 등록
@@ -422,7 +426,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| senderKey | String | O | 발신프로필 키 |
+| senderKey | String | O | 발신 프로필 키 |
 | groupTagName | String | O | 그룹태그 이름 |
 
 
@@ -492,3 +496,4 @@ curl -X POST "${endpoint}/kakaobizcenter/v1.0/group-tags" \
 ```
 
 </details>
+

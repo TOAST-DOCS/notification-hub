@@ -20,7 +20,7 @@
 플로우 생성 시 플로우 아이디를 응답합니다.<br>
 <br>
 **steps**라는 필드에 플로우 단계를 정의할 수 있습니다.<br>
-**steps**에 정의한 순서대로 메시지 발송을 진행합니다.<br> 
+**steps**에 정의한 순서대로 메시지 발송을 진행합니다.<br>
 수신자마다 첫 번째 단계부터 메시지 발송을 시도하며, 발송과 수신을 성공하면 다음 단계로 넘어가지 않고 완료됩니다. 실패하면 다음 단계로 넘어갑니다.<br>
 
 
@@ -53,7 +53,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "messagePurpose" : "NORMAL",
   "steps" : [ {
     "messageChannel" : "PUSH",
-    "templateId" : "템플릿의 아이디",
+    "templateId" : "Tj3nE8dq",
     "nextSteps" : [ ]
   } ]
 }
@@ -63,8 +63,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| flowName | String | O | 플로우 이름입니다. |
-| description | String | X | 플로우 설명입니다. |
+| flowName | String | O | 플로우 이름입니다. 최대 20자까지 입력 가능합니다. |
+| description | String | X | 플로우 설명입니다. 최대 200자까지 입력 가능합니다. |
 | messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | steps | Array | O | 플로우 단계입니다. |
 | steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
@@ -88,7 +88,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultCode" : 0,
     "resultMessage" : "SUCCESS"
   },
-  "flowId" : "플로우의 아이디"
+  "flowId" : "R2m9Kv0x"
 }
 ```
 
@@ -170,7 +170,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "messagePurpose" : "NORMAL",
   "steps" : [ {
     "messageChannel" : "PUSH",
-    "templateId" : "템플릿의 아이디",
+    "templateId" : "Tj3nE8dq",
     "nextSteps" : [ ]
   } ]
 }
@@ -190,13 +190,14 @@ curl -X POST "${endpoint}/flow/v1.0/flows" \
   "messagePurpose" : "NORMAL",
   "steps" : [ {
     "messageChannel" : "PUSH",
-    "templateId" : "템플릿의 아이디",
+    "templateId" : "Tj3nE8dq",
     "nextSteps" : [ ]
   } ]
 }'
 ```
 
 </details>
+
 <span id="flowV1x0002ReadFlows"></span>
 
 ## 플로우 목록 조회
@@ -246,32 +247,32 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultMessage" : "SUCCESS"
   },
   "flows" : [ {
-    "flowId" : "플로우의 아이디",
+    "flowId" : "R2m9Kv0x",
     "flowName" : "플로우 이름",
     "messagePurpose" : "NORMAL",
     "description" : "플로우 설명",
     "steps" : [ {
       "messageChannel" : "PUSH",
       "template" : {
-        "templateId" : "템플릿의 아이디",
+        "templateId" : "Tj3nE8dq",
         "templateName" : "템플릿 이름"
       },
       "nextSteps" : [ {
         "messageChannel" : "EMAIL",
         "template" : {
-          "templateId" : "템플릿의 아이디",
+          "templateId" : "Tj3nE8dq",
           "templateName" : "템플릿 이름"
         },
         "nextSteps" : [ {
           "messageChannel" : "ALIMTALK",
           "template" : {
-            "templateId" : "템플릿의 아이디",
+            "templateId" : "Tj3nE8dq",
             "templateName" : "템플릿 이름"
           },
           "nextSteps" : [ {
             "messageChannel" : "SMS",
             "template" : {
-              "templateId" : "템플릿의 아이디",
+              "templateId" : "Tj3nE8dq",
               "templateName" : "템플릿 이름"
             },
             "nextSteps" : null
@@ -338,6 +339,7 @@ curl -X GET "${endpoint}/flow/v1.0/flows" \
 ```
 
 </details>
+
 <span id="flowV1x0003ReadFlow"></span>
 
 ## 플로우 조회
@@ -384,32 +386,32 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultMessage" : "SUCCESS"
   },
   "flow" : {
-    "flowId" : "플로우의 아이디",
+    "flowId" : "R2m9Kv0x",
     "flowName" : "플로우 이름",
     "messagePurpose" : "NORMAL",
     "description" : "플로우 설명",
     "steps" : [ {
       "messageChannel" : "PUSH",
       "template" : {
-        "templateId" : "템플릿의 아이디",
+        "templateId" : "Tj3nE8dq",
         "templateName" : "템플릿 이름"
       },
       "nextSteps" : [ {
         "messageChannel" : "EMAIL",
         "template" : {
-          "templateId" : "템플릿의 아이디",
+          "templateId" : "Tj3nE8dq",
           "templateName" : "템플릿 이름"
         },
         "nextSteps" : [ {
           "messageChannel" : "ALIMTALK",
           "template" : {
-            "templateId" : "템플릿의 아이디",
+            "templateId" : "Tj3nE8dq",
             "templateName" : "템플릿 이름"
           },
           "nextSteps" : [ {
             "messageChannel" : "SMS",
             "template" : {
-              "templateId" : "템플릿의 아이디",
+              "templateId" : "Tj3nE8dq",
               "templateName" : "템플릿 이름"
             },
             "nextSteps" : null
@@ -474,6 +476,7 @@ curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}" \
 ```
 
 </details>
+
 <span id="flowV1x0004UpdateFlow"></span>
 
 ## 플로우 수정
@@ -511,7 +514,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "messagePurpose" : "NORMAL",
   "steps" : [ {
     "messageChannel" : "PUSH",
-    "templateId" : "템플릿의 아이디",
+    "templateId" : "Tj3nE8dq",
     "nextSteps" : [ ]
   } ]
 }
@@ -521,8 +524,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| flowName | String | O | 플로우 이름입니다. |
-| description | String | X | 플로우 설명입니다. |
+| flowName | String | O | 플로우 이름입니다. 최대 20자까지 입력 가능합니다. |
+| description | String | X | 플로우 설명입니다. 최대 200자까지 입력 가능합니다. |
 | messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | steps | Array | O | 플로우 단계입니다. |
 | steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
@@ -542,7 +545,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultCode" : 0,
     "resultMessage" : "SUCCESS"
   },
-  "flowId" : "플로우의 아이디"
+  "flowId" : "R2m9Kv0x"
 }
 ```
 
@@ -576,7 +579,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "messagePurpose" : "NORMAL",
   "steps" : [ {
     "messageChannel" : "PUSH",
-    "templateId" : "템플릿의 아이디",
+    "templateId" : "Tj3nE8dq",
     "nextSteps" : [ ]
   } ]
 }
@@ -596,13 +599,14 @@ curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}" \
   "messagePurpose" : "NORMAL",
   "steps" : [ {
     "messageChannel" : "PUSH",
-    "templateId" : "템플릿의 아이디",
+    "templateId" : "Tj3nE8dq",
     "nextSteps" : [ ]
   } ]
 }'
 ```
 
 </details>
+
 <span id="flowV1x0005DeleteFlow"></span>
 
 ## 플로우 삭제
@@ -686,6 +690,7 @@ curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}" \
 ```
 
 </details>
+
 <span id="flowV1x0006DeleteFlows"></span>
 
 ## 플로우 삭제
@@ -717,7 +722,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```
 {
-  "flowIds" : [ "플로우의 아이디" ]
+  "flowIds" : [ "R2m9Kv0x" ]
 }
 ```
 
@@ -776,7 +781,7 @@ POST {{endpoint}}/flow/v1.0/flows/do-delete
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 {
-  "flowIds" : [ "플로우의 아이디" ]
+  "flowIds" : [ "R2m9Kv0x" ]
 }
 ```
 </details>
@@ -789,8 +794,9 @@ curl -X POST "${endpoint}/flow/v1.0/flows/do-delete" \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
-  "flowIds" : [ "플로우의 아이디" ]
+  "flowIds" : [ "R2m9Kv0x" ]
 }'
 ```
 
 </details>
+
