@@ -81,3 +81,6 @@ fabric.properties
 
 ko/api-guide-v1x0/.openapi-generator-ignore
 ko/api-guide-v1x0/.openapi-generator/
+
+CLAUDE.md
+HANDOFF.md

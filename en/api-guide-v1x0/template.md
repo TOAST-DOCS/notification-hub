@@ -3504,17 +3504,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.chatbotId | String | Y | Chat room (chatbot) ID |
 | content | Object | Y | |
 | content.messageType | String | N | RCS Message type<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| content.title | String | N | Message title |
-| content.body | String | N | Message body |
-| content.smsType | String | N | SMS type<br>[STANDALONE] |
-| content.lmsType | String | N | LMS type<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMS type (required for MMS transmission)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.title | String | N | (Use deprecated, content.cards[].title) Message title |
+| content.body | String | N | (Use deprecated, content.cards[].description) Message body |
+| content.smsType | String | N | SMS type<br>[STANDALONE, UNIFIED_STANDALONE] |
+| content.lmsType | String | N | LMS type<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| content.mmsType | String | N | MMS type (required for MMS transmission)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | content.messagebaseId | String | N | RCS Biz center template ID |
 | content.unsubscribePhoneNumber | String | N | Unsubscribe number (required for advertising transmission) |
 | content.cards | Array | N | RCS card |
 | content.cards[].title | String | N | title |
 | content.cards[].description | String | N | body |
-| content.cards[].attachmentId | String | N | Image attachment file ID |
+| content.cards[].attachmentId | String | N | Attachment file ID<br>※ If a GIF image is attached to an Integrated MMS Card, it cannot be received on iOS devices. |
 | content.cards[].mTitle | String | N | Main Title |
 | content.cards[].mTitleMedia | String | N | Main title logo file ID |
 | content.cards[].title1 | String | N | Title 1 |
@@ -3523,8 +3523,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description1 | String | N | Body 1 |
 | content.cards[].description2 | String | N | Body 2 |
 | content.cards[].description3 | String | N | Body 3 |
-| content.cards[].buttons | Array | N | |
-| content.buttons | Array | N | RCS button list |
+| content.cards[].buttons | Array | N | Button |
+| content.cards[].buttons[].buttonType | String | N | Button type<br>COMPOSE (Open chat room), CLIPBOARD (Copy), DIALER (Make a call), MAP_SHOW (Show map), MAP_QUERY (Search map), MAP_SHARE (Share current location), URL (Connect URL), CALENDAR (Add to calendar)<br><br>※ If a CLIPBOARD (Copy) button is used in an integrated message type, it cannot be received on iOS devices.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | N | Button JSON, check format for each button type |
+| content.buttons | Array | N | (Deprecated, content.cards[].buttons 사용) RCS button list |
 | content.buttons[].buttonType | String | N | An action object with the same name as the buttonType value is included as buttonJson.<br>Button types: Open chat room (COMPOSE), Copy (CLIPBOARD), Make a phone call (DIALER), Show map (MAP_SHOW), Search map (MAP_QUERY), Share current location (MAP_SHARE), Connect URL (URL), Register schedule (CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | N | |
 | content.buttons[].buttonJson.action | Object | N | Button action |
@@ -3965,18 +3967,18 @@ This API does not require a request body.
 | template.sender.chatbotId | String | Chat room (chatbot) ID |
 | template.content | Object | |
 | template.content.messageType | String | RCS Message type<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| template.content.title | String | Message title |
-| template.content.body | String | Message body |
-| template.content.smsType | String | SMS type<br>[STANDALONE] |
-| template.content.lmsType | String | LMS type<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| template.content.mmsType | String | MMS type (required for MMS sending)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| template.content.title | String | (Use deprecated, template.content.cards[].title) Message title |
+| template.content.body | String | (Use deprecated, template.content.cards[].description) Message body |
+| template.content.smsType | String | SMS type<br>[STANDALONE, UNIFIED_STANDALONE] |
+| template.content.lmsType | String | LMS type<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| template.content.mmsType | String | MMS type (required for MMS sending)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | template.content.messagebaseId | String | RCS Biz center template ID |
 | template.content.messagebaseformId | String | messageBase format specified by RCS Biz Center<br><br>[SS000000 (basic), SL000000 (basic), OL00000001 (lms format basic), OL00000002 (lms format title emphasis), OL00000003 (lms format paragraph), SMwThT00 (mms vertical), SMwThM00 (mms horizontal), CMwMhM0200 (mms slide medium (2)), CMwMhM0300 (mms slide medium (3)), CMwMhM0400 (mms slide medium (4)), CMwMhM0500 (mms slide medium (5)), CMwMhM0600 (mms slide medium (6)), CMwShS0200 (mms slide small (2)), CMwShS0300 (mms slide small (3)), CMwShS0400 (mms slide small type (4)), CMwShS0500 (mms slide small type (5)), CMwShS0600 (mms slide small type (6)), CLI00001 (item detail type), ITTBNV (thumbnail type (vertical)), ITTBNH (thumbnail type (horizontal)), ITHIMS (image emphasis type (1:1)), ITHIMV (image emphasis type (3:4)), ITSNSS (sns type), ITSNSH (sns type (middle button)), ITHITS (image & title emphasis type (1:1)), ITHITV (image & title emphasis type (3:4)), ITCRM2 (slide type (2)), ITCRM3 (slide type (3)), ITCRM4 (slide type (4)), ITCRM5 (slide type (5)), ITCRM6 (slide type (6)), CLT00001 (item emphasis type) desc), CLT00002 (item emphasis table), TATA001C (title free style free), TATA001D (title free style cell), TATA001F (title free style desc), FF005C (title selection free), FF005D (specification cell), FF004C (specification desc), FF004D (cancellation cell), GG003C (cancellation desc), GG003D (guidance cell), GG002C (guidance desc), GG002D (authentication cell), GG001C (authentication desc), GG001D (membership registration cell), GG000F (membership registration desc), EE001C (reservation cell), EE001D (reservation desc), CC003C (delivery cell), CC003D (delivery desc), FF002C (deposit cell), FF002D (deposit desc), FF001C (approval cell), FF001D (approval desc), CC002C (order cell), CC002D (order desc), CC001C (shipping cell), CC001D (shipping desc), FF003C (withdrawal cell), FF003D (withdrawal desc), CLL00001 (lms statement a), CLL00002 (lms paragraph type), CLL00003 (lms title emphasis type), CLL00004 (lms basic type), CLL00005 (lms statement b), CLL00006 (lms statement c)]
 | template.content.unsubscribePhoneNumber | String | Opt-out number (required when sending advertisements) |
 | template.content.cards | Array | RCS card |
 | template.content.cards[].title | String | Title |
 | template.content.cards[].description | String | Body |
-| template.content.cards[].attachmentId | String | Image attachment file ID |
+| template.content.cards[].attachmentId | String | Attachment file ID<br>※ If a GIF image is attached to an Integrated MMS Card, it cannot be received on iOS devices. |
 | template.content.cards[].mTitle | String | Main Title |
 | template.content.cards[].mTitleMedia | String | Main title logo file ID|
 | template.content.cards[].title1 | String | Title 1 |
@@ -3985,8 +3987,10 @@ This API does not require a request body.
 | template.content.cards[].description1 | String | Body 1 |
 | template.content.cards[].description2 | String | Body 2 |
 | template.content.cards[].description3 | String | Body 3 |
-| template.content.cards[].buttons | Array |  |
-| template.content.buttons | Array | RCS button list |
+| template.content.cards[].buttons | Array | Button |
+| template.content.cards[].buttons[].buttonType | String | Button type<br>COMPOSE (Open chat room), CLIPBOARD (Copy), DIALER (Make a call), MAP_SHOW (Show map), MAP_QUERY (Search map), MAP_SHARE (Share current location), URL (Connect URL), CALENDAR (Add to calendar)<br><br>※ If a CLIPBOARD (Copy) button is used in an integrated message type, it cannot be received on iOS devices.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| template.content.cards[].buttons[].buttonJson | Object | Button JSON, check format for each button type |
+| template.content.buttons | Array | (Deprecated, template.content.cards[].buttons 사용) RCS button list |
 | template.content.buttons[].buttonType | String | An Action object with the same name as the buttonType value is included as buttonJson.<br>Button types: Open a chat room (COMPOSE), Copy (CLIPBOARD), Make a phone call (DIALER), Show a map (MAP_SHOW), Search a map (MAP_QUERY), Share the current location (MAP_SHARE), Connect to a URL (URL), Register a schedule (CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | template.content.buttons[].buttonJson | Object | |
 | template.content.buttons[].buttonJson.action | Object | Button action |
@@ -4134,17 +4138,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.chatbotId | String | Y | Chat room (chatbot) ID |
 | content | Object | Y | | |
 | content.messageType | String | N | RCS Message type<br>[SMS, LMS, MMS, RBC_TEMPLATE] |
-| content.title | String | N | Message title |
-| content.body | String | N | Message body |
-| content.smsType | String | N | SMS type<br>[STANDALONE] |
-| content.lmsType | String | N | LMS type<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMS type (required for MMS transmission)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.title | String | N | (Use deprecated, content.cards[].title) Message title |
+| content.body | String | N | (Use deprecated, content.cards[].description) Message body |
+| content.smsType | String | N | SMS type<br>[STANDALONE, UNIFIED_STANDALONE] |
+| content.lmsType | String | N | LMS type<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH, UNIFIED_STANDALONE] |
+| content.mmsType | String | N | MMS type (required for MMS transmission)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL, UNIFIED_HORIZONTAL, UNIFIED_VERTICAL] |
 | content.messagebaseId | String | N | RCS Biz center template ID |
 | content.unsubscribePhoneNumber | String | N | Opt-out Number (required for advertising transmission) |
 | content.cards | Array | N | RCS card |
 | content.cards[].title | String | N | Title |
 | content.cards[].description | String | N | Body |
-| content.cards[].attachmentId | String | N | Image attachment file ID |
+| content.cards[].attachmentId | String | N | Attachment file ID<br>※ If a GIF image is attached to an Integrated MMS Card, it cannot be received on iOS devices. | |
 | content.cards[].mTitle | String | N | Main Title |
 | content.cards[].mTitleMedia | String | N | Main title logo file ID |
 | content.cards[].title1 | String | N | Title 1 |
@@ -4153,8 +4157,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description1 | String | N | Body 1 |
 | content.cards[].description2 | String | N | Body 2 |
 | content.cards[].description3 | String | N | Body 3 |
-| content.cards[].buttons | Array | N |  |
-| content.buttons | Array | N | RCS button list |
+| content.cards[].buttons | Array | N | Button |
+| content.cards[].buttons[].buttonType | String | N | Button type<br>COMPOSE (Open chat room), CLIPBOARD (Copy), DIALER (Make a call), MAP_SHOW (Show map), MAP_QUERY (Search map), MAP_SHARE (Share current location), URL (Connect URL), CALENDAR (Add to calendar)<br><br>※ If a CLIPBOARD (Copy) button is used in an integrated message type, it cannot be received on iOS devices.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | N | Button JSON, check format for each button type |
+| content.buttons | Array | N | (Use deprecated, content.cards[].buttons) RCS button list |
 | content.buttons[].buttonType | String | N | an Action object with the same name as the buttonType value is included as buttonJson.<br>Button types: Open a chat room (COMPOSE), Copy (CLIPBOARD), Make a phone call (DIALER), Show a map (MAP_SHOW), Search a map (MAP_QUERY), Share the current location (MAP_SHARE), Connect to a URL (URL), Register a schedule (CALENDAR)<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | template.content.buttons[].buttonJson | Object | |
 | template.content.buttons[].buttonJson.action | Object | Button action

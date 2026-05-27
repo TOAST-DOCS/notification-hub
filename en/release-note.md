@@ -4,6 +4,18 @@
 }
 </style>
 <h1>Notification Hub Release Notes</h1>
+
+**Notification > Notification Hub > Release Notes**
+## March 24, 2026
+### Added Features
+* [API, Console] Integrated RCS message support
+  * Added support for sending integrated RCS messages that can be received on both Android and iOS devices.
+  * For the types of integrated RCS messages that can be sent, refer to [Service Policy and Prerequisites > RCS](./service-policy-and-precondition/rcs).
+* [Console] KakaoBizCenter statistics
+  * Added a feature to retrieve statistics data for AlimTalk and brand messages provided by KakaoBizCenter.
+* [API, Console] KakaoBizCenter group tag management
+  * Added a feature to manage group tags provided by KakaoBizCenter.
+
 ## January 27, 2026
 ### Added Features
 * [API] Launch Alimtalk Template APIs and discontinue support for select APIs

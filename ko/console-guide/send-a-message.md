@@ -70,7 +70,7 @@
 
 | contactPhoneNumber | contactEmailAddress | contactTokenJson1..6 | 
 | - | - | - | 
-| 수신자 휴대폰 번호 | 수신자 이메일 주소 | {"contactType": "연락처_타입", "contact": "푸시_토큰" } |
+| 수신자 휴대폰 번호 | 수신자 이메일 주소 | {"contactType": "연락처_타입", "token": "푸시_토큰" } |
 
 ### 메시지 제목과 내용 작성 방법
 

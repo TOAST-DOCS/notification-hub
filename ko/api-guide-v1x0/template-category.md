@@ -6,9 +6,9 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>템플릿 카테고리</h1>
+<h1>NHN Cloud Notification Hub Public API - Template Category v1.0</h1>
 
-**Notification > Notification Hub > API v1.0 사용 가이드 > 템플릿 카테고리**
+
 
 
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
@@ -29,10 +29,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryId | Path | String | Y | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryId | Path | String | O | 카테고리 아이디 |
 
 
 
@@ -60,12 +60,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -81,10 +81,7 @@ X-NHN-Authorization: Bearer {accessToken}
 DELETE {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -92,16 +89,17 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
 ## 템플릿 카테고리 단건 조회
 
-템플릿 카테고리 단건 조회합니다.
+템플릿 카테고리를 단건 조회합니다.
 
 **요청**
 
@@ -115,10 +113,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryId | Path | String | Y | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryId | Path | String | O | 카테고리 아이디 |
 
 
 
@@ -154,19 +152,19 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| category | Object | |
-| category.categoryId | String | 카테고리 아이디 |
-| category.categoryName | String | 카테고리 이름 |
-| category.parentCategoryId | String | 상위 카테고리 아이디 |
-| category.messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| category.categoryIds | Array | 카테고리에 속한 카테고리 아이디 목록 |
-| category.templateIds | Array | 카테고리에 속한 템플릿 아이디 목록 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| category | Object | O |  |
+| category.categoryId | String | O | 카테고리 아이디 |
+| category.categoryName | String | O | 카테고리 이름 |
+| category.parentCategoryId | String | X | 상위 카테고리 아이디 |
+| category.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| category.categoryIds | Array | O | 카테고리에 속한 카테고리 아이디 리스트 |
+| category.templateIds | Array | O | 카테고리에 속한 템플릿 아이디 리스트 |
 
 
 
@@ -182,10 +180,7 @@ X-NHN-Authorization: Bearer {accessToken}
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -193,11 +188,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
 
 ## 템플릿 카테고리 수정
@@ -216,10 +212,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryId | Path | String | Y | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryId | Path | String | O | 카테고리 아이디 |
 
 
 
@@ -239,8 +235,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| name | String | Y | 카테고리 이름 |
-| parentCategoryId | String | N | 상위 카테고리 아이디 |
+| name | String | O | 카테고리 이름 |
+| parentCategoryId | String | X | 상위 카테고리 아이디 |
 
 
 
@@ -260,12 +256,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -281,13 +277,11 @@ X-NHN-Authorization: Bearer {accessToken}
 PUT {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "name" : "배송완료 안내 카테고리",
   "parentCategoryId" : "00000000"
 }
 ```
-
 </details>
 
 <details>
@@ -295,8 +289,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "name" : "배송완료 안내 카테고리",
   "parentCategoryId" : "00000000"
@@ -304,11 +298,12 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
 
 ## 카테고리에 템플릿 추가
 
-카테고리에 템플릿 추가합니다.
+카테고리에 템플릿을 추가합니다.
 
 **요청**
 
@@ -322,10 +317,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryId | Path | String | Y | 카테고리 아이디 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryId | Path | String | O | 카테고리 아이디 |
 
 
 
@@ -344,7 +339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| templateId | String | N | 템플릿 아이디 |
+| templateId | String | X | 템플릿 아이디 |
 
 
 
@@ -364,12 +359,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 
 
 
@@ -385,12 +380,10 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories/{{categoryId}}/templates
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "templateId" : "11111111"
 }
 ```
-
 </details>
 
 <details>
@@ -398,19 +391,20 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId}/templates" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateId" : "11111111"
 }'
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesGet"></span>
 
-## 템플릿 카테고리 목록 조회
+## 템플릿 카테고리 리스트 조회
 
-템플릿 카테고리 목록을 조회합니다.
+템플릿 카테고리 리스트를 조회합니다.
 
 **요청**
 
@@ -422,11 +416,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 **요청 파라미터**
 
-| 이름 | 구분 | 타입 | 필수 | 설명                                         |
-| - | - | - | - |---------------------------------------------|
-| X-NC-APP-KEY | Header | String | Y | 앱키                                         |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰                                     |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
 
 
 
@@ -453,28 +447,24 @@ X-NHN-Authorization: Bearer {accessToken}
     "categoryId" : "A9z0A9z0",
     "categoryName" : "배송완료 안내 카테고리",
     "parentCategoryId" : "00000000",
-    "messageChannel" : "SMS",
-    "categoryIds" : [ "[1,2,3]" ],
-    "templateIds" : [ "[11111111,22222222]" ]
+    "messageChannel" : "SMS"
   } ]
 }
 ```
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| categories | Array | |
-| categories[].categoryId | String | 카테고리 아이디 |
-| categories[].categoryName | String | 카테고리 이름 |
-| categories[].parentCategoryId | String | 상위 카테고리 아이디 |
-| categories[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| categories[].categoryIds | Array | 카테고리에 속한 카테고리 아이디 목록 |
-| categories[].templateIds | Array | 카테고리에 속한 템플릿 아이디 목록 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| categories | Array | O |  |
+| categories[].categoryId | String | O | 카테고리 아이디 |
+| categories[].categoryName | String | O | 카테고리 이름 |
+| categories[].parentCategoryId | String | X | 상위 카테고리 아이디 |
+| categories[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 
 
 
@@ -485,15 +475,12 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 목록 조회
+### 템플릿 카테고리 리스트 조회
 
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/categories
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -501,11 +488,12 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesPost"></span>
 
 ## 템플릿 카테고리 등록
@@ -524,9 +512,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
 
 
 
@@ -546,8 +534,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| parentCategoryId | String | N | 상위 카테고리 아이디 |
-| name | String | Y | 카테고리 이름 |
+| parentCategoryId | String | X | 상위 카테고리 아이디 |
+| name | String | O | 카테고리 이름 |
 
 
 
@@ -568,13 +556,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| categoryId | String | 카테고리 아이디 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| categoryId | String | O | No description |
 
 
 
@@ -590,13 +578,11 @@ X-NHN-Authorization: Bearer {accessToken}
 POST {{endpoint}}/template/v1.0/{{messageChannel}}/categories
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "parentCategoryId" : "00000000",
   "name" : "배송완료 안내 카테고리"
 }
 ```
-
 </details>
 
 <details>
@@ -604,8 +590,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "parentCategoryId" : "00000000",
   "name" : "배송완료 안내 카테고리"
@@ -613,11 +599,12 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoryTreesGet"></span>
 
-## 템플릿 카테고리 트리 목록 조회
+## 템플릿 카테고리 트리 리스트 조회
 
-템플릿 카테고리 트리 목록을 조회합니다.
+템플릿 카테고리 트리 리스트를 조회합니다.
 
 **요청**
 
@@ -631,13 +618,13 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | 앱키 |
-| X-NHN-Authorization | Header | String | Y | 액세스 토큰 |
-| messageChannel | Path | String | Y | 메시지 채널<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| categoryTemplateName | Query | String | N | 카테고리/템플릿 이름 |
-| senderProfileType | Query | String | N | 발신프로필 타입<br>[GROUP, NORMAL] |
-| senderKey | Query | String | N | 발신 키 |
-| status | Query | String | N | 템플릿 상태 |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널 |
+| categoryTemplateName | Query | String | X | 카테고리/템플릿 이름 |
+| senderProfileType | Query | Enum | X | 발신 프로필 유형 |
+| senderKey | Query | String | X | 발신 키 |
+| status | Query | String | X | 템플릿 상태 |
 
 
 
@@ -676,19 +663,21 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 설명 |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| categories | Array | |
-| categories[].categoryId | String | 카테고리 아이디, 루트 카테고리(ROOT) |
-| categories[].categoryName | String | 카테고리 이름, 루트 카테고리(Root Category) |
-| categories[].parentCategoryId | String | 상위 카테고리 아이디 |
-| categories[].messageChannel | String | 메시지 채널<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| categories[].categories | Array | 카테고리에 속한 카테고리 목록 |
-| categories[].templates | Array | 카테고리에 속한 템플릿 목록 |
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| categories | Array | O |  |
+| categories[].categoryId | String | O | 카테고리 아이디, 루트 카테고리(ROOT) |
+| categories[].categoryName | String | O | 카테고리 이름, 루트 카테고리(Root Category) |
+| categories[].parentCategoryId | String | X | 상위 카테고리 아이디 |
+| categories[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| categories[].categories | Array | O | 카테고리에 속한 카테고리 리스트 |
+| categories[].templates | Array | O | 카테고리에 속한 템플릿 리스트 |
+| categories[].templates[].templateId | String | O | 템플릿 아이디 |
+| categories[].templates[].templateName | String | O | 템플릿 이름 |
 
 
 
@@ -699,15 +688,12 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 템플릿 카테고리 트리 목록 조회
+### 템플릿 카테고리 트리 리스트 조회
 
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/category-trees
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -715,8 +701,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/template/v1.0/${messageChannel}/category-trees" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
+
