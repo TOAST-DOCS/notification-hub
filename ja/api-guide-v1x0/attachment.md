@@ -43,7 +43,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | --- | --- | --- | --- |
 | file | Binary | Y | アップロードするファイル |
 | fileName | String | Y | ファイル名 |
-| fileTypes | Array | N | アップロードするファイルタイプ |
+| fileTypes | Array | N | 個別商品の添付ファイルアップロード時に指定するファイルタイプのリストです。1つ以上入力できます。テンプレートのアップロード時、EMAILはEMAIL_TEMPLATE、SMSはSMS_TEMPLATEとしてアップロードをリクエストします。 |
 
 
 **レスポンス本文**
@@ -110,6 +110,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 ```
 
 </details>
+
 <span id="attachmentV1x0002ReadAttachments"></span>
 
 ## 添付ファイル一覧照会
@@ -218,6 +219,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 ```
 
 </details>
+
 <span id="attachmentV1x0003ReadAttachment"></span>
 
 ## 添付ファイル単件照会
@@ -279,19 +281,19 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | パス | タイプ | 説明 |
 | - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 作業の成否を示します。<br>デフォルト値：true |
-| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| attachment | Object |  |
-| attachment.attachmentId | String | ファイルのアップロード成功時に作成されるファイル固有ID |
-| attachment.fileName | String | アップロードファイル名 |
-| attachment.fileFormat | String | ファイル形式 |
-| attachment.previewUrl | String | ファイルプレビューURL - 有効期限あり (詳細照会の呼び出し時に作成) |
-| attachment.fileSizeByte | Long | 添付ファイルのサイズ単位はbyte |
-| attachment.createDateTime | String | ファイルアップロード日時 |
-| attachment.expireDateTime | String | ファイル有効期限 |
-| attachment.uploadedFileTypes | Array | 個別商品にアップロードされたファイルタイプ一覧 |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
+| attachment | Object | O |  |
+| attachment.attachmentId | String | O | ファイルのアップロード成功時に作成されるファイル固有のID |
+| attachment.fileName | String | O | アップロードファイル名 |
+| attachment.fileFormat | String | O | ファイル形式 |
+| attachment.previewUrl | String | X | ファイルのプレビューURL - 有効期限が存在(詳細照会の呼び出し時に作成) |
+| attachment.fileSizeByte | Long | O | 添付ファイルのサイズ単位はbyte |
+| attachment.createDateTime | String | O | ファイルのアップロード日時 |
+| attachment.expireDateTime | String | O | ファイルの有効期限日時 |
+| attachment.uploadedFileTypes | Array | O | 個別商品にアップロードされたファイルタイプのリスト |
 
 
 
@@ -323,6 +325,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 ```
 
 </details>
+
 <span id="attachmentV1x0004DoValidateAttachments"></span>
 
 ## アップロード前の添付ファイル検証
@@ -417,6 +420,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 ```
 
 </details>
+
 <span id="attachmentV1x0005DoValidateAttachment"></span>
 
 ## アップロード済み添付ファイル検証
@@ -528,6 +532,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 ```
 
 </details>
+
 <span id="attachmentV1x0006UpdateFileType"></span>
 
 ## アップロード済み添付ファイルのファイルタイプ修正
@@ -568,7 +573,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| fileTypes | Array | N | 個別商品の添付ファイルアップロード時に指定するファイルタイプ一覧、1つ以上入力可能。テンプレートアップロード時に使用する場合、EMAILはEMAIL_TEMPLATE、SMSはSMS_TEMPLATEとしてアップロードリクエストが必要 |
+| fileTypes | Array | X | 個別商品の添付ファイルアップロード時に指定するファイルタイプのリストです。1つ以上入力できます。テンプレートのアップロード時、EMAILはEMAIL_TEMPLATE、SMSはSMS_TEMPLATEとしてアップロードをリクエストします。 |
 
 
 
@@ -639,6 +644,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 ```
 
 </details>
+
 <span id="attachmentV1x0007ReadFileTypes"></span>
 
 ## 添付ファイルタイプ一覧照会

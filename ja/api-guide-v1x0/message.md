@@ -46,7 +46,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```json
 {
-  "statsKeyId": "統計_ID",
+  "statsKeyId": "aA123456",
   "scheduledDateTime": "2024-10-29T00:06:29+09:00",
   "confirmBeforeSend": false,
   "sender": {
@@ -236,7 +236,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | sender | Object | Y | 発信者、プッシュ以外のメッセージチャンネルは必須 |
 | sender.senderPhoneNumber | String | N | 発信者番号 |
 | content | Object | Y | メッセージ内容 |
-| content.messageType | String | Y | メッセージタイプ<br>SMS(短文), LMS(長文), MMS(メディア長文) |
+| content.messageType | String | Y | 送信メッセージのタイプ(SMS、LMS、MMS)<br>[SMS(ショートメッセージ)、LMS(ロングメッセージ)、MMS(マルチメディアメッセージ)] |
 | content.title | String | Y | タイトル |
 | content.body | String | Y | 内容 |
 | content.attachmentIds | String Array | N | 添付ファイルID |
@@ -300,9 +300,9 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | sender.brandId | String | Y | ブランドID                                                                                                                                                  |
 | sender.chatbotId | String | Y | チャットルームID                                                                                                                                                |
 | content | Object | Y | メッセージ内容                                                                                                                                                        |
-| content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
+| content.messageType | String | Y | RCS送信メッセージのタイプ<br>[SMS(ショートメッセージ)、LMS(ロングメッセージ)、MMS(マルチメディアメッセージ)、RBC_TEMPLATE(RCS Biz Centerテンプレート)] |
 | content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.smsType | String | Y | SMSタイプ、メッセージタイプがSMSの場合は必須、STANDALONE(スタンダード)                                                                                                      |
+| content.smsType | String | Y | SMSのタイプ<br>[STANDALONE(スタンドアロン型)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
 | content.cards | Object Array | Y | カード                                                                                                                                                 |
 | content.cards[].title | String | N | タイトル                                                                                                                                               |
 | content.cards[].description | String | Y | 内容                                                                                                                                         |
@@ -374,7 +374,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content | Object | Y | メッセージ内容                                                                                                                                                        |
 | content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
 | content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.lmsType | String | Y | LMSタイプ、メッセージタイプがLMSの場合必須、STANDALONE(スタンダード), FORMAT_BASIC(フォーマット基本型), FORMAT_TITLE_HIGHLIGHT(フォーマットタイトル強調型), FORMAT_PARAGRAPH(フォーマット段落型)           |
+| content.lmsType | String | Y | LMSのタイプ<br>[STANDALONE(スタンドアロン型)、FORMAT_BASIC(基本形式)、FORMAT_TITLE_HIGHLIGHT(タイトル強調形式)、FORMAT_PARAGRAPH(段落形式)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
 | content.cards | Object Array | Y | カード                                                                                                                                                 |
 | content.cards[].title | String | N | タイトル                                                                                                                                               |
 | content.cards[].description | String | Y | 内容                                                                                                                                         |
@@ -648,7 +648,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content | Object | Y | メッセージ内容                                                                                                                                                        |
 | content.messageType | String | Y | RCS内のメッセージタイプ、SMS, LMS, MMS, RBC_TEMPLATE                                                                                                          |
 | content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須                                                                                                   |
-| content.mmsType | String | Y | MMSタイプ、メッセージタイプがMMSの場合必須、HORIZONTAL(横型), VERTICAL(縦型), CAROUSEL_MEDIUM(カルーセル中型), CAROUSEL_SMALL(カルーセル小型)                                  |
+| content.mmsType | String | Y | MMSのタイプ(MMS送信の場合は必須)<br>[HORIZONTAL(横型)、VERTICAL(縦型)、CAROUSEL_MEDIUM(カルーセル中型)、CAROUSEL_SMALL(カルーセル小型)、UNIFIED_HORIZONTAL(統合横型)、UNIFIED_VERTICAL(統合縦型)] |
 | content.cards | Object Array | Y | カード                                                                                                                                                 |
 | content.cards[].title | String | N | タイトル                                                                                                                                               |
 | content.cards[].description | String | Y | 内容                                                                                                                                         |
@@ -772,7 +772,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-email"></span>
 
-### Email
+## Email
 
 ```json
 {
@@ -817,7 +817,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 
 <span id="free-form-message-request-body-push"></span>
 
-### Push
+## Push
 
 ```json
 {
@@ -836,7 +836,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
   ],
   "content": {
     "unsubscribePhoneNumber": "1234-1234",
-    "unsubscribeGuide": "設定 > メニュー",
+    "unsubscribeGuide" : "メニュー > 設定",
     "style": {
       "useHtmlStyle": true
     },
@@ -892,11 +892,11 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.richMessage.buttons | Object Array         | N | リッチメッセージに追加されるボタン、最大3個まで可能 |
 | content.richMessage.button.name | String                | ボタン名 |
 | content.richMessage.button.buttonType | String                | ボタンタイプ、 REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS |
-| content.richMessage.button.link | String                | ボタンを押した時に接続されるリンク |
-| content.richMessage.button.hint | String                | ボタンについてのヒント |
+| content.richMessage.button.link | String | ボタンを押したときに遷移するリンク |
+| content.richMessage.button.hint | String | ボタンに対するヒント |
 | content.richMessage.media | Object                | N | リッチメッセージに追加されるメディア |
-| content.richMessage.media.source | String                | メディアの位置のアドレス、 URL, LOCAL_RESOURCE可能 |
-| content.richMessage.media.mediaType | String                | N | メディアのタイプ、 IMAGE, GIF, VEDIO, AUDIO. AndroidでのみIMAGEのみサポート |
+| content.richMessage.media.source | String | メディアが位置する場所のアドレス、URL、LOCAL_RESOURCEが可能 |
+| content.richMessage.media.mediaType | String | N | メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート |
 | content.richMessage.media.expandable | Boolean               | N | Androidでメディアをクリックした時に展開機能を使用するかどうか |
 | content.richMessage.androidMedia | Object                | N |  Android端末で使用されるメディア。形式はmediaと同じ。 |
 | content.richMessage.iosMedia | Object                | N |  iOS端末使用されるメディア。形式はmediaと同じ。 |
@@ -904,7 +904,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 | content.richMessage.largeIcon.source | String                | Y | メディアの位置のアドレス |
 | content.richMessage.group | Object                | N | 複数のメッセージをグループ単位でまとめる機能、Androidのみサポート |
 | content.richMessage.group.key | String                | Y | グループのキー |
-| content.richMessage.group.description | String                | Y | グループについての説明 |
+| content.richMessage.group.description | String | Y | グループに対する説明 |
 | content.customKey | Object Array or String Array | N | ユーザー定義キーと値 |
 
 * プッシュは**sender**フィールドが必要ありません。
@@ -913,7 +913,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/PUSH/free-form-messages/${MESSAGE_PURPOSE
 * **recipients[].contacts[].contact**フィールドには**プッシュトークン**を入力します。
 
 
-<span id="template-message-sending-request"></span>
+
+<span id="messageV1x0006TemplateMessages"></span>
 
 ## テンプレートメッセージ送信リクエスト
 
@@ -941,7 +942,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "statsKeyId": "統計_ID",
   "scheduledDateTime": "2024-10-29T00:06:29+09:00",
   "confirmBeforeSend": false,
-  "templateId": "テンプレート_ID",
+  "templateId": "Tj3nE8dq",
   "templateParameters": {
     "key1": "value1",
     "key2": "value2",
@@ -1029,7 +1030,7 @@ X-NHN-Authorization: {{authorizationToken}}
   "statsKeyId": "統計_ID",
   "scheduledDateTime": "2024-10-29T00:06:29+09:00",
   "confirmBeforeSend": false,
-  "templateId": "テンプレート_ID",
+  "templateId" : "Tj3nE8dq",
   "templateParameters": {
     "key1": "value1",
     "key2": "value2",
@@ -1160,7 +1161,7 @@ curl -X POST "${ENDPOINT}/message/v1.0/SMS/template-messages/${MESSAGE_PURPOSE}"
 | sender                                  | Object             | N  | 発信者情報                                             |
 | sender.chatbotId                        | String             | N  | チャットルームID(RCS Bizcenterテンプレートの場合必須)               |
 | content                                 | Object             | N  | メッセージ内容                                             |
-| content.unsubscribePhoneNumber          | String             | N  | 080受信拒否番号(広告目的のRCS Bizcenterテンプレートを送信する場合、必須) |
+| content.unsubscribePhoneNumber | String | N | 受信拒否の電話番号 |
 | options                                 | Object             | N  | 送信オプション                                               |
 | options.expiryOption                    | Integer            | N  | デバイスへの送信試行に対するタイムアウト(1: 1日、2: 40秒、3: 3分、4: 1時間)  |
 | options.groupId                         | String             | N  | RCS BizCenter統計連動のためのグループID                     |
@@ -1194,7 +1195,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "statsKeyId": "統計_ID",
   "scheduledDateTime": "2024-10-29T00:06:29+09:00",
   "confirmBeforeSend": false,
-  "flowId": "テンプレート_ID",
+  "flowId": "R2m9Kv0x",
   "templateParameters": {
     "key1": "value1",
     "key2": "value2",
@@ -1266,7 +1267,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts                   | Object Array          | Y  | 受信者の連絡先配列                          |
 | recipients[].contacts[].contactType     | String         | Y  | 連絡先タイプ                               |
 | recipients[].contacts[].contact         | String         | Y  | 連絡先                                  |
-| recipients[].contacts[].clientReference | String         | N  | ユーザーカスタムフィールド                      |
+| recipients[].contacts[].clientReference | String | N | 受信者ごとに付与できるカスタムフィールドです。 |
 | recipients[].templateParameters         | Object         | N  | 受信者別テンプレートパラメータ                       |
 | flow                                    | Object | N  | フロー(必須値が必要なテンプレートを使用するフローの場合必須) |
 | flow.steps[]                            | Array | Y  | フロー段階(メッセージチャンネル別flow stepsスペック参照) |
@@ -1306,7 +1307,7 @@ X-NHN-Authorization: {{authorizationToken}}
   "statsKeyId": "統計_ID",
   "scheduledDateTime": "2024-10-29T00:06:29+09:00",
   "confirmBeforeSend": false,
-  "flowId": "テンプレート_ID",
+  "flowId" : "R2m9Kv0x",
   "templateParameters": {
     "key1": "value1",
     "key2": "value2",
@@ -1433,6 +1434,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/flow-messages/${MESSAGE_PURPOSE}" \
 
 <span id="cancel-message-sending-request"></span>
 
+<span id="messageV1x0100MessageIdDoCancel"></span>
+
 ## メッセージリクエストキャンセル
 
 送信前の予約メッセージ、承認後の送信メッセージの送信要求をキャンセルします。リクエストキャンセルされたメッセージは、連絡先別受信結果照会で照会できます。
@@ -1501,6 +1504,8 @@ curl -X POST "${ENDPOINT}/message/v1.0/messages/${MESSAGE_ID}/do-cancel" \
 
 </details>
 
+<span id="messageV1x0010InstantFlowMessages"></span>
+
 ## インスタントフローメッセージ送信リクエスト
 **リクエスト**
 
@@ -1532,7 +1537,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "unsubscribePhoneNumber" : "08012341234"
   },
-  "templateId" : "aA123456",
+  "templateId" : "Tj3nE8dq",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
   "confirmBeforeSend" : false,
   "templateParameters" : {
@@ -1570,7 +1575,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[] | Array | N | 受信者連絡先リストです。|
 | recipients[].contacts[].contactType | String | Y | 連絡先タイプ<br>PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP |
 | recipients[].contacts[].contact | String | Y | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String         | N | ユーザーカスタムフィールド                      |
+| recipients[].contacts[].clientReference | String | N | 受信者ごとに付与できるカスタムフィールドです。 |
 | recipients[].templateParameters |  | N | テンプレートパラメータです。テンプレートIDを設定する場合必須です。 |
 | instantFlow | Object | Y | インスタントフローです。フローを作成せずに定義できます。 |
 | instantFlow.steps[] | Array | Y | インスタントフロー段階です。(メッセージチャンネル別インスタントフロー段階スペックを参照)|

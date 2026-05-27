@@ -6,6 +6,13 @@
 <h1>Notification Hubリリースノート</h1>
 
 **Notification > Notification Hub > リリースノート**
+## 2026. 05. 27.
+### 機能追加
+* [API] Kakao Biz Centerの統計照会APIの追加
+    * Kakao Biz Centerで提供するお知らせトーク、ブランドメッセージの送信統計及びテンプレート統計を照会できるAPIが追加されました。
+    * 送信元キーを基準として、日別(DAILY)または月別(MONTHLY)の統計データを照会できます。
+    * 詳細は、[API v1.0 使用ガイド > Kakao統計](./api-guide-v1x0/kakao-statistics)を参照してください。
+    
 ## 2026. 01. 27.
 ### 機能追加
 * [API] お知らせトークテンプレートAPIの新規提供及び一部APIのサポート終了

@@ -115,6 +115,7 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 ```
 
 </details>
+
 <span id="senderV1x0002TerminateExternalUnsubscribePhoneNumber"></span>
 
 ## 080受信拒否外部登録番号の削除
@@ -198,6 +199,7 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 ```
 
 </details>
+
 <span id="senderV1x0003ReadUnsubscribePhoneNumbers"></span>
 
 ## 080受信拒否番号リストの照会
@@ -306,6 +308,7 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 ```
 
 </details>
+
 <span id="senderV1x0004ReadUnsubscribePhoneNumber"></span>
 
 ## 080受信拒否番号の単件照会
