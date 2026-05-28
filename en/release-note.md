@@ -1,11 +1,13 @@
-<style>
-.page__rnb .lst_rnb_item .rnb_item:first-of-type a {
-    display: inline !important;
-}
-</style>
 <h1>Notification Hub Release Notes</h1>
 
 **Notification > Notification Hub > Release Notes**
+## May 27, 2026
+### Added Features
+* [API] Added KakaoBizCenter statistics retrieval API
+    * Added an API to retrieve sending statistics and template statistics for AlimTalk and brand messages provided by KakaoBizCenter.
+    * Daily (DAILY) or monthly (MONTHLY) statistics data can be retrieved based on the sender key.
+    * For more information, see [API v1.0 User Guide > Kakao Statistics](./api-guide-v1x0/kakao-statistics).
+
 ## March 24, 2026
 ### Added Features
 * [API, Console] Integrated RCS message support

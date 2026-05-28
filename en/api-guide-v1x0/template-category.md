@@ -6,9 +6,9 @@
 </style>
 
 <!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
-<h1>Template Category</h1>
-
 **Notification > Notification Hub > API v1.0 User Guide > Template Category**
+
+
 
 
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
@@ -97,6 +97,7 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
 ## Retrieve Template Category Details
@@ -198,6 +199,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
 
 ## Modify a Template Category
@@ -304,6 +306,7 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
 
 ## Add a Template to a Category
@@ -406,6 +409,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesGet"></span>
 
 ## List Template Categories
@@ -505,6 +509,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesPost"></span>
 
 ## Register Template Categories
@@ -612,6 +617,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoryTreesGet"></span>
 
 ## Retrieve a Template Category Hierarchy

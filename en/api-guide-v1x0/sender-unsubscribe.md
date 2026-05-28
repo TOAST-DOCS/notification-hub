@@ -115,6 +115,7 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 ```
 
 </details>
+
 <span id="senderV1x0002TerminateExternalUnsubscribePhoneNumber"></span>
 
 ## Deregister External 080 Opt-out Number
@@ -198,6 +199,7 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 ```
 
 </details>
+
 <span id="senderV1x0003ReadUnsubscribePhoneNumbers"></span>
 
 ## View 080 Opt-out Number List
@@ -306,6 +308,7 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 ```
 
 </details>
+
 <span id="senderV1x0004ReadUnsubscribePhoneNumber"></span>
 
 ## Search Single 080 Opt-out Number

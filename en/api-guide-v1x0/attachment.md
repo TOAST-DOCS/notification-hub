@@ -110,6 +110,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 ```
 
 </details>
+
 <span id="attachmentV1x0002ReadAttachments"></span>
 
 ## Retrieve Attachment Lists
@@ -218,6 +219,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 ```
 
 </details>
+
 <span id="attachmentV1x0003ReadAttachment"></span>
 
 ## View Attachment Details
@@ -277,21 +279,21 @@ This API does not require a request body.
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| Path | Type | Description |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | Indicates whether the operation was successful.<br>Default: true |
-| header.resultCode | Integer | The result code of the request.<br>Default: 0 |
-| header.resultMessage | String | The result message of the request.<br>Default: SUCCESS |
-| attachment | Object |  |
-| attachment.attachmentId | String | Unique file ID generated upon successful file upload |
-| attachment.fileName | String | Upload file name |
-| attachment.fileFormat | String | File format |
-| attachment.previewUrl | String | File preview URL - Expiration time exists (generated when calling detailed query) |
-| attachment.fileSizeByte | Long | Attachment file size unit is byte |
-| attachment.createDateTime | String | File uploaded at |
-| attachment.expireDateTime | String | File expired at |
-| attachment.uploadedFileTypes | Array | List of file types uploaded to each product |
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+| attachment | Object | O |  |
+| attachment.attachmentId | String | O | Unique file ID generated when a file is uploaded successfully |
+| attachment.fileName | String | O | Uploaded file name |
+| attachment.fileFormat | String | O | File format |
+| attachment.previewUrl | String | X | File preview URL — has an expiration time (generated when the detail view API is called) |
+| attachment.fileSizeByte | Long | O | Size of the attachment in bytes |
+| attachment.createDateTime | String | O | File upload date and time |
+| attachment.expireDateTime | String | O | File expiration date and time |
+| attachment.uploadedFileTypes | Array | O | List of file types uploaded to individual products |
 
 
 
@@ -323,6 +325,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 ```
 
 </details>
+
 <span id="attachmentV1x0004DoValidateAttachments"></span>
 
 ## Validate Attachments before Upload
@@ -417,6 +420,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 ```
 
 </details>
+
 <span id="attachmentV1x0005DoValidateAttachment"></span>
 
 ## Validate Attachments after Upload
@@ -528,6 +532,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 ```
 
 </details>
+
 <span id="attachmentV1x0006UpdateFileType"></span>
 
 ## Update Uploaded Attachment File Type
@@ -568,7 +573,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| fileTypes | Array | N | Product attachment file types. Multiple allowed. For templates, use EMAIL_TEMPLATE or SMS_TEMPLATE. |
+| fileTypes | Array | X | List of file types to specify when uploading attachments for individual products. One or more values can be entered. When uploading templates, use EMAIL_TEMPLATE for EMAIL and SMS_TEMPLATE for SMS. |
 
 
 
@@ -639,6 +644,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 ```
 
 </details>
+
 <span id="attachmentV1x0007ReadFileTypes"></span>
 
 ## List Attachment File Types

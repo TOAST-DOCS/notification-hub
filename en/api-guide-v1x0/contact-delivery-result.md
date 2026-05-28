@@ -89,9 +89,9 @@ This API does not request a request body.
       "brandId" : "AR.lj0eOjEI7Y",
       "chatbotId" : "01012341234"
     },
-    "templateId" : "Template ID",
-    "flowId" : "Flow ID",
-    "statsKeyId" : "Statistics Key ID",
+    "templateId" : "Tj3nE8dq",
+    "flowId" : "R2m9Kv0x",
+    "statsKeyId" : "aA123456",
     "clientReference" : "Custom Field",
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
@@ -138,7 +138,7 @@ This API does not request a request body.
 | contactDeliveryResults[].sender | Object | |
 | contactDeliveryResults[].sender.senderKey | String | Sender profile sender key |
 | contactDeliveryResults[].sender.senderProfileId | String | KakaoTalk channel name |
-| contactDeliveryResults[].sender.senderProfileType | String | Sender profile type<br>[GROUP, NORMAL] |
+| contactDeliveryResults[].sender.senderProfileType | String | Sender profile type<br>[GROUP (group sender profile), NORMAL (normal sender profile)] |
 | contactDeliveryResults[].sender.senderPhoneNumber | String | Sender number |
 | contactDeliveryResults[].sender.senderMailAddress | String | Sender email address |
 | contactDeliveryResults[].sender.brandId | String | Brand ID |
@@ -150,8 +150,8 @@ This API does not request a request body.
 | contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].options | Object | |
-| contactDeliveryResults[].options.expiryOption | Integer | The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
-| contactDeliveryResults[].options.groupId | String | Group ID for RCS Biz Center statistics integration |
+| contactDeliveryResults[].options.expiryOption | Integer | (RCS) The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
+| contactDeliveryResults[].options.groupId | String | (RCS) Group ID for RCS Biz Center statistics integration |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | Whether to send after confirmation. |
 | contactDeliveryResults[].confirmedDateTime | String | The time the message sending was confirmed. |
 | contactDeliveryResults[].scheduled | Boolean | Whether to schedule sending. |
@@ -198,6 +198,7 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 ```
 
 </details>
+
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
 ## Retrieve a List of the Final Send Status Messages
@@ -271,9 +272,9 @@ This API does not request a request body.
       "brandId" : "AR.lj0eOjEI7Y",
       "chatbotId" : "01012341234"
     },
-    "templateId" : "Template ID",
-    "flowId" : "Flow ID",
-    "statsKeyId" : "Statistics Key ID",
+    "templateId" : "Tj3nE8dq",
+    "flowId" : "R2m9Kv0x",
+    "statsKeyId" : "aA123456",
     "clientReference" : "Custom Field",
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
@@ -332,8 +333,8 @@ This API does not request a request body.
 | contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].options | Object | |
-| contactDeliveryResults[].options.expiryOption | Integer | The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
-| contactDeliveryResults[].options.groupId | String | Group ID for RCS Biz Center statistics integration |
+| contactDeliveryResults[].options.expiryOption | Integer | (RCS) The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
+| contactDeliveryResults[].options.groupId | String | (RCS) Group ID for RCS Biz Center statistics integration |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | Whether to send after confirmation. |
 | contactDeliveryResults[].confirmedDateTime | String | The time the message sending was confirmed. |
 | contactDeliveryResults[].scheduled | Boolean | Whether to schedule sending. |
