@@ -6,7 +6,10 @@
 </style>
 
 <!-- 新しい書式のために見出しを<h1>に変更しました。 -->
-<h1>テンプレートカテゴリー</h1>
+<h1>NHN Cloud Notification Hub Public API - Template Category v1.0</h1>
+
+
+
 
 **Notification > Notification Hub > API v1.0 使用ガイド > テンプレートカテゴリー**
 
@@ -97,6 +100,7 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
 ## テンプレートカテゴリー単件照会
@@ -198,6 +202,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
 
 ## テンプレートカテゴリーの修正
@@ -304,6 +309,7 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
 
 ## カテゴリーにテンプレートを追加
@@ -406,6 +412,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesGet"></span>
 
 ## テンプレートカテゴリー一覧照会
@@ -506,6 +513,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoriesPost"></span>
 
 ## テンプレートカテゴリーの登録
@@ -613,6 +621,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
+
 <span id="templateV10MessageChannelCategoryTreesGet"></span>
 
 ## テンプレートカテゴリーツリー一覧照会

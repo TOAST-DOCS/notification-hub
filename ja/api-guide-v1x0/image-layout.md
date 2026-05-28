@@ -1,11 +1,11 @@
-<!-- 新しい 양식을 위해 추가된 style 입니다. -->
+<!-- 新しいフォーマットのために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
         display: inline !important;
     }
 </style>
 
-<!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
+<!-- 新しいフォーマットのために見出しを<h1>に変更しました。 -->
 <h1>画像レイアウト</h1>
 
 **Notification > Notification Hub > API v1.0 使用ガイド > 画像レイアウト**
@@ -128,6 +128,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0CreateImageLayout"></span>
 
 ## 画像レイアウトの登録
@@ -234,6 +235,7 @@ curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0DeleteImageLayout"></span>
 
 ## 画像レイアウトの削除
@@ -319,6 +321,7 @@ curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0GetImageLayoutList"></span>
 
 ## 画像レイアウトのリスト照会
@@ -426,6 +429,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 ```
 
 </details>
+
 <span id="imageLayoutV1x0UpdateImageLayout"></span>
 
 ## 画像レイアウトの修正
