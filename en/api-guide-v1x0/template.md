@@ -52,7 +52,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -65,7 +65,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | Template name |
 | categoryId | String | N | Category ID |
 | messagePurpose | String | N | Message contents<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | sender | Object | N |  |
 | sender.senderPhoneNumber | String | N | Outgoing number |
 | content | Object | Y |  |
@@ -127,7 +127,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -153,7 +153,7 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -325,7 +325,7 @@ This API does not require a request body.
     "content" : {
       "messageType" : "SMS",
       "title" : "Holiday Service Hours",
-      "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+      "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -349,7 +349,7 @@ This API does not require a request body.
 | template.messageChannel | String | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | The type of content sent.<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array | |
-| template.templateLanguage | String | Template Type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | template.sender | Object | |
 | template.sender.senderPhoneNumber | String | Sender Number |
 | template.content | Object | |
@@ -430,7 +430,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -442,7 +442,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | Template name |
 | messagePurpose | String | N | Delivery content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | sender | Object | N | |
 | sender.senderPhoneNumber | String | N | Sender number |
 | content | Object | Y | |
@@ -501,7 +501,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -526,7 +526,7 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -727,7 +727,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | Template name |
 | categoryId | String | N | Category ID |
 | messagePurpose | String | N | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | sender | Object | N | |
 | sender.senderKey | String | N | Sender profile sender key |
 | sender.senderProfileType | String | N | Sender profile type<br>[GROUP, NORMAL] |
@@ -1354,7 +1354,7 @@ This API does not require a request body.
 | template.messageChannel | String | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | Sending content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array | |
-| template.templateLanguage | String | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | template.sender | Object | |
 | template.sender.senderKey | String | Sender profile sender key |
 | template.sender.senderProfileId | String | KakaoTalk channel name |
@@ -1880,8 +1880,8 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 
 ## Inquire about AlimTalk Template (deprecated)
 
-!!! danger "Unsupported API."
-    * Refer to the [Inquire about Kakao Alimtalk Template](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost).
+!!! danger Unsupported API.
+* Refer to the [Inquire about Kakao Alimtalk Template](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost).
 
 Inquire about an AlimTalk template.
 
@@ -1984,8 +1984,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 ## Inquiry AlimTalk Template (file attached) (deprecated)
 
-!!! danger "Unsupported API."
-    * Refer to the [Inquire Kakao AlimTalk Template](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost).
+!!! danger Unsupported API.
+* Refer to the [Inquire Kakao AlimTalk Template](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost).
 
 Please attach a file when inquiring about an Alimtalk template.
 
@@ -2072,8 +2072,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 ## View Modified AlimTalk Template Lists (deprecated)
 
-!!! danger "Unsupported API."
-    * Refer to the [View AlimTalk Template's Kakao Template Lists](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet).
+!!! danger Unsupported API.
+* Refer to the [View AlimTalk Template's Kakao Template Lists](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet).
 
 View modified AlimTalk template lists.
 
@@ -2228,7 +2228,7 @@ This API does not require a request body.
 | templates[].messageChannel | String | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | templates[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array | |
-| templates[].templateLanguage | String | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templates[].templateLanguage | String | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | templates[].sender | Object | |
 | templates[].sender.senderKey | String | Sender profile sender key |
 | templates[].sender.senderProfileId | String | KakaoTalk channel name |
@@ -2851,7 +2851,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | Template name |
 | categoryId | String | N | Category ID |
 | messagePurpose | String | N | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | sender | Object | N | |
 | sender.senderMailAddress | String | Y | Sender email address |
 | content | Object | Y | |
@@ -3023,7 +3023,7 @@ This API does not require a request body.
 | template.messageChannel | String | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array | |
-| template.templateLanguage | String | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | template.sender | Object | |
 | template.sender.senderMailAddress | String | Sender email address |
 | template.content | Object | |
@@ -3222,7 +3222,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | Template name |
 | messagePurpose | String | N | Sender content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | sender | Object | N | |
 | sender.senderMailAddress | String | Y | Sender email address |
 | content | Object | Y | |
@@ -3436,7 +3436,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3498,7 +3498,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | Template name |
 | categoryId | String | N | Category ID |
 | messagePurpose | String | N | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | sender | Object | Y | |
 | sender.brandId | String | Y | Brand ID |
 | sender.chatbotId | String | Y | Chat room (chatbot) ID |
@@ -3585,7 +3585,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3661,7 +3661,7 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3883,7 +3883,7 @@ This API does not require a request body.
     "content" : {
       "messageType" : "SMS",
       "title" : "Holiday Service Hours",
-      "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+      "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
       "smsType" : "STANDALONE",
       "lmsType" : "HORIZONTAL",
       "mmsType" : "HORIZONTAL",
@@ -3961,7 +3961,7 @@ This API does not require a request body.
 | template.messageChannel | String | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array | |
-| template.templateLanguage | String | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | template.sender | Object | |
 | template.sender.brandId | String | Brand ID |
 | template.sender.chatbotId | String | Chat room (chatbot) ID |
@@ -4071,7 +4071,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4132,7 +4132,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | Template name |
 | messagePurpose | String | N | Sender content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | sender | Object | N | |
 | sender.brandId | String | Y | Brand ID |
 | sender.chatbotId | String | Y | Chat room (chatbot) ID |
@@ -4216,7 +4216,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4291,7 +4291,7 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
   "content" : {
     "messageType" : "SMS",
     "title" : "Holiday Service Hours",
-    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience. :)",
+    "body" : "Hello, your item has arrived and is ready for pickup. Please visit us at your convenience.",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4524,7 +4524,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | Template name |
 | categoryId | String | N | Category ID |
 | messagePurpose | String | N | Sent Content Type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template Type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | content | Object | Y | Push message content |
 
 
@@ -4919,7 +4919,7 @@ This API does not require a request body.
 | template.messageChannel | String | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | Sender content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array | |
-| template.templateLanguage | String | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | template.content | Object | Push message content |
 | template.createdDateTime | String | Created at |
 | template.updatedDateTime | String | Modified at |
@@ -5045,7 +5045,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | Template name |
 | messagePurpose | String | N | Sender content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | Template type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (normal text), FREEMARKER (FreeMarker template)] |
 | content | Object | Y | Push message content |
 
 

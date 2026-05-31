@@ -349,7 +349,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | template.sender | Object |  |
 | template.sender.senderPhoneNumber | String | 発信番号 |
 | template.content | Object |  |
@@ -442,7 +442,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | テンプレート名 |
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | sender | Object | N |  |
 | sender.senderPhoneNumber | String | N | 発信番号 |
 | content | Object | Y |  |
@@ -501,7 +501,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -526,7 +526,7 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
   "content" : {
     "messageType" : "SMS",
     "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -727,7 +727,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | テンプレート名 |
 | categoryId | String | N | カテゴリーID |
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | sender | Object | N |  |
 | sender.senderKey | String | N | 発信プロファイルの発信キー |
 | sender.senderProfileType | String | N | 発信プロファイルタイプ<br>[GROUP, NORMAL] |
@@ -1354,7 +1354,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | template.sender | Object |  |
 | template.sender.senderKey | String | 発信プロファイルの発信キー |
 | template.sender.senderProfileId | String | カカオトークチャンネル名 |
@@ -1375,7 +1375,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.additionalProperty.dormant | Boolean | テンプレート休眠の有無 |
 | template.content | Object |  |
 | template.content.templateMessageType | String | テンプレートメッセージタイプ(BA: 基本型、EX: 付加情報型、AD: チャンネル追加型、MI: 複合型、default: BA) |
-| template.content.templateEmphasizeType | String | テンプレート強調表示タイプ(NONE : 基本、TEXT : 強調表示、IMAGE: 画像型、ITEM_LIST: アイテムリスト型、default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| template.content.templateEmphasizeType | String | テンプレート強調表示のタイプ<br>[NONE(強調なし)、TEXT(テキスト強調)、IMAGE(画像強調)、ITEM_LIST(アイテムリスト強調)] |
 | template.content.templateContent | String | テンプレート本文 |
 | template.content.templateAd | String | チャンネル追加案内メッセージ(テンプレートメッセージタイプ: チャンネル追加型、複合型の場合は固定値) |
 | template.content.templateExtra | String | テンプレート付加情報(テンプレートメッセージタイプが[付加情報型/複合型]の場合は必須)、置換変数は使用不可、URLを含むことが可能 |
@@ -1406,7 +1406,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.categoryCode | String | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参照、default: 999999) |
 | template.content.buttons | Array | テンプレートボタン |
 | template.content.buttons[].ordering | Integer | テンプレートボタン順序 |
-| template.content.buttons[].type | String | テンプレートボタンタイプ(WL: Webリンク、AL: アプリリンク、DS: 配送照会、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク切替、BT: ボット切替、AC: チャンネル追加、BF: ビジネスフォーム、P1: 画像セキュリティ送信プラグインID、P2: 個人情報利用プラグインID、P3: ワンクリック決済プラグインID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| template.content.buttons[].type | String | O | テンプレートボタンのタイプ<br>[WL(Webリンク)、AL(アプリリンク)、DS(配送追跡)、BK(ボットキーワード)、MD(メッセージ転送)、BC(相談トークに切り替え)、BT(ボットに切り替え)、AC(チャンネル追加)、BF(ビジネスフォーム)、P1(画像セキュア送信プラグイン)、P2(個人情報利用プラグイン)、P3(ワンクリック決済プラグイン)、TN(電話をかける)] |
 | template.content.buttons[].name | String | テンプレートボタン名 |
 | template.content.buttons[].linkMo | String | テンプレートボタン モバイルWebリンク |
 | template.content.buttons[].linkPc | String | テンプレートボタン PC Webリンク |
@@ -1415,7 +1415,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.buttons[].bizFormId | Integer | テンプレートボタン ビジネスフォームID(BFタイプの場合は必須) |
 | template.content.quickReplies | Array | テンプレートダイレクトリンク |
 | template.content.quickReplies[].ordering | Integer | テンプレートダイレクトリンク順序 |
-| template.content.quickReplies[].type | String | テンプレートダイレクトリンクタイプ(WL: Webリンク、AL: アプリリンク、BK: ボットキーワード、BC: 相談トーク切替、BT: ボット切替、BF: ビジネスフォーム)<br>[WL, AL, BK, BC, BT, BF] |
+| template.content.quickReplies[].type | String | O | テンプレートのクイックリプライのタイプ<br>[WL(Webリンク)、AL(アプリリンク)、BK(ボットキーワード)、BC(相談トークに切り替え)、BT(ボットに切り替え)、BF(ビジネスフォーム)] |
 | template.content.quickReplies[].name | String | テンプレートダイレクトリンク名 |
 | template.content.quickReplies[].linkMo | String | テンプレートダイレクトリンク モバイルWebリンク |
 | template.content.quickReplies[].linkPc | String | テンプレートダイレクトリンク PC Webリンク |
@@ -1559,7 +1559,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | content | Object | Y |  |
 | content.templateMessageType | String | N | テンプレートメッセージタイプ(BA: 基本型、EX: 付加情報型、AD: チャンネル追加型、MI: 複合型、default: BA) |
-| content.templateEmphasizeType | String | N | テンプレート強調表示タイプ(NONE : 基本、TEXT : 強調表示、IMAGE: 画像型、ITEM_LIST: アイテムリスト型、default : NONE)<br>[NONE, TEXT, IMAGE, ITEM_LIST] |
+| content.templateEmphasizeType | String | O | テンプレート強調表示のタイプ<br>[NONE(強調なし)、TEXT(テキスト強調)、IMAGE(画像強調)、ITEM_LIST(アイテムリスト強調)] |
 | content.templateContent | String | N | テンプレート本文 |
 | content.templateAd | String | N | チャンネル追加案内メッセージ(テンプレートメッセージタイプ: チャンネル追加型、複合型の場合は固定値) |
 | content.templateExtra | String | N | テンプレート付加情報(テンプレートメッセージタイプが[付加情報型/複合型]の場合は必須)、置換変数は使用不可、URLを含むことが可能 |
@@ -1590,7 +1590,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.categoryCode | String | N | テンプレートカテゴリーコード(テンプレートカテゴリー照会API参照、default: 999999) |
 | content.buttons | Array | N | テンプレートボタン |
 | content.buttons[].ordering | Integer | N | テンプレートボタン順序 |
-| content.buttons[].type | String | N | テンプレートボタンタイプ(WL: Webリンク、AL: アプリリンク、DS: 配送照会、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク切替、BT: ボット切替、AC: チャンネル追加、BF: ビジネスフォーム、P1: 画像セキュリティ送信プラグインID、P2: 個人情報利用プラグインID、P3: ワンクリック決済プラグインID)<br>[WL, AL, DS, BK, MD, BC, BT, AC, BF, P1, P2, P3] |
+| content.buttons[].type | String | O | テンプレートボタンのタイプ<br>[WL(Webリンク)、AL(アプリリンク)、DS(配送追跡)、BK(ボットキーワード)、MD(メッセージ転送)、BC(相談トークに切り替え)、BT(ボットに切り替え)、AC(チャンネル追加)、BF(ビジネスフォーム)、P1(画像セキュア送信プラグイン)、P2(個人情報利用プラグイン)、P3(ワンクリック決済プラグイン)、TN(電話をかける)] |
 | content.buttons[].name | String | N | テンプレートボタン名 |
 | content.buttons[].linkMo | String | N | テンプレートボタン モバイルWebリンク |
 | content.buttons[].linkPc | String | N | テンプレートボタンPC Webリンク |
@@ -1599,7 +1599,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].bizFormId | Integer | N | テンプレートボタン ビジネスフォームID(BFタイプの場合は必須) |
 | content.quickReplies | Array | N | テンプレートダイレクトリンク |
 | content.quickReplies[].ordering | Integer | N | テンプレートダイレクトリンク順序 |
-| content.quickReplies[].type | String | N | テンプレートダイレクトリンクタイプ(WL: Webリンク、AL: アプリリンク、BK: ボットキーワード、BC: 相談トーク切替、BT: ボット切替、BF: ビジネスフォーム)<br>[WL, AL, BK, BC, BT, BF] |
+| content.quickReplies[].type | String | O | テンプレートのクイックリプライのタイプ<br>[WL(Webリンク)、AL(アプリリンク)、BK(ボットキーワード)、BC(相談トークに切り替え)、BT(ボットに切り替え)、BF(ビジネスフォーム)] |
 | content.quickReplies[].name | String | N | テンプレートダイレクトリンク名 |
 | content.quickReplies[].linkMo | String | N | テンプレートダイレクトリンク モバイルWebリンク |
 | content.quickReplies[].linkPc | String | N | テンプレートダイレクトリンク PC Webリンク |
@@ -1880,8 +1880,8 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 
 ## お知らせトークテンプレート問い合わせ (deprecated)
 
-!!! danger "本APIはサポートを終了しました。"
-    * [カカオお知らせトークテンプレート問い合わせ](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost)を参照してください。
+!!! danger 本APIはサポートを終了しました。
+* [カカオお知らせトークテンプレート問い合わせ](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost)を参照してください。
 
 お知らせトークテンプレートについて問い合わせます。
 
@@ -2851,7 +2851,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | テンプレート名 |
 | categoryId | String | N | カテゴリーID |
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | sender | Object | N |  |
 | sender.senderMailAddress | String | Y | 発信メールアドレス |
 | content | Object | Y |  |
@@ -3023,7 +3023,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | template.sender | Object |  |
 | template.sender.senderMailAddress | String | 発信メールアドレス |
 | template.content | Object |  |
@@ -3222,7 +3222,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | テンプレート名 |
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | sender | Object | N |  |
 | sender.senderMailAddress | String | Y | 発信メールアドレス |
 | content | Object | Y |  |
@@ -3436,7 +3436,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3498,17 +3498,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | テンプレート名 |
 | categoryId | String | N | カテゴリーID |
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | sender | Object | Y |  |
 | sender.brandId | String | Y | ブランドID |
 | sender.chatbotId | String | Y | トークルーム(チャットボット)ID |
 | content | Object | Y |  |
-| content.messageType | String | N | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
+| content.messageType | String | N | RCS送信メッセージのタイプ<br>[SMS(ショートメッセージ)、LMS(ロングメッセージ)、MMS(マルチメディアメッセージ)、RBC_TEMPLATE(RCS Biz Centerテンプレート)] |
 | content.title | String | N | メッセージ件名 |
 | content.body | String | N | メッセージ本文 |
-| content.smsType | String | N | SMSタイプ<br>[STANDALONE] |
-| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.smsType | String | X | SMSのタイプ<br>[STANDALONE(スタンドアロン型)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
+| content.lmsType | String | X | LMSのタイプ<br>[STANDALONE(スタンドアロン型)、FORMAT_BASIC(基本形式)、FORMAT_TITLE_HIGHLIGHT(タイトル強調形式)、FORMAT_PARAGRAPH(段落形式)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
+| content.mmsType | String | X | MMSのタイプ(MMS送信の場合は必須)<br>[HORIZONTAL(横型)、VERTICAL(縦型)、CAROUSEL_MEDIUM(カルーセル中型)、CAROUSEL_SMALL(カルーセル小型)、UNIFIED_HORIZONTAL(統合横型)、UNIFIED_VERTICAL(統合縦型)] |
 | content.messagebaseId | String | N | RCS Biz CenterテンプレートID |
 | content.unsubscribePhoneNumber | String | N | 配信停止番号(広告送信の場合は必須) |
 | content.cards | Array | N | RCSカード |
@@ -3583,7 +3583,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3659,7 +3659,7 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
   "content" : {
     "messageType" : "SMS",
     "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3881,7 +3881,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "content" : {
       "messageType" : "SMS",
       "title" : "祝日の営業時間のお知らせ",
-      "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+      "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
       "smsType" : "STANDALONE",
       "lmsType" : "HORIZONTAL",
       "mmsType" : "HORIZONTAL",
@@ -3959,17 +3959,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | template.sender | Object |  |
 | template.sender.brandId | String | ブランドID |
 | template.sender.chatbotId | String | トークルーム(チャットボット)ID |
 | template.content | Object |  |
-| template.content.messageType | String | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
+| template.content.messageType | String | RCS送信メッセージのタイプ<br>[SMS(ショートメッセージ)、LMS(ロングメッセージ)、MMS(マルチメディアメッセージ)、RBC_TEMPLATE(RCS Biz Centerテンプレート)] |
 | template.content.title | String | メッセージ件名 |
 | template.content.body | String | メッセージ本文 |
-| template.content.smsType | String | SMSタイプ<br>[STANDALONE] |
-| template.content.lmsType | String | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| template.content.mmsType | String | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| template.content.smsType | String | X | SMSのタイプ<br>[STANDALONE(スタンドアロン型)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
+| template.content.lmsType | String | X | LMSのタイプ<br>[STANDALONE(スタンドアロン型)、FORMAT_BASIC(基本形式)、FORMAT_TITLE_HIGHLIGHT(タイトル強調形式)、FORMAT_PARAGRAPH(段落形式)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
+| template.content.mmsType | String | X | MMSのタイプ(MMS送信の場合は必須)<br>[HORIZONTAL(横型)、VERTICAL(縦型)、CAROUSEL_MEDIUM(カルーセル中型)、CAROUSEL_SMALL(カルーセル小型)、UNIFIED_HORIZONTAL(統合横型)、UNIFIED_VERTICAL(統合縦型)] |
 | template.content.messagebaseId | String | RCS Biz CenterテンプレートID |
 | template.content.messagebaseformId | String | RCS Biz Centerで指定したmessageBase様式<br><br>[SS000000(基本型)、SL000000(基本型)、OL00000001(LMS Format基本型)、OL00000002(LMS Formatタイトル強調型)、OL00000003(LMS Format段落型)、SMwThT00(MMS縦型)、SMwThM00(MMS横型)、CMwMhM0200(MMSスライド中型(2))、CMwMhM0300(MMSスライド中型(3))、CMwMhM0400(MMSスライド中型(4))、CMwMhM0500(MMSスライド中型(5))、CMwMhM0600(MMSスライド中型(6))、CMwShS0200(MMSスライド小型(2))、CMwShS0300(MMSスライド小型(3))、CMwShS0400(MMSスライド小型(4))、CMwShS0500(MMSスライド小型(5))、CMwShS0600(MMSスライド小型(6))、CLI00001(アイテム詳細型)、ITTBNV(サムネイル型(縦))、ITTBNH(サムネイル型(横))、ITHIMS(画像強調型(1:1))、ITHIMV(画像強調型(3:4))、ITSNSS(SNS型)、ITSNSH(SNS型(中間ボタン))、ITHITS(画像＆タイトル強調型(1:1))、ITHITV(画像＆タイトル強調型(3:4))、ITCRM2(スライド型(2))、ITCRM3(スライド型(3))、ITCRM4(スライド型(4))、ITCRM5(スライド型(5))、ITCRM6(スライド型(6))、CLT00001(アイテム強調型 DESC)、CLT00002(アイテム強調型 TABLE)、TATA001C(タイトル自由型 FREE)、TATA001D(タイトル自由型 CELL)、TATA001F(タイトル自由型 DESC)、FF005C(タイトル選択型 FREE)、FF005D(明細書 CELL)、FF004C(明細書 DESC)、FF004D(キャンセル CELL)、GG003C(キャンセル DESC)、GG003D(案内 CELL)、GG002C(案内 DESC)、GG002D(認証 CELL)、GG001C(認証 DESC)、GG001D(会員登録 CELL)、GG000F(会員登録 DESC)、EE001C(予約 CELL)、EE001D(予約 DESC)、CC003C(配送 CELL)、CC003D(配送 DESC)、FF002C(入金 CELL)、FF002D(入金 DESC)、FF001C(承認 CELL)、FF001D(承認 DESC)、CC002C(注文 CELL)、CC002D(注文 DESC)、CC001C(出庫 CELL)、CC001D(出庫 DESC)、FF003C(出金 CELL)、FF003D(出金 DESC)、CLL00001(LMS明細書 A)、CLL00002(LMS段落型)、CLL00003(LMSタイトル強調型)、CLL00004(LMS基本型)、CLL00005(LMS明細書 B)、CLL00006(LMS明細書 C)] |
 | template.content.unsubscribePhoneNumber | String | 配信停止番号(広告送信の場合は必須) |
@@ -4067,7 +4067,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4128,17 +4128,17 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | テンプレート名 |
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | sender | Object | N |  |
 | sender.brandId | String | Y | ブランドID |
 | sender.chatbotId | String | Y | トークルーム(チャットボット)ID |
 | content | Object | Y |  |
-| content.messageType | String | N | RCS送信メッセージタイプ<br>[SMS、LMS、MMS、RBC_TEMPLATE] |
+| content.messageType | String | N | RCS送信メッセージのタイプ<br>[SMS(ショートメッセージ)、LMS(ロングメッセージ)、MMS(マルチメディアメッセージ)、RBC_TEMPLATE(RCS Biz Centerテンプレート)] |
 | content.title | String | N | メッセージ件名 |
 | content.body | String | N | メッセージ本文 |
-| content.smsType | String | N | SMSタイプ<br>[STANDALONE] |
-| content.lmsType | String | N | LMSタイプ<br>[STANDALONE, FORMAT_BASIC, FORMAT_TITLE_HIGHLIGHT, FORMAT_PARAGRAPH] |
-| content.mmsType | String | N | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL, VERTICAL, CAROUSEL_MEDIUM, CAROUSEL_SMALL] |
+| content.smsType | String | X | SMSのタイプ<br>[STANDALONE(スタンドアロン型)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
+| content.lmsType | String | X | LMSのタイプ<br>[STANDALONE(スタンドアロン型)、FORMAT_BASIC(基本形式)、FORMAT_TITLE_HIGHLIGHT(タイトル強調形式)、FORMAT_PARAGRAPH(段落形式)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
+| content.mmsType | String | X | MMSのタイプ(MMS送信の場合は必須)<br>[HORIZONTAL(横型)、VERTICAL(縦型)、CAROUSEL_MEDIUM(カルーセル中型)、CAROUSEL_SMALL(カルーセル小型)、UNIFIED_HORIZONTAL(統合横型)、UNIFIED_VERTICAL(統合縦型)] |
 | content.messagebaseId | String | N | RCS Biz CenterテンプレートID |
 | content.unsubscribePhoneNumber | String | N | 配信停止番号(広告送信の場合は必須) |
 | content.cards | Array | N | RCSカード |
@@ -4210,7 +4210,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4285,7 +4285,7 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
   "content" : {
     "messageType" : "SMS",
     "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください^^",
+    "body" : "こんにちは。本日お客様の商品が入荷されました。ご来店ください",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4518,7 +4518,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateName | String | Y | テンプレート名 |
 | categoryId | String | N | カテゴリーID |
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | content | Object | Y | プッシュメッセージ内容 |
 
 
@@ -4913,7 +4913,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messageChannel | String | メッセージチャネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
-| template.templateLanguage | String | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| template.templateLanguage | String | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | template.content | Object | プッシュメッセージ内容 |
 | template.createdDateTime | String | テンプレート作成日時 |
 | template.updatedDateTime | String | テンプレート修正日時 |
@@ -5039,7 +5039,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | Y | テンプレート名 |
 | messagePurpose | String | N | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
-| templateLanguage | String | N | テンプレートタイプ<br>デフォルト値: PLAIN_TEXT<br>[PLAIN_TEXT, FREEMARKER] |
+| templateLanguage | String | N | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
 | content | Object | Y | プッシュメッセージ内容 |
 
 

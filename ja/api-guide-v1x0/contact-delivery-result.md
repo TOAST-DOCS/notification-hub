@@ -90,9 +90,9 @@ X-NHN-Authorization: Bearer {accessToken}
         "brandId": "AR.lj0eOjEI7Y",
         "chatbotId": "01012341234"
       },
-      "templateId": "テンプレートのID",
-      "flowId": "フローのID",
-      "statsKeyId": "統計キーのID",
+      "templateId": "Tj3nE8dq",
+      "flowId": "R2m9Kv0x",
+      "statsKeyId": "aA123456",
     "options" : {
       "expiryOption" : 1,
       "groupId" : "groupId"
@@ -148,8 +148,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String| フローのID、テンプレートメッセージのみ表示|
 | contactDeliveryResults[].statsKeyId | String| 統計キーのID|
 | contactDeliveryResults[].options | Object | 送信オプション |
-| contactDeliveryResults[].options.expiryOption | Integer | RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
-| contactDeliveryResults[].options.groupId | String | RCS BizCenter統計連動のためのグループID |
+| contactDeliveryResults[].options.expiryOption | Integer | (RCS) RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
+| contactDeliveryResults[].options.groupId | String | (RCS) RCS BizCenter統計連動のためのグループID |
 | contactDeliveryResults[].messageChannel | String| メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
 | contactDeliveryResults[].messagePurpose | String| メッセージの目的 |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 承認後送信を使用するかどうか|
@@ -222,7 +222,7 @@ curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results" \
 ## 最終送信ステータスメッセージリスト照会
 
 送信プロセスが終了したメッセージ結果リストを照会します。<br>
-最終送信ステータスには「SEND_FAILED(送信失敗)」、「DELIVERED(受信成功)」、「DELIVERY_FAILED(受信失敗)」、「CANCELED(キャンセル)」があります。
+最終送信ステータスには「SEND_FAILED(送信失敗)」、「DELIVERED(受信済み)」、「DELIVERY_FAILED(受信失敗)」、「CANCELED(キャンセル済み)」があります。
 
 
 **リクエスト**
@@ -290,9 +290,9 @@ X-NHN-Authorization: Bearer {accessToken}
       "brandId" : "AR.lj0eOjEI7Y",
       "chatbotId" : "01012341234"
     },
-    "templateId" : "テンプレートのID",
-    "flowId" : "フローのID",
-    "statsKeyId" : "統計キーのID",
+    "templateId" : "Tj3nE8dq",
+    "flowId" : "R2m9Kv0x",
+    "statsKeyId" : "aA123456",
     "clientReference" : "ユーザー指定フィールド",
     "options" : {
       "expiryOption" : 1,
@@ -339,7 +339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].sender | Object |  |
 | contactDeliveryResults[].sender.senderKey | String | 発信プロフィール発信キー |
 | contactDeliveryResults[].sender.senderProfileId | String | カカオトークチャンネル名 |
-| contactDeliveryResults[].sender.senderProfileType | String | 発信プロフィールタイプ<br>[GROUP, NORMAL] |
+| contactDeliveryResults[].sender.senderProfileType | String | 送信元プロフィールタイプ<br>[GROUP(グループ送信元プロフィール)、NORMAL(一般送信元プロフィール)] |
 | contactDeliveryResults[].sender.senderPhoneNumber | String | 発信番号 |
 | contactDeliveryResults[].sender.senderMailAddress | String | 発信メールアドレス |
 | contactDeliveryResults[].sender.brandId | String | ブランドID |
@@ -349,8 +349,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].statsKeyId | String | 統計キーID |
 | contactDeliveryResults[].clientReference | String | ユーザー指定フィールド |
 | contactDeliveryResults[].options | Object | 送信オプション |
-| contactDeliveryResults[].options.expiryOption | Integer | RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
-| contactDeliveryResults[].options.groupId | String | RCS BizCenter統計連動のためのグループID |
+| contactDeliveryResults[].options.expiryOption | Integer | (RCS) RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
+| contactDeliveryResults[].options.groupId | String | (RCS) RCS BizCenter統計連動のためのグループID |
 | contactDeliveryResults[].messageChannel | Object | メッセージチャンネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | Object | 送信内容タイプ(NORMAL:一般、 AD:広告、 AUTH:認証、 default: NORMAL)<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 確認後に送信するかどうかを示します。 |
