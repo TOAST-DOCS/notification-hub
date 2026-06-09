@@ -56,6 +56,27 @@ Once you have created a brand and set up an agency, registered a chat room (send
 
 The **Notification Hub**>**Sender Information**>**Brand Management** tab enables  linkage if there are any changes after the integration, press **+Brand Interworking** button.
 
+## Integrated RCS Introduction
+
+Unified RCS is an RCS standard specification provided by Korea's three major telecom carriers regardless of device manufacturer.
+
+### Android RCS vs Integrated RCS
+
+| Category | (Existing) Android RCS type | Integrated RCS type |
+|---|---|---|
+| Compatible devices | Android Chat+ compatible devices (e.g., Samsung Galaxy) | All devices integrated with domestic carriers for RCS |
+| (Advertisement) indication | Send messages by configuring "header" in the message API | Send messages by directly indicating in the message title or body (included in character count) |
+| Free opt-out indication | Send messages by configuring "footer" in the message API | Send messages by directly indicating at the end of the message body (included in character count) |
+| CopyAllowed | Supported (can configure whether users can copy each message) | Not supported (copy function provided according to device policy) |
+| KISA safety mark / Verified sender number | Displayed only on Samsung devices | Displayed only on Samsung devices |
+| Chat room menu | Supported | Provided only on Samsung devices (expansion to other manufacturers planned within the year) |
+| Open rich card | Supported | Not supported |
+
+### References
+
+- As of August 2025, all Biz RCS types in use are defined as Android RCS types.
+- Messages from previously used Android RCS types also continue to be available.
+
 ## Send type that supports
 
 <table class="custom-table" style="text-align: center">
