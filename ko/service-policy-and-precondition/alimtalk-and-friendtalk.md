@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bed054b4a3bb -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -13,6 +15,8 @@
 * [카카오 비즈니스 바로 가기](https://business.kakao.com/)
 * [카카오 비즈니스 - 카카오 채널 생성 및 비즈니스 인증 가이드 바로 가기](https://kakaobusiness.gitbook.io/main/channel/start)
 
+<a id="creating-accounts-and-channels"></a>
+
 ### 계정 및 채널 생성
 
 다음 항목을 참고해 계정 생성 및 로그인을 진행합니다.
@@ -26,6 +30,8 @@
 * 검색용 아이디는 카카오톡 앱에서 검색 시 표시되는 아이디입니다. 한 번 설정된 검색용 아이디는 변경이 불가합니다.
 * 프로필 사진은 채널 등록 이후에도 설정하실 수 있습니다.
 
+<a id="set-kakao-talk-channel"></a>
+
 ### 카카오톡 채널 설정
 채널 개설 완료 후 아래 항목을 참고해 채널 정보를 설정하고 비즈니스 채널을 신청합니다.
 
@@ -38,8 +44,12 @@
     * 입력한 비즈니스 정보의 기업명과 채널 이름이 다를 경우 심사에 참고할 자료를 첨부합니다.
 
 
+<a id="register-kakaotalk-channel"></a>
+
 ### 카카오톡 채널 등록
 비즈니스 채널 전환이 완료(승인)되었다면, **Notification Hub** > **발신 정보** > **발신 프로필 관리** 탭에서 발신 프로필(카카오톡 채널)을 등록합니다. 발신 프로필 등록에 대한 자세한 내용은 **콘솔 사용 가이드** > **발신 정보** > **발신 프로필 관리**에서 확인할 수 있습니다.
+
+<a id="precautions"></a>
 
 ## 주의 사항
 알림톡 이용 시 고객사는 다음과 같은 서비스 이용 유의 사항을 수신자에게 안내해야 합니다.
