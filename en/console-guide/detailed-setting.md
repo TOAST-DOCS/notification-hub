@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=0d13921b9726 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -10,6 +12,8 @@
 Manage the settings and attachments for each message channel, which may take approximately a few minutes to reflect after setup.
 
 ## SMS
+
+<a id="international-sms-send-settings"></a>
 
 ### International SMS Send Settings
 * Make sure to check [[International SMS Service Policy]](./preconditions/preconditions-international-sms) before using the international SMS delivery feature.
@@ -28,7 +32,11 @@ We recommend that you set the monthly limit and the country of origin only as mu
 NHN Cloud is not responsible for any international SMS sent through abusing.
 
 
+<a id="message-settings"></a>
+
 ### Message Settings
+
+<a id="set-time-to-block-message-delivery-in-duplication"></a>
 
 #### Set time to block message delivery in duplication
 * You can set the same message so it is not sent during the set time.
@@ -37,13 +45,19 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
 * Criteria for deciding duplicate messages are as follows.
     * Message type (SMS/LMS/MMS/AUTH), sender number, receiving number, title, body, attachment
 
+<a id="alternative-characters-settings"></a>
+
 #### Alternative Characters Settings
 * If the body/header of the delivery request contains non-deliverable characters that are not included in the EUC-KR character set, you can set it to convert to deliverable characters.
     * Typically, emoji characters are not included in the EUC-KR character set.
 * You can select question marks '?' and 'spaces' as alternative characters.
 * If you enable Alternate Character Settings, undeliverable characters are converted and displayed as the alternative characters that you set.
 
+<a id="ad-message-settings"></a>
+
 ### Ad Message Settings
+<a id="set-time-to-restrict-to-deliver-ad-message"></a>
+
 #### Set time to restrict to deliver Ad Message
 * You can limit the sending time of advertising messages.
 * Ad Message will not be sent during the set restricted Ad Message delivery time.
@@ -54,9 +68,15 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
     * Resend after time restriction release
 * The time limit setting for sending advertising messages in SMS and RCS requires individual settings.
 
+<a id="rcs"></a>
+
 ## RCS
 
+<a id="ad-message-settings-2"></a>
+
 ### Ad Message Settings
+<a id="set-time-to-restrict-to-deliver-ad-message-2"></a>
+
 #### Set time to restrict to deliver Ad Message
 * You can limit the sending time of advertising messages.
 * Ad Message will not be sent during the set restricted Ad Message delivery time.
@@ -66,9 +86,15 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
     * Handle Failure
 * The time limit setting for sending advertising messages in SMS and RCS requires individual settings.
 
+<a id="push"></a>
+
 ## Push
 
+<a id="token-settings"></a>
+
 ### Token Settings
+<a id="set-token-expiry-period"></a>
+
 #### Set token expiry period
 * Deletes tokens that have not requested registration for a set period of time from the address book.
 * It is extremely unlikely that messages will be received on tokens that have been disabled for an extended period of time.
@@ -80,6 +106,8 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
 * Disabled tokens can be excluded from the delivery to save shipping charges.
 * You can increase the accuracy of delivery and receiving rates by clearing deactivated tokens.
 
+<a id="set-app-type"></a>
+
 #### Set App Type
 * Manage tokens according to the type of linked app.
 * Multiple tokens
@@ -89,3 +117,15 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
 * a single token
     - Users can only use the App on one device at a time. One user can only have one token.
     - For example, if a user uses a mobile phone and tablet, he/she can have one token, and send push messages to one destination: either a mobile phone and a tablet.
+<a id="webhook"></a>
+
+## Webhook
+
+<!-- TODO: translate body -->
+
+<a id="backup"></a>
+
+## Backup
+
+<!-- TODO: translate body -->
+
