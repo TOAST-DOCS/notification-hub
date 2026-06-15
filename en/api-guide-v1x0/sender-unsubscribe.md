@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=55fccb74feba -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -118,6 +120,8 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 
 <span id="senderV1x0002TerminateExternalUnsubscribePhoneNumber"></span>
 
+<a id="deregister-external-080-opt-out-number"></a>
+
 ## Deregister External 080 Opt-out Number
 
 Deregister the external 080 opt-out number.
@@ -201,6 +205,8 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 </details>
 
 <span id="senderV1x0003ReadUnsubscribePhoneNumbers"></span>
+
+<a id="view-080-opt-out-number-list"></a>
 
 ## View 080 Opt-out Number List
 
@@ -310,6 +316,8 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 </details>
 
 <span id="senderV1x0004ReadUnsubscribePhoneNumber"></span>
+
+<a id="search-single-080-opt-out-number"></a>
 
 ## Search Single 080 Opt-out Number
 
