@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=caabb61efc99 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -13,10 +15,14 @@ SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라�
 
 ## 주요 기능
 
+<a id="multichannel-messaging"></a>
+
 ### 멀티 채널 메시징
 
 * SMS, 알림톡, RCS, Email, Push 6개의 메시지 채널로 메시지를 발송할 수 있습니다.
     * 다양한 메시지 채널을 하나의 API로 통합 관리하여 간편하게 메시지를 전송할 수 있습니다.
+
+<a id="address-book"></a>
 
 ### 주소록
 
@@ -24,10 +30,14 @@ SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라�
     * 수신자를 그룹으로 관리할 수 있습니다.
     * 수신자가 수신 거부한 내역을 관리하여 불필요한 메시지 발송을 방지할 수 있습니다.
 
+<a id="template"></a>
+
 ### 템플릿
 
 * 모든 메시지 채널의 템플릿을 등록 및 관리할 수 있습니다.
     * 템플릿을 통해 반복적인 메시지 작성을 줄이고, 일관된 메시지를 쉽게 발송할 수 있습니다.
+
+<a id="flow"></a>
 
 ### 플로우
 
@@ -35,12 +45,16 @@ SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라�
     * 플로우를 이용해 최대 6개의 채널로 동시에 메시지를 발송할 수 있으며, 단말기 상태로 인해 메시지 수신을 실패하면 사전에 설정한 발송 순서에 따라 다음 순서의 채널로 자동 발송할 수 있습니다.
     * 메시지 채널의 우선순위 설정 방법에 따라 수신율을 높이거나 발송 비용을 절약하는 등 다양한 목적으로 사용할 수 있습니다.
 
+<a id="mass-delivery"></a>
+
 ### 대량 발송
 
 * 메시지를 여러 수신자에게 한 번에 발송할 수 있습니다.
     * 수신자 파일 업로드
         * 수신자 목록이 저장된 Excel 파일을 업로드하여 메시지를 발송할 수 있습니다.
         * 업로드된 Excel 파일의 유효한 수신자와 유효하지 않은 수신자를 구분합니다.
+
+<a id="guide-to-sharing-resource-and-feature-settings-between-notification-services"></a>
 
 ## Notification 서비스 간 리소스 및 기능 설정 공유 안내
 
@@ -54,6 +68,8 @@ SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라�
         * 본인인증
     * 기능 설정
         * (메시지 채널별)상세 설정
+
+<a id="delivery-volume-limit-guidance"></a>
 
 ## 발송량 제한 안내
 
@@ -70,6 +86,8 @@ SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라�
 * 리소스 제공 정책은 **사용자 가이드** > **NHN Cloud** > **리소스 제공 정책**을 참고하세요.
     * [리소스 제공 정책 바로 가기](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
 
+<a id="information-on-processing-of-personal-information"></a>
+
 ## 개인정보 처리에 대한 안내
 
 Notification Hub 서비스를 이용하는 과정에서 고객은 이용자의 개인정보를 수집할 수 있습니다. 따라서 본 서비스를 이용하는 고객은 개인정보보호법에 따라 이용자에게 법적 고지사항을 알리고 동의를 받아야 합니다.
@@ -77,6 +95,8 @@ Notification Hub 서비스를 이용하는 과정에서 고객은 이용자의 �
 
 * 수탁 업체: 엔에이치엔클라우드 ㈜
 * 위탁 업무의 내용: Notification Hub 서비스 제공 업무
+
+<a id="terms-and-conditions"></a>
 
 ## 이용 약관
 
