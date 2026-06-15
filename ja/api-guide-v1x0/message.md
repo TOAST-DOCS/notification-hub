@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=65b610526e63 -->
+
 <!-- 新しいフォーマットのために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -100,6 +102,8 @@ X-NHN-Authorization: Bearer {accessToken}
 * 予約送信の場合は**scheduledDateTime**を設定します。送信が開始される前の予約送信は、リクエストのキャンセルが可能です。リクエストキャンセルAPIを呼び出すか、**Notification Hubコンソール** > **送信照会**からキャンセルできます。
 * 確認後送信の場合は、**confirmBeforeSend**を**true**に設定します。確認後送信のメッセージは、**Notification Hubコンソール** > **送信照会**で承認を行うと送信が進行します。
 * 予約送信と確認後送信は同時に設定できません。
+
+<a id="sender-fields-by-message-channel"></a>
 
 ### メッセージチャンネル別のsenderフィールド
 
@@ -223,6 +227,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 </details>
 
 <span id="messageV1x0003EmailFreeFormMessages"></span>
+
+<a id="request-to-send-a-free-form-message---email"></a>
 
 ## 自由形式メッセージの送信リクエスト - EMAIL
 
@@ -395,6 +401,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 </details>
 
 <span id="messageV1x0004RcsFreeFormMessages"></span>
+
+<a id="request-to-send-a-free-form-message---rcs"></a>
 
 ## 自由形式メッセージの送信リクエスト - RCS
 
@@ -774,6 +782,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
+<a id="request-to-send-a-free-form-message---push"></a>
+
 ## 自由形式メッセージの送信リクエスト - PUSH
 
 PUSHに対する自由形式メッセージの送信をリクエストします。
@@ -1061,6 +1071,8 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 
 <span id="messageV1x0006TemplateMessages"></span>
 
+<a id="request-template-message-sending"></a>
+
 ## テンプレートメッセージの送信リクエスト
 
 登録したテンプレートを利用してメッセージを送信します。<br>
@@ -1240,6 +1252,8 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 </details>
 
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
+
+<a id="send-alimtalk-template-message"></a>
 
 ## お知らせトークテンプレートメッセージの送信
 
@@ -1431,6 +1445,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 
 <span id="messageV1x0008EmailTemplateMessages"></span>
 
+<a id="send-email-template-message"></a>
+
 ## EMAILテンプレートメッセージの送信
 
 登録したテンプレートを利用してメッセージを送信します。<br>
@@ -1609,6 +1625,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 </details>
 
 <span id="messageV1x0008RcsTemplateMessages"></span>
+
+<a id="send-rcs-template-message"></a>
 
 ## RCSテンプレートメッセージの送信
 
@@ -1818,6 +1836,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
+<a id="send-sms-template-message"></a>
+
 ## SMSテンプレートメッセージの送信
 
 登録したテンプレートを利用してメッセージを送信します。
@@ -2011,6 +2031,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 </details>
 
 <span id="messageV1x0009FlowMessages"></span>
+
+<a id="send-flow-message"></a>
 
 ## フローメッセージの送信
 
@@ -2255,6 +2277,8 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 
 <span id="messageV1x0010InstantFlowMessages"></span>
 
+<a id="send-an-instant-flow-message"></a>
+
 ## インスタントフローメッセージの送信
 
 メッセージ送信リクエスト時にフローを定義してメッセージの送信をリクエストします。<br>
@@ -2474,6 +2498,8 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
+<a id="cancel-sending-message"></a>
+
 ## メッセージの送信キャンセル
 
 送信をキャンセルするメッセージIDを入力して送信をキャンセルします。<br>
@@ -2559,6 +2585,8 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 </details>
 
 <span id="messageV1x0101MessageIdDoConfirm"></span>
+
+<a id="confirm-message-delivery"></a>
 
 ## メッセージの送信確認
 
