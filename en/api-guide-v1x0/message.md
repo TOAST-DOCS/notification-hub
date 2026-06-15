@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=65b610526e63 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -95,6 +97,8 @@ The additional description that will be added under the request parameter.
 * For scheduled delivery, set **scheduledDateTime**. You can cancel a scheduled delivery request before it begins. You can do so by calling the Cancel Request API or by going to **Notification Hub Console** > **Delivery Result**.
 * For approved delivery, set **confirmBeforeSend** to **true**. After approval, the sender's message will be sent once you approve it in **Notification Hub Console** > **Delivery Result**.
 * You cannot set both scheduled and approved delivery at the same time.
+
+<a id="sender-fields-by-message-channel"></a>
 
 ### Sender Fields by Message Channel
 
@@ -221,6 +225,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 </details>
 
 <span id="messageV1x0003EmailFreeFormMessages"></span>
+
+<a id="request-to-send-a-free-form-message---email"></a>
 
 ## Request to Send a Free-Form Message - EMAIL
 
@@ -392,6 +398,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 </details>
 
 <span id="messageV1x0004RcsFreeFormMessages"></span>
+
+<a id="request-to-send-a-free-form-message---rcs"></a>
 
 ## Request to Send a Free-Form Message - RCS
 
@@ -769,6 +777,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
+<a id="request-to-send-a-free-form-message---push"></a>
+
 ## Request to Send a Free-Form Message - PUSH
 
 Request to send a free-form message for PUSH.
@@ -1055,6 +1065,8 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 
 <span id="messageV1x0006TemplateMessages"></span>
 
+<a id="request-template-message-sending"></a>
+
 ## Request Template Message Sending
 
 Send a message using a registered template.<br>
@@ -1233,6 +1245,8 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 </details>
 
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
+
+<a id="send-alimtalk-template-message"></a>
 
 ## Send AlimTalk Template Message
 
@@ -1423,6 +1437,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 
 <span id="messageV1x0008EmailTemplateMessages"></span>
 
+<a id="send-email-template-message"></a>
+
 ## Send Email Template Message
 
 Sends a message using a registered template.<br>
@@ -1601,6 +1617,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 </details>
 
 <span id="messageV1x0008RcsTemplateMessages"></span>
+
+<a id="send-rcs-template-message"></a>
 
 ## Send RCS Template Message
 
@@ -1809,6 +1827,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
+<a id="send-sms-template-message"></a>
+
 ## Send SMS Template Message
 
 Sends a message using the registered template.<br>
@@ -1999,6 +2019,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 </details>
 
 <span id="messageV1x0009FlowMessages"></span>
+
+<a id="send-flow-message"></a>
 
 ## Send Flow Message
 
@@ -2241,6 +2263,8 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 
 <span id="messageV1x0010InstantFlowMessages"></span>
 
+<a id="send-an-instant-flow-message"></a>
+
 ## Send an Instant Flow Message
 
 When requesting a message, define a flow to send the message.<br>
@@ -2459,6 +2483,8 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
+<a id="cancel-sending-message"></a>
+
 ## Cancel Sending Message
 
 Enter the message ID you wish to cancel the message.<br>
@@ -2547,6 +2573,8 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 </details>
 
 <span id="messageV1x0101MessageIdDoConfirm"></span>
+
+<a id="confirm-message-delivery"></a>
 
 ## Confirm Message Delivery
 
