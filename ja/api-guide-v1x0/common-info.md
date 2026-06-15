@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=f447ffcec440 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -21,11 +23,15 @@
 
 <span id="authentication-and-permissions"></span>
 
+<a id="authentication-and-authorization"></a>
+
 ## 認証及び権限
 
 Notification Hubは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](../../../../nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
 <span id="date-time-format"></span>
+
+<a id="date-and-time-formats"></a>
 
 ## 日付と時間形式
 
@@ -43,9 +49,13 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
 * Notification Hub API及び機能では、秒とミリ秒単位は使用されません。
 * APIレスポンスで日付と時間は **YYYY-MM-DDThh:mm:ss.sss+09:000**形式で表記します。
 
+<a id="prefix-and-single-character-wildcard-search"></a>
+
 ## プレフィックス及び単一文字ワイルドカード検索
 
 リスト照会では個人情報以外の照会条件に対して、プレフィックス及び単一文字ワイルドカード検索がサポートされます。
+
+<a id="prefix-search"></a>
 
 ### プレフィックス(Prefix)検索
 
@@ -56,6 +66,8 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
       GET /message/v1.0/templates?templateName=広告
       ``` 
     * 検索結果:広告-1、広告-2、広告-3など
+<a id="single-character-wildcard-search"></a>
+
 ### 単一文字ワイルドカード(Single Character Wildcard)検索
 * **単一文字ワイルドカード検索**は特定位置にどんな文字でも関係なく検索します。
 * リクエスト例
@@ -67,9 +79,13 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
     
 <span id="response"></span>
 
+<a id="response-common-information"></a>
+
 ## レスポンス共通情報
 
 <span id="succeed-response"></span>
+
+<a id="failure-response-body"></a>
 
 ### 失敗レスポンス本文
 
@@ -86,6 +102,8 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
 ```
 
 <span id="failed-response"></span>
+
+<a id="failure-response-body-2"></a>
 
 ### 失敗レスポンス本文
 
@@ -114,6 +132,8 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
 
 <span id="rate-limit"></span>
 
+<a id="request-number-limit"></a>
+
 ## リクエスト数制限
 * Notification Hubでは、特定のクライアントによる過度のリソース占有を防ぎ、サービスの安定性を確保するため、APIリクエスト数を制限しています。
 * APIリクエスト数は1秒あたりのリクエスト数。300RPS(Requests Per Second)に制限されます。
@@ -126,9 +146,13 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
 
 <span id="example-api-calls"></span>
 
+<a id="example-of-api-calls"></a>
+
 ## 呼び出し例
 
 Notification Hub API使用ガイドでは、**IntelliJ HTTP**、**cURL**でのAPI呼び出し例を提供します。
+
+<a id="intellij-http"></a>
 
 ### IntelliJ HTTP
 * IntelliJ HTTPはIntelliJ IDEAのHTTPクライアントプラグインで、JetBrains IDEsまたはコマンドラインから実行できます。
@@ -155,6 +179,8 @@ Notification Hub API使用ガイドでは、**IntelliJ HTTP**、**cURL**でのAP
    }
 }
 ```
+
+<a id="curl"></a>
 
 ### cURL
 
