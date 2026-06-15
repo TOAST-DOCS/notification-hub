@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=674d72b2ce04 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a { 
     display: inline !important;
@@ -18,9 +20,13 @@ The Notification Hub is available after it is activated and Identity verificatio
 
 <span id="manage-sender-info"></span>
 
+<a id="sender-information-management"></a>
+
 ## Sender Information Management
 
 <span id="manage-sender-phone-number"></span>
+
+<a id="sender-number-management"></a>
 
 ### Sender Number Management
 
@@ -36,6 +42,8 @@ For more information on the Sender Number Pre-Registration System, see **Service
 
 <span id="manage-sender-brand"></span>
 
+<a id="brand-management"></a>
+
 ### Brand Management
 
 To send the RCS message, you must complete the brand linkage. If the pre-registration has been completed (brand approved) in the RCS Biz Center, proceed to link with the NHN Cloud console. For information on creating a brand in the RCS Biz Center, see **Service Policy & Precondition** > **RCS**.
@@ -49,6 +57,8 @@ When the RCS Biz Center has created a brand and set up an agency, registered a c
 
 <span id="manage-sender-domain"></span>
 
+<a id="manage-domains"></a>
+
 ### Manage Domains
 
 To send emails, you need a domain, SPF authentication, DKIM authentication, and DMARC authentication that belongs to you.
@@ -56,6 +66,8 @@ To send emails, you need a domain, SPF authentication, DKIM authentication, and 
 For more information on sending domains and SPF, DKIM, and DMARC, check **Service Policy & Precondition > Email**.
 
 * [Service Policy & Precondition > Email](./preconditions/preconditions-email).
+
+<a id="email-domain-registration-and-ownership-authentication"></a>
 
 #### Email Domain Registration and Ownership Authentication
 
@@ -67,6 +79,8 @@ You must register the domain and verify ownership of the domain. Register the va
 4. In the Domain list, click **Authentication** in Domain Ownership Authentication Status.
 
 If domain ownership authentication is successful, the domain authentication status changes to 'Completed'.
+
+<a id="spf-authentication"></a>
 
 #### SPF Authentication
 
@@ -92,6 +106,8 @@ For a detailed description of SPF, please refer to the document below.
 * [RFC 4408 - 4.5 Selecting Records Shortcut](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
 * [RFC 4408 - 10.1 Processing Limits Shortcut](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
+<a id="dkim-authentication"></a>
+
 #### DKIM Authentication
 
 Domainkey identified mail (DKIM) is an email verification method in which an email sending server digitally signs an email and the email receiving server verifies the authenticity of the sender to ensure that messages are not forged or tampered with during delivery. DKIM prevents spammers and other malicious attackers from falsifying and tampering emails.
@@ -106,6 +122,8 @@ Please refer to the document below for a detailed description of DKIM.
 
 * [Introducing Email Security Enhancements - Domain Protection, DKIM, DMARC Shortcuts](https://meetup.nhncloud.com/posts/248)
 
+
+<a id="dmarc-authentication"></a>
 
 #### 3. DMARC authentication
 
@@ -134,16 +152,22 @@ Domains with domain protection enabled cannot be used by other projects. To use 
 
 <span id="manage-sender-push-authorization"></span>
 
+<a id="push-authentication-management"></a>
+
 ### Push Authentication Management
 
 For more information on issuing Push Credentials, check **Service Policy & Precondition > Push**.
 
 * [Service Policy & Precondition > Push](./preconditions/preconditions-push)
 
+<a id="fcm-authentication-settings"></a>
+
 #### FCM Authentication Settings
 1. Enable **Service Account Key Registration**.
 2. Copy and paste the contents of the FCM Service Account Credential file issued to the Service Account Key (JSON).
 3. Click **Authenticate > Save** to complete the setup.
+
+<a id="pns-authentication-settings"></a>
 
 #### PNS Authentication Settings
 1. Enable **APNS JWT certificate registration**.
@@ -152,12 +176,16 @@ For more information on issuing Push Credentials, check **Service Policy & Preco
 4. Copy and paste the contents of the **private key** file.
 5. Click **Authenticate > Save** to complete the setup.
 
+<a id="adm-authentication-settings"></a>
+
 #### ADM Authentication Settings
 1. Enable **Credentials Registration**.
 2. Enter **Client ID** and **Client Key**.
 3. Click **Authenticate > Save** to complete the setup.
 
 <span id="manage-sender-profile"></span>
+
+<a id="manage-outgoing-profiles"></a>
 
 ### Manage Outgoing Profiles
 
@@ -176,15 +204,21 @@ Once the outgoing profile has been created in Kakao Business, follow the followi
 
 <span id="manage-080-unsubscription-number"></span>
 
+<a id="manage-opt-out-numbers"></a>
+
 ### Manage Opt Out Numbers
 
 Opt out number is a service that provides receivers with Unsubscription when sending advertising texts. When sending advertising information, you must include a free Unsubscription method so that the receiver can refuse or withdraw the consent.
+
+<a id="apply-subscription"></a>
 
 #### Apply Subscription
 
 * Click **+ Apply for 080 opt out number** to enter the company name. The company name you entered is the company name that will be displayed when calling the 080 Unsubscription number.
 * When subscription is fully applied, the status is changed to Registration Scheduled. It takes 3 to 4 business days to open the 080-number service for unsubscription, and the service is enabled after opening.
 * Once the opening is complete, you can check the starting date and time of use and the status. SMS product cannot be terminated while the 080-number service is reserved for registration or is being used. The product can be terminated after cancellation. To cancel, click **Cancel**.
+
+<a id="set-080-unsubscription-number-when-advertising-texts"></a>
 
 #### Set 080 Unsubscription Number When Advertising Texts
 
