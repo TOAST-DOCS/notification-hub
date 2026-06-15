@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=4b47fb80110c -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -7,15 +9,15 @@
 
 **Notification > Notification Hub > Usage Policy and Preset Guide > International SMS**
 
-## Main Guidance
+**Main Guidance**
 
-### Country-specific sender number
+## Country-specific sender number
 Check the main points below when sending international SMS messages.
 
 * International SMS messages are sent in accordance with country-specific sender number policies and can be treated as spam if you do not follow them.
 * The sender number set by the customer cannot guarantee exposure to the receiving terminal and may be changed to any number, text, NHN corporation, etc. to send international SMS messages normally.
 
-### Send International SMS
+**Send International SMS**
 * For detailed policies by country, please refer to **Detailed SMS Delivery Guide by country** below.
   * [National SMS Delivery Detail Guide Shortcut](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)
 * In countries with strict international SMS message policies, such as China and Vietnam, messages can only be sent normally if the message is sent with an Authentication Number (OTP).
@@ -26,7 +28,9 @@ Check the main points below when sending international SMS messages.
 * In the case of overseas mobile carriers, it is difficult to check the exact cause of non-reception depending on the time of inquiry because the delivery log is only kept for approximately 7 days.
 * Country-specific transmission quality is affected by your country's network and infrastructure environment and may differ from your domestic environment.
 
-### International SMS Billing
+<a id="international-sms-billing"></a>
+
+## International SMS Billing
 * The cost of sending international SMS messages will be charged depending on the success or failure of data transmission to overseas carriers.
 * The terminal reception result means successful data transmission to an overseas communication service provider and may differ from the actual terminal reception result. Even if the actual user did not receive the message, it may be included in the billing list.
 * International SMS can be sent as long messages through the concatenated message feature. When connected by long messages, they will be charged by the number of characters sent.
@@ -40,7 +44,9 @@ Check the main points below when sending international SMS messages.
 | UCS-2<br>(Unicode) | 70 characters | 134 characters<br>(=67*2) | 201 characters<br>(=67*3) | 268 characters<br>(=67*4) | 335 characters<br>(=67*5) |
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
-### Precautions - International SMS Mass Volume Pumping
+<a id="precautions---international-sms-mass-volume-pumping"></a>
+
+## Precautions - International SMS Mass Volume Pumping
 * Some overseas mobile carriers (MNOs) artificially induce message sending to increase sales.
 * On pages such as requesting a membership authentication number, a bot or abuser requests a large volume of messages to be sent.
 * Most bots or abusers do not perform actual verification after a verification request. When abusing occurs, verification number requests increase, but the rate at which authentication is performed and converted is reduced.
@@ -50,6 +56,14 @@ Check the main points below when sending international SMS messages.
 * Recommended Measures
     * Select the country you want to allow and set the maximum monthly shipment through**Send international SMS messages setting**.
 
+
+<a id="international-sms-volume-pumping-phenomenon"></a>
+
+### International SMS Volume Pumping Phenomenon
+
+<!-- TODO: translate body -->
+
+<a id="available-countries"></a>
 
 ## Available Countries 
 
