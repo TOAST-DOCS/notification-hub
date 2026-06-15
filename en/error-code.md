@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=6b437cd3fe5d -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -474,6 +476,8 @@
 | false        | 409000     | {0} already exists.                                                                                                               |
 | false        | 500001     | An internal server error occurred.                                                                                                               |
 | false        | 500002     | Invalid server status                                                                                                                    |
+
+<a id="delivery-result-code"></a>
 
 ## Delivery Result Code
 
