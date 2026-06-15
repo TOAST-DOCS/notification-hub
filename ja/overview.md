@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=caabb61efc99 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -13,10 +15,14 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
 
 ## 主な機能
 
+<a id="multichannel-messaging"></a>
+
 ### マルチチャンネルメッセージング
 
 * SMS、お知らせトーク、RCS, Email, Pushの6つのメッセージチャンネルでメッセージを送信できます。
     * 様々なメッセージチャンネルを1つのAPIで統合管理し、簡単にメッセージを送信できます。
+
+<a id="address-book"></a>
 
 ### アドレス帳
 
@@ -24,10 +30,14 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
     * 受信者をグループで管理できます。
     * 受信者が受信拒否した履歴を管理し、不要なメッセージの送信を防止できます。
 
+<a id="template"></a>
+
 ### テンプレート
 
 * 全てのメッセージチャンネルのテンプレートを登録及び管理できます。
     * テンプレートを使用することで、反復的なメッセージの作成を減らし、一貫性のあるメッセージを簡単に送信できます。
+
+<a id="flow"></a>
 
 ### フロー
 
@@ -35,12 +45,16 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
 * フローを利用して最大6つのチャンネルに同時にメッセージを送信することができ、端末の状態によりメッセージの受信に失敗した場合、事前に設定した送信順序に従って次の順番のチャンネルに自動送信できます。
     * メッセージチャンネルの優先順位の設定方法により、受信率を高めたり、送信コストを節約するなど、様々な目的に使用できます。
 
+<a id="mass-delivery"></a>
+
 ### 大量送信
 
 * メッセージを複数の受信者に一度に送信できます。
     * 受信者ファイルアップロード
         * 受信者リストが保存されたExcelファイルをアップロードしてメッセージを送信できます。
         * アップロードされたExcelファイルの有効な受信者と有効ではない受信者を区分します。
+
+<a id="guide-to-sharing-resource-and-feature-settings-between-notification-services"></a>
 
 ## Notificationサービス間のリソースと機能設定の共有案内
 
@@ -54,6 +68,8 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
         * 本人認証
     * 機能設定
         * (メッセージチャンネル別)詳細設定
+
+<a id="delivery-volume-limit-guidance"></a>
 
 ## 送信量制限案内
 
@@ -70,6 +86,8 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
 * リソース提供ポリシーは **ユーザーガイド** > **NHN Cloud** > **リソース提供ポリシー**を参照してください。
     * [リソース提供ポリシー](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
 
+<a id="information-on-processing-of-personal-information"></a>
+
 ## 個人情報処理に関するご案内
 
 Notification Hubサービスを利用する過程で、顧客は利用者の個人情報を収集できます。したがって、本サービスを利用する顧客は、個人情報保護法に基づき、利用者に法的告知事項を通知し、同意を得なければなりません。
@@ -77,6 +95,8 @@ Notification Hubサービスを利用する過程で、顧客は利用者の個�
 
 * 委託業者: NHN Cloud (株)
 * 委託業務の内容: Notification Hubサービス提供業務
+
+<a id="terms-and-conditions"></a>
 
 ## 利用規約
 
