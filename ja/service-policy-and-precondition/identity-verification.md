@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bc1d75536ea1 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -19,7 +21,13 @@ Notification Hubを利用するには**Notification Hub** > **本人認証**で�
   * 招待されたNHN Cloudアカウント、 IAMアカウントは、本人認証承認時に会員タイプが事業者に区分されます。
 * 在職証明書は**発行日が表記されており、印鑑が押印された書類**のみ可能です。在職証明書内の住民登録番号の後ろ6桁は**必ずマスキング(非表示)処理**してください。例：000000-0\*\*\*\*\*\*
 
-## 本人認証状態
+## 本人認証方法
+
+<!-- TODO: translate body -->
+
+<a id="identity-verification-status"></a>
+
+### 本人認証状態
 
 | 状態    | 説明 |
 |----------| --- |
