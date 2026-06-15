@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=5e0edaf20f7a -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -9,7 +11,7 @@
 
 <span id="read-contact-delivery-results"></span>
 
-### 連絡先別受信結果リスト照会
+## 連絡先別受信結果リスト照会
 
 送信リクエストされたメッセージの送信と受信結果を受信者の連絡先単位で照会します。
 
@@ -218,6 +220,8 @@ curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results" \
 
 </details>
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
+
+<a id="retrieve-a-list-of-the-final-send-status-messages"></a>
 
 ## 最終送信ステータスメッセージリスト照会
 
