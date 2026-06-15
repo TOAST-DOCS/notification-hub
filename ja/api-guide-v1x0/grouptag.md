@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=73af06a9bb23 -->
+
 <!-- 新しいフォーマットのために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -103,6 +105,8 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" 
 
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyDelete"></span>
 
+<a id="delete-a-group-tag"></a>
+
 ## グループタグの削除
 
 Kakao Biz Centerのグループタグを削除します。
@@ -186,6 +190,8 @@ curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?sender
 </details>
 
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyGet"></span>
+
+<a id="get-a-group-tag"></a>
 
 ## グループタグの1件照会
 
@@ -277,6 +283,8 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey
 </details>
 
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyPut"></span>
+
+<a id="modify-a-group-tag"></a>
 
 ## グループタグの変更
 
@@ -388,6 +396,8 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 </details>
 
 <span id="kakaobizcenterV10GroupTagsPost"></span>
+
+<a id="register-a-group-tag"></a>
 
 ## グループタグの登録
 
