@@ -97,12 +97,14 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
 <a id="send-type-that-supports"></a>
 
 ## 지원하는 발송 유형
+- 아래 표의 '통합 RCS 여부'가 'O'인 발송 유형은 통합 RCS 유형으로, 안드로이드뿐 아니라 아이폰 단말에서도 수신할 수 있습니다. ('X'인 발송 유형은 안드로이드 RCS 유형으로 안드로이드 단말에서만 수신할 수 있습니다.)
 
 <table class="custom-table" style="text-align: center">
     <tr>
         <td>NO</td>
         <td>상품</td>
         <td>상품명</td>
+        <td>통합 RCS 여부</td>
         <td>카드 타입</td>
         <td>카드 수</td>
         <td>메시지 최대 길이</td>
@@ -114,6 +116,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
         <td>1</td>
         <td rowspan="2">SMS</td>
         <td>SMS</td>
+        <td>X</td>
         <td>Standalone</td>
         <td>1장</td>
         <td>100자</td>
@@ -124,6 +127,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>2</td>
         <td>통합 SMS 카드</td>
+        <td>O</td>
         <td>Standalone</td>
         <td>1장</td>
         <td>100자</td>
@@ -134,6 +138,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
         <td>3</td>
         <td rowspan="5">LMS</td>
         <td>LMS</td>
+        <td>X</td>
         <td>Standalone</td>
         <td>1장</td>
         <td>1300자</td>
@@ -144,6 +149,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>4</td>
         <td>기본형</td>
+        <td>X</td>
         <td>Format</td>
         <td>1장</td>
         <td>1300자</td>
@@ -153,6 +159,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>5</td>
         <td>타이틀 강조형</td>
+        <td>X</td>
         <td>Format</td>
         <td>1장</td>
         <td>1300자</td>
@@ -162,6 +169,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>6</td>
         <td>문단형</td>
+        <td>X</td>
         <td>Format</td>
         <td>1장</td>
         <td>1300자</td>
@@ -171,6 +179,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>7</td>
         <td>통합 LMS 카드</td>
+        <td>O</td>
         <td>Standalone</td>
         <td>1장</td>
         <td>1300자</td>
@@ -181,6 +190,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
         <td>8</td>
         <td rowspan="6">MMS</td>
         <td>세로형(Tall)</td>
+        <td>X</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
         <td>1300자</td>
@@ -191,6 +201,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>9</td>
         <td>세로형(Medium)</td>
+        <td>X</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
         <td>1300자</td>
@@ -201,6 +212,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>10</td>
         <td>슬라이드형(Medium)</td>
+        <td>X</td>
         <td>Carousel Medium</td>
         <td>2장 <br/> ~ 6장</td>
         <td>1300자</td>
@@ -211,6 +223,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>11</td>
         <td>슬라이드형(Small)</td>
+        <td>X</td>
         <td>Carousel Small</td>
         <td>2장 <br/> ~ 6장</td>
         <td>1300자</td>
@@ -221,6 +234,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>12</td>
         <td>통합 MMS 카드 M</td>
+        <td>O</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
         <td>1300자</td>
@@ -231,6 +245,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>13</td>
         <td>통합 MMS 카드 T</td>
+        <td>O</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
         <td>1300자</td>
@@ -242,6 +257,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
         <td>14</td>
         <td rowspan="7">텍스트<br/>템플릿</td>
         <td>서술 템플릿_타이틀 선택형</td>
+        <td>X</td>
         <td>Description</td>
         <td>1장</td>
         <td>90자</td>
@@ -252,6 +268,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>15</td>
         <td>서술 템플릿_타이틀 자유형</td>
+        <td>X</td>
         <td>Description</td>
         <td>1장</td>
         <td>90자</td>
@@ -261,6 +278,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>16</td>
         <td>스타일 템플릿_타이틀 선택형</td>
+        <td>X</td>
         <td>Cell</td>
         <td>1장</td>
         <td>90자</td>
@@ -270,6 +288,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>17</td>
         <td>스타일 템플릿_타이틀 자유형</td>
+        <td>X</td>
         <td>Cell</td>
         <td>1장</td>
         <td>90자</td>
@@ -279,6 +298,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>18</td>
         <td>기본 템플릿_타이틀 자유형</td>
+        <td>X</td>
         <td>Free</td>
         <td>1장</td>
         <td>90자</td>
@@ -288,6 +308,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>19</td>
         <td>통합 정보성 템플릿</td>
+        <td>O</td>
         <td>Description</td>
         <td>1장</td>
         <td>90자</td>
@@ -297,6 +318,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>20</td>
         <td>통합 프리 템플릿</td>
+        <td>O</td>
         <td>Free</td>
         <td>1장</td>
         <td>90자</td>
@@ -307,6 +329,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
         <td>21</td>
         <td rowspan="10">이미지<br/>템플릿</td>
         <td>이미지 & 타이틀 강조형(3:4)</td>
+        <td>X</td>
         <td>Highlighted Image n Title</td>
         <td>1장</td>
         <td>500자</td>
@@ -317,6 +340,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>22</td>
         <td>이미지 & 타이틀 강조형(1:1)</td>
+        <td>X</td>
         <td>Highlighted Image n Title</td>
         <td>1장</td>
         <td>500자</td>
@@ -327,6 +351,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>23</td>
         <td>이미지 강조형(3:4)</td>
+        <td>X</td>
         <td>Highlighted Image</td>
         <td>1장</td>
         <td>500자</td>
@@ -337,6 +362,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>24</td>
         <td>이미지 강조형(1:1)</td>
+        <td>X</td>
         <td>Highlighted Image</td>
         <td>1장</td>
         <td>500자</td>
@@ -347,6 +373,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>25</td>
         <td>썸네일형(세로)</td>
+        <td>X</td>
         <td>Thumbnail</td>
         <td>1장</td>
         <td>500자</td>
@@ -357,6 +384,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>26</td>
         <td>썸네일형(가로)</td>
+        <td>X</td>
         <td>Thumbnail</td>
         <td>1장</td>
         <td>500자</td>
@@ -367,6 +395,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>27</td>
         <td>SNS형</td>
+        <td>X</td>
         <td>SNS</td>
         <td>1장</td>
         <td>500자</td>
@@ -377,6 +406,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>28</td>
         <td>SNS형(중간 버튼)</td>
+        <td>X</td>
         <td>SNS</td>
         <td>1장</td>
         <td>500자</td>
@@ -387,6 +417,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>29</td>
         <td>통합 이미지 템플릿 M</td>
+        <td>O</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
         <td>500자</td>
@@ -397,6 +428,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>30</td>
         <td>통합 이미지 템플릿 T</td>
+        <td>O</td>
         <td>Standalone Media Top</td>
         <td>1장</td>
         <td>500자</td>
@@ -408,6 +440,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
         <td>31</td>
         <td rowspan="6">LMS<br/>템플릿</td>
         <td>명세서 A형</td>
+        <td>X</td>
         <td>Description</td>
         <td>1장</td>
         <td>1300자</td>
@@ -418,6 +451,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>32</td>
         <td>명세서 B형</td>
+        <td>X</td>
         <td>Description</td>
         <td>1장</td>
         <td>1300자</td>
@@ -427,6 +461,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>33</td>
         <td>명세서 C형</td>
+        <td>X</td>
         <td>Description</td>
         <td>1장</td>
         <td>1300자</td>
@@ -436,6 +471,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>34</td>
         <td>기본형</td>
+        <td>X</td>
         <td>Description</td>
         <td>1장</td>
         <td>1300자</td>
@@ -445,6 +481,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>35</td>
         <td>타이틀 강조형</td>
+        <td>X</td>
         <td>Description</td>
         <td>1장</td>
         <td>1300자</td>
@@ -454,6 +491,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
     <tr>
         <td>36</td>
         <td>문단형</td>
+        <td>X</td>
         <td>Description</td>
         <td>1장</td>
         <td>1300자</td>
