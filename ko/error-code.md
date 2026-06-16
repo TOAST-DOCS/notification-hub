@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=6b437cd3fe5d -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -336,6 +338,8 @@
 | 메시지 발송 | false | 403000 | 권한이 없습니다. |
 | 메시지 발송 | false | 500001 | 서버 내부 오류가 발생했습니다. |
 | 메시지 발송 | false | 500002 | 잘못된 상태 서버 오류 |
+
+<a id="delivery-result-code"></a>
 
 ## 수신 결과 코드
 

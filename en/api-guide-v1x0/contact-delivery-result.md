@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=5e0edaf20f7a -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -200,6 +202,8 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 </details>
 
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
+
+<a id="retrieve-a-list-of-the-final-send-status-messages"></a>
 
 ## Retrieve a List of the Final Send Status Messages
 

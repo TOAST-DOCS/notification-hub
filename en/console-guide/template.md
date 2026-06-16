@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=671bfe2d761c -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -14,13 +16,19 @@
 
 You can save frequently used messages or messages that require a certain format as a template and set up the saved template to send messages when you send them. For example, if you template frequently used messages, such as customer support, notice items, notifications, or marketing messages, you only need to modify and send parts of the information without having to write the same thing each time.
 
+<a id="category"></a>
+
 ### Category
 * First, select a root category and click **+ Add Category** to create a category.
 * The categories are created under the selected categories.
 
+<a id="template"></a>
+
 ### Template
 1. Select the category to which the template belongs and click **+ Register Template**. Go to the Create Template page and display additional settings for the selected message channel.
 2. Finish the settings required by the subject and content and each message channel and click **Register**.
+
+<a id="alimtalk-template"></a>
 
 #### AlimTalk Template
 
@@ -47,6 +55,8 @@ AlimTalk template can be used only after receiving approval from Kakao's inspect
     * When securing the template, the message content is not exposed on devices other than mobile (expose the phrase 'Please check on mobile')
     * In the case of general messages, the setting values may change during inspection, and be sure to check the security of OTP, authentication number, password, and credit information/grade change guide template.
 
+<a id="alimtalk-template-button"></a>
+
 #### AlimTalk Template button
 * You can register **up to 5 buttons** per template.
 * Quick Reply
@@ -68,6 +78,8 @@ AlimTalk template can be used only after receiving approval from Kakao's inspect
 | One-Click Payment Plugin | - Users can pay for the product without changing screens within the chat window.<br/> - The payment plug-in does not support registration directly on the platform, so contact [Kakao Customer Center](https://cs.kakao.com/helps?service=127&category=572&locale=ko). | 
 | Business Form | - If you created a business form and connected it to the current channel, the business form you set is called when you click the button.<br/> - Business Form Creation is required: [[Business Form Guide]](https://business.kakao.com/info/talkbizform/) |
 
+<a id="template-inspection"></a>
+
 #### Template inspection
 The inspection and review of AlimTalk template will be conducted directly by Kakao, and will be processed sequentially within 2 business days after the inspection request.
 
@@ -77,15 +89,21 @@ The inspection and review of AlimTalk template will be conducted directly by Kak
     * Inquiries about the purpose of the template and reasons for return will be added to the inspection results.
     * If you reject the template, you can re-examine it by clicking **Register** and **Modify**.
 
+<a id="template-status"></a>
+
 #### Template status
 * When registering a template, it is updated in the order of **Request > Under Inspection > Approval/Return** status.
 * After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3).
+
+<a id="modify-templates"></a>
 
 #### Modify Templates
 * You can modify only templates in ** Approval/Return ** state.
 * When re-inspection is complete after modifying the approved template, the existing template contents will be replaced with the modified one.
 * Sender profiles/groups and template codes cannot be modified.
 * Modified templates will be inspected again from ** Under Inspection** status.
+
+<a id="delete-templates"></a>
 
 #### Delete Templates
 * You can delete only templates with Request/Return status.

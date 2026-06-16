@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=f447ffcec440 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -21,11 +23,15 @@
 
 <span id="authentication-and-permissions"></span>
 
+<a id="authentication-and-authorization"></a>
+
 ## 인증 및 권한
 
 Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](../../../../nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
 
 <span id="date-time-format"></span>
+
+<a id="date-and-time-formats"></a>
 
 ## 날짜와 시간 형식
 
@@ -43,9 +49,13 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 * Notification Hub API 및 기능에서 초와 밀리초 단위는 사용되지 않습니다.
 * API 응답에서 날짜와 시간은 **YYYY-MM-DDThh:mm:ss.sss+09:00** 형식으로 표기합니다.
 
+<a id="prefix-and-single-character-wildcard-search"></a>
+
 ## 접두사 및 단일 문자 와일드카드 검색
 
 목록 조회에서는 개인정보가 아닌 조회 조건에 대해서 접두사 및 단일 문자 와일드카드 검색이 지원됩니다.
+
+<a id="prefix-search"></a>
 
 ### 접두사(Prefix) 검색
 
@@ -56,6 +66,8 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
       GET /message/v1.0/templates?templateName=광고
       ``` 
     * 검색 결과: 광고-1, 광고-2, 광고-3 등
+
+<a id="single-character-wildcard-search"></a>
 
 ### 단일 문자 와일드카드(Single Character Wildcard) 검색
 * **단일 문자 와일드카드 검색**은 특정 위치에 어떤 문자든지 상관없이 검색합니다.
@@ -68,9 +80,13 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 
 <span id="response"></span>
 
+<a id="response-common-information"></a>
+
 ## 응답 공통 정보
 
 <span id="succeed-response"></span>
+
+<a id="failure-response-body"></a>
 
 ### 성공 응답 본문
 
@@ -87,6 +103,8 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 ```
 
 <span id="failed-response"></span>
+
+<a id="failure-response-body-2"></a>
 
 ### 실패 응답 본문
 
@@ -115,6 +133,8 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 
 <span id="rate-limit"></span>
 
+<a id="request-number-limit"></a>
+
 ## 요청 수 제한
 * Notification Hub에서는 특정 클라이언트가 과도한 리소스 점유를 막고 서비스의 안정성을 보장하기 위해 API 요청 수를 제한합니다.
 * API 요청 수는 초당 요청 수. 300RPS(Requests Per Second)으로 제한됩니다.
@@ -127,9 +147,13 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 
 <span id="example-api-calls"></span>
 
+<a id="example-of-api-calls"></a>
+
 ## 호출 예시
 
 Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 API 호출 예시를 제공합니다.
+
+<a id="intellij-http"></a>
 
 ### IntelliJ HTTP
 * IntelliJ HTTP는 IntelliJ IDEA의 HTTP 클라이언트 플러그인으로 JetBrains IDEs 또는 명령줄에서 실행할 수 있습니다.
@@ -156,6 +180,8 @@ Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 AP
    }
 }
 ```
+
+<a id="curl"></a>
 
 ### cURL
 

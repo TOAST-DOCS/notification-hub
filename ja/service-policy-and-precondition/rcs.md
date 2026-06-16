@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=f8b6e3ba86f0 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -11,6 +13,8 @@
 
 RCS Bizmessageサービスを利用するためには、RCS Biz Centerに登録後、ブランドを登録する必要があります。 [[RCS Biz Center]](https://www.rcsbizcenter.com/main)
 
+<a id="create-a-brand"></a>
+
 ### ブランド作成
 1. RCS Biz Centerで**会員登録** > **企業担当者会員登録**をクリックして会員登録後、承認を受けます。
     * 会員登録の際、事業者登録証のコピーが必要です。
@@ -20,12 +24,16 @@ RCS Bizmessageサービスを利用するためには、RCS Biz Centerに登録�
       * [ブランド開設ガイド](https://www.rcsbizcenter.com/GuideBrand)
     * RCS担当者が承認し、ブランド作成承認まで2営業日程度かかります。
 
+<a id="set-up-a-brand-agency"></a>
+
 ### ブランド代理店設定
 RCSブランド承認完了後、代理店を「엔이치엔클라우드」に設定します。
 
 1. RCS Biz Centerで**企業ダッシュボード > ブランドダッシュボード > ブランド運営管理**に移動します。
 
 2. **代理店権限追加**をクリックした後、代理店名から「엔이치엔클라우드」を検索して選択します。
+
+<a id="register-chat-room-sender-number"></a>
 
 ### チャットルーム(発信番号)登録
 メッセージアプリのチャットルームでメッセージを受信・確認できます。チャットルーム単位でメッセージを送信・確認できます。
@@ -39,6 +47,8 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
 
 2. チャットルーム登録が完了(承認)したら、**Notification Hub** > **発信情報** > **ブランド管理**タブでブランド連動が可能です。
 
+<a id="register-templates"></a>
+
 ### テンプレート登録
 テンプレートは、ブランド別にメッセージの内容やスタイルをあらかじめ登録しておいて使用できるRCS企業メッセージです。
 テンプレートメッセージを送信するには、RCS Biz Centerでテンプレートを登録する必要があります。 (RCS SMS/LMS/MMSメッセージで送信する場合には別途のテンプレートを登録する必要はありません)
@@ -51,10 +61,32 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
 
 2. テンプレート登録が完了(承認)したら、**Notification** > **RCS Bizmessage** > **RCS Bizmessage管理** > **ブランド管理**タブでNHN Cloudコンソールに連動が可能です。
 
+<a id="link-branding-in-notification-hub-console"></a>
+
 ### Notification Hubコンソールでブランド連動
 ブランド作成及び代理店設定、チャットルーム(発信番号)登録、テンプレート登録が完了(承認)したら、コンソールでブランドを連動します。
 
 **Notification Hub** > **発信情報** > **ブランド管理** タブで連動が可能です。連動後に変更がある場合には**+ブランド連動**ボタンを押すと同期が行われます。
+
+<a id="introduction-to-integrated-rcs"></a>
+
+## 統合RCSの紹介
+
+<!-- TODO: translate body -->
+
+<a id="android-rcs-vs-integrated-rcs"></a>
+
+### Android RCS vs 統合RCS
+
+<!-- TODO: translate body -->
+
+<a id="notes"></a>
+
+### 参考事項
+
+<!-- TODO: translate body -->
+
+<a id="send-type-that-supports"></a>
 
 ## サポートする送信タイプ
 

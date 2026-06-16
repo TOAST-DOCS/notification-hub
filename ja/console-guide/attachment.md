@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=e722c2023294 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -25,6 +27,8 @@
 テンプレート登録およびメッセージ発送時にアップロードした添付ファイルも管理できます。
 
 
+<a id="attachment-specifications-by-message-channel"></a>
+
 ### メッセージチャンネル別添付ファイル仕様
 
 | メッセージチャンネル | タイプ             | ファイル形式                                               | ファイル最大サイズ | 解像度                           | 比率                          |
@@ -34,6 +38,8 @@
 | Alimtalk      | 画像           | .jpg、.png                                              | 500KB         | 横500px以上                  | (2:1)                         |
 | Alimtalk      | アイテムリスト    | .jpg、.png                                              | 500KB         | 横108px以上                  | (1:1)                         |
 | Eメール       | -                | .js、.exe、.bat、.cmd、.com、.cpl、.scr、.vbs、.wsrを除くすべての形式 | 30MB          |                                  |                               |
+
+<a id="image-layout-management"></a>
 
 ## 画像レイアウトの管理
 

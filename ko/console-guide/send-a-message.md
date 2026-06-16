@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=49c2107da561 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -33,6 +35,8 @@
 **입력값 복사(JSON)** 버튼을 이용해 발송 설정을 JSON 형식으로 복사할 수 있습니다.
 
 
+<a id="send-individual-message-channels"></a>
+
 ## 개별 메시지 채널 발송
 
 1. 템플릿 여부를 선택하고, 템플릿을 사용하는 경우, 템플릿을 선택합니다.
@@ -49,7 +53,11 @@
 
 **입력값 복사(JSON)** 버튼을 이용해 발송 설정을 JSON 형식으로 복사할 수 있습니다.
 
+<a id="how-to-set-up-receivers"></a>
+
 ### 수신자 설정 방법
+
+<a id="select-receivers-from-direct-receiver-input-and-address-book"></a>
 
 #### 수신자 직접 입력과 주소록에서 수신자 선택
 
@@ -58,6 +66,8 @@
 * 플로우 발송에서 주소록에서 수신자 선택은 플로우에 설정된 메시지 채널에 대한 수신자의 연락처가 모두 설정된 수신자만 선택할 수 있습니다.
 * 개별 메시지 채널 발송인 경우 메시지 채널에 해당하는 연락처를 입력합니다.
 * 푸시 토큰은 푸시 유형과 단말기에서 생성된 토큰을 입력합니다.
+
+<a id="upload-file"></a>
 
 #### 파일 업로드
 
@@ -72,7 +82,11 @@
 | - | - | - | 
 | 수신자 휴대폰 번호 | 수신자 이메일 주소 | {"contactType": "연락처_타입", "token": "푸시_토큰" } |
 
+<a id="how-to-write-a-message-title-and-content"></a>
+
 ### 메시지 제목과 내용 작성 방법
+
+<a id="sms"></a>
 
 #### SMS
 * 발신 번호, 발송 목적을 선택합니다. 발송 목적이 광고인 경우, 080 수신 거부 번호를 선택합니다.
@@ -95,6 +109,8 @@
 * MMS 지원 규격: 1개당 300KB 이하, 이미지의 개수가 3개일 경우 합산 800KB 이하. .jpg, .jpeg 파일
 
 
+<a id="international-sms"></a>
+
 #### 국제 SMS
 국제 SMS는 인코딩과 글자 수에 따라 연결된 메시지(Concatenated Message)로 전송됩니다.
 
@@ -109,6 +125,8 @@
 | UCS-2<br>(유니코드) | 70자 | 134자<br>(=67*2) | 201자<br>(=67*3) | 268자<br>(=67*4) | 335자<br>(=67*5) |
 | GSM-7bit | 160자 | 306자<br>(=153*2) | 459자<br>(=153*3) | 612자<br>(=153*4) | 765자<br>(=153*5) |
 
+
+<a id="rcs"></a>
 
 #### RCS
 
@@ -172,10 +190,14 @@
     * 일정 제목 및 일정 내용을 입력합니다.
 
 
+<a id="alimtalk"></a>
+
 #### 알림톡
 
 * 발신 프로필과 발신 프로필에 등록된 템플릿을 선택합니다.
 * 알림톡은 템플릿 발송만 가능해 내용 입력이 필요 없습니다.
+
+<a id="email"></a>
 
 #### 이메일
 
@@ -226,6 +248,8 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
 | BLOCK_RECEIVER_LINK_URL | - | If you no longer wish to receive these emails, please `<a href='##BLOCK_RECEIVER_LINK_URL##' target='_blank'>click here</a>`. |
 
 
+<a id="push"></a>
+
 ### Push
 
 1. 발송 목적을 선택합니다.
@@ -244,6 +268,8 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
         * [iOS SDK 바로 가기](https://docs.nhncloud.com/ko/nhncloud/ko/nhncloud-sdk/push-ios/)
 
 
+<a id="button"></a>
+
 #### 버튼
 
 | 이름 | 내용 |
@@ -253,6 +279,8 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
 | 전송 버튼 이름 | 버튼 유형이 응답 버튼이면 iOS에서 전송 버튼 이름을 설정할 수 있습니다.                       |
 | 링크 | 버튼을 눌렀을 때 이동하거나 실행할 링크입니다. 버튼 유형이 URL 열기이면 해당됩니다.                |
 | 힌트 | 버튼에 대한 설명입니다.                                                    |
+
+<a id="type-of-buttons"></a>
 
 #### 버튼의 유형
 - 응답
@@ -268,6 +296,8 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
 - 닫기
     - 해당 알림을 닫습니다.
 
+<a id="media"></a>
+
 #### 미디어
 
 | 이름 | 내용 |
@@ -277,6 +307,8 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
 | 유형 | 이미지, GIF, 동영상, 소리를 선택할 수 있습니다. (Android는 이미지만 가능) |
 | 확장자 | 미디어의 확장자. .png, .avi 등 미디어의 확장자입니다. |
 | 펼치기 | 미디어 펼침 기능, Android에서만 가능합니다.                      |
+
+<a id="specify-media-files"></a>
 
 #### 미디어 파일 지정
 - 외부
@@ -299,6 +331,8 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
         - 'Build Phases > TARGETS'에서 파일이 정상적으로 추가되었는지 확인합니다.
         - 번들 리소스를 통해 접근하므로 확장자를 포함한 전체 파일명이 필요합니다.
         - 메시지 작성 시 'richMessage.media.source'에 추가한 파일 이름을 입력합니다.
+
+<a id="media-type"></a>
 
 #### 미디어 유형
 - 이미지
@@ -324,6 +358,8 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
 | 지원 형식 | 지원 안 함 | WaveAudio, MP3, MPEG4Audio |
 | 파일 크기 | 지원 안 함 | 5MB |
 
+<a id="big-icon"></a>
+
 #### 큰 아이콘
 Android에서만 제공하는 기능입니다. 알림에 큰 아이콘을 지정합니다. 파일 지정 방법은 미디어 파일 지정 방법과 동일합니다.
 
@@ -332,6 +368,8 @@ Android에서만 제공하는 기능입니다. 알림에 큰 아이콘을 지정
 | 위치 | 위치한 곳, 'REMOTE' 또는 'LOCAL'         |
 | 주소 | 이미지가 위치한 주소, URL, URI 등이 될 수 있습니다. |
 
+<a id="groups"></a>
+
 #### 그룹
 Android에서만 제공하는 기능입니다. 알림에 그룹을 설정하고 그룹 키가 동일한 알림은 모아서 표현합니다.
 
@@ -339,6 +377,8 @@ Android에서만 제공하는 기능입니다. 알림에 그룹을 설정하고 
 | --- | --- |
 | 키 | 그룹의 키     |
 | 설명 | 그룹에 대한 설명 |
+
+<a id="notification-sound"></a>
 
 #### 알림음
 | | Android | iOS |

@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=8f15d4b28806 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -113,6 +115,8 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 
 <span id="attachmentV1x0002ReadAttachments"></span>
 
+<a id="retrieve-attachment-lists"></a>
+
 ## Retrieve Attachment Lists
 
 Retrieve attachment lists.
@@ -222,6 +226,8 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 
 <span id="attachmentV1x0003ReadAttachment"></span>
 
+<a id="view-attachment-details"></a>
+
 ## View Attachment Details
 
 View attachments with attachment IDs.
@@ -328,6 +334,8 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 
 <span id="attachmentV1x0004DoValidateAttachments"></span>
 
+<a id="validate-attachments-before-upload"></a>
+
 ## Validate Attachments before Upload
 
 Validates attachments before they are uploaded. The system checks the file type, format, size, resolution, and dimensions (width/height) to ensure they meet the defined criteria.
@@ -422,6 +430,8 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 </details>
 
 <span id="attachmentV1x0005DoValidateAttachment"></span>
+
+<a id="validate-attachments-after-upload"></a>
 
 ## Validate Attachments after Upload
 
@@ -535,6 +545,8 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 
 <span id="attachmentV1x0006UpdateFileType"></span>
 
+<a id="update-uploaded-attachment-file-type"></a>
+
 ## Update Uploaded Attachment File Type
 
 Updates the file type of an uploaded attachment.
@@ -646,6 +658,8 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 </details>
 
 <span id="attachmentV1x0007ReadFileTypes"></span>
+
+<a id="list-attachment-file-types"></a>
 
 ## List Attachment File Types
 

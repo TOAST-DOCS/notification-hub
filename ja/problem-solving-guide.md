@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=e9333a0aec64 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -13,9 +15,13 @@
 
 Notification Hubは事業者会員のみ本人認証を行うことで使用できます。個人会員の場合、本人認証を行うことができません。事業者会員として再入会後、本人認証を行ってください。
 
+<a id="despite-joining-as-a-business-member-you-cannot-proceed-with-your-identity-verification"></a>
+
 ## 事業者会員として登録しましたが、本人認証ができません。
 
 Notification Hubで事業者会員の基準は、有効化したプロジェクトの組織のオーナー(OWNER)会員のタイプに従います。組織のオーナー会員が個人会員の場合、事業者会員として本人認証を行うことができません。組織のオーナー会員を事業者会員に変更した後、本人認証を行ってください。
+
+<a id="sent-characters-are-not-received-by-some-receiver-devices"></a>
 
 ## 送信したメールが一部の受信者端末で受信されません。
 
@@ -23,6 +29,8 @@ Notification Hubで事業者会員の基準は、有効化したプロジェク�
 
 * [番号盗用メールブロックサービス案内](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 * [サービスプロバイダースパムブロックサービス案内](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
+
+<a id="iphone-will-not-receive-push-messages-and-the-registered-token-will-be-deleted"></a>
 
 ## iPhoneでプッシュメッセージが受信されず、登録したトークンが削除されます。
 
@@ -39,6 +47,8 @@ iPhoneアプリでトークンを登録し、プッシュメッセージを送�
         * TOKEN_APNS_SANDBOX: APNS_SANDBOX
         * TOKEN_APNS_VOIP: APNS_VOIP
         * TOKEN_APNS_SANDBOX_VOIP: APNS_SANDBOXVOIP
+
+<a id="push-messages-are-not-received-on-an-android-device-and-the-registered-token-has-been-deleted"></a>
 
 ## Android端末でプッシュメッセージが受信されず、登録されたトークンが削除されます。
   

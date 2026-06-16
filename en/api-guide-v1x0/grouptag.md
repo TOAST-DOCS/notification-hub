@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=73af06a9bb23 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -103,6 +105,8 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" 
 
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyDelete"></span>
 
+<a id="delete-a-group-tag"></a>
+
 ## Delete a Group Tag
 
 Deletes a group tag in KakaoBizCenter.
@@ -186,6 +190,8 @@ curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?sender
 </details>
 
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyGet"></span>
+
+<a id="get-a-group-tag"></a>
 
 ## Get a Group Tag
 
@@ -277,6 +283,8 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey
 </details>
 
 <span id="kakaobizcenterV10GroupTagsGroupTagKeyPut"></span>
+
+<a id="modify-a-group-tag"></a>
 
 ## Modify a Group Tag
 
@@ -388,6 +396,8 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 </details>
 
 <span id="kakaobizcenterV10GroupTagsPost"></span>
+
+<a id="register-a-group-tag"></a>
 
 ## Register a Group Tag
 

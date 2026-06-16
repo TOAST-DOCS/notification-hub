@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=0d13921b9726 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -10,6 +12,8 @@
 각 메시지 채널의 설정과 첨부 파일을 관리합니다. 설정 후 실제 반영까지 대략 수분이 걸릴 수 있습니다.
 
 ## SMS
+
+<a id="international-sms-send-settings"></a>
 
 ### 국제 SMS 메시지 발송 설정
 * 국제 SMS 발송 기능 이용 전 반드시 [[국제 SMS 서비스 정책]](../service-policy-and-precondition/international-sms)을 확인합니다.
@@ -28,7 +32,11 @@
     NHN Cloud는 어뷰징으로 발송된 국제 SMS에 대해 일체의 책임을 지지 않습니다.
 
 
+<a id="message-settings"></a>
+
 ### 메시지 설정
+
+<a id="set-time-to-block-message-delivery-in-duplication"></a>
 
 #### 메시지 중복 발송 차단 시간 설정
 * 설정한 시간동안 같은 내용의 메시지가 발송되지 않도록 설정할 수 있습니다.
@@ -37,13 +45,19 @@
 * 중복 판단 기준은 다음과 같습니다.
     * 메시지 타입(SMS/LMS/MMS/AUTH), 발신 번호, 수신번호, 제목, 본문, 첨부 파일
 
+<a id="alternative-characters-settings"></a>
+
 #### 대체 문자 설정
 * 발송 요청의 본문/제목에 EUC-KR 문자 집합에 포함되지 않은, 발송 불가능한 문자가 포함된 경우 발송 가능한 문자로 변환하도록 설정할 수 있습니다.
     * 대표적으로 이모지 문자는 EUC-KR 문자 집합에 포함되지 않습니다.
 * 대체 문자로 물음표 '?'와 공백 ' '을 선택할 수 있습니다.
 * 대체 문자 설정을 사용으로 설정하면 발송 불가능한 문자가 설정한 대체 문자로 변환되어 표시됩니다.
 
+<a id="ad-message-settings"></a>
+
 ### 광고성 메시지 설정
+<a id="set-time-to-restrict-to-deliver-ad-message"></a>
+
 #### 광고성 메시지 발송 시간 제한 설정
 * 광고 메시지의 발송 시간을 제한할 수 있습니다.
 * 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.
@@ -54,9 +68,15 @@
     * 제한 시간 해제 후 재발송
 * SMS, RCS의 광고성 메시지 발송 시간 제한 설정은 개별 설정이 필요합니다.
 
+<a id="rcs"></a>
+
 ## RCS
 
+<a id="ad-message-settings-2"></a>
+
 ### 광고성 메시지 설정
+<a id="set-time-to-restrict-to-deliver-ad-message-2"></a>
+
 #### 광고성 메시지 발송 시간 제한 설정
 * 광고 메시지의 발송 시간을 제한할 수 있습니다.
 * 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.
@@ -66,9 +86,15 @@
     * 실패 처리
 * SMS, RCS의 광고성 메시지 발송 시간 제한 설정은 개별 설정이 필요합니다.
 
+<a id="push"></a>
+
 ## Push
 
+<a id="token-settings"></a>
+
 ### 토큰 설정
+<a id="set-token-expiry-period"></a>
+
 #### 토큰 만료 기간 설정
 * 설정한 기간 동안 등록 요청이 없는 토큰들을 주소록에서 삭제합니다.
 * 오랜 기간 동안 비활성화된 토큰에 메시지가 수신될 가능성은 극히 낮습니다.
@@ -79,6 +105,8 @@
 * 기본값은 12개월입니다.
 * 비활성화된 토큰은 발송 대상에서 제외되어 발송 요금을 절약할 수 있습니다.
 * 비활성화된 토큰을 정리해 발송률, 수신율 정확도를 올릴 수 있습니다.
+
+<a id="set-app-type"></a>
 
 #### 앱 유형 설정
 * 연동된 앱의 유형에 따라 토큰을 관리합니다.
@@ -91,6 +119,8 @@
     - 예를 들어 사용자가 휴대폰과 태블릿을 사용한다면, 한 개의 토큰만 가질 수 있고, 둘 중 한 곳으로 푸시 메시지를 발송합니다.
 
 <span id="webhook"></span>
+
+<a id="webhook"></a>
 
 ## 웹훅
 
@@ -105,6 +135,8 @@
 등록 완료된 웹훅은 웹훅 등록 목록에서 확인 가능합니다.
 
 <span id="backup"></span>
+
+<a id="backup"></a>
 
 ## 백업 
 

@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=8780bb7cdba0 -->
+
 <!-- 新しい様式のために追加されたスタイルです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -162,6 +164,8 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
 </details>
 <span id="templateV1x0002ReadSmsTemplateList"></span>
 
+<a id="submit-an-alimtalk-template-inquiry-with-file-attachment"></a>
+
 ## SMSテンプレートリスト照会
 
 テンプレートリストを照会します。
@@ -269,6 +273,8 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates" \
 
 </details>
 <span id="templateV1x0003ReadSmsTemplate"></span>
+
+<a id="submit-an-alimtalk-template-inquiry"></a>
 
 ## SMSテンプレート詳細照会
 
@@ -391,6 +397,8 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0004UpdateSmsTemplate"></span>
+
+<a id="register-sms-template"></a>
 
 ## SMSテンプレート修正
 
@@ -535,6 +543,8 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 </details>
 <span id="templateV1x0005DeleteSmsTemplate"></span>
 
+<a id="list-sms-templates"></a>
+
 ## SMSテンプレート削除
 
 テンプレートを削除します。
@@ -619,6 +629,8 @@ curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0006CreateAlimtalkTemplate"></span>
+
+<a id="get-sms-template-details"></a>
 
 ## お知らせトークテンプレート登録
 
@@ -984,6 +996,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
 </details>
 <span id="templateV1x0007ReadAlimtalkTemplateList"></span>
 
+<a id="update-sms-template"></a>
+
 ## お知らせトークテンプレートリスト照会
 
 テンプレートリストを照会します。
@@ -1094,6 +1108,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
 </details>
 <span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
 
+<a id="delete-sms-template"></a>
+
 ## お知らせトーク発信者に関連するテンプレートリスト照会
 
 発信者に関連するテンプレートリストを照会します。(発信者または発信者が含まれるグループのテンプレート)
@@ -1203,6 +1219,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates" 
 
 </details>
 <span id="templateV1x0009ReadAlimtalkTemplate"></span>
+
+<a id="register-alimtalk-template"></a>
 
 ## お知らせトークテンプレート詳細照会
 
@@ -1456,6 +1474,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0010UpdateAlimtalkTemplate"></span>
+
+<a id="list-alimtalk-templates"></a>
 
 ## お知らせトークテンプレート修正
 
@@ -1793,6 +1813,8 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 </details>
 <span id="templateV1x0011DeleteAlimtalkTemplate"></span>
 
+<a id="list-templates-by-alimtalk-sender"></a>
+
 ## お知らせトークテンプレート削除
 
 テンプレートを削除します。
@@ -1877,6 +1899,8 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0012InquireAlimtalkTemplate"></span>
+
+<a id="get-alimtalk-template-details"></a>
 
 ## お知らせトークテンプレート問い合わせ (deprecated)
 
@@ -1982,6 +2006,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 </details>
 <span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
 
+<a id="update-alimtalk-template"></a>
+
 ## お知らせトークテンプレート問い合わせ(ファイル添付) (deprecated)
 
 !!! danger "本APIはサポートを終了しました。"
@@ -2069,6 +2095,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 </details>
 <span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
+
+<a id="delete-alimtalk-template"></a>
 
 ## お知らせトークテンプレート修正リスト照会 (deprecated)
 
@@ -2308,17 +2336,19 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
 
+<a id="submit-an-alimtalk-template-inquiry---deprecated"></a>
+
 ## お知らせトークのカカオテンプレート一覧照会
 
 お知らせトークのカカオテンプレート一覧を照会します。
 
-### リクエスト
+**リクエスト**
 
 ```
 GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 ```
 
-### リクエストパラメータ
+**リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
@@ -2330,7 +2360,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-### リクエストボディ
+**リクエストボディ**
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
@@ -2338,7 +2368,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-### レスポンスボディ
+**レスポンスボディ**
 
 <!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
 
@@ -2482,7 +2512,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 
 
 
-### リクエスト例
+**リクエスト例**
 
 
 <details>
@@ -2509,17 +2539,19 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-te
 </details>
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost"></span>
 
+<a id="submit-an-alimtalk-template-inquiry-with-file-attachment---deprecated"></a>
+
 ## ファイルを添付してカカオお知らせトークテンプレートを問い合わせる
 
 カカオお知らせトークテンプレートを問い合わせる際、ファイルを添付して問い合わせます。
 
-### リクエスト
+**リクエスト**
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries/do-with-file
 ```
 
-### リクエストパラメータ
+**リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
@@ -2528,7 +2560,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 | templateId | Path | String | Y | テンプレートID |
 | kakaoTemplateCode | Path | String | Y | カカオテンプレートコード |
 
-### リクエストボディ
+**リクエストボディ**
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
@@ -2537,7 +2569,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 | comment | String | Y | お問い合わせ内容 |
 | file | Binary | Y | 問い合わせファイル |
 
-### レスポンスボディ
+**レスポンスボディ**
 
 <!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
 
@@ -2562,7 +2594,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-### リクエスト例
+**リクエスト例**
 
 
 <details>
@@ -2603,17 +2635,19 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 </details>
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></span>
 
+<a id="list-alimtalk-template-updates"></a>
+
 ## カカオお知らせトークテンプレート問い合わせ
 
 カカオお知らせトークテンプレートについて問い合わせます。
 
-### リクエスト
+**リクエスト**
 
 ```
 POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTemplateCode}/inquiries
 ```
 
-### リクエストパラメータ
+**リクエストパラメータ**
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
@@ -2624,7 +2658,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-### リクエストボディ
+**リクエストボディ**
 
 <!--リクエストボディを必要としない場合は「このAPIはリクエストボディを必要としません」と入力します。-->
 
@@ -2643,7 +2677,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-### レスポンスボディ
+**レスポンスボディ**
 
 <!--レスポンスボディを返却しない場合は「このAPIはレスポンスボディを返却しません」と入力します。-->
 
@@ -2668,7 +2702,7 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 
 
-### リクエスト例
+**リクエスト例**
 
 
 <details>
@@ -2702,6 +2736,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 </details>
 
 <span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
+
+<a id="list-alimtalk-template-categories"></a>
 
 ## お知らせトークテンプレートカテゴリーリスト照会
 
@@ -2800,6 +2836,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories" \
 </details>
 
 <span id="templateV1x0021CreateEmailTemplate"></span>
+
+<a id="register-email-template"></a>
 
 ## Emailテンプレート登録
 
@@ -2945,6 +2983,8 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
 </details>
 <span id="templateV1x0022ReadEmailTemplate"></span>
 
+<a id="get-email-template-details"></a>
+
 ## Emailテンプレート詳細照会
 
 テンプレートを詳細照会します。
@@ -3065,6 +3105,8 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 </details>
 <span id="templateV1x0022ReadEmailTemplateList"></span>
 
+<a id="list-email-templates"></a>
+
 ## Emailテンプレートリスト照会
 
 テンプレートリストを照会します。
@@ -3172,6 +3214,8 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates" \
 
 </details>
 <span id="templateV1x0023UpdateEmailTemplate"></span>
+
+<a id="update-email-template"></a>
 
 ## Emailテンプレート修正
 
@@ -3312,6 +3356,8 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 </details>
 <span id="templateV1x0024DeleteEmailTemplate"></span>
 
+<a id="delete-email-template"></a>
+
 ## Emailテンプレート削除
 
 テンプレートを削除します。
@@ -3396,6 +3442,8 @@ curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0025CreateRcsTemplate"></span>
+
+<a id="register-rcs-template"></a>
 
 ## RCSテンプレート登録
 
@@ -3717,6 +3765,8 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
 </details>
 <span id="templateV1x0026ReadRcsTemplateList"></span>
 
+<a id="list-rcs-templates"></a>
+
 ## RCSテンプレートリスト照会
 
 テンプレートリストを照会します。
@@ -3824,6 +3874,8 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates" \
 
 </details>
 <span id="templateV1x0027ReadRcsTemplate"></span>
+
+<a id="get-rcs-template-details"></a>
 
 ## RCSテンプレート詳細照会
 
@@ -4027,6 +4079,8 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0028UpdateRcsTemplate"></span>
+
+<a id="update-rcs-template"></a>
 
 ## RCSテンプレート修正
 
@@ -4343,6 +4397,8 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 </details>
 <span id="templateV1x0029DeleteRcsTemplate"></span>
 
+<a id="delete-rcs-template"></a>
+
 ## RCSテンプレート削除
 
 テンプレートを削除します。
@@ -4427,6 +4483,8 @@ curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0030CreatePushTemplate"></span>
+
+<a id="register-push-template"></a>
 
 ## Pushテンプレート登録
 
@@ -4687,6 +4745,8 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
 </details>
 <span id="templateV1x0031ReadPushTemplateList"></span>
 
+<a id="list-push-templates"></a>
+
 ## Pushテンプレートリスト照会
 
 テンプレートリストを照会します。
@@ -4794,6 +4854,8 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates" \
 
 </details>
 <span id="templateV1x0032ReadPushTemplate"></span>
+
+<a id="get-push-template-details"></a>
 
 ## Pushテンプレート詳細照会
 
@@ -4949,6 +5011,8 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0033UpdatePushTemplate"></span>
+
+<a id="update-push-template"></a>
 
 ## Pushテンプレート修正
 
@@ -5204,6 +5268,8 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 </details>
 <span id="templateV1x0034DeletePushTemplate"></span>
 
+<a id="delete-push-template"></a>
+
 ## Pushテンプレート削除
 
 テンプレートを削除します。
@@ -5288,6 +5354,8 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0035ReadTemplateParameters"></span>
+
+<a id="retrieve-template-parameters"></a>
 
 ## テンプレートパラメータ照会
 

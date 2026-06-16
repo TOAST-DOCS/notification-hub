@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=6b437cd3fe5d -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -473,3 +475,9 @@
 | false        | 409000     | {0}がすでに存在します。                                                                                                               |
 | false        | 500001     | サーバー内部エラーが発生しました。                                                                                                               |
 | false        | 500002     | 無効な状態サーバーエラー                                                                                                                 |
+<a id="delivery-result-code"></a>
+
+## 受信結果コード
+
+<!-- TODO: translate body -->
+

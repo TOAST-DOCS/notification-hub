@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ca5cda4b60fd -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -18,9 +20,13 @@ Notification Hubでサポートするプッシュサービスは次のとおり�
 
 <span id="get-fcm-service-account-credential"></span>
 
+<a id="fcm-service-account-credential"></a>
+
 ### FCM Service Account Credential
 Android端末にプッシュ通知メッセージを送信するためには、**Service Account Credential**が必要です。
 **Service Account**(サービスアカウント)は、一般的にGoogle CloudとA2A(Application to Application)通信時に使用する特別なタイプのアカウントです。
+
+<a id="obtain-fcm-service-account-credential-json-file"></a>
 
 #### FCM Service Account Credential JSONファイルを取得
 1. [Google Firebase Console](https://console.firebase.google.com)に接続します。
@@ -30,6 +36,8 @@ Android端末にプッシュ通知メッセージを送信するためには、*
 5. **サービスアカウント**を選択します。
 6. Firebase Admin SDK項目で**新しい秘密鍵の作成**をクリックして、新しい**Service Account Credential**JSONファイルをダウンロードします。
 
+<a id="register-fcm-service-account-credential-json-file"></a>
+
 #### FCM Service Account Credential JSONファイル登録
 1. コンソールで**Notification > Push > 証明書**をクリックします。
 2. ダウンロードしたJSONファイルを開いて内容をコピーします。
@@ -37,8 +45,12 @@ Android端末にプッシュ通知メッセージを送信するためには、*
 
 <span id="get-apns-jwt"></span>
 
+<a id="obtain-apns-jwt-credentials"></a>
+
 ### APNS JWT認証情報を取得する
 iOS端末にプッシュ通知メッセージを送信するためには、Apple Developerサイトで発行された暗号鍵とキーID(Key ID)、チームID(Team ID, App ID Prefix)、トピック(Topic)が必要です。
+
+<a id="getting-an-apns-encryption-key"></a>
 
 #### APNS暗号鍵を取得する
 1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
@@ -48,15 +60,21 @@ iOS端末にプッシュ通知メッセージを送信するためには、Apple
 5. 内容を確認した後、**Register**を選択します。
 6. **Download**を選択し、パスワードキーファイルを取得します。
 
+<a id="obtain-key-id"></a>
+
 #### キーIDを取得する
 1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
 2. 発行されたキー(Key)を選択します。
 3. **View Key Details**項目で確認できます。
 
+<a id="obtain-team-id"></a>
+
 #### チームIDを取得する
 1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
 2. **Identifiers**を選択します。
 3. **Edit your App ID Configuration** 項目で確認できます。
+
+<a id="topic"></a>
 
 #### トピック
 JWTを利用した認証のためにはトピック(Topic)が必要ですが、トピックはアプリのバンドルID(Bundle ID)です。
@@ -67,9 +85,13 @@ JWTを利用した認証のためにはトピック(Topic)が必要ですが、�
 
 <span id="get-adm-credential"></span>
 
+<a id="adm-credentials"></a>
+
 ### ADM認証情報
 
 Kindle Fireアプリにプッシュ通知メッセージを送信するためには、アプリのClient IDとClient Secretが必要です。
+
+<a id="register-adm-application-and-profile-clientid-obtain-client-secret"></a>
 
 #### ADMアプリケーション及びプロファイルの登録(Client Id, Client Secret取得)
 1. [ADM開発者コンソール](https://developer.amazon.com/home.html)に接続します。
@@ -77,6 +99,8 @@ Kindle Fireアプリにプッシュ通知メッセージを送信するために
 3. アプリが作成されたら、中央のタブにある**Device Messaging**をクリックし、**Create a New Security Profile**をクリックします。
 4. プロフィール作成完了後、中央のタブにある**Security Profiles > View Security Profile**をクリックします。
 5. **General**タブでClient IDとClient Secret値を確認できます。
+
+<a id="register-adm-kindle-setting-information-acquire-api-key"></a>
 
 #### ADM Kindle設定情報登録(API key取得)
 1. **Security Profiles**タブをクリックした後、中央にある**Android/Kindle Setting**タブをクリックします。

@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bed054b4a3bb -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -13,6 +15,8 @@ In accordance with the Kakao policy, you must first open a business-authenticati
 * [Kakao Business Shortcut](https://business.kakao.com/)
 * [Kakao Business - Kakao Channel Creation and Business Certification Guide Shortcut](https://kakaobusiness.gitbook.io/main/channel/start)
 
+<a id="creating-accounts-and-channels"></a>
+
 ### Creating Accounts and Channels
 
 Refer to the following topics to create and log in to your account.
@@ -26,6 +30,8 @@ Create a channel by referring to the following items.
 * Search ID is the ID displayed when searching on KakaoTalk app. Once set, the search ID cannot be changed.
 * You can also set up your profile picture after channel registration.
 
+<a id="set-kakao-talk-channel"></a>
+
 ### Set Kakao talk Channel 
 After the channel is opened, set up the channel information and apply for the business channel by referring to the items below.
 
@@ -38,8 +44,12 @@ After the channel is opened, set up the channel information and apply for the bu
     * If the company name and channel name of business information entered are different, please attach additional information for review.
 
 
+<a id="register-kakaotalk-channel"></a>
+
 ### Register Kakaotalk Channel 
 If the business channel conversion has been completed (approved), register the sender profile (Kakao Talk Channel) on the **Notification Hub** >**Sender Information** >**Sender Profile Management** tab. More information about registering Sender Profiles can be found in the ** Console User Guide**>**Sender Information** >**Sender Profile Management**
+
+<a id="precautions"></a>
 
 ## Precautions
 When using AlimTalk, the customer should inform the receiver of the following precautions for using the service.

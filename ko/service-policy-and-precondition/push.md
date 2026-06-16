@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ca5cda4b60fd -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -18,9 +20,13 @@ Notification Hub에서 지원하는 푸시 서비스는 다음과 같습니다.
 
 <span id="get-fcm-service-account-credential"></span>
 
+<a id="fcm-service-account-credential"></a>
+
 ### FCM Service Account Credential
 Android 기기에 푸시 알림 메시지를 전송하기 위해서는 **Service Account Credential**이 필요합니다.
 **Service Account**(서비스 계정)는 일반적으로 Google Cloud와  A2A(Application to Application) 통신 시 사용하는 특별한 유형의 계정입니다.
+
+<a id="obtain-fcm-service-account-credential-json-file"></a>
 
 #### FCM Service Account Credential JSON 파일 얻기
 1. [Google Firebase Console](https://console.firebase.google.com)에 접속합니다.
@@ -30,6 +36,8 @@ Android 기기에 푸시 알림 메시지를 전송하기 위해서는 **Service
 5. **서비스 계정**을 선택합니다.
 6. Firebase Admin SDK 항목에서 **새 비공개 키 생성**을 클릭해 새로운 **Service Account Credential** JSON 파일을 다운로드합니다.
 
+<a id="register-fcm-service-account-credential-json-file"></a>
+
 #### FCM Service Account Credential JSON 파일 등록
 1. 콘솔에서 **Notification > Push > 인증서**를 클릭합니다.
 2. 다운로드 받은 JSON 파일을 열어 내용을 복사합니다.
@@ -37,8 +45,12 @@ Android 기기에 푸시 알림 메시지를 전송하기 위해서는 **Service
 
 <span id="get-apns-jwt"></span>
 
+<a id="obtain-apns-jwt-credentials"></a>
+
 ### APNS JWT 인증 정보 얻기
 iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Developer 사이트에서 발급 받은 암호 키와 키 ID(Key ID), 팀 ID(Team ID, App ID Prefix), 토픽(Topic)이 필요합니다.
+
+<a id="getting-an-apns-encryption-key"></a>
 
 #### APNS 암호 키 얻기
 1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
@@ -48,15 +60,21 @@ iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Develop
 5. 내용 확인 후 **Register**를 선택합니다.
 6. **Download**를 선택해 암호 키 파일을 받습니다.
 
+<a id="obtain-key-id"></a>
+
 #### 키 ID 얻기
 1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
 2. 발급 받은 키(Key)를 선택합니다.
 3. **View Key Details** 항목에서 확인할 수 있습니다.
 
+<a id="obtain-team-id"></a>
+
 #### 팀 ID 얻기
 1. **Apple Developer 콘솔**에서 **Certificates, IDs & Profiles**로 이동합니다.
 2. **Identifiers**를 선택합니다.
 3. **Edit your App ID Configuration** 항목에서 확인할 수 있습니다.
+
+<a id="topic"></a>
 
 #### 토픽
 JWT를 이용한 인증을 위해서는 토픽(Topic)이 필요한데, 토픽은 앱의 번들 아이디(Bundle ID)입니다.
@@ -67,9 +85,13 @@ JWT를 이용한 인증을 위해서는 토픽(Topic)이 필요한데, 토픽은
 
 <span id="get-adm-credential"></span>
 
+<a id="adm-credentials"></a>
+
 ### ADM 자격 증명
 
 Kindle Fire 앱에 푸시 알림 메시지를 전송하기 위해서는 앱의 Client ID와 Client Secret이 필요합니다.
+
+<a id="register-adm-application-and-profile-clientid-obtain-client-secret"></a>
 
 #### ADM 애플리케이션 및 프로파일 등록(Client Id, Client Secret 획득)
 1. [ADM 개발자 콘솔](https://developer.amazon.com/home.html)에 접속합니다.
@@ -77,6 +99,8 @@ Kindle Fire 앱에 푸시 알림 메시지를 전송하기 위해서는 앱의 C
 3. 앱이 생성되면 중간 탭에 있는 **Device Messaging**을 클릭하고 **Create a New Security Profile**을 클릭합니다.
 4. 프로필 생성 완료 후 중간 탭에 있는 **Security Profiles > View Security Profile**을 클릭합니다.
 5. **General** 탭에서 Client ID와 Client Secret 값을 확인할 수 있습니다.
+
+<a id="register-adm-kindle-setting-information-acquire-api-key"></a>
 
 #### ADM Kindle 설정 정보 등록(API key 획득)
 1. **Security Profiles** 탭을 클릭한 후 중간에 있는 **Android/Kindle Setting** 탭을 클릭합니다.

@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=e9333a0aec64 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -13,9 +15,13 @@
 
 Notification Hub는 사업자 회원만 본인 인증을 통해 사용할 수 있습니다. 개인 회원인 경우 본인 인증을 진행할 수 없습니다. 사업자 회원으로 재가입 후 본인 인증을 진행하세요.
 
+<a id="despite-joining-as-a-business-member-you-cannot-proceed-with-your-identity-verification"></a>
+
 ## 사업자 회원으로 가입했지만, 본인 인증을 진행할 수 없습니다.
 
 Notification Hub에서 사업자 회원의 기준은 활성화한 프로젝트의 조직의 소유자(OWNER) 회원의 유형을 따라갑니다. 조직의 소유자 회원이 개인 회원인 경우, 사업자 회원으로 본인 인증을 진행할 수 없습니다. 조직의 소유자 회원을 사업자 회원으로 변경 후 본인 인증을 진행하세요.
+
+<a id="sent-characters-are-not-received-by-some-receiver-devices"></a>
 
 ## 발송한 문자가 일부 수신자 단말기에서 수신되지 않습니다.
 
@@ -23,6 +29,8 @@ Notification Hub에서 사업자 회원의 기준은 활성화한 프로젝트�
 
 * [번호 도용 문자 차단 서비스 안내](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 * [통신사 스팸 차단 서비스 안내](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
+
+<a id="iphone-will-not-receive-push-messages-and-the-registered-token-will-be-deleted"></a>
 
 ## 아이폰에서 푸시 메시지가 수신되지 않고, 등록된 토큰이 삭제됩니다.
 
@@ -39,6 +47,8 @@ Notification Hub에서 사업자 회원의 기준은 활성화한 프로젝트�
         * TOKEN_APNS_SANDBOX: APNS_SANDBOX
         * TOKEN_APNS_VOIP: APNS_VOIP
         * TOKEN_APNS_SANDBOX_VOIP: APNS_SANDBOXVOIP
+
+<a id="push-messages-are-not-received-on-an-android-device-and-the-registered-token-has-been-deleted"></a>
 
 ## 안드로이드 단말기에서 푸시 메시지가 수신되지 않고, 등록된 토큰이 삭제됩니다.
   

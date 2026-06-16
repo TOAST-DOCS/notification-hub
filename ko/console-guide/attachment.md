@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=e722c2023294 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -25,6 +27,8 @@
 템플릿 등록 및 메시지 발송 시 업로드한 첨부 파일도 관리할 수 있습니다.
 
 
+<a id="attachment-specifications-by-message-channel"></a>
+
 ### 메시지 채널별 첨부 파일 명세
 
 | 메시지 채널 | 유형             | 파일 형식                                               | 파일 최대 크기 | 해상도                           | 비율                          |
@@ -34,6 +38,8 @@
 | 알림톡      | 이미지           | .jpg, .png                                              | 500KB         | 가로 500px 이상                  | (2:1)                         |
 | 알림톡      | 아이템 리스트    | .jpg, .png                                              | 500KB         | 가로 108px 이상                  | (1:1)                         |
 | Email       | -                | .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr 제외한 모든 형식 | 30MB          |                                  |                               |
+
+<a id="image-layout-management"></a>
 
 ## 이미지 레이아웃 관리
 

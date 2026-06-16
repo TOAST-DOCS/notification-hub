@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=674d72b2ce04 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a { 
     display: inline !important;
@@ -18,9 +20,13 @@ Notification Hubを有効にした後、本人認証を完了しないと使用�
 
 <span id="manage-sender-info"></span>
 
+<a id="sender-information-management"></a>
+
 ## 発信情報管理
 
 <span id="manage-sender-phone-number"></span>
+
+<a id="sender-number-management"></a>
 
 ### 発信番号管理
 
@@ -36,6 +42,8 @@ SMS、LMS、MMSメッセージを送信するためには発信番号を登録�
 
 <span id="manage-sender-brand"></span>
 
+<a id="brand-management"></a>
+
 ### ブランド管理
 
 RCSメッセージを送信するには、ブランド連動を完了する必要があります。RCS Biz Centerで事前登録が完了(ブランド承認)したら、NHN Cloudコンソールと連動を行います。RCS Biz Centerでブランドを作成するには、**利用ポリシー及び事前設定案内** > **RCS**を参照してください。
@@ -49,6 +57,8 @@ RCS Biz Centerでブランド作成及び代理店設定、チャットルーム
 
 <span id="manage-sender-domain"></span>
 
+<a id="manage-domains"></a>
+
 ### ドメイン管理
 
 メールを送信するには、自分が所有するドメイン、SPF認証、DKIM認証、DMARC認証が必要です。
@@ -56,6 +66,8 @@ RCS Biz Centerでブランド作成及び代理店設定、チャットルーム
 送信ドメインとSPF、DKIM、DMARCの詳細については、**利用ポリシー及び事前設定案内 > メール**をご確認ください。
 
 * [利用ポリシー及び事前設定案内 > メール](./preconditions/preconditions-email)
+
+<a id="email-domain-registration-and-ownership-authentication"></a>
 
 #### メールドメイン登録及び所有権認証
 
@@ -67,6 +79,8 @@ RCS Biz Centerでブランド作成及び代理店設定、チャットルーム
 4. ドメインリストで、ドメイン所有認証状態の**認証**をクリックします。
 
 ドメイン所有認証に成功すると、ドメイン認証のステータスが「完了」に変更されます。
+
+<a id="spf-authentication"></a>
 
 #### SPF認証
 
@@ -92,6 +106,8 @@ SPFの詳細な説明は、以下の文書を参照してください。
 * [RFC 4408 - 4.5 Selecting Records](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
 * [RFC 4408 - 10.1 Processing Limits](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
+<a id="dkim-authentication"></a>
+
 #### DKIM認証
 
 DKIM(domainkeys identified mail、ドメインキー識別メール)は、メール送信サーバーがメールにデジタル署名し、メール受信サーバーは送信者の真正性を確認し、送信中にメッセージが改ざんされていないことを確認するメール検証方法です。DKIMにより、スパム送信者やその他の悪意のある攻撃者がメールを改ざんすることを防止できます。
@@ -106,6 +122,8 @@ DKIMの詳しい説明は、以下の文書を参照してください。
 
 * [メールセキュリティ強化機能紹介 - ドメイン保護、 DKIM, DMARC](https://meetup.nhncloud.com/posts/248)
 
+
+<a id="dmarc-authentication"></a>
 
 #### DMARC認証
 
@@ -134,16 +152,22 @@ DMARCの詳しい説明は、以下の文書を参照してください。
 
 <span id="manage-sender-push-authorization"></span>
 
+<a id="push-authentication-management"></a>
+
 ### Push認証管理
 
 Push認証情報の発行方法は**利用ポリシー及び事前設定案内 > Push**をご確認ください。
 
 * [利用ポリシー及び事前設定案内 > Push](./preconditions/preconditions-push)
 
+<a id="fcm-authentication-settings"></a>
+
 #### FCM認証設定
 1. **サービスアカウントキー登録**を有効にします。
 2. サービスアカウントキー(JSON)に発行されたFCM Service Account Credentialファイルの内容をコピーして貼り付けます。
 3. **検証 > 保存**をクリックして設定を完了します。
+
+<a id="pns-authentication-settings"></a>
 
 #### APNS認証設定
 1. **APNS JWT証明書登録**を有効にします。
@@ -152,12 +176,16 @@ Push認証情報の発行方法は**利用ポリシー及び事前設定案内 >
 4. **秘密鍵**ファイルの内容をコピーして貼り付けます。
 5. **検証 > 保存**をクリックして設定を完了します。
 
+<a id="adm-authentication-settings"></a>
+
 #### ADM認証設定
 1. **認証情報登録**を有効にします。
 2. **クライアントID**と**クライアントキー**を入力します。
 3. **検証 > 保存**をクリックして設定を完了します。
 
 <span id="manage-sender-profile"></span>
+
+<a id="manage-outgoing-profiles"></a>
 
 ### 発信プロフィール管理
 
@@ -176,15 +204,21 @@ Push認証情報の発行方法は**利用ポリシー及び事前設定案内 >
 
 <span id="manage-080-unsubscription-number"></span>
 
+<a id="manage-opt-out-numbers"></a>
+
 ### 080受信拒否番号管理
 
 080受信拒否番号は、広告メール送信時、受信者に受信拒否を提供するサービスです。広告性情報送信時、受信者が受信拒否や受信同意の撤回を無料で行えるように、無料受信拒否方法を必ず記載する必要があります。
+
+<a id="apply-subscription"></a>
 
 #### 加入申請
 
 * **+ 080受信拒否番号申請**をクリックし、会社名を入力します。入力した会社名は、080受信拒否番号に電話をかける際に、案内される会社名です。
 * 加入申請が完了すると、登録予約状態に変更されます。080受信拒否サービスの開通は、営業日基準で3～4日かかり、開通が完了すると使用できます。
 * 開通が完了すると、使用開始日時と状態を確認できます。080受信拒否サービス登録予約、使用中の状態では、SMS商品の利用終了はできません。解除後、商品の利用終了が可能です。解約するには**解約**をクリックしてください。
+
+<a id="set-080-unsubscription-number-when-advertising-texts"></a>
 
 #### 広告性メール送信時の080受信拒否番号設定
 

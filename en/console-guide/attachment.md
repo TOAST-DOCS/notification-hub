@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=e722c2023294 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -25,6 +27,8 @@ The retention period for attachments is 7 days. Attachments used in templates ar
 You can also manage attachments uploaded when registering templates and sending messages.
 
 
+<a id="attachment-specifications-by-message-channel"></a>
+
 ### Attachment Specifications by Message Channel
 
 | Message Channel | Type             | File Format                                               | Max File Size | Resolution                           | Ratio                          |
@@ -34,6 +38,8 @@ You can also manage attachments uploaded when registering templates and sending 
 | Alimtalk      | Image           | .jpg, .png                                              | 500KB         | Width 500px or more                  | (2:1)                         |
 | Alimtalk      | Item List    | .jpg, .png                                              | 500KB         | Width 108px or more                  | (1:1)                         |
 | Email       | -                | All formats except .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr | 30MB          |                                  |                               |
+
+<a id="image-layout-management"></a>
 
 ## Image Layout Management
 

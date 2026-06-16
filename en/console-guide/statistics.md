@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=d17b5d1143ac -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -11,6 +13,8 @@
 ## Statistics
 
 You can collect various events that occur in Notification Hub and query them with statistical data.
+
+<a id="query-statistics"></a>
 
 ### Query Statistics
 
@@ -26,6 +30,8 @@ You can view the reception results of the delivered message by receiver contacts
 * Check statistical data by setting a combination of message channels, statistical criteria, statistical keys, and message IDs.
 * Depending on the message channel you set, the statistical criteria you set can be varied.
 
+<a id="message-channel-statistical-events-by-statistical-criteria"></a>
+
 #### Message Channel, Statistical Events by Statistical Criteria
 
 | Message Channel | Statistical Criteria | Events                                                                                                       | Remarks | 
@@ -37,6 +43,8 @@ You can view the reception results of the delivered message by receiver contacts
 | Push | Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive(DELIVERY_FAILED), open(OPENED) | Events for opening messages are also collected. | 
 | E-mail | Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive(DELIVERY_FAILED), open(OPENED) | Events for opening messages are also collected. | 
 | SMS | International Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive(DELIVERY_FAILED  | |
+
+<a id="manage-statistical-keys"></a>
 
 ### Manage Statistical Keys
 
