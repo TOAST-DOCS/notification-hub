@@ -3,6 +3,17 @@
 <h1>Notification Hub Release Notes</h1>
 
 **Notification > Notification Hub > Release Notes**
+## 2026. 06. 23.
+### Added Features
+* [Console] Added the AlimTalk common template feature
+    * Provides message templates that can be used universally regardless of business type, such as orders, payments, and deliveries. No separate review process is required.
+* [Console, API] Launched the Branded Message channel
+    * Added support for sending KakaoTalk Branded Messages.
+    * Recipients: members of the business's customer base (M, N, and O groups), channel friends (existing I group targeting)
+    * Key differences compared to Branded Messages in the existing KakaoTalk Bizmessage product:
+        * Added O group targeting: sends to channel friends among members who have agreed to receive advertising messages from the business
+        * Messages targeting business customer members can only be received by users on KakaoTalk version 25.4.0 or later
+
 ## May 27, 2026
 <a id="added-features"></a>
 
