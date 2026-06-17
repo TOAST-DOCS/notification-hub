@@ -1,14 +1,33 @@
+<!-- pre-align:aligned sig=472ab8839ab7 -->
+
 <h1>Notification Hub Release Notes</h1>
 
 **Notification > Notification Hub > Release Notes**
+## 2026. 06. 23.
+### Added Features
+* [Console] Added the AlimTalk shared template feature
+    * Provides message templates that can be used universally regardless of industry, such as orders, payments, and shipping. No separate review process is required.
+* [Console, API] Launched the Branded Message channel
+    * Added support for sending KakaoTalk Branded Messages.
+    * Target recipients: Customer members (M, N, and O groups), channel friends (existing I group targeting delivery)
+    * Key differences from the Branded Message in the existing KakaoTalk Bizmessage product:
+        * Added O group targeting: sends messages to channel friends among members who have agreed to receive advertising messages from the customer
+        * Messages targeting customer members can only be received by users on KakaoTalk 25.4.0 or later
+
 ## May 27, 2026
+<a id="added-features"></a>
+
 ### Added Features
 * [API] Added KakaoBizCenter statistics retrieval API
     * Added an API to retrieve sending statistics and template statistics for AlimTalk and brand messages provided by KakaoBizCenter.
     * Daily (DAILY) or monthly (MONTHLY) statistics data can be retrieved based on the sender key.
     * For more information, see [API v1.0 User Guide > Kakao Statistics](./api-guide-v1x0/kakao-statistics).
 
+<a id="march-24-2026"></a>
+
 ## March 24, 2026
+<a id="added-features-2"></a>
+
 ### Added Features
 * [API, Console] Integrated RCS message support
   * Added support for sending integrated RCS messages that can be received on both Android and iOS devices.
@@ -18,7 +37,11 @@
 * [API, Console] KakaoBizCenter group tag management
   * Added a feature to manage group tags provided by KakaoBizCenter.
 
+<a id="january-27-2026"></a>
+
 ## January 27, 2026
+<a id="added-features-3"></a>
+
 ### Added Features
 * [API] Launch Alimtalk Template APIs and discontinue support for select APIs
     * Due to changes in the Alimtalk template management structure, some legacy template APIs have been replaced with new ones. For more information, please refer to [API v1.0 User Guide > Template](./api-guide-v1x0/template).
@@ -29,24 +52,40 @@
 
 **Notification > Notification Hub > Release Notes**
 
+<a id="12-31"></a>
+
 ## 2025. 12. 31.
+<a id="feature-removal"></a>
+
 ### Feature Removal
 * [API, Console] FriendTalk Service End of Support 
     * The FriendTalk service will end on Wednesday, December 31, 2025. 
     * FriendTalk-related features will no longer be available in the console, and the FriendTalk API will no longer be available.
 
-### 2025. 12. 04.
-#### Feature Improvements
+<a id="12-04"></a>
+
+## 2025. 12. 04.
+<a id="feature-improvements"></a>
+
+### Feature Improvements
 * [API] The `exact` request parameter has been added to the image layout list retrieval API.
     * Previously, when specifying a name using the `name` parameter, partial matching (LIKE) search was applied.
     * Now, setting the `exact` parameter to `true` retrieves only image layouts with exactly matching names.
 
-### 2025. 08. 26.
-#### Feature Improvements
+<a id="08-26"></a>
+
+## 2025. 08. 26.
+<a id="feature-improvements-2"></a>
+
+### Feature Improvements
 * [API/Console] Support for RCS image templates including financial compliance notice fields
     * Supports integration and sending of image templates that include financial compliance notice fields in RCS channels.
 
+<a id="07-29"></a>
+
 ## 2025. 07. 29.
+<a id="new-features"></a>
+
 ### New Features
 * [API/Console] Image layout feature has been released.
     * The image layout feature enables the generation of personalized MMS attached images.
@@ -59,14 +98,22 @@
 * [Console] The "Attachment File" menu has been relocated.
     * The attachment file management menu, previously located under the "Detailed Settings" menu, has been moved to the top-level menu.
 
+<a id="05-27"></a>
+
 ## 2025. 05. 27.
+<a id="new-features-2"></a>
+
 ### New Features
 * [Console] Webhook events can be received for specified event occurrences by designating a URL.
     * For detailed information, please refer to the [Console User Guide > Detailed Settings > Webhook](./console-guide/detailed-setting/#webhook).
 * [Console] Past message dispatch history can now be backed up.
     * For detailed information, please refer to the [Console User Guide > Detailed Settings > Backup](./console-guide/detailed-setting/#backup).
 
+<a id="04-15"></a>
+
 ## 2025. 04. 15.
+<a id="new-features-3"></a>
+
 ### New Features
 * [API/Console] Event history from the service can now be monitored through CloudTrail.
     * For a list of available events, please refer to [[CloudTrail > List of Collected Events]](../../../Governance%20&%20Audit/CloudTrail/en/event-list).
@@ -77,15 +124,25 @@
     * RCS messages can now be sent in LMS format.
     * The LMS format can be selected during template creation.
 
+<a id="enhancements"></a>
+
 ### Enhancements
 * [API/Console] The system has been improved to collect receive and open events for the Push channel in statistics.
 
+<a id="03-25"></a>
+
 ## 2025. 03. 25.
+<a id="new-features-4"></a>
+
 ### New Features
 * [API] Attachment and Statistics APIs have been added.
     * For detailed information, please refer to [[API v1.0 User Guide > Attachment]](./api-guide-v1x0/attachment) and [[API v1.0 User Guide > Statistics]](./api-guide-v1x0/stats).
 
+<a id="03-11"></a>
+
 ## 2025. 03. 11.
+<a id="new-features-5"></a>
+
 ### New Features
 * [API] Integration with RCS BizCenter brand message statistics.
     * By adding a group ID when sending messages, you can use the message statistics provided by RCS BizCenter.
@@ -96,20 +153,32 @@
     * The LMS format can be selected during template creation.
 * For detailed information, please refer to the [[API v1.0 User Guide > Message]](./api-guide-v1x0/message).
 
+<a id="enhancements-2"></a>
+
 ### Enhancements
 * [Console] RCS template functionality has been improved.
     * It is no longer necessary to click the brand integration button when linking RCS BizCenter templates; changes to the templates are now reflected automatically.
 
+<a id="02-25"></a>
+
 ## 2025. 02. 25.
+<a id="new-features-6"></a>
+
 ### New Features
 * [API] An API for retrieving the final list of delivery results per contact has been added.
     * For detailed information, please refer to [[API v1.0 User Guide > Delivery Results by Contact > Retrieve Final List of Delivery Results by Contact]](./api-guide-v1x0/contact-delivery-result/#_2).
 * [API] The system has been improved to allow the addition of a chat room ID and opt-out number when sending RCS BizCenter template messages.
 
+<a id="enhancements-3"></a>
+
 ### Enhancements
 * [Console] The send tracking feature has been improved to allow confirmation of detailed result codes and messages.
 
+<a id="02-11"></a>
+
 ## 2025. 02. 11.
+<a id="new-features-7"></a>
+
 ### New Features
 * [Console/API] Support for sending RCS BizCenter LMS templates.
     * RCS BizCenter LMS template types can now be sent.
@@ -126,6 +195,8 @@
     * Requests can now be made to the Send API including a user custom field.
     * For detailed information, please refer to the [[API v1.0 User Guide > Message]](./api-guide-v1x0/message).
 
+<a id="enhancements-4"></a>
+
 ### Enhancements
 * [Console/API] RCS template functionality has been improved.
     * Templates registered in RCS BizCenter are now integrated without needing to be re-registered.
@@ -133,9 +204,15 @@
         * RCS BizCenter templates cannot be manually registered, modified, or deleted.
         * For RCS BizCenter templates, the chatbot and opt-out number fields are registered as blank; the most recently registered chatbot will be used for sending.
 
+<a id="11-12"></a>
+
 ## 2024. 11. 12.
 
+<a id="notification-hub-beta-release"></a>
+
 ### Notification Hub Beta Release
+
+<a id="bug-fixes"></a>
 
 ### Bug Fixes
 * [Console] Error resolution
@@ -143,7 +220,11 @@
 * [API] Authentication error resolution
     * Resolved an issue where authentication was not being processed correctly for certain API requests.
 
+<a id="10-29"></a>
+
 ## 2024. 10. 29.
+
+<a id="notification-hub-alpha-release"></a>
 
 ### Notification Hub Alpha Release
 * How to Use
