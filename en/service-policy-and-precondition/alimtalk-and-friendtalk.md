@@ -5,9 +5,9 @@
     display: inline !important;
 }
 </style>
-<h1>AlimTalk</h1>
+<h1>AlimTalk/Brand Messages</h1>
 
-**Notification > Notification Hub > Usage Policy and Preset Guide > AlimTalk**
+**Notification > Notification Hub > Service Policy and Prerequisites > AlimTalk/Brand Messages**
 
 ## Create Sender Profile
 In accordance with the Kakao policy, you must first open a business-authentication channel at the KakaoTalk Channel Manager Center to send KakaoTalk Biz messages.
@@ -58,3 +58,68 @@ When using AlimTalk, the customer should inform the receiver of the following pr
 * If you do not want to receive AlimTalk, please refer to the following.
   * The sender's contact information (customer center, etc.) should be provided to inform the caller that he/she can unsubscribe.
   * You can block senders by selecting [Block AlimTalk] in top layer of the chat room where the notification talk was received.
+# Brand Messages
+
+Brand Messages is a KakaoTalk Bizmessage product that allows you to send advertising messages to members who have consented to receive marketing messages from advertisers (hereinafter referred to as "marketing consent"), regardless of whether they are friends of the KakaoTalk channel.
+
+* You can send advertising messages not only to channel friends, but also to non-friends among users who have given marketing consent.
+* Brand Messages can only be used to send advertising messages.
+* Send text and images at a lower cost than LMS/MMS.
+* Template sending and free-form sending are both available.
+* If a Brand Message fails to send, you can send a text message instead.
+
+## Create a Sender Profile
+
+Brand messages use the same KakaoTalk sender profile as AlimTalk. To create a sender profile, refer to **AlimTalk > Create a Sender Profile** above.
+
+## Delivery Targets and Targeting
+
+Brand messages are divided into customer-targeted delivery and friend-targeted delivery, depending on the type of recipient.
+
+### Customer-Targeted Delivery
+
+Customer-targeted delivery sends messages to users who have agreed to receive marketing messages from the advertiser. To use customer-targeted delivery, you must complete the **application to use customer-targeted delivery** in advance. The sender profile must have an 080 opt-out number registered. The eligible recipients vary depending on the targeting type.
+
+For more information about applying to use customer-targeted delivery, see **Console User Guide** > **Sender Information** > **Apply for Customer-Targeted Delivery**.
+
+* **M**: Sends advertising messages to all users who have consented to receive marketing messages. If a recipient is not a channel friend, the message is sent as a channel message that includes free opt-out information.
+* **N**: Sends advertising messages to users who have consented to receive marketing messages, excluding channel friends.
+* **O**: Sends advertising messages to channel friends among users who have consented to receive marketing messages.
+
+#### Conditions for Sending Messages to Non-Friends
+
+Sending messages to non-friends (targeting M and N) requires that all of the following conditions are met:
+
+* Business-verified channel
+* Business registration number registered
+* Channel customer service phone number registered
+* More than 50,000 channel friends
+* History of successful AlimTalk message delivery within the last 3 months
+
+### Friend-Targeted Delivery
+
+Friend-targeted delivery sends messages to all KakaoTalk channel friends. An 080 opt-out number is not required.
+
+## Register 080 Opt-Out Number
+
+When sending messages to customers (targeting M, N, O), you must register an 080 opt-out number in the sender profile.
+
+* The 080 opt-out number is applied collectively to all sender profiles of other organizations, other projects, and other dealers using the same KakaoTalk channel.
+* You can manage opt-out information for the 080 opt-out number by integrating with the NHN Cloud SMS service.
+
+## Nighttime Delivery Restrictions
+
+Brand messages are advertising messages, so sending them is restricted during nighttime hours in accordance with the Telecommunications Network Act.
+
+* Delivery restricted during night: 20:50~08:00 on the following day
+* If a delivery is requested during nighttime hours, it is either treated as a failure or resent after the restriction period ends, depending on the detailed settings.
+
+## Caution
+
+Brand messages are advertising messages, so you must comply with the following:
+
+* You must display **(ad)** at the beginning of any message that contains advertising content.
+* The sender's name and contact information must be placed above the message body.
+* The message must clearly specify the measures and methods by which recipients can easily opt out or withdraw their consent to receive messages.
+* If opting out requires additional steps (such as logging in), this is considered a violation of the law because it makes opting out difficult.
+* If business certification is revoked, the permission to send messages to non-friends (targeting M, N) will be revoked.
