@@ -109,3 +109,29 @@ The inspection and review of AlimTalk template will be conducted directly by Kak
 * You can delete only templates with Request/Return status.
 * The returned template can be re-registered after **Delete**.
 * Deleted template code can be reused.
+
+#### Brand message templates
+Unlike AlimTalk templates, brand message templates do not go through a review process and can be created, modified, and deleted freely.
+
+* Select a sender profile and register a template.
+* Template codes are not entered by users; instead, Kakao assigns a random identifier.
+* Select a message type and compose the content.
+    * Supported message types: Text, Image, Wide Image, Wide Item List, Carousel Feed, Premium Video, Commerce, Carousel Commerce
+* You can register buttons.
+    * Supported button types: Web Link, App Link, Bot Keyword, Message Delivery, Bot for Consultation, Bot Transfer, Business Form, Channel Added
+* You can register coupons.
+* To attach an image, you must register the image first.
+
+#### Public Alim Talk Templates
+Public Alim Talk templates are templates created, reviewed, and published directly by Kakao. All businesses can use them in common, and they are not tied to a specific sender profile. Because they are provided with Kakao's review already complete, you can use them for sending immediately without a separate review request.
+
+* Auto registration
+    * When you register a sender profile, public Alim Talk templates are automatically synchronized and displayed in the console. When new public templates are published on Kakao, they are automatically synchronized on a periodic basis.
+    * Public Alim Talk templates are automatically classified under the **Kakao** category. Because the system creates and manages this category, you cannot modify or delete it directly.
+* Usage restrictions
+    * Because public Alim Talk templates are managed by Kakao, you cannot modify or delete them in the console.
+    * You cannot move public Alim Talk templates to a regular category, or move regular templates to the **Kakao** category.
+* Sending
+    * Because public Alim Talk templates are not tied to a specific sender profile, you must manually select the sender profile to use when sending.
+    * At least one active sender profile must be registered.
+    * Because the review is already complete, you can send immediately without waiting for review.
