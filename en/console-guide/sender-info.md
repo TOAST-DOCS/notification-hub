@@ -269,7 +269,7 @@ Amazon device messaging (ADM) authentication must be configured to send push mes
 
 ## Manage Sender Profiles
 
-To send AlimTalk or brand messages, you must register a KakaoTalk sender profile.
+To send AlimTalk and brand messages, you must register a KakaoTalk sender profile.
 
 <span id="sender-profile-prerequisites"></span>
 
@@ -277,11 +277,11 @@ To send AlimTalk or brand messages, you must register a KakaoTalk sender profile
 
 ### Prerequisites
 
-To register a sender profile, a KakaoTalk channel must be created. Create a KakaoTalk channel on the KakaoTalk website.
+To register a sender profile, you must first create a KakaoTalk channel. Create a KakaoTalk channel on the KakaoTalk website.
 
 * [Go to Create KakaoTalk Channel](https://center-pf.kakao.com/)
 
-To register a sender profile, business verification must be completed after registering the KakaoTalk channel.
+To register a sender profile, you must complete business verification after registering a KakaoTalk channel.
 
 For information on how to create a sender profile, refer to **Service Policy and Prerequisites > AlimTalk/Brand Messages**.
 
@@ -291,15 +291,18 @@ For information on how to create a sender profile, refer to **Service Policy and
 
 <a id="register-sender-profile"></a>
 
-### Register Sender Profile
+### Register a Sender Profile
 
 1. Click **+ Register Sender Profile**.
 2. Set the sender profile ID, administrator mobile number, and category, then click **Request Token**.
 3. Enter the 6-digit token number sent to the administrator's mobile phone.
-4. Click **Confirm > Register** to complete sender profile registration.
+4. Click **Confirm > Register** to complete the sender profile registration.
 
 !!! danger "Caution"
-**The default maximum daily delivery count for AlimTalk is 1,000**. To change the maximum daily delivery count, contact [Customer Center](https://www.nhncloud.com/kr/support/inquiry).
+    The default maximum daily delivery count for AlimTalk is 1,000. To change the maximum daily delivery count, contact [Customer Center](https://www.nhncloud.com/kr/support/inquiry).
+
+!!! danger "Caution"
+    Brand messages can only be sent as **advertising (AD) messages**. When sending to customers (Targeting M, N, O), **registering an 080 opt-out number in the sender profile is required**.
 
 <span id="manage-sender-profile-group"></span>
 
@@ -322,7 +325,7 @@ Click **Go to Kakao Statistics** in the sender profile details to view Kakao sta
 * Real-time statistics are not provided. Data collected the previous day is provided daily at around 7 AM.
 * AlimTalk statistics are first provided on D+1 and finalized on D+2.
 * Valid opens are not counted more than once for the same message.
-* Clicks are counted multiple times for the same message.
+* Clicks are counted more than once for the same message.
 * If the number of successful deliveries is 10 or fewer, valid opens and clicks are not provided.
 
 <a id="delivery-statistics"></a>
@@ -337,7 +340,7 @@ Retrieves the daily delivery count, valid opens, and clicks by sender profile. Y
 
 Retrieves the daily delivery count, valid opens, and clicks by template and group tag. You can query by setting conditions such as period and message type.
 
-* Brand message free format is provided only when a group tag is used.
+* The free-form type for brand messages is only available when a group tag is used.
 
 <span id="manage-group-tag"></span>
 
@@ -348,10 +351,30 @@ Retrieves the daily delivery count, valid opens, and clicks by template and grou
 Group tags are identification tags used when querying template statistics for brand messages. Click the **Group Tag Management** tab in the new **Go to Kakao Statistics** window to manage group tags.
 
 !!! danger "Caution"
-Group tags can only be used for brand messages. AlimTalk is not applicable.
+    Group tags can only be used with brand messages. They do not apply to AlimTalk.
 
 * Click **+ Register Group Tag** to enter a group tag name and register it.
-* Select the checkbox of the group tag to modify or delete, and click **Modify Group Tag** or **Delete Group Tag**.
+* Select the checkbox of the group tag that you want to modify or delete, then click **Modify Group Tag** or **Delete Group Tag**.
+
+<span id="brandmessage-customer-sending-application"></span>
+
+### Apply to Use Customer Sending
+
+To use customer sending for brand messages, you must submit an application. Without an application, you cannot use customer sending (Targeting M, N, O).
+
+1. Click **Apply to Use Customer Sending** in the sender profile details.
+2. Upload a file containing evidence of consent to receive advertising information.
+    * Evidence files are stored per KakaoTalk channel. If updated, the file is applied to all sender profiles of other dealers using the same channel.
+    * If a file uploaded by another dealer already exists, you can submit the application without uploading a file.
+3. The application is approved if all of the following conditions are met:
+    * Business-verified channel
+    * Business registration number registered
+    * Channel customer center phone number registered
+    * At least 50,000 channel friends
+    * A history of successful AlimTalk deliveries within the last 3 months
+
+!!! danger "Caution"
+    If business verification is revoked, your permission to use customer sending is also revoked. You must reapply after business verification is re-approved.
 
 <span id="delete-sender-profile"></span>
 
@@ -361,7 +384,7 @@ Group tags can only be used for brand messages. AlimTalk is not applicable.
 
 You can delete a registered sender profile.
 
-1. Select the checkbox of the sender profile to delete.
+1. Select the checkbox of the sender profile that you want to delete.
 2. Click **Delete Sender Profile**.
 
 <span id="manage-080-unsubscription-number"></span>
