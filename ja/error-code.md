@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > エラーコード**
 
+<a id="error-code-list"></a>
+
 ## エラーコード一覧
 
 | カテゴリ | 成功可否 (isSuccessful) | 結果コード (resultCode) | 結果メッセージ (resultMessage) |
