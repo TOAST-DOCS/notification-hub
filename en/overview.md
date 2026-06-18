@@ -13,48 +13,46 @@ It is a cloud-based integrated messaging platform that sends and manages push, e
 
 ![Overall structure](../img/overview_800.png)
 
-## Key Features
-
-<!-- TODO: translate body -->
+## Main features
 
 <a id="multichannel-messaging"></a>
 
-### Multichannel messaging
+### Multi-channel messaging
 
-* Sends messages to 6 messaging channels: SMS, Alim Talk, RCS, Email, and Push.
-  * Uses a single API to integrate and manage multiple message channels for easy sending
+* Sends messages to six messaging channels: SMS, Alim Talk, Branded Message, RCS, Email, and Push.
+    * Uses a single API to integrate and manage multiple message channels for easy sending.
 
 <a id="address-book"></a>
 
-### Address Book
+### Address book
 
-* Organizes your receivers' contacts (email, phone number, token).
-  * Categorizes receivers by group
-  * You can prevent unnecessary sending of messages by managing receiver's Unsubscription history.
+* Organizes your recipients' contacts (email, phone number, token).
+    * Allows you to manage recipients in groups.
+    * Allows you to prevent unnecessary sending by managing opt-out records.
 
 <a id="template"></a>
 
 ### Template
 
-* Adds and manages templates for all message channels.
-  * With templates, you can reduce repetitive message creation and easily send out messages consistently.
+* Allows you to register and manage templates for all message channels.
+    * With templates, you can reduce repetitive message creation and make it easy to send out messages consistently.
 
 <a id="flow"></a>
 
 ### Flow
 
-* Creates a flow with pre-defined templates
-  * Sends messages simultaneously to maximum 6 channels with a flow, and automatically sends messages to the next channel in the preset send order when a message fails to be received due to device status.
-  * Depending on how the message channel is prioritized, it can be used for a variety of purposes, such as increasing reception ratio or saving delivery costs.
+* Allows you to create a flow using pre-registered templates.
+    * Sends messages simultaneously to a maximum of 6 channels with a flow, and automatically sends messages to the next channel in the preset send order when a message fails to be received due to device status.
+    * You can use this feature for various purposes, such as increasing delivery rates or reducing sending costs, depending on how you set the priority of message channels.
 
 <a id="mass-delivery"></a>
 
-### Mass Delivery
+### Mass delivery
 
-* Sends messages to multiple receivers at once.
-  * Uploads a receiver file
-  * Uploads an Excel file with a list of receivers for sending.
-  * Distinguishes between valid and invalid receivers of an uploaded Excel file.
+* Allows you to send messages to multiple recipients at once.
+    * Recipient file upload
+        * Uploads an Excel file with a list of recipients for sending.
+        * Distinguishes between valid and invalid recipients in the uploaded Excel file.
 
 <a id="guide-to-sharing-resource-and-feature-settings-between-notification-services"></a>
 
