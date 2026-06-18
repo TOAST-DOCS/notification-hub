@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=65b610526e63 -->
+<!-- pre-align:aligned sig=bfbbe9a63c62 -->
 
 <!-- 新しいフォーマットのために追加されたstyleです。 -->
 <style>
