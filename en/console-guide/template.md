@@ -12,6 +12,8 @@
 
 <span id="template"></span>
 
+<a id="section-1"></a>
+
 ## Template
 
 You can save frequently used messages or messages that require a certain format as a template and set up the saved template to send messages when you send them. For example, if you template frequently used messages, such as customer support, notice items, notifications, or marketing messages, you only need to modify and send parts of the information without having to write the same thing each time.
@@ -119,6 +121,8 @@ Brand message templates, unlike AlimTalk templates, do not go through a review p
     * Supported button types: Web Link, App Link, Bot Keyword, Message Delivery, Bot for Consultation, Bot Transfer, Business Form, Channel Added
 * You can register coupons.
 * To attach an image, you must first register the image.
+
+<a id="template-1"></a>
 
 #### Public Alim Talk Templates
 Public Alim Talk templates are templates that Kakao directly creates, reviews, and makes available to the public. All businesses can use them in common, and they are not tied to a specific sender profile. Because Kakao's review has already been completed, you can use them for sending immediately without a separate review request.
