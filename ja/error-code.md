@@ -479,5 +479,979 @@
 
 ## 受信結果コード
 
-<!-- TODO: translate body -->
+| カテゴリ | 成功可否 (isSuccessful) | 結果コード (resultCode) | 結果メッセージ (resultMessage) |
+| --- | --- | --- | --- |
+| 共通 | true | 00000000 | 成功 |
+| 共通 | false | 00999999 | その他のエラー |
+| 共通 | false | 09000000 | 送信取消 |
+| SMS | false | 11100001 | 広告送信制限時間により、メッセージの送信に失敗しました。 |
+| SMS | false | 11100002 | 重複送信制限により、メッセージの送信に失敗しました。 |
+| SMS | false | 11902023 | 件名または本文に許可されていない文字セットが含まれているため、メッセージの送信に失敗しました。 |
+| SMS | false | 11902044 | 該当国では国際送信が許可されていないため、メッセージの送信に失敗しました。 |
+| SMS | false | 11902045 | 国際送信が無効になっているため、メッセージの送信に失敗しました。 |
+| SMS | false | 11902047 | 国際送信の月間許可件数を超過したため、メッセージの送信に失敗しました。 |
+| SMS | false | 11902049 | ホワイトリスト設定により、メッセージの送信に失敗しました。 |
+| SMS | false | 11902051 | コンバージョン率の問題により、メッセージの送信に失敗しました。 |
+| SMS | false | 11902052 | 組織別送信量制限により、メッセージの送信に失敗しました。 |
+| SMS | false | 11906001 | 受信拒否により、メッセージの送信に失敗しました。 |
+| SMS | false | 12000002 | フローの順次送信処理中にエラーが発生し、メッセージの送信に失敗しました。 |
+| SMS | false | 12000003 | メッセージ送信の準備中にエラーが発生し、メッセージの送信に失敗しました。 |
+| SMS | false | 12100911 | 添付ファイルに拡張子がないため、メッセージの送信に失敗しました。 |
+| SMS | false | 12100913 | 添付ファイルのサイズが 0 のため、メッセージの送信に失敗しました。 |
+| SMS | false | 12909999 | システムエラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 13004001 | シグネチャ形式エラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 13004002 | 発信番号エラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 13004003 | 受信番号エラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 13100900 | その他のエラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 16001001 | サーバーが混雑しているため、メッセージの送信に失敗しました。 |
+| SMS | false | 16001002 | 受信番号の形式が正しくないため、メッセージの送信に失敗しました。 |
+| SMS | false | 16001003 | 発信番号の形式が正しくないため、メッセージの送信に失敗しました。 |
+| SMS | false | 16001004 | キャリアエラーによりメッセージが削除されたため、メッセージの送信に失敗しました。 |
+| SMS | false | 16001019 | TTL 超過により、メッセージの送信に失敗しました。 |
+| SMS | false | 16002000 | 送信時間が超過したため、メッセージの送信に失敗しました。 |
+| SMS | false | 16002001 | 無線ネットワークの問題により、メッセージの送信に失敗しました。 |
+| SMS | false | 16002002 | 無線ネットワークから端末へメッセージが届かなかったため、メッセージの送信に失敗しました。 |
+| SMS | false | 16002004 | キャリアと端末間のメッセージバッファが満杯になったため、メッセージの送信に失敗しました。 |
+| SMS | false | 16002006 | メッセージが削除されたため、メッセージの送信に失敗しました。 |
+| SMS | false | 16003000 | メッセージを送信できないため、メッセージの送信に失敗しました。 |
+| SMS | false | 16003009 | メッセージ形式エラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 16003011 | サーバーエラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 16003012 | スパムとして分類されたため、メッセージの送信に失敗しました。 |
+| SMS | false | 16003013 | サービスからメッセージの送信が拒否されました。 |
+| SMS | false | 16003014 | その他の理由により、メッセージの送信に失敗しました。 |
+| SMS | false | 16003016 | 添付ファイルのサイズ制限を超過したため、メッセージの送信に失敗しました。 |
+| SMS | false | 16004004 | 一時的な端末の問題により、メッセージの送信に失敗しました。 |
+| SMS | false | 16004005 | 加入者が存在しないため、メッセージの送信に失敗しました。 |
+| SMS | false | 16004006 | 受信者エラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 16004007 | キャリアエラーまたはブロックにより、メッセージの送信に失敗しました。 |
+| SMS | false | 16004008 | スパムとして分類されたため、メッセージの送信に失敗しました。 |
+| SMS | false | 16004009 | 一時的なネットワークエラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 16004010 | 異常な送信パターンにより、メッセージの送信に失敗しました。 |
+| SMS | false | 16100915 | 重複したメッセージにより、メッセージの送信に失敗しました。 |
+| SMS | false | 16100919 | 送信制限時間であるか、メッセージの再送信が禁止されているため、メッセージの送信に失敗しました。 |
+| SMS | false | 16100999 | その他のエラーにより、メッセージの送信に失敗しました。 |
+| SMS | false | 17002003 | 端末の電源がオフのため、メッセージの送信に失敗しました。 |
+| SMS | false | 17002005 | 圏外エリアにより、メッセージの送信に失敗しました。 |
+| SMS | false | 17002007 | 一時的な端末の問題により、メッセージの送信に失敗しました。 |
+| SMS | false | 17003001 | 加入者が存在しないため、メッセージの送信に失敗しました。 |
+| SMS | false | 17003003 | 受信番号の形式エラーまたは存在しない番号により、メッセージの送信に失敗しました。 |
+| SMS | false | 17003004 | 端末サービスが一時停止されているため、メッセージの送信に失敗しました。 |
+| SMS | false | 17003005 | 端末が通話処理中のためメッセージが届かず、メッセージの送信に失敗しました。 |
+| SMS | false | 17003006 | 着信が拒否されたため、メッセージの送信に失敗しました。 |
+| SMS | false | 17003008 | その他の端末の問題により、メッセージの送信に失敗しました。 |
+| SMS | false | 17003010 | MMS をサポートしていない端末のため、メッセージの送信に失敗しました。 |
+| SMS | false | 17003017 | 発信番号改ざん防止サービスにより番号の形式が正しくないため、メッセージの送信に失敗しました。 |
+| SMS | false | 17003018 | 発信番号改ざん防止サービスに登録された携帯電話の個人番号のため、メッセージの送信に失敗しました。 |
+| SMS | false | 17003019 | KISA または科学技術情報通信部によりブロックされた発信番号のため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901000 | 無効な appKey により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901001 | 無効な secretKey により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901002 | 無効な SMS appkey により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901003 | 無効な SMS Sendno により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901004 | すでに登録済みのプラスチャンネルのため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901005 | 直近10分以内に同じ 'X-NC-API-IDEMPOTENCY-KEY' が使用されたため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901006 | プラスチャンネルに senderKey が存在しないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901010 | プラスチャンネルグループが存在しないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901013 | すでに存在するプラスチャンネルグループのため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901014 | アクティブ状態でないプラスチャンネルのため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901016 | 該当する requestId または recipientSeq に一致するメッセージが見つからないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901017 | 1日の最大メッセージ数を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901018 | すでに追加済みのプラスチャンネルのため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901019 | 無効な SMS UnSubscribeno により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901020 | 無効な uuid により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901022 | グループに追加されていないプラスチャンネルのため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901023 | プラスチャンネルグループの最大サイズが10を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901024 | 発信者グループはメッセージを送信できないため、失敗しました。 |
+| ALIMTALK | false | 21901025 | 発信者グループは削除できないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901026 | グループの最大メンバー数 (5000人) を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901027 | 発信者がブロックされているため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901028 | テンプレートの値が14文字を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901029 | ブラックリストの発信者はグループに参加できないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21901030 | 本人認証が必要なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902000 | '{}' は {} 以下である必要があるため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902001 | '{}' は空白にできないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902002 | '{}' は null にできないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902003 | '{}' は {} 以上である必要があるため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902004 | '{}' は {} と {} の間である必要があるため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902005 | '{}' は {} 以下である必要があるため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902017 | プラスチャンネルが存在しないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902018 | ボタンパラメーターが無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902019 | テンプレートパラメーターの置換内容が1000文字を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902023 | 'content' が長すぎます (画像使用時は最大400文字)。メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902024 | 'content' が長すぎます (画像未使用時は最大1000文字)。メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902025 | 過去の日付ではメッセージを送信できないため、失敗しました。`requestDate` を確認してください。 |
+| ALIMTALK | false | 21902026 | 90日以降の日付ではメッセージを送信できないため、失敗しました。`requestDate` を確認してください。 |
+| ALIMTALK | false | 21902027 | 'requestDate' の形式が無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902028 | 'requestId' が無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902029 | キャンセルするメッセージがないか、条件を満たしていないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902030 | 'content' が長すぎます (wide-image使用時は最大76文字)。メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902031 | 'buttons' が多すぎます (wide-image使用時は最大2個)。メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902032 | テンプレートパラメーターで置換される templateTitle が50文字を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902033 | TemplateItem パラメーターが無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902034 | TemplateItemHighlight パラメーターが無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902035 | templateHeader が16文字を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902036 | TemplateRepresentLink パラメーターが無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902037 | 'content' が長すぎます (templateItem使用時は最大700文字)。メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902500 | 大量メッセージリクエストが見つからないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902501 | 送信リクエストの期限切れにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902502 | プラスチャンネルの再送信設定が必要なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902504 | quickReplies パラメーターが無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21902505 | 'buttons' が多すぎます (quickReplies使用時は最大2個)。メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903000 | テンプレートに WL (webLink) がある場合、linkMo が入力されていないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903001 | templateCode または templateName がすでに存在するため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903002 | フィールドが無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903003 | テンプレートが存在しないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903004 | テンプレートパラメーターが無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903005 | テンプレートのステータスが無効なため、メッセージの送信に失敗しました。(承認/却下ステータスを確認してください) |
+| ALIMTALK | false | 21903006 | linkMo/linkPc に http:// または https:// がないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903007 | テンプレートに AL (appLink) がある場合、schemeAndroid、schemeIos、linkMo のうち2つ以上が不足しているため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903008 | ボタン名に置換パラメーターが含まれているため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903009 | 存在しないボタン名により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903010 | 内容がテンプレートと一致しないため、メッセージの送信に失敗しました。(再送信設定時に SMS で代替可能) |
+| ALIMTALK | false | 21903011 | ボタン/quickReplies がテンプレートと一致しないため、メッセージの送信に失敗しました。(再送信設定時に SMS で代替可能) |
+| ALIMTALK | false | 21903012 | テンプレートのステータスが TSC03/APPROVE または TSC04/REJECT でなければ編集できないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903013 | すでに編集中のテンプレートが存在するため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903014 | ボタンタイプが無効なため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903015 | プラスチャンネルで CBT 機能の使用が許可されていないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903016 | emphasizeType が 'TEXT' のテンプレートには templateTitle と templateSubtitle がないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903017 | templateSubtitle に置換パラメーターが含まれているため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903018 | messageType が 'EX' のテンプレートには templateExtra がないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903020 | messageType が 'MI' のテンプレートには templateExtra がないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903021 | templateExtra に置換パラメーターが含まれているため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903024 | AC タイプのボタンは templateMessageType (AD/MI) 以外では使用できないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903025 | AC タイプのボタンは単独または最上位に配置する必要がありますが、この条件に違反したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903026 | AC タイプのボタン名に「チャンネル追加」が含まれていないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903027 | emphasizeType が 'NONE' のテンプレートに templateTitle または templateSubtitle があるため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 21903028 | messageTypeが'BA'のテンプレートにtemplateExtraが含まれているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903030 | messageTypeが'AD'のテンプレートにtemplateExtraが含まれているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903032 | emphasizeTypeが'IMAGE'のテンプレートにtemplateImageName、templateImageUrlがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903033 | テンプレートに該当するボタン/quickReplyが存在しないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903034 | 最近送信されたメッセージがあるためテンプレートを削除できず、メッセージ送信に失敗しました。 (requestId: {}) |
+| ALIMTALK | false | 21903035 | emphasizeTypeが'ITEM_LIST'のテンプレートに必要な項目がないため、メッセージ送信に失敗しました。 (templateImageInfo、templateHeader、templateItemなど) |
+| ALIMTALK | false | 21903036 | emphasizeTypeが'ITEM_LIST'のテンプレートはセキュリティテンプレートにできないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903037 | templateItemのtitleに置換パラメーターが含まれているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903038 | templateItemのsummary titleに置換パラメーターが含まれているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903039 | templateItemリストなしにsummaryのみ存在することはできないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903040 | サムネイルありのitemHighlightのtitle(最大21文字)またはdescription(最大13文字)の制限を超えたため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903041 | imageUrlにhttp://またはhttps://がないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903042 | templateHeaderがテンプレートと一致しないため、メッセージ送信に失敗しました。 (再送信時はSMSで代替) |
+| ALIMTALK | false | 21903043 | templateItemまたはtemplateItemHighlightがテンプレートと一致しないため、メッセージ送信に失敗しました。 (再送信時はSMSで代替) |
+| ALIMTALK | false | 21903044 | BFタイプのボタンは最上部に配置する必要がありますが、これに違反したためメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903045 | 'BF'リンクタイプのボタンにはbizFormKeyが必要であり、ボタン名は「トークで予約する」、「トークでアンケートに答える」、「トークで応募する」のいずれかである必要がありますが、これに違反したため失敗しました。 |
+| ALIMTALK | false | 21903046 | templateRepresentLinkがテンプレートと一致しないため、メッセージ送信に失敗しました。 (再送信時はSMSで代替) |
+| ALIMTALK | false | 21903047 | templateTitleおよびtemplateItemHighlightのtitleが空白で終わっているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903048 | テンプレートパラメーターの長さが1000文字を超えたため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903049 | テンプレートパラメーターがテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903050 | templateMessageType(AD/MI)にACタイプのボタンが含まれている必要がありますが、欠落しているためメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903100 | 登録済み/完了済みのテンプレート状態ではコメントの追加ができないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903101 | 存在しないquickReply名のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903102 | quickReply名に置換パラメーターが含まれているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903103 | ボタン/quickReplyの形式が無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903200 | Friendtalk wideアイテムにタイトルがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903201 | Friendtalk wideアイテムに画像がないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903202 | Friendtalk wideアイテムにlinkMoがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903203 | Friendtalk wideアイテムには最低3〜4件のリストとヘッダーが必要ですが、欠落しているためメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903204 | Friendtalk carouselにはヘッダーがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903205 | Friendtalk carouselにはメッセージがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903206 | Friendtalk carouselには添付ファイルがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903207 | Friendtalk carouselには画像がないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903208 | Friendtalk carouselのアイテム数(2〜10件、またはintro含む場合は1〜10件)が正しくないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903209 | Friendtalk carousel tailにlinkMoがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903210 | Friendtalkクーポンにタイトルと説明がないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903211 | 友だちトークのテキスト/画像タイプの場合はクーポン説明が最大12文字、wide-image/item-listは最大18文字の制限を超えたため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903212 | Friendtalkクーポンのタイトルが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903213 | Friendtalkにはモバイルリンクまたは iOS/Android チャンネルリンクがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903215 | Friendtalk wideアイテム/カルーセルはADタイプのみ送信可能ですが、条件に違反したためメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903216 | 1番目のwideアイテムのタイトルは25文字以下、2〜4番目のwideアイテムは30文字以下の制限を超えたため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903217 | Friendtalkのボタン数(基本5件以下/クーポン時は4件以下/wide使用時は2件以下/ビデオ時は1件以下/commerce時は1〜2件)が正しくないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903218 | FriendtalkビデオURLが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903219 | 'content'が長すぎる(video使用時は最大76文字)ため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903220 | 'header'が長すぎる(video使用時は最大20文字)ため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903221 | Friendtalk carousel(feedタイプ)に'head'フィールドが含まれているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903222 | Friendtalk carousel(feedタイプ)に'additionalContent'フィールドが含まれているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903223 | Friendtalk carousel(feedタイプ)には'commerce'フィールドを含めることができないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903224 | Friendtalk carousel(commerceタイプ)には'header'、'message'フィールドを含めることができないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903225 | Friendtalk carouselのボタン数(feed最大2件、commerce 1〜2件)が正しくないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903226 | commerceに'discountPrice'がある場合、'discountRate'または'discountFixed'のいずれかが必要ですが、欠落しているためメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903300 | 退会番号が見つからないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903301 | 退会済みの受信者が見つからないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903302 | マーケティング同意メッセージはテキスト/画像/ワイド画像/carousel feed/プレミアムビデオタイプのみ使用可能なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904000 | 無効なパラメーターのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904001 | すでに有効化済みのappkeyのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904002 | 無効化済みのappkeyのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904003 | 31日以内のみ検索可能なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904004 | 存在しないappkeyのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904005 | 無効化状態のappkeyのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904006 | appkeyにsender keyがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904007 | ファイルサイズが{}未満のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904008 | ファイルサイズは20MB未満である必要がありますが、これを超えたためメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904009 | ファイルの拡張子が無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904010 | ファイルが見つからないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904011 | 受信者リストが見つからないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904012 | 最大受信者数(10,000名)を超えたため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904013 | jpg/jpeg拡張子のみアップロード可能なため、他の拡張子によりメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904014 | ファイルにrecipient_noヘッダーがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904015 | requestIdが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904016 | データが存在しないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904017 | 90日以前のメッセージは検索できないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904018 | 添付ファイルのアップロードエラーにより、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904019 | 無効な受信者番号のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904020 | ファイルの読み取り失敗により、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904021 | ファイルサイズは10MB未満である必要がありますが、これを超えたためメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904022 | データのエクスポートに失敗したため、メッセージ送信ができませんでした。 |
+| ALIMTALK | false | 21904023 | 製品を無効化するにはすべての送信者を削除する必要がありますが、条件を満たしていないためメッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904024 | 休眠テンプレートの解除に失敗したため、メッセージ送信ができませんでした。 |
+| ALIMTALK | false | 21904025 | 一度に最大20件のテンプレートのみアップロード可能なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904026 | アップロードされたテンプレートのヘッダーが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904027 | AD/MIタイプの変換失敗: 'buttons'の長さが最大値を超えたため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904028 | AD/MIタイプの変換失敗: テンプレートが承認状態ではないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904101 | 無効な検索パラメーターのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904103 | RequestIdまたはstartRequestDate/endRequestDateが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904104 | RequestId値が空のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21904200 | 再送信メッセージが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21905000 | 無効なRecipientNoのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21907000 | ベンダー API リクエスト失敗により、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908000 | 'imageSeq'が空のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908001 | アップロードされた画像が無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908002 | 必要な画像(例: carousel-feed用またはcommerce用)がないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908003 | 画像の削除失敗により、メッセージ送信ができませんでした。 |
+| ALIMTALK | false | 21908004 | 'createUser'の長さが100文字を超えたため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908005 | プロジェクトにプラスフレンドがないため、メッセージ送信に失敗しました。 (先にプラスフレンドを登録してください) |
+| ALIMTALK | false | 21908006 | 内容に認証案内が含まれていないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908007 | ストレージ設定が空のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908008 | 内容に禁止ワードが含まれているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908009 | このプロジェクトはすでに共有済みのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908010 | 予期しないエラーにより画像のアップロードに失敗したため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21908011 | 画像タイプが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21909993 | 必要なリクエストパートが存在しないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21909994 | メソッド引数のタイプが想定と異なるため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21909995 | サポート終了バージョンのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21909996 | application/jsonのみサポートしているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21909997 | クライアントエラーのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21909998 | 存在しない APIのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 22000002 | フロー順次送信処理中にエラーが発生したため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 22000003 | メッセージ送信の準備中にエラーが発生したため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 22909999 | システムエラー(support@toast.com にお問い合わせください)により、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001001 | Request BodyがJSON形式ではないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001002 | ハブパートナーキーが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001003 | 送信プロフィールキーが無効なため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001004 | Request Body(JSON)にnameがないため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001006 | 削除済みの送信プロフィール(サポートセンターへのお問い合わせが必要)のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001007 | ブロック状態の送信プロフィール(サポートセンターへのお問い合わせが必要)のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001011 | 契約情報が見つからない(サポートセンターへのお問い合わせが必要)ため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001012 | 無効な形式のユーザーキーリクエストのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001013 | 無効なアプリ接続のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001014 | 無効な事業者番号のため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001015 | 無効な app user id リクエストのため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 23001016 | 事業者登録番号の不一致により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23001020 | 電話番号または app user id が無効か欠落しているため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23001021 | ブロック状態の KakaoTalk チャンネルにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23001022 | クローズ状態の KakaoTalk チャンネルにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23001023 | 削除済みの KakaoTalk チャンネルにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23001024 | 削除待機状態の KakaoTalk チャンネルにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23001025 | チャンネル制裁状態により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23001027 | チャンネルメッセージ制裁状態により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23001030 | 無効なパラメーターリクエストにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23002001 | メッセージの送信が不可能なため（予期しないエラー）、送信に失敗しました。 |
+| ALIMTALK | false | 23002003 | テストサーバーで KakaoTalk チャンネルが追加されていないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23002005 | Kakao 内部システムエラーにより画像情報を取得できず、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003000 | 予期しないエラーが発生したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003005 | メッセージを送信しましたが、受信が確認されていないため（成功不確実）、送信に失敗しました。 |
+| ALIMTALK | false | 23003006 | 内部システムエラーにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003008 | 電話番号エラーにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003010 | 予期しないエラーが発生したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003011 | メッセージが存在しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003012 | Kakao 通信障害により、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003013 | メッセージが空のため、送信に失敗しました。 |
+| ALIMTALK | false | 23003014 | メッセージ長制限エラーにより、送信に失敗しました。 |
+| ALIMTALK | false | 23003015 | テンプレートが見つからないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003016 | メッセージの内容がテンプレートと一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003018 | メッセージを送信できないため、失敗しました（Android 端末の SIM 番号と KakaoTalk 番号の不一致、非アクティブユーザー、制裁ユーザーなど）。 |
+| ALIMTALK | false | 23003019 | KakaoTalk ユーザーではないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003020 | お知らせトークの受信をブロックしている状態のため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003021 | KakaoTalk の最低バージョンをサポートしていないため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003022 | 送信可能時間外のため（友だちトークは 08 時〜20 時 50 分）、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003023 | メッセージの構文エラー（JSON 形式エラー）により、送信に失敗しました。 |
+| ALIMTALK | false | 23003024 | メッセージに含まれる画像を送信できないため（リンクエラーまたは規格違反）、失敗しました。 |
+| ALIMTALK | false | 23003025 | 変数の文字数制限を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003026 | サポート/ボット切り替えボタン（extra、event）の文字数制限を超過したため、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003027 | メッセージのボタン/クイック接続がテンプレートと一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003028 | メッセージの強調表示タイトルがテンプレートと一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003029 | メッセージの強調表示タイトルの長さが 50 文字を超過したため、送信に失敗しました。 |
+| ALIMTALK | false | 23003030 | メッセージタイプとテンプレートの強調タイプが一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003031 | ヘッダーがテンプレートと一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003032 | ヘッダーの長さが 16 文字を超過したため、送信に失敗しました。 |
+| ALIMTALK | false | 23003033 | アイテムハイライトがテンプレートと一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003034 | アイテムハイライトタイトルの文字数制限（画像なし 30 文字/画像あり 21 文字）を超過したため、送信に失敗しました。 |
+| ALIMTALK | false | 23003035 | アイテムハイライトの説明文字数制限（画像なし 19 文字/画像あり 13 文字）を超過したため、送信に失敗しました。 |
+| ALIMTALK | false | 23003036 | アイテムリストがテンプレートと一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003037 | アイテムリストの説明文字数制限（23 文字）を超過したため、送信に失敗しました。 |
+| ALIMTALK | false | 23003038 | アイテムサマリー情報がテンプレートと一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003039 | アイテムサマリー情報の説明文字数制限（14 文字）を超過したため、送信に失敗しました。 |
+| ALIMTALK | false | 23003040 | アイテムサマリー情報の説明に許可されていない文字が含まれているため、送信に失敗しました。（通貨記号/コード、数字、カンマ、小数点、スペース以外は不可） |
+| ALIMTALK | false | 23003041 | ワイドアイテムリストの数が最大/最小範囲外のため、送信に失敗しました。 |
+| ALIMTALK | false | 23003042 | 代表リンクがテンプレートと一致しないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003046 | 追加情報の最大文字数制限を超過したため、送信に失敗しました。 |
+| ALIMTALK | false | 23003047 | コマース情報の商品名文字数制限を超過したため、送信に失敗しました。 |
+| ALIMTALK | false | 23003048 | 無効なグループタグキーにより、メッセージの送信に失敗しました。 |
+| ALIMTALK | false | 23003051 | カルーセルアイテムリストの最小/最大数が合わないため、送信に失敗しました。 |
+| ALIMTALK | false | 23003052 | カルーセルアイテムのメッセージ長超過により、送信に失敗しました。 |
+| ALIMTALK | false | 23003056 | ワイドアイテムリストのタイトル文字数制限エラーにより、送信に失敗しました。 |
+| ALIMTALK | false | 23003058 | カルーセルヘッダーの文字数制限エラーにより、送信に失敗しました。 |
+| ALIMTALK | false | 23004000 | メッセージ送信結果が見つからないため、送信に失敗しました。 |
+| ALIMTALK | false | 23004001 | 不明なメッセージ状態により、送信に失敗しました。 |
+| ALIMTALK | false | 23009998 | システム障害が発生しており、担当者が確認中です。現在、メッセージの送信はできません。 |
+| ALIMTALK | false | 23009999 | 不明なシステムエラーにより、メッセージの送信に失敗しました。（担当者が確認中） |
+| FRIENDTALK | false | 31901000 | 無効な appKey により、メッセージの送信に失敗しました。 |
+| FRIENDTALK | false | 31901001 | 無効な secretKey により、メッセージの送信に失敗しました。 |
+| FRIENDTALK | false | 31901002 | 無効な SMS appkey により、メッセージの送信に失敗しました。 |
+| FRIENDTALK | false | 31901003 | 無効な SMS Sendno により、メッセージの送信に失敗しました。 |
+| FRIENDTALK | false | 31901004 | すでに登録済みのプラスフレンドのため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901005 | 直近 10 分以内に同じ 'X-NC-API-IDEMPOTENCY-KEY' が使用されているため、メッセージの送信に失敗しました。 |
+| FRIENDTALK | false | 31901006 | プラスフレンドに senderKey がないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901010 | プラスフレンドグループが存在しないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901013 | すでに存在するプラスフレンドグループのため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901014 | アクティブ状態でないプラスフレンドのため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901016 | 該当の requestId または recipientSeq に一致するメッセージが見つからないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901017 | 1 日あたりの最大メッセージ数を超過したため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901018 | すでに追加済みのプラスフレンドのため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901019 | 無効な SMS UnSubscribeno により、メッセージの送信に失敗しました。 |
+| FRIENDTALK | false | 31901020 | 無効な uuid により、メッセージの送信に失敗しました。 |
+| FRIENDTALK | false | 31901022 | グループに追加されていないプラスフレンドのため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901023 | プラスフレンドグループの最大サイズ（10）を超過したため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901024 | 送信者グループはメッセージを送信できないため、失敗しました。 |
+| FRIENDTALK | false | 31901025 | 送信者グループは削除できないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901026 | グループの最大メンバー数（5000 名）を超過したため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901027 | 送信者がブロックされているため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901028 | テンプレートの値が 14 文字を超過したため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901029 | ブラックリストの送信者はグループに参加できないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31901030 | 本人認証が必要なため、メッセージの送信に失敗しました。 |
+| FRIENDTALK | false | 31902000 | '{}' は {} 以下である必要があるため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902001 | '{}' は空白にできないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902002 | '{}' は null にできないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902003 | '{}' は {} 以上である必要があるため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902004 | '{}' は {} と {} の間である必要があるため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902005 | '{}' は {} 以下である必要があるため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902017 | プラスフレンドが存在しないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902018 | ボタンパラメーターが無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902019 | テンプレートパラメーターの置換内容が 1000 文字を超過したため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902023 | 'content' が長すぎるため（画像使用時は 400 文字以下）、送信に失敗しました。 |
+| FRIENDTALK | false | 31902024 | 'content' が長すぎるため（画像未使用時は 1000 文字以下）、送信に失敗しました。 |
+| FRIENDTALK | false | 31902025 | 過去の日付ではメッセージを送信できないため、失敗しました。（requestDate を確認してください） |
+| FRIENDTALK | false | 31902026 | 90 日以降の日付ではメッセージを送信できないため、失敗しました。（requestDate を確認してください） |
+| FRIENDTALK | false | 31902027 | 'requestDate' の形式が無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902028 | 'requestId' が無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902029 | キャンセルするメッセージがないか、条件が満たされていないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902030 | 'content' が長すぎるため（wide-image 使用時は最大 76 文字）、送信に失敗しました。 |
+| FRIENDTALK | false | 31902031 | 'buttons' が多すぎるため（wide-image 使用時は最大 2 個）、送信に失敗しました。 |
+| FRIENDTALK | false | 31902032 | テンプレートパラメーターで置換される templateTitle が 50 文字を超過したため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902033 | TemplateItem パラメーターが無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902034 | TemplateItemHighlight パラメーターが無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902035 | templateHeader が 16 文字を超過したため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902036 | TemplateRepresentLink パラメーターが無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902037 | 'content' が長すぎるため（templateItem 使用時は最大 700 文字）、送信に失敗しました。 |
+| FRIENDTALK | false | 31902500 | 大量メッセージリクエストが見つからないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902501 | 送信リクエストの期限切れにより、送信に失敗しました。 |
+| FRIENDTALK | false | 31902502 | プラスフレンドの再送信設定が必要なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902504 | quickReplies パラメーターが無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31902505 | 'buttons' が多すぎるため（quickReplies 使用時は最大 2 個）、送信に失敗しました。 |
+| FRIENDTALK | false | 31903000 | テンプレートに WL（webLink）があるが linkMo がないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903001 | templateCode または templateName がすでに存在するため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903002 | フィールドが無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903003 | テンプレートが存在しないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903004 | テンプレートパラメーターが無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903005 | テンプレートのステータスが無効なため、送信に失敗しました。（承認/却下状態を確認してください） |
+| FRIENDTALK | false | 31903006 | linkMo/linkPc に http:// または https:// がないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903007 | テンプレートに AL（appLink）があるが、schemeAndroid、schemeIos、linkMo のうち 2 つ以上が欠落しているため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903008 | ボタン名に置換パラメーターが含まれているため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903009 | 存在しないボタン名により、送信に失敗しました。 |
+| FRIENDTALK | false | 31903010 | 内容がテンプレートと一致しないため、送信に失敗しました。（再送信時は SMS での代替が可能です） |
+| FRIENDTALK | false | 31903011 | ボタン/quickReplies がテンプレートと一致しないため、送信に失敗しました。（再送信時は SMS での代替が可能です） |
+| FRIENDTALK | false | 31903012 | テンプレートの状態（TSC03: APPROVE または TSC04: REJECT）でなければ修正できないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903013 | すでに修正中のテンプレートが存在するため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903014 | ボタンタイプが無効なため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903015 | プラスフレンドで CBT 機能の使用が許可されていないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903016 | emphasizeType が 'TEXT' のテンプレートには templateTitle、templateSubtitle がないため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903017 | templateSubtitle に置換パラメーターが含まれているため、送信に失敗しました。 |
+| FRIENDTALK | false | 31903018 | messageType が 'EX' のテンプレートに templateExtra がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903020 | messageType が 'MI' のテンプレートに templateExtra がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903021 | templateExtra に置換パラメーターが含まれているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903024 | AC タイプのボタンは templateMessageType(AD/MI) でのみ使用可能ですが、この条件に違反しているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903025 | AC タイプのボタンは単独またはリストの先頭に配置する必要がありますが、この条件に違反しているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903026 | AC タイプのボタン名に「チャンネル追加」の文言がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903027 | emphasizeType が 'NONE' のテンプレートに templateTitle、templateSubtitle が存在するため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903028 | messageType が 'BA' のテンプレートに templateExtra があるため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903030 | messageType が 'AD' のテンプレートに templateExtra があるため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903032 | emphasizeType が 'IMAGE' のテンプレートに templateImageName、templateImageUrl がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903033 | テンプレートに該当するボタン/quickReply が存在しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903034 | 最近送信されたメッセージにより、テンプレートを削除できないため、メッセージ送信に失敗しました。(requestId: {}) |
+| FRIENDTALK | false | 31903035 | emphasizeType が 'ITEM_LIST' のテンプレートに必要な項目がないため、メッセージ送信に失敗しました。(templateImageInfo、templateHeader、templateItem など) |
+| FRIENDTALK | false | 31903036 | emphasizeType が 'ITEM_LIST' のテンプレートはセキュリティテンプレートにできないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903037 | templateItem の title に置換パラメーターが含まれているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903038 | templateItem の summary title に置換パラメーターが含まれているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903039 | templateItem リストなしに summary のみ存在することはできないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903040 | サムネイルがある itemHighlight の title（最大 21 文字）、description（最大 13 文字）の制限を超えているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903041 | imageUrl に http:// または https:// がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903042 | templateHeader がテンプレートと一致しないため、メッセージ送信に失敗しました。(再送信時は SMS 代替) |
+| FRIENDTALK | false | 31903043 | templateItem または templateItemHighlight がテンプレートと一致しないため、メッセージ送信に失敗しました。(再送信時は SMS 代替) |
+| FRIENDTALK | false | 31903044 | BF タイプのボタンはリストの先頭に配置する必要がありますが、この条件に違反しているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903045 | 'BF' リンクタイプのボタンは bizFormKey が必要で、ボタン名は「トークで予約する」「トークでアンケートに答える」「トークで応募する」のいずれかである必要がありますが、この条件に違反しているため失敗しました。 |
+| FRIENDTALK | false | 31903046 | templateRepresentLink がテンプレートと一致しないため、メッセージ送信に失敗しました。(再送信時は SMS 代替) |
+| FRIENDTALK | false | 31903047 | templateTitle および templateItemHighlight の title が空白で終わっているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903048 | テンプレートパラメーターの長さが 1000 文字を超えているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903049 | テンプレートパラメーターがテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903050 | templateMessageType(AD/MI) に AC タイプのボタンを含める必要がありますが、欠落しているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903100 | テンプレートが登録済み/完了状態のため、コメントの追加ができず、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903101 | 存在しない quickReply 名のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903102 | quickReply 名に置換パラメーターが含まれているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903103 | ボタン/quickReply の形式が有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903200 | Friendtalk wide アイテムにタイトルがないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903201 | Friendtalk wide アイテムに画像がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903202 | Friendtalk wide アイテムに linkMo がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903203 | Friendtalk wide アイテムに 3〜4 件のリストとヘッダーがないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903204 | Friendtalk carousel にヘッダーがないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903205 | Friendtalk carousel にメッセージがないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903206 | Friendtalk carousel に添付ファイルがないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903207 | Friendtalk carousel に画像がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903208 | Friendtalk carousel のアイテム数（2〜10 件、または commerce+intro を含む場合は 1〜10 件）が正しくないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903209 | Friendtalk carousel の tail に linkMo がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903210 | Friendtalk クーポンにタイトルと説明がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903211 | テキスト/画像タイプの友だちトークで、クーポンの説明が制限を超えているため、メッセージ送信に失敗しました。(デフォルト最大 12 文字、wide-image/wide-item-list は 18 文字) |
+| FRIENDTALK | false | 31903212 | Friendtalk クーポンのタイトルが有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903213 | Friendtalk にモバイルリンクまたは iOS/Android チャンネルリンクがないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903215 | Friendtalk wide アイテム/カルーセルは AD タイプでのみ送信可能ですが、この条件に違反しているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903216 | 1 番目の wide アイテムのタイトル（25 文字以下）または 2〜4 番目の wide アイテムのタイトル（30 文字以下）の制限を超えているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903217 | Friendtalk のボタン数（デフォルト 5 件以下/クーポン使用時 4 件以下/wide 使用時 2 件以下/video 使用時 1 件以下/commerce 使用時 1〜2 件）が正しくないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903218 | Friendtalk のビデオ URL が有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903219 | 'content' が長すぎるため（video 使用時最大 76 文字）、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903220 | 'header' が長すぎるため（video 使用時最大 20 文字）、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903221 | Friendtalk carousel（feed タイプ）に 'head' フィールドを含めることができないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903222 | Friendtalk carousel（feed タイプ）に 'additionalContent' フィールドを含めることができないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903223 | Friendtalk carousel（feed タイプ）に 'commerce' フィールドを含めることができないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903224 | Friendtalk carousel（commerce タイプ）に 'header'、'message' フィールドが含まれているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903225 | Friendtalk carousel のボタン数（feed 最大 2 件、commerce 1〜2 件）が正しくないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903226 | commerce に 'discountPrice' がある場合、'discountRate' または 'discountFixed' のいずれかが必要ですが、欠落しているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903300 | 退会番号が見つからないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903301 | 退会した受信者が見つからないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31903302 | マーケティング同意メッセージはテキスト/画像/ワイドイメージ/carousel feed/プレミアムビデオタイプでのみ送信可能なため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904000 | 無効なパラメーターのため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904001 | すでに有効化されている appkey のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904002 | 無効化された appkey のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904003 | 31 日以内のみ検索可能なため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904004 | 存在しない appkey のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904005 | 無効化された appkey のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904006 | appkey に sender key がないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904007 | ファイルサイズが {} 未満のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904008 | ファイルサイズが 20MB 未満である必要がありますが、超えているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904009 | ファイルの拡張子が有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904010 | ファイルが見つからないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904011 | 受信者リストが見つからないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904012 | 最大受信者数（10,000 名）を超えているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904013 | jpg/jpeg 拡張子のみアップロード可能なため、他の拡張子によりメッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904014 | ファイルに recipient_no ヘッダーがないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904015 | requestId が有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904016 | データが存在しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904017 | 90 日より前のメッセージは検索できないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904018 | 添付ファイルのアップロードエラーのため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904019 | 無効な受信者番号のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904020 | ファイルの読み取り失敗のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904021 | ファイルサイズが 10MB 未満である必要がありますが、超えているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904022 | データのエクスポートに失敗したため、メッセージ送信ができませんでした。 |
+| FRIENDTALK | false | 31904023 | 製品を無効化するにはすべての送信者を削除する必要がありますが、条件を満たしていないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904024 | 休眠テンプレートの解除に失敗したため、メッセージ送信ができませんでした。 |
+| FRIENDTALK | false | 31904025 | 一度にアップロードできるテンプレートは最大 20 件のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904026 | アップロードされたテンプレートのヘッダーが有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904027 | AD/MI タイプ変換失敗：'buttons' の長さが最大値を超えているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904028 | AD/MI タイプ変換失敗：テンプレートが承認状態でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904101 | 無効な検索パラメーターのため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904103 | RequestId または startRequestDate/endRequestDate が有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904104 | RequestId が空のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31904200 | 再送信メッセージが有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31905000 | 無効な RecipientNo のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31907000 | ベンダー API リクエストの失敗のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908000 | 'imageSeq' が空のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908001 | アップロードされた画像が有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908002 | 該当する画像が見つからないため、メッセージ送信に失敗しました。(carousel-feed 用は carousel タイプ、carousel-commerce 用は commerce タイプ、commerce は IMAGE タイプが必要) |
+| FRIENDTALK | false | 31908003 | 画像の削除失敗のため、メッセージ送信ができませんでした。 |
+| FRIENDTALK | false | 31908004 | 'createUser' の長さが 100 文字を超えているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908005 | プロジェクトにプラスチャンネルがないため、メッセージ送信に失敗しました。(先に登録が必要です) |
+| FRIENDTALK | false | 31908006 | 内容に認証案内が含まれていないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908007 | ストレージの設定が空のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908008 | 禁止ワードが含まれているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908009 | このプロジェクトはすでに共有されているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908010 | 予期しないエラーにより画像のアップロードに失敗したため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31908011 | 画像タイプが有効でないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31909993 | リクエストに必要なパートがないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31909994 | メソッドの引数タイプが想定と異なるため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31909995 | サポートが終了したバージョンのため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31909996 | application/json のみサポートされているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31909997 | クライアントエラーのため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 31909998 | 存在しない API のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 32000002 | フローの順次送信処理中にエラーが発生したため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 32000003 | メッセージ送信の準備中にエラーが発生したため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 32909999 | システムエラーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001001 | Request BodyがJSON形式ではないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001002 | ハブパートナーキーが有効ではないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001003 | 発信プロファイルキーが有効ではないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001004 | Request Body（JSON）にnameが存在しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001006 | 削除された発信プロファイル（カスタマーセンターへのお問い合わせが必要）により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001007 | ブロック状態の発信プロファイル（カスタマーセンターへのお問い合わせが必要）により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001011 | 契約情報が見つかりません（カスタマーセンターへのお問い合わせが必要）により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001012 | 無効な形式のユーザーキーリクエストにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001013 | 無効なアプリ接続により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001014 | 無効な事業者番号により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001015 | 無効なapp user idリクエストにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001016 | 事業者登録番号の不一致により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001020 | 電話番号またはapp user idが無効または欠落しているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001021 | ブロック状態のKakaoTalkチャンネルにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001022 | クローズ状態のKakaoTalkチャンネルにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001023 | 削除されたKakaoTalkチャンネルにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001024 | 削除待ち状態のKakaoTalkチャンネルにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001025 | チャンネル制裁状態により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001027 | チャンネルメッセージ制裁状態により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33001030 | 無効なパラメーターリクエストにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33002001 | メッセージ送信が不可能なため（予期しないエラー）、失敗しました。 |
+| FRIENDTALK | false | 33002003 | テストサーバーでKakaoTalkチャンネルが追加されていないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33002005 | カカオ内部システムエラーにより画像情報を取得できず、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003000 | 予期しないエラーが発生し、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003005 | メッセージを送信しましたが、受信が確認されないため（成功不確実）、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003006 | 内部システムエラーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003008 | 電話番号エラーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003010 | 予期しないエラーが発生し、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003011 | メッセージが存在しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003012 | カカオ通信失敗により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003013 | メッセージが空のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003014 | メッセージ長制限エラーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003015 | テンプレートが見つからないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003016 | メッセージ内容がテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003018 | メッセージを送信できないため、失敗しました。（AndroidデバイスでSIMカード番号とKakaoTalk使用番号が不一致、アクティブユーザーではない、制裁ユーザーなど） |
+| FRIENDTALK | false | 33003019 | KakaoTalkユーザーではないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003020 | お知らせトークの受信をブロックしている状態のため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003021 | KakaoTalkの最小バージョンをサポートしていないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003022 | 送信可能時間外のため（友だちトークは08時〜20時50分）、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003023 | メッセージの文法エラー（JSON形式）により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003024 | メッセージに含まれる画像を送信できないため（アドレス/リンクの問題または規格違反）、失敗しました。 |
+| FRIENDTALK | false | 33003025 | 変数の文字数制限を超えたため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003026 | 相談/ボット切り替えボタン（extra、event）の文字数制限を超えたため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003027 | メッセージのボタン/直接接続がテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003028 | メッセージの強調表記タイトルがテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003029 | メッセージの強調表記タイトルの長さ（50文字）を超えたため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003030 | メッセージタイプとテンプレートの強調タイプが一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003031 | ヘッダーがテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003032 | ヘッダーの長さ（16文字）制限を超えたため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003033 | アイテムハイライトがテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003034 | アイテムハイライトタイトルの長さ（画像なし30文字/画像あり21文字）制限を超えたため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003035 | アイテムハイライトのデスクリプションの長さ（画像なし19文字/画像あり13文字）制限を超えたため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003036 | アイテムリストがテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003037 | アイテムリストのデスクリプションの長さ（23文字）制限を超えたため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003038 | アイテム要約情報がテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003039 | アイテム要約情報のデスクリプションの長さ（14文字）制限を超えたため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003040 | アイテム要約情報のデスクリプションに許可されていない文字が含まれているため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003041 | ワイドアイテムリストの個数範囲が正しくないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003042 | 代表リンクがテンプレートと一致しないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003046 | 付加情報の長さ制限エラーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003047 | コマース情報の商品名の長さ制限エラーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003048 | 無効なグループタグキーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003051 | カルーセルアイテムリストの個数範囲が正しくないため、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003052 | カルーセルアイテムメッセージの長さ超過により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003056 | ワイドアイテムリストのタイトルの長さ制限エラーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33003058 | カルーセルヘッダーの長さ制限エラーにより、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33004000 | メッセージ送信結果が見つからないため、失敗しました。 |
+| FRIENDTALK | false | 33004001 | 不明なメッセージ状態により、メッセージ送信に失敗しました。 |
+| FRIENDTALK | false | 33009998 | システム障害が発生し、担当者が確認中です（サービス提供停止状態）。メッセージ送信はできません。 |
+| FRIENDTALK | false | 33009999 | 不明なシステムエラーにより、メッセージ送信に失敗しました。（担当者が確認中） |
+| RCS | false | 41903004 | 無効なstatsKeyIdにより、メッセージ送信に失敗しました。 |
+| RCS | false | 41904000 | ブランドが存在しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904001 | ブランドの状態が有効ではないため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904010 | チャットボットが存在しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904011 | チャットボットの状態が有効ではないため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904020 | テンプレートが存在しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904021 | テンプレートの状態が有効ではないため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904022 | サポートされていないテンプレートにより、メッセージ送信に失敗しました。 |
+| RCS | false | 41904023 | 広告が許可されていないテンプレートにより、メッセージ送信に失敗しました。 |
+| RCS | false | 41904024 | テンプレートパラメーターの入力が欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904025 | 無料テンプレートの本文長を超えたため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904040 | ブロックサービスが存在しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904041 | ブロックサービスの状態が有効ではないため、メッセージ送信に失敗しました。 |
+| RCS | false | 41904042 | ブロックされた受信者番号により、メッセージ送信に失敗しました。 |
+| RCS | false | 41909000 | 夜間広告送信時間制限により、メッセージ送信に失敗しました。 |
+| RCS | false | 42000002 | フロー順次送信処理中にエラーが発生し、メッセージ送信に失敗しました。 |
+| RCS | false | 42000003 | メッセージ送信準備中にエラーが発生し、メッセージ送信に失敗しました。 |
+| RCS | false | 42099999 | 内部サーバーエラー（発信者）により、メッセージ送信に失敗しました。 |
+| RCS | false | 42909999 | 内部サーバーエラー（バッチ）により、メッセージ送信に失敗しました。 |
+| RCS | false | 43072101 | パラメーターが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 43072102 | パラメーターの範囲エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 43072103 | パラメーターの形式エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 43072104 | 無効なパラメーターにより、メッセージ送信に失敗しました。 |
+| RCS | false | 43072108 | 重複リクエストにより、メッセージ送信に失敗しました。 |
+| RCS | false | 43072109 | 無効または期限切れのファイルにより、メッセージ送信に失敗しました。 |
+| RCS | false | 43072114 | パラメーターのサイズエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 43072115 | 許可されていないパラメーターにより、メッセージ送信に失敗しました。 |
+| RCS | false | 43072116 | 許可されていないパラメーターにより、メッセージ送信に失敗しました。 |
+| RCS | false | 43079999 | その他のエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46040001 | Authorizationヘッダーが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46040002 | トークンが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46040003 | 無効なトークンにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46040004 | トークンが期限切れのため、メッセージ送信に失敗しました。 |
+| RCS | false | 46040005 | トークンペイロードが無効なため、メッセージ送信に失敗しました。 |
+| RCS | false | 46040006 | 無効なクライアントIDにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46040007 | 権限スコープが不足しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041000 | 内部サーバーエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46041001 | RCSリクエストタイムアウトにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46041003 | メッセージ送信速度制限により、メッセージ送信に失敗しました。 |
+| RCS | false | 46041004 | RCSサーバーが混雑しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041005 | RCSサーバーが一時的に利用不可なため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041006 | セッションが存在しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041007 | キャンセル済み（キャンセル処理）により、メッセージ送信に失敗しました。 |
+| RCS | false | 46041008 | セッションがすでに期限切れのため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041100 | SUBSCRIBEタイムアウトにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46041101 | ユーザーが見つからないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041108 | メッセージリクエスト処理の実行中に失敗し、メッセージ送信に失敗しました。 |
+| RCS | false | 46041200 | メッセージの受信対象ユーザーが見つからないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041201 | メッセージの許可が不可能なため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041202 | メッセージがすでにキャンセルされているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46041250 | メッセージのコンテンツタイプを取得できないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042001 | 無効な状態により、メッセージ送信に失敗しました。 |
+| RCS | false | 46042002 | 無効なメッセージにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46042003 | 無効な日付/時刻形式により、メッセージ送信に失敗しました。 |
+| RCS | false | 46042004 | 連絡先が欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042005 | 無効な連絡先により、メッセージ送信に失敗しました。 |
+| RCS | false | 46042006 | エミュレーター専用アクセスにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46042007 | 連絡先がホワイトリストにないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042008 | メッセージコンテンツが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042009 | 無効なメッセージコンテンツにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46042010 | メッセージが曖昧なため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042011 | 無効なメッセージ状態により、メッセージ送信に失敗しました。 |
+| RCS | false | 46042012 | 無効なisTyping状態により、メッセージ送信に失敗しました。 |
+| RCS | false | 46042013 | 無効なトラフィックタイプにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46042014 | 推奨チップリストの関連付けが無効なため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042015 | テキストメッセージが空のため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042031 | リッチカードが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042032 | リッチカードが曖昧なため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042033 | リッチカードが多すぎるため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042034 | リッチカードのレイアウトが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042035 | リッチカードのコンテンツが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042036 | 無効なカードの向きにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46042037 | 画像の配置が欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46042038 | 無効な画像の配置により、メッセージ送信に失敗しました。 |
+| RCS | false | 46042039 | 重複した画像の配置により、メッセージ送信に失敗しました。 |
+| RCS | false | 46042040 | リッチカードカルーセルの cardWidth が無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042041 | メディアの高さの不一致により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042042 | リッチカードのコンテンツが無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042043 | 無効な提案 (suggestions) により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042044 | チップリストの提案が多すぎる (最大 11 個) ため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042045 | 無効な提案により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042046 | 提案が曖昧なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042047 | 提案されたアクションが曖昧なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042048 | リッチカード内の提案が多すぎる (最大 4 個) ため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042049 | 提案データが多すぎる (最大 2048) ため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042050 | 無効なアクションにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042051 | 無効な位置情報により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042052 | 位置情報が曖昧なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042053 | 無効なマップアクションにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042054 | マップアクションが曖昧なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042055 | 無効なダイヤルアクションにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042056 | ダイヤルアクションが曖昧なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042057 | 無効な Compose アクションにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042058 | Compose アクションが曖昧なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042059 | 無効な設定アクションにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042060 | 設定アクションが曖昧なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042061 | 無効なクリップボードアクションにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042062 | localBrowserAction が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042063 | 無効な共有アクションにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042064 | CalendarAction が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042065 | CalendarAction が無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042066 | CalendarAction のタイトルが範囲外 (1100 文字) のため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042067 | CalendarAction の説明が範囲外 (1500 文字) のため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042068 | ComposeAction で電話番号が不足しているか、テキストが範囲外 (1〜100 文字) のため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042069 | ComposeAction の音声/映像録音メッセージで電話番号が不足しているか、タイプエラー (AUDIO/VIDEO) のため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042070 | DeviceAction が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042071 | ダイヤルアクションの電話番号が不足しているか、タイトルの長さが上限 (60) を超えているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042072 | マップアクションで表示する位置が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042073 | urlAction の openUrl が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042100 | 無効なサムネイルにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042101 | fileUrl が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042102 | 音声の fileUrl が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042103 | pos が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042104 | メディア情報が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042105 | メディア情報が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042106 | メディア情報が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042107 | メディア情報が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042108 | postback データが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042200 | URI 形式が無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042201 | 位置情報が無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042202 | メディアコンテンツの説明が無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042203 | 無効なメディアタイトルにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042204 | 無効なメディアの説明により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042205 | リッチカードカルーセルのコンテンツが多すぎるため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042206 | 無効なメディアファイルサイズにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042207 | 有効期限の形式が無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042208 | 無効な有効期限により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042301 | Openrichcard が曖昧なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042302 | Openrichcard が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042303 | Openrichcard の Layout Widget が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042304 | Openrichcard の View コンテンツが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042305 | Openrichcard の LinearLayout コンテンツが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042306 | Openrichcard の Textview コンテンツが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042307 | Openrichcard の Textview コンテンツが無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042308 | Openrichcard の Textview テキスト長エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042309 | Openrichcard の Imageview コンテンツが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042310 | Openrichcard の Imageview のメディアサイズが小さすぎるため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042311 | Openrichcard の Imageview の Scaletype が無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042312 | Openrichcard の幅/高さが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042313 | Openrichcard の幅/高さが無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042314 | Openrichcard の共通コンテンツが無効なため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042315 | Openrichcard の子要素が多すぎるため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042401 | 無効なファイルタイプにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042402 | ダウンロードの失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042501 | 連絡先が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042502 | コンテンツが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042503 | タイトルが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042504 | 説明が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042505 | 画像 URL が不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042506 | 画像タイプが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042507 | ボタンリンクが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042508 | ボタンテキストが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042509 | 無効なタイトルにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042510 | 無効な説明により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042511 | 無効な画像 URL により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042512 | 無効なボタン URL により、メッセージの送信に失敗しました。 |
+| RCS | false | 46042513 | 無効なボタンテキストにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46042514 | メッセージ ID が重複しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042601 | リクエストが多すぎるため、メッセージの送信に失敗しました。 |
+| RCS | false | 46042602 | メッセージがフィルタリングされたため、送信に失敗しました。 |
+| RCS | false | 46045000 | 内部サーバーエラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46045001 | ボットデータの処理エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46045002 | 機能データの処理エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46045003 | XML データの処理エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46045004 | メッセージ情報キャッシュへのアクセス失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46045005 | チャット情報キャッシュへのアクセス失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46045006 | MaaP レジストリ用 HTTP クライアントの生成失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46045007 | ボット用 HTTP クライアントの生成失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46050000 | 新しい仕様に一致したため、メッセージの送信に失敗しました。(内部事由) |
+| RCS | false | 46050001 | Authorization ヘッダーが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46050002 | トークンが不足しているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46050003 | 無効なトークンにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46050004 | トークンの有効期限切れにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46050005 | 認証エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46050006 | 無効なクライアント ID により、メッセージの送信に失敗しました。 |
+| RCS | false | 46050007 | 無効な送信者 ID により、メッセージの送信に失敗しました。 |
+| RCS | false | 46050008 | 無効なパスワードにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46050009 | 許可されていない IP により、メッセージの送信に失敗しました。 |
+| RCS | false | 46050010 | 未払いのため、メッセージの送信ができません。 |
+| RCS | false | 46050011 | 代理店の製品権限エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46050012 | 代理店の API 権限エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46050100 | 無効なステータスにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46050101 | 禁止されているため、メッセージの送信に失敗しました。 |
+| RCS | false | 46050201 | メッセージの TPS を超過したため、送信に失敗しました。 |
+| RCS | false | 46050202 | メッセージのクォーターを超過したため、送信に失敗しました。 |
+| RCS | false | 46051003 | 重複エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051004 | パラメーターエラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051005 | JSON パースエラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051006 | データがないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051101 | 代理店キーが見つからないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051102 | 無効な代理店キーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051103 | ブランドキーが見つからないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051104 | 無効なブランドキーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051900 | ハンドラーが見つからないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051901 | サムスン MaaP Connect IF エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051902 | サムスン MaaP Service IF エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051903 | Capri IF エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051904 | Webhook が実行不可の状態のため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051905 | Webhook CDR ログの記録失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051906 | 無効な Webhook URL により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051907 | 期限切れの Webhook メッセージにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051908 | メッセージの再試行回数を超過したため、送信に失敗しました。 |
+| RCS | false | 46051909 | 存在しない Webhook メッセージにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051910 | 存在しない Webhook GW ベンダーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051911 | サブスクリプションがないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051912 | Webhook 送信の事前準備の失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051913 | Webhook 送信結果のステータス更新失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051914 | CDR 結果のステータス更新失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051915 | 完了結果のステータス更新失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051916 | 期限切れ結果のステータス更新失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051917 | Webhook メッセージログの生成エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051918 | Webhook メッセージログの生成失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051919 | 無効な Webhook 受信リクエストにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051920 | リクエストに該当するチャットボットがないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051921 | 使用不可状態のチャットボットエラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051922 | リクエストに該当する GW ベンダーがないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051923 | チャットボットに MO メッセージ URL が定義されていないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051924 | Webhook ゲートウェイの実行エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051925 | 許可されていないリクエストイベントエラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051926 | Webhook 受信の実行エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051927 | Webhook の非同期受信実行エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051928 | GW ベンダー Cid に対する Webhook URL が未定義のため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051929 | CDR ログ対象の GW ベンダーではないため、メッセージの送信に失敗しました。 |
+| RCS | false | 46051930 | 受信されなかった Webhook コマンドのエラーログにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051931 | MO メッセージ登録エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051932 | MO メッセージ登録失敗により、メッセージの送信に失敗しました。 |
+| RCS | false | 46051933 | 自動応答メッセージの送信エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051934 | サポートされていないサービスエラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051935 | サムスン MaaP Core ファイルサーバー接続エラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051936 | メッセージ FileMessage イベントのファイルダウンロードエラーにより、メッセージの送信に失敗しました。 |
+| RCS | false | 46051937 | メッセージ FileMessage イベントのファイルダウンロードエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46051938 | メッセージ FileMessage DB 登録エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46051939 | メッセージ FileMessage DB 登録エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46051950 | Webhook スケジューラーの非同期実行エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46051951 | Webhook スケジューラー DB 実行エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46051952 | Webhook スケジューラー DB 実行失敗により、メッセージ送信に失敗しました。 |
+| RCS | false | 46051953 | Webhook スケジューラーのプロセス実行エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46051954 | Webhook スケジューラーのプロセス実行失敗により、メッセージ送信に失敗しました。 |
+| RCS | false | 46051955 | Webhook スケジューラーのプロセッサー実行エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46051956 | Webhook スケジューラーのプロセッサー実行失敗により、メッセージ送信に失敗しました。 |
+| RCS | false | 46051957 | 存在しない MO メッセージエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46051958 | 未定義の Webhook スケジューラータイプエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46052001 | 無効な電話番号形式により、メッセージ送信に失敗しました。 |
+| RCS | false | 46052002 | 無効なメッセージステータスにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46052003 | ボットがすでに存在するため、メッセージ送信に失敗しました。 |
+| RCS | false | 46052004 | ボットの作成に失敗したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46052005 | ボットの更新に失敗したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46052006 | ブランドの削除に失敗したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46052007 | 無効なチャットボットサービスタイプにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46052008 | チャットボット ID が一致しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46052009 | 無効なチャットボットデータにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46052010 | 無効なボット代理店により、メッセージ送信に失敗しました。 |
+| RCS | false | 46052011 | ボット代理店が欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46052012 | 無効な永続メニューデータにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46052016 | メッセージ送信時間が超過したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46052023 | メッセージベース ID が一時停止されているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46052098 | 変更不可能なフィールドにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46052099 | 変更不可能なチャットボットにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46052108 | 応答イベント Postback 統計ログ DB エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46052109 | 応答イベント Postback 統計ログ DB 失敗により、メッセージ送信に失敗しました。 |
+| RCS | false | 46053001 | 無効なファイルタイプにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46053002 | ファイル属性エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46053003 | ファイル ID 形式エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46053004 | ファイルアップロードエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46053005 | 無効なマルチパートリクエストにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46053006 | 添付ファイルサイズエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46053007 | ファイル情報抽出エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46053008 | ファイルサイズ形式エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46054001 | 無効な連絡先ユーザー番号により、メッセージ送信に失敗しました。 |
+| RCS | false | 46054002 | RCS 機能がサポートされていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46054003 | 受信者へ送信できないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46054004 | 内部サーバーエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055001 | 企業コンテンツエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055002 | 無効なプロパティにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055101 | 代理店コンテンツエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055102 | 無効な代理店 ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055103 | 代理店 ID 権限エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055104 | 契約コンテンツエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055201 | ブランドコンテンツエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055202 | ブランド名エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055203 | ブランドプロフィール画像エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055204 | ブランド CS 番号エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055205 | ブランドメニューエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055206 | ブランドカテゴリーエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055207 | ブランドホームページエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055208 | ブランドメールエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055209 | ブランド住所エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055210 | 無効なブランド ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055301 | ボットコンテンツエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055302 | 無効なボット ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055304 | ボット ID 権限エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055501 | メッセージベースコンテンツエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055502 | 無効なメッセージベース ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055503 | メッセージベース ID 権限エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055504 | 無効な形式文字列により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055505 | 無効なメッセージベースポリシー情報により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055506 | 無効なメッセージベースパラメーターにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055507 | 無効なメッセージベースプロパティにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055508 | 無効なメッセージベースタイプにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055509 | 製品タイプの不一致により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055601 | メッセージベースフォームコンテンツエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055602 | 無効なメッセージベースフォーム ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055603 | 無効なメッセージベース製品コードにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055604 | メッセージベースに子レイアウトが多すぎるため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055621 | 自動応答メッセージ本文の JSON 形式エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055622 | 自動応答メッセージボタンの JSON 形式エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055701 | 禁止されたテキストコンテンツにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055702 | アクションボタン権限エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055703 | 禁止されたヘッダー値により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055704 | 禁止されたフッターフィールドにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055705 | フッターコンテンツが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055706 | フッターコンテンツの構文エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055707 | コンテンツパターンエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055708 | タイトルの最大文字数を超過したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055709 | 説明の最大文字数を超過したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055710 | ボタンの最大数を超過したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055711 | カルーセルカード数が一致しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055712 | メディアの最大サイズを超過したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055801 | GW ベンダーコンテンツエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055802 | 無効なメッセージにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055803 | メッセージ構文エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055804 | メッセージコンテンツが欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055805 | 無効なメッセージコンテンツにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055806 | MessageId が重複しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055807 | 無効なチャットボット権限により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055808 | 無効なチャットボットステータスにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055809 | 無効な代理店権限により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055810 | 有効期限フィールドが無効なため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055811 | パラメーターの最大文字数を超過したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055812 | 無効なリセラー ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055813 | ボタンテキストの長さを超過したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055814 | 無効なメッセージベースボタンにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055815 | メッセージ本文ファイルが見つからないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055816 | 提案数が一致しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055817 | 無効な宛先電話番号により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055818 | 無効なメッセージベース ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055819 | 無効なチャットボット ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055820 | メッセージがキャンセルされたため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055821 | その他のタイムアウトにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46055822 | メッセージがキャンセルされたため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055880 | 提案数が一致しないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055881 | 無効な応答 ID により、メッセージ送信に失敗しました。 |
+| RCS | false | 46055882 | 応答 ID が欠落しているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055883 | セッションメッセージに無効なメッセージベース製品コードが含まれているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055884 | セッションメッセージに無効なユーザー連絡先が含まれているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055885 | セッションメッセージに無効なチャットボット ID が含まれているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055886 | チップリストが許可されていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055887 | セッションメッセージに許可されていないチャットボットが含まれているため、メッセージ送信に失敗しました。 |
+| RCS | false | 46055900 | 無効なメッセージによりリトライ不可エラーが発生し、メッセージ送信に失敗しました。 |
+| RCS | false | 46056002 | キャンセルに失敗したため、メッセージ送信に失敗しました。 |
+| RCS | false | 46056007 | セッション確立前に期限切れとなったため、メッセージ送信に失敗しました。 |
+| RCS | false | 46059001 | システム IO エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46059002 | IO エラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46059003 | バックエンドタイムアウトにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46059202 | バックエンドエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46059203 | バックエンドタイムアウトにより、メッセージ送信に失敗しました。 |
+| RCS | false | 46059901 | サービス利用不可により、メッセージ送信に失敗しました。 |
+| RCS | false | 46059999 | その他のエラーにより、メッセージ送信に失敗しました。 |
+| RCS | false | 47041210 | ユーザーが TEXT 機能をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041211 | ユーザーが FT 機能をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041212 | ユーザーがリッチカード機能をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041220 | ユーザーが XBOTMESSAGE 1.0 をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041221 | ユーザーが XBOTMESSAGE 1.1 をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041222 | ユーザーが XBOTMESSAGE 1.2 をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041230 | ユーザーが OPENRICHARD 1.0 をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041231 | ユーザーが OPENRICHARD 1.1 をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041232 | ユーザーが OPENRICHARD 1.2 をサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47041240 | ユーザーが GEOLOCATION PUSH リクエストをサポートしていないため、メッセージ送信に失敗しました。 |
+| RCS | false | 47054006 | RCS に加入済みのお客様ですが、OPENRICHARD をサポートしていない端末のため、メッセージ送信に失敗しました。 |
+| EMAIL | false | 51100005 | 受信者がメール受信を拒否したため、送信に失敗しました。 |
+| EMAIL | false | 51100006 | 予約がキャンセルされたため、メール送信に失敗しました。 |
+| EMAIL | false | 51100007 | 送信ドメインが認証されていないため、メール送信に失敗しました。 |
+| EMAIL | false | 51100008 | ホワイトリストフィルタリングにより、メール送信に失敗しました。 |
+| EMAIL | false | 52000002 | フロー順次送信処理中にエラーが発生し、メッセージ送信に失敗しました。 |
+| EMAIL | false | 52000003 | メッセージ送信準備中にエラーが発生し、メッセージ送信に失敗しました。 |
+| EMAIL | false | 52100003 | メール送信に失敗しました。 |
+| EMAIL | false | 56100002 | 受信SMTPサーバーでバウンス処理されたため、メール送信に失敗しました。 |
+| PUSH | false | 61100004 | メッセージ形式エラーにより、プッシュ送信に失敗しました。 |
+| PUSH | false | 61100005 | 登録済みの証明書/API Key の認証に失敗したため、プッシュ送信に失敗しました。 |
+| PUSH | false | 61100006 | 登録済みの証明書/API Key の認証に失敗したため、プッシュ送信に失敗しました。 |
+| PUSH | false | 61100014 | 重複送信防止機能により、重複メッセージの送信に失敗しました。 |
+| PUSH | false | 62000002 | フロー順次送信処理中にエラーが発生し、メッセージ送信に失敗しました。 |
+| PUSH | false | 62000003 | メッセージ送信準備中にエラーが発生し、メッセージ送信に失敗しました。 |
+| PUSH | false | 62100007 | メッセージ内部の TTL が超過したため、プッシュ送信に失敗しました。 |
+| PUSH | false | 62100009 | (使用されていないコードです。) |
+| PUSH | false | 62100012 | 内部エラーにより、プッシュ送信に失敗しました。 |
+| PUSH | false | 62100014 | サポートされていないメッセージタイプのため、プッシュ送信に失敗しました。 |
+| PUSH | false | 62109999 | 内部エラーのため、プッシュ送信に失敗しました。 |
+| PUSH | false | 63100008 | APNSエラーレスポンスのため、プッシュ送信に失敗しました。 |
+| PUSH | false | 63100009 | FCMエラーレスポンスのため、プッシュ送信に失敗しました。 |
+| PUSH | false | 63100011 | ADMエラーレスポンスのため、プッシュ送信に失敗しました。 |
+| PUSH | false | 64100001 | 該当トークンが受信拒否状態のため、プッシュ送信に失敗しました。 |
+| PUSH | false | 67100002 | 登録された連絡先がないため、プッシュ送信に失敗しました。 |
+| PUSH | false | 67100003 | トークンが有効期限切れのため、プッシュ送信に失敗しました。 |
+| PUSH | false | 67100013 | プッシュトークンの保管期間（最大2年）満了によりトークンが削除され、送信に失敗しました。 |
 
