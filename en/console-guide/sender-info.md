@@ -358,6 +358,8 @@ Group tags are identification tags used when querying template statistics for br
 
 <span id="brandmessage-customer-sending-application"></span>
 
+<a id="apply-to-use-customer-sending"></a>
+
 ### Apply to Use Customer Sending
 
 To use customer sending for brand messages, you must submit an application. Without an application, you cannot use customer sending (Targeting M, N, O).
