@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > 오류 코드**
 
+<a id="error-code-list"></a>
+
 ## 오류 코드 목록
 
 | 카테고리 | 성공 여부(isSuccessful) | 결과 코드(resultCode) | 결과 메시지(resultMessage) |
