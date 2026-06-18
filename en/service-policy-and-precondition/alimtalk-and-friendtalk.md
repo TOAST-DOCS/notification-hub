@@ -68,13 +68,19 @@ Brand Message is a KakaoTalk Bizmessage product that allows you to send advertis
 * Both template sending and free-form sending are available.
 * If Brand Message sending fails, you can send a text message instead.
 
+<a id="create-profile"></a>
+
 ## Create Profile
 
 Brand messages use the same KakaoTalk sender profile as AlimTalk. For information on how to create a sender profile, refer to **AlimTalk > Create Profile** above.
 
+<a id="recipients-and-targeting"></a>
+
 ## Recipients and targeting
 
 Brand messages are divided into customer-targeted sending and friend-targeted sending based on the recipient type.
+
+<a id="sending-to-customers"></a>
 
 ### Sending to customers
 
@@ -86,6 +92,8 @@ For more information about the customer-targeted sending application, see **Cons
 * **N**: Sends advertising messages to users who have given marketing consent, excluding channel friends.
 * **O**: Sends advertising messages to channel friends among users who have given marketing consent.
 
+<a id="requirements-for-sending-messages-to-non-friends"></a>
+
 #### Requirements for sending messages to non-friends
 
 To send messages to non-friends (targeting M and N), all of the following conditions must be met:
@@ -96,9 +104,13 @@ To send messages to non-friends (targeting M and N), all of the following condit
 * More than 50,000 channel friends
 * History of successfully sending AlimTalk messages within the last 3 months
 
+<a id="sending-to-friends"></a>
+
 ### Sending to friends
 
 Friend-targeted sending sends messages to all KakaoTalk channel friends. You do not need to register an 080 opt-out number.
+
+<a id="register-080-opt-out-number"></a>
 
 ## Register 080 Opt-Out Number
 
@@ -107,12 +119,16 @@ When sending messages to customers (targeting M, N, O), you must register an 080
 * The 080 opt-out number is applied to all sender profiles of other organizations, projects, and dealers under the same KakaoTalk channel.
 * You can manage opt-out settings for the 080 opt-out number by linking it with the NHN Cloud SMS service.
 
+<a id="night-delivery-restriction"></a>
+
 ## Night delivery restriction
 
 Brand messages are advertising messages, so sending is restricted during nighttime hours according to the Telecommunications Network Act.
 
 * Restricted hours: 20:50 to 08:00 the following day
 * If a delivery is requested during nighttime hours, it will either be processed as a failure or resent after the restriction period ends, depending on the detailed settings.
+
+<a id="precautions-2"></a>
 
 ## Precautions
 
