@@ -15,15 +15,15 @@ Manage attachments and image layouts.
 
 ## Attachment Management
 
-You can pre-register and manage files to attach when sending messages.
+You can pre-register and manage attachments to be included when sending messages.
 
 * Click **+ Upload Attachment**.
-* In the Upload Attachment pop-up, select the message channel to use the attachment for.
-* Click **Select File** and choose a file.
+* In the Upload Attachment popup, select the message channel for which you want to use the attachment.
+* Click **Select File** and select a file.
 * Click **Save** to upload the file.
-* If the uploaded file is not suitable for the selected message channel, the upload will fail and the reason for failure will be displayed.
+* If the file you upload is not compatible with the selected message channel, the upload will fail and the reason for the failure will be displayed.
 
-The retention period for attachments is 7 days. Attachments used in templates are stored until the template is deleted.
+Attachments have a 7-day retention period, and attachments used in a template are kept until the template is deleted.
 You can also manage attachments uploaded when registering templates and sending messages.
 
 
@@ -31,13 +31,19 @@ You can also manage attachments uploaded when registering templates and sending 
 
 ### Attachment Specifications by Message Channel
 
-| Message Channel | Type             | File Format                                               | Max File Size | Resolution                           | Ratio                          |
-| ----------- | ---------------- | ------------------------------------------------------- | ------------- | -------------------------------- | ----------------------------- |
-| SMS         | MMS              | .jpg, .jpeg                                             | 300KB         | Width 1000px, Height 1000px or less    |                               |
-| RCS         | MMS              | .jpg, .jpeg, .png, .gif, .bmp                           | 1MB           |                                  |                               |
-| Alimtalk      | Image           | .jpg, .png                                              | 500KB         | Width 500px or more                  | (2:1)                         |
-| Alimtalk      | Item List    | .jpg, .png                                              | 500KB         | Width 108px or more                  | (1:1)                         |
-| Email       | -                | All formats except .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr | 30MB          |                                  |                               |
+| Message Channel | Type | File Format | Max File Size | Resolution | Ratio |
+| --- | --- | --- | --- | --- | --- |
+| SMS | MMS | .jpg, .jpeg | 300KB | Up to 1000px wide and 1000px tall | |
+| RCS | MMS | .jpg, .jpeg, .png, .gif, .bmp | 1MB | | |
+| Alim Talk | Image | .jpg, .png | 500KB | At least 500px wide | (2:1) |
+| Alim Talk | Item list | .jpg, .png | 500KB | At least 108px wide | (1:1) |
+| Brand Message | Image (basic/wide) | .jpg, .png | 5MB | At least 500px wide | (2:1) ~ (3:4) |
+| Brand Message | Wide image | .jpg, .png | 5MB | At least 500px wide | (2:1) ~ (1:1) |
+| Brand Message | Wide item list (first) | .jpg, .png | 5MB | At least 500px wide | (2:1) |
+| Brand Message | Wide item list (others) | .jpg, .png | 5MB | At least 500px wide | (1:1) |
+| Brand Message | Carousel feed | .jpg, .png | 5MB | At least 500px wide | (2:1) ~ (3:4) |
+| Brand Message | Carousel commerce | .jpg, .png | 5MB | At least 500px wide | (2:1) ~ (3:4) |
+| Email | - | All formats except .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr | 30MB | | |
 
 <a id="image-layout-management"></a>
 
