@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > エラーコード**
 
+<a id="list-of-error-codes"></a>
+
 ## エラーコードリスト
 
 | isSuccessful | resultCode | resultMessage                                                                                                                   |
