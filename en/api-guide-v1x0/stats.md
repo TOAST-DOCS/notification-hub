@@ -1,13 +1,13 @@
 <!-- pre-align:aligned sig=ec416b7f4d48 -->
 
-<!-- 새로운 양식을 위해 추가된 style 입니다. -->
+<!-- Style added for the new layout. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
         display: inline !important;
     }
 </style>
 
-<!-- 새로운 양식을 위해 제목을 <h1>로 변경하였습니다. -->
+<!-- The title has been changed to <h1> for the new layout. -->
 <h1>Statistics</h1>
 
 **Notification > Notification Hub > API v1.0 User Guide > Statistics**
@@ -16,9 +16,9 @@
 
 <span id="statsV1x0001ReadStats"></span>
 
-## Query Statistics
+## Get Statistics
 
-Retrieve statistical events based on the event timestamp.<br>
+Retrieves statistics events based on the time the events occurred.<br>
 
 
 **Request**
@@ -29,46 +29,46 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**Request Parameter**
+**Request Parameters**
 
-| Name | Category | Type | Required | Description |
+| Name | Type | Format | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
-| eventCategory | Query  | V1x0EventCategory | Y | Event category  |
-| messageChannel | Query  | V1x0MessageChannel | N | The message channel. If left blank, statistics for all channels are retrieved. In this case, the event category is restricted to 'MESSAGE_SEND'.<br>  |
-| statsKeyId | Query  | String | N | Statistics key ID.  |
-| messageId | Query  | String | N | Message ID.  |
-| templateId | Query  | String | N | Template ID.  |
-| eventDateTimeFrom | Query  | Date | N | Start timestamp for statistics (inclusive). Applied up to the minute. Seconds and milliseconds are ignored.<br> e.g., \"2023-12-31T00:00:30.999+09:00\" is treated as \"2023-12-31T00:00:00.000+09:00\".  |
-| eventDateTimeTo | Query  | Date | N | End timestamp for statistics (exclusive). Applied up to the minute. Seconds and milliseconds are ignored.<br> e.g., \"2024-01-01T00:00:30.999+09:00\" is treated as \"2024-01-01T00:00:00.000+09:00\".  |
-| statsType | Query  | V1x0StatsType | N | Statistics type<br> - MINUTELY: Groups data by minute (0–59)<br> - HOURLY: Groups data by hour (0–23)<br> - DAILY: Groups data by day of the month (1–30)<br> - BY_DAY_OF_WEEK: Groups data by day of the week (Mon–Sun)<br> e.g., If set statsType to BY_DAY_OF_WEEK, a 30-day data range will be aggregated into 7 groups, one for each day of the week.  |
-| timeZone | Query  | String | N | Specifies the timezone for statistics (e.g., Asia/Seoul, UTC) <br> Set this to your local or browser timezone to ensure data is correctly grouped and displayed according to your local time. Set this to your local or browser timezone. This ensures that time-based grouping (e.g., daily statistics) accurately reflects your local time and prevents data discrepancies across different regions.  |
-| statsCriteria | Query  | List | N | Query criteria. Options are dynamically updated based on the selected event category.<br>  |
-| extra1 | Query  | String | N | Additional data collected.  |
-| extra2 | Query  | String | N | Additional data collected.  |
-| extra3 | Query  | String | N | Additional data collected.  |
+| X-NC-APP-KEY | Header | String | O | Appkey |
+| X-NHN-Authorization | Header | String | O | Access token |
+| eventCategory | Query | Enum | O | Event category |
+| messageChannel | Query | Enum | X | Message channel. If not set, statistics data is retrieved for all message channels, and the event category can only be set to message sending (MESSAGE_SEND).<br> |
+| statsKeyId | Query | String | X | Statistics key ID. |
+| messageId | Query | String | X | Message ID. |
+| templateId | Query | String | X | Template ID. |
+| eventDateTimeFrom | Query | DateTime | X | Start date and time (inclusive) for retrieving statistics events. Applied up to year, month, day, hour, and minute. Seconds and milliseconds are not used.<br> Example: "2023-12-31T00:00:30.999+09:00" is processed as "2023-12-31T00:00:00.000+09:00". |
+| eventDateTimeTo | Query | DateTime | X | End date and time (exclusive) for retrieving statistics events. Applied up to year, month, day, hour, and minute. Seconds and milliseconds are not used.<br> Example: "2024-01-01T00:00:30.999+09:00" is processed as "2024-01-01T00:00:00.000+09:00". |
+| statsType | Query | Enum | X | Statistics type<br> - MINUTELY: Grouped between 0 and 59 minutes<br> - HOURLY: Grouped between 0 and 23 hours<br> - DAILY: Grouped between 0 and 30 days<br> - BY_DAY_OF_WEEK: Grouped by day of the week (Monday through Sunday)<br> Example: If statsType is set to BY_DAY_OF_WEEK, even if you retrieve 30 days of data, the data is grouped by day of the week (Monday through Sunday). |
+| timeZone | Query | String | X | Time zone for statistics retrieval. Examples: Asia/Seoul, UTC, America/New_York<br> You can set the desired time zone when receiving data during statistics retrieval. In general, set the time zone of the client or browser performing the query.<br> For example, if you retrieve statistics data grouped by day of the week from outside Korea, the data may not be returned as expected due to time zone differences. |
+| statsCriteria | Query | Array | X | Query criteria. The available query criteria vary depending on the configured event category.<br> |
+| extra1 | Query | String | X | Additional collected data. |
+| extra2 | Query | String | X | Additional collected data. |
+| extra3 | Query | String | X | Additional collected data. |
 
-* The configurable event categories depend on message channels.
+* The available event categories vary depending on the message channel.
 
-  | Message channel | Event category |
-    | --- | --- |
+  | Message Channel | Event Category |
+      | --- | --- |
   | SMS | MESSAGE_SEND, INTERNATIONAL_MESSAGE_SEND |
   | ALIMTALK, RCS, EMAIL, PUSH | MESSAGE_SEND |
-* The start date and time are inclusive, while the end date and time are exclusive.
-    * e.g., To retrieve data for January 1, 2025, set eventDateTimeFrom to 2025-01-01T00:00:00.000+09:00 and eventDateTimeTo to 2025-01-02T00:00:00.000+09:00.
-* Three additional fields (extra1, extra2, extra3) are provided for supplemental data collection.
-  The type of data collected in these additional fields varies depending on the configured event category.
+* The start date and time is included in the query period, and the end date and time is excluded from the query period.
+    * Example: To retrieve data for January 1, 2025, set eventDateTimeFrom to 2025-01-01T00:00:00.000+09:00 and eventDateTimeTo to 2025-01-02T00:00:00.000+09:00.
+* In addition to events, up to three additional fields (extra1, extra2, extra3) are provided for extra collected data.
+  The type of additional data collected varies depending on the configured event category.
 
-  | Event category | Additional data 1 | Additional data 2 | Additional data 3 |
-    | --- | --- | --- | --- |
-  | MESSAGE_SEND | Delivery type (SMS, LMS, MMS) | Delivery purpose (NORMAL, AUTH, AD) | Sender information (sender ID, sender domain, etc.) |
-  | INTERNATIONAL_MESSAGE_SEND | Delivery type (SMS, LMS, MMS, etc.) | Delivery purpose (NORMAL, AUTH, AD) | Sender information (sender ID, sender domain, etc.) |
+  | Event Category | Additional Data 1 | Additional Data 2 | Additional Data 3 |
+      | --- | --- | --- | --- |
+  | MESSAGE_SEND | Sending type (SMS, LMS, MMS, etc.) | Message purpose (NORMAL, AUTH, AD) | Sender information (sender number, sender domain, etc.) |
+  | INTERNATIONAL_MESSAGE_SEND | Sending type (SMS, LMS, MMS, etc.) | Message purpose (NORMAL, AUTH, AD) | Sender information (sender number, sender domain, etc.) |
 
 
 **Request Body**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!--If the API does not require a request body, enter "This API does not require a request body."-->
 
 This API does not require a request body.
 
@@ -76,7 +76,7 @@ This API does not require a request body.
 
 **Response Body**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!--If the API does not return a response body, enter "This API does not return a response body."-->
 
 ```
 {
@@ -114,17 +114,17 @@ This API does not require a request body.
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--Describes the fields in the response body.-->
 
-| Path | Type | Description |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | Indicates whether the operation was successful.<br>Default: true |
-| header.resultCode | Integer | The result code of the request.<br>Default: 0 |
-| header.resultMessage | String | The result message of the request.<br>Default: SUCCESS |
-| stats | Object | |
-| stats.columns | Array | Events for each event category are responded with columns.<br>The EVENT_DATE_TIME column indicates the date and time the event occurred.<br> |
-| stats.rows | Array | Except for the EVENT_DATE_TIME field, all other fields are responded with according to the event category.<br><br> |
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O | |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+| stats | Object | O | |
+| stats.columns | Array | O | Events for the event category are returned as columns.<br>The EVENT_DATE_TIME column indicates the date and time when the event occurred.<br> |
+| stats.rows | Array | O | All fields except EVENT_DATE_TIME are returned according to the event category.<br><br> |
 
 
 
@@ -135,15 +135,12 @@ This API does not require a request body.
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### Retrieve Statistics
+### Get Statistics
 
 GET {{endpoint}}/stats/v1.0/stats?eventCategory={{eventCategory}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -151,8 +148,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/stats/v1.0/stats?eventCategory=${eventCategory}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
