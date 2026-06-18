@@ -485,13 +485,13 @@
 |----------------|-----------|---------------------------------------------------------------------|
 | SMS| 11100001| Failed to send the message due to restricted marketing hours. |
 | SMS| 11100002| Failed to send the message because a duplicate delivery was detected. |
-| SMS| 11902045| Failed to send the message as international messaging is disabled. |
-| SMS| 11902044| Failed to send the message because international delivery is not allowed for this country. |
-| SMS| 11902047| Failed to send the message since the monthly international limit has been exceeded. |
-| SMS| 11902051| Failed to send the message due to conversion rate issues. |
-| SMS| 11902049| Failed to send the message as whitelist settings blocked it.|
-| SMS| 11902052| Failed to send the message because the organization's sending limit was reached.|
 | SMS| 11902023| Failed to send the message due to an unsupported character set in the subject or body. |
+| SMS| 11902044| Failed to send the message because international delivery is not allowed for this country. |
+| SMS| 11902045| Failed to send the message as international messaging is disabled. |
+| SMS| 11902047| Failed to send the message since the monthly international limit has been exceeded. |
+| SMS| 11902049| Failed to send the message as whitelist settings blocked it.|
+| SMS| 11902051| Failed to send the message due to conversion rate issues. |
+| SMS| 11902052| Failed to send the message because the organization's sending limit was reached.|
 | SMS| 11906001| Failed to send the message because the recipient has opted out. |
 | SMS| 12100911| Failed to send the message due to a missing file extension in the attachment.|
 | SMS| 12100913| Failed to send the message because the attachment file size is zero. |
@@ -540,76 +540,6 @@
 | SMS| 17003017| Failed to send the message due to an incorrect number format caused by anti-spoofing regulations.|
 | SMS| 17003018| Failed to send the message because the sender's number is a personal mobile line restricted by anti-spoofing policies.|
 | SMS| 17003019| Failed to send the message because the sender's number is blocked by Korean regulatory authorities such as KISA. |
-| ALIMTALK | 23001001| Failed to send the message as the request body is not in a valid JSON format. |
-| ALIMTALK | 23001002| Failed to send the message because the hub partner key is invalid.|
-| ALIMTALK | 23001003| Failed to send the message because the sender profile key is invalid.|
-| ALIMTALK | 23001004| Failed to send message because the "name" field is missing in the Request Body (JSON).|
-| ALIMTALK | 23001006| Failed to send the message as the "name" field is missing from the JSON request body.|
-| ALIMTALK | 23001007| Failed to send the message because the sender profile has been deleted (Please contact support). |
-| ALIMTALK | 23001011| Failed to send the message as no contract information was found (Please contact support).|
-| ALIMTALK | 23001012| Failed to send the message due to an incorrectly formatted user key request. |
-| ALIMTALK | 23001013| Failed to send the message because of an invalid app connection.|
-| ALIMTALK | 23001014| Failed to send the message due to an invalid business registration number.|
-| ALIMTALK | 23001015| Failed to send the message because of an invalid app user ID request. |
-| ALIMTALK | 23001016| Failed to send the message as the business registration number does not match our records. |
-| ALIMTALK | 23001020| Failed to send the message because the phone number or app user ID is missing or invalid.|
-| ALIMTALK | 23001021| Failed to send the message because the KakaoTalk channel is currently blocked.|
-| ALIMTALK | 23001022| Failed to send the message because the KakaoTalk channel is currently closed.|
-| ALIMTALK | 23001023| Failed to send the message because the KakaoTalk channel has been deleted.|
-| ALIMTALK | 23001024| Failed to send the message because the KakaoTalk channel is pending deletion. |
-| ALIMTALK | 23001025| Failed to send the message as the channel is under restricted status. |
-| ALIMTALK | 23001027| Failed to send the message as the channel's messaging privileges have been restricted. |
-| ALIMTALK | 23001030| Failed to send the message due to an invalid parameter request.|
-| ALIMTALK | 23002001| Failed to send the message due to an unexpected transmission error.|
-| ALIMTALK | 23002003| Failed to send the message because the KakaoTalk channel has not been added on the test server.|
-| ALIMTALK | 23002005| Failed to send the message because image data could not be retrieved due to an internal system error. |
-| ALIMTALK | 23003000| Failed to send the message because an unexpected error occurred.|
-| ALIMTALK | 23003005| Failed to send the message as delivery confirmation is unavailable, and success remains uncertain. |
-| ALIMTALK | 23003006| Failed to send the message due to an internal system error.|
-| ALIMTALK | 23003008| Failed to send the message because of an error with the phone number.|
-| ALIMTALK | 23003010| Failed to send the message as an unexpected system error has occurred.|
-| ALIMTALK | 23003011| Failed to send the message because the message content does not exist. |
-| ALIMTALK | 23003012| Failed to send the message due to a communication failure with the Kakao platform. |
-| ALIMTALK | 23003013| Failed to send the message because the message body is empty. |
-| ALIMTALK | 23003014| Failed to send the message because it exceeds the maximum length limit.|
-| ALIMTALK | 23003015| Failed to send the message as the specified template could not be found. |
-| ALIMTALK | 23003016| Failed to send the message because the content does not match the approved template.|
-| ALIMTALK | 23003018| Failed to send the message due to an Android device issue, such as a SIM number mismatch with KakaoTalk, an inactive account, or a restricted user.|
-| ALIMTALK | 23003019| Failed to send the message because the recipient is not a KakaoTalk user. |
-| ALIMTALK | 23003020| Failed to send the message as the recipient has blocked Alimtalk messages.|
-| ALIMTALK | 23003021| Failed to send the message because the KakaoTalk version is not supported (Minimum version required). |
-| ALIMTALK | 23003022| Failed to send the message as it is outside of the allowed hours (Friendtalk: 8 AM – 8:50 PM). |
-| ALIMTALK | 23003023| Failed to send the message due to a syntax error in the JSON request body. |
-| ALIMTALK | 23003024| Failed to send the message because the image could not be sent (Invalid link or specification violation). |
-| ALIMTALK | 23003025| Failed to send the message as the character limit for variables has been exceeded. |
-| ALIMTALK | 23003026| Failed to send the message because the character limit for switching buttons (extra, event) was exceeded.|
-| ALIMTALK | 23003027| Failed to send the message as the buttons or direct links do not match the template.|
-| ALIMTALK | 23003028| Failed to send the message because the emphasis title does not match the template. |
-| ALIMTALK | 23003029| Failed to send the message as the emphasis title exceeds the 50-character limit. |
-| ALIMTALK | 23003030| Failed to send the message because the message type does not match the template's emphasis type. |
-| ALIMTALK | 23003031| Failed to send the message as the header does not match the template. |
-| ALIMTALK | 23003032| Failed to send the message because the header exceeds the 16-character limit. |
-| ALIMTALK | 23003033| Failed to send the message as the item highlight does not match the template.|
-| ALIMTALK | 23003034| Failed to send the message because the item highlight title limit (30 chars w/o image, 21 chars w/ image) was exceeded. |
-| ALIMTALK | 23003035| Failed to send the message because the item highlight description limit (19 chars w/o image, 13 chars w/ image) was exceeded. |
-| ALIMTALK | 23003036| Failed to send the message as the item list does not match the template.|
-| ALIMTALK | 23003037| Failed to send the message because the item list description exceeds the 23-character limit. |
-| ALIMTALK | 23003038| Failed to send the message as the item summary does not match the template.|
-| ALIMTALK | 23003039| Failed to send the message because the item summary description exceeds the 14-character limit.|
-| ALIMTALK | 23003040| Failed to send the message because the item summary description contains invalid characters (Only currency symbols/codes, numbers, commas, decimals, and spaces allowed) |
-| ALIMTALK | 23003041| Failed to send the message as the number of wide item lists is outside the allowed range. |
-| ALIMTALK | 23003042| Failed to send the message because the represent link does not match the template. |
-| ALIMTALK | 23003046| Failed to send the message as the maximum length for supplementary information has been exceeded.|
-| ALIMTALK | 23003047| Failed to send the message because the product name in the commerce information exceeds the length limit. |
-| ALIMTALK | 23003048| Failed to send the message due to an invalid group tag key. |
-| ALIMTALK | 23003051| Failed to send the message as the number of carousel items is outside the allowed range. |
-| ALIMTALK | 23003052| Failed to send the message because the carousel item message length exceeds the limit. |
-| ALIMTALK | 23003056| Failed to send the message due to a length limit error for the wide item list title.|
-| ALIMTALK | 23003058| Failed to send the message because the carousel header exceeds the length limit.|
-| ALIMTALK | 23004000| Failed to send the message as the delivery result could not be found. |
-| ALIMTALK | 23004001| Failed to send the message due to an unknown message status.|
-| ALIMTALK | 23009998| Failed to send the message as a system issue is being investigated by our technical team.|
-| ALIMTALK | 23009999| Failed to send the message due to an unknown system error (Under investigation) |
 | ALIMTALK | 21901000| Failed to send the message due to an invalid appKey.|
 | ALIMTALK | 21901001| Failed to send the message due to an invalid secretKey. |
 | ALIMTALK | 21901002| Failed to send the message due to an invalid SMS appkey.|
@@ -796,76 +726,76 @@
 | ALIMTALK | 21909997| Failed to send the message due to a client-side error. |
 | ALIMTALK | 21909998| Failed to send the message because the API does not exist.|
 | ALIMTALK | 22909999| Failed to send the message due to a system error (Please contact support@toast.com).|
-| FRIENDTALK | 33001001| Failed to send the message as the request body is not in a valid JSON format. |
-| FRIENDTALK | 33001002| Failed to send the message because the hub partner key is invalid. |
-| FRIENDTALK | 33001003| Failed to send the message because the sender profile key is invalid. |
-| FRIENDTALK | 33001004| Failed to send the message because the 'name' field is missing from the JSON request body. |
-| FRIENDTALK | 33001006| Failed to send the message because the sender profile has been deleted (Contact support).|
-| FRIENDTALK | 33001007| Failed to send the message because the sender profile is blocked (Contact support).|
-| FRIENDTALK | 33001011| Failed to send the message because no contract information was found (Contact support).|
-| FRIENDTALK | 33001012| Failed to send the message due to an incorrectly formatted user key request. |
-| FRIENDTALK | 33001013| Failed to send the message because of an invalid app connection. |
-| FRIENDTALK | 33001014| Failed to send the message due to an invalid business registration number. |
-| FRIENDTALK | 33001015| Failed to send the message because of an invalid app user ID request. |
-| FRIENDTALK | 33001016| Failed to send the message as the business registration number does not match. |
-| FRIENDTALK | 33001020| Failed to send the message because the phone number or app user ID is invalid or missing.|
-| FRIENDTALK | 33001021| Failed to send the message because the KakaoTalk channel is currently blocked. |
-| FRIENDTALK | 33001022| Failed to send the message because the KakaoTalk channel is currently closed. |
-| FRIENDTALK | 33001023| Failed to send the message because the KakaoTalk channel has been deleted. |
-| FRIENDTALK | 33001024| Failed to send the message because the KakaoTalk channel is pending deletion.|
-| FRIENDTALK | 33001025| Failed to send the message as the channel is under restricted status. |
-| FRIENDTALK | 33001027| Failed to send the message as the channel's messaging privileges have been restricted. |
-| FRIENDTALK | 33001030| Failed to send the message due to an invalid parameter request. |
-| FRIENDTALK | 33002001| Failed to send the message due to an unexpected transmission error.|
-| FRIENDTALK | 33002003| Failed to send the message because the KakaoTalk channel has not been added to the test server.|
-| FRIENDTALK | 33002005| Failed to send the message because image data could not be retrieved due to a Kakao internal error. |
-| FRIENDTALK | 33003000| Failed to send the message because an unexpected error occurred. |
-| FRIENDTALK | 33003005| Failed to send the message as delivery confirmation is unavailable and success is uncertain. |
-| FRIENDTALK | 33003006| Failed to send the message due to an internal system error. |
-| FRIENDTALK | 33003008| Failed to send the message because of an error with the phone number. |
-| FRIENDTALK | 33003010| Failed to send the message as an unexpected error has occurred. |
-| FRIENDTALK | 33003011| Failed to send the message because the message content does not exist. |
-| FRIENDTALK | 33003012| Failed to send the message due to a communication failure with Kakao.|
-| FRIENDTALK | 33003013| Failed to send the message because the message body is empty.|
-| FRIENDTALK | 33003014| Failed to send the message because it exceeds the maximum length limit.|
-| FRIENDTALK | 33003015| Failed to send the message as the specified template could not be found. |
-| FRIENDTALK | 33003016| Failed to send the message because the content does not match the approved template.|
-| FRIENDTALK | 33003018| Failed to send the message as the recipient is inactive, restricted, or using an unmatched SIM on an Android device|
-| FRIENDTALK | 33003019| Failed to send the message because the recipient is not a KakaoTalk user.|
-| FRIENDTALK | 33003020| Failed to send the message as the recipient has blocked Alimtalk messages. |
-| FRIENDTALK | 33003021| Failed to send the message because the KakaoTalk version is not supported.|
-| FRIENDTALK | 33003022| Failed to send the message as it is outside of the allowed hours (Friendtalk: 8 AM–8:50 PM).|
-| FRIENDTALK | 33003023| Failed to send the message due to a syntax error in the JSON request body.|
-| FRIENDTALK | 33003024| Failed to send the message because the image could not be sent (Invalid URL/link or specification violation).|
-| FRIENDTALK | 33003025| Failed to send the message as the character limit for placeholders has been exceeded. |
-| FRIENDTALK | 33003026| Failed to send the message because the character limit for switching buttons (extra, event) was exceeded.|
-| FRIENDTALK | 33003027| Failed to send the message as the buttons or direct links do not match the template. |
-| FRIENDTALK | 33003028| Failed to send the message because the emphasis title does not match the template.|
-| FRIENDTALK | 33003029| Failed to send the message as the emphasis title exceeds the 50-character limit. |
-| FRIENDTALK | 33003030| Failed to send the message because the message type does not match the template's emphasis type. |
-| FRIENDTALK | 33003031| Failed to send the message as the header does not match the template. |
-| FRIENDTALK | 33003032| Failed to send the message because the header exceeds the 16-character limit. |
-| FRIENDTALK | 33003033| Failed to send the message as the item highlight does not match the template.|
-| FRIENDTALK | 33003034| Failed to send the message because the item highlight title limit (30 chars w/o image, 21 chars w/ image) was exceeded.|
-| FRIENDTALK | 33003035| Failed to send the message because the item highlight description limit (19 chars w/o image, 13 chars w/ image) was exceeded. |
-| FRIENDTALK | 33003036| Failed to send the message as the item list does not match the template.|
-| FRIENDTALK | 33003037| Failed to send the message because the item list description exceeds the 23-character limit.|
-| FRIENDTALK | 33003038| Failed to send the message as the item summary does not match the template.|
-| FRIENDTALK | 33003039| Failed to send the message because the item summary description exceeds the 14-character limit.|
-| FRIENDTALK | 33003040| Failed to send the message because the item summary description contains invalid characters. |
-| FRIENDTALK | 33003041| Failed to send the message as the number of wide item lists is outside the allowed range. |
-| FRIENDTALK | 33003042| Failed to send the message because the represent link does not match the template. |
-| FRIENDTALK | 33003046| Failed to send the message as the maximum length for supplementary information has been exceeded. |
-| FRIENDTALK | 33003047| Failed to send the message because the product name in the commerce information exceeds the length limit.|
-| FRIENDTALK | 33003048| Failed to send the message due to an invalid group tag key. |
-| FRIENDTALK | 33003051| Failed to send the message as the number of carousel items is outside the allowed range.|
-| FRIENDTALK | 33003052| Failed to send the message because the carousel item message length exceeds the limit. |
-| FRIENDTALK | 33003056| Failed to send the message due to a length limit error for the wide item list title. |
-| FRIENDTALK | 33003058| Failed to send the message because the carousel header exceeds the length limit. |
-| FRIENDTALK | 33004000| Failed to send the message as the delivery result could not be found. |
-| FRIENDTALK | 33004001| Failed to send the message due to an unknown message status. |
-| FRIENDTALK | 33009998| Failed to send the message as a system issue is being investigated and the service is temporarily suspended.|
-| FRIENDTALK | 33009999| Failed to send the message due to an unknown system error (Under investigation) |
+| ALIMTALK | 23001001| Failed to send the message as the request body is not in a valid JSON format. |
+| ALIMTALK | 23001002| Failed to send the message because the hub partner key is invalid.|
+| ALIMTALK | 23001003| Failed to send the message because the sender profile key is invalid.|
+| ALIMTALK | 23001004| Failed to send message because the "name" field is missing in the Request Body (JSON).|
+| ALIMTALK | 23001006| Failed to send the message as the "name" field is missing from the JSON request body.|
+| ALIMTALK | 23001007| Failed to send the message because the sender profile has been deleted (Please contact support). |
+| ALIMTALK | 23001011| Failed to send the message as no contract information was found (Please contact support).|
+| ALIMTALK | 23001012| Failed to send the message due to an incorrectly formatted user key request. |
+| ALIMTALK | 23001013| Failed to send the message because of an invalid app connection.|
+| ALIMTALK | 23001014| Failed to send the message due to an invalid business registration number.|
+| ALIMTALK | 23001015| Failed to send the message because of an invalid app user ID request. |
+| ALIMTALK | 23001016| Failed to send the message as the business registration number does not match our records. |
+| ALIMTALK | 23001020| Failed to send the message because the phone number or app user ID is missing or invalid.|
+| ALIMTALK | 23001021| Failed to send the message because the KakaoTalk channel is currently blocked.|
+| ALIMTALK | 23001022| Failed to send the message because the KakaoTalk channel is currently closed.|
+| ALIMTALK | 23001023| Failed to send the message because the KakaoTalk channel has been deleted.|
+| ALIMTALK | 23001024| Failed to send the message because the KakaoTalk channel is pending deletion. |
+| ALIMTALK | 23001025| Failed to send the message as the channel is under restricted status. |
+| ALIMTALK | 23001027| Failed to send the message as the channel's messaging privileges have been restricted. |
+| ALIMTALK | 23001030| Failed to send the message due to an invalid parameter request.|
+| ALIMTALK | 23002001| Failed to send the message due to an unexpected transmission error.|
+| ALIMTALK | 23002003| Failed to send the message because the KakaoTalk channel has not been added on the test server.|
+| ALIMTALK | 23002005| Failed to send the message because image data could not be retrieved due to an internal system error. |
+| ALIMTALK | 23003000| Failed to send the message because an unexpected error occurred.|
+| ALIMTALK | 23003005| Failed to send the message as delivery confirmation is unavailable, and success remains uncertain. |
+| ALIMTALK | 23003006| Failed to send the message due to an internal system error.|
+| ALIMTALK | 23003008| Failed to send the message because of an error with the phone number.|
+| ALIMTALK | 23003010| Failed to send the message as an unexpected system error has occurred.|
+| ALIMTALK | 23003011| Failed to send the message because the message content does not exist. |
+| ALIMTALK | 23003012| Failed to send the message due to a communication failure with the Kakao platform. |
+| ALIMTALK | 23003013| Failed to send the message because the message body is empty. |
+| ALIMTALK | 23003014| Failed to send the message because it exceeds the maximum length limit.|
+| ALIMTALK | 23003015| Failed to send the message as the specified template could not be found. |
+| ALIMTALK | 23003016| Failed to send the message because the content does not match the approved template.|
+| ALIMTALK | 23003018| Failed to send the message due to an Android device issue, such as a SIM number mismatch with KakaoTalk, an inactive account, or a restricted user.|
+| ALIMTALK | 23003019| Failed to send the message because the recipient is not a KakaoTalk user. |
+| ALIMTALK | 23003020| Failed to send the message as the recipient has blocked Alimtalk messages.|
+| ALIMTALK | 23003021| Failed to send the message because the KakaoTalk version is not supported (Minimum version required). |
+| ALIMTALK | 23003022| Failed to send the message as it is outside of the allowed hours (Friendtalk: 8 AM – 8:50 PM). |
+| ALIMTALK | 23003023| Failed to send the message due to a syntax error in the JSON request body. |
+| ALIMTALK | 23003024| Failed to send the message because the image could not be sent (Invalid link or specification violation). |
+| ALIMTALK | 23003025| Failed to send the message as the character limit for variables has been exceeded. |
+| ALIMTALK | 23003026| Failed to send the message because the character limit for switching buttons (extra, event) was exceeded.|
+| ALIMTALK | 23003027| Failed to send the message as the buttons or direct links do not match the template.|
+| ALIMTALK | 23003028| Failed to send the message because the emphasis title does not match the template. |
+| ALIMTALK | 23003029| Failed to send the message as the emphasis title exceeds the 50-character limit. |
+| ALIMTALK | 23003030| Failed to send the message because the message type does not match the template's emphasis type. |
+| ALIMTALK | 23003031| Failed to send the message as the header does not match the template. |
+| ALIMTALK | 23003032| Failed to send the message because the header exceeds the 16-character limit. |
+| ALIMTALK | 23003033| Failed to send the message as the item highlight does not match the template.|
+| ALIMTALK | 23003034| Failed to send the message because the item highlight title limit (30 chars w/o image, 21 chars w/ image) was exceeded. |
+| ALIMTALK | 23003035| Failed to send the message because the item highlight description limit (19 chars w/o image, 13 chars w/ image) was exceeded. |
+| ALIMTALK | 23003036| Failed to send the message as the item list does not match the template.|
+| ALIMTALK | 23003037| Failed to send the message because the item list description exceeds the 23-character limit. |
+| ALIMTALK | 23003038| Failed to send the message as the item summary does not match the template.|
+| ALIMTALK | 23003039| Failed to send the message because the item summary description exceeds the 14-character limit.|
+| ALIMTALK | 23003040| Failed to send the message because the item summary description contains invalid characters (Only currency symbols/codes, numbers, commas, decimals, and spaces allowed) |
+| ALIMTALK | 23003041| Failed to send the message as the number of wide item lists is outside the allowed range. |
+| ALIMTALK | 23003042| Failed to send the message because the represent link does not match the template. |
+| ALIMTALK | 23003046| Failed to send the message as the maximum length for supplementary information has been exceeded.|
+| ALIMTALK | 23003047| Failed to send the message because the product name in the commerce information exceeds the length limit. |
+| ALIMTALK | 23003048| Failed to send the message due to an invalid group tag key. |
+| ALIMTALK | 23003051| Failed to send the message as the number of carousel items is outside the allowed range. |
+| ALIMTALK | 23003052| Failed to send the message because the carousel item message length exceeds the limit. |
+| ALIMTALK | 23003056| Failed to send the message due to a length limit error for the wide item list title.|
+| ALIMTALK | 23003058| Failed to send the message because the carousel header exceeds the length limit.|
+| ALIMTALK | 23004000| Failed to send the message as the delivery result could not be found. |
+| ALIMTALK | 23004001| Failed to send the message due to an unknown message status.|
+| ALIMTALK | 23009998| Failed to send the message as a system issue is being investigated by our technical team.|
+| ALIMTALK | 23009999| Failed to send the message due to an unknown system error (Under investigation) |
 | FRIENDTALK | 31901000| Failed to send the message due to an invalid appKey.|
 | FRIENDTALK | 31901001| Failed to send the message due to an invalid secretKey. |
 | FRIENDTALK | 31901002| Failed to send the message due to an invalid SMS appkey.|
@@ -1052,6 +982,76 @@
 | FRIENDTALK | 31909997| Failed to send message due to a client error. |
 | FRIENDTALK | 31909998| Failed to send message because the API does not exist.|
 | FRIENDTALK | 32909999| Failed to send message due to a system error. |
+| FRIENDTALK | 33001001| Failed to send the message as the request body is not in a valid JSON format. |
+| FRIENDTALK | 33001002| Failed to send the message because the hub partner key is invalid. |
+| FRIENDTALK | 33001003| Failed to send the message because the sender profile key is invalid. |
+| FRIENDTALK | 33001004| Failed to send the message because the 'name' field is missing from the JSON request body. |
+| FRIENDTALK | 33001006| Failed to send the message because the sender profile has been deleted (Contact support).|
+| FRIENDTALK | 33001007| Failed to send the message because the sender profile is blocked (Contact support).|
+| FRIENDTALK | 33001011| Failed to send the message because no contract information was found (Contact support).|
+| FRIENDTALK | 33001012| Failed to send the message due to an incorrectly formatted user key request. |
+| FRIENDTALK | 33001013| Failed to send the message because of an invalid app connection. |
+| FRIENDTALK | 33001014| Failed to send the message due to an invalid business registration number. |
+| FRIENDTALK | 33001015| Failed to send the message because of an invalid app user ID request. |
+| FRIENDTALK | 33001016| Failed to send the message as the business registration number does not match. |
+| FRIENDTALK | 33001020| Failed to send the message because the phone number or app user ID is invalid or missing.|
+| FRIENDTALK | 33001021| Failed to send the message because the KakaoTalk channel is currently blocked. |
+| FRIENDTALK | 33001022| Failed to send the message because the KakaoTalk channel is currently closed. |
+| FRIENDTALK | 33001023| Failed to send the message because the KakaoTalk channel has been deleted. |
+| FRIENDTALK | 33001024| Failed to send the message because the KakaoTalk channel is pending deletion.|
+| FRIENDTALK | 33001025| Failed to send the message as the channel is under restricted status. |
+| FRIENDTALK | 33001027| Failed to send the message as the channel's messaging privileges have been restricted. |
+| FRIENDTALK | 33001030| Failed to send the message due to an invalid parameter request. |
+| FRIENDTALK | 33002001| Failed to send the message due to an unexpected transmission error.|
+| FRIENDTALK | 33002003| Failed to send the message because the KakaoTalk channel has not been added to the test server.|
+| FRIENDTALK | 33002005| Failed to send the message because image data could not be retrieved due to a Kakao internal error. |
+| FRIENDTALK | 33003000| Failed to send the message because an unexpected error occurred. |
+| FRIENDTALK | 33003005| Failed to send the message as delivery confirmation is unavailable and success is uncertain. |
+| FRIENDTALK | 33003006| Failed to send the message due to an internal system error. |
+| FRIENDTALK | 33003008| Failed to send the message because of an error with the phone number. |
+| FRIENDTALK | 33003010| Failed to send the message as an unexpected error has occurred. |
+| FRIENDTALK | 33003011| Failed to send the message because the message content does not exist. |
+| FRIENDTALK | 33003012| Failed to send the message due to a communication failure with Kakao.|
+| FRIENDTALK | 33003013| Failed to send the message because the message body is empty.|
+| FRIENDTALK | 33003014| Failed to send the message because it exceeds the maximum length limit.|
+| FRIENDTALK | 33003015| Failed to send the message as the specified template could not be found. |
+| FRIENDTALK | 33003016| Failed to send the message because the content does not match the approved template.|
+| FRIENDTALK | 33003018| Failed to send the message as the recipient is inactive, restricted, or using an unmatched SIM on an Android device|
+| FRIENDTALK | 33003019| Failed to send the message because the recipient is not a KakaoTalk user.|
+| FRIENDTALK | 33003020| Failed to send the message as the recipient has blocked Alimtalk messages. |
+| FRIENDTALK | 33003021| Failed to send the message because the KakaoTalk version is not supported.|
+| FRIENDTALK | 33003022| Failed to send the message as it is outside of the allowed hours (Friendtalk: 8 AM–8:50 PM).|
+| FRIENDTALK | 33003023| Failed to send the message due to a syntax error in the JSON request body.|
+| FRIENDTALK | 33003024| Failed to send the message because the image could not be sent (Invalid URL/link or specification violation).|
+| FRIENDTALK | 33003025| Failed to send the message as the character limit for placeholders has been exceeded. |
+| FRIENDTALK | 33003026| Failed to send the message because the character limit for switching buttons (extra, event) was exceeded.|
+| FRIENDTALK | 33003027| Failed to send the message as the buttons or direct links do not match the template. |
+| FRIENDTALK | 33003028| Failed to send the message because the emphasis title does not match the template.|
+| FRIENDTALK | 33003029| Failed to send the message as the emphasis title exceeds the 50-character limit. |
+| FRIENDTALK | 33003030| Failed to send the message because the message type does not match the template's emphasis type. |
+| FRIENDTALK | 33003031| Failed to send the message as the header does not match the template. |
+| FRIENDTALK | 33003032| Failed to send the message because the header exceeds the 16-character limit. |
+| FRIENDTALK | 33003033| Failed to send the message as the item highlight does not match the template.|
+| FRIENDTALK | 33003034| Failed to send the message because the item highlight title limit (30 chars w/o image, 21 chars w/ image) was exceeded.|
+| FRIENDTALK | 33003035| Failed to send the message because the item highlight description limit (19 chars w/o image, 13 chars w/ image) was exceeded. |
+| FRIENDTALK | 33003036| Failed to send the message as the item list does not match the template.|
+| FRIENDTALK | 33003037| Failed to send the message because the item list description exceeds the 23-character limit.|
+| FRIENDTALK | 33003038| Failed to send the message as the item summary does not match the template.|
+| FRIENDTALK | 33003039| Failed to send the message because the item summary description exceeds the 14-character limit.|
+| FRIENDTALK | 33003040| Failed to send the message because the item summary description contains invalid characters. |
+| FRIENDTALK | 33003041| Failed to send the message as the number of wide item lists is outside the allowed range. |
+| FRIENDTALK | 33003042| Failed to send the message because the represent link does not match the template. |
+| FRIENDTALK | 33003046| Failed to send the message as the maximum length for supplementary information has been exceeded. |
+| FRIENDTALK | 33003047| Failed to send the message because the product name in the commerce information exceeds the length limit.|
+| FRIENDTALK | 33003048| Failed to send the message due to an invalid group tag key. |
+| FRIENDTALK | 33003051| Failed to send the message as the number of carousel items is outside the allowed range.|
+| FRIENDTALK | 33003052| Failed to send the message because the carousel item message length exceeds the limit. |
+| FRIENDTALK | 33003056| Failed to send the message due to a length limit error for the wide item list title. |
+| FRIENDTALK | 33003058| Failed to send the message because the carousel header exceeds the length limit. |
+| FRIENDTALK | 33004000| Failed to send the message as the delivery result could not be found. |
+| FRIENDTALK | 33004001| Failed to send the message due to an unknown message status. |
+| FRIENDTALK | 33009998| Failed to send the message as a system issue is being investigated and the service is temporarily suspended.|
+| FRIENDTALK | 33009999| Failed to send the message due to an unknown system error (Under investigation) |
 | RCS | 41903004| Failed to send message due to an invalid statsKeyId. |
 | RCS | 41904000| Failed to send message because the brand does not exist.|
 | RCS | 41904001| Failed to send message because the brand status is invalid.|
@@ -1065,10 +1065,20 @@
 | RCS | 41904025| Failed to send message because the body length of the free template was exceeded.|
 | RCS | 41904040| Failed to send message because the 080 opt-out number does not exist.|
 | RCS | 41904041| Failed to send message because the 080 opt-out number status is invalid. |
-| RCS | 41909000| Failed to send message due to time restrictions on nighttime advertising. |
 | RCS | 41904042| Failed to send message because the recipient number is blocked.|
-| RCS | 42909999| Failed to send message due to an internal server error (batch process).|
+| RCS | 41909000| Failed to send message due to time restrictions on nighttime advertising. |
 | RCS | 42099999| Failed to send message due to an internal server error (sender module).|
+| RCS | 42909999| Failed to send message due to an internal server error (batch process).|
+| RCS | 43072101| Failed to send message because a parameter is missing. |
+| RCS | 43072102| Failed to send message due to a parameter range error. |
+| RCS | 43072103| Failed to send message due to a parameter format error. |
+| RCS | 43072104| Failed to send message due to an invalid parameter.|
+| RCS | 43072108| Failed to send message due to a duplicate request. |
+| RCS | 43072109| Failed to send message due to an invalid or expired file. |
+| RCS | 43072114| Failed to send message due to a parameter size error. |
+| RCS | 43072115| Failed to send message due to a disallowed parameter value. |
+| RCS | 43072116| Failed to send message due to a disallowed parameter. |
+| RCS | 43079999| Failed to send message due to an unknown error. |
 | RCS | 46040001| Failed to send message because the Authorization header is missing. |
 | RCS | 46040002| Failed to send message because the token is missing. |
 | RCS | 46040003| Failed to send message due to an invalid token.|
@@ -1089,16 +1099,6 @@
 | RCS | 46041200| Failed to send message because the target recipient could not be found.|
 | RCS | 46041201| Failed to send message because message permission is denied. |
 | RCS | 46041202| Failed to send message because the message has already been canceled. |
-| RCS | 47041210| Failed to send message because the user does not support TEXT features. |
-| RCS | 47041211| Failed to send message because the user does not support FT features. |
-| RCS | 47041212| Failed to send message because the user does not support Rich Card features.|
-| RCS | 47041220| Failed to send message because the user does not support XBOTMESSAGE 1.0. |
-| RCS | 47041221| Failed to send message because the user does not support XBOTMESSAGE 1.1. |
-| RCS | 47041222| Failed to send message because the user does not support XBOTMESSAGE 1.2. |
-| RCS | 47041230| Failed to send message because the user does not support OPENRICHARD 1.0. |
-| RCS | 47041231| Failed to send message because the user does not support OPENRICHARD 1.1. |
-| RCS | 47041232| Failed to send message because the user does not support OPENRICHARD 1.2. |
-| RCS | 47041240| Failed to send message because the user does not support GEOLOCATION PUSH requests.|
 | RCS | 46041250| Failed to send message because the message content type could not be retrieved. |
 | RCS | 46042001| Failed to send message due to an invalid status. |
 | RCS | 46042002| Failed to send message due to an invalid message. |
@@ -1407,35 +1407,36 @@
 | RCS | 46059203| Failed to send message due to a backend timeout. |
 | RCS | 46059901| Failed to send message because the service is unavailable. |
 | RCS | 46059999| Failed to send message due to an unknown error. |
-| RCS | 43072101| Failed to send message because a parameter is missing. |
-| RCS | 43072102| Failed to send message due to a parameter range error. |
-| RCS | 43072103| Failed to send message due to a parameter format error. |
-| RCS | 43072104| Failed to send message due to an invalid parameter.|
-| RCS | 43072108| Failed to send message due to a duplicate request. |
-| RCS | 43072109| Failed to send message due to an invalid or expired file. |
-| RCS | 43072114| Failed to send message due to a parameter size error. |
-| RCS | 43072115| Failed to send message due to a disallowed parameter value. |
-| RCS | 43072116| Failed to send message due to a disallowed parameter. |
-| RCS | 43079999| Failed to send message due to an unknown error. |
-| EMAIL| 52100003| Failed to send email.|
+| RCS | 47041210| Failed to send message because the user does not support TEXT features. |
+| RCS | 47041211| Failed to send message because the user does not support FT features. |
+| RCS | 47041212| Failed to send message because the user does not support Rich Card features.|
+| RCS | 47041220| Failed to send message because the user does not support XBOTMESSAGE 1.0. |
+| RCS | 47041221| Failed to send message because the user does not support XBOTMESSAGE 1.1. |
+| RCS | 47041222| Failed to send message because the user does not support XBOTMESSAGE 1.2. |
+| RCS | 47041230| Failed to send message because the user does not support OPENRICHARD 1.0. |
+| RCS | 47041231| Failed to send message because the user does not support OPENRICHARD 1.1. |
+| RCS | 47041232| Failed to send message because the user does not support OPENRICHARD 1.2. |
+| RCS | 47041240| Failed to send message because the user does not support GEOLOCATION PUSH requests.|
+| RCS | 47054006 | Failed to send the message: the customer is subscribed to RCS, but their device does not support OPENRICHARD. |
 | EMAIL| 51100005| Failed to send email because the recipient has opted out.|
 | EMAIL| 51100006| Failed to send email because the scheduled transmission was canceled. |
 | EMAIL| 51100007| Failed to send email because the sending domain is not authenticated. |
 | EMAIL| 51100008| Failed to send email due to whitelist filtering. |
+| EMAIL| 52100003| Failed to send email.|
 | EMAIL| 56100002| Failed to send email because it was bounced by the recipient's SMTP server. |
-| PUSH | 64100001| Failed to send push notification because the token is in an opted-out state. |
-| PUSH | 67100002| Failed to send push notification because no registered contact was found. |
-| PUSH | 62109999| Failed to send push notification due to an internal error. |
-| PUSH | 67100003| Failed to send push notification because the token has expired. |
-| PUSH | 62100014| Failed to send push notification due to an unsupported message type. |
 | PUSH | 61100004| Failed to send push notification due to a message format error.|
 | PUSH | 61100005| Failed to send push notification due to certificate or API Key authentication failure. |
 | PUSH | 61100006| Failed to send push notification due to certificate or API Key authentication failure. |
+| PUSH | 61100014| Failed to send push notification due to duplicate message prevention. |
 | PUSH | 62100007| Failed to send push notification because the internal TTL has been exceeded. |
+| PUSH | 62100009| (This code is deprecated.) |
+| PUSH | 62100012| Failed to send push notification due to an internal error. |
+| PUSH | 62100014| Failed to send push notification due to an unsupported message type. |
+| PUSH | 62109999| Failed to send push notification due to an internal error. |
 | PUSH | 63100008| Failed to send push notification due to an APNS error response.|
 | PUSH | 63100009| Failed to send push notification due to an FCM error response. |
-| PUSH | 62100009| (This code is deprecated.) |
 | PUSH | 63100011| Failed to send push notification due to an ADM error response. |
-| PUSH | 62100012| Failed to send push notification due to an internal error. |
+| PUSH | 64100001| Failed to send push notification because the token is in an opted-out state. |
+| PUSH | 67100002| Failed to send push notification because no registered contact was found. |
+| PUSH | 67100003| Failed to send push notification because the token has expired. |
 | PUSH | 67100013| Failed to send push notification because the token was deleted due to expiration of the 2-year retention period. |
-| PUSH | 61100014| Failed to send push notification due to duplicate message prevention. |
