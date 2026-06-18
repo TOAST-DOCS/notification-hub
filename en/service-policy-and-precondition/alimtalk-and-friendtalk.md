@@ -58,3 +58,68 @@ When using AlimTalk, the customer should inform the receiver of the following pr
 * If you do not want to receive AlimTalk, please refer to the following.
   * The sender's contact information (customer center, etc.) should be provided to inform the caller that he/she can unsubscribe.
   * You can block senders by selecting [Block AlimTalk] in top layer of the chat room where the notification talk was received.
+# Brand Messages
+
+Brand Messages is a KakaoTalk Bizmessage product that allows you to send advertising messages to members who have agreed to receive marketing (hereinafter referred to as "marketing consent") from an advertiser, regardless of whether they are KakaoTalk channel friends.
+
+* You can send advertising messages not only to channel friends, but also to non-friends among users who have given marketing consent.
+* Brand Messages can only be used to send advertising messages.
+* Send text and images with attachments at a lower cost than LMS/MMS.
+* Both template sending and free-form sending are supported.
+* If a Brand Message fails to send, you can send a text message instead.
+
+## Create a sender profile
+
+Brand messages use the same KakaoTalk sender profile as AlimTalk. For information on how to create a sender profile, refer to **AlimTalk > Create a sender profile** above.
+
+## Delivery Targets and Targeting
+
+Brand messages are divided into customer targeting and friend targeting based on the delivery target type.
+
+### Customer Targeting
+
+Customer targeting sends messages to users who have agreed to receive marketing messages from the advertiser. To use customer targeting, you must complete the **Apply for Customer Targeting** process in advance. You must register an 080 opt-out number for the sender profile. The eligible recipients vary depending on the targeting type.
+
+For more information about applying for customer targeting, see **Console User Guide** > **Sender Information** > **Apply for Customer Targeting**.
+
+* **M**: Sends advertising messages to all users who have agreed to receive marketing messages. If a recipient is not a channel friend, the message is sent as a channel message that includes free opt-out information.
+* **N**: Sends advertising messages to users who have agreed to receive marketing messages, excluding channel friends.
+* **O**: Sends advertising messages to users who have agreed to receive marketing messages and are channel friends.
+
+#### Conditions for Sending Messages to Non-Friends
+
+To send messages to non-friends (targeting M and N), all of the following conditions must be met:
+
+* Business-authenticated channel
+* Business registration number registered
+* Channel customer center phone number registered
+* 5,000 or more channel friends
+* A successful AlimTalk sending history within the last 3 months
+
+### Friend Targeting
+
+Friend targeting sends messages to all KakaoTalk channel friends. Registering an 080 opt-out number is not required.
+
+## Register 080 Opt-Out Number
+
+When sending to customers (Targeting M, N, O), you must register an 080 opt-out number in the sender profile.
+
+* The 080 opt-out number is applied collectively to all sender profiles of other organizations, other projects, and other dealers on the same KakaoTalk channel.
+* You can manage opt-out settings for the 080 opt-out number by integrating with the NHN Cloud SMS service.
+
+## Night-time Delivery Restriction
+
+Brand messages are advertising messages and are therefore restricted from being sent during night-time hours in accordance with the Telecommunications Network Act.
+
+* Delivery restricted during night: 20:50~08:00 on the following day
+* If a delivery is requested during night-time hours, it will either be processed as a failure or resent after the restriction period ends, depending on the detailed settings.
+
+## Caution
+
+Brand messages are advertising messages, so you must comply with the following:
+
+* The "(ad)" mark must be displayed at the beginning of any message that contains advertising content.
+* The sender's name and contact information must be placed above the body of the message.
+* The message must clearly specify the measures and methods that allow recipients to easily opt out or withdraw their consent to receive messages.
+* If recipients are required to take additional steps to opt out (such as signing in), this makes opting out difficult and constitutes a violation of the law.
+* If business verification is revoked, the permission to send non-friend messages (targeting M and N) will also be revoked.
