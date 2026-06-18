@@ -46,7 +46,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contact | Query | String | N | Contact information. |
 | messageChannel | Query | String | N | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, and PUSH] |
 | messagePurpose | Query | String | N | The message purpose.<br>[AD, AUTH, NORMAL] |
-| statuses | Query | List | N | The message status. You can view the sending result.<br> When a message sending request is received, the message status is set to REQUESTED. <br>[REQUESTED, SCHEDULED, READY, CONFIRM_WAITED, WAITED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, and CANCELED] |
+| statuses | Query | Enum | X | Message status. You can view it as a send result.<br> When a message sending request is received, the message status is set to REQUESTED.<br>  |
 | scheduled | Query | Boolean | N | Whether to schedule sending. |
 | confirmBeforeSend | Query | Boolean | N | Whether to send after approval. |
 | createdDateTimeFrom | Query | Date | N | The request start date and time. The default is 7 days ago. |
