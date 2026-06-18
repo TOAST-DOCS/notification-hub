@@ -88,54 +88,60 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
 
 <a id="send-type-that-supports"></a>
 
-## サポートする送信タイプ
+## サポートしている送信タイプ
+- 下記の表の「統合 RCS 可否」が「O」の送信タイプは統合 RCS タイプであり、Android だけでなく iPhone 端末でも受信できます。（「X」の送信タイプは Android RCS タイプであり、Android 端末のみで受信できます。）
 
 <table class="custom-table" style="text-align: center">
     <tr>
         <td>NO</td>
         <td>商品</td>
         <td>商品名</td>
+        <td>統合 RCS 可否</td>
         <td>カードタイプ</td>
-        <td>カード数</td>
-        <td>メッセージ最大長さ</td>
+        <td>カード枚数</td>
+        <td>メッセージ最大文字数</td>
         <td>カード別最大ボタン数</td>
-        <td>ボタン名の最大長さ</td>
+        <td>ボタン名最大文字数</td>
         <td>画像</td>
     </tr>
     <tr>
         <td>1</td>
+        <td rowspan="2">SMS</td>
         <td>SMS</td>
-        <td>SMS</td>
+        <td>X</td>
         <td>Standalone</td>
         <td>1枚</td>
         <td>100文字</td>
         <td>1個</td>
         <td>17文字</td>
-        <td>-</td>
+        <td rowspan="2">-</td>
     </tr>
     <tr>
         <td>2</td>
-        <td rowspan="4">LMS</td>
+        <td>統合 SMS カード</td>
+        <td>O</td>
+        <td>Standalone</td>
+        <td>1枚</td>
+        <td>100文字</td>
+        <td>1個</td>
+        <td>7文字</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td rowspan="5">LMS</td>
         <td>LMS</td>
+        <td>X</td>
         <td>Standalone</td>
         <td>1枚</td>
         <td>1300文字</td>
         <td>3個</td>
         <td>17文字</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>基本型</td>
-        <td>Format</td>
-        <td>1枚</td>
-        <td>1300文字</td>
-        <td>2個</td>
-        <td>17文字</td>
+        <td rowspan="5">-</td>
     </tr>
     <tr>
         <td>4</td>
-        <td>タイトル強調型</td>
+        <td>基本型</td>
+        <td>X</td>
         <td>Format</td>
         <td>1枚</td>
         <td>1300文字</td>
@@ -144,17 +150,39 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
     </tr>
     <tr>
         <td>5</td>
-        <td>段落型</td>
+        <td>タイトル強調型</td>
+        <td>X</td>
         <td>Format</td>
         <td>1枚</td>
         <td>1300文字</td>
-        <td>段落別2個</td>
-        <td>7文字</td>
+        <td>2個</td>
+        <td>17文字</td>
     </tr>
     <tr>
         <td>6</td>
-        <td rowspan="4">MMS</td>
+        <td>段落型</td>
+        <td>X</td>
+        <td>Format</td>
+        <td>1枚</td>
+        <td>1300文字</td>
+        <td>段落別 2個</td>
+        <td>7文字</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>統合 LMS カード</td>
+        <td>O</td>
+        <td>Standalone</td>
+        <td>1枚</td>
+        <td>1300文字</td>
+        <td>3個</td>
+        <td>7文字</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td rowspan="6">MMS</td>
         <td>縦型(Tall)</td>
+        <td>X</td>
         <td>Standalone Media Top</td>
         <td>1枚</td>
         <td>1300文字</td>
@@ -163,8 +191,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>Tall(568x528)</td>
     </tr>
     <tr>
-        <td>7</td>
+        <td>9</td>
         <td>縦型(Medium)</td>
+        <td>X</td>
         <td>Standalone Media Top</td>
         <td>1枚</td>
         <td>1300文字</td>
@@ -173,57 +202,85 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>Medium(568x336)</td>
     </tr>
     <tr>
-        <td>8</td>
+        <td>10</td>
         <td>スライド型(Medium)</td>
+        <td>X</td>
         <td>Carousel Medium</td>
-        <td>2枚 <br/> ～ 6枚</td>
+        <td>2枚 <br/> 〜 6枚</td>
         <td>1300文字</td>
         <td>2個</td>
         <td>13文字</td>
         <td>Medium(696x504)</td>
     </tr>
     <tr>
-        <td>9</td>
+        <td>11</td>
         <td>スライド型(Small)</td>
+        <td>X</td>
         <td>Carousel Small</td>
-        <td>2枚 <br/> ～ 6枚</td>
+        <td>2枚 <br/> 〜 6枚</td>
         <td>1300文字</td>
         <td>2個</td>
         <td>5文字</td>
         <td>Short(360x336)</td>
     </tr>
     <tr>
-        <td>10</td>
-        <td rowspan="5">テキスト<br/>テンプレート</td>
-        <td>記述テンプレート_タイトル選択型</td>
-        <td>Description</td>
-        <td>1枚</td>
-        <td>90文字</td>
-        <td>2個</td>
-        <td>17文字</td>
-        <td rowspan="5">-</td>
-    </tr>
-    <tr>
-        <td>11</td>
-        <td>記述テンプレート_タイトル自由形</td>
-        <td>Description</td>
-        <td>1枚</td>
-        <td>90文字</td>
-        <td>2個</td>
-        <td>16文字</td>
-    </tr>
-    <tr>
         <td>12</td>
-        <td>スタイルテンプレート_タイトル選択型</td>
-        <td>Cell</td>
+        <td>統合 MMS カード M</td>
+        <td>O</td>
+        <td>Standalone Media Top</td>
         <td>1枚</td>
-        <td>90文字</td>
+        <td>1300文字</td>
         <td>2個</td>
-        <td>17文字</td>
+        <td>7文字</td>
+        <td>Medium(900x504)</td>
     </tr>
     <tr>
         <td>13</td>
-        <td>スタイルテンプレート_タイトル自由形</td>
+        <td>統合 MMS カード T</td>
+        <td>O</td>
+        <td>Standalone Media Top</td>
+        <td>1枚</td>
+        <td>1300文字</td>
+        <td>2個</td>
+        <td>7文字</td>
+        <td>Tall(900x792)</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td rowspan="7">テキスト<br/>テンプレート</td>
+        <td>叙述テンプレート_タイトル選択型</td>
+        <td>X</td>
+        <td>Description</td>
+        <td>1枚</td>
+        <td>90文字</td>
+        <td>2個</td>
+        <td>17文字</td>
+        <td rowspan="7">-</td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>叙述テンプレート_タイトル自由型</td>
+        <td>X</td>
+        <td>Description</td>
+        <td>1枚</td>
+        <td>90文字</td>
+        <td>2個</td>
+        <td>16文字</td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td>スタイルテンプレート_タイトル選択型</td>
+        <td>X</td>
+        <td>Cell</td>
+        <td>1枚</td>
+        <td>90文字</td>
+        <td>2個</td>
+        <td>17文字</td>
+    </tr>
+    <tr>
+        <td>17</td>
+        <td>スタイルテンプレート_タイトル自由型</td>
+        <td>X</td>
         <td>Cell</td>
         <td>1枚</td>
         <td>90文字</td>
@@ -231,8 +288,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>16文字</td>
     </tr>
     <tr>
-        <td>14</td>
-        <td>基本テンプレート_タイトル自由形</td>
+        <td>18</td>
+        <td>基本テンプレート_タイトル自由型</td>
+        <td>X</td>
         <td>Free</td>
         <td>1枚</td>
         <td>90文字</td>
@@ -240,49 +298,74 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>-</td>
     </tr>
     <tr>
-        <td>15</td>
-        <td rowspan="8">画像<br/>テンプレート</td>
-        <td>画像&タイトル強調型(3:4)</td>
-        <td>Highlighted Image n Title</td>
-        <td>1枚</td>
-        <td>500文字</td>
-        <td>2個</td>
-        <td>16文字</td>
-        <td>Long(900x1200)</td>
-    </tr>
-    <tr>
-        <td>16</td>
-        <td>画像&タイトル強調型(1:1)</td>
-        <td>Highlighted Image n Title</td>
-        <td>1枚</td>
-        <td>500文字</td>
-        <td>2個</td>
-        <td>16文字</td>
-        <td>Square(900x900)</td>
-    </tr>
-    <tr>
-        <td>17</td>
-        <td>画像強調型(3:4)</td>
-        <td>Highlighted Image</td>
-        <td>1枚</td>
-        <td>500文字</td>
-        <td>2個</td>
-        <td>16文字</td>
-        <td>Long(900x1200)</td>
-    </tr>
-    <tr>
-        <td>18</td>
-        <td>画像強調型(1:1)</td>
-        <td>Highlighted Image</td>
-        <td>1枚</td>
-        <td>500文字</td>
-        <td>2個</td>
-        <td>16文字</td>
-        <td>Square(900x900)</td>
-    </tr>
-    <tr>
         <td>19</td>
+        <td>統合情報性テンプレート</td>
+        <td>O</td>
+        <td>Description</td>
+        <td>1枚</td>
+        <td>90文字</td>
+        <td>2個</td>
+        <td>7文字</td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td>統合フリーテンプレート</td>
+        <td>O</td>
+        <td>Free</td>
+        <td>1枚</td>
+        <td>90文字</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>21</td>
+        <td rowspan="10">画像<br/>テンプレート</td>
+        <td>画像 &amp; タイトル強調型(3:4)</td>
+        <td>X</td>
+        <td>Highlighted Image n Title</td>
+        <td>1枚</td>
+        <td>500文字</td>
+        <td>2個</td>
+        <td>16文字</td>
+        <td>Long(900x1200)</td>
+    </tr>
+    <tr>
+        <td>22</td>
+        <td>画像 &amp; タイトル強調型(1:1)</td>
+        <td>X</td>
+        <td>Highlighted Image n Title</td>
+        <td>1枚</td>
+        <td>500文字</td>
+        <td>2個</td>
+        <td>16文字</td>
+        <td>Square(900x900)</td>
+    </tr>
+    <tr>
+        <td>23</td>
+        <td>画像強調型(3:4)</td>
+        <td>X</td>
+        <td>Highlighted Image</td>
+        <td>1枚</td>
+        <td>500文字</td>
+        <td>2個</td>
+        <td>16文字</td>
+        <td>Long(900x1200)</td>
+    </tr>
+    <tr>
+        <td>24</td>
+        <td>画像強調型(1:1)</td>
+        <td>X</td>
+        <td>Highlighted Image</td>
+        <td>1枚</td>
+        <td>500文字</td>
+        <td>2個</td>
+        <td>16文字</td>
+        <td>Square(900x900)</td>
+    </tr>
+    <tr>
+        <td>25</td>
         <td>サムネイル型(縦)</td>
+        <td>X</td>
         <td>Thumbnail</td>
         <td>1枚</td>
         <td>500文字</td>
@@ -291,8 +374,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>Vertical(900x560)</td>
     </tr>
     <tr>
-        <td>20</td>
+        <td>26</td>
         <td>サムネイル型(横)</td>
+        <td>X</td>
         <td>Thumbnail</td>
         <td>1枚</td>
         <td>500文字</td>
@@ -301,8 +385,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>Horizontal(900x560)</td>
     </tr>
     <tr>
-        <td>21</td>
-        <td>SNS型</td>
+        <td>27</td>
+        <td>SNS 型</td>
+        <td>X</td>
         <td>SNS</td>
         <td>1枚</td>
         <td>500文字</td>
@@ -311,8 +396,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>Square(900x900)</td>
     </tr>
     <tr>
-        <td>22</td>
-        <td>SNS型(中央ボタン)</td>
+        <td>28</td>
+        <td>SNS 型(中央ボタン)</td>
+        <td>X</td>
         <td>SNS</td>
         <td>1枚</td>
         <td>500文字</td>
@@ -321,9 +407,32 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>Rectangle(900x560)</td>
     </tr>
     <tr>
-        <td>23</td>
+        <td>29</td>
+        <td>統合画像テンプレート M</td>
+        <td>O</td>
+        <td>Standalone Media Top</td>
+        <td>1枚</td>
+        <td>500文字</td>
+        <td>2個</td>
+        <td>7文字</td>
+        <td>Medium(900x504)</td>
+    </tr>
+    <tr>
+        <td>30</td>
+        <td>統合画像テンプレート T</td>
+        <td>O</td>
+        <td>Standalone Media Top</td>
+        <td>1枚</td>
+        <td>500文字</td>
+        <td>2個</td>
+        <td>7文字</td>
+        <td>Tall(900x792)</td>
+    </tr>
+    <tr>
+        <td>31</td>
         <td rowspan="6">LMS<br/>テンプレート</td>
-        <td>明細書A型</td>
+        <td>明細書 A 型</td>
+        <td>X</td>
         <td>Description</td>
         <td>1枚</td>
         <td>1300文字</td>
@@ -332,8 +441,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td rowspan="6">-</td>
     </tr>
     <tr>
-        <td>24</td>
-        <td>明細書B型</td>
+        <td>32</td>
+        <td>明細書 B 型</td>
+        <td>X</td>
         <td>Description</td>
         <td>1枚</td>
         <td>1300文字</td>
@@ -341,8 +451,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>17文字</td>
     </tr>
     <tr>
-        <td>25</td>
-        <td>明細書C型</td>
+        <td>33</td>
+        <td>明細書 C 型</td>
+        <td>X</td>
         <td>Description</td>
         <td>1枚</td>
         <td>1300文字</td>
@@ -350,8 +461,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>17文字</td>
     </tr>
     <tr>
-        <td>26</td>
+        <td>34</td>
         <td>基本型</td>
+        <td>X</td>
         <td>Description</td>
         <td>1枚</td>
         <td>1300文字</td>
@@ -359,8 +471,9 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>17文字</td>
     </tr>
     <tr>
-        <td>27</td>
+        <td>35</td>
         <td>タイトル強調型</td>
+        <td>X</td>
         <td>Description</td>
         <td>1枚</td>
         <td>1300文字</td>
@@ -368,12 +481,13 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
         <td>17文字</td>
     </tr>
     <tr>
-        <td>28</td>
+        <td>36</td>
         <td>段落型</td>
+        <td>X</td>
         <td>Description</td>
         <td>1枚</td>
         <td>1300文字</td>
-        <td>段落別2個</td>
+        <td>段落別 2個</td>
         <td>7文字</td>
     </tr>
 </table>
