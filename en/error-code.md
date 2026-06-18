@@ -1099,6 +1099,7 @@
 | RCS | 47041231| Failed to send message because the user does not support OPENRICHARD 1.1. |
 | RCS | 47041232| Failed to send message because the user does not support OPENRICHARD 1.2. |
 | RCS | 47041240| Failed to send message because the user does not support GEOLOCATION PUSH requests.|
+| RCS | 47054006 | Failed to send the message: the customer is subscribed to RCS, but the device does not support OPENRICHARD. |
 | RCS | 46041250| Failed to send message because the message content type could not be retrieved. |
 | RCS | 46042001| Failed to send message due to an invalid status. |
 | RCS | 46042002| Failed to send message due to an invalid message. |
