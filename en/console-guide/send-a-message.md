@@ -197,6 +197,8 @@ International SMS is sent as a Concatenated Message depending on the encoding an
 * Alim Talk only supports template sending, so no content input is required.
 * Even when sending a shared Alim Talk template, a sender profile must be selected. Since a shared Alim Talk template is not tied to a specific sender profile, it is sent using the selected sender profile.
 
+<a id="brand-message"></a>
+
 #### Brand Message
 
 Brand messages can only be sent as advertising messages.
