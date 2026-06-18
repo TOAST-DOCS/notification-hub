@@ -12,100 +12,127 @@
 
 <span id="template"></span>
 
-## Template
+## Templates
 
-You can save frequently used messages or messages that require a certain format as a template and set up the saved template to send messages when you send them. For example, if you template frequently used messages, such as customer support, notice items, notifications, or marketing messages, you only need to modify and send parts of the information without having to write the same thing each time.
+You can save frequently used messages or messages that require a consistent format as templates, and use those saved templates when sending messages. For example, if you create templates for frequently used message formats such as customer support, announcements, notifications, or marketing messages, you can send them by modifying only a portion of the information each time, without having to write the same content from scratch.
 
 <a id="category"></a>
 
 ### Category
 * First, select a root category and click **+ Add Category** to create a category.
-* The categories are created under the selected categories.
+* The category is created under the selected category.
 
 <a id="template"></a>
 
 ### Template
-1. Select the category to which the template belongs and click **+ Register Template**. Go to the Create Template page and display additional settings for the selected message channel.
-2. Finish the settings required by the subject and content and each message channel and click **Register**.
+1. Select the category that the template belongs to and click **+ Register Template**. You will be taken to the template creation page, where additional settings for the selected message channel are displayed.
+2. Complete the title, content, and settings required by each message channel, then click **Register**.
 
 <a id="alimtalk-template"></a>
 
-#### AlimTalk Template
+#### Alim Talk Template
 
-AlimTalk template can be used only after receiving approval from Kakao's inspection after requesting registration.
+Alim Talk templates require Kakao's review and approval after a registration request before they can be used.
 
-* Registrable message types include Channel Add type, Basic type, Additional information type, and Complex type.
-* Registrable highlights types include Highlight type, Image type and Item list type .
-* Choose the type you want to create a template.
+* Available message types include: Add Channel, Basic, Supplemental Information, and Composite.
+* Available emphasis types include: Emphasis, Image, and Item List.
+* Select the type you want and create the template.
 
-* Kakao AlimTalk Guide
-    * [[ AlimTalk Creation Guide]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/content-guide), [[ AlimTalk Review Guide]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit), [[ AlimTalk Whitelist]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit/white-list), [[ AlimTalk Blacklist]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit/black-list)
-* Sender profile/group
-    * Select sender profile or sender profile group to which you want to register the template. If you register for a group, the template is available to all sender profiles in the group.
-    * If the same template code exists in the sender profile/group, the template registered in the sender profile is sent first.
-    * For sender profile groups,  ‘Channel add type‘ or  'complex type’ message types cannot be registered as templates.
-* Template Code / Template Name
-    * You cannot duplicate the same template code and template name in one outgoing profile/group.
+* KakaoTalk Alim Talk guides
+    * [[Alim Talk Creation Guide]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/content-guide), [[Alim Talk Review Guide]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit), [[Alim Talk Whitelist]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit/white-list), [[Alim Talk Blacklist]](https://kakaobusiness.gitbook.io/main/ad/bizmessage/notice-friend/audit/black-list)
+* Sender Profile/Group
+    * Select the sender profile or sender profile group for which to register the template. If you register it to a group, all sender profiles in the group can use that template.
+    * If the same template code exists in the sender profile/group, the template registered to the sender profile takes priority.
+    * For sender profile groups, templates cannot be registered using the "Add Channel" or "Composite" message types.
+* Template Code/Template Name
+    * You cannot register duplicate template codes or template names within the same sender profile/group.
+
 * Template Content
-    * AlimTalk can be written up to 1,000 characters, including variables, URLs, spaces, and button names, regardless of Korean or English. If you register by entering variables, consider the contents to be replaced and create a template.<br/> See [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3) for a detailed guide on the number of characters.
-    * Create a variable in the form of #{variable}. (Example: #{HongGildong}'s package will be delivered today (#{09:50})
-    * When registering a button, the button name cannot be entered as a variable, and the button url can be entered as a variable. (Example http://kakao.com/#{변수})
-    * When registering a button url, url_mobile, url_pc links must include 'http://' and 'https://'가 and the 'scheme_ios, 'scheme_android links must be registered according to the scheme type. Otherwise, template registration will not be possible.
-* Whether it is a security template
-    * When securing the template, the message content is not exposed on devices other than mobile (expose the phrase 'Please check on mobile')
-    * In the case of general messages, the setting values may change during inspection, and be sure to check the security of OTP, authentication number, password, and credit information/grade change guide template.
+    * Alim Talk messages can be up to 1,000 characters long, regardless of language, including variables, URLs, spaces, and button names. When registering with variables, write the template with the substituted content in mind.<br/> For detailed character count guidelines, see [Alim Talk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3).
+    * Write variables in the format #{variable}. (Example: #{name}'s package is scheduled to be delivered today at (#{09:50}).)
+    * When registering buttons, variables cannot be entered for button names, but variables can be entered for button URLs. (Example: http://kakao.com/#{variable})
+    * When registering button URLs, url_mobile and url_pc links must include 'http://' or 'https://', and scheme_ios and scheme_android links must be registered in the correct scheme format. Otherwise, template registration is not possible.
+* Security Template
+    * When a template is set as a security template, the message content is not displayed on devices other than mobile. (The message 'Please check on your mobile device' is displayed instead.)
+    * For general messages, the setting value may be changed during review. For templates related to OTP, authentication codes, passwords, and credit information/rating change notifications, the security option must be checked.
 
 <a id="alimtalk-template-button"></a>
 
-#### AlimTalk Template button
-* You can register **up to 5 buttons** per template.
+#### Alim Talk Template Buttons
+* You can register up to 5 buttons per template.
 * Quick Reply
-    * Tracking and plug-in types are not available and other types can be used the same as buttons.
-    * You can use up to 10 buttons per template, and the number of buttons is limited to 2 when using a direct connection.
+    * Quick reply cannot use tracking shipment and plug-in types, and other types can be used the same as buttons.
+    * You can use up to 10 quick replies per template. When using quick replies, the number of buttons is limited to 2.
 
-| Button type | Description |
+| Button Type | Description |
 | --- | --- |
-| View delivery  | - Go to the View delivery page.<br/> - Check the delivery company that supports invoice number pattern and tracking button. [[AlimTalk Tracking Invoice Number Pattern Guide]](https://www.nhncloud.com/kr/support/notice/detail/1455)|
-| Web link | - Go to your mobile or PC webpage.<br/> - You can set URL links as variables. |
-| App link | - Run the app with a custom scheme.<br/> - You must set up custom schemes to run on Android and iOS respectively. |
-| Bot Keyword | - The name of the button is forwarded to consultation agent.<br/> - If a channel that does not support consultation talk adds the corresponding button, AlimTalk cannot be sent. |
-| Message forwarding | - The name of the button, the body of the message, is forwarded to consultation agent.<br/> - If a channel that does not support consultation talk adds the corresponding button, AlimTalk cannot be sent. |
-| Switch to a consultation talk | -Connect to consultation talk<br/> - If a channel that does not support consultation talk adds the corresponding button, AlimTalk cannot be sent. |
-| Switching to Bot | -Chatbot is called<br/> - If a channel that does not support consultation talk adds the corresponding button, AlimTalk cannot be sent. |
-| Add channel | - Add the channel that sent AlimTalk. The exposure location is only available on the first button.<br/> - If a channel is already added, it will not appear to the receiver. |
-| Image Secure Transfer Plugin | - If image contains sensitive information, it encrypts and transfers within the chat window.<br/> - You need to create Bizplugin. [[Bizplugin Guide]](https://business.kakao.com/info/talkbizplugin/) |
-| Personal Information Use Plug-in | - In the chat window, consent is obtained to collect personal information necessary to provide services without signing up for membership.<br/> - You need to create Bizplugin. [[Bizplugin Guide]](https://business.kakao.com/info/talkbizplugin/) |
-| One-Click Payment Plugin | - Users can pay for the product without changing screens within the chat window.<br/> - The payment plug-in does not support registration directly on the platform, so contact [Kakao Customer Center](https://cs.kakao.com/helps?service=127&category=572&locale=ko). | 
-| Business Form | - If you created a business form and connected it to the current channel, the business form you set is called when you click the button.<br/> - Business Form Creation is required: [[Business Form Guide]](https://business.kakao.com/info/talkbizform/) |
+| Tracking Shipment | - Navigates to the courier company's shipment tracking page.<br/> - Check the courier companies that support the Tracking Shipment button and the invoice number patterns for each courier. [[Alim Talk Tracking Shipment Invoice Number Pattern Guide]](https://www.nhncloud.com/kr/support/notice/detail/1455) |
+| Web Link | - Navigates to a mobile or PC webpage.<br/> - You can set URL links as variables. |
+| App Link | - Launches an app using a custom scheme.<br/> - You must set the custom scheme to run on Android and iOS separately. |
+| Bot Keyword | - The button name is forwarded to the agent.<br/> - If a channel that does not support Consultation Chat adds this button, Alim Talk sending is not available. |
+| Message Delivery | - The button name and message body are forwarded to the agent.<br/> - If a channel that does not support Consultation Chat adds this button, Alim Talk sending is not available. |
+| Bot for Consultation | - Connects to Consultation Chat.<br/> - If a channel that does not support Consultation Chat adds this button, Alim Talk sending is not available. |
+| Bot Transfer | - Invokes the chatbot.<br/> - If a channel that does not support Consultation Chat adds this button, Alim Talk sending is not available. |
+| Add Channel | - Adds the channel that sent the Alim Talk. The display position can only be used as the first button.<br/> - If the channel has already been added, it is not displayed to the recipient. |
+| Image Secure Transmission Plugin | - Encrypts and transmits images containing sensitive information within the chat window.<br/> - A BizPlugin must be created. [[BizPlugin Guide]](https://business.kakao.com/info/talkbizplugin/) |
+| Personal Information Use Plugin | - Obtains consent for collecting personal information required to provide services within the chat window, without membership registration.<br/> - A BizPlugin must be created. [[BizPlugin Guide]](https://business.kakao.com/info/talkbizplugin/) |
+| One-Click Payment Plugin | - Allows users to pay for products within the chat window without switching screens.<br/> - The payment plugin does not support direct registration on the platform. Contact [Kakao Customer Center](https://cs.kakao.com/helps?service=127&category=572&locale=ko) for assistance. |
+| Business Form | - If a business form has been created and connected to the current channel, clicking the button invokes the configured business form.<br/> - A business form must be created. [[Business Form Guide]](https://business.kakao.com/info/talkbizform/) |
 
 <a id="template-inspection"></a>
 
-#### Template inspection
-The inspection and review of AlimTalk template will be conducted directly by Kakao, and will be processed sequentially within 2 business days after the inspection request.
+#### Template Review
+Alim Talk template review and screening are conducted directly by Kakao, and they are processed sequentially within 2 business days after the review request.
 
-* Register a template inquiry
-    * If you have an opinion to convey to the Kakao inspection officer before requesting an inspection, enter the information in the Enquiry Registration box. You cannot inquire about templates in the Request/Approval status. (Only templates in the **Inquiry/Return** status can be registered.)
-    * Enquiries registered will be added to the inspection results, which will be confirmed by the Kakao inspection representative.
-    * Inquiries about the purpose of the template and reasons for return will be added to the inspection results.
-    * If you reject the template, you can re-examine it by clicking **Register** and **Modify**.
+* Register Template Inquiry
+    * If you have comments to deliver to the Kakao review team before submitting a review request, enter the content in the inquiry registration field. Templates in the Requested/Approved state cannot submit inquiries. (Only templates in the **Under Review/Rejected** state can register inquiries.)
+    * The registered inquiry is added to the review results, and the Kakao review team confirms it.
+    * The review results include inquiries about the template's purpose and rejection reasons.
+    * When a template is rejected, you can request re-review by clicking **Register Inquiry** and **Edit**.
 
 <a id="template-status"></a>
 
-#### Template status
-* When registering a template, it is updated in the order of **Request > Under Inspection > Approval/Return** status.
-* After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3).
+#### Template Status
+* When a template is registered, the status is updated in the following order: **Requested > Under Review > Approved/Rejected**.
+* After template registration, if the same status is maintained for one year or no additional messages are sent, the template transitions to **Dormant** status. For the related guide, see [Alim Talk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3).
 
 <a id="modify-templates"></a>
 
-#### Modify Templates
-* You can modify only templates in ** Approval/Return ** state.
-* When re-inspection is complete after modifying the approved template, the existing template contents will be replaced with the modified one.
-* Sender profiles/groups and template codes cannot be modified.
-* Modified templates will be inspected again from ** Under Inspection** status.
+#### Edit Templates
+* Only templates in the **Approved/Rejected** state can be edited.
+* When you edit an approved template and the review is complete, the original template content is replaced with the edited content.
+* The sender profile/group and template code cannot be edited.
+* Edited templates go through the review process again, starting from the **Under Review** state.
 
 <a id="delete-templates"></a>
 
 #### Delete Templates
-* You can delete only templates with Request/Return status.
-* The returned template can be re-registered after **Delete**.
-* Deleted template code can be reused.
+* Only templates in the Requested/Rejected state can be deleted.
+* Rejected templates can be re-registered after **deletion**.
+* Deleted template codes can be reused.
+
+#### Brand Message Template
+Unlike Alim Talk templates, brand message templates do not require a review process and can be created, edited, and deleted freely.
+
+* Select a sender profile and register the template.
+* Template codes are not registered directly by users; instead, Kakao assigns a random identifier.
+* Select a message type and write the content.
+    * Supported message types: Text, Image, Wide Image, Wide Item List, Carousel Feed, Premium Video, Commerce, Carousel Commerce
+* You can register buttons.
+    * Supported button types: Web Link, App Link, Bot Keyword, Message Delivery, Bot for Consultation, Bot Transfer, Business Form, Add Channel
+* You can register coupons.
+* To attach an image, you must first register the image.
+
+#### Shared Alim Talk Template
+Shared Alim Talk templates are templates created, reviewed, and published directly by Kakao. They can be used by all businesses in common and are not tied to a specific sender profile. Since Kakao's review is already complete, they can be used for sending immediately without a separate review request.
+
+* Automatic Registration
+    * When you register a sender profile, shared Alim Talk templates are automatically synchronized and displayed in the console. After that, when new shared templates are published by Kakao, they are automatically synchronized periodically.
+    * Shared Alim Talk templates are automatically classified under the **Kakao** category. Since this category is created and managed by the system, users cannot edit or delete it directly.
+* Usage Restrictions
+    * Shared Alim Talk templates are managed by Kakao and cannot be edited or deleted in the console.
+    * Shared Alim Talk templates cannot be moved to a general category, and general templates cannot be moved to the **Kakao** category.
+* Sending
+    * Since shared Alim Talk templates are not tied to a specific sender profile, you must select the sender profile to use when sending.
+    * At least one active sender profile must be registered.
+    * Since the review is already complete, you can send messages immediately without waiting for review.
