@@ -228,6 +228,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
+<a id="free-form-message-sending-request---brand-message-brandmessage"></a>
+
 ## 자유 양식 메시지 발송 요청 - 브랜드 메시지(BRANDMESSAGE)
 
 브랜드 메시지(BRANDMESSAGE)에 대한 자유 양식 메시지 발송을 요청합니다.
@@ -2080,6 +2082,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 </details>
 
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
+
+<a id="send-brand-message-template-messages"></a>
 
 ## 브랜드 메시지 템플릿 메시지 발송
 
