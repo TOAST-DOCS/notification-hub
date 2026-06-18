@@ -111,6 +111,8 @@ Alim Talk template inspection and review are conducted directly by Kakao and are
 * Rejected templates can be re-registered after **deletion**.
 * Deleted template codes can be reused.
 
+<a id="brand-message-template"></a>
+
 #### Brand Message Template
 Unlike Alim Talk templates, brand message templates do not go through an inspection process and can be created, edited, and deleted freely.
 
@@ -122,6 +124,8 @@ Unlike Alim Talk templates, brand message templates do not go through an inspect
     * Supported button types: Web link, App link, Bot keyword, Message delivery, Bot for Consultation, Bot Transfer, Business form, Add channel
 * You can register coupons.
 * To attach an image, you must register the image first.
+
+<a id="shared-alim-talk-template"></a>
 
 #### Shared Alim Talk Template
 Shared Alim Talk templates are templates that Kakao creates, inspects, and publishes directly. They can be used by all businesses in common and are not tied to a specific sender profile. Because they are provided in a state where Kakao inspection has already been completed, they can be used for sending immediately without a separate inspection request.
