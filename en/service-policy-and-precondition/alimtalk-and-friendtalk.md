@@ -68,13 +68,19 @@ Brand Messages is a KakaoTalk Bizmessage product that allows you to send adverti
 * Template sending and free-form sending are both available.
 * If a Brand Message fails to send, you can send a text message instead.
 
+<a id="create-a-sender-profile"></a>
+
 ## Create a Sender Profile
 
 Brand messages use the same KakaoTalk sender profile as AlimTalk. To create a sender profile, refer to **AlimTalk > Create a Sender Profile** above.
 
+<a id="delivery-targets-and-targeting"></a>
+
 ## Delivery Targets and Targeting
 
 Brand messages are divided into customer-targeted delivery and friend-targeted delivery, depending on the type of recipient.
+
+<a id="customer-targeted-delivery"></a>
 
 ### Customer-Targeted Delivery
 
@@ -86,6 +92,8 @@ For more information about applying to use customer-targeted delivery, see **Con
 * **N**: Sends advertising messages to users who have consented to receive marketing messages, excluding channel friends.
 * **O**: Sends advertising messages to channel friends among users who have consented to receive marketing messages.
 
+<a id="conditions-for-sending-messages-to-non-friends"></a>
+
 #### Conditions for Sending Messages to Non-Friends
 
 Sending messages to non-friends (targeting M and N) requires that all of the following conditions are met:
@@ -96,9 +104,13 @@ Sending messages to non-friends (targeting M and N) requires that all of the fol
 * More than 50,000 channel friends
 * History of successful AlimTalk message delivery within the last 3 months
 
+<a id="friend-targeted-delivery"></a>
+
 ### Friend-Targeted Delivery
 
 Friend-targeted delivery sends messages to all KakaoTalk channel friends. An 080 opt-out number is not required.
+
+<a id="register-080-opt-out-number"></a>
 
 ## Register 080 Opt-Out Number
 
@@ -107,12 +119,16 @@ When sending messages to customers (targeting M, N, O), you must register an 080
 * The 080 opt-out number is applied collectively to all sender profiles of other organizations, other projects, and other dealers using the same KakaoTalk channel.
 * You can manage opt-out information for the 080 opt-out number by integrating with the NHN Cloud SMS service.
 
+<a id="nighttime-delivery-restrictions"></a>
+
 ## Nighttime Delivery Restrictions
 
 Brand messages are advertising messages, so sending them is restricted during nighttime hours in accordance with the Telecommunications Network Act.
 
 * Delivery restricted during night: 20:50~08:00 on the following day
 * If a delivery is requested during nighttime hours, it is either treated as a failure or resent after the restriction period ends, depending on the detailed settings.
+
+<a id="caution"></a>
 
 ## Caution
 
