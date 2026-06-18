@@ -86,11 +86,15 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
     * Handle Failure
 * The time limit setting for sending advertising messages in SMS and RCS requires individual settings.
 
-<a id="push"></a>
+<a id="brand-message"></a>
 
 ## Brand Message
 
+<a id="advertising-message-settings"></a>
+
 ### Advertising Message Settings
+<a id="ad-delivery-restriction-time-settings"></a>
+
 #### Ad Delivery Restriction Time Settings
 * Brand messages can only be sent as advertising messages, and sending is restricted during nighttime hours in accordance with the Information and Communication Network Act.
 * Advertising messages will not be sent during the configured Ad Send Restriction Time.
