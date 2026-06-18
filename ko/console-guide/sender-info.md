@@ -358,6 +358,8 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 
 <span id="brandmessage-customer-sending-application"></span>
 
+<a id="apply-to-use-customer-sending"></a>
+
 ### 고객 대상 발송 사용 신청
 
 브랜드 메시지의 고객 대상 발송을 사용하려면 사용 신청을 진행해야 합니다. 사용 신청을 하지 않으면 고객 대상 발송(타겟팅 M, N, O)을 사용할 수 없습니다.
