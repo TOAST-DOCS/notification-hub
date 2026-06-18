@@ -89,11 +89,15 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
     * 失敗処理
 * SMS, RCSの広告性メッセージ送信時間制限設定は個別設定が必要です。
 
-<a id="push"></a>
+<a id="brand-message"></a>
 
 ## ブランドメッセージ
 
+<a id="advertising-message-settings"></a>
+
 ### 広告メッセージ設定
+<a id="ad-delivery-restriction-time-settings"></a>
+
 #### 広告メッセージ送信時間制限設定
 * ブランドメッセージは広告メッセージのみ送信でき、情報通信망法に基づき、夜間時間帯の送信が制限されます。
 * 設定した広告送信制限時間中は、広告の送信は行われません。
