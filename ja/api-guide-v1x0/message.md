@@ -228,6 +228,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
+<a id="free-form-message-sending-request---brand-message-brandmessage"></a>
+
 ## 自由形式メッセージ送信リクエスト - ブランドメッセージ(BRANDMESSAGE)
 
 ブランドメッセージ(BRANDMESSAGE)の自由形式メッセージ送信をリクエストします。
@@ -2072,6 +2074,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 </details>
 
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
+
+<a id="send-brand-message-template-messages"></a>
 
 ## ブランドメッセージ テンプレート送信
 
