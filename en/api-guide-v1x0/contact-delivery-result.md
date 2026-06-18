@@ -16,12 +16,12 @@
 
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
 
-## Retrieve a List of Received Results by Contacts
+## List Received Results by Contacts
 
-Retrieve the sending and reception results of requested messages by recipient contact.
+Retrieves the sending and received results of requested messages at the contact level of each recipient.
 
-For example, if you send two flow messages consisting of an email and SMS template to 10 recipients with email addresses and phone numbers, 40 items will be displayed when viewing the reception results list by contact. (2 contacts X 10 recipients X 2 flow messages = 40 reception results per contact.)
-You can retrieve reception results by contact using various retrieve conditions.
+For example, if you send 2 flow messages consisting of email and SMS templates to 10 recipients who each have an email address and a phone number, querying the list of received results by contacts returns 40 items. (2 contacts × 10 recipients × 2 flow messages = 40 received results by contacts)
+You can query received results by contacts using various search conditions.
 
 
 **Request**
@@ -32,42 +32,42 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**Request Parameter**
+**Request Parameters**
 
-| Name | Category | Type | Required | Description |
+| Name | Type | Format | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | App Key |
-| X-NHN-Authorization | Header | String | Y | Access Token |
-| messageId | Query | String | N | Message ID. This value is generated when a message sending request is received. |
-| templateId | Query | String | N | Template ID. |
-| flowId | Query | String | N | Flow ID. |
-| statsKeyId | Query | String | N | Statistics Key ID. |
-| sender | Query | String | N | Sender information. |
-| contact | Query | String | N | Contact information. |
-| messageChannel | Query | String | N | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, and PUSH] |
-| messagePurpose | Query | String | N | The message purpose.<br>[AD, AUTH, NORMAL] |
-| statuses | Query | List | N | The message status. You can view the sending result.<br> When a message sending request is received, the message status is set to REQUESTED. <br>[REQUESTED, SCHEDULED, READY, CONFIRM_WAITED, WAITED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, and CANCELED] |
-| scheduled | Query | Boolean | N | Whether to schedule sending. |
-| confirmBeforeSend | Query | Boolean | N | Whether to send after approval. |
-| createdDateTimeFrom | Query | Date | N | The request start date and time. The default is 7 days ago. |
-| createdDateTimeTo | Query | Date | N | The request end date and time. The default is the current date and time. |
-| limit | Query | Integer | N | The number of messages to retrieve. The default is 10. |
-| offset | Query | Integer | N | The starting position of the messages to retrieve. The default is 0. |
+| X-NC-APP-KEY | Header | String | O | Appkey |
+| X-NHN-Authorization | Header | String | O | Access token |
+| messageId | Query | String | X | Message ID. This value is generated when a message sending request is received. |
+| templateId | Query | String | X | Template ID. |
+| flowId | Query | String | X | Flow ID. |
+| statsKeyId | Query | String | X | Statistics key ID. |
+| sender | Query | String | X | Sender information. |
+| contact | Query | String | X | Contact. |
+| messageChannel | Query | Enum | X | Message channel. |
+| messagePurpose | Query | Enum | X | Message purpose. |
+| statuses | Query | Enum | X | Message status. This can be viewed as a delivery result.<br> When a message sending request is received, the message status is set to REQUESTED.<br>  |
+| scheduled | Query | Boolean | X | Whether the message is scheduled for delivery. |
+| confirmBeforeSend | Query | Boolean | X | Whether to send after confirmation. |
+| createdDateTimeFrom | Query | DateTime | X | Request start date and time. The default value is 7 days ago. |
+| createdDateTimeTo | Query | DateTime | X | Request end date and time. The default value is the current date and time. |
+| limit | Query | Number | X | Number of messages to retrieve. The default value is 10. |
+| offset | Query | Number | X | Start position of messages to retrieve. The default value is 0. |
 
 * The maximum query period for **createdDateTimeFrom** and **createdDateTimeTo** is 7 days.
 
 
 **Request Body**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!--If the API does not require a request body, enter "This API does not require a request body."-->
 
-This API does not request a request body.
+This API does not require a request body.
 
 
 
 **Response Body**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!--If the API does not return a response body, enter "This API does not return a response body."-->
 
 ```
 {
@@ -77,7 +77,7 @@ This API does not request a request body.
     "resultMessage" : "SUCCESS"
   },
   "contactDeliveryResults" : [ {
-    "messageId" : "Message ID",
+    "messageId" : "메시지의 아이디",
     "recipientIndex" : 0,
     "contactIndex" : 0,
     "contactType" : "PHONE_NUMBER",
@@ -94,7 +94,7 @@ This API does not request a request body.
     "templateId" : "Tj3nE8dq",
     "flowId" : "R2m9Kv0x",
     "statsKeyId" : "aA123456",
-    "clientReference" : "Custom Field",
+    "clientReference" : "사용자 지정 필드",
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "options" : {
@@ -123,52 +123,52 @@ This API does not request a request body.
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--Describes the fields in the response body.-->
 
-| Path | Type | Description |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | Indicates whether the request was successful.<br>Default: true |
-| header.resultCode | Integer | The result code of the request.<br>Default: 0 |
-| header.resultMessage | String | The result message of the request.<br>Default: SUCCESS |
-| contactDeliveryResults | Array | The result of sending the message. |
-| contactDeliveryResults[].messageId | String | The message ID. |
-| contactDeliveryResults[].recipientIndex | Integer | The recipient index. |
-| contactDeliveryResults[].contactIndex | Integer | The contact index. |
-| contactDeliveryResults[].contactType | String | Contact Type<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| contactDeliveryResults[].contact | String | Contact information. |
-| contactDeliveryResults[].sender | Object | |
-| contactDeliveryResults[].sender.senderKey | String | Sender profile sender key |
-| contactDeliveryResults[].sender.senderProfileId | String | KakaoTalk channel name |
-| contactDeliveryResults[].sender.senderProfileType | String | Sender profile type<br>[GROUP (group sender profile), NORMAL (normal sender profile)] |
-| contactDeliveryResults[].sender.senderPhoneNumber | String | Sender number |
-| contactDeliveryResults[].sender.senderMailAddress | String | Sender email address |
-| contactDeliveryResults[].sender.brandId | String | Brand ID |
-| contactDeliveryResults[].sender.chatbotId | String | Chat room (chatbot) ID |
-| contactDeliveryResults[].templateId | String | Template ID |
-| contactDeliveryResults[].flowId | String | Flow ID |
-| contactDeliveryResults[].statsKeyId | String | Statistics key ID |
-| contactDeliveryResults[].clientReference | String | Custom field |
-| contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| contactDeliveryResults[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| contactDeliveryResults[].options | Object | |
-| contactDeliveryResults[].options.expiryOption | Integer | (RCS) The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
-| contactDeliveryResults[].options.groupId | String | (RCS) Group ID for RCS Biz Center statistics integration |
-| contactDeliveryResults[].confirmBeforeSend | Boolean | Whether to send after confirmation. |
-| contactDeliveryResults[].confirmedDateTime | String | The time the message sending was confirmed. |
-| contactDeliveryResults[].scheduled | Boolean | Whether to schedule sending. |
-| contactDeliveryResults[].scheduledDateTime | String | Scheduled delivery time. |
-| contactDeliveryResults[].status | String | Delivery/reception status. <br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, CANCELED] |
-| contactDeliveryResults[].resultCode | String | Delivery result code. The value varies depending on the message channel. |
-| contactDeliveryResults[].resultMessage | String | Delivery result message. |
-| contactDeliveryResults[].templateParameters | Object | Template parameters. It consists of a pair of keys (key, placeholder) and values ​​(value).<br><br>You cannot specify template parameters for each recipient in group delivery.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| contactDeliveryResults[].additionalProperty | Object | |
-| contactDeliveryResults[].createdDateTime | String | The time the message was created. |
-| contactDeliveryResults[].sentDateTime | String | The time the message was sent. |
-| contactDeliveryResults[].deliveredDateTime | String | The time the message was received. |
-| contactDeliveryResults[].openedDateTime | String | The time the message was opened. |
-| contactDeliveryResults[].updatedDateTime | String | The time the message was modified. |
-| totalCount | Integer | The total number of message delivery results retrieved. |
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+| contactDeliveryResults | Array | O | Message sending results. |
+| contactDeliveryResults[].messageId | String | O | Message ID |
+| contactDeliveryResults[].recipientIndex | Integer | O | Recipient index. |
+| contactDeliveryResults[].contactIndex | Integer | O | Contact index. |
+| contactDeliveryResults[].contactType | String | O | Contact type<br>[PHONE_NUMBER (phone number), EMAIL_ADDRESS (email address), TOKEN_ADM (Amazon Device Messaging token), TOKEN_FCM (Firebase Cloud Messaging token), TOKEN_APNS (Apple Push Notification service token), TOKEN_APNS_SANDBOX (APNS Sandbox token), TOKEN_APNS_SANDBOX_VOIP (APNS Sandbox VoIP token), TOKEN_APNS_VOIP (APNS VoIP token)] |
+| contactDeliveryResults[].contact | String | O | Contact. |
+| contactDeliveryResults[].sender | Object | X |  |
+| contactDeliveryResults[].sender.senderKey | String | X | Sender profile sender key |
+| contactDeliveryResults[].sender.senderProfileId | String | X | KakaoTalk channel name |
+| contactDeliveryResults[].sender.senderProfileType | String | X | Sender profile type<br>[GROUP (group sender profile), NORMAL (general sender profile)] |
+| contactDeliveryResults[].sender.senderPhoneNumber | String | X | Sender phone number |
+| contactDeliveryResults[].sender.senderMailAddress | String | X | Sender email address |
+| contactDeliveryResults[].sender.brandId | String | X | Brand ID |
+| contactDeliveryResults[].sender.chatbotId | String | X | Chat room (chatbot) ID |
+| contactDeliveryResults[].templateId | String | X | Template ID |
+| contactDeliveryResults[].flowId | String | X | Flow ID |
+| contactDeliveryResults[].statsKeyId | String | X | Statistics key ID |
+| contactDeliveryResults[].clientReference | String | X | Client reference |
+| contactDeliveryResults[].messageChannel | String | O | Message channel<br>[SMS (SMS), ALIMTALK (Alim Talk), EMAIL (email), RCS (RCS), PUSH (push)] |
+| contactDeliveryResults[].messagePurpose | String | O | Message content type<br>Default: NORMAL<br>[NORMAL (general), AD (advertising), AUTH (authentication)] |
+| contactDeliveryResults[].options | Object | X |  |
+| contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) Time for the carrier to attempt delivery to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
+| contactDeliveryResults[].options.groupId | String | X | (RCS) Group ID for RCS Biz Center statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
+| contactDeliveryResults[].confirmBeforeSend | Boolean | O | Whether to send after confirmation. |
+| contactDeliveryResults[].confirmedDateTime | String | X | Date and time when the message sending was confirmed. |
+| contactDeliveryResults[].scheduled | Boolean | O | Whether the message is scheduled for delivery. |
+| contactDeliveryResults[].scheduledDateTime | String | X | Scheduled delivery date and time. |
+| contactDeliveryResults[].status | String | O | Sending/received status<br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, DELIVERY_FAILED, CANCELED] |
+| contactDeliveryResults[].resultCode | String | X | Delivery result code. The value varies depending on the message channel. |
+| contactDeliveryResults[].resultMessage | String | X | Delivery result message. |
+| contactDeliveryResults[].templateParameters | Object | X | Template parameters. Consists of key (placeholder) and value pairs.<br><br>In group sending, you cannot specify template parameters per recipient.<br><br>Template parameters set on a recipient take precedence over message template parameters.<br><br> |
+| contactDeliveryResults[].additionalProperty | Object | X |  |
+| contactDeliveryResults[].createdDateTime | String | O | Date and time when the message was created. |
+| contactDeliveryResults[].sentDateTime | String | X | Date and time when the message was sent. |
+| contactDeliveryResults[].deliveredDateTime | String | X | Date and time when the message was delivered. |
+| contactDeliveryResults[].openedDateTime | String | X | Date and time when the message was opened. |
+| contactDeliveryResults[].updatedDateTime | String | X | Date and time when the message was last updated. |
+| totalCount | Integer | O | Total number of message sending results retrieved. |
 
 
 
@@ -179,15 +179,12 @@ This API does not request a request body.
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### Retrieve Received Results by Contacts
+### List Received Results by Contacts
 
 GET {{endpoint}}/message/v1.0/contact-delivery-results
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -195,8 +192,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -205,10 +202,10 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 
 <a id="retrieve-a-list-of-the-final-send-status-messages"></a>
 
-## Retrieve a List of the Final Send Status Messages
+## List final delivery status messages
 
-View a list of message results after the sending process has completed.<br>
-Final sending statuses include "SEND_FAILED," "DELIVERED," "DELIVERY_FAILED," and "CANCELED."
+Retrieves a list of message results for which the delivery process has ended.<br>
+Final delivery statuses include "SEND_FAILED", "DELIVERED", "DELIVERY_FAILED", and "CANCELED".
 
 
 **Request**
@@ -219,40 +216,40 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**Request Parameter**
+**Request parameters**
 
-| Name | Category | Type | Required | Description |
+| Name | Type | Format | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | App Key |
-| X-NHN-Authorization | Header | String | Y | Access Token |
-| messageId | Query | String | N | Message ID. This value is generated when a message sending request is received. |
-| templateId | Query | String | N | Template ID. |
-| flowId | Query | String | N | Flow ID. |
-| statsKeyId | Query | String | N | Statistics Key ID. |
-| sender | Query | String | N | Sender information. |
-| contact | Query | String | N | Contact information. |
-| messageChannel | Query | String | N | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
-| messagePurpose | Query | String | N | The message purpose. <br>[AD, AUTH, NORMAL] |
-| scheduled | Query | Boolean | N | Whether to schedule sending. |
-| confirmBeforeSend | Query | Boolean | N | Whether to send after approval. |
-| updatedDateTimeFrom | Query | Date | N | The start date and time of sending status updates. The default is 7 days ago. |
-| updatedDateTimeTo | Query | Date | N | The end date and time of sending status updates. The default is the current date and time. |
-| limit | Query | Integer | N | The number of messages to retrieve. The default is 10. |
-| offset | Query | Integer | N | The starting position of the messages to retrieve. The default is 0. |
+| X-NC-APP-KEY | Header | String | O | App key |
+| X-NHN-Authorization | Header | String | O | Access token |
+| messageId | Query | String | X | Message ID. A value generated when a message delivery request is received. |
+| templateId | Query | String | X | Template ID. |
+| flowId | Query | String | X | Flow ID. |
+| statsKeyId | Query | String | X | Statistics key ID. |
+| sender | Query | String | X | Sender information. |
+| contact | Query | String | X | Contact. |
+| messageChannel | Query | Enum | X | Message channel. |
+| messagePurpose | Query | Enum | X | Message purpose. |
+| scheduled | Query | Boolean | X | Whether the message is a scheduled delivery. |
+| confirmBeforeSend | Query | Boolean | X | Whether the message requires confirmation before sending. |
+| updatedDateTimeFrom | Query | DateTime | X | Start date and time of the delivery status update. The default value is 7 days ago. |
+| updatedDateTimeTo | Query | DateTime | X | End date and time of the delivery status update. The default value is the current date and time. |
+| limit | Query | Number | X | Number of messages to retrieve. The default value is 10. |
+| offset | Query | Number | X | Starting position of messages to retrieve. The default value is 0. |
 
 
 
-**Request Body**
+**Request body**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!--If this API does not require a request body, enter "This API does not require a request body."-->
 
-This API does not request a request body.
+This API does not require a request body.
 
 
 
-**Response Body**
+**Response body**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!--If this API does not return a response body, enter "This API does not return a response body."-->
 
 ```
 {
@@ -262,7 +259,7 @@ This API does not request a request body.
     "resultMessage" : "SUCCESS"
   },
   "contactDeliveryResults" : [ {
-    "messageId" : "Message ID",
+    "messageId" : "메시지의 아이디",
     "recipientIndex" : 0,
     "contactIndex" : 0,
     "contactType" : "PHONE_NUMBER",
@@ -279,7 +276,7 @@ This API does not request a request body.
     "templateId" : "Tj3nE8dq",
     "flowId" : "R2m9Kv0x",
     "statsKeyId" : "aA123456",
-    "clientReference" : "Custom Field",
+    "clientReference" : "사용자 지정 필드",
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
     "options" : {
@@ -308,71 +305,68 @@ This API does not request a request body.
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--Describes the fields in the response body.-->
 
-| Path | Type | Description |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | Indicates whether the request was successful.<br>Default: true |
-| header.resultCode | Integer | The result code of the request.<br>Default: 0 |
-| header.resultMessage | String | The result message of the request.<br>Default: SUCCESS |
-| contactDeliveryResults | Array | The result of sending the message. |
-| contactDeliveryResults[].messageId | String | The message ID. |
-| contactDeliveryResults[].recipientIndex | Integer | The recipient index. |
-| contactDeliveryResults[].contactIndex | Integer | The contact index. |
-| contactDeliveryResults[].contactType | String | Contact Type<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| contactDeliveryResults[].contact | String | Contact information. |
-| contactDeliveryResults[].sender | Object | |
-| contactDeliveryResults[].sender.senderKey | String | Sender profile sender key |
-| contactDeliveryResults[].sender.senderProfileId | String | KakaoTalk channel name |
-| contactDeliveryResults[].sender.senderProfileType | String | Sender profile type<br>[GROUP, NORMAL] |
-| contactDeliveryResults[].sender.senderPhoneNumber | String | Sender number |
-| contactDeliveryResults[].sender.senderMailAddress | String | Sender email address |
-| contactDeliveryResults[].sender.brandId | String | Brand ID |
-| contactDeliveryResults[].sender.chatbotId | String | Chat room (chatbot) ID |
-| contactDeliveryResults[].templateId | String | Template ID |
-| contactDeliveryResults[].flowId | String | Flow ID |
-| contactDeliveryResults[].statsKeyId | String | Statistics key ID |
-| contactDeliveryResults[].clientReference | String | Custom field |
-| contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
-| contactDeliveryResults[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| contactDeliveryResults[].options | Object | |
-| contactDeliveryResults[].options.expiryOption | Integer | (RCS) The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
-| contactDeliveryResults[].options.groupId | String | (RCS) Group ID for RCS Biz Center statistics integration |
-| contactDeliveryResults[].confirmBeforeSend | Boolean | Whether to send after confirmation. |
-| contactDeliveryResults[].confirmedDateTime | String | The time the message sending was confirmed. |
-| contactDeliveryResults[].scheduled | Boolean | Whether to schedule sending. |
-| contactDeliveryResults[].scheduledDateTime | String | Scheduled delivery time. |
-| contactDeliveryResults[].status | String | Delivery/reception status. <br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, CANCELED] |
-| contactDeliveryResults[].resultCode | String | Delivery result code. The value varies depending on the message channel. |
-| contactDeliveryResults[].resultMessage | String | Delivery result message. |
-| contactDeliveryResults[].templateParameters | Object | Template parameters. It consists of a pair of keys (key, placeholder) and values ​​(value).<br><br>You cannot specify template parameters for each recipient in group delivery.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| contactDeliveryResults[].additionalProperty | Object | |
-| contactDeliveryResults[].createdDateTime | String | The time the message was created. |
-| contactDeliveryResults[].sentDateTime | String | The time the message was sent. |
-| contactDeliveryResults[].deliveredDateTime | String | The time the message was received. |
-| contactDeliveryResults[].openedDateTime | String | The time the message was opened. |
-| contactDeliveryResults[].updatedDateTime | String | The time the message was modified. |
-| totalCount | Integer | The total number of message delivery results retrieved. |
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+| contactDeliveryResults | Array | O | Message delivery results. |
+| contactDeliveryResults[].messageId | String | O | Message ID |
+| contactDeliveryResults[].recipientIndex | Integer | O | Recipient index. |
+| contactDeliveryResults[].contactIndex | Integer | O | Contact index. |
+| contactDeliveryResults[].contactType | String | O | Contact type<br>[PHONE_NUMBER (phone number), EMAIL_ADDRESS (email address), TOKEN_ADM (Amazon Device Messaging token), TOKEN_FCM (Firebase Cloud Messaging token), TOKEN_APNS (Apple Push Notification service token), TOKEN_APNS_SANDBOX (APNS Sandbox token), TOKEN_APNS_SANDBOX_VOIP (APNS Sandbox VoIP token), TOKEN_APNS_VOIP (APNS VoIP token)] |
+| contactDeliveryResults[].contact | String | O | Contact. |
+| contactDeliveryResults[].sender | Object | X |  |
+| contactDeliveryResults[].sender.senderKey | String | X | Sender profile sender key |
+| contactDeliveryResults[].sender.senderProfileId | String | X | KakaoTalk channel name |
+| contactDeliveryResults[].sender.senderProfileType | String | X | Sender profile type<br>[GROUP (group sender profile), NORMAL (general sender profile)] |
+| contactDeliveryResults[].sender.senderPhoneNumber | String | X | Sender number |
+| contactDeliveryResults[].sender.senderMailAddress | String | X | Sender email address |
+| contactDeliveryResults[].sender.brandId | String | X | Brand ID |
+| contactDeliveryResults[].sender.chatbotId | String | X | Chat room (chatbot) ID |
+| contactDeliveryResults[].templateId | String | X | Template ID |
+| contactDeliveryResults[].flowId | String | X | Flow ID |
+| contactDeliveryResults[].statsKeyId | String | X | Statistics key ID |
+| contactDeliveryResults[].clientReference | String | X | Client reference |
+| contactDeliveryResults[].messageChannel | String | O | Message channel<br>[SMS (SMS), ALIMTALK (Alim Talk), EMAIL (email), RCS (RCS), PUSH (push)] |
+| contactDeliveryResults[].messagePurpose | String | O | Message content type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
+| contactDeliveryResults[].options | Object | X |  |
+| contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) The time the carrier attempts to deliver to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
+| contactDeliveryResults[].options.groupId | String | X | (RCS) Group ID for RCS Biz Center statistics integration [Guide](../console-guide/send-a-message/#RCS) (maximum 20 bytes) |
+| contactDeliveryResults[].confirmBeforeSend | Boolean | O | Whether confirmation is required before sending. |
+| contactDeliveryResults[].confirmedDateTime | String | X | Date and time when the message delivery was confirmed. |
+| contactDeliveryResults[].scheduled | Boolean | O | Whether the message is a scheduled delivery. |
+| contactDeliveryResults[].scheduledDateTime | String | X | Scheduled delivery date and time. |
+| contactDeliveryResults[].status | String | O | Delivery/received status<br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, DELIVERY_FAILED, CANCELED] |
+| contactDeliveryResults[].resultCode | String | X | Delivery result code. The value varies depending on the message channel. |
+| contactDeliveryResults[].resultMessage | String | X | Delivery result message. |
+| contactDeliveryResults[].templateParameters | Object | X | Template parameters. Consists of key (placeholder) and value pairs.<br><br>In group sending, you cannot specify template parameters per recipient.<br><br>Template parameters set for a recipient take precedence over message template parameters.<br><br> |
+| contactDeliveryResults[].additionalProperty | Object | X |  |
+| contactDeliveryResults[].createdDateTime | String | O | Date and time when the message was created. |
+| contactDeliveryResults[].sentDateTime | String | X | Date and time when the message was sent. |
+| contactDeliveryResults[].deliveredDateTime | String | X | Date and time when the message was delivered. |
+| contactDeliveryResults[].openedDateTime | String | X | Date and time when the message was opened. |
+| contactDeliveryResults[].updatedDateTime | String | X | Date and time when the message was last updated. |
+| totalCount | Integer | O | Total number of message delivery results retrieved. |
 
 
 
-**Request Example**
+**Request examples**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### Retrieve a List of the Final Send Status Messages
+### List final delivery status messages
 
 GET {{endpoint}}/message/v1.0/final-contact-delivery-results
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -380,8 +374,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/message/v1.0/final-contact-delivery-results" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
