@@ -17,6 +17,8 @@ The sender information for the message channel must be registered before sending
 
 <span id="send-flow-message"></span>
 
+<a id="send-flow-messages"></a>
+
 ## Send Flow Messages
 
 You must have a registered flow to send a flow.
@@ -193,6 +195,8 @@ Concatenated Message feature is provided or limited depending on the number of b
 * Select a sender profile and a template registered in the sender profile.
 * AlimTalk only supports template sending, so no message content input is required.
 * You must also select a sender profile when sending a common AlimTalk template. Because a common AlimTalk template is not tied to a specific sender profile, it is sent using the selected sender profile.
+
+<a id="brand-message"></a>
 
 #### Brand Message
 
