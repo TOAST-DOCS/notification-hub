@@ -16,6 +16,8 @@
 
 <span id="messageV1x0001SmsFreeFormMessages"></span>
 
+<a id="free-form-message-sending-request---sms"></a>
+
 ## Free-form message sending request - SMS
 
 Requests free-form message sending for SMS. Enter the message content in the request body and request the sending.
@@ -228,6 +230,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 </details>
 
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
+
+<a id="free-form-message-sending-request---brand-message-brandmessage"></a>
 
 ## Free-Form Message Sending Request - Brand Message (BRANDMESSAGE)
 
@@ -2080,6 +2084,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 </details>
 
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
+
+<a id="send-a-brand-message-template-message"></a>
 
 ## Send a Brand Message Template Message
 
