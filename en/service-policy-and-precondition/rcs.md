@@ -88,368 +88,406 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
 
 <a id="send-type-that-supports"></a>
 
-## Send type that supports
+## Supported Sending Types
+- Sending types marked 'O' in the 'Unified RCS' column in the table below are Unified RCS types, which can be received not only on Android devices but also on iPhone devices. (Sending types marked 'X' are Android RCS types, which can only be received on Android devices.)
 
 <table class="custom-table" style="text-align: center">
     <tr>
         <td>NO</td>
         <td>Product</td>
-        <td>Product name</td>
+        <td>Product Name</td>
+        <td>Unified RCS</td>
         <td>Card Type</td>
-        <td>Card Count</td>
-        <td>Maximum Message Length</td>
-        <td>Maximum Number of Buttons per Card</td>
-        <td>Maximum Button Name Length</td>
+        <td>Number of Cards</td>
+        <td>Max Message Length</td>
+        <td>Max Buttons per Card</td>
+        <td>Max Button Name Length</td>
         <td>Image</td>
     </tr>
     <tr>
         <td>1</td>
         <td rowspan="2">SMS</td>
         <td>SMS</td>
+        <td>X</td>
         <td>Standalone</td>
         <td>1</td>
-        <td>100</td>
+        <td>100 characters</td>
         <td>1</td>
-        <td>17</td>
+        <td>17 characters</td>
         <td rowspan="2">-</td>
     </tr>
     <tr>
         <td>2</td>
-        <td>Integrated SMS card</td>
+        <td>Unified SMS Card</td>
+        <td>O</td>
         <td>Standalone</td>
-        <td>1 sheet</td>
-        <td>100 chars</td>
-        <td>1 ea</td>
-        <td>7 chars</td>
+        <td>1</td>
+        <td>100 characters</td>
+        <td>1</td>
+        <td>7 characters</td>
     </tr>
     <tr>
         <td>3</td>
         <td rowspan="5">LMS</td>
         <td>LMS</td>
+        <td>X</td>
         <td>Standalone</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>3</td>
-        <td>17</td>
+        <td>17 characters</td>
         <td rowspan="5">-</td>
     </tr>
     <tr>
         <td>4</td>
         <td>Basic</td>
+        <td>X</td>
         <td>Format</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
     </tr>
     <tr>
         <td>5</td>
-        <td>Title emphasis</td>
+        <td>Title Highlight</td>
+        <td>X</td>
         <td>Format</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
     </tr>
     <tr>
         <td>6</td>
         <td>Paragraph</td>
+        <td>X</td>
         <td>Format</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2 per paragraph</td>
-        <td>7</td>
+        <td>7 characters</td>
     </tr>
     <tr>
         <td>7</td>
-        <td>Integrated LMS card</td>
+        <td>Unified LMS Card</td>
+        <td>O</td>
         <td>Standalone</td>
-        <td>1 sheet</td>
-        <td>1,300 chars</td>
-        <td>3 ea</td>
-        <td>7 chars</td>
+        <td>1</td>
+        <td>1,300 characters</td>
+        <td>3</td>
+        <td>7 characters</td>
     </tr>
     <tr>
         <td>8</td>
         <td rowspan="6">MMS</td>
         <td>Vertical (Tall)</td>
+        <td>X</td>
         <td>Standalone Media Top</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
-        <td>Tall (568x528)</td>
+        <td>17 characters</td>
+        <td>Tall(568x528)</td>
     </tr>
     <tr>
         <td>9</td>
         <td>Vertical (Medium)</td>
+        <td>X</td>
         <td>Standalone Media Top</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
-        <td>Medium (568x336)</td>
+        <td>17 characters</td>
+        <td>Medium(568x336)</td>
     </tr>
     <tr>
         <td>10</td>
         <td>Slide (Medium)</td>
+        <td>X</td>
         <td>Carousel Medium</td>
-        <td>2 <br/> to 6</td>
-        <td>1,300</td>
+        <td>2 <br/> ~ 6</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>13</td>
-        <td>Medium (696x504)</td>
+        <td>13 characters</td>
+        <td>Medium(696x504)</td>
     </tr>
     <tr>
         <td>11</td>
         <td>Slide (Small)</td>
+        <td>X</td>
         <td>Carousel Small</td>
-        <td>2 <br/> to 6</td>
-        <td>1,300</td>
+        <td>2 <br/> ~ 6</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>5</td>
-        <td>Short (360x336)</td>
+        <td>5 characters</td>
+        <td>Short(360x336)</td>
     </tr>
     <tr>
         <td>12</td>
-        <td>Integrated MMS card M</td>
+        <td>Unified MMS Card M</td>
+        <td>O</td>
         <td>Standalone Media Top</td>
-        <td>1 sheet</td>
-        <td>1300자</td>
-        <td>2개</td>
-        <td>7 chars</td>
+        <td>1</td>
+        <td>1,300 characters</td>
+        <td>2</td>
+        <td>7 characters</td>
         <td>Medium(900x504)</td>
     </tr>
     <tr>
         <td>13</td>
-        <td>Integrated MMS card T</td>
+        <td>Unified MMS Card T</td>
+        <td>O</td>
         <td>Standalone Media Top</td>
-        <td>1 sheet</td>
-        <td>1300자</td>
-        <td>2개</td>
-        <td>7 chars</td>
+        <td>1</td>
+        <td>1,300 characters</td>
+        <td>2</td>
+        <td>7 characters</td>
         <td>Tall(900x792)</td>
     </tr>
     <tr>
         <td>14</td>
-        <td rowspan="7">Text<br/>template</td>
-        <td>Description Template_Title Optional</td>
+        <td rowspan="7">Text<br/>Template</td>
+        <td>Description Template - Title Select</td>
+        <td>X</td>
         <td>Description</td>
         <td>1</td>
         <td>90 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
         <td rowspan="7">-</td>
     </tr>
     <tr>
         <td>15</td>
-        <td>Description Template_Title Freeform</td>
+        <td>Description Template - Title Free</td>
+        <td>X</td>
         <td>Description</td>
         <td>1</td>
         <td>90 characters</td>
         <td>2</td>
-        <td>16</td>
+        <td>16 characters</td>
     </tr>
     <tr>
         <td>16</td>
-        <td>Style Template_Title Optional</td>
+        <td>Style Template - Title Select</td>
+        <td>X</td>
         <td>Cell</td>
         <td>1</td>
         <td>90 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
     </tr>
     <tr>
         <td>17</td>
-        <td>Style Template_Title Freeform</td>
+        <td>Style Template - Title Free</td>
+        <td>X</td>
         <td>Cell</td>
         <td>1</td>
         <td>90 characters</td>
         <td>2</td>
-        <td>16</td>
+        <td>16 characters</td>
     </tr>
     <tr>
         <td>18</td>
-        <td>Default Template_Title Freeform</td>
+        <td>Basic Template - Title Free</td>
+        <td>X</td>
         <td>Free</td>
         <td>1</td>
         <td>90 characters</td>
-        <td>0</td>
-        <td>0</td>
+        <td>-</td>
+        <td>-</td>
     </tr>
     <tr>
         <td>19</td>
-        <td>Integrated informational template</td>
+        <td>Unified Informational Template</td>
+        <td>O</td>
         <td>Description</td>
-        <td>1 sheet</td>
-        <td>90 chars</td>
-        <td>2 ea</td>
-        <td>7 chars</td>
+        <td>1</td>
+        <td>90 characters</td>
+        <td>2</td>
+        <td>7 characters</td>
     </tr>
     <tr>
         <td>20</td>
-        <td>Integrated free template</td>
+        <td>Unified Free Template</td>
+        <td>O</td>
         <td>Free</td>
-        <td>1 sheet</td>
-        <td>90 chars</td>
+        <td>1</td>
+        <td>90 characters</td>
         <td>-</td>
         <td>-</td>
     </tr>
     <tr>
         <td>21</td>
-        <td rowspan="10">Imgage<br/>template</td>
-        <td>Image &amp; Title Highlighted (3:4)</td>
+        <td rowspan="10">Image<br/>Template</td>
+        <td>Image &amp; Title Highlight (3:4)</td>
+        <td>X</td>
         <td>Highlighted Image n Title</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
-        <td>16</td>
-        <td>Long (900x1200)</td>
+        <td>16 characters</td>
+        <td>Long(900x1200)</td>
     </tr>
     <tr>
         <td>22</td>
-        <td>Image &amp; Title Highlighted (1:1)</td>
+        <td>Image &amp; Title Highlight (1:1)</td>
+        <td>X</td>
         <td>Highlighted Image n Title</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
-        <td>16</td>
-        <td>Square (900x900)</td>
+        <td>16 characters</td>
+        <td>Square(900x900)</td>
     </tr>
     <tr>
         <td>23</td>
-        <td>Image Highlighted (3:4)</td>
+        <td>Image Highlight (3:4)</td>
+        <td>X</td>
         <td>Highlighted Image</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
-        <td>16</td>
-        <td>Long (900x1200)</td>
+        <td>16 characters</td>
+        <td>Long(900x1200)</td>
     </tr>
     <tr>
         <td>24</td>
-        <td>Image Highlighted (1:1)</td>
+        <td>Image Highlight (1:1)</td>
+        <td>X</td>
         <td>Highlighted Image</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
-        <td>16</td>
-        <td>Square (900x900)</td>
+        <td>16 characters</td>
+        <td>Square(900x900)</td>
     </tr>
     <tr>
         <td>25</td>
-        <td>Thumbnail type (Vertical)</td>
+        <td>Thumbnail (Vertical)</td>
+        <td>X</td>
         <td>Thumbnail</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
-        <td>16</td>
-        <td>Vertical (900x560)</td>
+        <td>16 characters</td>
+        <td>Vertical(900x560)</td>
     </tr>
     <tr>
         <td>26</td>
-        <td>Thumbnail type (Horizontal)</td>
+        <td>Thumbnail (Horizontal)</td>
+        <td>X</td>
         <td>Thumbnail</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
-        <td>16</td>
-        <td>Horizontal (900x560)</td>
+        <td>16 characters</td>
+        <td>Horizontal(900x560)</td>
     </tr>
     <tr>
         <td>27</td>
-        <td>Social media</td>
+        <td>SNS</td>
+        <td>X</td>
         <td>SNS</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
-        <td>16</td>
-        <td>Square (900x900)</td>
+        <td>16 characters</td>
+        <td>Square(900x900)</td>
     </tr>
     <tr>
         <td>28</td>
-        <td>Social (middle button)</td>
+        <td>SNS (Middle Button)</td>
+        <td>X</td>
         <td>SNS</td>
         <td>1</td>
         <td>500 characters</td>
         <td>2</td>
-        <td>16</td>
-        <td>Rectangle (900x560)</td>
+        <td>16 characters</td>
+        <td>Rectangle(900x560)</td>
     </tr>
     <tr>
         <td>29</td>
-        <td>Integrated image template M</td>
+        <td>Unified Image Template M</td>
+        <td>O</td>
         <td>Standalone Media Top</td>
-        <td>1 sheet</td>
-        <td>500 chars</td>
-        <td>2 ea</td>
-        <td>7 chars</td>
+        <td>1</td>
+        <td>500 characters</td>
+        <td>2</td>
+        <td>7 characters</td>
         <td>Medium(900x504)</td>
     </tr>
     <tr>
         <td>30</td>
-        <td>Integrated image template T</td>
+        <td>Unified Image Template T</td>
+        <td>O</td>
         <td>Standalone Media Top</td>
-        <td>1 sheet</td>
-        <td>500 chars</td>
-        <td>2 ea</td>
-        <td>7 chars</td>
+        <td>1</td>
+        <td>500 characters</td>
+        <td>2</td>
+        <td>7 characters</td>
         <td>Tall(900x792)</td>
     </tr>
     <tr>
         <td>31</td>
-        <td rowspan="6">LMS<br/>template</td>
-        <td>Bill A-type</td>
+        <td rowspan="6">LMS<br/>Template</td>
+        <td>Statement Type A</td>
+        <td>X</td>
         <td>Description</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
         <td rowspan="6">-</td>
     </tr>
     <tr>
         <td>32</td>
-        <td>Bill C-type</td>
+        <td>Statement Type B</td>
+        <td>X</td>
         <td>Description</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
     </tr>
     <tr>
         <td>33</td>
-        <td>Bill C-type</td>
+        <td>Statement Type C</td>
+        <td>X</td>
         <td>Description</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
     </tr>
     <tr>
         <td>34</td>
         <td>Basic</td>
+        <td>X</td>
         <td>Description</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
     </tr>
     <tr>
         <td>35</td>
-        <td>Title Emphasis</td>
+        <td>Title Highlight</td>
+        <td>X</td>
         <td>Description</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2</td>
-        <td>17</td>
+        <td>17 characters</td>
     </tr>
     <tr>
         <td>36</td>
         <td>Paragraph</td>
+        <td>X</td>
         <td>Description</td>
         <td>1</td>
-        <td>1,300</td>
+        <td>1,300 characters</td>
         <td>2 per paragraph</td>
-        <td>7</td>
+        <td>7 characters</td>
     </tr>
 </table>
