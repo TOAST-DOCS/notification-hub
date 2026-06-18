@@ -228,6 +228,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
+<a id="free-form-message-sending-request---brand-message-brandmessage"></a>
+
 ## Free-Form Message Sending Request - Brand Message (BRANDMESSAGE)
 
 Requests a free-form message sending for Brand Message (BRANDMESSAGE).
@@ -2073,6 +2075,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 </details>
 
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
+
+<a id="send-brand-message-template-messages"></a>
 
 ## Send Brand Message Template Messages
 
