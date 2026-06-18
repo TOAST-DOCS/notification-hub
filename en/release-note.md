@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=472ab8839ab7 -->
+<!-- pre-align:aligned sig=ac986523a7a8 -->
 
 <h1>Notification Hub Release Notes</h1>
 
