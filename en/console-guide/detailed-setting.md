@@ -88,6 +88,20 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
 
 <a id="push"></a>
 
+## Brand Messages
+
+### Advertising Message Settings
+#### Ad Delivery Restriction Time Settings
+* Brand Messages can only be used to send advertising messages, and sending is restricted during nighttime hours according to the Telecommunications Network Act.
+* Advertising messages will not be sent during the set ad delivery restriction time.
+    * Start Time for Ad Delivery Restriction: 18:00 to 21:00
+    * End Time for Ad Delivery Restriction: 08:00 to 12:00
+* You can configure how unsent messages are handled.
+    * Fail
+    * Resend after the restriction period ends
+
+<a id="push"></a>
+
 ## Push
 
 <a id="token-settings"></a>
