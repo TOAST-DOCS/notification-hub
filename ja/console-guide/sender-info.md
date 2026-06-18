@@ -358,6 +358,8 @@ Amazon Kindle、Fireなどの端末にPushメッセージを送信するには�
 
 <span id="brandmessage-customer-sending-application"></span>
 
+<a id="apply-to-use-customer-sending"></a>
+
 ### 顧客向け送信の利用申請
 
 ブランドメッセージの顧客向け送信を利用するには、利用申請を行う必要があります。利用申請を行わない場合、顧客向け送信（ターゲティング M、N、O）を使用することはできません。
