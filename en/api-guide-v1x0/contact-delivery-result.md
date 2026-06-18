@@ -16,6 +16,8 @@
 
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
 
+<a id="retrieve-a-list-of-received-results-by-contacts"></a>
+
 ## Retrieve a List of Received Results by Contacts
 
 Retrieve the sending and reception results of requested messages by recipient contact.
