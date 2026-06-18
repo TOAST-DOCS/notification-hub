@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > 利用ポリシー及び事前設定案内 > RCS**
 
+<a id="brand-creation-and-registration"></a>
+
 ## ブランド作成及び登録
 
 RCS Bizmessageサービスを利用するためには、RCS Biz Centerに登録後、ブランドを登録する必要があります。 [[RCS Biz Center]](https://www.rcsbizcenter.com/main)
