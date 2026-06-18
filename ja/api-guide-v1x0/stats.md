@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ec416b7f4d48 -->
+<!-- pre-align:aligned sig=ba2299609acb -->
 
 <!-- 新しい書式のために追加されたstyleです。 -->
 <style>
