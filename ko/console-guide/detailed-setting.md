@@ -86,9 +86,15 @@
     * 실패 처리
 * SMS, RCS의 광고성 메시지 발송 시간 제한 설정은 개별 설정이 필요합니다.
 
+<a id="brand-message"></a>
+
 ## 브랜드 메시지
 
+<a id="advertising-message-settings"></a>
+
 ### 광고성 메시지 설정
+<a id="ad-delivery-restriction-time-settings"></a>
+
 #### 광고성 메시지 발송 시간 제한 설정
 * 브랜드 메시지는 광고성 메시지만 발송할 수 있으며, 정보통신망법에 의거해 야간 시간에 발송이 제한됩니다.
 * 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.
