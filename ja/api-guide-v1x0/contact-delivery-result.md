@@ -226,7 +226,7 @@ curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results" \
 ## 最終送信ステータスメッセージリスト照会
 
 送信プロセスが終了したメッセージ結果リストを照会します。<br>
-最終送信ステータスには「SEND_FAILED(送信失敗)」、「DELIVERED(受信済み)」、「DELIVERY_FAILED(受信失敗)」、「CANCELED(キャンセル済み)」があります。
+最終送信ステータスには「SEND_FAILED(送信失敗)」、「DELIVERED(受信成功)」、「DELIVERY_FAILED(受信失敗)」、「CANCELED(キャンセル)」があります。
 
 
 **リクエスト**
