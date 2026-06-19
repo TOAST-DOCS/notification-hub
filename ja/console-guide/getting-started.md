@@ -11,6 +11,8 @@
 
 <span id="identity-verification"></span>
 
+<a id="identity-verification"></a>
+
 ## 本人認証する
 
 Notification Hubを有効にした後、本人認証を完了しないと使用できません。本人認証の詳細については、**利用ポリシー及び事前設定案内 > 本人認証**項目をご確認ください。
