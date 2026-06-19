@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=65b610526e63 -->
+<!-- pre-align:aligned sig=bfbbe9a63c62 -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -15,6 +15,8 @@
 
 
 <span id="messageV1x0001SmsFreeFormMessages"></span>
+
+<a id="free-form-message-sending-request---sms"></a>
 
 ## 자유 양식 메시지 발송 요청 - SMS
 
@@ -227,6 +229,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 </details>
 
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
+
+<a id="free-form-message-sending-request---brand-message-brandmessage"></a>
 
 ## 자유 양식 메시지 발송 요청 - 브랜드 메시지(BRANDMESSAGE)
 
@@ -2080,6 +2084,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 </details>
 
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
+
+<a id="send-a-brand-message-template-message"></a>
 
 ## 브랜드 메시지 템플릿 메시지 발송
 
