@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ff946ac84827 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -25,6 +27,8 @@ MONTHLY: Only data within the last 3 months can be retrieved, with a maximum ret
 
 Retrieves the daily send count, valid read count, and click count by sender profile. You can filter by period, send identifier, message type, and more.
 
+<a id="template-statistics"></a>
+
 ### Template Statistics
 
 Retrieves the daily send count, valid read count, and click count by template and group tag. You can filter by period, message type, and more.
@@ -34,6 +38,8 @@ Retrieves the daily send count, valid read count, and click count by template an
 
 
 <span id="kakaobizcenterV1x0001ReadAlimtalkDeliveryStatistics"></span>
+
+<a id="retrieve-alimtalk-delivery-statistics"></a>
 
 ## Retrieve AlimTalk Delivery Statistics
 
@@ -146,6 +152,8 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 
 <span id="kakaobizcenterV1x0002ReadAlimtalkTemplateStatistics"></span>
 
+<a id="retrieve-alimtalk-template-statistics"></a>
+
 ## Retrieve AlimTalk Template Statistics
 
 Retrieves AlimTalk template statistics.
@@ -256,6 +264,8 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/template-statistic
 </details>
 
 <span id="kakaobizcenterV1x0003ReadBrandmessageDeliveryStatistics"></span>
+
+<a id="retrieve-brand-message-delivery-statistics"></a>
 
 ## Retrieve Brand Message Delivery Statistics
 
@@ -378,6 +388,8 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 </details>
 
 <span id="kakaobizcenterV1x0004ReadBrandmessageTemplateStatistics"></span>
+
+<a id="retrieve-brand-message-template-statistics"></a>
 
 ## Retrieve Brand Message Template Statistics
 

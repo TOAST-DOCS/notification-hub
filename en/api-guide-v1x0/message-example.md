@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=a65d257666ce -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -13,6 +15,8 @@
 ## SMS
 
 <span id="sms-sms"></span>
+
+<a id="sms-short"></a>
 
 ### SMS (Short)
 
@@ -49,6 +53,8 @@
 | content | Object | Y | Message Content |
 | content.messageType | String | Y | SMS |
 | content.body | String | Y | Content |
+
+<a id="lms-long"></a>
 
 ### LMS (Long)
 
@@ -87,6 +93,8 @@
 | content.messageType | String | Y | LMS |
 | content.title | String | Y | Title |
 | content.body | String | Y | Content |
+
+<a id="mms-long-media"></a>
 
 ### MMS (Long Media)
 
@@ -132,9 +140,13 @@
 
 <span id="rcs"></span>
 
+<a id="rcs"></a>
+
 ## RCS
 
 <span id="rcs-sms"></span>
+
+<a id="sms"></a>
 
 ### SMS
 
@@ -208,6 +220,8 @@
 
 <span id="free-form-message-request-body-rcs-lms-standalone"></span>
 
+<a id="lms-standard"></a>
+
 ### LMS Standard
 
 ```json
@@ -279,6 +293,8 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <span id="free-form-message-request-body-rcs-lms-format-basic"></span>
+
+<a id="lms-format-basic-and-format-title-emphasis"></a>
 
 ### LMS Format Basic and Format Title Emphasis
   * List of mTitleMedia Icon File IDs
@@ -360,6 +376,8 @@
 | options | Object | N | Sending Options |
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
+
+<a id="lms-format-paragraph-type"></a>
 
 ### LMS Format Paragraph Type
 * List of mTitleMedia Icon File IDs
@@ -478,6 +496,8 @@
 | options.expiryOption | Integer | N | RCS Message Reception Wait Expiration Period Setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter Statistics Integration |
 
+<a id="mms-horizontal-vertical"></a>
+
 ### MMS Horizontal, Vertical
 
 ```json
@@ -550,6 +570,8 @@
 | options | Object | N | Sending Options |
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
+
+<a id="mms-carousel"></a>
 
 ### MMS Carousel
 
@@ -658,6 +680,8 @@
 
 <span id="free-form-message-request-body-rcs-unified-sms"></span>
 
+<a id="integrated-sms-card"></a>
+
 ### Integrated SMS Card
 
 ```json
@@ -727,6 +751,8 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
 ---
+
+<a id="integrated-lms-card"></a>
 
 ### Integrated LMS Card
 
@@ -799,6 +825,8 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
 <span id="free-form-message-request-body-rcs-unified-mms"></span>
+
+<a id="integrated-mms-card-horizontal-vertical"></a>
 
 ### Integrated MMS Card Horizontal, Vertical
 
@@ -875,6 +903,8 @@
 
 <span id="free-form-message-request-body-email"></span>
 
+<a id="email"></a>
+
 ## Email
 
 ```json
@@ -918,6 +948,8 @@
 * Enter the recipient's email address in the **recipients[].contacts[].contact** field.
 
 <span id="free-form-message-request-body-push"></span>
+
+<a id="push"></a>
 
 ## Push
 

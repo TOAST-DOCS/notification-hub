@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bc1d75536ea1 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -19,7 +21,13 @@ To use the Notification Hub, you can use it after Identity verification at **Not
   * Invited NHN Cloud accounts and IAM accounts are classified as business operators when they approve their Identity verification.
 * The certificate of employment is marked with **issuance date and only documents with seal ** are allowed. The 6 digits after the resident registration number in the certificate of employment **must be masked (hidden)**. For example, 000000-0\*\*\*\*\**
 
-## Identity Verification Status
+## Identity Verification Method
+
+<!-- TODO: translate body -->
+
+<a id="identity-verification-status"></a>
+
+### Identity Verification Status
 
 | Status       | Description |
 |----------| --- |

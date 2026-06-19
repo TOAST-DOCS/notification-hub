@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=75ba90abfebb -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -22,6 +24,8 @@
 
 <span id='fabrication-number'></span>
 
+<a id="prohibition-of-alterationfalsification-of-the-sender-number"></a>
+
 ## 발신 번호 변작(변조) 금지
 * SMS 서비스를 이용할 때 반드시 본인(또는 자사) 소유의 발신 번호를 등록한 후 사용해야 합니다.
 * 타인(또는 타사) 발신 번호를 사용하는 경우 <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">[(미래창조과학부고시 제2015-32호) 거짓으로 표시된 전화번호로 인한 이용자의 피해 예방 등에 관한 고시]</a> 및 <a href="https://www.nhncloud.com/kr/terms/terms-service" target="_blank">[NHN Cloud 이용 약관]</a>에 따라 아래와 같이 조치할 수 있으니 주의하세요. 
@@ -31,6 +35,8 @@
       (단, 악의적인 목적 없이 실수로 변작된 경우 이용자의 소명을 받고 심사 후 서비스 재개 가능)
     ㆍ등록된 발신 번호 외 다른 번호로 발신할 수 있게 시스템이 구축되어 있는 이용자의 서비스 이용 제한 
     ㆍ기타 발신 번호 변작으로 인한 모든 손실에 대한 손해 배상 청구
+
+<a id="information-about-080-call-blocking-service"></a>
 
 ## 광고성 문자 발송 안내
 
@@ -45,6 +51,8 @@
 
 <span id="rejection-of-receiving-080"></span>
 
+<a id="advertisement-texting-sending-guidance"></a>
+
 ## 080 수신 거부 서비스 안내
 
 * 080 수신 거부 서비스는 광고 문자 발송 시 수신자에게 수신 거부를 제공하는 서비스입니다.
@@ -54,12 +62,16 @@
 * 등록 예약 상태에서는 개통을 취소할 수 없으므로 등록 시 유의하세요.
 * 080 수신 거부 번호가 해지된 경우 또는 외부에서 신청한 080 번호인 경우에는 발송에 실패합니다.
 
+<a id="delivery-speed-guide-according-to-mms-attachment-size"></a>
+
 ## MMS 첨부 파일 크기에 따른 발송 속도 안내
 
 * MMS 발송 시에 첨부 파일의 크기에 따라 발송 속도 차이가 있을 수 있습니다.
 * 업로드된 첨부 파일의 크기가 클수록 이동통신사의 발송 속도 제약으로 인해 발송 속도 및 수신 결과 업데이트가 늦을 수 있습니다.
 * 빠른 발송을 원하는 경우 첨부 파일의 크기를 줄여서 요청하는 것을 권장합니다.
 
+
+<a id="guidance-on-sending-content-according-to-character-set"></a>
 
 ## 문자 집합에 따른 발송 내용 안내
 
@@ -68,6 +80,8 @@
    * 수신 단말기의 기종, 통신사에 따라 발송 내용이 다르게 노출될 수 있습니다.
    * [콘솔 > 상세 설정 > SMS > 메시지 설정 > 대체 문자 설정] 메뉴에서 대체 문자 설정을 할 수 있습니다.
      * '?' 또는 '공백'으로 선택하여 문자를 대체할 수 있습니다.
+
+<a id="message-received-result-timeout-policy"></a>
 
 ## 메시지 수신 결과 타임아웃 정책
 * 단말기 및 통신 상태에 따라 메시지 수신 결과 업데이트가 지연될 수 있습니다.
@@ -82,14 +96,20 @@
 
 <span id="about-phone-scam-blocking-services"></span>
 
+<a id="guide-of-stolen-number-text-message-blocking-service"></a>
+
 ## 번호 도용 문자 차단 서비스 안내
 ‘번호 도용 문자 차단 서비스’ 서비스는 타인이 임의로 내 휴대전화 번호를 문자 범죄에 악용하거나 스팸을 발송할 수 없게 지켜주는 서비스입니다. 발신 번호가 이 서비스에 가입되어 있다면 발송이 실패할 수 있습니다. 문제가 되는 번호를 발신 번호로 사용하기 위해서는 통신사를 통해 해지가 필요합니다.
+
+<a id="how-to-use"></a>
 
 #### 이용 안내
 * 이동통신사(SKT, KT, LG U+ 및 MVNO 사업자 포함)에서 무료로 제공되고 있어 가입 시 동의하면 등록할 수 있습니다.
 * 문자 발송 후 정상적인 번호인데도 사이트에서 문자 전송 결과가 '실패'로 확인되면 '번호 도용 문자 차단 서비스' 가입 여부를 확인하세요.
 * '번호 도용 문자 차단 서비스'를 해지한 후 전송하세요.
 * 해지 신청 후 적용까지는 약 7일이 소요됩니다.
+
+<a id="guide-about-cancellation"></a>
 
 #### 해지 안내
 * 통신사 홈페이지
@@ -102,14 +122,20 @@
 
 <span id="about-carrier-spam-text-blocking-services"></span>
 
+<a id="mobile-carrier-spam-blocking-service-guide"></a>
+
 ## 통신사 스팸 차단 서비스 안내
 귀찮은 광고성 스팸 문자를 이동통신사에서 자동으로 차단해주는 서비스입니다. 이동통신사별 조합 기준에 따라 스팸으로 판단되는 문자를 휴대폰 문자 수신함이 아닌 스팸 보관함으로 전송합니다. 정상적으로 발송이 되었지만 수신에 실패한 경우 수신 번호가 통신사 스팸 차단 서비스에 가입되어 있을 수 있습니다.
+
+<a id="how-to-use-2"></a>
 
 #### 이용 안내
 * 전송 결과가 성공으로 확인되었으나 문자 수신을 못 하는 경우 통신사 스팸 차단 서비스를 확인하세요.
 * 한국인터넷진흥원 불법스팸대응센터에서 스팸 종합 대책을 마련함에 따라, 각 통신사에서 ‘스팸 차단 서비스’를 시행하고 있습니다.
 * 문자 수신함이 아닌 스팸 문자로 저장된 것이 확인되었다면, 스팸 차단 서비스를 해제하고 이용하세요.
 * 개인 정보 보호 정책으로 본인 이외 타인은 확인할 수 없으므로 본인이 직접 확인해야 합니다.
+
+<a id="guide-about-cancellation-2"></a>
 
 #### 해지 안내
 * 통신사 홈페이지

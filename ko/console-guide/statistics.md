@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=73a6a04843d4 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -8,9 +10,13 @@
 **Notification > Notification Hub > 통계**
 
 
+<a id="statistics"></a>
+
 ## 통계
 
 Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 데이터로 조회할 수 있습니다.
+
+<a id="query-statistics"></a>
 
 ### 통계 조회
 
@@ -26,6 +32,8 @@ Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 �
 * 메시지 채널, 통계 기준, 통계 키, 메시지 아이디를 복합적으로 설정해 통계 데이터를 조회합니다.
 * 설정한 메시지 채널에 따라 설정할 수 있는 통계 기준이 달라집니다.
 
+<a id="message-channel-statistical-events-by-statistical-criteria"></a>
+
 #### 메시지 채널, 통계 기준에 따른 통계 이벤트
 
 | 메시지 채널 | 통계 기준 | 이벤트                                                                                                                 | 비고                     |
@@ -34,9 +42,12 @@ Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 �
 | SMS | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 |                        |
 | RCS | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 |                        |
 | 알림톡 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 |                        |
+| 브랜드 메시지 | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED)                 |                        |
 | Push | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED)    | 메시지 열람에 대한 이벤트도 수집됩니다. |
 | Email | 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 열람됨(OPENED)    | 메시지 열람에 대한 이벤트도 수집됩니다. |
 | SMS | 국제 SMS 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 실발송(CONCAT) | 실발송 : 국제 SMS 메시지에 한해 Concatenated message(연결) 기능을 통해 발송된 실제 메시지 발송 건수|
+
+<a id="manage-statistical-keys"></a>
 
 ### 통계 키 관리
 

@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=26433962c314 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -6,6 +8,8 @@
 <h1>오류 코드</h1>
 
 **Notification > Notification Hub > 오류 코드**
+
+<a id="list-of-error-codes"></a>
 
 ## 오류 코드 목록
 
@@ -336,6 +340,8 @@
 | 메시지 발송 | false | 403000 | 권한이 없습니다. |
 | 메시지 발송 | false | 500001 | 서버 내부 오류가 발생했습니다. |
 | 메시지 발송 | false | 500002 | 잘못된 상태 서버 오류 |
+
+<a id="delivery-result-code"></a>
 
 ## 수신 결과 코드
 
@@ -1287,6 +1293,7 @@
 | RCS | false | 47041231 | 사용자가 OPENRICHARD 1.1을 지원하지 않아 메시지 발송에 실패했습니다. |
 | RCS | false | 47041232 | 사용자가 OPENRICHARD 1.2를 지원하지 않아 메시지 발송에 실패했습니다. |
 | RCS | false | 47041240 | 사용자가 GEOLOCATION PUSH 요청을 지원하지 않아 메시지 발송에 실패했습니다. |
+| RCS | false | 47054006 | RCS 가입 고객이지만 OPENRICHARD를 지원하지 않는 단말이어서 메시지 발송에 실패했습니다. |
 | EMAIL | false | 51100005 | 수신자가 메일 수신을 거부하여 발송에 실패했습니다. |
 | EMAIL | false | 51100006 | 예약이 취소되어 메일 발송에 실패했습니다. |
 | EMAIL | false | 51100007 | 발송 도메인이 인증되지 않아 메일 발송에 실패했습니다. |

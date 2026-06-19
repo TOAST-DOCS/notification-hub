@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=39395209178c -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -10,6 +12,8 @@
 ## 発信ドメインとDNS TXTレコードの登録
 
 Notification Hubでメールを送信するには、自分が所有している送信ドメインが必要です。各ユーザーが自分のドメインを通じて送信者の身元を認証し、メールがスパムに分類されないようにするためです。送信ドメインを通じてSPF、DKIM、DMARCなどの認証設定を適用して、メールの信頼性を高めることができます。これにより、メールが受信者のメールボックスに安全に届き、フィッシングやなりすましを防止できます。Notification Hubのメール送信(SMTP)サーバーを通じて、ユーザー所有のドメインが含まれたメールアドレスとともにメールが受信サーバー(SMTP)に送信されます。メール受信サーバーがNotification Hubメール送信サーバーを信頼するためには、ユーザー所有のドメインがサービスされているDNSにSPF、DKIM、DMARC TXTレコードの設定が必要です。
+
+<a id="precautions"></a>
 
 ### 注意事項
 
@@ -27,11 +31,15 @@ Notification Hubでメールを送信するには、自分が所有している�
 * 返送率によりメール送信が制限された場合、返送が発生する原因に該当する事項があるかどうかを確認し、改善措置を行ってください。
     * その後、 [サポート > 1:1お問い合わせ](https://www.nhncloud.com/kr/support/inquiry)から送信制限の解除をお問い合わせください。
 
+<a id="spf"></a>
+
 ### SPF
 
 SPF(sender policy framework、送信者ポリシーフレームワーク)は、メール送信時に許可されたサーバーのリストを定義し、送信ドメインを偽造したスパムメールやフィッシング攻撃を防止する認証メカニズムです。送信ドメインのDNSにSPFレコードを追加すると、メール受信サーバーは、そのリストに含まれるサーバーからメールが送信されたことを認証できます。これにより、メール送信サーバーの信頼性を高め、メールがスパムに分類されないようにします。
 
 * [Emailセキュリティ強化機能紹介(SPF)](https://meetup.nhncloud.com/posts/244)
+
+<a id="dkim-dmarc"></a>
 
 ### DKIM, DMARC
 
@@ -41,7 +49,11 @@ DMARC(domain-based message authentication, reporting, and conformance(ドメイ�
 
 * [メールセキュリティ強化機能紹介(ドメイン保護、 DKIM, DMARC) ](https://meetup.nhncloud.com/posts/248)
 
+<a id="gmail-related-guidelines"></a>
+
 ## Gmail関連案内事項
+
+<a id="enhanced-gmail-and-yahoos-email-receiving-standards"></a>
 
 ### GmailとYahooのメール受信基準強化
 
@@ -50,19 +62,27 @@ DMARC(domain-based message authentication, reporting, and conformance(ドメイ�
 * [Gmail * Email Sender Guidelines](https://support.google.com/a/answer/81126)
 * [Yahoo * Sender Requirements & Recommanations](https://senders.yahooinc.com/best-practices/)
 
+<a id="restricted-domain-when-spf-dkim-dmarc-authentication-is-not-completed"></a>
+
 #### SPF, DKIM, DMARC未認証の場合の送信制限対象ドメイン
 * gmail.com
 * yahoo.com
 
 Gmailは、ドメインの評判をスパムメール判定の主な基準としています。低いドメインの評判を持つ送信者が高速で大量のメールを送信したり、受信者が望まない広告性メールを送信すると、受信者の「受信トレイ」に保存しますが、警告を表示したり、「スパムメールボックス」に保存したり、さらに受信速度を制限したり、受信を拒否することがあります。したがって、メールを大量に送信しようとする場合は、次のガイドのドメイン評判管理方法を参考にして、常にドメインの評判を高く維持するように気をつけなければなりません。
 
+<a id="guide-about-being-not-possible-to-collect-viewed-event-with-gmail"></a>
+
 ### Gmail閲覧済みのイベント収集不可案内
 
 受信者のメールがGmailの場合、メールの閲覧の有無を収集できません。一般的に受信者のメール閲覧を確認するためにメール本文に画像タグを挿入する方式を使用しますが、Gmailでは画像プロキシサーバーが画像をキャッシュして追跡できないようにメール本文を修正します。これはGmailが意図的にブロックしているため、技術的に閲覧に関するイベントを収集することは現在不可能です。
 
+<a id="gmails-low-reputation-issue"></a>
+
 ### Gmail低い評判(Low Reputation)問題
 
 Gmail評判評価基準について簡単にまとめたガイドです。Gmailで評判を評価する方法を見て、評判を上げて維持するための方法は何なのかについて説明します詳細な内容は文書下の参考文書をご確認ください。
+
+<a id="reputation"></a>
 
 #### 評判(Reputation)とは？
 メール送信時、ISP(inbox service provider、Gmail、受信SMPTサーバー)は送信SMTPサーバーの評判を評価し、受信可否を決め、スパムを分類します。ISPの評判評価方式に合わないメールを送信すると、送信速度が低下したり、そのISPを使用する受信者のメール受信が困難になる可能性があります。
@@ -71,15 +91,21 @@ Gmail評判評価基準について簡単にまとめたガイドです。Gmail�
 * IP評判：IPは送信SMTPのIPです。送信SMTPが持つIPの評判を意味します。
 * ドメイン評判：ドメインはメール送信ドメインです。NHNのドメインは「nhn.com」になります。メール送信の主体となるドメインの評判を意味します。
 
+<a id="gmails-reputation-evaluation-method"></a>
+
 #### Gmailの評判評価方式
 * ドメインの評判をより重要に評価：複数のドメインがIPを共有して送信する場合が多いので、IPよりドメインをより重要に評価します。Complaints(苦情)よりEngagement(参加)をより重要に評価します。ここでComplaintsは受信者のスパム処理などを意味します。Engagementは、受信者がメール内容を確認し、内容にあるリンクをクリックし、スパム処理を解除することなどを意味します。
 * その他の評価項目：個人的なメールかどうか、送信IPの評判はどうか、メール内にリンクが含まれているかどうか、メールの内容など、様々な要素を評価して評判を決定します。
+
+<a id="how-to-raise-reputation"></a>
 
 #### 評判を上げる方法
 * 準備(warm-up)過程が必要：最初から新しいIPとドメインで大量のメールを送信することは望ましくなく、むしろ評判が下がる可能性があります。数日かけて50、100、500、1000…のように徐々に増加させる必要があります。
 * 参加度(Engagement)が高い受信者に送信: Gmailに送信したメールが受信者が望むものであることを証明する必要があります。準備過程で一般的なユーザーよりはるかにサービス参加度と忠誠度が高く、メールが来るのを待っているユーザーに送信すると、評判を簡単に高めることができます。
 * 受信拒否機能を提供：サービスで受信するかどうかを設定できるように機能を提供する必要があります。ワンクリック受信拒否(One-Click Unsubscribe)やメール下部に受信拒否リンクを提供することが評判の向上に役立ちます。
 * 受信者に適合性(Relevancy)の高いメールを送信:評判を維持するためには、メール内容と関連性のある対象者に送信する必要があります。単にメールを頻繁に送るよりも重要です。送信対象の大きさは重要ではありません。メール内容と対象を細分化して送信する必要があります。購読解除の原因の66%は関連性のないメール、55%はメッセージの疲労度によるものです。
+
+<a id="refer-to-external-documentation-for-reputation"></a>
 
 #### 評判に関する外部資料参照
 * [Mailgun * Domain Reputation Or IP Reputation: Which One Does Gmail Care About More?](https://www.mailgun.com)

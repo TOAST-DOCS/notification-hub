@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bfbbe9a63c62 -->
+
 <!-- 新しいフォーマットのために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -14,11 +16,13 @@
 
 <span id="messageV1x0001SmsFreeFormMessages"></span>
 
-## 自由形式メッセージの送信リクエスト - SMS
+<a id="free-form-message-sending-request---sms"></a>
 
-SMSに対する自由形式メッセージの送信をリクエストします。メッセージ内容をリクエスト本文に入力した後、送信をリクエストします。
+## 自由形式メッセージ送信リクエスト - SMS
 
-各メッセージチャンネルへメッセージを送信するには、各メッセージチャンネルの送信元情報が登録されている必要があります。送信元情報の登録は、**Notification Hubコンソール** > **送信元情報タブ**で行えます。メッセージチャンネルの送信元情報に関する詳細な説明は、**Notification** > **Notification Hub** > **利用ポリシーおよび事前設定のご案内**で確認できます。
+SMS に対する自由形式メッセージの送信をリクエストします。メッセージ内容をリクエスト本文に入力し、送信をリクエストします。
+
+各メッセージチャンネルでメッセージを送信するには、各メッセージチャンネルの発信情報が登録されている必要があります。発信情報の登録は **Notification Hub コンソール** > **発信情報タブ** で行えます。メッセージチャンネルの発信情報に関する詳細は **Notification** > **Notification Hub** > **利用ポリシーおよび事前設定案内** で確認できます。
 
 
 **リクエスト**
@@ -29,19 +33,19 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -66,40 +70,42 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "messageType" : "SMS",
-    "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。ご来店ください^^",
+    "title" : "祝日営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様のご注文商品が入荷されました。ぜひご来店ください^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドを説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
+| statsKeyId | String | X | 統計キー ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信かどうか |
 | sender | Object | X |  |
-| sender.senderPhoneNumber | String | O | 送信元番号 |
+| sender.senderPhoneNumber | String | O | 発信番号 |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 | content | Object | X |  |
-| content.messageType | String | O | 送信メッセージのタイプ(SMS、LMS、MMS)<br>[SMS(ショートメッセージ)、LMS(ロングメッセージ)、MMS(マルチメディアメッセージ)] |
-| content.title | String | X | メッセージのタイトル |
-| content.body | String | O | メッセージの本文 |
-| content.attachmentIds | Array | X | 添付ファイルID(最大3つ) |
+| content.messageType | String | O | 送信メッセージタイプ（SMS、LMS、MMS）<br>[SMS（短文メッセージ）、LMS（長文メッセージ）、MMS（マルチメディアメッセージ）] |
+| content.title | String | X | メッセージタイトル |
+| content.body | String | O | メッセージ本文 |
+| content.attachmentIds | Array | X | 添付ファイル ID（最大 3 件） |
 
-* メッセージチャンネルにより、**sender**、**content**フィールドは異なる形式を持ちます。
-* メッセージチャンネルにより、**recipients[].contact.contactType**、**recipients[].contact.contact**フィールドに入力できる値が異なります。
-* 予約送信の場合は**scheduledDateTime**を設定します。送信が開始される前の予約送信は、リクエストのキャンセルが可能です。リクエストキャンセルAPIを呼び出すか、**Notification Hubコンソール** > **送信照会**からキャンセルできます。
-* 確認後送信の場合は、**confirmBeforeSend**を**true**に設定します。確認後送信のメッセージは、**Notification Hubコンソール** > **送信照会**で承認を行うと送信が進行します。
-* 予約送信と確認後送信は同時に設定できません。
+* メッセージチャンネルによって **sender**、**content** フィールドは異なる形式を持ちます。
+* メッセージチャンネルによって **recipients[].contact.contactType**、**recipients[].contact.contact** フィールドに入力できる値が異なります。
+* 予約送信の場合は **scheduledDateTime** を設定します。送信が開始される前の予約送信はリクエストの取消が可能です。リクエスト取消 API を呼び出すか、**Notification Hub コンソール** > **送信照会** で取り消せます。
+* 承認後送信の場合は **confirmBeforeSend** を **true** に設定します。承認後送信のメッセージは、**Notification Hub コンソール** > **送信照会** で承認すると送信が進行されます。
+* 予約送信と承認後送信は同時に設定できません。
+
+<a id="sender-fields-by-message-channel"></a>
 
 ### メッセージチャンネル別のsenderフィールド
 
@@ -151,7 +157,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 自由形式メッセージの送信リクエスト - SMS
+### 自由形式メッセージ送信リクエスト - SMS
 
 POST {{endpoint}}/message/v1.0/SMS/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
@@ -177,8 +183,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "messageType" : "SMS",
-    "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。ご来店ください^^",
+    "title" : "祝日営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。ぜひご来店ください^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -213,8 +219,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
   "id" : "alpha123",
   "content" : {
     "messageType" : "SMS",
-    "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。ご来店ください^^",
+    "title" : "祝日営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷しました。ぜひご来店ください^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -222,11 +228,643 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 
 </details>
 
+<span id="messageV1x0002BrandmessageFreeFormMessages"></span>
+
+<a id="free-form-message-sending-request---brand-message-brandmessage"></a>
+
+## 自由形式メッセージ送信リクエスト - ブランドメッセージ (BRANDMESSAGE)
+
+ブランドメッセージ (BRANDMESSAGE) の自由形式メッセージ送信をリクエストします。
+
+ブランドメッセージは KakaoTalk Bizmessage の友だちトークのアップグレード商品で、従来の友だちトークよりも多様なメッセージタイプをサポートします。
+- TEXT: テキスト型
+- IMAGE: イメージ型
+- WIDE_IMAGE: ワイドイメージ型
+- WIDE_ITEM_LIST: ワイドアイテムリスト型
+- CAROUSEL_FEED: カルーセルフィード型
+- CAROUSEL_COMMERCE: カルーセルコマース型
+- COMMERCE: コマース型
+- PREMIUM_VIDEO: プレミアムビデオ型
+
+**リクエスト**
+
+```
+POST /message/v1.0/BRANDMESSAGE/free-form-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメーター**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | アプリキー |
+| X-NHN-Authorization | Header | String | O | アクセストークン |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
+
+**リクエスト本文**
+
+<!--このAPIはリクエスト本文を必要とする場合、以下のように入力します。-->
+
+```
+{
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "adult" : false,
+    "content" : null,
+    "attachmentId" : "20230131070811m2fDe1rXx80",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormKey" : "bizFormKey123",
+      "chatExtra" : "extra_info",
+      "chatEvent" : "event_name"
+    } ],
+    "header" : "ヘッダー",
+    "item" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "イントロヘッダー",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "価格情報",
+        "buttons" : [ {
+          "type" : "WL",
+          "name" : "ボタン名",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormKey" : "bizFormKey123",
+          "chatExtra" : "extra_info",
+          "chatEvent" : "event_name"
+        } ],
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "商品タイトル",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "coupon" : {
+          "title" : "5000ウォン割引クーポン",
+          "description" : "初回購入のお客様限定",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "commerce" : {
+      "title" : "商品タイトル",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "coupon" : {
+      "title" : "5000ウォン割引クーポン",
+      "description" : "初回購入のお客様限定",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "additionalContent" : "価格情報"
+  },
+  "options" : {
+    "audienceType" : "CUSTOMER",
+    "targeting" : "M",
+    "pushAlarm" : true,
+    "unsubscribePhoneNumber" : "0801111234",
+    "unsubscribeAuthNumber" : "1234"
+  },
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false
+}
+```
+
+<!--リクエスト本文のフィールドについて説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| sender | Object | X |  |
+| sender.senderKey | String | O | 発信キー（40文字）。グループ発信キーは使用不可 |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成されるID |
+| content | Object | X |  |
+| content.chatBubbleType | String | X | メッセージ吹き出しタイプ。TEXT: テキスト型、IMAGE: 画像型、WIDE: ワイド画像型、WIDE_ITEM_LIST: ワイドアイテムリスト型、CAROUSEL_FEED: カルーセルフィード型、CAROUSEL_COMMERCE: カルーセルコマース型、COMMERCE: コマース型、PREMIUM_VIDEO: プレミアムビデオ型<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| content.adult | Boolean | X | 成人向けメッセージかどうか（デフォルト: false）。成人向け設定時は成人認証を完了した受信者にのみ表示<br>デフォルト値: false |
+| content.content | String | X | メッセージ本文。TEXT: 必須（最大 1,300 文字、改行最大 99 個）、IMAGE: 必須（最大 1,300 文字）、WIDE: 必須（最大 76 文字、改行最大 5 個）、PREMIUM_VIDEO: 任意（最大 76 文字、改行最大 5 個）。WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 使用不可。URL 入力可能 |
+| content.attachmentId | String | X | 添付ファイル ID。IMAGE/WIDE: attachmentId または image.imageUrl のいずれか必須 |
+| content.image | Object | X |  |
+| content.image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| content.image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
+| content.image.imageLink | String | X | 画像クリック時に遷移する URL（http/https）。任意。未設定時は KakaoTalk 画像ビューアーを使用 |
+| content.video | Object | X |  |
+| content.video.videoUrl | String | O | カカオ TV 動画 URL（https://tv.kakao.com/ で始まる）。PREMIUM_VIDEO タイプ必須 |
+| content.video.thumbnailAttachmentId | String | X | サムネイル画像添付ファイル ID。thumbnailUrl とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能 |
+| content.video.thumbnailUrl | String | X | 動画サムネイル画像 URL。thumbnailAttachmentId とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能。未設定時はカカオ TV デフォルトサムネイルを使用 |
+| content.buttons | Array | X | メッセージボタンリスト。TEXT/IMAGE: 最大 5 個（クーポン適用時は最大 4 個）、WIDE/WIDE_ITEM_LIST: 最大 2 個、PREMIUM_VIDEO: 最大 1 個、COMMERCE: 必須（最小 1 個、最大 2 個）。CAROUSEL_FEED/CAROUSEL_COMMERCE: カルーセルアイテム内の attachment.buttons を使用 |
+| content.buttons[].type | String | O | ボタンタイプ。WL: Web リンク、AL: アプリリンク、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク転換、BT: チャットボット転換、BF: ビジネスフォーム、AC: チャンネル追加<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
+| content.buttons[].name | String | X | ボタン名。TEXT/IMAGE: 最大 14 文字、その他: 最大 8 文字。AC タイプ: 値なしで送信。BF タイプ: 「アンケートに参加する」「申し込む」「応募する」のいずれか一つを選択 |
+| content.buttons[].linkMo | String | X | モバイル Web リンク（http/https）。WL タイプ必須、AL タイプ任意（schemeIos/schemeAndroid のいずれかと合わせて入力する場合に必要） |
+| content.buttons[].linkPc | String | X | PC Web リンク（http/https）。WL/AL タイプ任意 |
+| content.buttons[].schemeIos | String | X | iOS アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
+| content.buttons[].schemeAndroid | String | X | Android アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
+| content.buttons[].bizFormKey | String | X | ビジネスフォームキー。BF タイプ必須 |
+| content.buttons[].chatExtra | String | X | BC（相談トーク転換）、BT（チャットボット転換）タイプボタンのメタ情報 |
+| content.buttons[].chatEvent | String | X | BT（チャットボット転換）タイプボタンのボットイベント名 |
+| content.header | String | X | メッセージタイトル。WIDE_ITEM_LIST: 必須（最大 20 文字）、PREMIUM_VIDEO: 任意（最大 20 文字）。その他のタイプ: 使用不可 |
+| content.item | Object | X |  |
+| content.item.list | Array | O | アイテムリスト。最小 3 個、最大 4 個 |
+| content.item.list[].title | String | X | アイテムタイトル（改行最大 1 個）。1 番目のアイテム: 任意（最大 25 文字）、2〜4 番目のアイテム: 必須（最大 30 文字） |
+| content.item.list[].image | Object | O |  |
+| content.item.list[].image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| content.item.list[].image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
+| content.item.list[].linkMo | String | O | アイテムクリック時に遷移するモバイル Web リンク（http/https）。必須 |
+| content.item.list[].linkPc | String | X | アイテムクリック時に遷移する PC Web リンク（http/https）。任意 |
+| content.item.list[].schemeIos | String | X | アイテムクリック時に実行する iOS アプリリンク。任意 |
+| content.item.list[].schemeAndroid | String | X | アイテムクリック時に実行する Android アプリリンク。任意 |
+| content.carousel | Object | X |  |
+| content.carousel.head | Object | X |  |
+| content.carousel.head.header | String | O | イントロヘッダー。head 使用時は必須（最大 20 文字） |
+| content.carousel.head.content | String | O | イントロ内容。head 使用時は必須（最大 50 文字） |
+| content.carousel.head.image | Object | O |  |
+| content.carousel.head.image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| content.carousel.head.image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
+| content.carousel.head.linkMo | String | X | イントロクリック時に遷移するモバイル Web リンク。他のリンク（linkPc/schemeIos/schemeAndroid）を入力する場合は必須 |
+| content.carousel.head.linkPc | String | X | イントロクリック時に遷移する PC Web リンク。任意 |
+| content.carousel.head.schemeIos | String | X | イントロクリック時に実行する iOS アプリリンク。任意 |
+| content.carousel.head.schemeAndroid | String | X | イントロクリック時に実行する Android アプリリンク。任意 |
+| content.carousel.list | Array | O | カルーセルアイテムリスト。head 使用時は 1〜5 個、未使用時は 2〜6 個 |
+| content.carousel.list[].header | String | X | カルーセルアイテムタイトル。CAROUSEL_FEED: 必須（最大 20 文字）。CAROUSEL_COMMERCE: 使用不可 |
+| content.carousel.list[].message | String | X | カルーセルアイテムメッセージ。CAROUSEL_FEED: 必須（最大 180 文字）。CAROUSEL_COMMERCE: 使用不可 |
+| content.carousel.list[].additionalContent | String | X | 追加コンテンツ。CAROUSEL_COMMERCE: 任意（最大 34 文字）。CAROUSEL_FEED: 使用不可 |
+| content.carousel.list[].buttons | Array | O | カルーセルアイテムボタン。最小 1 個、最大 2 個必須。AC ボタンは最後の位置 |
+| content.carousel.list[].buttons[].type | String | O | ボタンタイプ。WL: Web リンク、AL: アプリリンク、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク転換、BT: チャットボット転換、BF: ビジネスフォーム、AC: チャンネル追加<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
+| content.carousel.list[].buttons[].name | String | X | ボタン名。TEXT/IMAGE: 最大 14 文字、その他: 最大 8 文字。AC タイプ: 値なしで送信。BF タイプ: 「アンケートに参加する」「申し込む」「応募する」のいずれか一つを選択 |
+| content.carousel.list[].buttons[].linkMo | String | X | モバイル Web リンク（http/https）。WL タイプ必須、AL タイプ任意（schemeIos/schemeAndroid のいずれかと合わせて入力する場合に必要） |
+| content.carousel.list[].buttons[].linkPc | String | X | PC Web リンク（http/https）。WL/AL タイプ任意 |
+| content.carousel.list[].buttons[].schemeIos | String | X | iOS アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
+| content.carousel.list[].buttons[].schemeAndroid | String | X | Android アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
+| content.carousel.list[].buttons[].bizFormKey | String | X | ビジネスフォームキー。BF タイプ必須 |
+| content.carousel.list[].buttons[].chatExtra | String | X | BC（相談トーク転換）、BT（チャットボット転換）タイプボタンのメタ情報 |
+| content.carousel.list[].buttons[].chatEvent | String | X | BT（チャットボット転換）タイプボタンのボットイベント名 |
+| content.carousel.list[].image | Object | O |  |
+| content.carousel.list[].image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| content.carousel.list[].image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
+| content.carousel.list[].image.imageLink | String | X | 画像クリック時に遷移する URL（http/https）。任意。未設定時は KakaoTalk 画像ビューアーを使用 |
+| content.carousel.list[].commerce | Object | X |  |
+| content.carousel.list[].commerce.title | String | O | 商品タイトル（最大 30 文字）。必須 |
+| content.carousel.list[].commerce.regularPrice | Integer | O | 定価（0〜99,999,999）。必須 |
+| content.carousel.list[].commerce.discountPrice | Integer | X | 割引後の価格（0〜99,999,999）。任意。使用時は discountRate または discountFixed のいずれか必須 |
+| content.carousel.list[].commerce.discountRate | Integer | X | 割引率（0〜100）。discountPrice が存在する場合は discountFixed とどちらか一方を選択 |
+| content.carousel.list[].commerce.discountFixed | Integer | X | 定額割引価格（0〜999,999）。discountPrice が存在する場合は discountRate とどちらか一方を選択 |
+| content.carousel.list[].coupon | Object | X |  |
+| content.carousel.list[].coupon.title | String | O | クーポンタイトル。必須。形式: 「{N}円割引クーポン」（N: 1〜99,999,999）、「{N}% 割引クーポン」（N: 1〜100）、「送料割引クーポン」、「{商品名}無料クーポン」（商品名最大 7 文字）、「{商品名} UP クーポン」（商品名最大 7 文字）のいずれか一つを選択 |
+| content.carousel.list[].coupon.description | String | O | クーポン詳細説明。必須。TEXT/IMAGE/COMMERCE: 最大 12 文字、WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 最大 18 文字 |
+| content.carousel.list[].coupon.linkMo | String | X | クーポンクリック時に遷移するモバイル Web リンク（http/https）。チャンネルクーポン URL 以外の場合は必須 |
+| content.carousel.list[].coupon.linkPc | String | X | クーポンクリック時に遷移する PC Web リンク。任意 |
+| content.carousel.list[].coupon.schemeIos | String | X | クーポンクリック時に実行する iOS アプリリンク。チャンネルクーポン URL（alimtalk=coupon://）使用時は schemeAndroid と合わせて 1 つ以上必須 |
+| content.carousel.list[].coupon.schemeAndroid | String | X | クーポンクリック時に実行する Android アプリリンク。チャンネルクーポン URL（alimtalk=coupon://）使用時は schemeIos と合わせて 1 つ以上必須 |
+| content.carousel.tail | Object | X |  |
+| content.carousel.tail.linkMo | String | O | 「もっと見る」ボタンクリック時に遷移するモバイル Web リンク（http/https）。tail 使用時は必須 |
+| content.carousel.tail.linkPc | String | X | 「もっと見る」ボタンクリック時に遷移する PC Web リンク。任意 |
+| content.carousel.tail.schemeIos | String | X | 「もっと見る」ボタンクリック時に実行する iOS アプリリンク。任意 |
+| content.carousel.tail.schemeAndroid | String | X | 「もっと見る」ボタンクリック時に実行する Android アプリリンク。任意 |
+| content.commerce | Object | X |  |
+| content.commerce.title | String | O | 商品タイトル（最大 30 文字）。必須 |
+| content.commerce.regularPrice | Integer | O | 定価（0〜99,999,999）。必須 |
+| content.commerce.discountPrice | Integer | X | 割引後の価格（0〜99,999,999）。任意。使用時は discountRate または discountFixed のいずれか必須 |
+| content.commerce.discountRate | Integer | X | 割引率（0〜100）。discountPrice が存在する場合は discountFixed とどちらか一方を選択 |
+| content.commerce.discountFixed | Integer | X | 定額割引価格（0〜999,999）。discountPrice が存在する場合は discountRate とどちらか一方を選択 |
+| content.coupon | Object | X |  |
+| content.coupon.title | String | O | クーポンタイトル。必須。形式: 「{N}円割引クーポン」（N: 1〜99,999,999）、「{N}% 割引クーポン」（N: 1〜100）、「送料割引クーポン」、「{商品名}無料クーポン」（商品名最大 7 文字）、「{商品名} UP クーポン」（商品名最大 7 文字）のいずれか一つを選択 |
+| content.coupon.description | String | O | クーポン詳細説明。必須。TEXT/IMAGE/COMMERCE: 最大 12 文字、WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 最大 18 文字 |
+| content.coupon.linkMo | String | X | クーポンクリック時に遷移するモバイル Web リンク（http/https）。チャンネルクーポン URL 以外の場合は必須 |
+| content.coupon.linkPc | String | X | クーポンクリック時に遷移する PC Web リンク。任意 |
+| content.coupon.schemeIos | String | X | クーポンクリック時に実行する iOS アプリリンク。チャンネルクーポン URL (alimtalk=coupon://) 使用時は schemeAndroid とともに1つ以上必須 |
+| content.coupon.schemeAndroid | String | X | クーポンクリック時に実行する Android アプリリンク。チャンネルクーポン URL (alimtalk=coupon://) 使用時は schemeIos とともに1つ以上必須 |
+| content.additionalContent | String | X | 追加コンテンツ。COMMERCE タイプでのみ使用可能（任意、最大 34 文字）。CAROUSEL_COMMERCE はカルーセルアイテム内の additionalContent を使用 |
+| options | Object | X |  |
+| options.audienceType | String | X | 送信対象タイプ。CUSTOMER: 顧客、FRIEND: 友だち<br>[CUSTOMER, FRIEND] |
+| options.targeting | String | X | メッセージ対象タイプ。M: マーケティング受信同意ユーザー、N: 友だちではないマーケティング受信同意ユーザー、O: 友だちであるユーザー。M/N 使用時は送信プロファイルにマーケティング受信同意の有効化および 080 受信拒否番号が必要<br>[M, N, O] |
+| options.pushAlarm | Boolean | X | メッセージプッシュ通知の送信有無（デフォルト: true）<br>デフォルト値: true |
+| options.unsubscribePhoneNumber | String | X | 080 無料受信拒否電話番号。targeting が M/N の場合に必要。形式: 080-XXX-XXXX、080-XXXX-XXXX、080XXXXXXX、080XXXXXXXX。省略時は送信プロファイルに登録された値が自動的に適用されます |
+| options.unsubscribeAuthNumber | String | X | 受信拒否認証番号（数字、最大 9 文字）。必須ではありません。unsubscribePhoneNumber なしでの単独入力は不可。省略時は送信プロファイルに登録された値が自動的に適用されます |
+| statsKeyId | String | X | 統計キー ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
+
+**レスポンス本文**
+
+<!--レスポンス本文を返さない場合は、「このAPIはレスポンス本文を返しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--レスポンス本文のフィールドについて説明します。-->
+
+| パス | タイプ | Not Null | 説明 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け付けると生成される値です。 |
+
+**リクエスト例**
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+
+### 自由形式メッセージ送信リクエスト - ブランドメッセージ(BRANDMESSAGE)
+
+POST {{endpoint}}/message/v1.0/BRANDMESSAGE/free-form-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "adult" : false,
+    "content" : null,
+    "attachmentId" : "20230131070811m2fDe1rXx80",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormKey" : "bizFormKey123",
+      "chatExtra" : "extra_info",
+      "chatEvent" : "event_name"
+    } ],
+    "header" : "ヘッダー",
+    "item" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "イントロヘッダー",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "価格情報",
+        "buttons" : [ {
+          "type" : "WL",
+          "name" : "ボタン名",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormKey" : "bizFormKey123",
+          "chatExtra" : "extra_info",
+          "chatEvent" : "event_name"
+        } ],
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "商品タイトル",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "coupon" : {
+          "title" : "5000円割引クーポン",
+          "description" : "初回購入者限定",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "commerce" : {
+      "title" : "商品タイトル",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "coupon" : {
+      "title" : "5000円割引クーポン",
+      "description" : "初回購入者限定",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "additionalContent" : "価格情報"
+  },
+  "options" : {
+    "audienceType" : "CUSTOMER",
+    "targeting" : "M",
+    "pushAlarm" : true,
+    "unsubscribePhoneNumber" : "0801111234",
+    "unsubscribeAuthNumber" : "1234"
+  },
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "adult" : false,
+    "content" : null,
+    "attachmentId" : "20230131070811m2fDe1rXx80",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormKey" : "bizFormKey123",
+      "chatExtra" : "extra_info",
+      "chatEvent" : "event_name"
+    } ],
+    "header" : "ヘッダー",
+    "item" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "イントロヘッダー",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "価格情報",
+        "buttons" : [ {
+          "type" : "WL",
+          "name" : "ボタン名",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormKey" : "bizFormKey123",
+          "chatExtra" : "extra_info",
+          "chatEvent" : "event_name"
+        } ],
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "商品タイトル",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "coupon" : {
+          "title" : "5000円割引クーポン",
+          "description" : "初回購入者限定",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "commerce" : {
+      "title" : "商品タイトル",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "coupon" : {
+      "title" : "5000円割引クーポン",
+      "description" : "初回購入者限定",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "additionalContent" : "価格情報"
+  },
+  "options" : {
+    "audienceType" : "CUSTOMER",
+    "targeting" : "M",
+    "pushAlarm" : true,
+    "unsubscribePhoneNumber" : "0801111234",
+    "unsubscribeAuthNumber" : "1234"
+  },
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false
+}'
+```
+
+</details>
+
 <span id="messageV1x0003EmailFreeFormMessages"></span>
 
-## 自由形式メッセージの送信リクエスト - EMAIL
+<a id="request-to-send-a-free-form-message---email"></a>
 
-EMAILに対する自由形式メッセージの送信をリクエストします。
+## 自由形式メッセージ送信リクエスト - メール(EMAIL)
+
+メール(EMAIL)の自由形式メッセージ送信をリクエストします。
 
 
 **リクエスト**
@@ -237,19 +875,19 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「このAPIはリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -270,38 +908,38 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "title" : "[NHN Cloud Email][##env##] モニタリングアラート",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。",
+    "body" : "こんにちは。本日、お客様の商品が入荷されました。",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドについて説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
 | statsKeyId | String | X | 統計キーID |
-| scheduledDateTime | String | X | 予約送信時間 |
+| scheduledDateTime | String | X | 予約送信日時 |
 | confirmBeforeSend | Boolean | X | 確認後送信の有無 |
 | sender | Object | X |  |
 | sender.senderMailAddress | String | O | 送信元メールアドレス |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成されるID |
 | content | Object | X |  |
-| content.title | String | O | テンプレートメールのタイトル |
+| content.title | String | O | テンプレートメールの件名 |
 | content.body | String | O | テンプレートメールの本文 |
-| content.attachmentIds | Array | X | テンプレートの添付ファイルID |
+| content.attachmentIds | Array | X | テンプレート添付ファイルID |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「このAPIはレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -314,26 +952,27 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドについて説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け付けると生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 自由形式メッセージの送信リクエスト - EMAIL
+
+### 自由形式メッセージ送信リクエスト - メール (EMAIL)
 
 POST {{endpoint}}/message/v1.0/EMAIL/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
@@ -354,8 +993,8 @@ X-NHN-Authorization: Bearer {accessToken}
   } ],
   "id" : "alpha123",
   "content" : {
-    "title" : "[NHN Cloud Email][##env##] モニタリングアラート",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。",
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日、お客様の商品が入荷されました。",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -385,8 +1024,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
   } ],
   "id" : "alpha123",
   "content" : {
-    "title" : "[NHN Cloud Email][##env##] モニタリングアラート",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。",
+    "title" : "[NHN Cloud Email][##env##] モニタリング通知",
+    "body" : "こんにちは。本日、お客様の商品が入荷されました。",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -396,9 +1035,11 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 <span id="messageV1x0004RcsFreeFormMessages"></span>
 
-## 自由形式メッセージの送信リクエスト - RCS
+<a id="request-to-send-a-free-form-message---rcs"></a>
 
-RCSに対する自由形式メッセージの送信をリクエストします。
+## 自由形式メッセージ送信リクエスト - RCS
+
+RCS に対する自由形式メッセージの送信をリクエストします。
 
 
 **リクエスト**
@@ -409,19 +1050,19 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -447,8 +1088,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "messageType" : "SMS",
-    "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。ご来店ください^^",
+    "title" : "祝日営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様のご注文商品が入荷しました。ぜひご来店ください^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -470,13 +1111,13 @@ X-NHN-Authorization: Bearer {accessToken}
         "buttonType" : "CALENDAR",
         "buttonJson" : {
           "action" : {
-            "displayText" : "予定を登録する",
+            "displayText" : "スケジュールを登録する",
             "calendarAction" : {
               "createCalendarEvent" : {
                 "startTime" : "2024-01-01T00:00:00.000+09:00",
                 "endTime" : "2024-01-01T00:00:00.000+09:00",
-                "title" : "予定のタイトル",
-                "description" : "予定の説明"
+                "title" : "スケジュールのタイトル",
+                "description" : "スケジュールの説明"
               }
             }
           }
@@ -487,13 +1128,13 @@ X-NHN-Authorization: Bearer {accessToken}
       "buttonType" : "CALENDAR",
       "buttonJson" : {
         "action" : {
-          "displayText" : "予定を登録する",
+          "displayText" : "スケジュールを登録する",
           "calendarAction" : {
             "createCalendarEvent" : {
               "startTime" : "2024-01-01T00:00:00.000+09:00",
               "endTime" : "2024-01-01T00:00:00.000+09:00",
-              "title" : "予定のタイトル",
-              "description" : "予定の説明"
+              "title" : "スケジュールのタイトル",
+              "description" : "スケジュールの説明"
             }
           }
         }
@@ -507,61 +1148,61 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドを説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
+| statsKeyId | String | X | 統計キー ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信するかどうか |
 | sender | Object | O |  |
-| sender.brandId | String | O | ブランドID |
-| sender.chatbotId | String | O | トークルーム(チャットボット)ID |
+| sender.brandId | String | O | ブランド ID |
+| sender.chatbotId | String | O | トークルーム（チャットボット） ID |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定することはできません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 | content | Object | X |  |
-| content.messageType | String | X | RCS送信メッセージのタイプ<br>[SMS(ショートメッセージ)、LMS(ロングメッセージ)、MMS(マルチメディアメッセージ)、RBC_TEMPLATE(RCS Biz Centerテンプレート)] |
-| content.title | String | X | (Deprecated、content.cards[].titleを使用) メッセージのタイトル |
-| content.body | String | X | (Deprecated、content.cards[].descriptionを使用) メッセージの本文 |
-| content.smsType | String | X | SMSのタイプ<br>[STANDALONE(スタンドアロン型)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
-| content.lmsType | String | X | LMSのタイプ<br>[STANDALONE(スタンドアロン型)、FORMAT_BASIC(基本形式)、FORMAT_TITLE_HIGHLIGHT(タイトル強調形式)、FORMAT_PARAGRAPH(段落形式)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
-| content.mmsType | String | X | MMSのタイプ(MMS送信の場合は必須)<br>[HORIZONTAL(横型)、VERTICAL(縦型)、CAROUSEL_MEDIUM(カルーセル中型)、CAROUSEL_SMALL(カルーセル小型)、UNIFIED_HORIZONTAL(統合横型)、UNIFIED_VERTICAL(統合縦型)] |
-| content.messagebaseId | String | X | RCS Biz CenterテンプレートID |
-| content.unsubscribePhoneNumber | String | X | 受信拒否番号(広告送信の場合は必須) |
-| content.cards | Array | X | RCSカード |
+| content.messageType | String | X | RCS 送信メッセージタイプ<br>[SMS（短文メッセージ）, LMS（長文メッセージ）, MMS（マルチメディアメッセージ）, RBC_TEMPLATE（RCS Biz Center テンプレート）] |
+| content.title | String | X | （Deprecated、content.cards[].title を使用）メッセージタイトル |
+| content.body | String | X | （Deprecated、content.cards[].description を使用）メッセージ本文 |
+| content.smsType | String | X | SMS タイプ<br>[STANDALONE（独立型）, UNIFIED_STANDALONE（統合独立型）] |
+| content.lmsType | String | X | LMS タイプ<br>[STANDALONE（独立型）, FORMAT_BASIC（基本形式）, FORMAT_TITLE_HIGHLIGHT（タイトル強調形式）, FORMAT_PARAGRAPH（段落形式）, UNIFIED_STANDALONE（統合独立型）] |
+| content.mmsType | String | X | MMS タイプ（MMS 送信の場合は必須）<br>[HORIZONTAL（横型）, VERTICAL（縦型）, CAROUSEL_MEDIUM（カルーセル中間型）, CAROUSEL_SMALL（カルーセル小型）, UNIFIED_HORIZONTAL（統合横型）, UNIFIED_VERTICAL（統合縦型）] |
+| content.messagebaseId | String | X | RCS Biz Center テンプレート ID |
+| content.unsubscribePhoneNumber | String | X | 受信拒否番号（広告送信の場合は必須） |
+| content.cards | Array | X | RCS カード |
 | content.cards[].title | String | X | タイトル |
 | content.cards[].description | String | X | 本文 |
-| content.cards[].attachmentId | String | X | 添付ファイルID<br>※ 統合MMSカードでGIF画像を添付すると、iOSデバイスでは受信できません。 |
+| content.cards[].attachmentId | String | X | 添付ファイル ID<br>※ 統合 MMS カードに GIF 画像を添付すると、iOS デバイスでは受信できません。 |
 | content.cards[].mTitle | String | X | メインタイトル |
-| content.cards[].mTitleMedia | String | X | メインタイトルロゴファイルID |
+| content.cards[].mTitleMedia | String | X | メインタイトルロゴファイル ID |
 | content.cards[].title1 | String | X | タイトル 1 |
 | content.cards[].title2 | String | X | タイトル 2 |
 | content.cards[].title3 | String | X | タイトル 3 |
 | content.cards[].description1 | String | X | 本文 1 |
 | content.cards[].description2 | String | X | 本文 2 |
 | content.cards[].description3 | String | X | 本文 3 |
-| content.cards[].buttons | Array | X | RCSボタンリスト |
-| content.cards[].buttons[].buttonType | String | X | COMPOSE(トークルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(地図を表示する)、MAP_QUERY(地図を検索する)、MAP_SHARE(現在地を共有する)、URL(URLに接続する)、CALENDAR(予定を登録する)<br>※ 統合メッセージタイプにCLIPBOARD(コピーする)ボタンを使用すると、iOSデバイスでは受信できません。<br><br>[COMPOSE、CLIPBOARD、DIALER、MAP_SHOW、MAP_QUERY、MAP_SHARE、URL、CALENDAR] |
+| content.cards[].buttons | Array | X | RCS ボタンリスト |
+| content.cards[].buttons[].buttonType | String | X | COMPOSE（トークルームを開く）, CLIPBOARD（コピーする）, DIALER（電話をかける）, MAP_SHOW（地図を表示する）, MAP_QUERY（地図を検索する）, MAP_SHARE（現在地を共有する）, URL（URL に接続する）, CALENDAR（スケジュールを登録する）<br>※ 統合メッセージタイプに CLIPBOARD（コピーする）ボタンを使用すると、iOS デバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.cards[].buttons[].buttonJson | Object | X |  |
 | content.cards[].buttons[].buttonJson.action | Object | X | ボタンアクション |
-| content.buttons | Array | X | (Deprecated、content.cards[].buttonsを使用) RCSボタンリスト |
-| content.buttons[].buttonType | String | X | COMPOSE(トークルームを開く)、CLIPBOARD(コピーする)、DIALER(電話をかける)、MAP_SHOW(地図を表示する)、MAP_QUERY(地図を検索する)、MAP_SHARE(現在地を共有する)、URL(URLに接続する)、CALENDAR(予定を登録する)<br>※ 統合メッセージタイプにCLIPBOARD(コピーする)ボタンを使用すると、iOSデバイスでは受信できません。<br><br>[COMPOSE、CLIPBOARD、DIALER、MAP_SHOW、MAP_QUERY、MAP_SHARE、URL、CALENDAR] |
+| content.buttons | Array | X | （Deprecated、content.cards[].buttons を使用）RCS ボタンリスト |
+| content.buttons[].buttonType | String | X | COMPOSE（トークルームを開く）, CLIPBOARD（コピーする）, DIALER（電話をかける）, MAP_SHOW（地図を表示する）, MAP_QUERY（地図を検索する）, MAP_SHARE（現在地を共有する）, URL（URL に接続する）, CALENDAR（スケジュールを登録する）<br>※ 統合メッセージタイプに CLIPBOARD（コピーする）ボタンを使用すると、iOS デバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
 | content.buttons[].buttonJson | Object | X |  |
 | content.buttons[].buttonJson.action | Object | X | ボタンアクション |
 | options | Object | X |  |
-| options.expiryOption | Integer | X | 通信キャリアからデバイスへの送信を試みる時間(1：1日、2：40秒、3：3分、4：1時間)<br>デフォルト値：1 |
-| options.groupId | String | X | RCS Biz Center統計連動のためのグループID [ガイド](../console-guide/send-a-message/#RCS) (最大20 Byte) |
+| options.expiryOption | Integer | X | 通信会社からデバイスへの送信試行時間（1: 1日、2: 40秒、3: 3分、4: 1時間）<br>デフォルト値: 1 |
+| options.groupId | String | X | RCS Biz Center 統計連携用グループ ID [ガイド](../console-guide/send-a-message/#RCS)（最大 20 Byte） |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -574,26 +1215,27 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受け付けた際に生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 自由形式メッセージの送信リクエスト - RCS
+
+### 自由形式メッセージ送信リクエスト - RCS
 
 POST {{endpoint}}/message/v1.0/RCS/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
@@ -620,8 +1262,8 @@ X-NHN-Authorization: Bearer {accessToken}
   "id" : "alpha123",
   "content" : {
     "messageType" : "SMS",
-    "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。ご来店ください^^",
+    "title" : "祝日営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷いたしました。ぜひご来店ください^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -710,8 +1352,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
   "id" : "alpha123",
   "content" : {
     "messageType" : "SMS",
-    "title" : "祝日の営業時間のお知らせ",
-    "body" : "こんにちは。本日お客様の商品が入荷いたしました。ご来店ください^^",
+    "title" : "祝日営業時間のお知らせ",
+    "body" : "こんにちは。本日、お客様の商品が入荷いたしました。ぜひご来店ください^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -774,9 +1416,11 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
-## 自由形式メッセージの送信リクエスト - PUSH
+<a id="request-to-send-a-free-form-message---push"></a>
 
-PUSHに対する自由形式メッセージの送信をリクエストします。
+## 自由形式メッセージ送信リクエスト - PUSH
+
+PUSH に対する自由形式メッセージ送信をリクエストします。
 
 
 **リクエスト**
@@ -787,19 +1431,19 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -826,36 +1470,36 @@ X-NHN-Authorization: Bearer {accessToken}
         "submitName" : "送信ボタン名",
         "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
         "link" : "ボタンを押したときに遷移するリンク",
-        "hint" : "ボタンに対するヒント"
+        "hint" : "ボタンに関するヒント"
       } ],
       "media" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。AndroidではIMAGEのみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "androidMedia" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。AndroidではIMAGEのみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "iosMedia" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。AndroidではIMAGEのみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "largeIcon" : {
-        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE"
+        "sourceType" : "大きいアイコンの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE"
       },
       "group" : {
-        "key" : "グループキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
-        "description" : "グループに対する説明"
+        "key" : "グループのキー。複数のメッセージをグループ単位にまとめる機能。Androidでのみサポート",
+        "description" : "グループに関する説明"
       }
     },
     "style" : {
@@ -866,27 +1510,27 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドを説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
+| statsKeyId | String | X | 統計キー ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信するかどうか |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 | content | Object | X | プッシュメッセージの内容 |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -899,26 +1543,27 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受け付けた際に生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### 自由形式メッセージの送信リクエスト - PUSH
+
+### 自由形式メッセージ送信リクエスト - PUSH
 
 POST {{endpoint}}/message/v1.0/PUSH/free-form-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
@@ -939,43 +1584,43 @@ X-NHN-Authorization: Bearer {accessToken}
     "unsubscribePhoneNumber" : "代表番号",
     "unsubscribeGuide" : "メニュー > 設定",
     "title" : "タイトル",
-    "body" : "内容",
+    "body" : "本文",
     "richMessage" : {
       "buttons" : [ {
         "name" : "ボタン名",
         "submitName" : "送信ボタン名",
         "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
         "link" : "ボタンを押したときに遷移するリンク",
-        "hint" : "ボタンに対するヒント"
+        "hint" : "ボタンに関するヒント"
       } ],
       "media" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。Androidでは IMAGE のみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "androidMedia" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。Androidでは IMAGE のみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "iosMedia" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。Androidでは IMAGE のみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "largeIcon" : {
-        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE"
+        "sourceType" : "大きいアイコンの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE"
       },
       "group" : {
-        "key" : "グループキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
-        "description" : "グループに対する説明"
+        "key" : "グループのキー。複数のメッセージをグループ単位でまとめる機能。Androidでのみサポート",
+        "description" : "グループに関する説明"
       }
     },
     "style" : {
@@ -1010,43 +1655,43 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
     "unsubscribePhoneNumber" : "代表番号",
     "unsubscribeGuide" : "メニュー > 設定",
     "title" : "タイトル",
-    "body" : "内容",
+    "body" : "本文",
     "richMessage" : {
       "buttons" : [ {
         "name" : "ボタン名",
         "submitName" : "送信ボタン名",
         "buttonType" : "ボタンタイプ、REPLY、DEEP_LINK、OPEN_APP、OPEN_URL、DISMISS",
         "link" : "ボタンを押したときに遷移するリンク",
-        "hint" : "ボタンに対するヒント"
+        "hint" : "ボタンに関するヒント"
       } ],
       "media" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。Androidでは IMAGE のみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "androidMedia" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。Androidでは IMAGE のみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "iosMedia" : {
-        "sourceType" : "メディアの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE",
-        "mediaType" : "メディアのタイプ、IMAGE、GIF、VIDEO、AUDIO。AndroidではIMAGEのみサポート",
+        "sourceType" : "メディアの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE",
+        "mediaType" : "メディアのタイプ、IMAGE、GIF、VEDIO、AUDIO。Androidでは IMAGE のみサポート",
         "extension" : "メディアファイルの拡張子、jpg、png",
         "expandable" : true
       },
       "largeIcon" : {
-        "sourceType" : "大きなアイコンの位置、REMOTE、LOCAL",
-        "source" : "メディアが位置する場所のアドレス、URL、LOCAL_RESOURCE"
+        "sourceType" : "大きいアイコンの場所、REMOTE、LOCAL",
+        "source" : "メディアの場所のアドレス、URL、LOCAL_RESOURCE"
       },
       "group" : {
-        "key" : "グループキー、複数のメッセージをグループ単位でまとめる機能、Androidでのみサポート",
-        "description" : "グループに対する説明"
+        "key" : "グループのキー。複数のメッセージをグループ単位でまとめる機能。Androidでのみサポート",
+        "description" : "グループに関する説明"
       }
     },
     "style" : {
@@ -1061,17 +1706,19 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 
 <span id="messageV1x0006TemplateMessages"></span>
 
-## テンプレートメッセージの送信リクエスト
+<a id="request-template-message-sending"></a>
 
-登録したテンプレートを利用してメッセージを送信します。<br>
-登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
+## テンプレート送信リクエスト
+
+登録したテンプレートを使用してメッセージを送信します。<br>
+登録したテンプレートがない場合は、先にテンプレートを登録してから送信します。<br>
 <br>
-受信対象の設定は、単一受信者、一括受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
-* 単一受信者(recipient)<br>
-* 一括/グループ受信者(id)<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者(recipient)<br>
+* 大量/グループ受信者(id)<br>
   <br>
-  予約送信の場合は'scheduledDateTime'を設定します。<br>
-  確認後送信の場合は'confirmBeforeSend'をtrueに設定します。<br>
+  予約送信の場合は `scheduledDateTime` を設定します。<br>
+  確認後発送の場合は `confirmBeforeSend` を true に設定します。<br>
 
 
 **リクエスト**
@@ -1082,20 +1729,20 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messageChannel | Path | Enum | O | メッセージのチャンネルです。 |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messageChannel | Path | Enum | O | メッセージチャンネルです。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -1123,28 +1770,28 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドを説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
-| templateId | String | X | テンプレートID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
-| templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| statsKeyId | String | X | 統計キー ID |
+| templateId | String | X | テンプレート ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信かどうか |
+| templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定することはできません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージテンプレートパラメーターより優先されます。<br><br> |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定することはできません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -1157,25 +1804,26 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受信すると生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
+
 ### テンプレートメッセージの送信リクエスト
 
 POST {{endpoint}}/message/v1.0/{{messageChannel}}/template-messages/{{messagePurpose}}
@@ -1241,17 +1889,19 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
-## お知らせトークテンプレートメッセージの送信
+<a id="send-alimtalk-template-message"></a>
 
-登録したテンプレートを利用してメッセージを送信します。<br>
-登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
+## お知らせトークテンプレートメッセージ送信
+
+登録済みのテンプレートを使用してメッセージを送信します。<br>
+登録済みのテンプレートがない場合は、先にテンプレートを登録してから送信します。<br>
 <br>
-受信対象の設定は、単一受信者、一括受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
-* 単一受信者(recipient)<br>
-* 一括/グループ受信者(id)<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者 (recipient)<br>
+* 大量/グループ受信者 (id)<br>
   <br>
-  予約送信の場合は'scheduledDateTime'を設定します。<br>
-  確認後送信の場合は'confirmBeforeSend'をtrueに設定します。<br>
+  予約送信の場合は `scheduledDateTime` を設定します。<br>
+  確認後発送の場合は `confirmBeforeSend` を true に設定します。<br>
 
 
 **リクエスト**
@@ -1262,19 +1912,19 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -1305,30 +1955,30 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドを説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
+| statsKeyId | String | X | 統計キー ID |
 | sender | Object | X |  |
-| sender.senderKey | String | O | 送信元プロフィール送信元キー |
-| templateId | String | O | テンプレートID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
-| templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| sender.senderKey | String | O | 発信プロフィールの発信キー |
+| templateId | String | O | テンプレート ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後発送の有無 |
+| templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -1341,26 +1991,27 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受け付けると生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### お知らせトークテンプレートメッセージの送信
+
+### お知らせトークテンプレートメッセージ送信
 
 POST {{endpoint}}/message/v1.0/ALIMTALK/template-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
@@ -1429,19 +2080,279 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 
 </details>
 
+<span id="messageV1x0007BrandmessageTemplateMessages"></span>
+
+<a id="send-a-brand-message-template-message"></a>
+
+## ブランドメッセージ テンプレートメッセージ送信
+
+登録済みのテンプレートを使用してブランドメッセージを送信します。<br>
+登録済みのテンプレートがない場合は、先にテンプレートを登録してから送信します。<br>
+<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者(recipient)<br>
+* 大量/グループ受信者(id)<br>
+  <br>
+  予約送信の場合は「scheduledDateTime」を設定します。<br>
+  確認後発送の場合は「confirmBeforeSend」を true に設定します。<br>
+
+
+**リクエスト**
+
+```
+POST /message/v1.0/BRANDMESSAGE/template-messages/{messagePurpose}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**リクエストパラメーター**
+
+| 名前 | 区分 | タイプ | 必須 | 説明 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | アプリキー |
+| X-NHN-Authorization | Header | String | O | アクセストークン |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
+
+
+
+**リクエスト本文**
+
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
+
+
+```
+{
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    }
+  } ],
+  "id" : "alpha123",
+  "templateId" : "aA123456",
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "options" : {
+    "audienceType" : "CUSTOMER",
+    "targeting" : "M",
+    "pushAlarm" : true,
+    "unsubscribePhoneNumber" : "0801111234",
+    "unsubscribeAuthNumber" : "1234"
+  },
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false
+}
+```
+
+<!--リクエスト本文のフィールドについて説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| sender | Object | X |  |
+| sender.senderKey | String | O | 発信キー（40文字）。グループ発信キーは使用不可 |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| recipients[].imageParameters | Array | X | 受信者別イメージパラメーター。メッセージレベルのイメージパラメーターをオーバーライドします。 |
+| recipients[].imageParameters[].attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| recipients[].imageParameters[].imageUrl | String | X | イメージ URL。attachmentId とどちらか一方を選択 |
+| recipients[].imageParameters[].imageLink | String | X | イメージクリック時の遷移先 URL（http/https）。任意。未設定の場合は KakaoTalk イメージビューアーを使用 |
+| recipients[].videoParameter | Object | X |  |
+| recipients[].videoParameter.videoUrl | String | O | カカオTV 動画 URL（https://tv.kakao.com/ で始まる）。PREMIUM_VIDEO タイプで必須 |
+| recipients[].videoParameter.thumbnailAttachmentId | String | X | サムネイル画像の添付ファイル ID。thumbnailUrl とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能 |
+| recipients[].videoParameter.thumbnailUrl | String | X | 動画サムネイル画像 URL。thumbnailAttachmentId とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能。未設定の場合はカカオTV のデフォルトサムネイルを使用 |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
+| templateId | String | X | テンプレート ID |
+| templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| options | Object | X |  |
+| options.audienceType | String | X | 送信対象タイプ。CUSTOMER: 顧客、FRIEND: 友だち<br>[CUSTOMER, FRIEND] |
+| options.targeting | String | X | メッセージ対象タイプ。M: マーケティング受信同意ユーザー、N: 友だちではないマーケティング受信同意ユーザー、O: 友だちであるユーザー。M/N 使用時は発信プロフィールでマーケティング受信同意を有効化および 080 受信拒否番号が必要<br>[M, N, O] |
+| options.pushAlarm | Boolean | X | メッセージプッシュ通知送信の有無（デフォルト: true）<br>デフォルト値: true |
+| options.unsubscribePhoneNumber | String | X | 080 無料受信拒否電話番号。targeting が M/N の場合に必要。形式: 080-XXX-XXXX、080-XXXX-XXXX、080XXXXXXX、080XXXXXXXX。省略時は発信プロフィールに登録された値が自動適用 |
+| options.unsubscribeAuthNumber | String | X | 受信拒否認証番号（数字、最大 9 文字）。必須ではありません。unsubscribePhoneNumber なしでの単独入力は不可。省略時は発信プロフィールに登録された値が自動適用 |
+| statsKeyId | String | X | 統計キー ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後発送の有無 |
+
+
+
+**レスポンス本文**
+
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--レスポンス本文のフィールドについて説明します。-->
+
+| パス | タイプ | Not Null | 説明 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受け付けた際に生成される値です。 |
+
+
+
+**リクエスト例**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+
+### ブランドメッセージ テンプレート送信
+
+POST {{endpoint}}/message/v1.0/BRANDMESSAGE/template-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    }
+  } ],
+  "id" : "alpha123",
+  "templateId" : "aA123456",
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "options" : {
+    "audienceType" : "CUSTOMER",
+    "targeting" : "M",
+    "pushAlarm" : true,
+    "unsubscribePhoneNumber" : "0801111234",
+    "unsubscribeAuthNumber" : "1234"
+  },
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messagePurpose}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    }
+  } ],
+  "id" : "alpha123",
+  "templateId" : "aA123456",
+  "templateParameters" : {
+    "key1" : "value1",
+    "key2" : "value2"
+  },
+  "options" : {
+    "audienceType" : "CUSTOMER",
+    "targeting" : "M",
+    "pushAlarm" : true,
+    "unsubscribePhoneNumber" : "0801111234",
+    "unsubscribeAuthNumber" : "1234"
+  },
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false
+}'
+```
+
+</details>
+
 <span id="messageV1x0008EmailTemplateMessages"></span>
 
-## EMAILテンプレートメッセージの送信
+<a id="send-email-template-message"></a>
 
-登録したテンプレートを利用してメッセージを送信します。<br>
-登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
+## メールテンプレートメッセージ送信
+
+登録済みのテンプレートを使用してメッセージを送信します。<br>
+登録済みのテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
 <br>
-受信対象の設定は、単一受信者、一括受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
-* 単一受信者(recipient)<br>
-* 一括/グループ受信者(id)<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者 (recipient)<br>
+* 大量/グループ受信者 (id)<br>
   <br>
-  予約送信の場合は'scheduledDateTime'を設定します。<br>
-  確認後送信の場合は'confirmBeforeSend'をtrueに設定します。<br>
+  予約送信の場合は `scheduledDateTime` を設定します。<br>
+  確認後発送の場合は `confirmBeforeSend` を true に設定します。<br>
 
 
 **リクエスト**
@@ -1452,19 +2363,19 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -1492,28 +2403,28 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドについて説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
-| templateId | String | X | テンプレートID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
-| templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| statsKeyId | String | X | 統計キー ID |
+| templateId | String | X | テンプレート ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後発送するかどうか |
+| templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定することはできません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定することはできません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -1526,25 +2437,26 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドについて説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受け付けた際に生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
+
 ### EMAILテンプレートメッセージの送信
 
 POST {{endpoint}}/message/v1.0/EMAIL/template-messages/{{messagePurpose}}
@@ -1610,17 +2522,19 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 
 <span id="messageV1x0008RcsTemplateMessages"></span>
 
-## RCSテンプレートメッセージの送信
+<a id="send-rcs-template-message"></a>
 
-登録したテンプレートを利用してメッセージを送信します。<br>
+## RCS テンプレート送信
+
+登録したテンプレートを使用してメッセージを送信します。<br>
 登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
 <br>
-受信対象の設定は、単一受信者、一括受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
-* 単一受信者(recipient)<br>
-* 一括/グループ受信者(id)<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者(recipient)<br>
+* 大量/グループ受信者(id)<br>
   <br>
-  予約送信の場合は'scheduledDateTime'を設定します。<br>
-  確認後送信の場合は'confirmBeforeSend'をtrueに設定します。<br>
+  予約送信の場合は「scheduledDateTime」を設定します。<br>
+  確認後発送の場合は「confirmBeforeSend」を true に設定します。<br>
 
 
 **リクエスト**
@@ -1629,17 +2543,17 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 POST /message/v1.0/RCS/template-messages/{messagePurpose}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を要求しない場合は「この API はリクエスト本文を要求しません」と入力します。-->
 
 
 ```
@@ -1677,35 +2591,35 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドを説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
+| statsKeyId | String | X | 統計キー ID |
 | sender | Object | X |  |
-| sender.chatbotId | String | X | トークルーム(チャットボット)ID |
+| sender.chatbotId | String | X | トークルーム(チャットボット) ID |
 | content | Object | X |  |
 | content.unsubscribePhoneNumber | String | X | 受信拒否電話番号 |
-| templateId | String | X | テンプレートID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
-| templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| templateId | String | X | テンプレート ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後発送の有無 |
+| templateParameters | Object | X | テンプレートパラメーターです。キー(Key、置換子)と値(Value)のペアで構成されています。<br><br>グループ送信では、受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージテンプレートパラメーターより優先されます。<br><br> |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、置換子)と値(Value)のペアで構成されています。<br><br>グループ送信では、受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 | options | Object | X |  |
-| options.expiryOption | Integer | X | 通信キャリアからデバイスへの送信を試みる時間(1：1日、2：40秒、3：3分、4：1時間)<br>デフォルト値：1 |
-| options.groupId | String | X | RCS Biz Center統計連動のためのグループID [ガイド](../console-guide/send-a-message/#RCS) (最大20 Byte) |
+| options.expiryOption | Integer | X | 通信会社からデバイスへの送信試行時間(1: 1日、2: 40秒、3: 3分、4: 1時間)<br>デフォルト値: 1 |
+| options.groupId | String | X | RCS Biz Center 統計連携のための group ID [ガイド](../console-guide/send-a-message/#RCS)（最大 20 Byte） |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -1718,25 +2632,26 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受け付けると生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
+
 ### RCSテンプレートメッセージの送信
 
 POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
@@ -1818,25 +2733,27 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
-## SMSテンプレートメッセージの送信
+<a id="send-sms-template-message"></a>
 
-登録したテンプレートを利用してメッセージを送信します。
-登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。
+## SMS テンプレート送信
 
-受信対象の設定は、単一受信者、一括受信者、グループクエリのいずれかを選択して設定する必要があります。
-* 単一受信者(recipient)
-* 一括/グループ受信者(id)
+登録済みのテンプレートを使用してメッセージを送信します。
+登録済みのテンプレートがない場合は、先にテンプレートを登録してから送信します。
 
-予約送信の場合は'scheduledDateTime'を設定します。
-確認後送信の場合は'confirmBeforeSend'をtrueに設定します。
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。
+* 単件受信者 (recipient)
+* 大量/グループ受信者 (id)
 
-画像レイアウトが連動したMMSテンプレートの送信時、次の事項に留意する必要があります。
-* **必須のテンプレートパラメーター**：cardNumber、scratchNumberを必ず含める必要があります。
-  * cardNumber：バーコードの作成に使用され、必ず16桁の数字で構成されている必要があります。
-  * scratchNumber：別途の制約条件はありません。
-* **画像レイアウトのOverride**：リクエスト本文にcontent.imageLayoutIdまたはcontent.imageLayoutNameを含めて、テンプレートに設定された画像レイアウトを変更できます。
-  * content.imageLayoutIdとcontent.imageLayoutNameのどちらか一方のみ使用する必要があります。
-  * 両方のフィールドとも含まれていない場合は、テンプレート作成時に連動したデフォルトの画像レイアウトが使用されます。
+予約発送の場合は `scheduledDateTime` を設定します。
+確認後送信の場合は `confirmBeforeSend` を true に設定します。
+
+イメージレイアウトと連携した MMS テンプレートを送信する際は、次の点に注意してください。
+* **必須テンプレートパラメーター**: cardNumber、scratchNumber を必ず含める必要があります。
+  * cardNumber: バーコード生成に使用され、必ず 16 桁の数字で構成する必要があります。
+  * scratchNumber: 特別な制約条件はありません。
+* **イメージレイアウト Override**: リクエスト本文に content.imageLayoutId または content.imageLayoutName を含めることで、テンプレートに設定されたイメージレイアウトを変更できます。
+  * content.imageLayoutId と content.imageLayoutName のいずれか一方のみ使用する必要があります。
+  * 両フィールドが含まれない場合は、テンプレート作成時に連携したデフォルトのイメージレイアウトが使用されます。
 
 
 **リクエスト**
@@ -1845,17 +2762,17 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 POST /message/v1.0/SMS/template-messages/{messagePurpose}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -1887,31 +2804,31 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドを説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
-| templateId | String | X | テンプレートID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
-| templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| statsKeyId | String | X | 統計キー ID |
+| templateId | String | X | テンプレート ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信かどうか |
+| templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
 | content | Object | X |  |
-| content.imageLayoutId | String | X | 画像レイアウトID |
-| content.imageLayoutName | String | X | 画像レイアウト名 |
+| content.imageLayoutId | String | X | イメージレイアウト ID |
+| content.imageLayoutName | String | X | イメージレイアウト名 |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -1924,25 +2841,26 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受け取った際に生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
+
 ### SMSテンプレートメッセージの送信
 
 POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
@@ -2012,17 +2930,19 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 
 <span id="messageV1x0009FlowMessages"></span>
 
-## フローメッセージの送信
+<a id="send-flow-message"></a>
 
-登録したフローを利用してメッセージを送信します。<br>
-フローを登録していない場合は、フローを登録して送信する必要があります。<br>
+## フロー送信
+
+登録したフローを使用してメッセージを送信します。<br>
+フローを登録していない場合は、フローを登録してから送信する必要があります。<br>
 <br>
-受信対象の設定は、単一受信者、一括受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
-* 単一受信者(recipient)<br>
-* 一括/グループ受信者(id)<br>
+受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+* 単件受信者 (recipient)<br>
+* 大量/グループ受信者 (id)<br>
   <br>
-  予約送信の場合は'scheduledDateTime'を設定します。<br>
-  確認後送信の場合は'confirmBeforeSend'をtrueに設定します。<br>
+  予約送信の場合は `scheduledDateTime` を設定します。<br>
+  確認後送信の場合は `confirmBeforeSend` を true に設定します。<br>
 
 
 **リクエスト**
@@ -2033,19 +2953,19 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -2092,35 +3012,35 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドについて説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
-| statsKeyId | String | X | 統計キーID |
-| flowId | String | X | フローID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
-| templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| statsKeyId | String | X | 統計キー ID |
+| flowId | String | X | フロー ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信かどうか |
+| templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
 | recipients | Array | X |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 一括受信者の一覧およびファイルのアップロード成功時に作成されるID |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー (Key、置換子) と値 (Value) のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 | flow | Object | X |  |
 | flow.steps | Array | O |  |
-| flow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS)、ALIMTALK(お知らせトーク)、EMAIL(メール)、RCS(RCS)、PUSH(プッシュ)] |
-| flow.steps[].sender | Object | X | 送信元情報です。送信元情報はメッセージのチャンネルにより異なる構成になる場合があります。<br> |
-| flow.steps[].content | Object | X | メッセージの内容です。メッセージの内容はメッセージのチャンネルにより異なる構成になる場合があります。<br> |
-| flow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージのチャンネルにより異なる構成になる場合があります。<br> |
-| flow.steps[].nextSteps | Array | X | 次の段階です。次の段階がない場合、メッセージの送信が終了します。<br> |
+| flow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| flow.steps[].sender | Object | X | 送信者情報です。送信者情報はメッセージチャンネルによって異なる構成になる場合があります。<br> |
+| flow.steps[].content | Object | X | メッセージ内容です。メッセージ内容はメッセージチャンネルによって異なる構成になる場合があります。<br> |
+| flow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージチャンネルによって異なる構成になる場合があります。<br> |
+| flow.steps[].nextSteps | Array | X | 次のステップです。次のステップがない場合、メッセージ送信が終了します。<br> |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「この API はレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -2133,25 +3053,26 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドについて説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージ ID です。メッセージ送信リクエストを受け付けた際に生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
+
 ### フローメッセージの送信
 
 POST {{endpoint}}/message/v1.0/flow-messages/{{messagePurpose}}
@@ -2255,11 +3176,13 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 
 <span id="messageV1x0010InstantFlowMessages"></span>
 
-## インスタントフローメッセージの送信
+<a id="send-an-instant-flow-message"></a>
 
-メッセージ送信リクエスト時にフローを定義してメッセージの送信をリクエストします。<br>
+## インスタントフローメッセージ送信
+
+メッセージ送信リクエスト時にフローを定義してメッセージを送信リクエストします。<br>
 <br>
-インスタントフロー入力時にテンプレートを利用して送信をリクエストしたり、直接送信元情報や内容を入力して送信をリクエストしたりできます。
+インスタントフロー入力時にテンプレートを利用して送信リクエストするか、発信者情報や内容を直接入力して送信リクエストできます。
 
 
 **リクエスト**
@@ -2268,17 +3191,17 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 POST /message/v1.0/instant-flow-messages/{messagePurpose}
 ```
 
-**リクエストパラメータ**
+**リクエストパラメーター**
 
-| 名前 | 区分 | 型 | 必須 | 説明 |
+| 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | メッセージの目的です。 |
+| messagePurpose | Path | Enum | O | メッセージ目的です。 |
 
 
 
-**リクエストボディ**
+**リクエスト本文**
 
-<!--リクエストボディを必要としない場合は"このAPIはリクエストボディを必要としません"と入力します。-->
+<!--リクエスト本文を必要としない場合は「このAPIはリクエスト本文を必要としません」と入力します。-->
 
 
 ```
@@ -2322,34 +3245,34 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 }
 ```
 
-<!--リクエストボディのフィールドを説明します。-->
+<!--リクエスト本文のフィールドを説明します。-->
 
-| パス | 型 | 必須 | 説明 |
+| パス | タイプ | 必須 | 説明 |
 | - | - | - | - |
 | statsKeyId | String | X | 統計キーID |
-| scheduledDateTime | String | X | 予約送信時間 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
-| templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信するかどうか |
+| templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージテンプレートパラメーターより優先されます。<br><br> |
 | recipients | Array | O |  |
 | recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER、EMAIL_ADDRESS、TOKEN_ADM、TOKEN_FCM、TOKEN_APNS、TOKEN_APNS_SANDBOX、TOKEN_APNS_SANDBOX_VOIP、TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せず、連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるカスタムフィールドです。 |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、テンプレート変数)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです。 |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージテンプレートパラメーターより優先されます。<br><br> |
 | instantFlow | Object | O |  |
 | instantFlow.steps | Array | O |  |
-| instantFlow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS)、ALIMTALK(お知らせトーク)、EMAIL(メール)、RCS(RCS)、PUSH(プッシュ)] |
-| instantFlow.steps[].sender | Object | X | 送信元情報です。送信元情報はメッセージのチャンネルにより異なる構成になる場合があります。<br> |
-| instantFlow.steps[].content | Object | X | メッセージの内容です。メッセージの内容はメッセージのチャンネルにより異なる構成になる場合があります。<br> |
-| instantFlow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージのチャンネルにより異なる構成になる場合があります。<br> |
-| instantFlow.steps[].templateId | String | X | テンプレートIDです。テンプレートIDを設定した場合、リクエスト時に送信元情報(sender)とメッセージの内容(content)は適用されません。<br>インスタントフローメッセージでテンプレートIDを設定しない場合は、送信元情報(sender)とメッセージの内容(content)が必ず必要です。<br> |
-| instantFlow.steps[].nextSteps | Array | X | 次の段階です。次の段階がない場合、メッセージの送信が終了します。<br> |
+| instantFlow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| instantFlow.steps[].sender | Object | X | 発信者情報です。発信者情報はメッセージチャンネルによって異なる構成になる場合があります。<br> |
+| instantFlow.steps[].content | Object | X | メッセージ内容です。メッセージ内容はメッセージチャンネルによって異なる構成になる場合があります。<br> |
+| instantFlow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージチャンネルによって異なる構成になる場合があります。<br> |
+| instantFlow.steps[].templateId | String | X | テンプレートIDです。テンプレートIDを設定した場合、リクエスト時に発信者情報（sender）とメッセージ内容（content）は適用されません。<br>インスタントフローメッセージでテンプレートIDを設定しない場合、発信者情報（sender）とメッセージ内容（content）が必須です。<br> |
+| instantFlow.steps[].nextSteps | Array | X | 次のステップです。次のステップがない場合、メッセージ送信が終了します。<br> |
 
 
 
-**レスポンスボディ**
+**レスポンス本文**
 
-<!--レスポンスボディを返さない場合は"このAPIはレスポンスボディを返しません"と入力します。-->
+<!--レスポンス本文を返さない場合は「このAPIはレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -2362,25 +3285,26 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 }
 ```
 
-<!--レスポンスボディのフィールドを説明します。-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-| パス | 型 | Not Null | 説明 |
+| パス | タイプ | Not Null | 説明 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値：true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け取ると作成される値です。 |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受信すると生成される値です。 |
 
 
 
-**リクエストの例**
+**リクエスト例**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
+
 ### インスタントフローメッセージの送信
 
 POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
@@ -2474,6 +3398,8 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
+<a id="cancel-sending-message"></a>
+
 ## メッセージの送信キャンセル
 
 送信をキャンセルするメッセージIDを入力して送信をキャンセルします。<br>
@@ -2560,6 +3486,8 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 
 <span id="messageV1x0101MessageIdDoConfirm"></span>
 
+<a id="confirm-message-delivery"></a>
+
 ## メッセージの送信確認
 
 確認後送信をリクエストしたメッセージを確認します。<br>
@@ -2623,7 +3551,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### メッセージの送信確認
+### メッセージ送信確認
 
 POST {{endpoint}}/message/v1.0/messages/{{messageId}}/do-confirm
 X-NC-APP-KEY: {appKey}

@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=8c77b572b6aa -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -13,6 +15,8 @@
 
 
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
+
+<a id="retrieve-a-list-of-received-results-by-contacts"></a>
 
 ## Retrieve a List of Received Results by Contacts
 
@@ -44,7 +48,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contact | Query | String | N | Contact information. |
 | messageChannel | Query | String | N | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, and PUSH] |
 | messagePurpose | Query | String | N | The message purpose.<br>[AD, AUTH, NORMAL] |
-| statuses | Query | List | N | The message status. You can view the sending result.<br> When a message sending request is received, the message status is set to REQUESTED. <br>[REQUESTED, SCHEDULED, READY, CONFIRM_WAITED, WAITED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, and CANCELED] |
+| statuses | Query | Enum | X | Message status. You can view it as a send result.<br> When a message sending request is received, the message status is set to REQUESTED.<br>  |
 | scheduled | Query | Boolean | N | Whether to schedule sending. |
 | confirmBeforeSend | Query | Boolean | N | Whether to send after approval. |
 | createdDateTimeFrom | Query | Date | N | The request start date and time. The default is 7 days ago. |
@@ -201,10 +205,12 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
+<a id="retrieve-a-list-of-the-final-send-status-messages"></a>
+
 ## Retrieve a List of the Final Send Status Messages
 
 View a list of message results after the sending process has completed.<br>
-Final sending statuses include "SEND_FAILED," "DELIVERED," "DELIVERY_FAILED," and "CANCELED."
+Final sending statuses include "SEND_FAILED (Delivery Failed)," "DELIVERED (Delivery Successful)," "DELIVERY_FAILED (Delivery Failed)," and "CANCELED (Canceled)."
 
 
 **Request**

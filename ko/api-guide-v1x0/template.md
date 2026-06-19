@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=8780bb7cdba0 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -236,6 +238,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-te
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost"></span>
 
+<a id="submit-an-alimtalk-template-inquiry-with-file-attachment"></a>
+
 ## 파일을 첨부해 카카오 알림톡 템플릿 문의하기
 
 카카오 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
@@ -318,6 +322,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 </details>
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></span>
+
+<a id="submit-an-alimtalk-template-inquiry"></a>
 
 ## 카카오 알림톡 템플릿 문의하기
 
@@ -412,6 +418,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 <span id="templateV1x0001CreateSmsTemplate"></span>
 
+<a id="register-sms-template"></a>
+
 ## SMS 템플릿 등록
 
 템플릿을 등록합니다.
@@ -450,7 +458,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -526,7 +534,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -552,7 +560,7 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -562,6 +570,8 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
 </details>
 
 <span id="templateV1x0002ReadSmsTemplateList"></span>
+
+<a id="list-sms-templates"></a>
 
 ## SMS 템플릿 리스트 조회
 
@@ -669,6 +679,8 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates" \
 
 <span id="templateV1x0003ReadSmsTemplate"></span>
 
+<a id="get-sms-template-details"></a>
+
 ## SMS 템플릿 상세 조회
 
 템플릿을 상세 조회합니다.
@@ -724,7 +736,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "content" : {
       "messageType" : "SMS",
       "title" : "명절 운영시간 공지",
-      "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
       "imageLayoutId" : "YaX2DA4Weab1"
     },
@@ -791,6 +803,8 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 
 <span id="templateV1x0004UpdateSmsTemplate"></span>
 
+<a id="update-sms-template"></a>
+
 ## SMS 템플릿 수정
 
 템플릿을 수정합니다.
@@ -829,7 +843,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -901,7 +915,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -926,7 +940,7 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -936,6 +950,8 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0005DeleteSmsTemplate"></span>
+
+<a id="delete-sms-template"></a>
 
 ## SMS 템플릿 삭제
 
@@ -1019,6 +1035,8 @@ curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0006CreateAlimtalkTemplate"></span>
+
+<a id="register-alimtalk-template"></a>
 
 ## 알림톡 템플릿 등록
 
@@ -1129,8 +1147,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templateLanguage | String | X | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
 | sender | Object | X |  |
-| sender.senderKey | String | X | 발신 프로필 발신키 |
-| sender.senderProfileType | String | X | 발신 프로필 타입<br>[GROUP, NORMAL] |
+| sender.senderKey | String | X | 발신프로필 발신키 |
+| sender.senderProfileType | String | X | 발신프로필 타입<br>[GROUP, NORMAL] |
 | content | Object | O |  |
 | content.templateMessageType | String | X | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
 | content.templateEmphasizeType | String | O | 템플릿 강조 표시 유형<br>[NONE(강조 없음), TEXT(텍스트 강조), IMAGE(이미지 강조), ITEM_LIST(아이템 리스트 강조)] |
@@ -1383,6 +1401,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
 
 <span id="templateV1x0007ReadAlimtalkTemplateList"></span>
 
+<a id="list-alimtalk-templates"></a>
+
 ## 알림톡 템플릿 리스트 조회
 
 템플릿 리스트를 조회합니다.
@@ -1491,6 +1511,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
 
 <span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
 
+<a id="list-templates-by-alimtalk-sender"></a>
+
 ## 알림톡 발신자와 관계된 템플릿 리스트 조회
 
 발신자와 관계된 템플릿 리스트를 조회합니다.(발신자 또는 발신자가 포함된 그룹의 템플릿)
@@ -1598,6 +1620,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates" 
 </details>
 
 <span id="templateV1x0009ReadAlimtalkTemplate"></span>
+
+<a id="get-alimtalk-template-details"></a>
 
 ## 알림톡 템플릿 상세 조회
 
@@ -1751,9 +1775,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messagePurposes | Array | O |  |
 | template.templateLanguage | String | O | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
 | template.sender | Object | O |  |
-| template.sender.senderKey | String | O | 발신 프로필 발신키 |
+| template.sender.senderKey | String | O | 발신프로필 발신키 |
 | template.sender.senderProfileId | String | O | 카카오톡 채널명 |
-| template.sender.senderProfileType | String | O | 발신 프로필 타입<br>[GROUP, NORMAL] |
+| template.sender.senderProfileType | String | O | 발신프로필 타입<br>[GROUP, NORMAL] |
 | template.additionalProperty | Object | O |  |
 | template.additionalProperty.kakaoTemplateCode | String | O | 카카오 템플릿 코드 |
 | template.additionalProperty.templateCode | String | O | 템플릿 코드(영문, 숫자, -, _) |
@@ -1850,6 +1874,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0010UpdateAlimtalkTemplate"></span>
+
+<a id="update-alimtalk-template"></a>
 
 ## 알림톡 템플릿 수정
 
@@ -2186,6 +2212,8 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 
 <span id="templateV1x0011DeleteAlimtalkTemplate"></span>
 
+<a id="delete-alimtalk-template"></a>
+
 ## 알림톡 템플릿 삭제
 
 템플릿을 삭제합니다.
@@ -2268,6 +2296,8 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0012InquireAlimtalkTemplate"></span>
+
+<a id="submit-an-alimtalk-template-inquiry---deprecated"></a>
 
 ## 알림톡 템플릿 문의하기 - Deprecated
 
@@ -2355,6 +2385,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 <span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
 
+<a id="submit-an-alimtalk-template-inquiry-with-file-attachment---deprecated"></a>
+
 ## 알림톡 템플릿 문의하기(파일 첨부) - Deprecated
 
 !!! danger 더 이상 지원하지 않는 API입니다.
@@ -2431,6 +2463,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 <span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
 
+<a id="list-alimtalk-template-updates"></a>
+
 ## 알림톡 템플릿 수정 리스트 조회
 
 알림톡 템플릿 수정 리스트를 조회합니다.
@@ -2497,6 +2531,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 </details>
 
 <span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
+
+<a id="list-alimtalk-template-categories"></a>
 
 ## 알림톡 템플릿 카테고리 리스트 조회
 
@@ -2598,6 +2634,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories" \
 
 <span id="templateV1x0021CreateEmailTemplate"></span>
 
+<a id="register-email-template"></a>
+
 ## Email 템플릿 등록
 
 템플릿을 등록합니다.
@@ -2635,7 +2673,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -2707,7 +2745,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -2731,7 +2769,7 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -2740,6 +2778,8 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
 </details>
 
 <span id="templateV1x0022ReadEmailTemplate"></span>
+
+<a id="get-email-template-details"></a>
 
 ## Email 템플릿 상세 조회
 
@@ -2795,7 +2835,7 @@ X-NHN-Authorization: Bearer {accessToken}
     },
     "content" : {
       "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-      "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -2858,6 +2898,8 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0022ReadEmailTemplateList"></span>
+
+<a id="list-email-templates"></a>
 
 ## Email 템플릿 리스트 조회
 
@@ -2965,6 +3007,8 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates" \
 
 <span id="templateV1x0023UpdateEmailTemplate"></span>
 
+<a id="update-email-template"></a>
+
 ## Email 템플릿 수정
 
 템플릿을 수정합니다.
@@ -3002,7 +3046,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -3070,7 +3114,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -3093,7 +3137,7 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -3102,6 +3146,8 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0024DeleteEmailTemplate"></span>
+
+<a id="delete-email-template"></a>
 
 ## Email 템플릿 삭제
 
@@ -3186,6 +3232,8 @@ curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 
 <span id="templateV1x0025CreateRcsTemplate"></span>
 
+<a id="register-rcs-template"></a>
+
 ## RCS 템플릿 등록
 
 템플릿을 등록합니다.
@@ -3225,7 +3273,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3374,7 +3422,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3449,7 +3497,7 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3507,6 +3555,8 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
 </details>
 
 <span id="templateV1x0026ReadRcsTemplateList"></span>
+
+<a id="list-rcs-templates"></a>
 
 ## RCS 템플릿 리스트 조회
 
@@ -3614,6 +3664,8 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates" \
 
 <span id="templateV1x0027ReadRcsTemplate"></span>
 
+<a id="get-rcs-template-details"></a>
+
 ## RCS 템플릿 상세 조회
 
 템플릿을 상세 조회합니다.
@@ -3670,7 +3722,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "content" : {
       "messageType" : "SMS",
       "title" : "명절 운영시간 공지",
-      "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
       "smsType" : "STANDALONE",
       "lmsType" : "HORIZONTAL",
       "mmsType" : "HORIZONTAL",
@@ -3818,6 +3870,8 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 
 <span id="templateV1x0028UpdateRcsTemplate"></span>
 
+<a id="update-rcs-template"></a>
+
 ## RCS 템플릿 수정
 
 템플릿을 수정합니다.
@@ -3857,7 +3911,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4002,7 +4056,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4076,7 +4130,7 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4134,6 +4188,8 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0029DeleteRcsTemplate"></span>
+
+<a id="delete-rcs-template"></a>
 
 ## RCS 템플릿 삭제
 
@@ -4218,6 +4274,8 @@ curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 
 <span id="templateV1x0030CreatePushTemplate"></span>
 
+<a id="register-push-template"></a>
+
 ## Push 템플릿 등록
 
 템플릿을 등록합니다.
@@ -4252,7 +4310,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4260,37 +4318,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4359,7 +4417,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4367,37 +4425,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4423,7 +4481,7 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4431,37 +4489,37 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4475,6 +4533,8 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
 </details>
 
 <span id="templateV1x0031ReadPushTemplateList"></span>
+
+<a id="list-push-templates"></a>
 
 ## Push 템플릿 리스트 조회
 
@@ -4582,6 +4642,8 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates" \
 
 <span id="templateV1x0032ReadPushTemplate"></span>
 
+<a id="get-push-template-details"></a>
+
 ## Push 템플릿 상세 조회
 
 템플릿을 상세 조회합니다.
@@ -4633,7 +4695,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "templateLanguage" : "PLAIN_TEXT",
     "content" : {
       "unsubscribePhoneNumber" : "대표 번호",
-      "unsubscribeGuide" : "메뉴 > 설정",
+      "unsubscribeGuide" : "매뉴 > 설정",
       "title" : "제목",
       "body" : "내용",
       "richMessage" : {
@@ -4641,37 +4703,37 @@ X-NHN-Authorization: Bearer {accessToken}
           "name" : "버튼 이름",
           "submitName" : "전송 버튼 이름",
           "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-          "link" : "버튼을 눌렀을 때, 연결되는 링크",
-          "hint" : "버튼에 대한 힌트"
+          "link" : "버튼을 눌렀을때, 연결되는 링크",
+          "hint" : "버튼에대한 힌트"
         } ],
         "media" : {
           "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-          "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-          "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
           "extension" : "미디어 파일의 확장자, jpg, png",
           "expandable" : true
         },
         "androidMedia" : {
           "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-          "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-          "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
           "extension" : "미디어 파일의 확장자, jpg, png",
           "expandable" : true
         },
         "iosMedia" : {
           "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-          "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-          "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
           "extension" : "미디어 파일의 확장자, jpg, png",
           "expandable" : true
         },
         "largeIcon" : {
           "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-          "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
         },
         "group" : {
           "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-          "description" : "그룹에 대한 설명"
+          "description" : "그룹에대한 설명"
         }
       },
       "style" : {
@@ -4735,6 +4797,8 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 <span id="templateV1x0033UpdatePushTemplate"></span>
 
+<a id="update-push-template"></a>
+
 ## Push 템플릿 수정
 
 템플릿을 수정합니다.
@@ -4769,7 +4833,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4777,37 +4841,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4872,7 +4936,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4880,37 +4944,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4935,7 +4999,7 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4943,37 +5007,37 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4987,6 +5051,8 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0034DeletePushTemplate"></span>
+
+<a id="delete-push-template"></a>
 
 ## Push 템플릿 삭제
 
@@ -5070,6 +5136,8 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0035ReadTemplateParameters"></span>
+
+<a id="retrieve-template-parameters"></a>
 
 ## 템플릿 파라미터 조회
 
@@ -5164,3 +5232,4 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}
 ```
 
 </details>
+

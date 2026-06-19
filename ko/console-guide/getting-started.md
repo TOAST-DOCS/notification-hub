@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=7d6c35993ac2 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a { 
     display: inline !important;
@@ -9,6 +11,8 @@
 
 <span id="identity-verification"></span>
 
+<a id="identity-verification"></a>
+
 ## 본인 인증하기
 
 Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 있습니다. 본인 인증에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 본인 인증** 항목을 확인 부탁드립니다.
@@ -18,9 +22,13 @@ Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 �
 
 <span id="manage-sender-info"></span>
 
+<a id="sender-information-management"></a>
+
 ## 발신 정보 관리
 
 <span id="manage-sender-phone-number"></span>
+
+<a id="sender-number-management"></a>
 
 ### 발신 번호 관리
 
@@ -36,6 +44,8 @@ SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 
 
 <span id="manage-sender-brand"></span>
 
+<a id="brand-management"></a>
+
 ### 브랜드 관리
 
 RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS Biz Center에서 사전 등록 사항이 완료(브랜드 승인)되었다면, NHN Cloud 콘솔과 연동을 진행합니다. RCS Biz Center에서 브랜드 생성은 **이용 정책 및 사전 설정 안내** > **RCS**를 참고하세요.
@@ -49,6 +59,8 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 
 <span id="manage-sender-domain"></span>
 
+<a id="manage-domains"></a>
+
 ### 도메인 관리
 
 이메일을 보내려면 자신이 소유한 도메인, SPF 인증, DKIM 인증, DMARC 인증이 필요합니다.
@@ -56,6 +68,8 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 발신 도메인 및 SPF, DKIM, DMARC에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 이메일**을 확인하세요.
 
 * [이용 정책 및 사전 설정 안내 > 이메일 바로가기](../service-policy-and-precondition/email)
+
+<a id="email-domain-registration-and-ownership-authentication"></a>
 
 #### 이메일 도메인 등록 및 소유권 인증
 
@@ -67,6 +81,8 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 4. 도메인 목록에서 도메인 소유 인증 상태의 **인증**을 클릭합니다.
 
 도메인 소유 인증에 성공하면 도메인 인증 상태가 '완료'로 변경됩니다.
+
+<a id="spf-authentication"></a>
 
 #### SPF 인증
 
@@ -92,6 +108,8 @@ SPF에 대한 자세한 설명은 아래 문서를 참고하세요.
 * [RFC 4408 - 4.5 Selecting Records 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-4.5)
 * [RFC 4408 - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
+<a id="dkim-authentication"></a>
+
 #### DKIM 인증
 
 DKIM(domainkeys identified mail, 도메인 키 식별 메일)은 이메일 발송 서버가 이메일을 디지털 서명하고 이메일 수신 서버는 발신자 진위 여부를 확인하여 전송 중에 메시지가 위조, 변조되지 않았는지 확인하는 이메일 검증 방법입니다. DKIM을 통해 스팸 발송자 및 기타 악의적인 공격자가 이메일을 위조, 변조하는 것을 방지할 수 있습니다.
@@ -106,6 +124,8 @@ DKIM에 대한 자세한 설명은 아래 문서를 참고하세요.
 
 * [이메일 보안 강화 기능 소개 - 도메인 보호, DKIM, DMARC 바로 가기](https://meetup.nhncloud.com/posts/248)
 
+
+<a id="dmarc-authentication"></a>
 
 #### DMARC 인증
 
@@ -134,16 +154,22 @@ DMARC에 대한 자세한 설명은 아래 문서를 참고하세요.
 
 <span id="manage-sender-push-authorization"></span>
 
+<a id="push-authentication-management"></a>
+
 ### Push 인증 관리
 
 Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > Push**를 확인하세요.
 
 * [이용 정책 및 사전 설정 안내 > Push 바로 가기](../service-policy-and-precondition/push)
 
+<a id="fcm-authentication-settings"></a>
+
 #### FCM 인증 설정
 1. **서비스 계정 키 등록**을 활성화합니다.
 2. 서비스 계정 키(JSON)에 발급 받은 FCM Service Account Credential 파일의 내용을 복사해 붙여 넣습니다.
 3. **검증 > 저장**을 클릭해 설정을 완료합니다.
+
+<a id="pns-authentication-settings"></a>
 
 #### APNS 인증 설정
 1. **APNS JWT 인증서 등록**을 활성화합니다.
@@ -152,6 +178,8 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 4. **개인 키** 파일의 내용을 복사해 붙여 넣습니다.
 5. **검증 > 저장**을 클릭해 설정을 완료합니다.
 
+<a id="adm-authentication-settings"></a>
+
 #### ADM 인증 설정
 1. **자격 증명 등록**을 활성화합니다.
 2. **클라이언트 아이디**와 **클라이언트 키**를 입력합니다.
@@ -159,9 +187,11 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 
 <span id="manage-sender-profile"></span>
 
+<a id="manage-outgoing-profiles"></a>
+
 ### 발신 프로필 관리
 
-알림톡 발송을 위해서는 발신 프로필 생성 및 등록이 필요합니다.
+알림톡, 브랜드 메시지 발송을 위해서는 발신 프로필 생성 및 등록이 필요합니다.
 
 발신 프로필 생성은 카카오 비즈니스에서 진행할 수 있습니다.
 
@@ -176,15 +206,21 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 
 <span id="manage-080-unsubscription-number"></span>
 
+<a id="manage-opt-out-numbers"></a>
+
 ### 080 수신 거부 번호 관리
 
 080 수신 거부 번호는 광고 문자 발송 시, 수신자에게 수신 거부를 제공하는 서비스입니다. 광고성 정보 전송 시, 수신자가 수신 거부나 수신 동의의 철회를 무료로 할 수 있도록 무료 수신 거부 방법을 반드시 기재해야 합니다.
+
+<a id="apply-subscription"></a>
 
 #### 가입 신청
 
 * **+ 080 수신 거부 번호 신청**을 클릭하고 회사명을 입력합니다. 입력한 회사명은 080 수신 거부 번호로 전화를 걸 때, 안내되는 업체명입니다.
 * 가입 신청을 완료하면 등록 예약 상태로 변경됩니다. 080 수신 거부 서비스 개통은 영업일 기준 3~4일이 소요되고, 개통이 완료되면 사용할 수 있습니다.
 * 개통이 완료되면, 사용 시작 일시와 상태를 확인할 수 있습니다. 080 수신 거부 서비스 등록 예약, 사용 중 상태에서 SMS 상품 이용 종료를 할 수 없습니다. 해지 후, 상품 이용 종료가 가능합니다. 해지하려면 **해지**를 클릭하세요.
+
+<a id="set-080-unsubscription-number-when-advertising-texts"></a>
 
 #### 광고성 문자 발송 시 080 수신 거부 번호 설정
 

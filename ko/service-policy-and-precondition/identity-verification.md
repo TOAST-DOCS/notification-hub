@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bc1d75536ea1 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -19,6 +21,8 @@
 * 사업자 회원이 생성한 조직/프로젝트에 초대된 NHN Cloud 계정 또는 사업자 회원이 생성한 조직에 초대된 IAM 계정은 서비스 이용을 위해 본인 인증을 진행해야 합니다.
     * 초대된 NHN Cloud 계정, IAM 계정은 본인 인증 승인 시 회원 유형이 사업자로 구분됩니다.
 * 재직증명서는 **발급일이 표기되어 있고, 직인이 날인된 서류**만 가능합니다. 재직증명서 내 주민등록번호 뒤 6자리는 **반드시 마스킹(숨김) 처리**하세요. 예: 000000-0\*\*\*\*\*\*
+
+<a id="identity-verification-status"></a>
 
 ### 본인 인증 상태
 

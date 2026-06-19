@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=73a6a04843d4 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -8,9 +10,13 @@
 **Notification > Notification Hub > 統計**
 
 
+<a id="statistics"></a>
+
 ## 統計
 
 Notification Hubで発生する様々なイベントを収集し、統計データとして照会できます。
+
+<a id="query-statistics"></a>
 
 ### 統計照会
 
@@ -26,6 +32,8 @@ Notification Hubで発生する様々なイベントを収集し、統計デー�
 * メッセージチャンネル、統計基準、統計キー、メッセージIDを複合的に設定して統計データを照会します。
 * 設定したメッセージチャンネルによって設定できる統計基準が異なります。
 
+<a id="message-channel-statistical-events-by-statistical-criteria"></a>
+
 #### メッセージチャンネル、統計基準に基づく統計イベント
 
 | メッセージチャンネル | 統計基準 | イベント                                                                                                   | 備考 |
@@ -34,9 +42,12 @@ Notification Hubで発生する様々なイベントを収集し、統計デー�
 | SMS | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)    | |
 | RCS | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)    | |
 | お知らせトーク | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)    | |
+| ブランドメッセージ | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)    | |
 | Push | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)、閲覧済み(OPENED) | メッセージ閲覧に関するイベントも収集されます。 |
 | Email | メッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)、閲覧済み(OPENED) | メッセージ閲覧に関するイベントも収集されます。 |
 | SMS | 国際SMSメッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)  | |
+
+<a id="manage-statistical-keys"></a>
 
 ### 統計キー管理
 

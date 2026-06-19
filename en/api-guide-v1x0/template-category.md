@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=587133cdf54f -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -100,6 +102,8 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 
 <span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
+<a id="retrieve-template-category-details"></a>
+
 ## Retrieve Template Category Details
 
 Retrieve a template category.
@@ -201,6 +205,8 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 </details>
 
 <span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
+
+<a id="modify-a-template-category"></a>
 
 ## Modify a Template Category
 
@@ -309,6 +315,8 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 
 <span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
 
+<a id="add-a-template-to-a-category"></a>
+
 ## Add a Template to a Category
 
 Add a template to a category.
@@ -412,6 +420,8 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 
 <span id="templateV10MessageChannelCategoriesGet"></span>
 
+<a id="list-template-categories"></a>
+
 ## List Template Categories
 
 List template categories.
@@ -511,6 +521,8 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 </details>
 
 <span id="templateV10MessageChannelCategoriesPost"></span>
+
+<a id="register-template-categories"></a>
 
 ## Register Template Categories
 
@@ -619,6 +631,8 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 </details>
 
 <span id="templateV10MessageChannelCategoryTreesGet"></span>
+
+<a id="retrieve-a-template-category-hierarchy"></a>
 
 ## Retrieve a Template Category Hierarchy
 
