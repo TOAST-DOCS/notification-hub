@@ -13,6 +13,8 @@
 
 <span id="attachment-management"></span>
 
+<a id="attachment-management"></a>
+
 ## 添付ファイルの管理
 
 メッセージ発送時に添付するファイルを事前に登録して管理できます。
