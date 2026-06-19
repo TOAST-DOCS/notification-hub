@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=0d13921b9726 -->
+<!-- pre-align:aligned sig=e4151300f28b -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,6 +10,8 @@
 **Notification > Notification Hub > Console User Guide > Detail setting**
 
 Manage the settings and attachments for each message channel, which may take approximately a few minutes to reflect after setup.
+
+<a id="sms"></a>
 
 ## SMS
 
@@ -85,6 +87,25 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
 * You can set how undelivered messages are handled.
     * Handle Failure
 * The time limit setting for sending advertising messages in SMS and RCS requires individual settings.
+
+<a id="brand-message"></a>
+
+## Brand Message
+
+<a id="ad-message-settings-3"></a>
+
+### Ad Message Settings
+
+<a id="limit-advertising-messages-delivery-time"></a>
+
+#### Limit Advertising Messages Delivery Time
+* Brand messages can only send advertising messages, and sending is restricted during nighttime hours in accordance with the Telecommunications Network Act.
+* Advertising messages will not be sent during the set time.
+    * Start Time for Ad Delivery Restriction: 18:00 to 21:00
+    * End Time for Ad Delivery Restriction: 08:00 to 12:00
+* You can configure how unsent messages are handled.
+    * Treat as failed
+    * Resend after the restriction period ends
 
 <a id="push"></a>
 

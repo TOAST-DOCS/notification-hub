@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=674d72b2ce04 -->
+<!-- pre-align:aligned sig=7d6c35993ac2 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a { 
@@ -10,6 +10,8 @@
 **Notification > Notification Hub > 콘솔 사용 가이드 > Notification Hub 시작하기**
 
 <span id="identity-verification"></span>
+
+<a id="identity-verification"></a>
 
 ## 본인 인증하기
 

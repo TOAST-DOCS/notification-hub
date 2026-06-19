@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=d17b5d1143ac -->
+<!-- pre-align:aligned sig=73a6a04843d4 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > 통계**
 
+
+<a id="statistics"></a>
 
 ## 통계
 

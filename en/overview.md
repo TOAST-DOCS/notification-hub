@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=caabb61efc99 -->
+<!-- pre-align:aligned sig=90726d7d38f5 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -13,16 +13,18 @@ It is a cloud-based integrated messaging platform that sends and manages push, e
 
 ![Overall structure](../img/overview_800.png)
 
+<a id="key-features"></a>
+
 ## Key Features
 
 <!-- TODO: translate body -->
 
 <a id="multichannel-messaging"></a>
 
-### Multichannel messaging
+### Multi-Channel Messaging
 
-* Sends messages to 6 messaging channels: SMS, Alim Talk, RCS, Email, and Push.
-  * Uses a single API to integrate and manage multiple message channels for easy sending
+* Sends messages to six messaging channels: SMS, Alim Talk, Brand Message, RCS, Email, and Push.
+    * Uses a single API to integrate and manage multiple message channels for easy sending.
 
 <a id="address-book"></a>
 

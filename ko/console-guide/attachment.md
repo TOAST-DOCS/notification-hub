@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=e722c2023294 -->
+<!-- pre-align:aligned sig=58fb1f94e4e2 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -12,6 +12,8 @@
 첨부 파일과 이미지 레이아웃을 관리합니다. 
 
 <span id="attachment-management"></span>
+
+<a id="attachment-management"></a>
 
 ## 첨부 파일 관리
 

@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=0d13921b9726 -->
+<!-- pre-align:aligned sig=e4151300f28b -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,6 +10,8 @@
 **Notification > Notification Hub > 콘솔 사용 가이드 > 상세 설정**
 
 각 메시지 채널의 설정과 첨부 파일을 관리합니다. 설정 후 실제 반영까지 대략 수분이 걸릴 수 있습니다.
+
+<a id="sms"></a>
 
 ## SMS
 
@@ -86,9 +88,15 @@
     * 실패 처리
 * SMS, RCS의 광고성 메시지 발송 시간 제한 설정은 개별 설정이 필요합니다.
 
+<a id="brand-message"></a>
+
 ## 브랜드 메시지
 
+<a id="ad-message-settings-3"></a>
+
 ### 광고성 메시지 설정
+<a id="limit-advertising-messages-delivery-time"></a>
+
 #### 광고성 메시지 발송 시간 제한 설정
 * 브랜드 메시지는 광고성 메시지만 발송할 수 있으며, 정보통신망법에 의거해 야간 시간에 발송이 제한됩니다.
 * 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.

@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=5e0edaf20f7a -->
+<!-- pre-align:aligned sig=8c77b572b6aa -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,6 +10,8 @@
 **Notification > Notification Hub > API v1.0使用ガイド > 連絡先別受信結果**
 
 <span id="read-contact-delivery-results"></span>
+
+<a id="retrieve-a-list-of-received-results-by-contacts"></a>
 
 ## 連絡先別受信結果リスト照会
 
@@ -226,7 +228,7 @@ curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results" \
 ## 最終送信ステータスメッセージリスト照会
 
 送信プロセスが終了したメッセージ結果リストを照会します。<br>
-最終送信ステータスには「SEND_FAILED(送信失敗)」、「DELIVERED(受信済み)」、「DELIVERY_FAILED(受信失敗)」、「CANCELED(キャンセル済み)」があります。
+最終送信ステータスには「SEND_FAILED(送信失敗)」、「DELIVERED(受信成功)」、「DELIVERY_FAILED(受信失敗)」、「CANCELED(キャンセル)」があります。
 
 
 **リクエスト**

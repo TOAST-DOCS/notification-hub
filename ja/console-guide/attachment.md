@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=e722c2023294 -->
+<!-- pre-align:aligned sig=58fb1f94e4e2 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -12,6 +12,8 @@
 添付ファイルと画像レイアウトを管理します。
 
 <span id="attachment-management"></span>
+
+<a id="attachment-management"></a>
 
 ## 添付ファイルの管理
 
@@ -37,6 +39,12 @@
 | RCS         | MMS              | .jpg、.jpeg、.png、.gif、.bmp                           | 1MB           |                                  |                               |
 | Alimtalk      | 画像           | .jpg、.png                                              | 500KB         | 横500px以上                  | (2:1)                         |
 | Alimtalk      | アイテムリスト    | .jpg、.png                                              | 500KB         | 横108px以上                  | (1:1)                         |
+| ブランドメッセージ | 画像（基本/ワイド） | .jpg、.png                                           | 5MB           | 横500px以上                  | (2:1)～(3:4)                 |
+| ブランドメッセージ | ワイド画像     | .jpg、.png                                             | 5MB           | 横500px以上                  | (2:1)～(1:1)                 |
+| ブランドメッセージ | ワイドアイテムリスト（1番目） | .jpg、.png                                  | 5MB           | 横500px以上                  | (2:1)                         |
+| ブランドメッセージ | ワイドアイテムリスト（その他） | .jpg、.png                                  | 5MB           | 横500px以上                  | (1:1)                         |
+| ブランドメッセージ | カルーセルフィード | .jpg、.png                                             | 5MB           | 横500px以上                  | (2:1)～(3:4)                 |
+| ブランドメッセージ | カルーセルコマース | .jpg、.png                                             | 5MB           | 横500px以上                  | (2:1)～(3:4)                 |
 | Eメール       | -                | .js、.exe、.bat、.cmd、.com、.cpl、.scr、.vbs、.wsrを除くすべての形式 | 30MB          |                                  |                               |
 
 <a id="image-layout-management"></a>

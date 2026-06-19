@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=caabb61efc99 -->
+<!-- pre-align:aligned sig=90726d7d38f5 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -13,14 +13,16 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
 
 ![全体構造](../img/overview_800.png)
 
+<a id="key-features"></a>
+
 ## 主な機能
 
 <a id="multichannel-messaging"></a>
 
 ### マルチチャンネルメッセージング
 
-* SMS、お知らせトーク、RCS, Email, Pushの6つのメッセージチャンネルでメッセージを送信できます。
-    * 様々なメッセージチャンネルを1つのAPIで統合管理し、簡単にメッセージを送信できます。
+* SMS、お知らせトーク、ブランドメッセージ、RCS、Email、Push の 6 つのメッセージチャンネルでメッセージを送信できます。
+    * さまざまなメッセージチャンネルを 1 つの API で統合管理し、簡単にメッセージを送信できます。
 
 <a id="address-book"></a>
 

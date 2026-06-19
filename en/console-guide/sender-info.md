@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=3df305680efc -->
+<!-- pre-align:aligned sig=e8b03b463453 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -12,6 +12,8 @@
 Register and manage sender information for each message channel. To send messages, the sender information for each message channel must be registered in advance.
 
 <span id="manage-sender-phone-number"></span>
+
+<a id="manage-sender-numbers"></a>
 
 ## Manage Sender Numbers
 
@@ -291,7 +293,7 @@ For information on how to create a sender profile, refer to **Service Policy and
 
 <a id="register-sender-profile"></a>
 
-### Register Sender Profile
+### Register a Sender Profile
 
 1. Click **+ Register Sender Profile**.
 2. Set the sender profile ID, administrator mobile number, and category, then click **Request Token**.
@@ -299,7 +301,10 @@ For information on how to create a sender profile, refer to **Service Policy and
 4. Click **Confirm > Register** to complete sender profile registration.
 
 !!! danger "Caution"
-**The default maximum daily delivery count for AlimTalk is 1,000**. To change the maximum daily delivery count, contact [Customer Center](https://www.nhncloud.com/kr/support/inquiry).
+    **The default maximum daily delivery count for AlimTalk is 1,000**. To change the maximum daily delivery count, contact [Customer Center](https://www.nhncloud.com/kr/support/inquiry).
+
+!!! danger "Caution"
+    Brand messages can only send **advertising (AD) messages**. When sending to customers (Targeting M, N, O), **registering an 080 opt-out number in the sender profile is required**.
 
 <span id="manage-sender-profile-group"></span>
 
@@ -352,6 +357,28 @@ Group tags can only be used for brand messages. AlimTalk is not applicable.
 
 * Click **+ Register Group Tag** to enter a group tag name and register it.
 * Select the checkbox of the group tag to modify or delete, and click **Modify Group Tag** or **Delete Group Tag**.
+
+<span id="delete-sender-profile"></span>
+
+<a id="apply-to-use-customer-targeted-sending"></a>
+
+### Apply to Use Customer-Targeted Sending
+
+To use customer-targeted sending for brand messages, you must submit an application. Without an approved application, you cannot use customer-targeted sending (targeting M, N, or O).
+
+1. In the sender profile details, click **Apply to Use Customer-Targeted Sending**.
+2. Upload the evidence file showing consent to receive advertising information.
+    * The evidence file is stored at the KakaoTalk channel level. If you update the file, the change is applied to all sender profiles of other dealers using the same channel.
+    * If a file uploaded by another dealer already exists, you can skip the file upload step and proceed with the application.
+3. The application is approved when all of the following conditions are met:
+    * Business-verified channel
+    * Business registration number registered
+    * Channel customer center phone number registered
+    * 50,000 or more channel friends
+    * History of at least one successful AlimTalk delivery within the last 3 months
+
+!!! danger "Caution"
+    If business verification is revoked, your permission to use customer-targeted sending is also revoked. You must reapply after the business verification re-review is completed.
 
 <span id="delete-sender-profile"></span>
 

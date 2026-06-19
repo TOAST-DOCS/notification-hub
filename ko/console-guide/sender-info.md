@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=3df305680efc -->
+<!-- pre-align:aligned sig=e8b03b463453 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -12,6 +12,8 @@
 메시지 채널별 발신 정보를 등록하고 관리합니다. 메시지를 발송하려면 각 메시지 채널에 맞는 발신 정보가 사전에 등록되어 있어야 합니다.
 
 <span id="manage-sender-phone-number"></span>
+
+<a id="manage-sender-numbers"></a>
 
 ## 발신 번호 관리
 
@@ -357,6 +359,8 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 * 수정하거나 삭제할 그룹태그의 체크박스를 선택하고 **그룹태그 수정** 또는 **그룹태그 삭제**를 클릭합니다.
 
 <span id="brandmessage-customer-sending-application"></span>
+
+<a id="apply-to-use-customer-targeted-sending"></a>
 
 ### 고객 대상 발송 사용 신청
 

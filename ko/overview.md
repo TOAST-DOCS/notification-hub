@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=caabb61efc99 -->
+<!-- pre-align:aligned sig=90726d7d38f5 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -12,6 +12,8 @@
 SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라우드 기반 통합 메시징 플랫폼입니다. Notification Hub는 다양한 메시지 채널을 통합하여 메시지를 발송하고 관리할 수 있습니다. 또한, 플로우 발송을 통해 여러 메시지 채널을 우선순위에 따라 순차적으로 발송할 수 있습니다. Notification의 다른 상품과 설정과 자원을 공유해 기존 Notification 고객이 빠르게 Notification Hub로 전환할 수 있습니다.
 
 ![전체 구조](../img/overview_800.png)
+
+<a id="key-features"></a>
 
 ## 주요 기능
 
