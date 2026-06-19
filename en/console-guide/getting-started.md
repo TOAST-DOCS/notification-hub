@@ -11,6 +11,8 @@
 
 <span id="identity-verification"></span>
 
+<a id="identity-verification"></a>
+
 ## Identity verification
 
 The Notification Hub is available after it is activated and Identity verification is completed. For more information on Identity verification, please check the ** Usage Policy and Preset Guide > Identity verification**.
