@@ -208,7 +208,7 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 ## Retrieve a List of the Final Send Status Messages
 
 View a list of message results after the sending process has completed.<br>
-Final sending statuses include "SEND_FAILED," "DELIVERED," "DELIVERY_FAILED," and "CANCELED."
+Final sending statuses include "SEND_FAILED (Delivery Failed)," "DELIVERED (Delivery Successful)," "DELIVERY_FAILED (Delivery Failed)," and "CANCELED (Canceled)."
 
 
 **Request**
