@@ -187,19 +187,19 @@ For more information on issuing Push Credentials, check **Service Policy & Preco
 
 <a id="manage-outgoing-profiles"></a>
 
-### Manage Outgoing Profiles
+### Manage Sender Profiles
 
-You need to create and register an outgoing profile to send a Alimtalk.
+To send Alim Talk and Brand Messages, you need to create and register a sender profile.
 
-Outgoing profiles can be created by Kakao Business.
+You can create a sender profile in Kakao Business.
 
-* [Outgoing Profile Generation Guide Shortcut](./preconditions#ktb-sender-profile)
+* [Go to Sender Profile Creation Guide](../service-policy-and-precondition/alimtalk-and-friendtalk)
 
 
-Once the outgoing profile has been created in Kakao Business, follow the following steps to register.
+After the sender profile is created in Kakao Business, register it by following these steps:
 
-1. Click **+ Register outgoing profile**, set outgoing profile ID, administrator mobile number, category, and click ** Request token**.
-2. Enter the token sent to the administrator's mobile phone and click **OK > Register** to complete outgoing profile registration.
+1. Click **+ Register Sender Profile**, set the sender profile ID, administrator mobile number, and category, then click **Request Token**.
+2. Enter the token sent to the administrator's mobile phone, then click **Confirm > Register** to complete sender profile registration.
 
 
 <span id="manage-080-unsubscription-number"></span>
