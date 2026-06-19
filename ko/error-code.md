@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=6b437cd3fe5d -->
+<!-- pre-align:aligned sig=26433962c314 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -8,6 +8,8 @@
 <h1>오류 코드</h1>
 
 **Notification > Notification Hub > 오류 코드**
+
+<a id="list-of-error-codes"></a>
 
 ## 오류 코드 목록
 
