@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=472ab8839ab7 -->
+<!-- pre-align:aligned sig=ac986523a7a8 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -9,7 +9,11 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
+<a id="06-23"></a>
+
 ## 2026. 06. 23.
+<a id="added-features-4"></a>
+
 ### 기능 추가
 * [콘솔] 알림톡 공용 템플릿 기능 추가
     * 주문, 결제, 배송 등 업종과 관계없이 범용적으로 사용 가능한 메시지 템플릿을 제공합니다. 별도의 검수 과정 없이 사용 가능합니다.
@@ -19,6 +23,8 @@
     * 기존 KakaoTalk BizMessage 상품의 브랜드 메시지 대비 주요 차이점:
         * O 그룹 타게팅 추가: 고객사 광고성 수신 동의 회원 중 채널 친구 대상 발송
         * 고객사 회원 대상 메시지는 카카오톡 25.4.0 이상 사용자만 수신 가능
+
+<a id="may-27-2026"></a>
 
 ## 2026. 05. 27.
 <a id="added-features"></a>
