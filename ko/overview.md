@@ -13,6 +13,8 @@ SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라�
 
 ![전체 구조](../img/overview_800.png)
 
+<a id="key-features"></a>
+
 ## 주요 기능
 
 <a id="multichannel-messaging"></a>
