@@ -10,6 +10,8 @@
 **Notification > Notification Hub > 통계**
 
 
+<a id="statistics"></a>
+
 ## 통계
 
 Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 데이터로 조회할 수 있습니다.
