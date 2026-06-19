@@ -11,6 +11,8 @@
 
 各メッセージチャネルの設定と添付ファイルを管理します。設定後、実際の反映までおおよそ数分かかる場合があります。
 
+<a id="sms"></a>
+
 ## SMS
 
 <a id="international-sms-send-settings"></a>
@@ -89,11 +91,15 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
     * 失敗処理
 * SMS, RCSの広告性メッセージ送信時間制限設定は個別設定が必要です。
 
-<a id="push"></a>
+<a id="brand-message"></a>
 
 ## ブランドメッセージ
 
+<a id="ad-message-settings-3"></a>
+
 ### 広告メール設定
+
+<a id="limit-advertising-messages-delivery-time"></a>
 
 #### 広告メッセージの送信時間制限設定
 * ブランドメッセージは広告メール性メッセージのみ送信でき、情報通信망법に基づき夜間時間帯の送信が制限されます。
