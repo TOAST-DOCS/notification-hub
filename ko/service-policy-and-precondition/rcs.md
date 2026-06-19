@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=f8b6e3ba86f0 -->
+<!-- pre-align:aligned sig=24efee552792 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -8,6 +8,8 @@
 <h1>RCS</h1> 
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > RCS**
+
+<a id="brand-creation-and-registration"></a>
 
 ## 브랜드 생성 및 등록
 
