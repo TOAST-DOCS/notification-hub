@@ -10,6 +10,8 @@
 **Notification > Notification Hub > 統計**
 
 
+<a id="statistics"></a>
+
 ## 統計
 
 Notification Hubで発生する様々なイベントを収集し、統計データとして照会できます。
