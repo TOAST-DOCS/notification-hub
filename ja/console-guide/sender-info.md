@@ -13,6 +13,8 @@
 
 <span id="manage-sender-phone-number"></span>
 
+<a id="manage-sender-numbers"></a>
+
 ## 発信番号管理
 
 SMS、LMS、MMSメッセージを送信するには発信番号を登録する必要があります。電気通信事業法関連告示に基づき、発信番号登録の際に名義人認証が必要です。名義人認証時には、会員及び発信番号タイプに応じて認証方法と必要な書類が決定されます。
@@ -358,7 +360,7 @@ Amazon Kindle、Fireなどの端末にPushメッセージを送信するには�
 
 <span id="delete-sender-profile"></span>
 
-<a id="delete-a-sender-profile"></a>
+<a id="apply-to-use-customer-targeted-sending"></a>
 
 ### 顧客向け送信の利用申請
 
