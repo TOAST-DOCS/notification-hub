@@ -37,6 +37,12 @@ You can also manage attachments uploaded when registering templates and sending 
 | RCS         | MMS              | .jpg, .jpeg, .png, .gif, .bmp                           | 1MB           |                                  |                               |
 | Alimtalk      | Image           | .jpg, .png                                              | 500KB         | Width 500px or more                  | (2:1)                         |
 | Alimtalk      | Item List    | .jpg, .png                                              | 500KB         | Width 108px or more                  | (1:1)                         |
+| Brand Message | Image (Basic/Wide) | .jpg, .png                                        | 5MB           | Width 500px or more                  | (2:1) ~ (3:4)                 |
+| Brand Message | Wide Image        | .jpg, .png                                             | 5MB           | Width 500px or more                  | (2:1) ~ (1:1)                 |
+| Brand Message | Wide Item List (First) | .jpg, .png                                       | 5MB           | Width 500px or more                  | (2:1)                         |
+| Brand Message | Wide Item List (Others) | .jpg, .png                                      | 5MB           | Width 500px or more                  | (1:1)                         |
+| Brand Message | Carousel Feed     | .jpg, .png                                             | 5MB           | Width 500px or more                  | (2:1) ~ (3:4)                 |
+| Brand Message | Carousel Commerce | .jpg, .png                                             | 5MB           | Width 500px or more                  | (2:1) ~ (3:4)                 |
 | Email       | -                | All formats except .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr | 30MB          |                                  |                               |
 
 <a id="image-layout-management"></a>
