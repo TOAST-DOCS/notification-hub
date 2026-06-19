@@ -13,6 +13,8 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
 
 ![全体構造](../img/overview_800.png)
 
+<a id="key-features"></a>
+
 ## 主な機能
 
 <a id="multichannel-messaging"></a>
