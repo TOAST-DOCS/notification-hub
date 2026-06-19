@@ -13,6 +13,8 @@
 
 <span id="manage-sender-phone-number"></span>
 
+<a id="manage-sender-numbers"></a>
+
 ## 발신 번호 관리
 
 SMS, LMS, MMS 메시지를 발송하려면 발신 번호를 등록해야 합니다. 전기통신사업법 관련 고시에 따라 발신 번호 등록 시 명의자 인증이 필요합니다. 명의자 인증 시 회원 및 발신 번호 유형에 따라 인증 방법과 필요한 서류가 결정됩니다.
@@ -357,6 +359,8 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 * 수정하거나 삭제할 그룹태그의 체크박스를 선택하고 **그룹태그 수정** 또는 **그룹태그 삭제**를 클릭합니다.
 
 <span id="brandmessage-customer-sending-application"></span>
+
+<a id="apply-to-use-customer-targeted-sending"></a>
 
 ### 고객 대상 발송 사용 신청
 
