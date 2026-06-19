@@ -13,6 +13,8 @@ Register and manage sender information for each message channel. To send message
 
 <span id="manage-sender-phone-number"></span>
 
+<a id="manage-sender-numbers"></a>
+
 ## Manage Sender Numbers
 
 To send SMS, LMS, or MMS messages, you must register a sender number. In accordance with the notice related to the Telecommunications Business Act, identity verification of the account holder is required when registering a sender number. The verification method and required documents are determined by the member type and sender number type.
@@ -358,7 +360,7 @@ Group tags can only be used for brand messages. AlimTalk is not applicable.
 
 <span id="delete-sender-profile"></span>
 
-<a id="delete-a-sender-profile"></a>
+<a id="apply-to-use-customer-targeted-sending"></a>
 
 ### Apply to Use Customer-Targeted Sending
 
