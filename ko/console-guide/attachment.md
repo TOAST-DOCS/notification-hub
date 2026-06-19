@@ -13,6 +13,8 @@
 
 <span id="attachment-management"></span>
 
+<a id="attachment-management"></a>
+
 ## 첨부 파일 관리
 
 메시지 발송 시 첨부할 파일을 사전에 등록하여 관리할 수 있습니다.
