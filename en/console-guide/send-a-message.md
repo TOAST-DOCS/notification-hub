@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=49c2107da561 -->
+<!-- pre-align:aligned sig=d62059bc06da -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -16,6 +16,8 @@ The sender information for the message channel must be registered before sending
 
 
 <span id="send-flow-message"></span>
+
+<a id="send-flow-messages"></a>
 
 ## Send Flow Messages
 
@@ -190,8 +192,59 @@ Concatenated Message feature is provided or limited depending on the number of b
 
 #### AlimTalk
 
-* Select the outgoing profile and the template registered in the outgoing profile.
-* AlimTalk is only available for sending templates, so you do not need to enter the contents.
+* Select a sender profile and a template registered in the sender profile.
+* AlimTalk only supports template sending, so no message content input is required.
+* You must also select a sender profile when sending a common AlimTalk template. Because a common AlimTalk template is not tied to a specific sender profile, it is sent using the selected sender profile.
+
+<a id="brand-message"></a>
+
+#### Brand Message
+
+Brand Message supports sending advertising messages only.
+
+1. Select a sender profile.
+2. Select whether to use a template.
+    * If you use a template, select a template registered in the sender profile.
+    * If you do not use a template, select a message type and enter the content.
+3. Select whether to send a push notification.
+    * If you select **Disable** for push notifications, message push notifications are not sent.
+4. If you do not use a template, select a message type.
+    * **Text**: 1,300 characters of text, including spaces both for Korean and English + up to 5 link buttons (vertically arranged)
+    * **Image**: 1,300 characters of text, including spaces both for Korean and English + 1 image + up to 5 link buttons (vertically arranged)
+    * **Wide Image**: 76 characters of text, including spaces both for Korean and English + 1 image + up to 2 link buttons
+    * **Wide Item List**: 3 to 4 list items (image + item) per 1 title + up to 2 link buttons (horizontally aligned). The first item title can be up to 25 characters, and the 2nd through 4th item titles can be up to 30 characters.
+    * **Carousel Feed**: Up to 6 items consisting of a title of up to 20 characters + text of up to 180 characters + image + 2 link buttons (horizontally aligned)
+    * **Premium Video**: A video uploaded to KakaoTV + header text of up to 20 characters + text of up to 76 characters + 1 link button
+    * **Commerce**: A type that highlights product price and discount information. Title text of up to 20 characters + additional information text of up to 34 characters + up to 2 link buttons (horizontally aligned)
+    * **Carousel Commerce**: A type that organizes product information in catalog form. Up to 6 items consisting of a title of up to 30 characters + additional information text of up to 34 characters + up to 2 link buttons (horizontally aligned). All images must have the same aspect ratio.
+5. If there is an image, select an image. To attach an image, you must register the image first.
+6. You can insert buttons.
+7. Select the recipient type.
+    * **Send to Customers**: Sends to users who have consented to receive marketing messages from advertisers (marketing consent). An 080 opt-out number must be registered.
+    * **Send to Friends**: Sends to all KakaoTalk channel friends.
+8. If sending to customers, select the targeting type.
+    * **M**: Sends advertising messages to all users who have consented to receive marketing messages.
+    * **N**: Sends advertising messages to users who have consented to receive marketing messages, excluding channel friends.
+    * **O**: Sends advertising messages to channel friends among users who have consented to receive marketing messages.
+9. If sending to customers, configure the 080 opt-out number.
+    * You can use the 080 opt-out number configured in the sender profile or enter one manually.
+10. Select whether to configure a fallback message.
+    * If Brand Message delivery fails, you can send a text message as a fallback.
+11. Add recipients.
+12. Choose **Send** to send the message.
+
+##### Brand Message Button Types
+
+| Button Type | Description |
+| --- | --- |
+| Web Link | Opens a mobile or PC web page. |
+| App Link | Launches an app using a custom scheme. Configure Android and iOS schemes separately. |
+| Bot Keyword | The button name is delivered to the agent. |
+| Message Delivery | The button name and message body are delivered to the agent. |
+| Switch to Consultation Talk | Connects to Consultation Talk. |
+| Switch to Bot | A chatbot is invoked. |
+| Business Form | The configured business form is invoked. |
+| Add Channel | Adds the sending channel. Only available in the last button position. |
 
 <a id="email"></a>
 

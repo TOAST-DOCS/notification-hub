@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=49c2107da561 -->
+<!-- pre-align:aligned sig=d62059bc06da -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -16,6 +16,8 @@
 
 
 <span id="send-flow-message"></span>
+
+<a id="send-flow-messages"></a>
 
 ## 플로우 메시지 발송
 
@@ -197,6 +199,8 @@
 * 발신 프로필과 발신 프로필에 등록된 템플릿을 선택합니다.
 * 알림톡은 템플릿 발송만 가능해 내용 입력이 필요 없습니다.
 * 공용 알림톡 템플릿도 발송 시 발신 프로필을 선택해야 합니다. 공용 알림톡 템플릿은 특정 발신 프로필에 귀속되지 않으므로, 선택한 발신 프로필로 발송됩니다.
+
+<a id="brand-message"></a>
 
 #### 브랜드 메시지
 
