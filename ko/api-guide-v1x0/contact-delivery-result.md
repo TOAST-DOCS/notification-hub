@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=5e0edaf20f7a -->
+<!-- pre-align:aligned sig=8c77b572b6aa -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -15,6 +15,8 @@
 
 
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
+
+<a id="retrieve-a-list-of-received-results-by-contacts"></a>
 
 ## 연락처별 수신 결과 목록 조회
 
