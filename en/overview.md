@@ -13,6 +13,8 @@ It is a cloud-based integrated messaging platform that sends and manages push, e
 
 ![Overall structure](../img/overview_800.png)
 
+<a id="key-features"></a>
+
 ## Key Features
 
 <!-- TODO: translate body -->
