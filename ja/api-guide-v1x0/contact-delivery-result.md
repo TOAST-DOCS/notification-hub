@@ -11,6 +11,8 @@
 
 <span id="read-contact-delivery-results"></span>
 
+<a id="retrieve-a-list-of-received-results-by-contacts"></a>
+
 ## 連絡先別受信結果リスト照会
 
 送信リクエストされたメッセージの送信と受信結果を受信者の連絡先単位で照会します。
