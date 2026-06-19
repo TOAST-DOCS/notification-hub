@@ -10,6 +10,8 @@
 **Notification > Notification Hub > Statistics**
 
 
+<a id="statistics"></a>
+
 ## Statistics
 
 You can collect various events that occur in Notification Hub and query them with statistical data.
