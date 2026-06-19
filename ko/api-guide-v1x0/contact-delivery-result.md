@@ -16,6 +16,8 @@
 
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
 
+<a id="retrieve-a-list-of-received-results-by-contacts"></a>
+
 ## 연락처별 수신 결과 목록 조회
 
 발송 요청된 메시지의 발송과 수신 결과를 수신자의 연락처 단위로 조회합니다.
