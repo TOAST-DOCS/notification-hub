@@ -3030,7 +3030,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 | flow | Object | X |  |
 | flow.steps | Array | O |  |
-| flow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| flow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
 | flow.steps[].sender | Object | X | 送信者情報です。送信者情報はメッセージチャンネルによって異なる構成になる場合があります。<br> |
 | flow.steps[].content | Object | X | メッセージ内容です。メッセージ内容はメッセージチャンネルによって異なる構成になる場合があります。<br> |
 | flow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージチャンネルによって異なる構成になる場合があります。<br> |
@@ -3261,7 +3261,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージテンプレートパラメーターより優先されます。<br><br> |
 | instantFlow | Object | O |  |
 | instantFlow.steps | Array | O |  |
-| instantFlow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| instantFlow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
 | instantFlow.steps[].sender | Object | X | 発信者情報です。発信者情報はメッセージチャンネルによって異なる構成になる場合があります。<br> |
 | instantFlow.steps[].content | Object | X | メッセージ内容です。メッセージ内容はメッセージチャンネルによって異なる構成になる場合があります。<br> |
 | instantFlow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージチャンネルによって異なる構成になる場合があります。<br> |

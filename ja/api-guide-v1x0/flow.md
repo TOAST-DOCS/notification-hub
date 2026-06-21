@@ -69,7 +69,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | フローの説明です。最大200文字まで入力できます。 |
 | messagePurpose | String | O | 送信内容のタイプ<br>デフォルト値：NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 | steps | Array | O | フローの段階です。 |
-| steps[].messageChannel | String | X | メッセージのチャンネルです。<br>[SMS、RCS、ALIMTALK、EMAIL、PUSH] |
+| steps[].messageChannel | String | X | メッセージのチャンネルです。<br>[SMS、RCS、ALIMTALK、BRANDMESSAGE、EMAIL、PUSH] |
 | steps[].templateId | String | X | テンプレートのIDです。 |
 | steps[].nextSteps | Array | X | 次の段階です。 |
 
@@ -312,12 +312,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | flows[].messagePurpose | String | O | 送信内容のタイプ<br>デフォルト値：NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 | flows[].description | String | X | フローの説明です。 |
 | flows[].steps | Array | O | フローの段階です。 |
-| flows[].steps[].messageChannel | String | O | メッセージのチャンネルです。<br>[ALIMTALK、EMAIL、PUSH、RCS、SMS] |
+| flows[].steps[].messageChannel | String | O | メッセージのチャンネルです。<br>[ALIMTALK、BRANDMESSAGE、EMAIL、PUSH、RCS、SMS] |
 | flows[].steps[].template | Object | O |  |
 | flows[].steps[].template.templateId | String | O | テンプレートのIDです。 |
 | flows[].steps[].template.templateName | String | X | テンプレート名です。 |
 | flows[].steps[].nextSteps | Array | X | 次の段階です。 |
-| flows[].messageChannels | Array | O | フローの段階で使用されたメッセージのチャンネルです。<br>[ALIMTALK、EMAIL、PUSH、RCS、SMS] |
+| flows[].messageChannels | Array | O | フローの段階で使用されたメッセージのチャンネルです。<br>[ALIMTALK、BRANDMESSAGE、EMAIL、PUSH、RCS、SMS] |
 | flows[].createdDateTime | String | O | フローの作成時間です。 |
 | flows[].updatedDateTime | String | O | フローの変更時間です。 |
 | totalCount | Integer | O | フローの総数です。 |
@@ -452,12 +452,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.messagePurpose | String | O | 送信内容のタイプ<br>デフォルト値：NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 | flow.description | String | X | フローの説明です。 |
 | flow.steps | Array | O | フローの段階です。 |
-| flow.steps[].messageChannel | String | O | メッセージのチャンネルです。<br>[ALIMTALK、EMAIL、PUSH、RCS、SMS] |
+| flow.steps[].messageChannel | String | O | メッセージのチャンネルです。<br>[ALIMTALK、BRANDMESSAGE、EMAIL、PUSH、RCS、SMS] |
 | flow.steps[].template | Object | O |  |
 | flow.steps[].template.templateId | String | O | テンプレートのIDです。 |
 | flow.steps[].template.templateName | String | X | テンプレート名です。 |
 | flow.steps[].nextSteps | Array | X | 次の段階です。 |
-| flow.messageChannels | Array | O | フローの段階で使用されたメッセージのチャンネルです。<br>[ALIMTALK、EMAIL、PUSH、RCS、SMS] |
+| flow.messageChannels | Array | O | フローの段階で使用されたメッセージのチャンネルです。<br>[ALIMTALK、BRANDMESSAGE、EMAIL、PUSH、RCS、SMS] |
 | flow.createdDateTime | String | O | フローの作成時間です。 |
 | flow.updatedDateTime | String | O | フローの変更時間です。 |
 
@@ -542,7 +542,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | フローの説明です。最大200文字まで入力できます。 |
 | messagePurpose | String | O | 送信内容のタイプ<br>デフォルト値：NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 | steps | Array | O | フローの段階です。 |
-| steps[].messageChannel | String | X | メッセージのチャンネルです。<br>[SMS、RCS、ALIMTALK、EMAIL、PUSH] |
+| steps[].messageChannel | String | X | メッセージのチャンネルです。<br>[SMS、RCS、ALIMTALK、BRANDMESSAGE、EMAIL、PUSH] |
 | steps[].templateId | String | X | テンプレートのIDです。 |
 | steps[].nextSteps | Array | X | 次の段階です。 |
 
