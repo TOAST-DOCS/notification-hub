@@ -3037,7 +3037,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | id | String | X | ID generated when a bulk recipient list or file upload is successful |
 | flow | Object | X |  |
 | flow.steps | Array | O |  |
-| flow.steps[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), EMAIL(Email), RCS(RCS), PUSH(Push)] |
+| flow.steps[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | flow.steps[].sender | Object | X | Sender information. Sender information may vary depending on the message channel.<br> |
 | flow.steps[].content | Object | X | Message content. Message content may vary depending on the message channel.<br> |
 | flow.steps[].options | Object | X | Delivery options. Delivery options may vary depending on the message channel.<br> |
@@ -3270,7 +3270,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | recipients[].templateParameters | Object | X | Template parameters. Consists of key (placeholder) and value pairs.<br><br>In group sending, you cannot specify template parameters per recipient.<br><br>Template parameters set for a recipient take precedence over message template parameters.<br><br> |
 | instantFlow | Object | O |  |
 | instantFlow.steps | Array | O |  |
-| instantFlow.steps[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), EMAIL(Email), RCS(RCS), PUSH(Push)] |
+| instantFlow.steps[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | instantFlow.steps[].sender | Object | X | Sender information. Sender information may vary depending on the message channel.<br> |
 | instantFlow.steps[].content | Object | X | Message content. Message content may vary depending on the message channel.<br> |
 | instantFlow.steps[].options | Object | X | Send options. Send options may vary depending on the message channel.<br> |

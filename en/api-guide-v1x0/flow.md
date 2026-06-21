@@ -69,7 +69,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | Flow description. Up to 200 characters can be entered. |
 | messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | steps | Array | O | Flow steps. |
-| steps[].messageChannel | String | X | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| steps[].messageChannel | String | X | Message channel.<br>[SMS, RCS, ALIMTALK, BRANDMESSAGE, EMAIL, PUSH] |
 | steps[].templateId | String | X | Template ID. |
 | steps[].nextSteps | Array | X | Next steps. |
 
@@ -312,12 +312,12 @@ This API does not require a request body.
 | flows[].messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | flows[].description | String | X | Flow description. |
 | flows[].steps | Array | O | Flow steps. |
-| flows[].steps[].messageChannel | String | O | Message channel.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flows[].steps[].messageChannel | String | O | Message channel.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flows[].steps[].template | Object | O |  |
 | flows[].steps[].template.templateId | String | O | Template ID. |
 | flows[].steps[].template.templateName | String | X | Template name. |
 | flows[].steps[].nextSteps | Array | X | Next steps. |
-| flows[].messageChannels | Array | O | Message channels used in the flow steps.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flows[].messageChannels | Array | O | Message channels used in the flow steps.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flows[].createdDateTime | String | O | Flow creation time. |
 | flows[].updatedDateTime | String | O | Flow modification time. |
 | totalCount | Integer | O | Total number of flows. |
@@ -452,12 +452,12 @@ This API does not require a request body.
 | flow.messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | flow.description | String | X | Flow description. |
 | flow.steps | Array | O | Flow steps. |
-| flow.steps[].messageChannel | String | O | Message channel.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flow.steps[].messageChannel | String | O | Message channel.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flow.steps[].template | Object | O |  |
 | flow.steps[].template.templateId | String | O | Template ID. |
 | flow.steps[].template.templateName | String | X | Template name. |
 | flow.steps[].nextSteps | Array | X | Next steps. |
-| flow.messageChannels | Array | O | Message channels used in the flow steps.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flow.messageChannels | Array | O | Message channels used in the flow steps.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flow.createdDateTime | String | O | Flow creation time. |
 | flow.updatedDateTime | String | O | Flow modification time. |
 
@@ -542,7 +542,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | Flow description. Up to 200 characters can be entered. |
 | messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | steps | Array | O | Flow steps. |
-| steps[].messageChannel | String | X | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| steps[].messageChannel | String | X | Message channel.<br>[SMS, RCS, ALIMTALK, BRANDMESSAGE, EMAIL, PUSH] |
 | steps[].templateId | String | X | Template ID. |
 | steps[].nextSteps | Array | X | Next steps. |
 
