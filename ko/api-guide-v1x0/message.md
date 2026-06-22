@@ -239,7 +239,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 브랜드 메시지는 카카오톡 친구톡 업그레이드 상품으로, 기존 친구톡보다 더 다양한 메시지 유형을 지원합니다.
 - TEXT: 텍스트형
 - IMAGE: 이미지형
-- WIDE_IMAGE: 와이드 이미지형
+- WIDE: 와이드 이미지형
 - WIDE_ITEM_LIST: 와이드 아이템리스트형
 - CAROUSEL_FEED: 캐러셀 피드형
 - CAROUSEL_COMMERCE: 캐러셀 커머스형
@@ -461,7 +461,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크. 선택 |
 | content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
 | content.carousel | Object | X |  |
-| content.carousel.head | Object | X |  |
+| content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, image 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
 | content.carousel.head.header | String | O | 인트로 헤더. head 사용 시 필수(최대 20자) |
 | content.carousel.head.content | String | O | 인트로 내용. head 사용 시 필수(최대 50자) |
 | content.carousel.head.image | Object | O |  |
@@ -2180,10 +2180,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
 | recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터. 메시지 레벨의 이미지 파라미터를 오버라이딩합니다. |
-| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
-| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL. attachmentId와 택1 |
-| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
+| recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터. 템플릿에 포함된 이미지를 수신자별로 치환합니다. 배열의 순서가 템플릿 내 이미지 위치와 매핑됩니다(첫 번째 요소가 템플릿의 첫 번째 이미지를 치환). 단건 수신자(recipients) 발송에서만 사용 가능하며, 대량 발송(id 사용) 시에는 수신자별 이미지 치환을 지원하지 않습니다. |
+| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1. 이미지 업로드 API로 등록한 첨부 파일 아이디 사용 |
+| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL. attachmentId와 택1. 카카오 CDN에 등록된 이미지만 허용. 이미지 업로드 API로 등록 후 발급된 URL 사용 |
+| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용. attachmentId/imageUrl 없이 imageLink만 단독 입력 시 템플릿 원본 이미지를 유지하면서 클릭 링크만 변경 |
 | recipients[].videoParameter | Object | X |  |
 | recipients[].videoParameter.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
 | recipients[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디. thumbnailUrl과 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능 |
