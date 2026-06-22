@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ec416b7f4d48 -->
+<!-- pre-align:aligned sig=ba2299609acb -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -15,6 +15,8 @@
 
 
 <span id="statsV1x0001ReadStats"></span>
+
+<a id="section-1"></a>
 
 ## 통계 조회
 

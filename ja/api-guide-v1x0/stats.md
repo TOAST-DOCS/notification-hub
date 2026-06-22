@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ec416b7f4d48 -->
+<!-- pre-align:aligned sig=ba2299609acb -->
 
 <!-- 新しい書式のために追加されたstyleです。 -->
 <style>
@@ -15,6 +15,8 @@
 
 
 <span id="statsV1x0001ReadStats"></span>
+
+<a id="section-1"></a>
 
 ## 統計照会
 
