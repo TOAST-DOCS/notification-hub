@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=58fb1f94e4e2 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -10,6 +12,8 @@
 첨부 파일과 이미지 레이아웃을 관리합니다. 
 
 <span id="attachment-management"></span>
+
+<a id="attachment-management"></a>
 
 ## 첨부 파일 관리
 
@@ -25,6 +29,8 @@
 템플릿 등록 및 메시지 발송 시 업로드한 첨부 파일도 관리할 수 있습니다.
 
 
+<a id="attachment-specifications-by-message-channel"></a>
+
 ### 메시지 채널별 첨부 파일 명세
 
 | 메시지 채널 | 유형             | 파일 형식                                               | 파일 최대 크기 | 해상도                           | 비율                          |
@@ -33,7 +39,15 @@
 | RCS         | MMS              | .jpg, .jpeg, .png, .gif, .bmp                           | 1MB           |                                  |                               |
 | 알림톡      | 이미지           | .jpg, .png                                              | 500KB         | 가로 500px 이상                  | (2:1)                         |
 | 알림톡      | 아이템 리스트    | .jpg, .png                                              | 500KB         | 가로 108px 이상                  | (1:1)                         |
+| 브랜드 메시지 | 이미지(기본/와이드) | .jpg, .png                                           | 5MB           | 가로 500px 이상                  | (2:1) ~ (3:4)                 |
+| 브랜드 메시지 | 와이드 이미지     | .jpg, .png                                             | 5MB           | 가로 500px 이상                  | (2:1) ~ (1:1)                 |
+| 브랜드 메시지 | 와이드 아이템 리스트(첫 번째) | .jpg, .png                                  | 5MB           | 가로 500px 이상                  | (2:1)                         |
+| 브랜드 메시지 | 와이드 아이템 리스트(이외)   | .jpg, .png                                  | 5MB           | 가로 500px 이상                  | (1:1)                         |
+| 브랜드 메시지 | 캐러셀 피드       | .jpg, .png                                             | 5MB           | 가로 500px 이상                  | (2:1) ~ (3:4)                 |
+| 브랜드 메시지 | 캐러셀 커머스     | .jpg, .png                                             | 5MB           | 가로 500px 이상                  | (2:1) ~ (3:4)                 |
 | Email       | -                | .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr 제외한 모든 형식 | 30MB          |                                  |                               |
+
+<a id="image-layout-management"></a>
 
 ## 이미지 레이아웃 관리
 

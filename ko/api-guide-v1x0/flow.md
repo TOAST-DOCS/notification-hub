@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ad89bdba0f65 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -67,7 +69,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | 플로우 설명입니다. 최대 200자까지 입력 가능합니다. |
 | messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | steps | Array | O | 플로우 단계입니다. |
-| steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, BRANDMESSAGE, EMAIL, PUSH] |
 | steps[].templateId | String | X | 템플릿 아이디입니다. |
 | steps[].nextSteps | Array | X | 다음 단계입니다. |
 
@@ -102,7 +104,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | flowId | String | O | 플로우 아이디입니다. |
 
+<a id="flow-definition-examples"></a>
+
 ### 플로우 정의 예시
+<a id="flow-with-linear-order"></a>
+
 #### 선형적인 순서를 가진 플로우
 ```
 {
@@ -127,6 +133,8 @@ X-NHN-Authorization: Bearer {accessToken}
   ]
 }
 ```
+
+<a id="simultaneous-send-flow"></a>
 
 #### 동시 발송 플로우
 ```
@@ -199,6 +207,8 @@ curl -X POST "${endpoint}/flow/v1.0/flows" \
 </details>
 
 <span id="flowV1x0002ReadFlows"></span>
+
+<a id="list-flows"></a>
 
 ## 플로우 목록 조회
 
@@ -302,12 +312,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | flows[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | flows[].description | String | X | 플로우 설명입니다. |
 | flows[].steps | Array | O | 플로우 단계입니다. |
-| flows[].steps[].messageChannel | String | O | 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flows[].steps[].messageChannel | String | O | 메시지 채널입니다.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flows[].steps[].template | Object | O |  |
 | flows[].steps[].template.templateId | String | O | 템플릿 아이디입니다. |
 | flows[].steps[].template.templateName | String | X | 템플릿 이름입니다. |
 | flows[].steps[].nextSteps | Array | X | 다음 단계입니다. |
-| flows[].messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flows[].messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flows[].createdDateTime | String | O | 플로우 생성 시간입니다. |
 | flows[].updatedDateTime | String | O | 플로우 수정 시간입니다. |
 | totalCount | Integer | O | 플로우 전체 개수입니다. |
@@ -341,6 +351,8 @@ curl -X GET "${endpoint}/flow/v1.0/flows" \
 </details>
 
 <span id="flowV1x0003ReadFlow"></span>
+
+<a id="get-a-flow"></a>
 
 ## 플로우 조회
 
@@ -440,12 +452,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | flow.description | String | X | 플로우 설명입니다. |
 | flow.steps | Array | O | 플로우 단계입니다. |
-| flow.steps[].messageChannel | String | O | 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flow.steps[].messageChannel | String | O | 메시지 채널입니다.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flow.steps[].template | Object | O |  |
 | flow.steps[].template.templateId | String | O | 템플릿 아이디입니다. |
 | flow.steps[].template.templateName | String | X | 템플릿 이름입니다. |
 | flow.steps[].nextSteps | Array | X | 다음 단계입니다. |
-| flow.messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flow.messageChannels | Array | O | 플로우 단계에서 사용된 메시지 채널입니다.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flow.createdDateTime | String | O | 플로우 생성 시간입니다. |
 | flow.updatedDateTime | String | O | 플로우 수정 시간입니다. |
 
@@ -478,6 +490,8 @@ curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0004UpdateFlow"></span>
+
+<a id="update-a-flow"></a>
 
 ## 플로우 수정
 
@@ -528,7 +542,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | 플로우 설명입니다. 최대 200자까지 입력 가능합니다. |
 | messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | steps | Array | O | 플로우 단계입니다. |
-| steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| steps[].messageChannel | String | X | 메시지 채널입니다.<br>[SMS, RCS, ALIMTALK, BRANDMESSAGE, EMAIL, PUSH] |
 | steps[].templateId | String | X | 템플릿 아이디입니다. |
 | steps[].nextSteps | Array | X | 다음 단계입니다. |
 
@@ -608,6 +622,8 @@ curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0005DeleteFlow"></span>
+
+<a id="delete-a-flow"></a>
 
 ## 플로우 삭제
 
@@ -692,6 +708,8 @@ curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0006DeleteFlows"></span>
+
+<a id="delete-flows"></a>
 
 ## 플로우 삭제
 

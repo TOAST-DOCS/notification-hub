@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=f447ffcec440 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -21,11 +23,15 @@
 
 <span id="authentication-and-permissions"></span>
 
+<a id="authentication-and-authorization"></a>
+
 ## Authentication and Authorization
 
 Notification Hub uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key. For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](../../../../nhncloud/en/public-api/user-access-key-token).
 
 <span id="date-time-format"></span>
+
+<a id="date-and-time-formats"></a>
 
 ## Date and Time Formats
 
@@ -43,9 +49,13 @@ Notification Hub uses User Access Key tokens for authentication and authorizatio
 * The units of seconds and milliseconds are not used in the Notification Hub API and features.
 * In the API response, the date and time are represented in the format **YYYY-MM-DDThh:mm:ss.sss+09:000**.
 
+<a id="prefix-and-single-character-wildcard-search"></a>
+
 ## Prefix and Single-Character Wildcard Search
 
 List lookups support prefix and single character wildcard searches for non-personal information lookup criteria.
+
+<a id="prefix-search"></a>
 
 ### Prefix Search
 
@@ -56,6 +66,8 @@ List lookups support prefix and single character wildcard searches for non-perso
       GET /message/v1.0/templates?templateName=Advertising
       ``` 
     * Search results: Ad-1, Ad-2, Ad-3, etc.
+
+<a id="single-character-wildcard-search"></a>
 
 ### Single Character Wildcard Search
 * **A single-character wildcard search** searches for any character in a specific location.
@@ -68,9 +80,13 @@ List lookups support prefix and single character wildcard searches for non-perso
 
 <span id="response"></span>
 
+<a id="response-common-information"></a>
+
 ## Response Common Information
 
 <span id="succeed-response"></span>
+
+<a id="failure-response-body"></a>
 
 ### [Failure response body]
 
@@ -87,6 +103,8 @@ The HTTP status code for a successful response is **200 OK**.
 ```
 
 <span id="failed-response"></span>
+
+<a id="failure-response-body-2"></a>
 
 ### [Failure response body]
 
@@ -115,6 +133,8 @@ The HTTP status codes for the failure response are **4xx** and **5xx**.
 
 <span id="rate-limit"></span>
 
+<a id="request-number-limit"></a>
+
 ## Request Number Limit
 * Notification Hub limits the number of API requests to prevent certain clients from taking up excessive resources and to ensure the reliability of the service.
 * The number of API requests per second. It is limited to 300 Requests Per Second (RPS).
@@ -127,9 +147,13 @@ The HTTP status codes for the failure response are **4xx** and **5xx**.
 
 <span id="example-api-calls"></span>
 
+<a id="example-of-api-calls"></a>
+
 ## Example of API Calls
 
 The Notification Hub API User Guide provides examples of API calls with **IntelliJ HTTP** and **cURL**.
+
+<a id="intellij-http"></a>
 
 ### IntelliJ HTTP
 * IntelliJ HTTP is an HTTP client plugin for IntelliJ IDEA that can be run from JetBrains IDEs or from the command line.
@@ -156,6 +180,8 @@ The Notification Hub API User Guide provides examples of API calls with **Intell
    }
 }
 ```
+
+<a id="curl"></a>
 
 ### cURL
 

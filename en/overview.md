@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=90726d7d38f5 -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -11,34 +13,52 @@ It is a cloud-based integrated messaging platform that sends and manages push, e
 
 ![Overall structure](../img/overview_800.png)
 
-## Multichannel messaging
+<a id="key-features"></a>
 
-* Sends messages to 6 messaging channels: SMS, Alim Talk, RCS, Email, and Push.
-  * Uses a single API to integrate and manage multiple message channels for easy sending
+## Key Features
 
-## Address Book
+<!-- TODO: translate body -->
+
+<a id="multichannel-messaging"></a>
+
+### Multi-Channel Messaging
+
+* Sends messages to six messaging channels: SMS, Alim Talk, Brand Message, RCS, Email, and Push.
+    * Uses a single API to integrate and manage multiple message channels for easy sending.
+
+<a id="address-book"></a>
+
+### Address Book
 
 * Organizes your receivers' contacts (email, phone number, token).
   * Categorizes receivers by group
   * You can prevent unnecessary sending of messages by managing receiver's Unsubscription history.
 
-## Template
+<a id="template"></a>
+
+### Template
 
 * Adds and manages templates for all message channels.
   * With templates, you can reduce repetitive message creation and easily send out messages consistently.
 
-## Flow
+<a id="flow"></a>
+
+### Flow
 
 * Creates a flow with pre-defined templates
   * Sends messages simultaneously to maximum 6 channels with a flow, and automatically sends messages to the next channel in the preset send order when a message fails to be received due to device status.
   * Depending on how the message channel is prioritized, it can be used for a variety of purposes, such as increasing reception ratio or saving delivery costs.
 
-## Mass Delivery
+<a id="mass-delivery"></a>
+
+### Mass Delivery
 
 * Sends messages to multiple receivers at once.
   * Uploads a receiver file
   * Uploads an Excel file with a list of receivers for sending.
   * Distinguishes between valid and invalid receivers of an uploaded Excel file.
+
+<a id="guide-to-sharing-resource-and-feature-settings-between-notification-services"></a>
 
 ## Guide to sharing resource and feature settings between Notification Services
 
@@ -52,6 +72,8 @@ Existing NHN Cloud Notification users can easily switch to and use the Notificat
       * Identity verification
     *  Feature setting
       * Detailed settings (by message channel)
+
+<a id="delivery-volume-limit-guidance"></a>
 
 ## Delivery volume Limit Guidance
 
@@ -68,6 +90,8 @@ Existing NHN Cloud Notification users can easily switch to and use the Notificat
 * For resource provision policies, see **User Guide**>**NHN Cloud**>**Resource Provision Policy**.
   * [ Resource Provision Policy Shortcut ](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
 
+<a id="information-on-processing-of-personal-information"></a>
+
 ## Information on Processing of Personal Information
 
 In the process of using the Notification Hub service, customers can collect the user's personal information. Therefore, customers who use this service must inform users of legal notices and obtain consent in accordance with the Personal Information Protection Act.
@@ -75,6 +99,8 @@ In addition, this process may result in a consignment relationship between the c
 
 * Consignee: NHN Cloud Corp.
 * Contents of consignment work: Notification Hub service provision work
+
+<a id="terms-and-conditions"></a>
 
 ## Terms and Conditions
 

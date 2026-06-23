@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=8f15d4b28806 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -117,6 +119,8 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 
 <span id="attachmentV1x0002ReadAttachments"></span>
 
+<a id="retrieve-attachment-lists"></a>
+
 ## 첨부 파일 목록 조회
 
 첨부 파일의 목록을 반환합니다.
@@ -223,6 +227,8 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 
 <span id="attachmentV1x0003ReadAttachment"></span>
 
+<a id="view-attachment-details"></a>
+
 ## 첨부 파일 단건 조회
 
 첨부 파일 아이디로 첨부 파일을 조회합니다.
@@ -326,6 +332,8 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 
 <span id="attachmentV1x0004DoValidateAttachments"></span>
 
+<a id="validate-attachments-before-upload"></a>
+
 ## 업로드 전 첨부 파일 유효성 검사
 
 업로드 할 첨부 파일의 유효성을 검사합니다. 파일 유형, 파일 포맷, 파일 크기, 해상도, 가로 길이, 세로 길이를 통해 설정한 파일 유형의 유효성을 검사합니다. 첨부 파일 업로드 전 파일 유형에 대한 유효성을 검사할 수 있습니다.
@@ -427,6 +435,8 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 </details>
 
 <span id="attachmentV1x0005DoValidateAttachment"></span>
+
+<a id="validate-attachments-after-upload"></a>
 
 ## 업로드된 첨부 파일 유효성 검사
 
@@ -538,6 +548,8 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 
 <span id="attachmentV1x0006UpdateFileType"></span>
 
+<a id="update-uploaded-attachment-file-type"></a>
+
 ## 업로드된 첨부 파일의 파일 유형 수정
 
 업로드된 첨부 파일의 파일 유형을 수정합니다.
@@ -647,6 +659,8 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 </details>
 
 <span id="attachmentV1x0007ReadFileTypes"></span>
+
+<a id="list-attachment-file-types"></a>
 
 ## 첨부 파일 유형 목록 조회
 

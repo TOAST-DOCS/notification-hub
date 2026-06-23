@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ba2299609acb -->
+
 <!-- 新しい書式のために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -13,6 +15,8 @@
 
 
 <span id="statsV1x0001ReadStats"></span>
+
+<a id="section-1"></a>
 
 ## 統計照会
 

@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ad89bdba0f65 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -67,7 +69,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | Flow description. Up to 200 characters can be entered. |
 | messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | steps | Array | O | Flow steps. |
-| steps[].messageChannel | String | X | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| steps[].messageChannel | String | X | Message channel.<br>[SMS, RCS, ALIMTALK, BRANDMESSAGE, EMAIL, PUSH] |
 | steps[].templateId | String | X | Template ID. |
 | steps[].nextSteps | Array | X | Next steps. |
 
@@ -102,7 +104,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
 | flowId | String | O | Flow ID. |
 
+<a id="flow-definition-examples"></a>
+
 ### Flow definition examples
+<a id="flow-with-linear-order"></a>
+
 #### Flow with linear order
 ```
 {
@@ -127,6 +133,8 @@ X-NHN-Authorization: Bearer {accessToken}
   ]
 }
 ```
+
+<a id="simultaneous-send-flow"></a>
 
 #### Simultaneous send flow
 ```
@@ -199,6 +207,8 @@ curl -X POST "${endpoint}/flow/v1.0/flows" \
 </details>
 
 <span id="flowV1x0002ReadFlows"></span>
+
+<a id="list-flows"></a>
 
 ## List Flows
 
@@ -302,12 +312,12 @@ This API does not require a request body.
 | flows[].messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | flows[].description | String | X | Flow description. |
 | flows[].steps | Array | O | Flow steps. |
-| flows[].steps[].messageChannel | String | O | Message channel.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flows[].steps[].messageChannel | String | O | Message channel.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flows[].steps[].template | Object | O |  |
 | flows[].steps[].template.templateId | String | O | Template ID. |
 | flows[].steps[].template.templateName | String | X | Template name. |
 | flows[].steps[].nextSteps | Array | X | Next steps. |
-| flows[].messageChannels | Array | O | Message channels used in the flow steps.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flows[].messageChannels | Array | O | Message channels used in the flow steps.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flows[].createdDateTime | String | O | Flow creation time. |
 | flows[].updatedDateTime | String | O | Flow modification time. |
 | totalCount | Integer | O | Total number of flows. |
@@ -341,6 +351,8 @@ curl -X GET "${endpoint}/flow/v1.0/flows" \
 </details>
 
 <span id="flowV1x0003ReadFlow"></span>
+
+<a id="get-a-flow"></a>
 
 ## Get a Flow
 
@@ -440,12 +452,12 @@ This API does not require a request body.
 | flow.messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | flow.description | String | X | Flow description. |
 | flow.steps | Array | O | Flow steps. |
-| flow.steps[].messageChannel | String | O | Message channel.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flow.steps[].messageChannel | String | O | Message channel.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flow.steps[].template | Object | O |  |
 | flow.steps[].template.templateId | String | O | Template ID. |
 | flow.steps[].template.templateName | String | X | Template name. |
 | flow.steps[].nextSteps | Array | X | Next steps. |
-| flow.messageChannels | Array | O | Message channels used in the flow steps.<br>[ALIMTALK, EMAIL, PUSH, RCS, SMS] |
+| flow.messageChannels | Array | O | Message channels used in the flow steps.<br>[ALIMTALK, BRANDMESSAGE, EMAIL, PUSH, RCS, SMS] |
 | flow.createdDateTime | String | O | Flow creation time. |
 | flow.updatedDateTime | String | O | Flow modification time. |
 
@@ -478,6 +490,8 @@ curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0004UpdateFlow"></span>
+
+<a id="update-a-flow"></a>
 
 ## Update a Flow
 
@@ -528,7 +542,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | Flow description. Up to 200 characters can be entered. |
 | messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | steps | Array | O | Flow steps. |
-| steps[].messageChannel | String | X | Message channel.<br>[SMS, RCS, ALIMTALK, EMAIL, PUSH] |
+| steps[].messageChannel | String | X | Message channel.<br>[SMS, RCS, ALIMTALK, BRANDMESSAGE, EMAIL, PUSH] |
 | steps[].templateId | String | X | Template ID. |
 | steps[].nextSteps | Array | X | Next steps. |
 
@@ -608,6 +622,8 @@ curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0005DeleteFlow"></span>
+
+<a id="delete-a-flow"></a>
 
 ## Delete a Flow
 
@@ -692,6 +708,8 @@ curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0006DeleteFlows"></span>
+
+<a id="delete-flows"></a>
 
 ## Delete Flows
 

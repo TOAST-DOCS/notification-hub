@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ad89bdba0f65 -->
+
 <!-- 新しいフォーマットのために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -67,7 +69,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | フローの説明です。最大200文字まで入力できます。 |
 | messagePurpose | String | O | 送信内容のタイプ<br>デフォルト値：NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 | steps | Array | O | フローの段階です。 |
-| steps[].messageChannel | String | X | メッセージのチャンネルです。<br>[SMS、RCS、ALIMTALK、EMAIL、PUSH] |
+| steps[].messageChannel | String | X | メッセージのチャンネルです。<br>[SMS、RCS、ALIMTALK、BRANDMESSAGE、EMAIL、PUSH] |
 | steps[].templateId | String | X | テンプレートのIDです。 |
 | steps[].nextSteps | Array | X | 次の段階です。 |
 
@@ -102,7 +104,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
 | flowId | String | O | フローIDです。 |
 
+<a id="flow-definition-examples"></a>
+
 ### フロー定義の例
+<a id="flow-with-linear-order"></a>
+
 #### 線形的な順序を持つフロー
 ```
 {
@@ -127,6 +133,8 @@ X-NHN-Authorization: Bearer {accessToken}
   ]
 }
 ```
+
+<a id="simultaneous-send-flow"></a>
 
 #### 同時送信フロー
 ```
@@ -199,6 +207,8 @@ curl -X POST "${endpoint}/flow/v1.0/flows" \
 </details>
 
 <span id="flowV1x0002ReadFlows"></span>
+
+<a id="list-flows"></a>
 
 ## フロー一覧の照会
 
@@ -302,12 +312,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | flows[].messagePurpose | String | O | 送信内容のタイプ<br>デフォルト値：NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 | flows[].description | String | X | フローの説明です。 |
 | flows[].steps | Array | O | フローの段階です。 |
-| flows[].steps[].messageChannel | String | O | メッセージのチャンネルです。<br>[ALIMTALK、EMAIL、PUSH、RCS、SMS] |
+| flows[].steps[].messageChannel | String | O | メッセージのチャンネルです。<br>[ALIMTALK、BRANDMESSAGE、EMAIL、PUSH、RCS、SMS] |
 | flows[].steps[].template | Object | O |  |
 | flows[].steps[].template.templateId | String | O | テンプレートのIDです。 |
 | flows[].steps[].template.templateName | String | X | テンプレート名です。 |
 | flows[].steps[].nextSteps | Array | X | 次の段階です。 |
-| flows[].messageChannels | Array | O | フローの段階で使用されたメッセージのチャンネルです。<br>[ALIMTALK、EMAIL、PUSH、RCS、SMS] |
+| flows[].messageChannels | Array | O | フローの段階で使用されたメッセージのチャンネルです。<br>[ALIMTALK、BRANDMESSAGE、EMAIL、PUSH、RCS、SMS] |
 | flows[].createdDateTime | String | O | フローの作成時間です。 |
 | flows[].updatedDateTime | String | O | フローの変更時間です。 |
 | totalCount | Integer | O | フローの総数です。 |
@@ -341,6 +351,8 @@ curl -X GET "${endpoint}/flow/v1.0/flows" \
 </details>
 
 <span id="flowV1x0003ReadFlow"></span>
+
+<a id="get-a-flow"></a>
 
 ## フローの照会
 
@@ -440,12 +452,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.messagePurpose | String | O | 送信内容のタイプ<br>デフォルト値：NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 | flow.description | String | X | フローの説明です。 |
 | flow.steps | Array | O | フローの段階です。 |
-| flow.steps[].messageChannel | String | O | メッセージのチャンネルです。<br>[ALIMTALK、EMAIL、PUSH、RCS、SMS] |
+| flow.steps[].messageChannel | String | O | メッセージのチャンネルです。<br>[ALIMTALK、BRANDMESSAGE、EMAIL、PUSH、RCS、SMS] |
 | flow.steps[].template | Object | O |  |
 | flow.steps[].template.templateId | String | O | テンプレートのIDです。 |
 | flow.steps[].template.templateName | String | X | テンプレート名です。 |
 | flow.steps[].nextSteps | Array | X | 次の段階です。 |
-| flow.messageChannels | Array | O | フローの段階で使用されたメッセージのチャンネルです。<br>[ALIMTALK、EMAIL、PUSH、RCS、SMS] |
+| flow.messageChannels | Array | O | フローの段階で使用されたメッセージのチャンネルです。<br>[ALIMTALK、BRANDMESSAGE、EMAIL、PUSH、RCS、SMS] |
 | flow.createdDateTime | String | O | フローの作成時間です。 |
 | flow.updatedDateTime | String | O | フローの変更時間です。 |
 
@@ -478,6 +490,8 @@ curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0004UpdateFlow"></span>
+
+<a id="update-a-flow"></a>
 
 ## フローの変更
 
@@ -528,7 +542,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | description | String | X | フローの説明です。最大200文字まで入力できます。 |
 | messagePurpose | String | O | 送信内容のタイプ<br>デフォルト値：NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 | steps | Array | O | フローの段階です。 |
-| steps[].messageChannel | String | X | メッセージのチャンネルです。<br>[SMS、RCS、ALIMTALK、EMAIL、PUSH] |
+| steps[].messageChannel | String | X | メッセージのチャンネルです。<br>[SMS、RCS、ALIMTALK、BRANDMESSAGE、EMAIL、PUSH] |
 | steps[].templateId | String | X | テンプレートのIDです。 |
 | steps[].nextSteps | Array | X | 次の段階です。 |
 
@@ -608,6 +622,8 @@ curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0005DeleteFlow"></span>
+
+<a id="delete-a-flow"></a>
 
 ## フローの削除
 
@@ -692,6 +708,8 @@ curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}" \
 </details>
 
 <span id="flowV1x0006DeleteFlows"></span>
+
+<a id="delete-flows"></a>
 
 ## フローの削除
 

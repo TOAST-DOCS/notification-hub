@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ca5cda4b60fd -->
+
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
     display: inline !important;
@@ -18,9 +20,13 @@ The push services supported by Notification Hub are as follows.
 
 <span id="get-fcm-service-account-credential"></span>
 
+<a id="fcm-service-account-credential"></a>
+
 ### FCM Service Account Credential
 **Service Account Credential** is required to send push notification messages to Android devices.
 **Service Account** (Service Account) is a special type of account that is commonly used to communicate with Google Cloud for Application to Application (A2A).
+
+<a id="obtain-fcm-service-account-credential-json-file"></a>
 
 #### Obtain FCM Service Account Credential JSON file
 1. Access to [Google Firebase Console](https://console.firebase.google.com).
@@ -30,6 +36,8 @@ The push services supported by Notification Hub are as follows.
 5. Select **Service Account**.
 6. In the Firebase Admin SDK entry, click **Create a new private key** to download the new **Service Account Credential** JSON file.
 
+<a id="register-fcm-service-account-credential-json-file"></a>
+
 #### Register FCM Service Account Credential JSON file
 1. Click **Notification > Push > certificates** on the console.
 2. Open the downloaded JSON file and copy the content.
@@ -37,8 +45,12 @@ The push services supported by Notification Hub are as follows.
 
 <span id="get-apns-jwt"></span>
 
+<a id="obtain-apns-jwt-credentials"></a>
+
 ### Obtain APNS JWT credentials
 To send push notification messages to iOS devices, you need an encryption key and key ID (Key ID), Team ID (App ID Prefix), and Topic issued by the Apple Developer site.
+
+<a id="getting-an-apns-encryption-key"></a>
 
 #### Getting an APNS encryption key
 1. From **Apple Developer Console** go to **Certificates, IDs & Profiles**.
@@ -48,15 +60,21 @@ To send push notification messages to iOS devices, you need an encryption key an
 5. Select **Register** after checking the contents.
 6. Select **Download** to receive the encryption key file.
 
+<a id="obtain-key-id"></a>
+
 #### Obtain Key ID
 1. From **Apple Developer Console** go to **Certificates, IDs & Profiles**.
 2. Select the issued key.
 3. You can find it in **View Key Details** item.
 
+<a id="obtain-team-id"></a>
+
 #### Obtain team ID
 1. From **Apple Developer Console** go to **Certificates, IDs & Profiles**.
 2. Select **Identifiers**.
 3. You can find it in **Edit your App ID Configuration** section.
+
+<a id="topic"></a>
 
 #### Topic
 For authentication using JWT, Topic is required, and the topic is the Bundle ID of App.
@@ -67,9 +85,13 @@ For authentication using JWT, Topic is required, and the topic is the Bundle ID 
 
 <span id="get-adm-credential"></span>
 
+<a id="adm-credentials"></a>
+
 ### ADM credentials
 
 App's Client ID and Client Secret are required to send push notification messages to Kindle Fire app.
+
+<a id="register-adm-application-and-profile-clientid-obtain-client-secret"></a>
 
 #### Register ADM Application and Profile (ClientId, Obtain Client Secret)
 1. Access to [ADM Developer Console](https://developer.amazon.com/home.html).
@@ -77,6 +99,8 @@ App's Client ID and Client Secret are required to send push notification message
 3. Once the app is created, click **Device Messaging** on the middle tab and click **Create a New Security Profile**.
 4. After the profile is created, click **Security Profiles > View Security Profile** on the middle tab.
 5. You can check the Client ID and Client Secret values on **General** tab.
+
+<a id="register-adm-kindle-setting-information-acquire-api-key"></a>
 
 #### Register ADM Kindle setting information (acquire API key)
 1. Click **Security Profiles** tab, and then click **Android/KindleSetting** tab in the middle.

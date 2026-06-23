@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=8780bb7cdba0 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -236,6 +238,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-te
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost"></span>
 
+<a id="submit-an-alimtalk-template-inquiry-with-file-attachment"></a>
+
 ## 파일을 첨부해 카카오 알림톡 템플릿 문의하기
 
 카카오 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
@@ -318,6 +322,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 </details>
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></span>
+
+<a id="submit-an-alimtalk-template-inquiry"></a>
 
 ## 카카오 알림톡 템플릿 문의하기
 
@@ -412,6 +418,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 <span id="templateV1x0001CreateSmsTemplate"></span>
 
+<a id="register-sms-template"></a>
+
 ## SMS 템플릿 등록
 
 템플릿을 등록합니다.
@@ -450,7 +458,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -526,7 +534,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -552,7 +560,7 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -562,6 +570,8 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
 </details>
 
 <span id="templateV1x0002ReadSmsTemplateList"></span>
+
+<a id="list-sms-templates"></a>
 
 ## SMS 템플릿 리스트 조회
 
@@ -669,6 +679,8 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates" \
 
 <span id="templateV1x0003ReadSmsTemplate"></span>
 
+<a id="get-sms-template-details"></a>
+
 ## SMS 템플릿 상세 조회
 
 템플릿을 상세 조회합니다.
@@ -724,7 +736,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "content" : {
       "messageType" : "SMS",
       "title" : "명절 운영시간 공지",
-      "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
       "imageLayoutId" : "YaX2DA4Weab1"
     },
@@ -791,6 +803,8 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 
 <span id="templateV1x0004UpdateSmsTemplate"></span>
 
+<a id="update-sms-template"></a>
+
 ## SMS 템플릿 수정
 
 템플릿을 수정합니다.
@@ -829,7 +843,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -901,7 +915,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -926,7 +940,7 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ],
     "imageLayoutId" : "YaX2DA4Weab1"
   }
@@ -936,6 +950,8 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0005DeleteSmsTemplate"></span>
+
+<a id="delete-sms-template"></a>
 
 ## SMS 템플릿 삭제
 
@@ -1019,6 +1035,8 @@ curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0006CreateAlimtalkTemplate"></span>
+
+<a id="register-alimtalk-template"></a>
 
 ## 알림톡 템플릿 등록
 
@@ -1129,8 +1147,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templateLanguage | String | X | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
 | sender | Object | X |  |
-| sender.senderKey | String | X | 발신 프로필 발신키 |
-| sender.senderProfileType | String | X | 발신 프로필 타입<br>[GROUP, NORMAL] |
+| sender.senderKey | String | X | 발신프로필 발신키 |
+| sender.senderProfileType | String | X | 발신프로필 타입<br>[GROUP, NORMAL] |
 | content | Object | O |  |
 | content.templateMessageType | String | X | 템플릿 메시지 유형(BA: 기본형, EX: 부가 정보형, AD: 채널 추가형, MI: 복합형, default: BA) |
 | content.templateEmphasizeType | String | O | 템플릿 강조 표시 유형<br>[NONE(강조 없음), TEXT(텍스트 강조), IMAGE(이미지 강조), ITEM_LIST(아이템 리스트 강조)] |
@@ -1383,6 +1401,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
 
 <span id="templateV1x0007ReadAlimtalkTemplateList"></span>
 
+<a id="list-alimtalk-templates"></a>
+
 ## 알림톡 템플릿 리스트 조회
 
 템플릿 리스트를 조회합니다.
@@ -1491,6 +1511,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
 
 <span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
 
+<a id="list-templates-by-alimtalk-sender"></a>
+
 ## 알림톡 발신자와 관계된 템플릿 리스트 조회
 
 발신자와 관계된 템플릿 리스트를 조회합니다.(발신자 또는 발신자가 포함된 그룹의 템플릿)
@@ -1598,6 +1620,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates" 
 </details>
 
 <span id="templateV1x0009ReadAlimtalkTemplate"></span>
+
+<a id="get-alimtalk-template-details"></a>
 
 ## 알림톡 템플릿 상세 조회
 
@@ -1751,9 +1775,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.messagePurposes | Array | O |  |
 | template.templateLanguage | String | O | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
 | template.sender | Object | O |  |
-| template.sender.senderKey | String | O | 발신 프로필 발신키 |
+| template.sender.senderKey | String | O | 발신프로필 발신키 |
 | template.sender.senderProfileId | String | O | 카카오톡 채널명 |
-| template.sender.senderProfileType | String | O | 발신 프로필 타입<br>[GROUP, NORMAL] |
+| template.sender.senderProfileType | String | O | 발신프로필 타입<br>[GROUP, NORMAL] |
 | template.additionalProperty | Object | O |  |
 | template.additionalProperty.kakaoTemplateCode | String | O | 카카오 템플릿 코드 |
 | template.additionalProperty.templateCode | String | O | 템플릿 코드(영문, 숫자, -, _) |
@@ -1850,6 +1874,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0010UpdateAlimtalkTemplate"></span>
+
+<a id="update-alimtalk-template"></a>
 
 ## 알림톡 템플릿 수정
 
@@ -2186,6 +2212,8 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 
 <span id="templateV1x0011DeleteAlimtalkTemplate"></span>
 
+<a id="delete-alimtalk-template"></a>
+
 ## 알림톡 템플릿 삭제
 
 템플릿을 삭제합니다.
@@ -2268,6 +2296,8 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0012InquireAlimtalkTemplate"></span>
+
+<a id="submit-an-alimtalk-template-inquiry---deprecated"></a>
 
 ## 알림톡 템플릿 문의하기 - Deprecated
 
@@ -2355,6 +2385,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 <span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
 
+<a id="submit-an-alimtalk-template-inquiry-with-file-attachment---deprecated"></a>
+
 ## 알림톡 템플릿 문의하기(파일 첨부) - Deprecated
 
 !!! danger 더 이상 지원하지 않는 API입니다.
@@ -2431,6 +2463,8 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 <span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
 
+<a id="list-alimtalk-template-updates"></a>
+
 ## 알림톡 템플릿 수정 리스트 조회
 
 알림톡 템플릿 수정 리스트를 조회합니다.
@@ -2497,6 +2531,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 </details>
 
 <span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
+
+<a id="list-alimtalk-template-categories"></a>
 
 ## 알림톡 템플릿 카테고리 리스트 조회
 
@@ -2598,6 +2634,8 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories" \
 
 <span id="templateV1x0021CreateEmailTemplate"></span>
 
+<a id="register-email-template"></a>
+
 ## Email 템플릿 등록
 
 템플릿을 등록합니다.
@@ -2635,7 +2673,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -2707,7 +2745,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -2731,7 +2769,7 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -2740,6 +2778,8 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
 </details>
 
 <span id="templateV1x0022ReadEmailTemplate"></span>
+
+<a id="get-email-template-details"></a>
 
 ## Email 템플릿 상세 조회
 
@@ -2795,7 +2835,7 @@ X-NHN-Authorization: Bearer {accessToken}
     },
     "content" : {
       "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-      "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
       "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
     },
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -2858,6 +2898,8 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0022ReadEmailTemplateList"></span>
+
+<a id="list-email-templates"></a>
 
 ## Email 템플릿 리스트 조회
 
@@ -2965,6 +3007,8 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates" \
 
 <span id="templateV1x0023UpdateEmailTemplate"></span>
 
+<a id="update-email-template"></a>
+
 ## Email 템플릿 수정
 
 템플릿을 수정합니다.
@@ -3002,7 +3046,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -3070,7 +3114,7 @@ X-NHN-Authorization: Bearer {accessToken}
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }
@@ -3093,7 +3137,7 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
   },
   "content" : {
     "title" : "[NHN Cloud Email][##env##] 모니터링 알림",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다.",
     "attachmentIds" : [ "YaX2DA4Weab2", "YaX2DA4Weab1" ]
   }
 }'
@@ -3102,6 +3146,8 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0024DeleteEmailTemplate"></span>
+
+<a id="delete-email-template"></a>
 
 ## Email 템플릿 삭제
 
@@ -3186,6 +3232,8 @@ curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 
 <span id="templateV1x0025CreateRcsTemplate"></span>
 
+<a id="register-rcs-template"></a>
+
 ## RCS 템플릿 등록
 
 템플릿을 등록합니다.
@@ -3225,7 +3273,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3374,7 +3422,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3449,7 +3497,7 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -3507,6 +3555,8 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
 </details>
 
 <span id="templateV1x0026ReadRcsTemplateList"></span>
+
+<a id="list-rcs-templates"></a>
 
 ## RCS 템플릿 리스트 조회
 
@@ -3614,6 +3664,8 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates" \
 
 <span id="templateV1x0027ReadRcsTemplate"></span>
 
+<a id="get-rcs-template-details"></a>
+
 ## RCS 템플릿 상세 조회
 
 템플릿을 상세 조회합니다.
@@ -3670,7 +3722,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "content" : {
       "messageType" : "SMS",
       "title" : "명절 운영시간 공지",
-      "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+      "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
       "smsType" : "STANDALONE",
       "lmsType" : "HORIZONTAL",
       "mmsType" : "HORIZONTAL",
@@ -3818,6 +3870,8 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 
 <span id="templateV1x0028UpdateRcsTemplate"></span>
 
+<a id="update-rcs-template"></a>
+
 ## RCS 템플릿 수정
 
 템플릿을 수정합니다.
@@ -3857,7 +3911,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4002,7 +4056,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4076,7 +4130,7 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
   "content" : {
     "messageType" : "SMS",
     "title" : "명절 운영시간 공지",
-    "body" : "안녕하세요. 금일 고객님 상품 입고되었습니다. 방문해 주세요.",
+    "body" : "안녕하세요. 금일 고객님 상품 입고 되었습니다. 방문해주세요^^",
     "smsType" : "STANDALONE",
     "lmsType" : "HORIZONTAL",
     "mmsType" : "HORIZONTAL",
@@ -4134,6 +4188,8 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0029DeleteRcsTemplate"></span>
+
+<a id="delete-rcs-template"></a>
 
 ## RCS 템플릿 삭제
 
@@ -4218,6 +4274,8 @@ curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 
 <span id="templateV1x0030CreatePushTemplate"></span>
 
+<a id="register-push-template"></a>
+
 ## Push 템플릿 등록
 
 템플릿을 등록합니다.
@@ -4252,7 +4310,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4260,37 +4318,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4359,7 +4417,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4367,37 +4425,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4423,7 +4481,7 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4431,37 +4489,37 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4475,6 +4533,8 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
 </details>
 
 <span id="templateV1x0031ReadPushTemplateList"></span>
+
+<a id="list-push-templates"></a>
 
 ## Push 템플릿 리스트 조회
 
@@ -4582,6 +4642,8 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates" \
 
 <span id="templateV1x0032ReadPushTemplate"></span>
 
+<a id="get-push-template-details"></a>
+
 ## Push 템플릿 상세 조회
 
 템플릿을 상세 조회합니다.
@@ -4633,7 +4695,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "templateLanguage" : "PLAIN_TEXT",
     "content" : {
       "unsubscribePhoneNumber" : "대표 번호",
-      "unsubscribeGuide" : "메뉴 > 설정",
+      "unsubscribeGuide" : "매뉴 > 설정",
       "title" : "제목",
       "body" : "내용",
       "richMessage" : {
@@ -4641,37 +4703,37 @@ X-NHN-Authorization: Bearer {accessToken}
           "name" : "버튼 이름",
           "submitName" : "전송 버튼 이름",
           "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-          "link" : "버튼을 눌렀을 때, 연결되는 링크",
-          "hint" : "버튼에 대한 힌트"
+          "link" : "버튼을 눌렀을때, 연결되는 링크",
+          "hint" : "버튼에대한 힌트"
         } ],
         "media" : {
           "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-          "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-          "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
           "extension" : "미디어 파일의 확장자, jpg, png",
           "expandable" : true
         },
         "androidMedia" : {
           "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-          "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-          "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
           "extension" : "미디어 파일의 확장자, jpg, png",
           "expandable" : true
         },
         "iosMedia" : {
           "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-          "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-          "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+          "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
           "extension" : "미디어 파일의 확장자, jpg, png",
           "expandable" : true
         },
         "largeIcon" : {
           "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-          "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+          "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
         },
         "group" : {
           "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-          "description" : "그룹에 대한 설명"
+          "description" : "그룹에대한 설명"
         }
       },
       "style" : {
@@ -4735,6 +4797,8 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 <span id="templateV1x0033UpdatePushTemplate"></span>
 
+<a id="update-push-template"></a>
+
 ## Push 템플릿 수정
 
 템플릿을 수정합니다.
@@ -4769,7 +4833,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4777,37 +4841,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4872,7 +4936,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4880,37 +4944,37 @@ X-NHN-Authorization: Bearer {accessToken}
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4935,7 +4999,7 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
   "templateLanguage" : "PLAIN_TEXT",
   "content" : {
     "unsubscribePhoneNumber" : "대표 번호",
-    "unsubscribeGuide" : "메뉴 > 설정",
+    "unsubscribeGuide" : "매뉴 > 설정",
     "title" : "제목",
     "body" : "내용",
     "richMessage" : {
@@ -4943,37 +5007,37 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
         "name" : "버튼 이름",
         "submitName" : "전송 버튼 이름",
         "buttonType" : "버튼 타입, REPLY, DEEP_LINK, OPEN_APP, OPEN_URL, DISMISS",
-        "link" : "버튼을 눌렀을 때, 연결되는 링크",
-        "hint" : "버튼에 대한 힌트"
+        "link" : "버튼을 눌렀을때, 연결되는 링크",
+        "hint" : "버튼에대한 힌트"
       } ],
       "media" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "androidMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "iosMedia" : {
         "sourceType" : "미디어의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE",
-        "mediaType" : "미디어의 타입, IMAGE, GIF, VIDEO, AUDIO. Android에서는 IMAGE만 지원",
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE",
+        "mediaType" : "미디어의 타입, IMAGE, GIF, VEDIO, AUDIO. Android에서는 IMAGE만 지원",
         "extension" : "미디어 파일의 확장자, jpg, png",
         "expandable" : true
       },
       "largeIcon" : {
         "sourceType" : "큰 아이콘의 위치, REMOTE, LOCAL",
-        "source" : "미디어가 위치한 곳의 주소, URL, LOCAL_RESOURCE"
+        "source" : "미디어의 위치한 곳의 주소, URL, LOCAL_RESOURCE"
       },
       "group" : {
         "key" : "그룹의 키, 여러 개의 메시지를 그룹 단위로 묶는 기능, Android에서만 지원",
-        "description" : "그룹에 대한 설명"
+        "description" : "그룹에대한 설명"
       }
     },
     "style" : {
@@ -4987,6 +5051,8 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0034DeletePushTemplate"></span>
+
+<a id="delete-push-template"></a>
 
 ## Push 템플릿 삭제
 
@@ -5069,7 +5135,893 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 </details>
 
+<span id="templateV1x0036CreateBrandmessageTemplate"></span>
+
+<a id="create-brand-message-template"></a>
+
+## 브랜드 메시지 템플릿 등록
+
+브랜드 메시지 템플릿을 등록합니다.
+
+브랜드 메시지는 다양한 메시지 유형을 지원합니다.
+- TEXT: 텍스트형
+- IMAGE: 이미지형
+- WIDE: 와이드 이미지형
+- WIDE_ITEM_LIST: 와이드 아이템리스트형
+- CAROUSEL_FEED: 캐러셀 피드형
+- CAROUSEL_COMMERCE: 캐러셀 커머스형
+- COMMERCE: 커머스형
+- PREMIUM_VIDEO: 프리미엄 비디오형
+
+**요청**
+
+```
+POST /template/v1.0/BRANDMESSAGE/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "브랜드 메시지 템플릿",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "AD",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "adult" : false,
+    "header" : "헤더",
+    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "additionalContent" : "가격 정보",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "인트로 헤더",
+        "content" : "인트로 내용",
+        "attachmentId" : "20230131070811m2fDe1rXx80",
+        "imageUrl" : "https://example.com/image.jpg",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "가격 정보",
+        "attachmentId" : "20230131070811m2fDe1rXx80",
+        "imageUrl" : "https://example.com/image.jpg",
+        "imageLink" : "https://www.example.com",
+        "commerce" : {
+          "title" : "상품 제목",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "type" : "WL",
+          "name" : "버튼명",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5000원 할인 쿠폰",
+          "description" : "첫 구매 고객 전용",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "아이템 제목",
+        "attachmentId" : "20230131070811m2fDe1rXx80",
+        "imageUrl" : "https://example.com/image.jpg",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "상품 제목",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "버튼명",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5000원 할인 쿠폰",
+      "description" : "첫 구매 고객 전용",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | O | 템플릿 이름(최대 200자) |
+| categoryId | String | X | 카테고리 아이디 |
+| messagePurpose | String | X | 발송 내용 유형<br>[AD(광고)] |
+| sender | Object | O |  |
+| sender.senderKey | String | O | 발신프로필 발신 키(40자). 그룹 발신 키는 사용 불가 |
+| sender.senderProfileType | String | O | 발신프로필 타입<br>[NORMAL(일반), GROUP(그룹)] |
+| content | Object | O |  |
+| content.chatBubbleType | String | X | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
+| content.header | String | X | 메시지 제목. WIDE_ITEM_LIST: 필수(최대 20자), PREMIUM_VIDEO: 선택(최대 20자). 그 외 타입: 사용 불가 |
+| content.content | String | X | 템플릿 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
+| content.additionalContent | String | X | 부가 콘텐츠. COMMERCE 타입에서만 사용(선택, 최대 34자). CAROUSEL_COMMERCE는 캐러셀 아이템 내 additionalContent 사용 |
+| content.image | Object | X |  |
+| content.image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1. IMAGE/WIDE: attachmentId 또는 imageUrl 중 하나 필수 |
+| content.image.imageUrl | String | X | 이미지 URL(최대 500자). attachmentId와 택1 |
+| content.image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https, 최대 500자). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
+| content.carousel | Object | X | 캐러셀 메시지 정보. CAROUSEL_FEED/CAROUSEL_COMMERCE 타입 필수 |
+| content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, 이미지(attachmentId 또는 imageUrl) 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
+| content.carousel.head.header | String | O | 인트로 헤더. head 사용 시 필수(최대 20자) |
+| content.carousel.head.content | String | O | 인트로 내용. head 사용 시 필수(최대 50자) |
+| content.carousel.head.attachmentId | String | X | 첨부 파일 아이디. head 사용 시 attachmentId와 imageUrl 중 택1 필수 |
+| content.carousel.head.imageUrl | String | X | 인트로 이미지 URL(최대 500자). head 사용 시 attachmentId와 imageUrl 중 택1 필수 |
+| content.carousel.head.linkMo | String | X | 인트로 클릭 시 이동할 모바일 웹 링크. 다른 링크(linkPc/schemeIos/schemeAndroid) 입력 시 필수 |
+| content.carousel.head.linkPc | String | X | 인트로 클릭 시 이동할 PC 웹 링크. 선택 |
+| content.carousel.head.schemeIos | String | X | 인트로 클릭 시 실행할 iOS 앱 링크. 선택 |
+| content.carousel.head.schemeAndroid | String | X | 인트로 클릭 시 실행할 안드로이드 앱 링크. 선택 |
+| content.carousel.list | Array | O | 캐러셀 아이템 목록. head 사용 시 1~5개, 미사용 시 2~6개 |
+| content.carousel.list[].header | String | X | 캐러셀 아이템 제목. CAROUSEL_FEED: 필수(최대 20자). CAROUSEL_COMMERCE: 사용 불가 |
+| content.carousel.list[].message | String | X | 캐러셀 아이템 메시지. CAROUSEL_FEED: 필수(최대 180자). CAROUSEL_COMMERCE: 사용 불가 |
+| content.carousel.list[].additionalContent | String | X | 부가 콘텐츠. CAROUSEL_COMMERCE: 선택(최대 34자). CAROUSEL_FEED: 사용 불가 |
+| content.carousel.list[].attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 필수 |
+| content.carousel.list[].imageUrl | String | X | 캐러셀 아이템 이미지 URL(최대 500자). attachmentId와 imageUrl 중 택1 필수 |
+| content.carousel.list[].imageLink | String | X | 캐러셀 이미지 클릭 시 이동할 URL(http/https, 최대 500자). 선택 |
+| content.carousel.list[].buttons | Array | O | 캐러셀 아이템 버튼. 최소 1개, 최대 2개 필수. AC 버튼은 마지막 위치 |
+| content.carousel.list[].buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
+| content.carousel.list[].buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
+| content.carousel.list[].buttons[].linkMo | String | X | 모바일 웹 링크(http/https, 최대 500자). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
+| content.carousel.list[].buttons[].linkPc | String | X | PC 웹 링크(http/https, 최대 500자). WL/AL 타입 선택 |
+| content.carousel.list[].buttons[].schemeIos | String | X | iOS 앱 링크(최대 500자). AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.carousel.list[].buttons[].schemeAndroid | String | X | 안드로이드 앱 링크(최대 500자). AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.carousel.list[].buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
+| content.carousel.list[].commerce | Object | X |  |
+| content.carousel.list[].commerce.title | String | O | 상품 제목(최대 30자). 필수 |
+| content.carousel.list[].commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
+| content.carousel.list[].commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
+| content.carousel.list[].commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
+| content.carousel.list[].commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
+| content.carousel.list[].coupon | Object | X |  |
+| content.carousel.list[].coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
+| content.carousel.list[].coupon.description | String | O | 쿠폰 상세 설명. 필수(최대 18자) |
+| content.carousel.list[].coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). 채널 쿠폰 URL이 아닌 경우 필수 |
+| content.carousel.list[].coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크(최대 500자). 선택 |
+| content.carousel.list[].coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크(최대 500자). 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
+| content.carousel.list[].coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
+| content.carousel.tail | Object | X | 캐러셀 더보기 버튼 링크 정보. 선택. 사용 시 linkMo 필수 |
+| content.carousel.tail.linkMo | String | O | 더보기 버튼 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). tail 사용 시 필수 |
+| content.carousel.tail.linkPc | String | X | 더보기 버튼 클릭 시 이동할 PC 웹 링크(최대 500자). 선택 |
+| content.carousel.tail.schemeIos | String | X | 더보기 버튼 클릭 시 실행할 iOS 앱 링크(최대 500자). 선택 |
+| content.carousel.tail.schemeAndroid | String | X | 더보기 버튼 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 선택 |
+| content.item | Object | X | 와이드 아이템리스트형(WIDE_ITEM_LIST) 아이템 정보. WIDE_ITEM_LIST 타입 필수 |
+| content.item.list | Array | O | 와이드 아이템 목록. 첫 번째가 메인(1개), 나머지가 서브(최대 4개) |
+| content.item.list[].title | String | X | 아이템 제목(줄바꿈 최대 1개). 첫 번째 아이템: 선택(최대 25자), 2~4번째 아이템: 필수(최대 30자) |
+| content.item.list[].attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 필수 |
+| content.item.list[].imageUrl | String | X | 아이템 이미지 URL(최대 500자). attachmentId와 imageUrl 중 택1 필수 |
+| content.item.list[].linkMo | String | O | 아이템 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). 필수 |
+| content.item.list[].linkPc | String | X | 아이템 클릭 시 이동할 PC 웹 링크(http/https, 최대 500자). 선택 |
+| content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크(최대 500자). 선택 |
+| content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 선택 |
+| content.video | Object | X |  |
+| content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작, 최대 500자). PREMIUM_VIDEO 타입 필수 |
+| content.video.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL(최대 500자). 선택. 미설정 시 카카오TV 기본 썸네일 사용 |
+| content.commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
+| content.commerce.title | String | O | 상품 제목(최대 30자). 필수 |
+| content.commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
+| content.commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
+| content.commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
+| content.commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
+| content.buttons | Array | X | 메시지 버튼 목록. TEXT/IMAGE: 최대 5개(쿠폰 적용 시 최대 4개), WIDE/WIDE_ITEM_LIST: 최대 2개, PREMIUM_VIDEO: 최대 1개, COMMERCE: 필수(최소 1개, 최대 2개). CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 buttons 사용 |
+| content.buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
+| content.buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
+| content.buttons[].linkMo | String | X | 모바일 웹 링크(http/https, 최대 500자). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
+| content.buttons[].linkPc | String | X | PC 웹 링크(http/https, 최대 500자). WL/AL 타입 선택 |
+| content.buttons[].schemeIos | String | X | iOS 앱 링크(최대 500자). AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.buttons[].schemeAndroid | String | X | 안드로이드 앱 링크(최대 500자). AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
+| content.coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
+| content.coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
+| content.coupon.description | String | O | 쿠폰 상세 설명. 필수(최대 18자) |
+| content.coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). 채널 쿠폰 URL이 아닌 경우 필수 |
+| content.coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크(최대 500자). 선택 |
+| content.coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크(최대 500자). 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
+| content.coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 브랜드 메시지 템플릿 등록
+
+POST {{endpoint}}/template/v1.0/BRANDMESSAGE/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "templateName" : "브랜드 메시지 템플릿",
+  "messagePurpose" : "AD",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "버튼명",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com"
+    } ]
+  }
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "templateName" : "브랜드 메시지 템플릿",
+  "messagePurpose" : "AD",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "버튼명",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com"
+    } ]
+  }
+}'
+```
+
+</details>
+
+<span id="templateV1x0037ReadBrandmessageTemplateList"></span>
+
+<a id="list-brand-message-templates"></a>
+
+## 브랜드 메시지 템플릿 리스트 조회
+
+브랜드 메시지 템플릿 리스트를 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/BRANDMESSAGE/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateName | Query | String | X | 템플릿 이름(LIKE 검색) |
+| senderKey | Query | String | X | 발신키 |
+| limit | Query | Number | X | limit 설정하지 않으면 default 20(최대 1000) |
+| offset | Query | Number | X | offset 설정하지 않으면 default 0 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "브랜드 메시지 템플릿",
+    "messageChannel" : "BRANDMESSAGE",
+    "messagePurpose" : "AD",
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "NORMAL"
+    },
+    "status" : "A",
+    "createdDateTime" : "2023-01-01T00:00:00.000+09:00",
+    "updatedDateTime" : "2023-01-01T00:00:00.000+09:00"
+  } ],
+  "totalCount" : 1
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templates | Array | O | 템플릿 리스트 |
+| templates[].templateId | String | O | 템플릿 아이디 |
+| templates[].templateName | String | O | 템플릿 이름 |
+| templates[].messageChannel | String | O | 메시지 채널 |
+| templates[].messagePurpose | String | X | 발송 내용 유형 |
+| templates[].sender | Object | O |  |
+| templates[].sender.senderKey | String | O | 발신프로필 발신 키 |
+| templates[].sender.senderProfileId | String | X | 카카오톡 채널명 |
+| templates[].sender.senderProfileType | String | O | 발신프로필 타입<br>[NORMAL(일반), GROUP(그룹)] |
+| templates[].status | String | O | 템플릿 상태. A: 등록(Active), S: 차단(Stopped) |
+| templates[].createdDateTime | String | O | 템플릿 생성 시각 |
+| templates[].updatedDateTime | String | O | 템플릿 수정 시각 |
+| totalCount | Integer | O | 총 개수 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 브랜드 메시지 템플릿 리스트 조회
+
+GET {{endpoint}}/template/v1.0/BRANDMESSAGE/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+
+<span id="templateV1x0038ReadBrandmessageTemplateDetail"></span>
+
+<a id="get-brand-message-template-details"></a>
+
+## 브랜드 메시지 템플릿 상세 조회
+
+브랜드 메시지 템플릿을 상세 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/BRANDMESSAGE/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateCode" : "TMPL_001",
+    "templateName" : "브랜드 메시지 템플릿",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "BRANDMESSAGE",
+    "messagePurpose" : "AD",
+    "messagePurposes" : [ "AD" ],
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "NORMAL"
+    },
+    "content" : {
+      "chatBubbleType" : "TEXT",
+      "adult" : false,
+      "header" : "헤더",
+      "content" : "#{이름}님의 주문이 완료되었습니다.",
+      "additionalContent" : "가격 정보",
+      "image" : {
+        "attachmentId" : "20230131070811m2fDe1rXx80",
+        "imageUrl" : "https://example.com/image.jpg",
+        "imageLink" : "https://www.example.com"
+      },
+      "carousel" : {
+        "head" : {
+          "header" : "인트로 헤더",
+          "content" : "인트로 내용",
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        },
+        "list" : [ {
+          "header" : "Carousel Header",
+          "message" : "Carousel Message",
+          "additionalContent" : "가격 정보",
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com",
+          "commerce" : {
+            "title" : "상품 제목",
+            "regularPrice" : 50000,
+            "discountPrice" : 45000,
+            "discountRate" : 10,
+            "discountFixed" : 5000
+          },
+          "buttons" : [ {
+            "type" : "WL",
+            "name" : "버튼명",
+            "linkMo" : "https://m.example.com",
+            "linkPc" : "https://www.example.com"
+          } ],
+          "coupon" : {
+            "title" : "5000원 할인 쿠폰",
+            "description" : "첫 구매 고객 전용",
+            "linkMo" : "https://m.example.com",
+            "linkPc" : "https://www.example.com"
+          }
+        } ],
+        "tail" : {
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com"
+        }
+      },
+      "item" : {
+        "list" : [ {
+          "title" : "아이템 제목",
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com"
+        } ]
+      },
+      "video" : {
+        "videoUrl" : "https://tv.kakao.com/v/123456789",
+        "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      },
+      "commerce" : {
+        "title" : "상품 제목",
+        "regularPrice" : 50000,
+        "discountPrice" : 45000,
+        "discountRate" : 10,
+        "discountFixed" : 5000
+      },
+      "buttons" : [ {
+        "type" : "WL",
+        "name" : "버튼명",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com"
+      } ],
+      "coupon" : {
+        "title" : "5000원 할인 쿠폰",
+        "description" : "첫 구매 고객 전용",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com"
+      }
+    },
+    "status" : "A",
+    "createdDateTime" : "2023-01-01T00:00:00.000+09:00",
+    "updatedDateTime" : "2023-01-01T00:00:00.000+09:00"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| template | Object | O |  |
+| template.templateId | String | O | 템플릿 아이디 |
+| template.templateCode | String | O | 카카오 템플릿 코드 |
+| template.templateName | String | O | 템플릿 이름 |
+| template.categoryId | String | X | 카테고리 아이디 |
+| template.messageChannel | String | O | 메시지 채널 |
+| template.messagePurpose | String | X | 발송 내용 유형 |
+| template.messagePurposes | Array | X | 발송 내용 유형 목록 |
+| template.sender | Object | O |  |
+| template.sender.senderKey | String | O | 발신프로필 발신 키 |
+| template.sender.senderProfileId | String | X | 카카오톡 채널명 |
+| template.sender.senderProfileType | String | O | 발신프로필 타입<br>[NORMAL(일반), GROUP(그룹)] |
+| template.content | Object | O | 템플릿 콘텐츠. 등록 요청의 content 필드와 동일한 구조 |
+| template.status | String | O | 템플릿 상태. A: 등록(Active), S: 차단(Stopped) |
+| template.createdDateTime | String | O | 템플릿 생성 시각 |
+| template.updatedDateTime | String | O | 템플릿 수정 시각 |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 브랜드 메시지 템플릿 상세 조회
+
+GET {{endpoint}}/template/v1.0/BRANDMESSAGE/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+
+<span id="templateV1x0039UpdateBrandmessageTemplate"></span>
+
+<a id="update-brand-message-template"></a>
+
+## 브랜드 메시지 템플릿 수정
+
+브랜드 메시지 템플릿을 수정합니다. 발신자(sender)는 수정할 수 없습니다.
+
+**요청**
+
+```
+PUT /template/v1.0/BRANDMESSAGE/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+
+```
+{
+  "templateName" : "브랜드 메시지 템플릿 수정",
+  "messagePurpose" : "AD",
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "버튼명",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com"
+    } ]
+  }
+}
+```
+
+<!--요청 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | 필수 | 설명 |
+| - | - | - | - |
+| templateName | String | O | 템플릿 이름(최대 200자) |
+| messagePurpose | String | X | 발송 내용 유형<br>[AD(광고)] |
+| content | Object | O | 템플릿 콘텐츠. 등록 요청의 content 필드와 동일한 구조 |
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 브랜드 메시지 템플릿 수정
+
+PUT {{endpoint}}/template/v1.0/BRANDMESSAGE/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "templateName" : "브랜드 메시지 템플릿 수정",
+  "messagePurpose" : "AD",
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "버튼명",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com"
+    } ]
+  }
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "templateName" : "브랜드 메시지 템플릿 수정",
+  "messagePurpose" : "AD",
+  "content" : {
+    "chatBubbleType" : "TEXT",
+    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "버튼명",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com"
+    } ]
+  }
+}'
+```
+
+</details>
+
+<span id="templateV1x0040DeleteBrandmessageTemplate"></span>
+
+<a id="delete-brand-message-template"></a>
+
+## 브랜드 메시지 템플릿 삭제
+
+브랜드 메시지 템플릿을 삭제합니다.
+
+**요청**
+
+```
+DELETE /template/v1.0/BRANDMESSAGE/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| templateId | Path | String | O | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 브랜드 메시지 템플릿 삭제
+
+DELETE {{endpoint}}/template/v1.0/BRANDMESSAGE/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+
 <span id="templateV1x0035ReadTemplateParameters"></span>
+
+<a id="retrieve-template-parameters"></a>
 
 ## 템플릿 파라미터 조회
 
@@ -5164,3 +6116,4 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}
 ```
 
 </details>
+
