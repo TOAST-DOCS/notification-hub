@@ -2170,36 +2170,36 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--요청 본문의 필드를 설명합니다.-->
 
-| 경로 | 타입 | 필수 | 설명 |
-| - | - | - | - |
-| sender | Object | X |  |
-| sender.senderKey | String | O | 발신 키(40자). 그룹 발신 키는 사용 불가 |
-| recipients | Array | X |  |
-| recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
-| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
-| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| 경로 | 타입 | 필수 | 설명                                                                                                                                                                            |
+| - | - | - |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sender | Object | X |                                                                                                                                                                               |
+| sender.senderKey | String | O | 발신 키(40자). 그룹 발신 키는 사용 불가                                                                                                                                                     |
+| recipients | Array | X |                                                                                                                                                                               |
+| recipients[].contacts | Array | O |                                                                                                                                                                               |
+| recipients[].contacts[].contactType | String | O | 연락처 타입<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP]                                       |
+| recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다.                                                                                                                            |
+| recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다                                                                                                                                                 |
+| recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br>                       |
 | recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터. 템플릿에 포함된 이미지를 수신자별로 치환합니다. 배열의 순서가 템플릿 내 이미지 위치와 매핑됩니다(첫 번째 요소가 템플릿의 첫 번째 이미지를 치환). 단건 수신자(recipients) 발송에서만 사용 가능하며, 대량 발송(id 사용) 시에는 수신자별 이미지 치환을 지원하지 않습니다. |
-| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1. 이미지 업로드 API로 등록한 첨부 파일 아이디 사용 |
-| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL. attachmentId와 택1. 카카오 CDN에 등록된 이미지만 허용. 이미지 업로드 API로 등록 후 발급된 URL 사용 |
-| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용. attachmentId/imageUrl 없이 imageLink만 단독 입력 시 템플릿 원본 이미지를 유지하면서 클릭 링크만 변경 |
-| recipients[].videoParameter | Object | X |  |
-| recipients[].videoParameter.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
-| recipients[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디. thumbnailUrl과 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능 |
-| recipients[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL. thumbnailAttachmentId와 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능. 미설정 시 카카오TV 기본 썸네일 사용 |
-| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
-| templateId | String | X | 템플릿 ID |
-| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| options | Object | X |  |
-| options.audienceType | String | X | 발송 대상 타입. CUSTOMER: 고객, FRIEND: 친구<br>[CUSTOMER, FRIEND] |
-| options.targeting | String | X | 메시지 대상 타입. M: 마케팅 수신 동의 유저, N: 친구가 아닌 마케팅 수신 동의 유저, O: 친구인 유저. M/N 사용 시 발신 프로필에 마케팅 수신 동의 활성화 및 080 수신거부 번호 필요<br>[M, N, O] |
-| options.pushAlarm | Boolean | X | 메시지 푸시 알람 발송 여부(default: true)<br>기본값: true |
-| options.unsubscribePhoneNumber | String | X | 080 무료수신거부 전화번호. targeting이 M/N인 경우 필요. 형식: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
-| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 9자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
-| statsKeyId | String | X | 통계 키 아이디 |
-| scheduledDateTime | String | X | 예약 발송 시간 |
-| confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1. 이미지 업로드 API로 등록한 첨부 파일 아이디 사용                                                                                                                        |
+| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL. attachmentId와 택1. 카카오 CDN에 등록된 이미지만 허용. 이미지 업로드 API로 등록 후 발급된 URL 사용                                                                                                 |
+| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용. attachmentId/imageUrl 없이 imageLink만 단독 입력 불가                                                                          |
+| recipients[].videoParameter | Object | X |                                                                                                                                                                               |
+| recipients[].videoParameter.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수                                                                                                                |
+| recipients[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디. thumbnailUrl과 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능                                                                                                           |
+| recipients[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL. thumbnailAttachmentId와 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능. 미설정 시 카카오TV 기본 썸네일 사용                                                                             |
+| id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디                                                                                                                                              |
+| templateId | String | X | 템플릿 ID                                                                                                                                                                        |
+| templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br>                       |
+| options | Object | X |                                                                                                                                                                               |
+| options.audienceType | String | X | 발송 대상 타입. CUSTOMER: 고객, FRIEND: 친구<br>[CUSTOMER, FRIEND]                                                                                                                      |
+| options.targeting | String | X | 메시지 대상 타입. M: 마케팅 수신 동의 유저, N: 친구가 아닌 마케팅 수신 동의 유저, O: 친구인 유저. M/N 사용 시 발신 프로필에 마케팅 수신 동의 활성화 및 080 수신거부 번호 필요<br>[M, N, O]                                                   |
+| options.pushAlarm | Boolean | X | 메시지 푸시 알람 발송 여부(default: true)<br>기본값: true                                                                                                                                   |
+| options.unsubscribePhoneNumber | String | X | 080 무료수신거부 전화번호. targeting이 M/N인 경우 필요. 형식: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. 생략 시 발신 프로필에 등록된 값이 자동 적용                                                   |
+| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 9자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용                                                                                    |
+| statsKeyId | String | X | 통계 키 아이디                                                                                                                                                                      |
+| scheduledDateTime | String | X | 예약 발송 시간                                                                                                                                                                      |
+| confirmBeforeSend | Boolean | X | 확인 후 발송 여부                                                                                                                                                                    |
 
 
 
