@@ -5185,7 +5185,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderProfileType" : "NORMAL"
   },
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "header" : "헤더",
     "content" : "#{이름}님의 주문이 완료되었습니다.",
@@ -5199,8 +5199,10 @@ X-NHN-Authorization: Bearer {accessToken}
       "head" : {
         "header" : "인트로 헤더",
         "content" : "인트로 내용",
-        "attachmentId" : "20230131070811m2fDe1rXx80",
-        "imageUrl" : "https://example.com/image.jpg",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
         "linkMo" : "https://m.example.com",
         "linkPc" : "https://www.example.com",
         "schemeIos" : "example://ios",
@@ -5210,9 +5212,11 @@ X-NHN-Authorization: Bearer {accessToken}
         "header" : "Carousel Header",
         "message" : "Carousel Message",
         "additionalContent" : "가격 정보",
-        "attachmentId" : "20230131070811m2fDe1rXx80",
-        "imageUrl" : "https://example.com/image.jpg",
-        "imageLink" : "https://www.example.com",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
         "commerce" : {
           "title" : "상품 제목",
           "regularPrice" : 50000,
@@ -5248,8 +5252,10 @@ X-NHN-Authorization: Bearer {accessToken}
     "item" : {
       "list" : [ {
         "title" : "아이템 제목",
-        "attachmentId" : "20230131070811m2fDe1rXx80",
-        "imageUrl" : "https://example.com/image.jpg",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
         "linkMo" : "https://m.example.com",
         "linkPc" : "https://www.example.com",
         "schemeIos" : "example://ios",
@@ -5299,7 +5305,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | sender.senderKey | String | O | 발신프로필 발신 키(40자). 그룹 발신 키는 사용 불가 |
 | sender.senderProfileType | String | O | 발신프로필 타입<br>[NORMAL(일반), GROUP(그룹)] |
 | content | Object | O |  |
-| content.chatBubbleType | String | X | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| content.messageType | String | X | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
 | content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
 | content.header | String | X | 메시지 제목. WIDE_ITEM_LIST: 필수(최대 20자), PREMIUM_VIDEO: 선택(최대 20자). 그 외 타입: 사용 불가 |
 | content.content | String | X | 템플릿 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
@@ -5309,11 +5315,12 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.image.imageUrl | String | X | 이미지 URL(최대 500자). attachmentId와 택1 |
 | content.image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https, 최대 500자). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
 | content.carousel | Object | X | 캐러셀 메시지 정보. CAROUSEL_FEED/CAROUSEL_COMMERCE 타입 필수 |
-| content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, 이미지(attachmentId 또는 imageUrl) 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
+| content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, 이미지(image.attachmentId 또는 image.imageUrl) 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
 | content.carousel.head.header | String | O | 인트로 헤더. head 사용 시 필수(최대 20자) |
 | content.carousel.head.content | String | O | 인트로 내용. head 사용 시 필수(최대 50자) |
-| content.carousel.head.attachmentId | String | X | 첨부 파일 아이디. head 사용 시 attachmentId와 imageUrl 중 택1 필수 |
-| content.carousel.head.imageUrl | String | X | 인트로 이미지 URL(최대 500자). head 사용 시 attachmentId와 imageUrl 중 택1 필수 |
+| content.carousel.head.image | Object | X | 인트로 이미지. head 사용 시 image.attachmentId와 image.imageUrl 중 택1 필수 |
+| content.carousel.head.image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
+| content.carousel.head.image.imageUrl | String | X | 인트로 이미지 URL(최대 500자). attachmentId와 택1 |
 | content.carousel.head.linkMo | String | X | 인트로 클릭 시 이동할 모바일 웹 링크. 다른 링크(linkPc/schemeIos/schemeAndroid) 입력 시 필수 |
 | content.carousel.head.linkPc | String | X | 인트로 클릭 시 이동할 PC 웹 링크. 선택 |
 | content.carousel.head.schemeIos | String | X | 인트로 클릭 시 실행할 iOS 앱 링크. 선택 |
@@ -5322,9 +5329,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.carousel.list[].header | String | X | 캐러셀 아이템 제목. CAROUSEL_FEED: 필수(최대 20자). CAROUSEL_COMMERCE: 사용 불가 |
 | content.carousel.list[].message | String | X | 캐러셀 아이템 메시지. CAROUSEL_FEED: 필수(최대 180자). CAROUSEL_COMMERCE: 사용 불가 |
 | content.carousel.list[].additionalContent | String | X | 부가 콘텐츠. CAROUSEL_COMMERCE: 선택(최대 34자). CAROUSEL_FEED: 사용 불가 |
-| content.carousel.list[].attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 필수 |
-| content.carousel.list[].imageUrl | String | X | 캐러셀 아이템 이미지 URL(최대 500자). attachmentId와 imageUrl 중 택1 필수 |
-| content.carousel.list[].imageLink | String | X | 캐러셀 이미지 클릭 시 이동할 URL(http/https, 최대 500자). 선택 |
+| content.carousel.list[].image | Object | X | 캐러셀 아이템 이미지. image.attachmentId와 image.imageUrl 중 택1 필수 |
+| content.carousel.list[].image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
+| content.carousel.list[].image.imageUrl | String | X | 캐러셀 아이템 이미지 URL(최대 500자). attachmentId와 택1 |
+| content.carousel.list[].image.imageLink | String | X | 캐러셀 이미지 클릭 시 이동할 URL(http/https, 최대 500자). 선택 |
 | content.carousel.list[].buttons | Array | O | 캐러셀 아이템 버튼. 최소 1개, 최대 2개 필수. AC 버튼은 마지막 위치 |
 | content.carousel.list[].buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
 | content.carousel.list[].buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
@@ -5352,10 +5360,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.carousel.tail.schemeIos | String | X | 더보기 버튼 클릭 시 실행할 iOS 앱 링크(최대 500자). 선택 |
 | content.carousel.tail.schemeAndroid | String | X | 더보기 버튼 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 선택 |
 | content.item | Object | X | 와이드 아이템리스트형(WIDE_ITEM_LIST) 아이템 정보. WIDE_ITEM_LIST 타입 필수 |
-| content.item.list | Array | O | 와이드 아이템 목록. 첫 번째가 메인(1개), 나머지가 서브(최대 4개) |
+| content.item.list | Array | O | 와이드 아이템 목록. 최소 3개, 최대 4개 |
 | content.item.list[].title | String | X | 아이템 제목(줄바꿈 최대 1개). 첫 번째 아이템: 선택(최대 25자), 2~4번째 아이템: 필수(최대 30자) |
-| content.item.list[].attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 필수 |
-| content.item.list[].imageUrl | String | X | 아이템 이미지 URL(최대 500자). attachmentId와 imageUrl 중 택1 필수 |
+| content.item.list[].image | Object | X | 아이템 이미지. image.attachmentId와 image.imageUrl 중 택1 필수 |
+| content.item.list[].image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
+| content.item.list[].image.imageUrl | String | X | 아이템 이미지 URL(최대 500자). attachmentId와 택1 |
 | content.item.list[].linkMo | String | O | 아이템 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). 필수 |
 | content.item.list[].linkPc | String | X | 아이템 클릭 시 이동할 PC 웹 링크(http/https, 최대 500자). 선택 |
 | content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크(최대 500자). 선택 |
@@ -5434,7 +5443,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "senderProfileType" : "NORMAL"
   },
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "content" : "#{이름}님의 주문이 완료되었습니다.",
     "buttons" : [ {
       "type" : "WL",
@@ -5462,7 +5471,7 @@ curl -X POST "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
     "senderProfileType" : "NORMAL"
   },
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "content" : "#{이름}님의 주문이 완료되었습니다.",
     "buttons" : [ {
       "type" : "WL",
@@ -5651,7 +5660,7 @@ X-NHN-Authorization: Bearer {accessToken}
       "senderProfileType" : "NORMAL"
     },
     "content" : {
-      "chatBubbleType" : "TEXT",
+      "messageType" : "TEXT",
       "adult" : false,
       "header" : "헤더",
       "content" : "#{이름}님의 주문이 완료되었습니다.",
@@ -5665,8 +5674,10 @@ X-NHN-Authorization: Bearer {accessToken}
         "head" : {
           "header" : "인트로 헤더",
           "content" : "인트로 내용",
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg",
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg"
+          },
           "linkMo" : "https://m.example.com",
           "linkPc" : "https://www.example.com",
           "schemeIos" : "example://ios",
@@ -5676,9 +5687,11 @@ X-NHN-Authorization: Bearer {accessToken}
           "header" : "Carousel Header",
           "message" : "Carousel Message",
           "additionalContent" : "가격 정보",
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg",
-          "imageLink" : "https://www.example.com",
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg",
+            "imageLink" : "https://www.example.com"
+          },
           "commerce" : {
             "title" : "상품 제목",
             "regularPrice" : 50000,
@@ -5707,8 +5720,10 @@ X-NHN-Authorization: Bearer {accessToken}
       "item" : {
         "list" : [ {
           "title" : "아이템 제목",
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg",
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg"
+          },
           "linkMo" : "https://m.example.com",
           "linkPc" : "https://www.example.com"
         } ]
@@ -5833,7 +5848,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateName" : "브랜드 메시지 템플릿 수정",
   "messagePurpose" : "AD",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "content" : "#{이름}님의 주문이 완료되었습니다.",
     "buttons" : [ {
       "type" : "WL",
@@ -5896,7 +5911,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "templateName" : "브랜드 메시지 템플릿 수정",
   "messagePurpose" : "AD",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "content" : "#{이름}님의 주문이 완료되었습니다.",
     "buttons" : [ {
       "type" : "WL",
@@ -5920,7 +5935,7 @@ curl -X PUT "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
   "templateName" : "브랜드 메시지 템플릿 수정",
   "messagePurpose" : "AD",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "content" : "#{이름}님의 주문이 완료되었습니다.",
     "buttons" : [ {
       "type" : "WL",
