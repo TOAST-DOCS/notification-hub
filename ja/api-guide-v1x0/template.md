@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=8780bb7cdba0 -->
+<!-- pre-align:aligned sig=1fc5063c96aa -->
 
 <!-- 新しい様式のために追加されたスタイルです。 -->
 <style>
@@ -15,6 +15,8 @@
 
 
 <span id="templateV1x0001CreateSmsTemplate"></span>
+
+<a id="list-kakao-templates-for-alimtalk-template"></a>
 
 ## SMSテンプレート登録
 
@@ -5354,6 +5356,36 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 </details>
 <span id="templateV1x0035ReadTemplateParameters"></span>
+
+<a id="create-brand-message-template"></a>
+
+## ブランドメッセージテンプレート登録
+
+<!-- TODO: translate body -->
+
+<a id="list-brand-message-templates"></a>
+
+## ブランドメッセージテンプレートリスト照会
+
+<!-- TODO: translate body -->
+
+<a id="get-brand-message-template-details"></a>
+
+## ブランドメッセージテンプレート詳細照会
+
+<!-- TODO: translate body -->
+
+<a id="update-brand-message-template"></a>
+
+## ブランドメッセージテンプレートの修正
+
+<!-- TODO: translate body -->
+
+<a id="delete-brand-message-template"></a>
+
+## ブランドメッセージテンプレートの削除
+
+<!-- TODO: translate body -->
 
 <a id="retrieve-template-parameters"></a>
 

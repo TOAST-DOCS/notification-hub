@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=8780bb7cdba0 -->
+<!-- pre-align:aligned sig=1fc5063c96aa -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -15,6 +15,8 @@
 
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
+
+<a id="list-kakao-templates-for-alimtalk-template"></a>
 
 ## List Kakao Templates for AlimTalk Template
 
@@ -5136,6 +5138,36 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0035ReadTemplateParameters"></span>
+
+<a id="create-brand-message-template"></a>
+
+## Register Brand Message Template
+
+<!-- TODO: translate body -->
+
+<a id="list-brand-message-templates"></a>
+
+## List Brand Message Templates
+
+<!-- TODO: translate body -->
+
+<a id="get-brand-message-template-details"></a>
+
+## Query Brand Message Template Details
+
+<!-- TODO: translate body -->
+
+<a id="update-brand-message-template"></a>
+
+## Modify Brand Message Template
+
+<!-- TODO: translate body -->
+
+<a id="delete-brand-message-template"></a>
+
+## Delete Brand Message Template
+
+<!-- TODO: translate body -->
 
 <a id="retrieve-template-parameters"></a>
 
