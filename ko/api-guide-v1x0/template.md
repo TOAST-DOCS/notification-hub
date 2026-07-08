@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=8780bb7cdba0 -->
+<!-- pre-align:aligned sig=1fc5063c96aa -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -15,6 +15,8 @@
 
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
+
+<a id="list-kakao-templates-for-alimtalk-template"></a>
 
 ## 알림톡 템플릿의 카카오 템플릿 목록 조회
 
