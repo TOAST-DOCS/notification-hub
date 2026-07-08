@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > Usage Policy and Preset Guide > Email**
 
+<a id="register-sending-domain-and-dns-txt-record"></a>
+
 ## Register sending domain and DNS TXT record
 
 To send emails from Notification Hub, you must have an sending domain of your own, so that each user can authenticate the sender's identity through their domain and that the email is not classified as spam. E-mail reliability can be enhanced by applying authentication settings such as SPF, DKIM, and DMARC through the sending domain. This allows e-mail to reach the receiver's mailbox safely and prevent phishing or spoofing. Through Notification Hub email sending (SMTP) server, an email is sent to the receiving server (SMTP) with an email address containing your own domain. For the email receiving server to trust Notification Hub email sending server, the SPF, DKIM, and DMARC TXT record settings are required in DNS where the user-owned domain is served. 

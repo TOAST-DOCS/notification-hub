@@ -16,6 +16,8 @@
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
 
+<a id="list-kakao-templates-for-alimtalk-template"></a>
+
 ## List Kakao Templates for AlimTalk Template
 
 Retrieves a list of Kakao templates for an AlimTalk template.
@@ -5136,6 +5138,36 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 </details>
 
 <span id="templateV1x0035ReadTemplateParameters"></span>
+
+<a id="create-brand-message-template"></a>
+
+## Register Brand Message Template
+
+<!-- TODO: translate body -->
+
+<a id="list-brand-message-templates"></a>
+
+## List Brand Message Templates
+
+<!-- TODO: translate body -->
+
+<a id="get-brand-message-template-details"></a>
+
+## Query Brand Message Template Details
+
+<!-- TODO: translate body -->
+
+<a id="update-brand-message-template"></a>
+
+## Modify Brand Message Template
+
+<!-- TODO: translate body -->
+
+<a id="delete-brand-message-template"></a>
+
+## Delete Brand Message Template
+
+<!-- TODO: translate body -->
 
 <a id="retrieve-template-parameters"></a>
 

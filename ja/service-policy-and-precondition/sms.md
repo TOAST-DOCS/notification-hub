@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > 利用ポリシー及び事前設定案内 > SMS**
 
+<a id="enforce-pre-registration-of-sender-numbers"></a>
+
 ## 発信番号事前登録制施行
 
 <b>電気通信事業法関連告示に基づき、発信番号登録の際、発信番号の名義人認証が必要です</b>

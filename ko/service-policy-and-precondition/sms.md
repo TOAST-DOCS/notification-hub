@@ -12,6 +12,8 @@
 
 <span id="sender-phone-number-pre-registration"></span>
 
+<a id="enforce-pre-registration-of-sender-numbers"></a>
+
 ## 발신 번호 사전등록제 시행
 
 <b>전기통신사업법 관련 고시에 따라 발신 번호 등록 시 발신 번호에 대한 명의자 인증이 필요합니다.</b>

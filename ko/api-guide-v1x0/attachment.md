@@ -16,6 +16,8 @@
 
 <span id="attachmentV1x0001UploadAttachments"></span>
 
+<a id="upload-attachments"></a>
+
 ## 첨부 파일 업로드
 
 첨부 파일을 업로드합니다. FileType을 지정할 경우, 개별 상품에 대한 첨부 파일 업로드를 수행합니다.

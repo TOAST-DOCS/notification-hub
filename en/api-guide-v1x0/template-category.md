@@ -15,6 +15,8 @@
 
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
 
+<a id="delete-a-template-category"></a>
+
 ## Delete a Template Category
 
 Delete a template category.

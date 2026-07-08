@@ -16,6 +16,8 @@
 
 <span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
 
+<a id="list-kakao-templates-for-alimtalk-template"></a>
+
 ## 알림톡 템플릿의 카카오 템플릿 목록 조회
 
 알림톡 템플릿의 카카오 템플릿 목록을 조회합니다.

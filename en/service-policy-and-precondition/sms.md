@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > Usage Policy and Preset Guide > SMS**
 
+<a id="enforce-pre-registration-of-sender-numbers"></a>
+
 ## Enforce pre-registration of sender numbers
 
 <b>In accordance with the Telecommunications Business Act, the registration of a sender number requires the authentication of the owner of the sender number.</b>

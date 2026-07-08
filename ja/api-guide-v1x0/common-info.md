@@ -13,6 +13,8 @@
 
 <span id="api-endpoint"></span>
 
+<a id="api-endpoint"></a>
+
 ## APIエンドポイント
 
 | リージョン   | エンドポイント |

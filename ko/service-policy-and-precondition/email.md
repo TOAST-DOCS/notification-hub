@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > Email**
 
+<a id="register-sending-domain-and-dns-txt-record"></a>
+
 ## 발신 도메인과 DNS TXT 레코드 등록
 
 Notification Hub에서 이메일을 발송하려면 자신이 소유한 발신 도메인이 있어야 합니다. 각 사용자가 자신의 도메인을 통해 발신자 신원을 인증하고 이메일이 스팸으로 분류되지 않도록 하기 위함입니다. 발신 도메인을 통해 SPF, DKIM, DMARC 등의 인증 설정을 적용하여 이메일의 신뢰성을 높일 수 있습니다. 이를 통해 이메일이 수신자의 메일함에 안전하게 도달하고, 피싱이나 스푸핑을 방지할 수 있습니다. Notification Hub 이메일 발송(SMTP) 서버를 통해 사용자 소유의 도메인이 포함된 이메일 주소와 함께 이메일이 수신 서버(SMTP)로 발송됩니다. 이메일 수신 서버가 Notification Hub 이메일 발송 서버를 신뢰하기 위해서는 사용자 소유의 도메인이 서비스되는 DNS에 SPF, DKIM, DMARC TXT 레코드 설정이 필요합니다. 
