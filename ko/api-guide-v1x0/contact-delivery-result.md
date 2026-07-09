@@ -114,6 +114,16 @@ X-NHN-Authorization: Bearer {accessToken}
       "key1" : "value1",
       "key2" : "value2"
     },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
     "additionalProperty" : { },
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
     "sentDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -164,6 +174,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].resultCode | String | X | 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
 | contactDeliveryResults[].resultMessage | String | X | 발송 결과 메시지입니다. |
 | contactDeliveryResults[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| contactDeliveryResults[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서 템플릿에 포함된 이미지를 수신자별로 치환한 정보입니다. |
+| contactDeliveryResults[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디 |
+| contactDeliveryResults[].imageParameters[].imageUrl | String | X | 이미지 URL |
+| contactDeliveryResults[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL |
+| contactDeliveryResults[].videoParameter | Object | X | 수신자별 동영상 파라미터입니다. 브랜드 메시지에서 사용됩니다. |
+| contactDeliveryResults[].videoParameter.videoUrl | String | X | 카카오TV 동영상 URL |
+| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디 |
+| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL |
 | contactDeliveryResults[].additionalProperty | Object | X |  |
 | contactDeliveryResults[].createdDateTime | String | O | 메시지가 생성된 시각입니다. |
 | contactDeliveryResults[].sentDateTime | String | X | 메시지가 발송된 시각입니다. |
@@ -296,6 +314,16 @@ X-NHN-Authorization: Bearer {accessToken}
       "key1" : "value1",
       "key2" : "value2"
     },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
     "additionalProperty" : { },
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
     "sentDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -346,6 +374,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].resultCode | String | X | 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
 | contactDeliveryResults[].resultMessage | String | X | 발송 결과 메시지입니다. |
 | contactDeliveryResults[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| contactDeliveryResults[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서 템플릿에 포함된 이미지를 수신자별로 치환한 정보입니다. |
+| contactDeliveryResults[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디 |
+| contactDeliveryResults[].imageParameters[].imageUrl | String | X | 이미지 URL |
+| contactDeliveryResults[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL |
+| contactDeliveryResults[].videoParameter | Object | X | 수신자별 동영상 파라미터입니다. 브랜드 메시지에서 사용됩니다. |
+| contactDeliveryResults[].videoParameter.videoUrl | String | X | 카카오TV 동영상 URL |
+| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디 |
+| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL |
 | contactDeliveryResults[].additionalProperty | Object | X |  |
 | contactDeliveryResults[].createdDateTime | String | O | 메시지가 생성된 시각입니다. |
 | contactDeliveryResults[].sentDateTime | String | X | 메시지가 발송된 시각입니다. |
