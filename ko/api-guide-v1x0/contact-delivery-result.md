@@ -1,5 +1,3 @@
-<!-- pre-align:aligned sig=8c77b572b6aa -->
-
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -15,8 +13,6 @@
 
 
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
-
-<a id="retrieve-a-list-of-received-results-by-contacts"></a>
 
 ## 연락처별 수신 결과 목록 조회
 
@@ -114,16 +110,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key1" : "value1",
       "key2" : "value2"
     },
-    "imageParameters" : [ {
-      "attachmentId" : "20230131070811m2fDe1rXx80",
-      "imageUrl" : "https://example.com/image.jpg",
-      "imageLink" : "https://www.example.com"
-    } ],
-    "videoParameter" : {
-      "videoUrl" : "https://tv.kakao.com/v/123456789",
-      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
-    },
+    "imageParameters" : [ "Default and Example is not provided." ],
+    "videoParameter" : "Default and Example is not provided.",
     "additionalProperty" : { },
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
     "sentDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -161,7 +149,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | X | 플로우 ID |
 | contactDeliveryResults[].statsKeyId | String | X | 통계 키 아이디 |
 | contactDeliveryResults[].clientReference | String | X | 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | contactDeliveryResults[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | contactDeliveryResults[].options | Object | X |  |
 | contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
@@ -174,14 +162,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].resultCode | String | X | 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
 | contactDeliveryResults[].resultMessage | String | X | 발송 결과 메시지입니다. |
 | contactDeliveryResults[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| contactDeliveryResults[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서 템플릿에 포함된 이미지를 수신자별로 치환한 정보입니다. |
-| contactDeliveryResults[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디 |
-| contactDeliveryResults[].imageParameters[].imageUrl | String | X | 이미지 URL |
-| contactDeliveryResults[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL |
-| contactDeliveryResults[].videoParameter | Object | X | 수신자별 동영상 파라미터입니다. 브랜드 메시지에서 사용됩니다. |
-| contactDeliveryResults[].videoParameter.videoUrl | String | X | 카카오TV 동영상 URL |
-| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디 |
-| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL |
+| contactDeliveryResults[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
+| contactDeliveryResults[].videoParameter | Object | X | 수신자별 비디오 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
 | contactDeliveryResults[].additionalProperty | Object | X |  |
 | contactDeliveryResults[].createdDateTime | String | O | 메시지가 생성된 시각입니다. |
 | contactDeliveryResults[].sentDateTime | String | X | 메시지가 발송된 시각입니다. |
@@ -219,8 +201,6 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 </details>
 
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
-
-<a id="retrieve-a-list-of-the-final-send-status-messages"></a>
 
 ## 최종 발송 상태 메시지 목록 조회
 
@@ -314,16 +294,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "key1" : "value1",
       "key2" : "value2"
     },
-    "imageParameters" : [ {
-      "attachmentId" : "20230131070811m2fDe1rXx80",
-      "imageUrl" : "https://example.com/image.jpg",
-      "imageLink" : "https://www.example.com"
-    } ],
-    "videoParameter" : {
-      "videoUrl" : "https://tv.kakao.com/v/123456789",
-      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
-    },
+    "imageParameters" : [ "Default and Example is not provided." ],
+    "videoParameter" : "Default and Example is not provided.",
     "additionalProperty" : { },
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
     "sentDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -361,7 +333,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | X | 플로우 ID |
 | contactDeliveryResults[].statsKeyId | String | X | 통계 키 아이디 |
 | contactDeliveryResults[].clientReference | String | X | 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | contactDeliveryResults[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | contactDeliveryResults[].options | Object | X |  |
 | contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
@@ -374,14 +346,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].resultCode | String | X | 발송 결과 코드입니다. 메시지 채널에 따라 값이 다릅니다. |
 | contactDeliveryResults[].resultMessage | String | X | 발송 결과 메시지입니다. |
 | contactDeliveryResults[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| contactDeliveryResults[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서 템플릿에 포함된 이미지를 수신자별로 치환한 정보입니다. |
-| contactDeliveryResults[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디 |
-| contactDeliveryResults[].imageParameters[].imageUrl | String | X | 이미지 URL |
-| contactDeliveryResults[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL |
-| contactDeliveryResults[].videoParameter | Object | X | 수신자별 동영상 파라미터입니다. 브랜드 메시지에서 사용됩니다. |
-| contactDeliveryResults[].videoParameter.videoUrl | String | X | 카카오TV 동영상 URL |
-| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디 |
-| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL |
+| contactDeliveryResults[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
+| contactDeliveryResults[].videoParameter | Object | X | 수신자별 비디오 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
 | contactDeliveryResults[].additionalProperty | Object | X |  |
 | contactDeliveryResults[].createdDateTime | String | O | 메시지가 생성된 시각입니다. |
 | contactDeliveryResults[].sentDateTime | String | X | 메시지가 발송된 시각입니다. |
