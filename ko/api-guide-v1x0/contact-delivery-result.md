@@ -48,7 +48,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contact | Query | String | X | 연락처입니다. |
 | messageChannel | Query | Enum | X | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(Email), PUSH(Push)] |
 | messagePurpose | Query | Enum | X | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
-| statuses | Query | Enum | X | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br> <br>[REQUESTED(요청됨), SCHEDULED(예약됨), READY(준비됨), CONFIRM_WAITED(확인 대기 중), WAITED(대기 중), IN_PROGRESS(발송 중), SENT(발송됨), SEND_FAILED(발송 실패), DELIVERED(수신됨), DELIVERY_FAILED(수신 실패), CANCELED(취소됨)] |
+| statuses | Query | Enum | X | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br>[REQUESTED(요청됨), SCHEDULED(예약됨), READY(준비됨), CONFIRM_WAITED(확인 대기 중), WAITED(대기 중), IN_PROGRESS(발송 중), SENT(발송됨), SEND_FAILED(발송 실패), DELIVERED(수신됨), DELIVERY_FAILED(수신 실패), CANCELED(취소됨)] |
 | scheduled | Query | Boolean | X | 예약 발송 여부입니다. |
 | confirmBeforeSend | Query | Boolean | X | 승인 후 발송 여부입니다. |
 | createdDateTimeFrom | Query | DateTime | X | 요청 시작 일시입니다. 기본값은 7일 전입니다. |
