@@ -643,7 +643,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -758,7 +758,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | X | 템플릿 이름 |
 | template.categoryId | String | X | 카테고리 아이디 |
-| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -1475,7 +1475,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -1585,7 +1585,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -1770,7 +1770,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | O | 템플릿 이름 |
 | template.categoryId | String | O | 카테고리 아이디 |
-| template.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | O |  |
 | template.templateLanguage | String | O | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -2856,7 +2856,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | X | 템플릿 이름 |
 | template.categoryId | String | X | 카테고리 아이디 |
-| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -2971,7 +2971,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -3628,7 +3628,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -3797,7 +3797,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | X | 템플릿 이름 |
 | template.categoryId | String | X | 카테고리 아이디 |
-| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -4606,7 +4606,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -4759,7 +4759,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | O | 템플릿 이름 |
 | template.categoryId | String | O | 카테고리 아이디 |
-| template.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | O |  |
 | template.templateLanguage | String | O | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -6041,7 +6041,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messageChannel | Path | Enum | O | 메시지 채널입니다. |
+| messageChannel | Path | Enum | O | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(Email), PUSH(Push)] |
 | templateId | Path | String | O | 템플릿 아이디 |
 
 

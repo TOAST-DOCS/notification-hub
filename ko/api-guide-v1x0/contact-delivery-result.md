@@ -46,9 +46,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query | String | X | 통계 키 아이디입니다. |
 | sender | Query | String | X | 발신자 정보입니다. |
 | contact | Query | String | X | 연락처입니다. |
-| messageChannel | Query | Enum | X | 메시지 채널입니다. |
-| messagePurpose | Query | Enum | X | 메시지 목적입니다. |
-| statuses | Query | Enum | X | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br>  |
+| messageChannel | Query | Enum | X | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messagePurpose | Query | Enum | X | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
+| statuses | Query | Enum | X | 메시지 상태 입니다. 발송 결과로 볼 수 있습니다.<br> 메시지 발송 요청을 받으면 메시지 상태가 REQUESTED로 설정됩니다.<br> <br>[REQUESTED(요청됨), SCHEDULED(예약됨), READY(준비됨), CONFIRM_WAITED(확인 대기 중), WAITED(대기 중), IN_PROGRESS(발송 중), SENT(발송됨), SEND_FAILED(발송 실패), DELIVERED(수신됨), DELIVERY_FAILED(수신 실패), CANCELED(취소됨)] |
 | scheduled | Query | Boolean | X | 예약 발송 여부입니다. |
 | confirmBeforeSend | Query | Boolean | X | 승인 후 발송 여부입니다. |
 | createdDateTimeFrom | Query | DateTime | X | 요청 시작 일시입니다. 기본값은 7일 전입니다. |
@@ -151,7 +151,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | X | 플로우 ID |
 | contactDeliveryResults[].statsKeyId | String | X | 통계 키 아이디 |
 | contactDeliveryResults[].clientReference | String | X | 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | contactDeliveryResults[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | contactDeliveryResults[].options | Object | X |  |
 | contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
@@ -230,8 +230,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query | String | X | 통계 키 아이디입니다. |
 | sender | Query | String | X | 발신자 정보입니다. |
 | contact | Query | String | X | 연락처입니다. |
-| messageChannel | Query | Enum | X | 메시지 채널입니다. |
-| messagePurpose | Query | Enum | X | 메시지 목적입니다. |
+| messageChannel | Query | Enum | X | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messagePurpose | Query | Enum | X | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | scheduled | Query | Boolean | X | 예약 발송 여부입니다. |
 | confirmBeforeSend | Query | Boolean | X | 승인 후 발송 여부입니다. |
 | updatedDateTimeFrom | Query | DateTime | X | 발송 상태 업데이트 시작 일시입니다. 기본값은 7일 전입니다. |
@@ -333,7 +333,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | X | 플로우 ID |
 | contactDeliveryResults[].statsKeyId | String | X | 통계 키 아이디 |
 | contactDeliveryResults[].clientReference | String | X | 사용자 지정 필드 |
-| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| contactDeliveryResults[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | contactDeliveryResults[].messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | contactDeliveryResults[].options | Object | X |  |
 | contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
