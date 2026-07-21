@@ -239,7 +239,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 브랜드 메시지는 카카오톡 친구톡 업그레이드 상품으로, 기존 친구톡보다 더 다양한 메시지 유형을 지원합니다.
 - TEXT: 텍스트형
 - IMAGE: 이미지형
-- WIDE: 와이드 이미지형
+- WIDE_IMAGE: 와이드 이미지형
 - WIDE_ITEM_LIST: 와이드 아이템리스트형
 - CAROUSEL_FEED: 캐러셀 피드형
 - CAROUSEL_COMMERCE: 캐러셀 커머스형
@@ -288,10 +288,9 @@ X-NHN-Authorization: Bearer {accessToken}
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -427,10 +426,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
-| content.chatBubbleType | String | X | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| content.messageType | String | X | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
 | content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
 | content.content | String | X | 메시지 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
-| content.attachmentId | String | X | 첨부 파일 아이디. IMAGE/WIDE: attachmentId 또는 image.imageUrl 중 하나 필수 |
 | content.image | Object | X |  |
 | content.image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
 | content.image.imageUrl | String | X | 이미지 URL. attachmentId와 택1 |
@@ -461,7 +459,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크. 선택 |
 | content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
 | content.carousel | Object | X |  |
-| content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, image 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
+| content.carousel.head | Object | X |  |
 | content.carousel.head.header | String | O | 인트로 헤더. head 사용 시 필수(최대 20자) |
 | content.carousel.head.content | String | O | 인트로 내용. head 사용 시 필수(최대 50자) |
 | content.carousel.head.image | Object | O |  |
@@ -526,7 +524,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | 메시지 대상 타입. M: 마케팅 수신 동의 유저, N: 친구가 아닌 마케팅 수신 동의 유저, O: 친구인 유저. M/N 사용 시 발신 프로필에 마케팅 수신 동의 활성화 및 080 수신거부 번호 필요<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | 메시지 푸시 알람 발송 여부(default: true)<br>기본값: true |
 | options.unsubscribePhoneNumber | String | X | 080 무료수신거부 전화번호. targeting이 M/N인 경우 필요. 형식: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
-| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 9자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
+| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 10자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -589,10 +587,9 @@ X-NHN-Authorization: Bearer {accessToken}
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -739,10 +736,9 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -2180,10 +2176,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
 | recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터. 템플릿에 포함된 이미지를 수신자별로 치환합니다. 배열의 순서가 템플릿 내 이미지 위치와 매핑됩니다(첫 번째 요소가 템플릿의 첫 번째 이미지를 치환). 단건 수신자(recipients) 발송에서만 사용 가능하며, 대량 발송(id 사용) 시에는 수신자별 이미지 치환을 지원하지 않습니다. |
-| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1. 이미지 업로드 API로 등록한 첨부 파일 아이디 사용 |
-| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL. attachmentId와 택1. 카카오 CDN에 등록된 이미지만 허용. 이미지 업로드 API로 등록 후 발급된 URL 사용 |
-| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용. attachmentId/imageUrl 없이 imageLink만 단독 입력 시 템플릿 원본 이미지를 유지하면서 클릭 링크만 변경 |
+| recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터. 메시지 레벨의 이미지 파라미터를 오버라이딩합니다. |
+| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
+| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL. attachmentId와 택1 |
+| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
 | recipients[].videoParameter | Object | X |  |
 | recipients[].videoParameter.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
 | recipients[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디. thumbnailUrl과 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능 |
@@ -2196,7 +2192,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | 메시지 대상 타입. M: 마케팅 수신 동의 유저, N: 친구가 아닌 마케팅 수신 동의 유저, O: 친구인 유저. M/N 사용 시 발신 프로필에 마케팅 수신 동의 활성화 및 080 수신거부 번호 필요<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | 메시지 푸시 알람 발송 여부(default: true)<br>기본값: true |
 | options.unsubscribePhoneNumber | String | X | 080 무료수신거부 전화번호. targeting이 M/N인 경우 필요. 형식: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
-| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 9자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
+| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 10자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -3000,8 +2996,10 @@ X-NHN-Authorization: Bearer {accessToken}
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3032,7 +3030,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | flow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| flow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| flow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br>- **BRANDMESSAGE**: audienceType(필수, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080번호), unsubscribeAuthNumber(인증번호)<br>- **RCS**: expiryOption(만료 옵션), groupId(그룹 ID)<br> |
 | flow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
 
 
@@ -3108,8 +3106,10 @@ X-NHN-Authorization: Bearer {accessToken}
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3159,8 +3159,10 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3173,8 +3175,6 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 </details>
 
 <span id="messageV1x0010InstantFlowMessages"></span>
-
-<a id="send-an-instant-flow-message"></a>
 
 ## 인스턴트 플로우 메시지 발송
 
@@ -3233,8 +3233,10 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3262,7 +3264,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | instantFlow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br>- **BRANDMESSAGE**: audienceType(필수, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080번호), unsubscribeAuthNumber(인증번호)<br>- **RCS**: expiryOption(만료 옵션), groupId(그룹 ID)<br> |
 | instantFlow.steps[].templateId | String | X | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
 
@@ -3335,8 +3337,10 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3381,8 +3385,10 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3394,8 +3400,6 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 </details>
 
 <span id="messageV1x0100MessageIdDoCancel"></span>
-
-<a id="cancel-sending-message"></a>
 
 ## 메시지 발송 취소
 
@@ -3482,8 +3486,6 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 </details>
 
 <span id="messageV1x0101MessageIdDoConfirm"></span>
-
-<a id="confirm-message-delivery"></a>
 
 ## 메시지 발송 확인
 
