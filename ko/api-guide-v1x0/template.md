@@ -3314,11 +3314,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | 본문 3 |
 | content.cards[].buttons | Array | X | RCS 버튼 리스트 |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | content.buttons | Array | X | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.buttons[].buttonJson.action | Object | X | 버튼 액션 |
 
 
@@ -3776,11 +3776,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.cards[].description3 | String | X | 본문 3 |
 | template.content.cards[].buttons | Array | X | RCS 버튼 리스트 |
 | template.content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| template.content.cards[].buttons[].buttonJson | Object | X |  |
+| template.content.cards[].buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | template.content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | template.content.buttons | Array | X | RCS 버튼 리스트 |
 | template.content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| template.content.buttons[].buttonJson | Object | X |  |
+| template.content.buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | template.content.buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | template.additionalProperty | Object | X |  |
 | template.additionalProperty.status | String | X | 템플릿 상태<br>- SAVE: 저장<br>- APPROVE_WAIT: 승인 대기<br>- INSPECTION_START: 검수 시작<br>- INSPECTION_FINISH: 검수 완료<br>- APPROVE: 승인<br>- REJECT: 거부<br>- MODIFY_APPROVE_WAIT: 수정 승인 대기<br>- MODIFY_INSPECTION_START: 수정 검수 시작<br>- MODIFY_INSPECTION_FINISH: 수정 검수 완료<br>- MODIFY_REJECT: 수정 거부<br><br>[SAVE, APPROVE_WAIT, INSPECTION_START, INSPECTION_FINISH, APPROVE, REJECT, MODIFY_APPROVE_WAIT, MODIFY_INSPECTION_START, MODIFY_INSPECTION_FINISH, MODIFY_REJECT] |
@@ -3945,11 +3945,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | 본문 3 |
 | content.cards[].buttons | Array | X | RCS 버튼 리스트 |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | content.buttons | Array | X | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.buttons[].buttonJson.action | Object | X | 버튼 액션 |
 
 
