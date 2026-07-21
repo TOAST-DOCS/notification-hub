@@ -39,7 +39,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -889,7 +889,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -1063,7 +1063,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -1443,7 +1443,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -1740,8 +1740,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messageChannel | Path | Enum | O | 메시지 채널입니다. |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messageChannel | Path | Enum | O | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -1922,7 +1922,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2114,7 +2114,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2371,7 +2371,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2548,7 +2548,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2766,7 +2766,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2958,7 +2958,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -3193,7 +3193,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
