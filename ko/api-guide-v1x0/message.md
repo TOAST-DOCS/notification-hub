@@ -418,7 +418,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
-| content.messageType | String | X | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| content.messageType | String | O | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
 | content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
 | content.content | String | X | 메시지 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
 | content.image | Object | X | 브랜드 메시지 이미지. IMAGE/WIDE/COMMERCE: attachmentId 또는 imageUrl 중 하나 필수 |
