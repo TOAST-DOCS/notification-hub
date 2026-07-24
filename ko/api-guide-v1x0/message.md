@@ -14,6 +14,8 @@
 
 <span id="messageV1x0001SmsFreeFormMessages"></span>
 
+<a id="free-form-message-sending-request---sms"></a>
+
 ## 자유 양식 메시지 발송 요청 - SMS
 
 SMS에 대한 자유 양식 메시지 발송을 요청합니다. 메시지 내용을 요청 본문에 입력한 뒤 발송을 요청합니다.
@@ -100,6 +102,8 @@ X-NHN-Authorization: Bearer {accessToken}
 * 예약 발송의 경우 **scheduledDateTime**를 설정합니다. 발송이 시작되기 전의 예약 발송은 요청 취소가 가능합니다. 요청 취소 API를 호출하거나 **Notification Hub 콘솔** > **발송 조회**에서 취소할 수 있습니다.
 * 승인 후 발송의 경우 **confirmBeforeSend**를 **true**로 설정합니다. 승인 후 발송인 메시지는 **Notification Hub 콘솔** > **발송 조회**에서 승인을 하면 발송이 진행됩니다.
 * 예약 발송과 승인 후 발송은 동시에 설정할 수 없습니다.
+
+<a id="sender-fields-by-message-channel"></a>
 
 ### 메시지 채널별 sender 필드
 
@@ -223,6 +227,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 </details>
 
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
+
+<a id="free-form-message-sending-request---brand-message-brandmessage"></a>
 
 ## 자유 양식 메시지 발송 요청 - 브랜드 메시지(BRANDMESSAGE)
 
@@ -856,6 +862,8 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 
 <span id="messageV1x0003EmailFreeFormMessages"></span>
 
+<a id="request-to-send-a-free-form-message---email"></a>
+
 ## 자유 양식 메시지 발송 요청 - 이메일(EMAIL)
 
 이메일(EMAIL)에 대한 자유 양식 메시지 발송을 요청합니다.
@@ -1027,6 +1035,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 </details>
 
 <span id="messageV1x0004RcsFreeFormMessages"></span>
+
+<a id="request-to-send-a-free-form-message---rcs"></a>
 
 ## 자유 양식 메시지 발송 요청 - RCS
 
@@ -1406,6 +1416,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
+<a id="request-to-send-a-free-form-message---push"></a>
+
 ## 자유 양식 메시지 발송 요청 - PUSH
 
 PUSH에 대한 자유 양식 메시지 발송을 요청합니다.
@@ -1693,6 +1705,8 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 
 <span id="messageV1x0006TemplateMessages"></span>
 
+<a id="request-template-message-sending"></a>
+
 ## 템플릿 메시지 발송 요청
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
@@ -1872,6 +1886,8 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 </details>
 
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
+
+<a id="send-alimtalk-template-message"></a>
 
 ## 알림톡 템플릿 메시지 발송
 
@@ -2062,6 +2078,8 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 </details>
 
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
+
+<a id="send-a-brand-message-template-message"></a>
 
 ## 브랜드 메시지 템플릿 메시지 발송
 
@@ -2318,6 +2336,8 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 
 <span id="messageV1x0008EmailTemplateMessages"></span>
 
+<a id="send-email-template-message"></a>
+
 ## 이메일 템플릿 메시지 발송
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
@@ -2496,6 +2516,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 </details>
 
 <span id="messageV1x0008RcsTemplateMessages"></span>
+
+<a id="send-rcs-template-message"></a>
 
 ## RCS 템플릿 메시지 발송
 
@@ -2705,6 +2727,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
+<a id="send-sms-template-message"></a>
+
 ## SMS 템플릿 메시지 발송
 
 등록한 템플릿을 이용해 메시지를 발송합니다.
@@ -2898,6 +2922,8 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 </details>
 
 <span id="messageV1x0009FlowMessages"></span>
+
+<a id="send-flow-message"></a>
 
 ## 플로우 메시지 발송
 
@@ -3157,6 +3183,8 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 
 <span id="messageV1x0010InstantFlowMessages"></span>
 
+<a id="send-an-instant-flow-message"></a>
+
 ## 인스턴트 플로우 메시지 발송
 
 메시지 발송 요청 시 플로우를 정의해 메시지를 발송 요청합니다.<br>
@@ -3391,6 +3419,8 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
+<a id="cancel-sending-message"></a>
+
 ## 메시지 발송 취소
 
 발송 취소할 메시지 아이디를 입력해 발송 취소합니다.<br>
@@ -3476,6 +3506,8 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 </details>
 
 <span id="messageV1x0101MessageIdDoConfirm"></span>
+
+<a id="confirm-message-delivery"></a>
 
 ## 메시지 발송 확인
 
