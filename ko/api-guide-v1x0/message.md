@@ -2980,6 +2980,16 @@ X-NHN-Authorization: Bearer {accessToken}
     "templateParameters" : {
       "key1" : "value1",
       "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -3025,6 +3035,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
 | recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
+| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디 |
+| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL |
+| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL |
+| recipients[].videoParameter | Object | X | 수신자별 비디오 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
+| recipients[].videoParameter.videoUrl | String | X | 카카오TV 동영상 URL |
+| recipients[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디 |
+| recipients[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | flow | Object | X |  |
 | flow.steps | Array | O |  |
@@ -3093,6 +3111,16 @@ X-NHN-Authorization: Bearer {accessToken}
     "templateParameters" : {
       "key1" : "value1",
       "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -3149,6 +3177,16 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
     "templateParameters" : {
       "key1" : "value1",
       "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -3229,6 +3267,16 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
     "templateParameters" : {
       "key1" : "value1",
       "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "instantFlow" : {
@@ -3271,6 +3319,14 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
 | recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
+| recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
+| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디 |
+| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL |
+| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL |
+| recipients[].videoParameter | Object | X | 수신자별 비디오 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
+| recipients[].videoParameter.videoUrl | String | X | 카카오TV 동영상 URL |
+| recipients[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디 |
+| recipients[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL |
 | instantFlow | Object | O |  |
 | instantFlow.steps | Array | O |  |
 | instantFlow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
@@ -3336,6 +3392,16 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
     "templateParameters" : {
       "key1" : "value1",
       "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "instantFlow" : {
@@ -3387,6 +3453,16 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
     "templateParameters" : {
       "key1" : "value1",
       "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "instantFlow" : {
