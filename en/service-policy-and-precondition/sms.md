@@ -7,7 +7,10 @@
 </style>
 <h1>SMS</h1> 
 
-**Notification > Notification Hub > Usage Policy and Preset Guide > SMS**
+**Notification > Notification Hub > Service Policy and Prerequisites > SMS**
+
+
+<span id="sender-phone-number-pre-registration"></span>
 
 ## Enforce pre-registration of sender numbers
 
@@ -22,19 +25,15 @@
 
 <span id='fabrication-number'></span>
 
-<a id="prohibition-of-alterationfalsification-of-the-sender-number"></a>
+## Prohibition on Sender Number Spoofing (Falsification)
+* When using the SMS service, you must register a sender number that you (or your company) own before sending messages.
+* If you use a sender number belonging to another person (or another company), the following actions may be taken in accordance with <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">[(Ministry of Science, ICT and Future Planning Notice No. 2015-32) Notice on Prevention of User Damage Caused by Falsely Displayed Phone Numbers]</a> and the <a href="https://www.nhncloud.com/kr/terms/terms-service" target="_blank">[NHN Cloud Terms of Service]</a>. Please be advised.
 
-## Prohibition of Alteration/Falsification of the Sender Number
-* When using SMS services, you must register your (or your company) number before using it.
-* Please note that if you use another person (or a third party) sender number, be careful as necessary measures can be taken according to <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank"> [(Notice of the Ministry of Science, ICT and Future Planning No. 2015-32)] Notice concerning the prevention, etc. of damage to users due to falsely displayed telephone numbers </a> and <a href="https://www.nhncloud.com/kr/terms/terms-service" target="_blank"> [NHN Cloud Terms and Conditions] </a>. 
-
-!!! Danger "Precaution" 
-·If you send a false sending number, the user's line or service will be stopped until investigation into the matter is complete.
-(However, if it is accidentally altered without malicious purposes, the service can be resumed after reviewing the user’s letter of explanation.)
-·Restrictions on the use of services by users whose systems are established to make calls to numbers other than the registered calling number 
-·Claim for damages for all losses caused by other calling number alterations
-
-<span id="rejection-of-receiving-080"></span>
+!!! danger "Caution"
+    ㆍIf a message is sent with a falsified sender number, the user's line or service may be suspended until the investigation into the issue is complete.
+      (However, if the falsification was accidental and without malicious intent, the service may be resumed after receiving the user's explanation and conducting a review.)
+    ㆍUse of the service may be restricted for users whose systems are configured to send messages using numbers other than registered sender numbers.
+    ㆍDamages may be claimed for all losses resulting from sender number falsification.
 
 <a id="information-about-080-call-blocking-service"></a>
 
@@ -42,12 +41,39 @@
 * 080 unsubscription number service provides the receiver with a blocking feature when sending an advertisement text message.
 * When sending advertising information, be sure to include a free unscription method so that the receiver can refuse or withdraw the subscription for free.
 
-**How to use**
-* The user will be charged for 080 unsubscription number service after the 080 service number is activated, not when the message is sent (monthly subscription).
-* The 080 unsubscription service number requires 3 ~ 4 days to get a new number. Hence, temporary and repeated cancellations and applications are not recommended.
-* Please be careful when registering because you cannot cancel the opening in the registration scheduled status.
-* If you want to use the registered 080 unsubscription number in other projects, you can use the **080 unsubscription number sharing** feature.
-* If the 080 unsubscription number has been canceled or if the number is an externally requested 080 number, sending will fail.
+[[Act on Promotion of Information and Communications Network Utilization and Information Protection](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0)] Under Article 50, you must obtain the recipient's explicit prior consent when sending advertising information for commercial purposes, and you must comply with all mandatory labeling requirements for such messages.
+Be aware that violations of applicable laws may result in criminal penalties or fines depending on the nature of the violation.
+
+[[Korea Internet & Security Agency (KISA) Guide to the Act on Promotion of Information and Communications Network Utilization and Information Protection for Prevention of Illegal Spam](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
+
+### Consent to Receive Advertising Information
+* When sending advertising information for commercial purposes, you must obtain the recipient's explicit prior consent.
+* Advertising messages cannot be sent between 9 PM and 8 AM the following day. To send messages during this time period, you must obtain a separate consent from recipients for receiving nighttime advertising.
+
+### Advertising Disclosure Requirements
+* Mark '(광고)' (advertisement) at the beginning of the advertising information
+    * Variations such as (광/고), (광 고), ("광고"), [광고] are prohibited
+    * For LMS/MMS with a subject, mark '(광고)' at the beginning of both the subject and the body
+* Include the sender's information: "company name or service name" and "contact information"
+    * If the caller ID and contact number are the same, the contact number may be omitted
+* Include a free opt-out 080 number at the bottom of the message
+
+Example: Advertising disclosure requirements for messages
+```
+[Web발신]
+(Ads) [Sender name]
+[Sender's contact information]
+[Or sender's address]
+
+[Ad content]
+
+Toll-free opt-out 080-****-****
+```
+
+### Notify recipients of opt-out requests
+* Notifies recipients of the sender's name, the fact of opt-out or withdrawal of consent, the date on which the request was made, and the result of the processing.
+
+<span id="rejection-of-receiving-080"></span>
 
 <a id="advertisement-texting-sending-guidance"></a>
 
