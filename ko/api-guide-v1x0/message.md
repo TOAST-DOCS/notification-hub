@@ -522,7 +522,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | 메시지 대상 타입. M: 마케팅 수신 동의 유저, N: 친구가 아닌 마케팅 수신 동의 유저, O: 친구인 유저. M/N 사용 시 발신 프로필에 마케팅 수신 동의 활성화 및 080 수신거부 번호 필요<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | 메시지 푸시 알람 발송 여부(default: true)<br>기본값: true |
 | options.unsubscribePhoneNumber | String | X | 080 무료수신거부 전화번호. targeting이 M/N인 경우 필요. 형식: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
-| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 10자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
+| options.unsubscribeAuthNumber | String | X | 수신거부 인증 번호(숫자, 최대 10자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -2180,8 +2180,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL |
 | recipients[].videoParameter | Object | X | 수신자별 비디오 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
 | recipients[].videoParameter.videoUrl | String | X | 카카오TV 동영상 URL |
-| recipients[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디 |
-| recipients[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL |
+| recipients[].videoParameter.thumbnailAttachmentId | String | X | 섬네일 이미지 첨부 파일 아이디 |
+| recipients[].videoParameter.thumbnailUrl | String | X | 동영상 섬네일 이미지 URL |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | templateId | String | X | 템플릿 ID |
 | templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
@@ -2190,7 +2190,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | 메시지 대상 타입. M: 마케팅 수신 동의 유저, N: 친구가 아닌 마케팅 수신 동의 유저, O: 친구인 유저. M/N 사용 시 발신 프로필에 마케팅 수신 동의 활성화 및 080 수신거부 번호 필요<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | 메시지 푸시 알람 발송 여부(default: true)<br>기본값: true |
 | options.unsubscribePhoneNumber | String | X | 080 무료수신거부 전화번호. targeting이 M/N인 경우 필요. 형식: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
-| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 10자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
+| options.unsubscribeAuthNumber | String | X | 수신거부 인증 번호(숫자, 최대 10자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -3031,7 +3031,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | flow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| flow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br>- **BRANDMESSAGE**: audienceType(필수, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080번호), unsubscribeAuthNumber(인증번호)<br>- **RCS**: expiryOption(만료 옵션), groupId(그룹 ID)<br> |
+| flow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br>- **BRANDMESSAGE**: audienceType(필수, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080번호), unsubscribeAuthNumber(인증 번호)<br>- **RCS**: expiryOption(만료 옵션), groupId(그룹 ID)<br> |
 | flow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
 
 
@@ -3276,7 +3276,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | instantFlow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br>- **BRANDMESSAGE**: audienceType(필수, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080번호), unsubscribeAuthNumber(인증번호)<br>- **RCS**: expiryOption(만료 옵션), groupId(그룹 ID)<br> |
+| instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br>- **BRANDMESSAGE**: audienceType(필수, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080번호), unsubscribeAuthNumber(인증 번호)<br>- **RCS**: expiryOption(만료 옵션), groupId(그룹 ID)<br> |
 | instantFlow.steps[].templateId | String | X | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
 

@@ -5155,7 +5155,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messageChannel | Path | Enum | O | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messageChannel | Path | Enum | O | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(이메일), PUSH(푸시)] |
 | templateId | Path | String | O | 템플릿 아이디 |
 
 
@@ -5198,7 +5198,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | 경로 | 타입 | Not Null | 설명 |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: `true` |
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
 | templateParameter | Object | X | 템플릿 파라미터 결과 JSON |
@@ -5387,7 +5387,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | sender | Object | O | 발신자 정보 |
 | sender.senderKey | String | O | 발신프로필 발신 키(40자) |
-| sender.senderProfileType | String | O | 발신프로필 타입 (NORMAL: 일반, GROUP: 그룹)<br>[GROUP, NORMAL] |
+| sender.senderProfileType | String | O | 발신프로필 타입(NORMAL: 일반, GROUP: 그룹)<br>[GROUP, NORMAL] |
 | content | Object | O | 브랜드 메시지 콘텐츠 |
 | content.messageType | String | O | 브랜드 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
 | content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
@@ -5455,7 +5455,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
 | content.video | Object | X | 동영상 정보. PREMIUM_VIDEO 타입 필수 |
 | content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
-| content.video.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 썸네일 사용 |
+| content.video.thumbnailUrl | String | X | 동영상 섬네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 섬네일 사용 |
 | content.commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
 | content.commerce.title | String | O | 상품 제목(최대 30자). 필수 |
 | content.commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
@@ -5836,7 +5836,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | totalCount | Integer | O | 총 건수 |
 | templates | Array | O |  |
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
-| templates[].templateName | String | O | 템플릿명 |
+| templates[].templateName | String | O | 템플릿 이름 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
 | templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
@@ -6061,10 +6061,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.sender | Object | X | 브랜드 메시지 발신자 정보 |
 | template.sender.senderKey | String | O | 발신프로필 발신 키(40자). 그룹 발신 키는 사용 불가 |
 | template.sender.senderProfileId | String | X | 카카오톡 채널명 |
-| template.sender.senderProfileType | String | X | 발신프로필 타입 (NORMAL: 일반, GROUP: 그룹)<br>[GROUP, NORMAL] |
+| template.sender.senderProfileType | String | X | 발신프로필 타입(NORMAL: 일반, GROUP: 그룹)<br>[GROUP, NORMAL] |
 | template.content | Object | X | 브랜드 메시지 콘텐츠 |
 | template.content.messageType | String | O | 브랜드 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
-| template.content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
+| template.content.adult | Boolean | X | 성인용 메시지 여부(default: `false`). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: `false` |
 | template.content.header | String | X | 메시지 제목. WIDE_ITEM_LIST: 필수(최대 20자), PREMIUM_VIDEO: 선택(최대 20자). 그 외 타입: 사용 불가 |
 | template.content.content | String | X | 템플릿 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
 | template.content.additionalContent | String | X | 부가 콘텐츠. COMMERCE 타입에서만 사용(선택, 최대 34자). CAROUSEL_COMMERCE는 캐러셀 아이템 내 additionalContent 사용 |
@@ -6129,7 +6129,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
 | template.content.video | Object | X | 동영상 정보. PREMIUM_VIDEO 타입 필수 |
 | template.content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
-| template.content.video.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 썸네일 사용 |
+| template.content.video.thumbnailUrl | String | X | 동영상 섬네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 섬네일 사용 |
 | template.content.commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
 | template.content.commerce.title | String | O | 상품 제목(최대 30자). 필수 |
 | template.content.commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
@@ -6334,7 +6334,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | content | Object | O | 브랜드 메시지 콘텐츠 |
 | content.messageType | String | O | 브랜드 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
-| content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
+| content.adult | Boolean | X | 성인용 메시지 여부(default: `false`). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: `false` |
 | content.header | String | X | 메시지 제목. WIDE_ITEM_LIST: 필수(최대 20자), PREMIUM_VIDEO: 선택(최대 20자). 그 외 타입: 사용 불가 |
 | content.content | String | X | 템플릿 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
 | content.additionalContent | String | X | 부가 콘텐츠. COMMERCE 타입에서만 사용(선택, 최대 34자). CAROUSEL_COMMERCE는 캐러셀 아이템 내 additionalContent 사용 |
@@ -6399,7 +6399,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
 | content.video | Object | X | 동영상 정보. PREMIUM_VIDEO 타입 필수 |
 | content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
-| content.video.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 썸네일 사용 |
+| content.video.thumbnailUrl | String | X | 동영상 섬네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 섬네일 사용 |
 | content.commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
 | content.commerce.title | String | O | 상품 제목(최대 30자). 필수 |
 | content.commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
