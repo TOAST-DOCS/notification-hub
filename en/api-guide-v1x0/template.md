@@ -643,7 +643,7 @@ This API does not require a request body.
 | templates[].templateId | String | O | Template ID issued when registering the template. |
 | templates[].templateName | String | O | Template name |
 | templates[].categoryId | String | O | Category ID |
-| templates[].messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Branded Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | templates[].messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | Template creation time |
@@ -758,7 +758,7 @@ This API does not require a request body.
 | template.templateId | String | O | Template ID issued when registering the template. |
 | template.templateName | String | X | Template name |
 | template.categoryId | String | X | Category ID |
-| template.messageChannel | String | X | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messageChannel | String | X | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Branded Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | template.messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (plain text), FREEMARKER (FreeMarker template)] |
@@ -1475,7 +1475,7 @@ This API does not require a request body.
 | templates[].templateId | String | O | Template ID issued when registering the template. |
 | templates[].templateName | String | O | Template name |
 | templates[].categoryId | String | O | Category ID |
-| templates[].messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | templates[].messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | Template creation time |
@@ -1585,7 +1585,7 @@ This API does not require a request body.
 | templates[].templateId | String | O | Template ID issued when registering the template. |
 | templates[].templateName | String | O | Template name |
 | templates[].categoryId | String | O | Category ID |
-| templates[].messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | templates[].messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | Template creation time |
@@ -1770,11 +1770,11 @@ This API does not require a request body.
 | template.templateId | String | O | Template ID issued when registering the template. |
 | template.templateName | String | O | Template name |
 | template.categoryId | String | O | Category ID |
-| template.messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | template.messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | template.messagePurposes | Array | O |  |
 | template.templateLanguage | String | O | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (plain text), FREEMARKER (FreeMarker template)] |
-| template.sender | Object | O |  |
+| template.sender | Object | X |  |
 | template.sender.senderKey | String | O | Sender profile sender key |
 | template.sender.senderProfileId | String | O | KakaoTalk channel name |
 | template.sender.senderProfileType | String | O | Sender profile type<br>[GROUP, NORMAL] |
@@ -2856,7 +2856,7 @@ This API does not require a request body.
 | template.templateId | String | O | Template ID issued when registering the template. |
 | template.templateName | String | X | Template name |
 | template.categoryId | String | X | Category ID |
-| template.messageChannel | String | X | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messageChannel | String | X | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Branded Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | template.messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (plain text), FREEMARKER (FreeMarker template)] |
@@ -2971,7 +2971,7 @@ This API does not require a request body.
 | templates[].templateId | String | O | Template ID issued when registering the template. |
 | templates[].templateName | String | O | Template name |
 | templates[].categoryId | String | O | Category ID |
-| templates[].messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | templates[].messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | Template creation time |
@@ -3362,11 +3362,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | Body 3 |
 | content.cards[].buttons | Array | X | RCS button list |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE (open chat room), CLIPBOARD (copy), DIALER (make call), MAP_SHOW (show map), MAP_QUERY (search map), MAP_SHARE (share location), URL (open URL), CALENDAR (add calendar) |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | Button content JSON object |
 | content.cards[].buttons[].buttonJson.action | Object | X | Button action |
 | content.buttons | Array | X | (Deprecated, use content.cards[].buttons) RCS button list |
 | content.buttons[].buttonType | String | X | COMPOSE (open chat room), CLIPBOARD (copy), DIALER (make call), MAP_SHOW (show map), MAP_QUERY (search map), MAP_SHARE (share location), URL (open URL), CALENDAR (add calendar)<br>※ For unified MMS, only COMPOSE and CLIPBOARD are supported. |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | Button content JSON object |
 | content.buttons[].buttonJson.action | Object | X | Button action |
 
 
@@ -3628,7 +3628,7 @@ This API does not require a request body.
 | templates[].templateId | String | O | Template ID issued when registering the template. |
 | templates[].templateName | String | O | Template name |
 | templates[].categoryId | String | O | Category ID |
-| templates[].messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | templates[].messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | Template creation time |
@@ -3797,7 +3797,7 @@ This API does not require a request body.
 | template.templateId | String | O | Template ID issued when registering the template. |
 | template.templateName | String | X | Template name |
 | template.categoryId | String | X | Category ID |
-| template.messageChannel | String | X | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messageChannel | String | X | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Branded Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | template.messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (plain text), FREEMARKER (FreeMarker template)] |
@@ -3828,11 +3828,11 @@ This API does not require a request body.
 | template.content.cards[].description3 | String | X | Body 3 |
 | template.content.cards[].buttons | Array | X | RCS button list |
 | template.content.cards[].buttons[].buttonType | String | X | COMPOSE (open chat room), CLIPBOARD (copy), DIALER (make call), MAP_SHOW (show map), MAP_QUERY (search map), MAP_SHARE (share location), URL (open URL), CALENDAR (add calendar) |
-| template.content.cards[].buttons[].buttonJson | Object | X |  |
+| template.content.cards[].buttons[].buttonJson | Object | X | Button content JSON object |
 | template.content.cards[].buttons[].buttonJson.action | Object | X | Button action |
 | template.content.buttons | Array | X | RCS button list |
 | template.content.buttons[].buttonType | String | X | COMPOSE (open chat room), CLIPBOARD (copy), DIALER (make call), MAP_SHOW (show map), MAP_QUERY (search map), MAP_SHARE (share location), URL (open URL), CALENDAR (add calendar) |
-| template.content.buttons[].buttonJson | Object | X |  |
+| template.content.buttons[].buttonJson | Object | X | Button content JSON object |
 | template.content.buttons[].buttonJson.action | Object | X | Button action |
 | template.additionalProperty | Object | X |  |
 | template.additionalProperty.status | String | X | Template status<br>- SAVE: saved<br>- APPROVE_WAIT: pending approval<br>- INSPECTION_START: inspection started<br>- INSPECTION_FINISH: inspection completed<br>- APPROVE: approved<br>- REJECT: rejected<br>- MODIFY: modification requested |
@@ -3999,11 +3999,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | Body 3 |
 | content.cards[].buttons | Array | X | RCS button list |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE (open chat room), CLIPBOARD (copy), DIALER (make call), MAP_SHOW (show map), MAP_QUERY (search map), MAP_SHARE (share location), URL (open URL), CALENDAR (add calendar) |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | Button content JSON object |
 | content.cards[].buttons[].buttonJson.action | Object | X | Button action |
 | content.buttons | Array | X | (Deprecated, use content.cards[].buttons) RCS button list |
 | content.buttons[].buttonType | String | X | COMPOSE (open chat room), CLIPBOARD (copy), DIALER (make call), MAP_SHOW (show map), MAP_QUERY (search map), MAP_SHARE (share location), URL (open URL), CALENDAR (add calendar)<br>※ For unified MMS, only COMPOSE and CLIPBOARD are supported. |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | Button content JSON object |
 | content.buttons[].buttonJson.action | Object | X | Button action |
 
 
@@ -4606,7 +4606,7 @@ This API does not require a request body.
 | templates[].templateId | String | O | Template ID issued when registering the template. |
 | templates[].templateName | String | O | Template name |
 | templates[].categoryId | String | O | Category ID |
-| templates[].messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| templates[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Branded Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | templates[].messagePurpose | String | X | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | Template creation time |
@@ -4759,7 +4759,7 @@ This API does not require a request body.
 | template.templateId | String | O | Template ID issued when registering the template. |
 | template.templateName | String | O | Template name |
 | template.categoryId | String | O | Category ID |
-| template.messageChannel | String | O | Message channel<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
+| template.messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Branded Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | template.messagePurpose | String | O | Message purpose type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
 | template.messagePurposes | Array | O |  |
 | template.templateLanguage | String | O | Template language type<br>Default: PLAIN_TEXT<br>[PLAIN_TEXT (plain text), FREEMARKER (FreeMarker template)] |
@@ -5137,11 +5137,9 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 <span id="templateV1x0035ReadTemplateParameters"></span>
 
-<a id="retrieve-template-parameters"></a>
+## Get Template Parameters
 
-## Retrieve Template Parameters
-
-Retrieves the list of parameters included in the template.
+Retrieves the list of parameters included in a template.
 
 **Request**
 
@@ -5153,11 +5151,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 **Request Parameters**
 
-| Name | In | Type | Required | Description |
+| Name | Category | Type | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | O | Appkey |
+| X-NC-APP-KEY | Header | String | O | App Key |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messageChannel | Path | Enum | O | Message channel. |
+| messageChannel | Path | Enum | O | Message channel.<br>[SMS(SMS), ALIMTALK(AlimTalk), BRANDMESSAGE(Branded Message), RCS(RCS), EMAIL(Email), PUSH(Push)] |
 | templateId | Path | String | O | Template ID |
 
 
@@ -5200,7 +5198,7 @@ This API does not require a request body.
 | Path | Type | Not Null | Description |
 | - | - | - | - |
 | header | Object | O |  |
-| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: `true` |
 | header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
 | header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
 | templateParameter | Object | X | Template parameter result JSON |
@@ -5214,7 +5212,7 @@ This API does not require a request body.
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### Retrieve template parameterss
+### Get Template Parameters
 
 GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{{templateId}}/parameters
 X-NC-APP-KEY: {appKey}
@@ -5227,6 +5225,1532 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}/parameters" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+
+<span id="templateV1x0036CreateBrandmessageTemplate"></span>
+
+## Register Brand Message Template
+
+Registers a template.
+
+**Request**
+
+```
+POST /template/v1.0/BRANDMESSAGE/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**Request Parameters**
+
+| Name | Category | Type | Required | Description |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | Appkey |
+| X-NHN-Authorization | Header | String | O | Access token |
+
+**Request Body**
+
+<!--If the API does not require a request body, enter "This API does not require a request body."-->
+
+```
+{
+  "templateName" : "Brand Message Template",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "Header",
+    "content" : null,
+    "additionalContent" : "Price information",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "Intro Header",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "Price information",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "Product title",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "Button name",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5,000 KRW discount coupon",
+          "description" : "For first-time customers only",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "Item title",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "Product title",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "buttons" : [ {
+      "name" : "Button name",
+      "type" : "WL",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5,000 KRW discount coupon",
+      "description" : "For first-time customers only",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  }
+}
+```
+
+<!--Describes the fields in the request body.-->
+
+| Path | Type | Required | Description |
+| - | - | - | - |
+| templateName | String | O | Template name |
+| categoryId | String | X | Category ID |
+| messagePurpose | String | X | Message content type<br>Default: NORMAL<br>[NORMAL (general), AD (advertisement), AUTH (authentication)] |
+| sender | Object | O | Sender information |
+| sender.senderKey | String | O | Sender profile sender key (40 characters) |
+| sender.senderProfileType | String | O | Sender profile type (NORMAL: general, GROUP: group)<br>[GROUP, NORMAL] |
+| content | Object | O | Brand message content |
+| content.messageType | String | O | Brand message bubble type. TEXT: text type, IMAGE: image type, WIDE: wide image type, WIDE_ITEM_LIST: wide item list type, CAROUSEL_FEED: carousel feed type, CAROUSEL_COMMERCE: carousel commerce type, COMMERCE: commerce type, PREMIUM_VIDEO: premium video type<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
+| content.adult | Boolean | X | Whether the message is for adults (default: false). If set to adult, the message is shown only to recipients who have completed adult verification<br>Default: false |
+| content.header | String | X | Message header. WIDE_ITEM_LIST: required (up to 20 characters), PREMIUM_VIDEO: optional (up to 20 characters). Not available for other types |
+| content.content | String | X | Template body. TEXT: required (up to 1,300 characters, up to 99 line breaks), IMAGE: required (up to 1,300 characters), WIDE: required (up to 76 characters, up to 5 line breaks), PREMIUM_VIDEO: optional (up to 76 characters, up to 5 line breaks). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: not available. URL input is supported |
+| content.additionalContent | String | X | Additional content. Available only for the COMMERCE type (optional, up to 34 characters). CAROUSEL_COMMERCE uses additionalContent within carousel items |
+| content.image | Object | X | Brand message image. Either attachmentId or imageUrl is required |
+| content.image.attachmentId | String | X | Attachment ID. Select either attachmentId or imageUrl |
+| content.image.imageUrl | String | X | Image URL. Select either attachmentId or imageUrl |
+| content.image.imageLink | String | X | URL to go to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used |
+| content.carousel | Object | X | Carousel message information. Required for the CAROUSEL_FEED/CAROUSEL_COMMERCE type |
+| content.carousel.head | Object | X | Carousel intro area. Available only for CAROUSEL_COMMERCE (optional). If used, header, content, and an image (image.attachmentId or image.imageUrl) are required. When head is used, list can contain 1–5 items; when head is not used, 2–6 items |
+| content.carousel.head.header | String | X | Intro header. Required when head is used (up to 20 characters) |
+| content.carousel.head.content | String | X | Intro content. Required when head is used (up to 50 characters) |
+| content.carousel.head.image | Object | X | Brand message image. One of attachmentId or imageUrl is required |
+| content.carousel.head.image.attachmentId | String | X | Attachment ID. Choose one of attachmentId or imageUrl |
+| content.carousel.head.image.imageUrl | String | X | Image URL. Choose one of attachmentId or imageUrl |
+| content.carousel.head.linkMo | String | X | Mobile web link to go to when the intro is clicked. Required when another link (linkPc/schemeIos/schemeAndroid) is entered |
+| content.carousel.head.linkPc | String | X | PC web link to go to when the intro is clicked. Optional |
+| content.carousel.head.schemeIos | String | X | iOS app link to open when the intro is clicked. Optional |
+| content.carousel.head.schemeAndroid | String | X | Android app link to open when the intro is clicked. Optional |
+| content.carousel.list | Array | O | List of carousel items. 1 to 5 items when head is used; 2 to 6 items when not used |
+| content.carousel.list[].header | String | X | Carousel item title. CAROUSEL_FEED: required (up to 20 characters). CAROUSEL_COMMERCE: not available |
+| content.carousel.list[].message | String | X | Carousel item message. CAROUSEL_FEED: required (up to 180 characters). CAROUSEL_COMMERCE: not available |
+| content.carousel.list[].additionalContent | String | X | Additional content. CAROUSEL_COMMERCE: optional (up to 34 characters). CAROUSEL_FEED: not available |
+| content.carousel.list[].image | Object | X | Brand message image. One of attachmentId or imageUrl is required |
+| content.carousel.list[].image.attachmentId | String | X | Attachment ID. One of attachmentId or imageUrl |
+| content.carousel.list[].image.imageUrl | String | X | Image URL. One of attachmentId or imageUrl |
+| content.carousel.list[].image.imageLink | String | X | URL to go to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used |
+| content.carousel.list[].commerce | Object | X | Commerce information. Required for COMMERCE/CAROUSEL_COMMERCE type |
+| content.carousel.list[].commerce.title | String | O | Product title (up to 30 characters). Required |
+| content.carousel.list[].commerce.regularPrice | Integer | O | Regular price (0–99,999,999). Required |
+| content.carousel.list[].commerce.discountPrice | Integer | X | Discounted price (0–99,999,999). Optional. If used, one of discountRate or discountFixed is required |
+| content.carousel.list[].commerce.discountRate | Integer | X | Discount rate (0–100). One of discountRate or discountFixed when discountPrice is present |
+| content.carousel.list[].commerce.discountFixed | Integer | X | Fixed discount price (0–999,999). If discountPrice exists, choose either this or discountRate |
+| content.carousel.list[].buttons | Array | O | Carousel item buttons. Minimum 1, maximum 2 required. AC button must be placed last |
+| content.carousel.list[].buttons[].name | String | X | Button name. TEXT/IMAGE: up to 14 characters, others: up to 8 characters. AC type: send without a value. BF type: choose one of "Take Survey", "Apply", or "Enter" |
+| content.carousel.list[].buttons[].type | String | O | Button type. WL: Web Link, AL: App Link, BK: Bot Keyword, MD: Message Delivery, BC: Bot for Consultation, BT: Bot Transfer, BF: Business Form, AC: Channel Added<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| content.carousel.list[].buttons[].linkMo | String | X | Mobile web link (http/https). Required for WL type; optional for AL type (required when entered with either schemeIos or schemeAndroid) |
+| content.carousel.list[].buttons[].linkPc | String | X | PC web link (http/https). Optional for WL/AL types |
+| content.carousel.list[].buttons[].schemeIos | String | X | iOS app link. AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required |
+| content.carousel.list[].buttons[].schemeAndroid | String | X | Android app link. AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required |
+| content.carousel.list[].buttons[].bizFormId | Integer | X | Business form ID. Required for BF type |
+| content.carousel.list[].coupon | Object | X | Coupon information. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: optional. CAROUSEL_FEED/CAROUSEL_COMMERCE: used within a carousel item |
+| content.carousel.list[].coupon.title | String | O | Coupon title. Required. Select one of the following: "{N}KRW off coupon" (N: 1–99,999,999), "{N}% off coupon" (N: 1–100), "Shipping discount coupon", "{product name} Free coupon" (product name up to 7 characters), "{product name} UP coupon" (product name up to 7 characters) |
+| content.carousel.list[].coupon.description | String | O | Coupon description. Required. TEXT/IMAGE/COMMERCE: up to 12 characters, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: up to 18 characters |
+| content.carousel.list[].coupon.linkMo | String | X | Mobile web link (http/https) to open when the coupon is clicked. Required if not using a channel coupon URL |
+| content.carousel.list[].coupon.linkPc | String | X | PC web link to open when the coupon is clicked. Optional |
+| content.carousel.list[].coupon.schemeIos | String | X | iOS app link to open when the coupon is clicked. At least one of schemeIos or schemeAndroid is required when using a channel coupon URL |
+| content.carousel.list[].coupon.schemeAndroid | String | X | Android app link to open when the coupon is clicked. At least one of schemeAndroid or schemeIos is required when using a channel coupon URL |
+| content.carousel.tail | Object | X | Carousel more button link information. Optional. linkMo is required when used |
+| content.carousel.tail.linkMo | String | X | Mobile web link (http/https) to open when the more button is clicked. Required when tail is used |
+| content.carousel.tail.linkPc | String | X | PC web link to open when the more button is clicked. Optional |
+| content.carousel.tail.schemeIos | String | X | iOS app link to open when the more button is clicked. Optional |
+| content.carousel.tail.schemeAndroid | String | X | Android app link to open when the More button is clicked. Optional |
+| content.item | Object | X | Wide item list (WIDE_ITEM_LIST) item information. Required for the WIDE_ITEM_LIST type |
+| content.item.list | Array | O | Wide item list. Minimum 3, maximum 4 |
+| content.item.list[].title | String | X | Item title (up to 1 line break). First item: optional (up to 25 characters), items 2–4: required (up to 30 characters) |
+| content.item.list[].image | Object | X | Brand message image. One of attachmentId or imageUrl is required |
+| content.item.list[].image.attachmentId | String | X | Attachment ID. Select one of attachmentId or imageUrl |
+| content.item.list[].image.imageUrl | String | X | Image URL. Select one of attachmentId or imageUrl |
+| content.item.list[].linkMo | String | O | Mobile web link (http/https) to open when the item is clicked. Required |
+| content.item.list[].linkPc | String | X | PC web link (http/https) to open when the item is clicked. Optional |
+| content.item.list[].schemeIos | String | X | iOS app link to open when the item is clicked. Optional |
+| content.item.list[].schemeAndroid | String | X | Android app link to launch when the item is clicked. Optional |
+| content.video | Object | X | Video information. Required for the PREMIUM_VIDEO type |
+| content.video.videoUrl | String | O | Kakao TV video URL (must start with https://tv.kakao.com/). Required for the PREMIUM_VIDEO type |
+| content.video.thumbnailUrl | String | X | Video thumbnail image URL. Optional. If not set, the default Kakao TV thumbnail is used |
+| content.commerce | Object | X | Commerce information. Required for the COMMERCE/CAROUSEL_COMMERCE type |
+| content.commerce.title | String | O | Product title (up to 30 characters). Required |
+| content.commerce.regularPrice | Integer | O | Regular price (0–99,999,999). Required |
+| content.commerce.discountPrice | Integer | X | Discounted price (0–99,999,999). Optional. If used, either discountRate or discountFixed is required |
+| content.commerce.discountRate | Integer | X | Discount rate (0–100). If discountPrice is present, choose one of discountRate or discountFixed |
+| content.commerce.discountFixed | Integer | X | Fixed discount amount (0–999,999). If discountPrice is present, choose one of discountRate or discountFixed |
+| content.buttons | Array | X | List of message buttons. TEXT/IMAGE: up to 5 (up to 4 when a coupon is applied), WIDE/WIDE_ITEM_LIST: up to 2, PREMIUM_VIDEO: up to 1, COMMERCE: required (minimum 1, maximum 2). CAROUSEL_FEED/CAROUSEL_COMMERCE: use buttons inside carousel items |
+| content.buttons[].name | String | X | Button name. TEXT/IMAGE: up to 14 characters; others: up to 8 characters. AC type: send without a value. BF type: select one of "Participate in survey", "Apply", or "Enter" |
+| content.buttons[].type | String | O | Button type. WL: Web Link, AL: App Link, BK: Bot Keyword, MD: Message Delivery, BC: Bot for Consultation, BT: Bot Transfer, BF: Business Form, AC: Channel Added<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| content.buttons[].linkMo | String | X | Mobile web link (http/https). Required for WL type; optional for AL type (required when entered together with schemeIos or schemeAndroid) |
+| content.buttons[].linkPc | String | X | PC web link (http/https). Optional for WL/AL types |
+| content.buttons[].schemeIos | String | X | iOS app link. AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required |
+| content.buttons[].schemeAndroid | String | X | Android app link. AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required |
+| content.buttons[].bizFormId | Integer | X | Business form ID. Required for BF type |
+| content.coupon | Object | X | Coupon information. Optional for TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE. CAROUSEL_FEED/CAROUSEL_COMMERCE: used inside carousel items |
+| content.coupon.title | String | O | Coupon title. Required. Select one of the following formats: "{N} KRW off coupon" (N: 1–99,999,999), "{N}% off coupon" (N: 1–100), "Shipping discount coupon", "{product name} free coupon" (product name up to 7 characters), or "{product name} UP coupon" (product name up to 7 characters) |
+| content.coupon.description | String | O | Coupon description. Required. TEXT/IMAGE/COMMERCE: up to 12 characters, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: up to 18 characters |
+| content.coupon.linkMo | String | X | Mobile web link (http/https) to open when the coupon is clicked. Required if not using a channel coupon URL |
+| content.coupon.linkPc | String | X | PC web link to open when the coupon is clicked. Optional |
+| content.coupon.schemeIos | String | X | iOS app link to launch when the coupon is clicked. At least one of schemeIos or schemeAndroid is required when using a channel coupon URL |
+| content.coupon.schemeAndroid | String | X | Android app link to launch when the coupon is clicked. At least one of schemeAndroid or schemeIos is required when using a channel coupon URL |
+
+**Response Body**
+
+<!--If the API does not return a response body, enter "This API does not return a response body."-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateId" : "A9z0A9z0"
+}
+```
+
+<!--Describes the fields of the response body.-->
+
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+| templateId | String | O | Template ID issued when the template is registered |
+
+**Request Example**
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Register a brand message template
+
+POST {{endpoint}}/template/v1.0/BRANDMESSAGE/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "templateName" : "Brand message template",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "Header",
+    "content" : null,
+    "additionalContent" : "Price information",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "Intro header",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "Price information",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "Product title",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "Button name",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5,000 KRW discount coupon",
+          "description" : "For first-time customers only",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "Item title",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "Product title",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "buttons" : [ {
+      "name" : "Button name",
+      "type" : "WL",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5,000 KRW discount coupon",
+      "description" : "For first-time customers only",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  }
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X POST "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "templateName" : "Brand message template",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+    "senderProfileType" : "NORMAL"
+  },
+  "content" : {
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "Header",
+    "content" : null,
+    "additionalContent" : "Price information",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "Intro header",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "Price information",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "Product title",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "Button name",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5,000 KRW discount coupon",
+          "description" : "For first-time customers only",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "Item title",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "Product title",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "buttons" : [ {
+      "name" : "Button name",
+      "type" : "WL",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5,000 KRW discount coupon",
+      "description" : "For first-time customers only",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  }
+}'
+```
+
+</details>
+
+<span id="templateV1x0037ReadBrandmessageTemplateList"></span>
+
+## List Brand Message Templates
+
+Retrieves a list of templates.
+
+**Request**
+
+```
+GET /template/v1.0/BRANDMESSAGE/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**Request Parameters**
+
+| Name | Type | Format | Required | Description |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | App Key |
+| X-NHN-Authorization | Header | String | O | Access token |
+| templateName | Query | String | X | Template name (LIKE search) |
+| senderKey | Query | String | X | Sender key |
+| limit | Query | Number | X | If not set, defaults to 20 (maximum 1000) |
+| offset | Query | Number | X | If not set, defaults to 0 |
+
+
+
+**Request Body**
+
+<!--If the API does not require a request body, enter "This API does not require a request body."-->
+
+This API does not require a request body.
+
+
+
+**Response Body**
+
+<!--If the API does not return a response body, enter "This API does not return a response body."-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalCount" : 1,
+  "templates" : [ {
+    "templateId" : "A9z0A9z0",
+    "templateName" : "Delivery complete",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
+}
+```
+
+<!--Describes the fields of the response body.-->
+
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+| totalCount | Integer | O | Total count |
+| templates | Array | O |  |
+| templates[].templateId | String | O | Template ID issued when the template was registered |
+| templates[].templateName | String | O | Template name |
+| templates[].categoryId | String | O | Category ID |
+| templates[].messageChannel | String | O | Message channel<br>[SMS (SMS), ALIMTALK (AlimTalk), BRANDMESSAGE (Brand Message), EMAIL (Email), RCS (RCS), PUSH (Push)] |
+| templates[].messagePurpose | String | X | Message content type<br>Default: NORMAL<br>[NORMAL (General), AD (Advertisement), AUTH (Authentication)] |
+| templates[].messagePurposes | Array | O |  |
+| templates[].createdDateTime | String | O | Template creation date and time |
+| templates[].updatedDateTime | String | O | Template last modified date and time |
+
+
+
+**Request Example**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### List brand message templates
+
+GET {{endpoint}}/template/v1.0/BRANDMESSAGE/templates
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+
+<span id="templateV1x0038ReadBrandmessageTemplate"></span>
+
+## Get Brand Message Template Details
+
+Retrieves the details of a template.
+
+**Request**
+
+```
+GET /template/v1.0/BRANDMESSAGE/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**Request Parameters**
+
+| Name | Category | Type | Required | Description |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | App Key |
+| X-NHN-Authorization | Header | String | O | Access token |
+| templateId | Path | String | O | Template ID |
+
+**Request Body**
+
+<!--If the API does not require a request body, enter "This API does not require a request body."-->
+
+This API does not require a request body.
+
+**Response Body**
+
+<!--If the API does not return a response body, enter "This API does not return a response body."-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "template" : {
+    "templateId" : "A9z0A9z0",
+    "templateCode" : "TMPL_001",
+    "templateName" : "Brand message template",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "NORMAL"
+    },
+    "content" : {
+      "messageType" : "TEXT",
+      "adult" : false,
+      "header" : "Header",
+      "content" : null,
+      "additionalContent" : "Price information",
+      "image" : {
+        "attachmentId" : "20230131070811m2fDe1rXx80",
+        "imageUrl" : "https://example.com/image.jpg",
+        "imageLink" : "https://www.example.com"
+      },
+      "carousel" : {
+        "head" : {
+          "header" : "Intro header",
+          "content" : null,
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg"
+          },
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        },
+        "list" : [ {
+          "header" : "Carousel Header",
+          "message" : "Carousel Message",
+          "additionalContent" : "Price information",
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg",
+            "imageLink" : "https://www.example.com"
+          },
+          "commerce" : {
+            "title" : "Product title",
+            "regularPrice" : 50000,
+            "discountPrice" : 45000,
+            "discountRate" : 10,
+            "discountFixed" : 5000
+          },
+          "buttons" : [ {
+            "name" : "Button name",
+            "type" : "WL",
+            "linkMo" : "https://m.example.com",
+            "linkPc" : "https://www.example.com",
+            "schemeIos" : "example://ios",
+            "schemeAndroid" : "example://android",
+            "bizFormId" : 12345
+          } ],
+          "coupon" : {
+            "title" : "5,000 KRW discount coupon",
+            "description" : "For first-time buyers only",
+            "linkMo" : "https://m.example.com",
+            "linkPc" : "https://www.example.com",
+            "schemeIos" : "example://ios",
+            "schemeAndroid" : "example://android"
+          }
+        } ],
+        "tail" : {
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      },
+      "item" : {
+        "list" : [ {
+          "title" : "Item title",
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg"
+          },
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        } ]
+      },
+      "video" : {
+        "videoUrl" : "https://tv.kakao.com/v/123456789",
+        "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      },
+      "commerce" : {
+        "title" : "Product title",
+        "regularPrice" : 50000,
+        "discountPrice" : 45000,
+        "discountRate" : 10,
+        "discountFixed" : 5000
+      },
+      "buttons" : [ {
+        "name" : "Button name",
+        "type" : "WL",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
+      } ],
+      "coupon" : {
+        "title" : "5,000 KRW discount coupon",
+        "description" : "For first-time buyers only",
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "status" : "A",
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  }
+}
+```
+
+<!--Describes the fields in the response body.-->
+
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | X |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+| template | Object | X |  |
+| template.templateId | String | X | Template ID |
+| template.templateCode | String | X | KakaoTalk template code |
+| template.templateName | String | X | Template name |
+| template.categoryId | String | X | Category ID |
+| template.messageChannel | String | X | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
+| template.messagePurpose | String | X | Message content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
+| template.messagePurposes | Array | X |  |
+| template.sender | Object | X | Brand message sender information |
+| template.sender.senderKey | String | O | Sender profile sender key (40 characters). Group sender keys cannot be used |
+| template.sender.senderProfileId | String | X | KakaoTalk channel name |
+| template.sender.senderProfileType | String | X | Sender profile type (NORMAL: general, GROUP: group)<br>[GROUP, NORMAL] |
+| template.content | Object | X | Brand message content |
+| template.content.messageType | String | O | Brand message bubble type. TEXT: text type, IMAGE: image type, WIDE: wide image type, WIDE_ITEM_LIST: wide item list type, CAROUSEL_FEED: carousel feed type, CAROUSEL_COMMERCE: carousel commerce type, COMMERCE: commerce type, PREMIUM_VIDEO: premium video type<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
+| template.content.adult | Boolean | X | Whether the message is for adults only (default: `false`). When set to adult, the message is displayed only to recipients who have completed adult verification<br>Default: `false` |
+| template.content.header | String | X | Message header. WIDE_ITEM_LIST: required (up to 20 characters), PREMIUM_VIDEO: optional (up to 20 characters). Not available for other types |
+| template.content.content | String | X | Template body. TEXT: required (up to 1,300 characters, up to 99 line breaks), IMAGE: required (up to 1,300 characters), WIDE: required (up to 76 characters, up to 5 line breaks), PREMIUM_VIDEO: optional (up to 76 characters, up to 5 line breaks). Not available for WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE. URLs can be entered. |
+| template.content.additionalContent | String | X | Additional content. Only available for the COMMERCE type (optional, up to 34 characters). For CAROUSEL_COMMERCE, use additionalContent within the carousel item. |
+| template.content.image | Object | X | Brand message image. Either attachmentId or imageUrl is required. |
+| template.content.image.attachmentId | String | X | Attachment ID. Select one of attachmentId or imageUrl. |
+| template.content.image.imageUrl | String | X | Image URL. Select one of attachmentId or imageUrl. |
+| template.content.image.imageLink | String | X | URL to go to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used. |
+| template.content.carousel | Object | X | Carousel message information. Required for the CAROUSEL_FEED/CAROUSEL_COMMERCE type. |
+| template.content.carousel.head | Object | X | Carousel intro area. Only available for CAROUSEL_COMMERCE (optional). When used, header, content, and an image (image.attachmentId or image.imageUrl) are required. When head is used, list can contain 1–5 items; when not used, 2–6 items. |
+| template.content.carousel.head.header | String | X | Intro header. Required when head is used (up to 20 characters). |
+| template.content.carousel.head.content | String | X | Intro content. Required when head is used (up to 50 characters). |
+| template.content.carousel.head.image | Object | X | Brand message image. One of attachmentId or imageUrl is required. |
+| template.content.carousel.head.image.attachmentId | String | X | Attachment ID. Select one of attachmentId or imageUrl. |
+| template.content.carousel.head.image.imageUrl | String | X | Image URL. Select one of attachmentId or imageUrl. |
+| template.content.carousel.head.linkMo | String | X | Mobile web link to go to when the intro is clicked. Required when another link (linkPc/schemeIos/schemeAndroid) is entered. |
+| template.content.carousel.head.linkPc | String | X | PC web link to go to when the intro is clicked. Optional. |
+| template.content.carousel.head.schemeIos | String | X | iOS app link to open when the intro is clicked. Optional. |
+| template.content.carousel.head.schemeAndroid | String | X | Android app link to open when the intro is clicked. Optional. |
+| template.content.carousel.list | Array | O | List of carousel items. 1 to 5 items when head is used; 2 to 6 items when not used. |
+| template.content.carousel.list[].header | String | X | Carousel item title. CAROUSEL_FEED: required (up to 20 characters). CAROUSEL_COMMERCE: not available. |
+| template.content.carousel.list[].message | String | X | Carousel item message. CAROUSEL_FEED: required (up to 180 characters). CAROUSEL_COMMERCE: not available. |
+| template.content.carousel.list[].additionalContent | String | X | Additional content. CAROUSEL_COMMERCE: optional (up to 34 characters). CAROUSEL_FEED: not available |
+| template.content.carousel.list[].image | Object | X | Brand message image. One of attachmentId or imageUrl is required |
+| template.content.carousel.list[].image.attachmentId | String | X | Attachment ID. One of attachmentId or imageUrl |
+| template.content.carousel.list[].image.imageUrl | String | X | Image URL. One of attachmentId or imageUrl |
+| template.content.carousel.list[].image.imageLink | String | X | URL to go to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used |
+| template.content.carousel.list[].commerce | Object | X | Commerce information. Required for COMMERCE/CAROUSEL_COMMERCE types |
+| template.content.carousel.list[].commerce.title | String | O | Product title (up to 30 characters). Required |
+| template.content.carousel.list[].commerce.regularPrice | Integer | O | Regular price (0–99,999,999). Required |
+| template.content.carousel.list[].commerce.discountPrice | Integer | X | Discounted price (0–99,999,999). Optional. If used, one of discountRate or discountFixed is required |
+| template.content.carousel.list[].commerce.discountRate | Integer | X | Discount rate (0–100). If discountPrice is set, one of discountRate or discountFixed |
+| template.content.carousel.list[].commerce.discountFixed | Integer | X | Fixed discount price (0–999,999). Either this or discountRate is required when discountPrice is present. |
+| template.content.carousel.list[].buttons | Array | O | Carousel item buttons. Minimum 1, maximum 2 required. AC button must be placed last. |
+| template.content.carousel.list[].buttons[].name | String | X | Button name. TEXT/IMAGE: up to 14 characters; others: up to 8 characters. AC type: send without a value. BF type: choose one of "설문 참여하기", "신청하기", or "응모하기". |
+| template.content.carousel.list[].buttons[].type | String | O | Button type. WL: Web Link, AL: App Link, BK: Bot Keyword, MD: Message Delivery, BC: Bot for Consultation, BT: Bot Transfer, BF: Business Form, AC: Channel Added<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| template.content.carousel.list[].buttons[].linkMo | String | X | Mobile web link (http/https). Required for WL type; optional for AL type (required when entered together with schemeIos or schemeAndroid). |
+| template.content.carousel.list[].buttons[].linkPc | String | X | PC web link (http/https). Optional for WL/AL type. |
+| template.content.carousel.list[].buttons[].schemeIos | String | X | iOS app link. For AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required. |
+| template.content.carousel.list[].buttons[].schemeAndroid | String | X | Android app link. For AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required. |
+| template.content.carousel.list[].buttons[].bizFormId | Integer | X | Business form ID. Required for BF type. |
+| template.content.carousel.list[].coupon | Object | X | Coupon information. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: optional. CAROUSEL_FEED/CAROUSEL_COMMERCE: used within a carousel item. |
+| template.content.carousel.list[].coupon.title | String | O | Coupon title. Required. Select one of the following: "{N}KRW off coupon" (N: 1–99,999,999), "{N}% off coupon" (N: 1–100), "Shipping discount coupon", "{product name} Free coupon" (product name: up to 7 characters), "{product name} UP coupon" (product name: up to 7 characters) |
+| template.content.carousel.list[].coupon.description | String | O | Coupon description. Required. TEXT/IMAGE/COMMERCE: up to 12 characters, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: up to 18 characters |
+| template.content.carousel.list[].coupon.linkMo | String | X | Mobile web link (http/https) to open when the coupon is clicked. Required if not using a channel coupon URL |
+| template.content.carousel.list[].coupon.linkPc | String | X | PC web link to open when the coupon is clicked. Optional |
+| template.content.carousel.list[].coupon.schemeIos | String | X | iOS app link to open when the coupon is clicked. At least one of schemeIos or schemeAndroid is required when using a channel coupon URL |
+| template.content.carousel.list[].coupon.schemeAndroid | String | X | Android app link to open when the coupon is clicked. At least one of schemeAndroid or schemeIos is required when using a channel coupon URL |
+| template.content.carousel.tail | Object | X | Carousel more button link information. Optional. If used, linkMo is required |
+| template.content.carousel.tail.linkMo | String | X | Mobile web link (http/https) to open when the more button is clicked. Required when tail is used |
+| template.content.carousel.tail.linkPc | String | X | PC web link to open when the more button is clicked. Optional |
+| template.content.carousel.tail.schemeIos | String | X | iOS app link to open when the more button is clicked. Optional |
+| template.content.carousel.tail.schemeAndroid | String | X | Android app link to launch when the More button is clicked. Optional |
+| template.content.item | Object | X | Item information for the wide item list type (WIDE_ITEM_LIST). Required for the WIDE_ITEM_LIST type |
+| template.content.item.list | Array | O | Wide item list. At least 3, up to 4 |
+| template.content.item.list[].title | String | X | Item title (up to 1 line break). First item: optional (up to 25 characters), items 2–4: required (up to 30 characters) |
+| template.content.item.list[].image | Object | X | Brand message image. One of attachmentId or imageUrl is required |
+| template.content.item.list[].image.attachmentId | String | X | Attachment ID. Choose one of attachmentId or imageUrl |
+| template.content.item.list[].image.imageUrl | String | X | Image URL. Choose one of attachmentId or imageUrl |
+| template.content.item.list[].linkMo | String | O | Mobile web link (http/https) to navigate to when the item is clicked. Required |
+| template.content.item.list[].linkPc | String | X | PC web link (http/https) to navigate to when the item is clicked. Optional |
+| template.content.item.list[].schemeIos | String | X | iOS app link to launch when the item is clicked. Optional |
+| template.content.item.list[].schemeAndroid | String | X | Android app link to launch when the item is clicked. Optional |
+| template.content.video | Object | X | Video information. Required for the PREMIUM_VIDEO type |
+| template.content.video.videoUrl | String | O | Kakao TV video URL (must start with https://tv.kakao.com/). Required for the PREMIUM_VIDEO type |
+| template.content.video.thumbnailUrl | String | X | Video thumbnail image URL. Optional. If not set, the default Kakao TV thumbnail is used |
+| template.content.commerce | Object | X | Commerce information. Required for the COMMERCE/CAROUSEL_COMMERCE type |
+| template.content.commerce.title | String | O | Product title (up to 30 characters). Required |
+| template.content.commerce.regularPrice | Integer | O | Regular price (0–99,999,999). Required |
+| template.content.commerce.discountPrice | Integer | X | Discounted price (0–99,999,999). Optional. If used, either discountRate or discountFixed is required |
+| template.content.commerce.discountRate | Integer | X | Discount rate (0–100). If discountPrice is present, choose either this or discountFixed |
+| template.content.commerce.discountFixed | Integer | X | Fixed discount amount (0–999,999). If discountPrice is present, choose either this or discountRate |
+| template.content.buttons | Array | X | List of message buttons. TEXT/IMAGE: up to 5 (up to 4 when a coupon is applied), WIDE/WIDE_ITEM_LIST: up to 2, PREMIUM_VIDEO: up to 1, COMMERCE: required (at least 1, up to 2). CAROUSEL_FEED/CAROUSEL_COMMERCE: use buttons within carousel items |
+| template.content.buttons[].name | String | X | Button name. TEXT/IMAGE: up to 14 characters, others: up to 8 characters. AC type: send without a value. BF type: select one of "Participate in Survey", "Apply", or "Enter" |
+| template.content.buttons[].type | String | O | Button type. WL: Web Link, AL: App Link, BK: Bot Keyword, MD: Message Delivery, BC: Bot for Consultation, BT: Bot Transfer, BF: Business Form, AC: Channel Added<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| template.content.buttons[].linkMo | String | X | Mobile web link (http/https). Required for WL type; optional for AL type (required when entered together with schemeIos or schemeAndroid) |
+| template.content.buttons[].linkPc | String | X | PC web link (http/https). Optional for WL/AL type |
+| template.content.buttons[].schemeIos | String | X | iOS app link. AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required |
+| template.content.buttons[].schemeAndroid | String | X | Android app link. AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required |
+| template.content.buttons[].bizFormId | Integer | X | Business form ID. Required for BF type |
+| template.content.coupon | Object | X | Coupon information. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: optional. CAROUSEL_FEED/CAROUSEL_COMMERCE: use within carousel items |
+| template.content.coupon.title | String | O | Coupon title. Required. Select one of the following formats: "{N}KRW off coupon" (N: 1–99,999,999), "{N}% off coupon" (N: 1–100), "Shipping discount coupon", "{product name} Free coupon" (product name: up to 7 characters), "{product name} UP coupon" (product name: up to 7 characters) |
+| template.content.coupon.description | String | O | Coupon description. Required. TEXT/IMAGE/COMMERCE: up to 12 characters, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: up to 18 characters |
+| template.content.coupon.linkMo | String | X | Mobile web link to go to when the coupon is clicked (http/https). Required if not a channel coupon URL |
+| template.content.coupon.linkPc | String | X | PC web link to go to when the coupon is clicked. Optional |
+| template.content.coupon.schemeIos | String | X | iOS app link to open when the coupon is clicked. At least one of schemeIos or schemeAndroid is required when using a channel coupon URL |
+| template.content.coupon.schemeAndroid | String | X | Android app link to open when the coupon is clicked. At least one of schemeAndroid or schemeIos is required when using a channel coupon URL |
+| template.status | String | X | Template status. A: Registered (Active), S: Blocked (Stopped)<br>[A, S] |
+| template.createdDateTime | String | X | Template creation time |
+| template.updatedDateTime | String | X | Template modification time |
+
+**Request Example**
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Get brand message template details
+
+GET {{endpoint}}/template/v1.0/BRANDMESSAGE/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+
+<span id="templateV1x0039UpdateBrandmessageTemplate"></span>
+
+## Modify Brand Message Template
+
+Modifies a template.
+
+**Request**
+
+```
+PUT /template/v1.0/BRANDMESSAGE/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**Request Parameters**
+
+| Name | Category | Type | Required | Description |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | App Key |
+| X-NHN-Authorization | Header | String | O | Access token |
+| templateId | Path | String | O | Template ID |
+
+**Request Body**
+
+<!--If the API does not require a request body, enter "This API does not require a request body."-->
+
+```
+{
+  "templateName" : "Modify Brand Message Template",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "Header",
+    "content" : null,
+    "additionalContent" : "Price information",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "Intro Header",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "Price information",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "Product title",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "Button name",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5,000 KRW discount coupon",
+          "description" : "For first-time customers only",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "Item title",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "Product title",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "buttons" : [ {
+      "name" : "Button name",
+      "type" : "WL",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5,000 KRW discount coupon",
+      "description" : "For first-time customers only",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  }
+}
+```
+
+<!--Describes the fields in the request body.-->
+
+| Path | Type | Required | Description |
+| - | - | - | - |
+| templateName | String | O | Template name |
+| messagePurpose | String | X | Message content type<br>Default: NORMAL<br>[NORMAL, AD, PROMOTIONAL, AUTH] |
+| content | Object | O | Brand message content |
+| content.messageType | String | O | Brand message bubble type. TEXT: text type, IMAGE: image type, WIDE: wide image type, WIDE_ITEM_LIST: wide item list type, CAROUSEL_FEED: carousel feed type, CAROUSEL_COMMERCE: carousel commerce type, COMMERCE: commerce type, PREMIUM_VIDEO: premium video type<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
+| content.adult | Boolean | X | Whether the message is for adults (default: `false`). If set to adult, the message is only displayed to recipients who have completed adult verification<br>Default: `false` |
+| content.header | String | X | Message title. WIDE_ITEM_LIST: required (up to 20 characters), PREMIUM_VIDEO: optional (up to 20 characters). Other types: not available |
+| content.content | String | X | Template body. TEXT: required (up to 1,300 characters, up to 99 line breaks), IMAGE: required (up to 1,300 characters), WIDE: required (up to 76 characters, up to 5 line breaks), PREMIUM_VIDEO: optional (up to 76 characters, up to 5 line breaks). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: not available. URLs can be entered |
+| content.additionalContent | String | X | Additional content. Available only for the COMMERCE type (optional, up to 34 characters). For CAROUSEL_COMMERCE, use additionalContent within the carousel item |
+| content.image | Object | X | Brand message image. One of attachmentId or imageUrl is required |
+| content.image.attachmentId | String | X | Attachment ID. Select one of attachmentId or imageUrl |
+| content.image.imageUrl | String | X | Image URL. Choose one of attachmentId or imageUrl |
+| content.image.imageLink | String | X | URL to go to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used |
+| content.carousel | Object | X | Carousel message information. Required for CAROUSEL_FEED/CAROUSEL_COMMERCE types |
+| content.carousel.head | Object | X | Carousel intro area. Available only for CAROUSEL_COMMERCE (optional). When used, header, content, and image (image.attachmentId or image.imageUrl) are required. When head is used, list can contain 1–5 items; when not used, 2–6 items |
+| content.carousel.head.header | String | X | Intro header. Required when head is used (up to 20 characters) |
+| content.carousel.head.content | String | X | Intro content. Required when head is used (up to 50 characters) |
+| content.carousel.head.image | Object | X | Brand message image. One of attachmentId or imageUrl is required |
+| content.carousel.head.image.attachmentId | String | X | Attachment ID. Choose one of attachmentId or imageUrl |
+| content.carousel.head.image.imageUrl | String | X | Image URL. Choose one of attachmentId or imageUrl |
+| content.carousel.head.linkMo | String | X | Mobile web link to go to when the intro is clicked. Required when another link (linkPc/schemeIos/schemeAndroid) is entered |
+| content.carousel.head.linkPc | String | X | PC web link to go to when the intro is clicked. Optional |
+| content.carousel.head.schemeIos | String | X | iOS app link to open when the intro is clicked. Optional |
+| content.carousel.head.schemeAndroid | String | X | Android app link to open when the intro is clicked. Optional |
+| content.carousel.list | Array | O | List of carousel items. 1–5 items when head is used, 2–6 items when not used |
+| content.carousel.list[].header | String | X | Carousel item title. CAROUSEL_FEED: required (up to 20 characters). CAROUSEL_COMMERCE: not available |
+| content.carousel.list[].message | String | X | Carousel item message. CAROUSEL_FEED: required (up to 180 characters). CAROUSEL_COMMERCE: not available |
+| content.carousel.list[].additionalContent | String | X | Additional content. CAROUSEL_COMMERCE: optional (up to 34 characters). CAROUSEL_FEED: not available |
+| content.carousel.list[].image | Object | X | Brand message image. Either attachmentId or imageUrl is required |
+| content.carousel.list[].image.attachmentId | String | X | Attachment ID. Select one of attachmentId or imageUrl |
+| content.carousel.list[].image.imageUrl | String | X | Image URL. Select one of attachmentId or imageUrl |
+| content.carousel.list[].image.imageLink | String | X | URL to navigate to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used. |
+| content.carousel.list[].commerce | Object | X | Commerce information. Required for COMMERCE/CAROUSEL_COMMERCE type. |
+| content.carousel.list[].commerce.title | String | O | Product title (maximum 30 characters). Required. |
+| content.carousel.list[].commerce.regularPrice | Integer | O | Regular price (0–99,999,999). Required. |
+| content.carousel.list[].commerce.discountPrice | Integer | X | Discounted price (0–99,999,999). Optional. If used, either discountRate or discountFixed is required. |
+| content.carousel.list[].commerce.discountRate | Integer | X | Discount rate (0–100). If discountPrice is present, choose either discountRate or discountFixed. |
+| content.carousel.list[].commerce.discountFixed | Integer | X | Fixed discount amount (0–999,999). If discountPrice is present, choose either discountFixed or discountRate. |
+| content.carousel.list[].buttons | Array | O | Carousel item buttons. Minimum 1, maximum 2 required. The AC button must be placed last. |
+| content.carousel.list[].buttons[].name | String | X | Button name. TEXT/IMAGE: maximum 14 characters; others: maximum 8 characters. AC type: sent without a value. BF type: choose one of "설문 참여하기", "신청하기", or "응모하기". |
+| content.carousel.list[].buttons[].type | String | O | Button type. WL: Web Link, AL: App Link, BK: Bot Keyword, MD: Message Delivery, BC: Bot for Consultation, BT: Bot Transfer, BF: Business Form, AC: Channel Added<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| content.carousel.list[].buttons[].linkMo | String | X | Mobile web link (http/https). Required for the WL type; optional for the AL type (required when entered together with one of schemeIos/schemeAndroid) |
+| content.carousel.list[].buttons[].linkPc | String | X | PC web link (http/https). Optional for the WL/AL type |
+| content.carousel.list[].buttons[].schemeIos | String | X | iOS app link. AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required |
+| content.carousel.list[].buttons[].schemeAndroid | String | X | Android app link. AL type: at least 2 of linkMo, schemeAndroid, and schemeIos are required |
+| content.carousel.list[].buttons[].bizFormId | Integer | X | Business form ID. Required for the BF type |
+| content.carousel.list[].coupon | Object | X | Coupon information. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: optional. CAROUSEL_FEED/CAROUSEL_COMMERCE: used within a carousel item |
+| content.carousel.list[].coupon.title | String | O | Coupon title. Required. Must be one of the following formats: "{N}KRW off coupon" (N: 1–99,999,999), "{N}% off coupon" (N: 1–100), "Shipping discount coupon", "{product name} Free coupon" (product name up to 7 characters), "{product name} UP coupon" (product name up to 7 characters) |
+| content.carousel.list[].coupon.description | String | O | Coupon description. Required. Up to 12 characters for TEXT/IMAGE/COMMERCE; up to 18 characters for WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO |
+| content.carousel.list[].coupon.linkMo | String | X | Mobile web link (http/https) to navigate to when the coupon is clicked. Required if not a channel coupon URL |
+| content.carousel.list[].coupon.linkPc | String | X | PC web link to navigate to when the coupon is clicked. Optional |
+| content.carousel.list[].coupon.schemeIos | String | X | iOS app link to open when the coupon is clicked. At least one of schemeIos or schemeAndroid is required when using a channel coupon URL |
+| content.carousel.list[].coupon.schemeAndroid | String | X | Android app link to open when the coupon is clicked. At least one of schemeAndroid or schemeIos is required when using a channel coupon URL |
+| content.carousel.tail | Object | X | Link information for the carousel "View More" button. Optional. linkMo is required when used |
+| content.carousel.tail.linkMo | String | X | Mobile web link (http/https) to open when the "View More" button is clicked. Required when tail is used |
+| content.carousel.tail.linkPc | String | X | PC web link to open when the "View More" button is clicked. Optional |
+| content.carousel.tail.schemeIos | String | X | iOS app link to open when the "View More" button is clicked. Optional |
+| content.carousel.tail.schemeAndroid | String | X | Android app link to open when the "View More" button is clicked. Optional |
+| content.item | Object | X | Item information for the wide item list type (WIDE_ITEM_LIST). Required for the WIDE_ITEM_LIST type |
+| content.item.list | Array | O | Wide item list (at least 3, up to 4) |
+| content.item.list[].title | String | X | Item title (up to 1 line break). First item: optional (up to 25 characters); items 2–4: required (up to 30 characters) |
+| content.item.list[].image | Object | X | Brand message image. Either attachmentId or imageUrl is required |
+| content.item.list[].image.attachmentId | String | X | Attachment ID. Either attachmentId or imageUrl |
+| content.item.list[].image.imageUrl | String | X | Image URL. Either attachmentId or imageUrl |
+| content.item.list[].linkMo | String | O | Mobile web link (http/https) to go to when the item is clicked. Required |
+| content.item.list[].linkPc | String | X | PC web link (http/https) to go to when the item is clicked. Optional |
+| content.item.list[].schemeIos | String | X | iOS app link to open when the item is clicked. Optional |
+| content.item.list[].schemeAndroid | String | X | Android app link to open when the item is clicked. Optional |
+| content.video | Object | X | Video information. Required for the PREMIUM_VIDEO type |
+| content.video.videoUrl | String | O | Kakao TV video URL (must start with https://tv.kakao.com/). Required for the PREMIUM_VIDEO type |
+| content.video.thumbnailUrl | String | X | Video thumbnail image URL. Optional. If not set, the default Kakao TV thumbnail is used |
+| content.commerce | Object | X | Commerce information. Required for COMMERCE/CAROUSEL_COMMERCE type |
+| content.commerce.title | String | O | Product title (up to 30 characters). Required |
+| content.commerce.regularPrice | Integer | O | Regular price (0–99,999,999). Required |
+| content.commerce.discountPrice | Integer | X | Discounted price (0–99,999,999). Optional. If used, either discountRate or discountFixed is required |
+| content.commerce.discountRate | Integer | X | Discount rate (0–100). If discountPrice is present, choose either discountRate or discountFixed |
+| content.commerce.discountFixed | Integer | X | Fixed discount amount (0–999,999). If discountPrice is present, choose either discountRate or discountFixed |
+| content.buttons | Array | X | List of message buttons. TEXT/IMAGE: up to 5 (up to 4 if a coupon is applied), WIDE/WIDE_ITEM_LIST: up to 2, PREMIUM_VIDEO: up to 1, COMMERCE: required (at least 1, up to 2). CAROUSEL_FEED/CAROUSEL_COMMERCE: use buttons within carousel items |
+| content.buttons[].name | String | X | Button name. TEXT/IMAGE: up to 14 characters; others: up to 8 characters. AC type: send without a value. BF type: one of "설문 참여하기", "신청하기", or "응모하기" |
+| content.buttons[].type | String | O | Button type. WL: Web Link, AL: App Link, BK: Bot Keyword, MD: Message Delivery, BC: Bot for Consultation, BT: Bot Transfer, BF: Business Form, AC: Channel Added<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| content.buttons[].linkMo | String | X | Mobile web link (http/https). Required for WL type; optional for AL type (required when entered together with either schemeIos or schemeAndroid) |
+| content.buttons[].linkPc | String | X | PC web link (http/https). Optional for the WL/AL type |
+| content.buttons[].schemeIos | String | X | iOS app link. AL type: at least two of linkMo, schemeAndroid, and schemeIos are required |
+| content.buttons[].schemeAndroid | String | X | Android app link. AL type: at least two of linkMo, schemeAndroid, and schemeIos are required |
+| content.buttons[].bizFormId | Integer | X | Business form ID. Required for the BF type |
+| content.coupon | Object | X | Coupon information. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: optional. CAROUSEL_FEED/CAROUSEL_COMMERCE: used within carousel items |
+| content.coupon.title | String | O | Coupon title. Required. Must be one of the following formats: "{N}KRW off coupon" (N: 1–99,999,999), "{N}% off coupon" (N: 1–100), "Shipping discount coupon", "{product name} Free coupon" (product name up to 7 characters), "{product name} UP coupon" (product name up to 7 characters) |
+| content.coupon.description | String | O | Coupon description. Required. TEXT/IMAGE/COMMERCE: up to 12 characters, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: up to 18 characters |
+| content.coupon.linkMo | String | X | Mobile web link (http/https) to navigate to when the coupon is clicked. Required if not using a channel coupon URL |
+| content.coupon.linkPc | String | X | PC web link to navigate to when the coupon is clicked. Optional |
+| content.coupon.schemeIos | String | X | iOS app link to launch when the coupon is clicked. At least one of schemeIos or schemeAndroid is required when using a channel coupon URL |
+| content.coupon.schemeAndroid | String | X | Android app link to open when the coupon is clicked. Required (at least one) along with schemeIos when using a channel coupon URL |
+
+**Response Body**
+
+<!--If the API does not return a response body, enter "This API does not return a response body."-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--Describes the fields in the response body.-->
+
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+
+**Request Example**
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Modify a Brand Message Template
+
+PUT {{endpoint}}/template/v1.0/BRANDMESSAGE/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "templateName" : "Modify Brand Message Template",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "Header",
+    "content" : null,
+    "additionalContent" : "Price information",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "Intro Header",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "Price information",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "Product title",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "Button name",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5,000 KRW discount coupon",
+          "description" : "For first-time customers only",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "Item title",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "Product title",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "buttons" : [ {
+      "name" : "Button name",
+      "type" : "WL",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5,000 KRW discount coupon",
+      "description" : "For first-time customers only",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  }
+}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X PUT "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-d '{
+  "templateName" : "Modify brand message template",
+  "messagePurpose" : "NORMAL",
+  "content" : {
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "Header",
+    "content" : null,
+    "additionalContent" : "Price information",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "Intro header",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "Price information",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "Product title",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "Button name",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5,000 won discount coupon",
+          "description" : "For first-time customers only",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "Item title",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "Product title",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "buttons" : [ {
+      "name" : "Button name",
+      "type" : "WL",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5,000 won discount coupon",
+      "description" : "For first-time customers only",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
+  }
+}'
+```
+
+</details>
+
+<span id="templateV1x0040DeleteBrandmessageTemplate"></span>
+
+## Delete Brand Message Template
+
+Deletes a template.
+
+**Request**
+
+```
+DELETE /template/v1.0/BRANDMESSAGE/templates/{templateId}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**Request Parameters**
+
+| Name | Category | Type | Required | Description |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | App Key |
+| X-NHN-Authorization | Header | String | O | Access token |
+| templateId | Path | String | O | Template ID |
+
+
+
+**Request Body**
+
+<!--If the API does not require a request body, enter "This API does not require a request body."-->
+
+This API does not require a request body.
+
+
+
+**Response Body**
+
+<!--If the API does not return a response body, enter "This API does not return a response body."-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  }
+}
+```
+
+<!--Describes the fields in the response body.-->
+
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | Result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | Result message of the request.<br>Default: SUCCESS |
+
+
+
+**Request Example**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### Delete a Brand Message Template
+
+DELETE {{endpoint}}/template/v1.0/BRANDMESSAGE/templates/{{templateId}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X DELETE "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"
 ```
