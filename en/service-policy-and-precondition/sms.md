@@ -12,7 +12,8 @@
 
 <span id="sender-phone-number-pre-registration"></span>
 
-## Enforce pre-registration of sender numbers
+<a id="enforce-pre-registration-of-sender-numbers"></a>
+## Enforce pre-registration of sender numbers { #enforce-pre-registration-of-sender-numbers }
 
 <b>In accordance with the Telecommunications Business Act, the registration of a sender number requires the authentication of the owner of the sender number.</b>
 
@@ -25,7 +26,8 @@
 
 <span id='fabrication-number'></span>
 
-## Prohibition on Sender Number Spoofing (Falsification)
+<a id="prohibition-of-alterationfalsification-of-the-sender-number"></a>
+## Prohibition on Sender Number Spoofing (Falsification) { #prohibition-of-alterationfalsification-of-the-sender-number }
 * When using the SMS service, you must register a sender number that you (or your company) own before sending messages.
 * If you use a sender number belonging to another person (or another company), the following actions may be taken in accordance with <a href="https://www.msit.go.kr/bbs/view.do?sCode=user&mId=108&mPid=103&bbsSeqNo=83&nttSeqNo=1259891" target="_blank">[(Ministry of Science, ICT and Future Planning Notice No. 2015-32) Notice on Prevention of User Damage Caused by Falsely Displayed Phone Numbers]</a> and the <a href="https://www.nhncloud.com/kr/terms/terms-service" target="_blank">[NHN Cloud Terms of Service]</a>. Please be advised.
 
@@ -36,8 +38,7 @@
     ㆍDamages may be claimed for all losses resulting from sender number falsification.
 
 <a id="information-about-080-call-blocking-service"></a>
-
-## Information about 080 call blocking service 
+## Information about 080 call blocking service { #information-about-080-call-blocking-service }
 * 080 unsubscription number service provides the receiver with a blocking feature when sending an advertisement text message.
 * When sending advertising information, be sure to include a free unscription method so that the receiver can refuse or withdraw the subscription for free.
 
@@ -46,11 +47,13 @@ Be aware that violations of applicable laws may result in criminal penalties or 
 
 [[Korea Internet & Security Agency (KISA) Guide to the Act on Promotion of Information and Communications Network Utilization and Information Protection for Prevention of Illegal Spam](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
 
-### Consent to Receive Advertising Information
+<a id="consent-to-receive-advertising-information"></a>
+### Consent to Receive Advertising Information { #consent-to-receive-advertising-information }
 * When sending advertising information for commercial purposes, you must obtain the recipient's explicit prior consent.
 * Advertising messages cannot be sent between 9 PM and 8 AM the following day. To send messages during this time period, you must obtain a separate consent from recipients for receiving nighttime advertising.
 
-### Advertising Disclosure Requirements
+<a id="advertising-disclosure-requirements"></a>
+### Advertising Disclosure Requirements { #advertising-disclosure-requirements }
 * Mark '(광고)' (advertisement) at the beginning of the advertising information
     * Variations such as (광/고), (광 고), ("광고"), [광고] are prohibited
     * For LMS/MMS with a subject, mark '(광고)' at the beginning of both the subject and the body
@@ -70,14 +73,14 @@ Example: Advertising disclosure requirements for messages
 Toll-free opt-out 080-****-****
 ```
 
-### Notify recipients of opt-out requests
+<a id="notify-recipients-of-opt-out-requests"></a>
+### Notify recipients of opt-out requests { #notify-recipients-of-opt-out-requests }
 * Notifies recipients of the sender's name, the fact of opt-out or withdrawal of consent, the date on which the request was made, and the result of the processing.
 
 <span id="rejection-of-receiving-080"></span>
 
 <a id="advertisement-texting-sending-guidance"></a>
-
-## Advertisement Texting Sending Guidance
+## Advertisement Texting Sending Guidance { #advertisement-texting-sending-guidance }
 In accordance with Article 50 of the Act on Promotion of Information and Communication Network Utilization and Information Protection, explicit prior consent from the receiver must be obtained when sending commercial information for commercial purposes, and also must comply with the obligations regarding delivery notation <br/>
 
 [[ Korea Internet & Security Agency (KISA) Information and Communication Network Act Guide for the Prevention of Illegal Spam](https://static.toastoven.net/prod_sms/kisa_spam_guide.pdf)] <br/>
@@ -90,22 +93,19 @@ In accordance with Article 50 of the Act on Promotion of Information and Communi
 * Notify the result to the receiver who requested unscubscription service: inform all including the sender of the name, the facts and dates of the declaration of intent, and the results of the processing
 
 <a id="delivery-speed-guide-according-to-mms-attachment-size"></a>
-
-## Delivery speed guide according to MMS attachment size
+## Delivery speed guide according to MMS attachment size { #delivery-speed-guide-according-to-mms-attachment-size }
 * When sending MMS, there may be a difference in delivery speed depending on the size of the attachment.
 * The larger the size of the uploaded attachment, the slower the delivery speed and delivery results update due to the carrier's delivery speed constraints.
 * If you want to send it quickly, we recommend that you reduce the size of the attachment.
 
 <a id="guidance-on-sending-content-according-to-character-set"></a>
-
-## Guidance on sending content according to character set
+## Guidance on sending content according to character set { #guidance-on-sending-content-according-to-character-set }
 * Texts included in EUC-KR are normally exposed to the same content as sent upon receipt.
 * If characters that are not included in EUC-KR are included in the title/text, the content may be exposed as broken characters such as '?' are included upon receipt.
     * Depending on the type of receiving terminal and and device, the contents of the delivery may be exposed differently.
 
 <a id="message-received-result-timeout-policy"></a>
-
-## Message received result timeout policy
+## Message received result timeout policy { #message-received-result-timeout-policy }
 * Depending on the device and communication status, the update of the message reception results may be delayed.
 * If there is a delay in the result of receiving the message, we will try to send it according to the NHN Cloud re-delivery policy.
 * The re-delivery policy is as follows.
@@ -119,12 +119,10 @@ In accordance with Article 50 of the Act on Promotion of Information and Communi
 <span id="about-phone-scam-blocking-services"></span>
 
 <a id="guide-of-stolen-number-text-message-blocking-service"></a>
-
-## Guide of Stolen Number Text Message Blocking Service  
+## Guide of Stolen Number Text Message Blocking Service { #guide-of-stolen-number-text-message-blocking-service }
 ‘Stolen Number Text Message Blocking Service’ prevents others from arbitrarily abusing one’s mobile number for text crimes or sending spam. If the sender number is subscribed to this service, the delivery may fail. To use the problematic number as the sender number, cancellation is required through the mobile carrier.
 
 <a id="how-to-use"></a>
-
 #### How to use
 * It is provided free of charge by mobile carriers (including SKT, KT, LG U+ and MVNO operators), so you can register if you agree to join.
 * After sending a text message, if the text sending result is confirmed as 'Failed' on the site even though it is a normal number, check whether you have subscribed to the 'Stolen Number Text Message Blocking Service'.
@@ -132,7 +130,6 @@ In accordance with Article 50 of the Act on Promotion of Information and Communi
 * It takes about 7 days for cancellation to take effect after application.
 
 <a id="guide-about-cancellation"></a>
-
 #### Guide about cancellation
 * Mobile carrier website
     * [SKT Stolen Number Text Message Blocking Service  shortcut ](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)
@@ -145,12 +142,10 @@ In accordance with Article 50 of the Act on Promotion of Information and Communi
 <span id="about-carrier-spam-text-blocking-services"></span>
 
 <a id="mobile-carrier-spam-blocking-service-guide"></a>
-
-## Mobile Carrier Spam Blocking Service Guide
+## Mobile Carrier Spam Blocking Service Guide { #mobile-carrier-spam-blocking-service-guide }
 It is a service that automatically blocks cumbersome advertising spam texts from mobile carriers. According to the combination standards of each mobile carrier, text messages that are judged to be spam are sent to the spam storage box rather than to the text inbox of the mobile phone. If it has been sent normally but fails to receive, the receiving number may be subscribed to the carrier spam blocking service.
 
 <a id="how-to-use-2"></a>
-
 #### How to use
 * If the delivery result is confirmed to be successful but the text is not received, check the mobile carrier’s spam blocking service.
 * Korea Internet & Security Agency's Illegal Spams Response Center has established the comprehensive countermeasure against spams, and each mobile carrier is currently operating the 'Spam blocking service'.
@@ -158,7 +153,6 @@ It is a service that automatically blocks cumbersome advertising spam texts from
 * Due to the privacy policy, no one other than you can check it, so you must check it yourself.
 
 <a id="guide-about-cancellation-2"></a>
-
 #### Guide about cancellation
 * Mobile carrier website
     * [SKT Spam Filtering Cancel service now](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)
