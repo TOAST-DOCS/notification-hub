@@ -1,5 +1,3 @@
-<!-- pre-align:aligned sig=bfbbe9a63c62 -->
-
 <!-- 新しいフォーマットのために追加されたstyleです。 -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -39,10 +37,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -260,8 +255,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--このAPIはリクエスト本文を必要とする場合、以下のように入力します。-->
@@ -284,307 +278,9 @@ X-NHN-Authorization: Bearer {accessToken}
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
-    "image" : {
-      "attachmentId" : "20230131070811m2fDe1rXx80",
-      "imageUrl" : "https://example.com/image.jpg",
-      "imageLink" : "https://www.example.com"
-    },
-    "video" : {
-      "videoUrl" : "https://tv.kakao.com/v/123456789",
-      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
-    },
-    "buttons" : [ {
-      "type" : "WL",
-      "name" : "ボタン名",
-      "linkMo" : "https://m.example.com",
-      "linkPc" : "https://www.example.com",
-      "schemeIos" : "example://ios",
-      "schemeAndroid" : "example://android",
-      "bizFormKey" : "bizFormKey123",
-      "chatExtra" : "extra_info",
-      "chatEvent" : "event_name"
-    } ],
-    "header" : "ヘッダー",
-    "item" : {
-      "list" : [ {
-        "title" : "アイテムタイトル",
-        "image" : {
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg"
-        },
-        "linkMo" : "https://m.example.com",
-        "linkPc" : "https://www.example.com",
-        "schemeIos" : "example://ios",
-        "schemeAndroid" : "example://android"
-      } ]
-    },
-    "carousel" : {
-      "head" : {
-        "header" : "イントロヘッダー",
-        "content" : null,
-        "image" : {
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg"
-        },
-        "linkMo" : "https://m.example.com",
-        "linkPc" : "https://www.example.com",
-        "schemeIos" : "example://ios",
-        "schemeAndroid" : "example://android"
-      },
-      "list" : [ {
-        "header" : "Carousel Header",
-        "message" : "Carousel Message",
-        "additionalContent" : "価格情報",
-        "buttons" : [ {
-          "type" : "WL",
-          "name" : "ボタン名",
-          "linkMo" : "https://m.example.com",
-          "linkPc" : "https://www.example.com",
-          "schemeIos" : "example://ios",
-          "schemeAndroid" : "example://android",
-          "bizFormKey" : "bizFormKey123",
-          "chatExtra" : "extra_info",
-          "chatEvent" : "event_name"
-        } ],
-        "image" : {
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg",
-          "imageLink" : "https://www.example.com"
-        },
-        "commerce" : {
-          "title" : "商品タイトル",
-          "regularPrice" : 50000,
-          "discountPrice" : 45000,
-          "discountRate" : 10,
-          "discountFixed" : 5000
-        },
-        "coupon" : {
-          "title" : "5000ウォン割引クーポン",
-          "description" : "初回購入のお客様限定",
-          "linkMo" : "https://m.example.com",
-          "linkPc" : "https://www.example.com",
-          "schemeIos" : "example://ios",
-          "schemeAndroid" : "example://android"
-        }
-      } ],
-      "tail" : {
-        "linkMo" : "https://m.example.com",
-        "linkPc" : "https://www.example.com",
-        "schemeIos" : "example://ios",
-        "schemeAndroid" : "example://android"
-      }
-    },
-    "commerce" : {
-      "title" : "商品タイトル",
-      "regularPrice" : 50000,
-      "discountPrice" : 45000,
-      "discountRate" : 10,
-      "discountFixed" : 5000
-    },
-    "coupon" : {
-      "title" : "5000ウォン割引クーポン",
-      "description" : "初回購入のお客様限定",
-      "linkMo" : "https://m.example.com",
-      "linkPc" : "https://www.example.com",
-      "schemeIos" : "example://ios",
-      "schemeAndroid" : "example://android"
-    },
-    "additionalContent" : "価格情報"
-  },
-  "options" : {
-    "audienceType" : "CUSTOMER",
-    "targeting" : "M",
-    "pushAlarm" : true,
-    "unsubscribePhoneNumber" : "0801111234",
-    "unsubscribeAuthNumber" : "1234"
-  },
-  "statsKeyId" : "aA123456",
-  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
-  "confirmBeforeSend" : false
-}
-```
-
-<!--リクエスト本文のフィールドについて説明します。-->
-
-| パス | タイプ | 必須 | 説明 |
-| - | - | - | - |
-| sender | Object | X |  |
-| sender.senderKey | String | O | 発信キー（40文字）。グループ発信キーは使用不可 |
-| recipients | Array | X |  |
-| recipients[].contacts | Array | O |  |
-| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
-| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです |
-| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成されるID |
-| content | Object | X |  |
-| content.chatBubbleType | String | X | メッセージ吹き出しタイプ。TEXT: テキスト型、IMAGE: 画像型、WIDE: ワイド画像型、WIDE_ITEM_LIST: ワイドアイテムリスト型、CAROUSEL_FEED: カルーセルフィード型、CAROUSEL_COMMERCE: カルーセルコマース型、COMMERCE: コマース型、PREMIUM_VIDEO: プレミアムビデオ型<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
-| content.adult | Boolean | X | 成人向けメッセージかどうか（デフォルト: false）。成人向け設定時は成人認証を完了した受信者にのみ表示<br>デフォルト値: false |
-| content.content | String | X | メッセージ本文。TEXT: 必須（最大 1,300 文字、改行最大 99 個）、IMAGE: 必須（最大 1,300 文字）、WIDE: 必須（最大 76 文字、改行最大 5 個）、PREMIUM_VIDEO: 任意（最大 76 文字、改行最大 5 個）。WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 使用不可。URL 入力可能 |
-| content.attachmentId | String | X | 添付ファイル ID。IMAGE/WIDE: attachmentId または image.imageUrl のいずれか必須 |
-| content.image | Object | X |  |
-| content.image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
-| content.image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
-| content.image.imageLink | String | X | 画像クリック時に遷移する URL（http/https）。任意。未設定時は KakaoTalk 画像ビューアーを使用 |
-| content.video | Object | X |  |
-| content.video.videoUrl | String | O | カカオ TV 動画 URL（https://tv.kakao.com/ で始まる）。PREMIUM_VIDEO タイプ必須 |
-| content.video.thumbnailAttachmentId | String | X | サムネイル画像添付ファイル ID。thumbnailUrl とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能 |
-| content.video.thumbnailUrl | String | X | 動画サムネイル画像 URL。thumbnailAttachmentId とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能。未設定時はカカオ TV デフォルトサムネイルを使用 |
-| content.buttons | Array | X | メッセージボタンリスト。TEXT/IMAGE: 最大 5 個（クーポン適用時は最大 4 個）、WIDE/WIDE_ITEM_LIST: 最大 2 個、PREMIUM_VIDEO: 最大 1 個、COMMERCE: 必須（最小 1 個、最大 2 個）。CAROUSEL_FEED/CAROUSEL_COMMERCE: カルーセルアイテム内の attachment.buttons を使用 |
-| content.buttons[].type | String | O | ボタンタイプ。WL: Web リンク、AL: アプリリンク、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク転換、BT: チャットボット転換、BF: ビジネスフォーム、AC: チャンネル追加<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
-| content.buttons[].name | String | X | ボタン名。TEXT/IMAGE: 最大 14 文字、その他: 最大 8 文字。AC タイプ: 値なしで送信。BF タイプ: 「アンケートに参加する」「申し込む」「応募する」のいずれか一つを選択 |
-| content.buttons[].linkMo | String | X | モバイル Web リンク（http/https）。WL タイプ必須、AL タイプ任意（schemeIos/schemeAndroid のいずれかと合わせて入力する場合に必要） |
-| content.buttons[].linkPc | String | X | PC Web リンク（http/https）。WL/AL タイプ任意 |
-| content.buttons[].schemeIos | String | X | iOS アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
-| content.buttons[].schemeAndroid | String | X | Android アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
-| content.buttons[].bizFormKey | String | X | ビジネスフォームキー。BF タイプ必須 |
-| content.buttons[].chatExtra | String | X | BC（相談トーク転換）、BT（チャットボット転換）タイプボタンのメタ情報 |
-| content.buttons[].chatEvent | String | X | BT（チャットボット転換）タイプボタンのボットイベント名 |
-| content.header | String | X | メッセージタイトル。WIDE_ITEM_LIST: 必須（最大 20 文字）、PREMIUM_VIDEO: 任意（最大 20 文字）。その他のタイプ: 使用不可 |
-| content.item | Object | X |  |
-| content.item.list | Array | O | アイテムリスト。最小 3 個、最大 4 個 |
-| content.item.list[].title | String | X | アイテムタイトル（改行最大 1 個）。1 番目のアイテム: 任意（最大 25 文字）、2〜4 番目のアイテム: 必須（最大 30 文字） |
-| content.item.list[].image | Object | O |  |
-| content.item.list[].image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
-| content.item.list[].image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
-| content.item.list[].linkMo | String | O | アイテムクリック時に遷移するモバイル Web リンク（http/https）。必須 |
-| content.item.list[].linkPc | String | X | アイテムクリック時に遷移する PC Web リンク（http/https）。任意 |
-| content.item.list[].schemeIos | String | X | アイテムクリック時に実行する iOS アプリリンク。任意 |
-| content.item.list[].schemeAndroid | String | X | アイテムクリック時に実行する Android アプリリンク。任意 |
-| content.carousel | Object | X |  |
-| content.carousel.head | Object | X |  |
-| content.carousel.head.header | String | O | イントロヘッダー。head 使用時は必須（最大 20 文字） |
-| content.carousel.head.content | String | O | イントロ内容。head 使用時は必須（最大 50 文字） |
-| content.carousel.head.image | Object | O |  |
-| content.carousel.head.image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
-| content.carousel.head.image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
-| content.carousel.head.linkMo | String | X | イントロクリック時に遷移するモバイル Web リンク。他のリンク（linkPc/schemeIos/schemeAndroid）を入力する場合は必須 |
-| content.carousel.head.linkPc | String | X | イントロクリック時に遷移する PC Web リンク。任意 |
-| content.carousel.head.schemeIos | String | X | イントロクリック時に実行する iOS アプリリンク。任意 |
-| content.carousel.head.schemeAndroid | String | X | イントロクリック時に実行する Android アプリリンク。任意 |
-| content.carousel.list | Array | O | カルーセルアイテムリスト。head 使用時は 1〜5 個、未使用時は 2〜6 個 |
-| content.carousel.list[].header | String | X | カルーセルアイテムタイトル。CAROUSEL_FEED: 必須（最大 20 文字）。CAROUSEL_COMMERCE: 使用不可 |
-| content.carousel.list[].message | String | X | カルーセルアイテムメッセージ。CAROUSEL_FEED: 必須（最大 180 文字）。CAROUSEL_COMMERCE: 使用不可 |
-| content.carousel.list[].additionalContent | String | X | 追加コンテンツ。CAROUSEL_COMMERCE: 任意（最大 34 文字）。CAROUSEL_FEED: 使用不可 |
-| content.carousel.list[].buttons | Array | O | カルーセルアイテムボタン。最小 1 個、最大 2 個必須。AC ボタンは最後の位置 |
-| content.carousel.list[].buttons[].type | String | O | ボタンタイプ。WL: Web リンク、AL: アプリリンク、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク転換、BT: チャットボット転換、BF: ビジネスフォーム、AC: チャンネル追加<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
-| content.carousel.list[].buttons[].name | String | X | ボタン名。TEXT/IMAGE: 最大 14 文字、その他: 最大 8 文字。AC タイプ: 値なしで送信。BF タイプ: 「アンケートに参加する」「申し込む」「応募する」のいずれか一つを選択 |
-| content.carousel.list[].buttons[].linkMo | String | X | モバイル Web リンク（http/https）。WL タイプ必須、AL タイプ任意（schemeIos/schemeAndroid のいずれかと合わせて入力する場合に必要） |
-| content.carousel.list[].buttons[].linkPc | String | X | PC Web リンク（http/https）。WL/AL タイプ任意 |
-| content.carousel.list[].buttons[].schemeIos | String | X | iOS アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
-| content.carousel.list[].buttons[].schemeAndroid | String | X | Android アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
-| content.carousel.list[].buttons[].bizFormKey | String | X | ビジネスフォームキー。BF タイプ必須 |
-| content.carousel.list[].buttons[].chatExtra | String | X | BC（相談トーク転換）、BT（チャットボット転換）タイプボタンのメタ情報 |
-| content.carousel.list[].buttons[].chatEvent | String | X | BT（チャットボット転換）タイプボタンのボットイベント名 |
-| content.carousel.list[].image | Object | O |  |
-| content.carousel.list[].image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
-| content.carousel.list[].image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
-| content.carousel.list[].image.imageLink | String | X | 画像クリック時に遷移する URL（http/https）。任意。未設定時は KakaoTalk 画像ビューアーを使用 |
-| content.carousel.list[].commerce | Object | X |  |
-| content.carousel.list[].commerce.title | String | O | 商品タイトル（最大 30 文字）。必須 |
-| content.carousel.list[].commerce.regularPrice | Integer | O | 定価（0〜99,999,999）。必須 |
-| content.carousel.list[].commerce.discountPrice | Integer | X | 割引後の価格（0〜99,999,999）。任意。使用時は discountRate または discountFixed のいずれか必須 |
-| content.carousel.list[].commerce.discountRate | Integer | X | 割引率（0〜100）。discountPrice が存在する場合は discountFixed とどちらか一方を選択 |
-| content.carousel.list[].commerce.discountFixed | Integer | X | 定額割引価格（0〜999,999）。discountPrice が存在する場合は discountRate とどちらか一方を選択 |
-| content.carousel.list[].coupon | Object | X |  |
-| content.carousel.list[].coupon.title | String | O | クーポンタイトル。必須。形式: 「{N}円割引クーポン」（N: 1〜99,999,999）、「{N}% 割引クーポン」（N: 1〜100）、「送料割引クーポン」、「{商品名}無料クーポン」（商品名最大 7 文字）、「{商品名} UP クーポン」（商品名最大 7 文字）のいずれか一つを選択 |
-| content.carousel.list[].coupon.description | String | O | クーポン詳細説明。必須。TEXT/IMAGE/COMMERCE: 最大 12 文字、WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 最大 18 文字 |
-| content.carousel.list[].coupon.linkMo | String | X | クーポンクリック時に遷移するモバイル Web リンク（http/https）。チャンネルクーポン URL 以外の場合は必須 |
-| content.carousel.list[].coupon.linkPc | String | X | クーポンクリック時に遷移する PC Web リンク。任意 |
-| content.carousel.list[].coupon.schemeIos | String | X | クーポンクリック時に実行する iOS アプリリンク。チャンネルクーポン URL（alimtalk=coupon://）使用時は schemeAndroid と合わせて 1 つ以上必須 |
-| content.carousel.list[].coupon.schemeAndroid | String | X | クーポンクリック時に実行する Android アプリリンク。チャンネルクーポン URL（alimtalk=coupon://）使用時は schemeIos と合わせて 1 つ以上必須 |
-| content.carousel.tail | Object | X |  |
-| content.carousel.tail.linkMo | String | O | 「もっと見る」ボタンクリック時に遷移するモバイル Web リンク（http/https）。tail 使用時は必須 |
-| content.carousel.tail.linkPc | String | X | 「もっと見る」ボタンクリック時に遷移する PC Web リンク。任意 |
-| content.carousel.tail.schemeIos | String | X | 「もっと見る」ボタンクリック時に実行する iOS アプリリンク。任意 |
-| content.carousel.tail.schemeAndroid | String | X | 「もっと見る」ボタンクリック時に実行する Android アプリリンク。任意 |
-| content.commerce | Object | X |  |
-| content.commerce.title | String | O | 商品タイトル（最大 30 文字）。必須 |
-| content.commerce.regularPrice | Integer | O | 定価（0〜99,999,999）。必須 |
-| content.commerce.discountPrice | Integer | X | 割引後の価格（0〜99,999,999）。任意。使用時は discountRate または discountFixed のいずれか必須 |
-| content.commerce.discountRate | Integer | X | 割引率（0〜100）。discountPrice が存在する場合は discountFixed とどちらか一方を選択 |
-| content.commerce.discountFixed | Integer | X | 定額割引価格（0〜999,999）。discountPrice が存在する場合は discountRate とどちらか一方を選択 |
-| content.coupon | Object | X |  |
-| content.coupon.title | String | O | クーポンタイトル。必須。形式: 「{N}円割引クーポン」（N: 1〜99,999,999）、「{N}% 割引クーポン」（N: 1〜100）、「送料割引クーポン」、「{商品名}無料クーポン」（商品名最大 7 文字）、「{商品名} UP クーポン」（商品名最大 7 文字）のいずれか一つを選択 |
-| content.coupon.description | String | O | クーポン詳細説明。必須。TEXT/IMAGE/COMMERCE: 最大 12 文字、WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 最大 18 文字 |
-| content.coupon.linkMo | String | X | クーポンクリック時に遷移するモバイル Web リンク（http/https）。チャンネルクーポン URL 以外の場合は必須 |
-| content.coupon.linkPc | String | X | クーポンクリック時に遷移する PC Web リンク。任意 |
-| content.coupon.schemeIos | String | X | クーポンクリック時に実行する iOS アプリリンク。チャンネルクーポン URL (alimtalk=coupon://) 使用時は schemeAndroid とともに1つ以上必須 |
-| content.coupon.schemeAndroid | String | X | クーポンクリック時に実行する Android アプリリンク。チャンネルクーポン URL (alimtalk=coupon://) 使用時は schemeIos とともに1つ以上必須 |
-| content.additionalContent | String | X | 追加コンテンツ。COMMERCE タイプでのみ使用可能（任意、最大 34 文字）。CAROUSEL_COMMERCE はカルーセルアイテム内の additionalContent を使用 |
-| options | Object | X |  |
-| options.audienceType | String | X | 送信対象タイプ。CUSTOMER: 顧客、FRIEND: 友だち<br>[CUSTOMER, FRIEND] |
-| options.targeting | String | X | メッセージ対象タイプ。M: マーケティング受信同意ユーザー、N: 友だちではないマーケティング受信同意ユーザー、O: 友だちであるユーザー。M/N 使用時は送信プロファイルにマーケティング受信同意の有効化および 080 受信拒否番号が必要<br>[M, N, O] |
-| options.pushAlarm | Boolean | X | メッセージプッシュ通知の送信有無（デフォルト: true）<br>デフォルト値: true |
-| options.unsubscribePhoneNumber | String | X | 080 無料受信拒否電話番号。targeting が M/N の場合に必要。形式: 080-XXX-XXXX、080-XXXX-XXXX、080XXXXXXX、080XXXXXXXX。省略時は送信プロファイルに登録された値が自動的に適用されます |
-| options.unsubscribeAuthNumber | String | X | 受信拒否認証番号（数字、最大 9 文字）。必須ではありません。unsubscribePhoneNumber なしでの単独入力は不可。省略時は送信プロファイルに登録された値が自動的に適用されます |
-| statsKeyId | String | X | 統計キー ID |
-| scheduledDateTime | String | X | 予約送信日時 |
-| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
-
-**レスポンス本文**
-
-<!--レスポンス本文を返さない場合は、「このAPIはレスポンス本文を返しません」と入力します。-->
-
-```
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 0,
-    "resultMessage" : "SUCCESS"
-  },
-  "messageId" : "aA123456"
-}
-```
-
-<!--レスポンス本文のフィールドについて説明します。-->
-
-| パス | タイプ | Not Null | 説明 |
-| - | - | - | - |
-| header | Object | O |  |
-| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
-| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
-| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
-| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け付けると生成される値です。 |
-
-**リクエスト例**
-
-<details>
-    <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-
-### 自由形式メッセージ送信リクエスト - ブランドメッセージ(BRANDMESSAGE)
-
-POST {{endpoint}}/message/v1.0/BRANDMESSAGE/free-form-messages/{{messagePurpose}}
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-{
-  "sender" : {
-    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
-  },
-  "recipients" : [ {
-    "contacts" : [ {
-      "contactType" : "PHONE_NUMBER",
-      "contact" : "01012345678",
-      "clientReference" : "1234:abcd:011-asd"
-    } ],
-    "templateParameters" : {
-      "key1" : "value1",
-      "key2" : "value2"
-    }
-  } ],
-  "id" : "alpha123",
-  "content" : {
-    "chatBubbleType" : "TEXT",
-    "adult" : false,
-    "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -662,7 +358,7 @@ X-NHN-Authorization: Bearer {accessToken}
         },
         "coupon" : {
           "title" : "5000円割引クーポン",
-          "description" : "初回購入者限定",
+          "description" : "初回購入のお客様限定",
           "linkMo" : "https://m.example.com",
           "linkPc" : "https://www.example.com",
           "schemeIos" : "example://ios",
@@ -685,7 +381,301 @@ X-NHN-Authorization: Bearer {accessToken}
     },
     "coupon" : {
       "title" : "5000円割引クーポン",
-      "description" : "初回購入者限定",
+      "description" : "初回購入のお客様限定",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    },
+    "additionalContent" : "価格情報"
+  },
+  "options" : {
+    "audienceType" : "CUSTOMER",
+    "targeting" : "M",
+    "pushAlarm" : true,
+    "unsubscribePhoneNumber" : "0801111234",
+    "unsubscribeAuthNumber" : "1234"
+  },
+  "statsKeyId" : "aA123456",
+  "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+  "confirmBeforeSend" : false
+}
+```
+
+<!--リクエスト本文のフィールドについて説明します。-->
+
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| sender | Object | X |  |
+| sender.senderKey | String | O | 発信キー（40文字）。グループ発信キーは使用不可 |
+| recipients | Array | X |  |
+| recipients[].contacts | Array | O |  |
+| recipients[].contacts[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
+| recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
+| recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです |
+| recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
+| id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成されるID |
+| content | Object | X |  |
+| content.messageType | String | O | メッセージバルーンタイプ。TEXT: テキスト型、IMAGE: イメージ型、WIDE: ワイドイメージ型、WIDE_ITEM_LIST: ワイドアイテムリスト型、CAROUSEL_FEED: カルーセルフィード型、CAROUSEL_COMMERCE: カルーセルコマース型、COMMERCE: コマース型、PREMIUM_VIDEO: プレミアムビデオ型<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| content.adult | Boolean | X | 成人向けメッセージかどうか（デフォルト: false）。成人向け設定時は成人認証を完了した受信者にのみ表示<br>デフォルト値: false |
+| content.content | String | X | メッセージ本文。TEXT: 必須（最大 1,300 文字、改行最大 99 個）、IMAGE: 必須（最大 1,300 文字）、WIDE: 必須（最大 76 文字、改行最大 5 個）、PREMIUM_VIDEO: 任意（最大 76 文字、改行最大 5 個）。WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 使用不可。URL 入力可能 |
+| content.image | Object | X | ブランドメッセージ画像。IMAGE/WIDE/COMMERCE: attachmentId または imageUrl のいずれか必須 |
+| content.image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| content.image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
+| content.image.imageLink | String | X | 画像クリック時に遷移する URL（http/https）。任意。未設定時は KakaoTalk 画像ビューアーを使用 |
+| content.video | Object | X | ブランドメッセージビデオ。PREMIUM_VIDEO タイプ必須 |
+| content.video.videoUrl | String | O | カカオ TV 動画 URL（https://tv.kakao.com/ で始まる）。PREMIUM_VIDEO タイプ必須 |
+| content.video.thumbnailAttachmentId | String | X | サムネイル画像添付ファイル ID。thumbnailUrl とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能 |
+| content.video.thumbnailUrl | String | X | 動画サムネイル画像 URL。thumbnailAttachmentId とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能。未設定時はカカオ TV デフォルトサムネイルを使用 |
+| content.buttons | Array | X | メッセージボタンリスト。TEXT/IMAGE: 最大 5 個（クーポン適用時は最大 4 個）、WIDE/WIDE_ITEM_LIST: 最大 2 個、PREMIUM_VIDEO: 最大 1 個、COMMERCE: 必須（最小 1 個、最大 2 個）。CAROUSEL_FEED/CAROUSEL_COMMERCE: カルーセルアイテム内の attachment.buttons を使用 |
+| content.buttons[].type | String | O | ボタンタイプ。WL: Web リンク、AL: アプリリンク、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク転換、BT: チャットボット転換、BF: ビジネスフォーム、AC: チャンネル追加<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
+| content.buttons[].name | String | X | ボタン名。TEXT/IMAGE: 最大 14 文字、その他: 最大 8 文字。AC タイプ: 値なしで送信。BF タイプ: 「アンケートに参加する」「申し込む」「応募する」のいずれか一つを選択 |
+| content.buttons[].linkMo | String | X | モバイル Web リンク（http/https）。WL タイプ必須、AL タイプ任意（schemeIos/schemeAndroid のいずれかと合わせて入力する場合に必要） |
+| content.buttons[].linkPc | String | X | PC Web リンク（http/https）。WL/AL タイプ任意 |
+| content.buttons[].schemeIos | String | X | iOS アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
+| content.buttons[].schemeAndroid | String | X | Android アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
+| content.buttons[].bizFormKey | String | X | ビジネスフォームキー。BF タイプ必須 |
+| content.buttons[].chatExtra | String | X | BC（相談トーク転換）、BT（チャットボット転換）タイプボタンのメタ情報 |
+| content.buttons[].chatEvent | String | X | BT（チャットボット転換）タイプボタンのボットイベント名 |
+| content.header | String | X | メッセージタイトル。WIDE_ITEM_LIST: 必須（最大 20 文字）、PREMIUM_VIDEO: 任意（最大 20 文字）。その他のタイプ: 使用不可 |
+| content.item | Object | X | ワイドアイテムリスト型(WIDE_ITEM_LIST)のアイテム情報。WIDE_ITEM_LIST タイプの場合は必須 |
+| content.item.list | Array | O | アイテムリスト。最小 3 個、最大 4 個 |
+| content.item.list[].title | String | X | アイテムタイトル（改行最大 1 個）。1 番目のアイテム: 任意（最大 25 文字）、2〜4 番目のアイテム: 必須（最大 30 文字） |
+| content.item.list[].image | Object | O | 画像情報。attachmentId または imageUrl のいずれか必須 |
+| content.item.list[].image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| content.item.list[].image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
+| content.item.list[].linkMo | String | O | アイテムクリック時に遷移するモバイル Web リンク（http/https）。必須 |
+| content.item.list[].linkPc | String | X | アイテムクリック時に遷移する PC Web リンク（http/https）。任意 |
+| content.item.list[].schemeIos | String | X | アイテムクリック時に実行する iOS アプリリンク。任意 |
+| content.item.list[].schemeAndroid | String | X | アイテムクリック時に実行する Android アプリリンク。任意 |
+| content.carousel | Object | X | カルーセルメッセージ情報。CAROUSEL_FEED/CAROUSEL_COMMERCE タイプ必須 |
+| content.carousel.head | Object | X |  |
+| content.carousel.head.header | String | O | イントロヘッダー。head 使用時は必須（最大 20 文字） |
+| content.carousel.head.content | String | O | イントロ内容。head 使用時は必須（最大 50 文字） |
+| content.carousel.head.image | Object | O | 画像情報。attachmentId または imageUrl のいずれか必須 |
+| content.carousel.head.image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| content.carousel.head.image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
+| content.carousel.head.linkMo | String | X | イントロクリック時に遷移するモバイル Web リンク。他のリンク（linkPc/schemeIos/schemeAndroid）を入力する場合は必須 |
+| content.carousel.head.linkPc | String | X | イントロクリック時に遷移する PC Web リンク。任意 |
+| content.carousel.head.schemeIos | String | X | イントロクリック時に実行する iOS アプリリンク。任意 |
+| content.carousel.head.schemeAndroid | String | X | イントロクリック時に実行する Android アプリリンク。任意 |
+| content.carousel.list | Array | O | カルーセルアイテムリスト。head 使用時は 1〜5 個、未使用時は 2〜6 個 |
+| content.carousel.list[].header | String | X | カルーセルアイテムタイトル。CAROUSEL_FEED: 必須（最大 20 文字）。CAROUSEL_COMMERCE: 使用不可 |
+| content.carousel.list[].message | String | X | カルーセルアイテムメッセージ。CAROUSEL_FEED: 必須（最大 180 文字）。CAROUSEL_COMMERCE: 使用不可 |
+| content.carousel.list[].additionalContent | String | X | 追加コンテンツ。CAROUSEL_COMMERCE: 任意（最大 34 文字）。CAROUSEL_FEED: 使用不可 |
+| content.carousel.list[].buttons | Array | O | カルーセルアイテムボタン。最小 1 個、最大 2 個必須。AC ボタンは最後の位置 |
+| content.carousel.list[].buttons[].type | String | O | ボタンタイプ。WL: Web リンク、AL: アプリリンク、BK: ボットキーワード、MD: メッセージ転送、BC: 相談トーク転換、BT: チャットボット転換、BF: ビジネスフォーム、AC: チャンネル追加<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
+| content.carousel.list[].buttons[].name | String | X | ボタン名。TEXT/IMAGE: 最大 14 文字、その他: 最大 8 文字。AC タイプ: 値なしで送信。BF タイプ: 「アンケートに参加する」「申し込む」「応募する」のいずれか一つを選択 |
+| content.carousel.list[].buttons[].linkMo | String | X | モバイル Web リンク（http/https）。WL タイプ必須、AL タイプ任意（schemeIos/schemeAndroid のいずれかと合わせて入力する場合に必要） |
+| content.carousel.list[].buttons[].linkPc | String | X | PC Web リンク（http/https）。WL/AL タイプ任意 |
+| content.carousel.list[].buttons[].schemeIos | String | X | iOS アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
+| content.carousel.list[].buttons[].schemeAndroid | String | X | Android アプリリンク。AL タイプ: linkMo、schemeAndroid、schemeIos のうち 2 つ以上必須 |
+| content.carousel.list[].buttons[].bizFormKey | String | X | ビジネスフォームキー。BF タイプ必須 |
+| content.carousel.list[].buttons[].chatExtra | String | X | BC（相談トーク転換）、BT（チャットボット転換）タイプボタンのメタ情報 |
+| content.carousel.list[].buttons[].chatEvent | String | X | BT（チャットボット転換）タイプボタンのボットイベント名 |
+| content.carousel.list[].image | Object | O | ブランドメッセージ画像。IMAGE/WIDE/COMMERCE: attachmentId または imageUrl のいずれか必須 |
+| content.carousel.list[].image.attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
+| content.carousel.list[].image.imageUrl | String | X | 画像 URL。attachmentId とどちらか一方を選択 |
+| content.carousel.list[].image.imageLink | String | X | 画像クリック時に遷移する URL（http/https）。任意。未設定時は KakaoTalk 画像ビューアーを使用 |
+| content.carousel.list[].commerce | Object | X | コマース情報。COMMERCE/CAROUSEL_COMMERCE タイプ必須 |
+| content.carousel.list[].commerce.title | String | O | 商品タイトル（最大 30 文字）。必須 |
+| content.carousel.list[].commerce.regularPrice | Integer | O | 定価（0〜99,999,999）。必須 |
+| content.carousel.list[].commerce.discountPrice | Integer | X | 割引後の価格（0〜99,999,999）。任意。使用時は discountRate または discountFixed のいずれか必須 |
+| content.carousel.list[].commerce.discountRate | Integer | X | 割引率（0〜100）。discountPrice が存在する場合は discountFixed とどちらか一方を選択 |
+| content.carousel.list[].commerce.discountFixed | Integer | X | 定額割引価格（0〜999,999）。discountPrice が存在する場合は discountRate とどちらか一方を選択 |
+| content.carousel.list[].coupon | Object | X | クーポン情報。TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 選択。CAROUSEL_FEED/CAROUSEL_COMMERCE: カルーセルアイテム内で使用 |
+| content.carousel.list[].coupon.title | String | O | クーポンタイトル。必須。形式: 「{N}円割引クーポン」（N: 1〜99,999,999）、「{N}% 割引クーポン」（N: 1〜100）、「送料割引クーポン」、「{商品名}無料クーポン」（商品名最大 7 文字）、「{商品名} UP クーポン」（商品名最大 7 文字）のいずれか一つを選択 |
+| content.carousel.list[].coupon.description | String | O | クーポン詳細説明。必須。TEXT/IMAGE/COMMERCE: 最大 12 文字、WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 最大 18 文字 |
+| content.carousel.list[].coupon.linkMo | String | X | クーポンクリック時に遷移するモバイル Web リンク（http/https）。チャンネルクーポン URL 以外の場合は必須 |
+| content.carousel.list[].coupon.linkPc | String | X | クーポンクリック時に遷移する PC Web リンク。任意 |
+| content.carousel.list[].coupon.schemeIos | String | X | クーポンクリック時に実行する iOS アプリリンク。チャンネルクーポン URL（alimtalk=coupon://）使用時は schemeAndroid と合わせて 1 つ以上必須 |
+| content.carousel.list[].coupon.schemeAndroid | String | X | クーポンクリック時に実行する Android アプリリンク。チャンネルクーポン URL（alimtalk=coupon://）使用時は schemeIos と合わせて 1 つ以上必須 |
+| content.carousel.tail | Object | X | カルーセルのもっと見るボタンのリンク情報。選択。使用時は linkMo 必須 |
+| content.carousel.tail.linkMo | String | O | 「もっと見る」ボタンクリック時に遷移するモバイル Web リンク（http/https）。tail 使用時は必須 |
+| content.carousel.tail.linkPc | String | X | 「もっと見る」ボタンクリック時に遷移する PC Web リンク。任意 |
+| content.carousel.tail.schemeIos | String | X | 「もっと見る」ボタンクリック時に実行する iOS アプリリンク。任意 |
+| content.carousel.tail.schemeAndroid | String | X | 「もっと見る」ボタンクリック時に実行する Android アプリリンク。任意 |
+| content.commerce | Object | X | コマース情報。COMMERCE/CAROUSEL_COMMERCE タイプの場合は必須 |
+| content.commerce.title | String | O | 商品タイトル（最大 30 文字）。必須 |
+| content.commerce.regularPrice | Integer | O | 定価（0〜99,999,999）。必須 |
+| content.commerce.discountPrice | Integer | X | 割引後の価格（0〜99,999,999）。任意。使用時は discountRate または discountFixed のいずれか必須 |
+| content.commerce.discountRate | Integer | X | 割引率（0〜100）。discountPrice が存在する場合は discountFixed とどちらか一方を選択 |
+| content.commerce.discountFixed | Integer | X | 定額割引価格（0〜999,999）。discountPrice が存在する場合は discountRate とどちらか一方を選択 |
+| content.coupon | Object | X | クーポン情報。TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 任意。CAROUSEL_FEED/CAROUSEL_COMMERCE: カルーセルアイテム内で使用 |
+| content.coupon.title | String | O | クーポンタイトル。必須。形式: 「{N}円割引クーポン」（N: 1〜99,999,999）、「{N}% 割引クーポン」（N: 1〜100）、「送料割引クーポン」、「{商品名}無料クーポン」（商品名最大 7 文字）、「{商品名} UP クーポン」（商品名最大 7 文字）のいずれか一つを選択 |
+| content.coupon.description | String | O | クーポン詳細説明。必須。TEXT/IMAGE/COMMERCE: 最大 12 文字、WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 最大 18 文字 |
+| content.coupon.linkMo | String | X | クーポンクリック時に遷移するモバイル Web リンク（http/https）。チャンネルクーポン URL 以外の場合は必須 |
+| content.coupon.linkPc | String | X | クーポンクリック時に遷移する PC Web リンク。任意 |
+| content.coupon.schemeIos | String | X | クーポンクリック時に実行する iOS アプリリンク。チャンネルクーポン URL (alimtalk=coupon://) 使用時は schemeAndroid とともに1つ以上必須 |
+| content.coupon.schemeAndroid | String | X | クーポンクリック時に実行する Android アプリリンク。チャンネルクーポン URL (alimtalk=coupon://) 使用時は schemeIos とともに1つ以上必須 |
+| content.additionalContent | String | X | 追加コンテンツ。COMMERCE タイプでのみ使用可能（任意、最大 34 文字）。CAROUSEL_COMMERCE はカルーセルアイテム内の additionalContent を使用 |
+| options | Object | X |  |
+| options.audienceType | String | X | 送信対象タイプ。CUSTOMER: 顧客、FRIEND: 友だち<br>[CUSTOMER, FRIEND] |
+| options.targeting | String | X | メッセージ対象タイプ。M: マーケティング受信同意ユーザー、N: 友だちではないマーケティング受信同意ユーザー、O: 友だちであるユーザー。M/N 使用時は送信プロファイルにマーケティング受信同意の有効化および 080 受信拒否番号が必要<br>[M, N, O] |
+| options.pushAlarm | Boolean | X | メッセージプッシュ通知の送信有無（デフォルト: true）<br>デフォルト値: true |
+| options.unsubscribePhoneNumber | String | X | 080 無料受信拒否電話番号。targeting が M/N の場合に必要。形式: 080-XXX-XXXX、080-XXXX-XXXX、080XXXXXXX、080XXXXXXXX。省略時は送信プロファイルに登録された値が自動的に適用されます |
+| options.unsubscribeAuthNumber | String | X | 受信拒否認証番号（数字、最大10文字）。必須ではありません。unsubscribePhoneNumber なしでの単独入力は不可。省略した場合、発信プロフィールに登録された値が自動的に適用されます |
+| statsKeyId | String | X | 統計キー ID |
+| scheduledDateTime | String | X | 予約送信日時 |
+| confirmBeforeSend | Boolean | X | 確認後送信の有無 |
+
+**レスポンス本文**
+
+<!--レスポンス本文を返さない場合は、「このAPIはレスポンス本文を返しません」と入力します。-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "messageId" : "aA123456"
+}
+```
+
+<!--レスポンス本文のフィールドについて説明します。-->
+
+| パス | タイプ | Not Null | 説明 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| messageId | String | O | メッセージIDです。メッセージ送信リクエストを受け付けると生成される値です。 |
+
+**リクエスト例**
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 自由形式メッセージ送信リクエスト - ブランドメッセージ(BRANDMESSAGE)
+
+POST {{endpoint}}/message/v1.0/BRANDMESSAGE/free-form-messages/{{messagePurpose}}
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+{
+  "sender" : {
+    "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c"
+  },
+  "recipients" : [ {
+    "contacts" : [ {
+      "contactType" : "PHONE_NUMBER",
+      "contact" : "01012345678",
+      "clientReference" : "1234:abcd:011-asd"
+    } ],
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    }
+  } ],
+  "id" : "alpha123",
+  "content" : {
+    "messageType" : "TEXT",
+    "adult" : false,
+    "content" : null,
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "buttons" : [ {
+      "type" : "WL",
+      "name" : "ボタン名",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormKey" : "bizFormKey123",
+      "chatExtra" : "extra_info",
+      "chatEvent" : "event_name"
+    } ],
+    "header" : "ヘッダー",
+    "item" : {
+      "list" : [ {
+        "title" : "アイテムタイトル",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "イントロヘッダー",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "価格情報",
+        "buttons" : [ {
+          "type" : "WL",
+          "name" : "ボタン名",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormKey" : "bizFormKey123",
+          "chatExtra" : "extra_info",
+          "chatEvent" : "event_name"
+        } ],
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "商品タイトル",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "coupon" : {
+          "title" : "5000円割引クーポン",
+          "description" : "初回購入のお客様限定",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "commerce" : {
+      "title" : "商品タイトル",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
+    "coupon" : {
+      "title" : "5000円割引クーポン",
+      "description" : "初回購入のお客様限定",
       "linkMo" : "https://m.example.com",
       "linkPc" : "https://www.example.com",
       "schemeIos" : "example://ios",
@@ -731,10 +721,9 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -812,7 +801,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
         },
         "coupon" : {
           "title" : "5000円割引クーポン",
-          "description" : "初回購入者限定",
+          "description" : "初回購入のお客様限定",
           "linkMo" : "https://m.example.com",
           "linkPc" : "https://www.example.com",
           "schemeIos" : "example://ios",
@@ -835,7 +824,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
     },
     "coupon" : {
       "title" : "5000円割引クーポン",
-      "description" : "初回購入者限定",
+      "description" : "初回購入のお客様限定",
       "linkMo" : "https://m.example.com",
       "linkPc" : "https://www.example.com",
       "schemeIos" : "example://ios",
@@ -881,10 +870,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「このAPIはリクエスト本文を必要としません」と入力します。-->
@@ -1056,10 +1042,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -1188,11 +1171,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | 本文 3 |
 | content.cards[].buttons | Array | X | RCS ボタンリスト |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE（トークルームを開く）, CLIPBOARD（コピーする）, DIALER（電話をかける）, MAP_SHOW（地図を表示する）, MAP_QUERY（地図を検索する）, MAP_SHARE（現在地を共有する）, URL（URL に接続する）, CALENDAR（スケジュールを登録する）<br>※ 統合メッセージタイプに CLIPBOARD（コピーする）ボタンを使用すると、iOS デバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | ボタン内容のJSONオブジェクト |
 | content.cards[].buttons[].buttonJson.action | Object | X | ボタンアクション |
 | content.buttons | Array | X | （Deprecated、content.cards[].buttons を使用）RCS ボタンリスト |
 | content.buttons[].buttonType | String | X | COMPOSE（トークルームを開く）, CLIPBOARD（コピーする）, DIALER（電話をかける）, MAP_SHOW（地図を表示する）, MAP_QUERY（地図を検索する）, MAP_SHARE（現在地を共有する）, URL（URL に接続する）, CALENDAR（スケジュールを登録する）<br>※ 統合メッセージタイプに CLIPBOARD（コピーする）ボタンを使用すると、iOS デバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | ボタン内容の JSON オブジェクト |
 | content.buttons[].buttonJson.action | Object | X | ボタンアクション |
 | options | Object | X |  |
 | options.expiryOption | Integer | X | 通信会社からデバイスへの送信試行時間（1: 1日、2: 40秒、3: 3分、4: 1時間）<br>デフォルト値: 1 |
@@ -1437,10 +1420,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -1735,11 +1715,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messageChannel | Path | Enum | O | メッセージチャンネルです。 |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messageChannel | Path | Enum | O | メッセージチャネルです。<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -1918,10 +1895,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -2111,10 +2085,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -2143,7 +2114,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2177,14 +2148,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contact | String | O | 連絡先です。受信者を指定せずに連絡先を直接入力してメッセージを送信できます。 |
 | recipients[].contacts[].clientReference | String | X | 受信者ごとに付与できるユーザー定義フィールドです |
 | recipients[].templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
-| recipients[].imageParameters | Array | X | 受信者別イメージパラメーター。メッセージレベルのイメージパラメーターをオーバーライドします。 |
-| recipients[].imageParameters[].attachmentId | String | X | 添付ファイル ID。imageUrl とどちらか一方を選択 |
-| recipients[].imageParameters[].imageUrl | String | X | イメージ URL。attachmentId とどちらか一方を選択 |
-| recipients[].imageParameters[].imageLink | String | X | イメージクリック時の遷移先 URL（http/https）。任意。未設定の場合は KakaoTalk イメージビューアーを使用 |
-| recipients[].videoParameter | Object | X |  |
-| recipients[].videoParameter.videoUrl | String | O | カカオTV 動画 URL（https://tv.kakao.com/ で始まる）。PREMIUM_VIDEO タイプで必須 |
-| recipients[].videoParameter.thumbnailAttachmentId | String | X | サムネイル画像の添付ファイル ID。thumbnailUrl とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能 |
-| recipients[].videoParameter.thumbnailUrl | String | X | 動画サムネイル画像 URL。thumbnailAttachmentId とどちらか一方を選択。通常の画像アップロード API で登録した画像のみ使用可能。未設定の場合はカカオTV のデフォルトサムネイルを使用 |
+| recipients[].imageParameters | Array | X | 受信者ごとのイメージパラメーターです。ブランドメッセージでのみ使用されます。 |
+| recipients[].imageParameters[].attachmentId | String | X | 添付ファイルID |
+| recipients[].imageParameters[].imageUrl | String | X | 画像 URL |
+| recipients[].imageParameters[].imageLink | String | X | 画像クリック時に遷移する URL |
+| recipients[].videoParameter | Object | X | 受信者ごとのビデオパラメーターです。ブランドメッセージでのみ使用されます。 |
+| recipients[].videoParameter.videoUrl | String | X | カカオTV 動画 URL |
+| recipients[].videoParameter.thumbnailAttachmentId | String | X | サムネイル画像添付ファイルID |
+| recipients[].videoParameter.thumbnailUrl | String | X | 動画サムネイル画像 URL |
 | id | String | X | 大量受信者リストおよびファイルアップロード成功時に生成される ID |
 | templateId | String | X | テンプレート ID |
 | templateParameters | Object | X | テンプレートパラメーターです。キー（Key、置換子）と値（Value）のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメーターを指定できません。<br><br>受信者に設定されるテンプレートパラメーターは、メッセージのテンプレートパラメーターより優先されます。<br><br> |
@@ -2193,7 +2164,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | メッセージ対象タイプ。M: マーケティング受信同意ユーザー、N: 友だちではないマーケティング受信同意ユーザー、O: 友だちであるユーザー。M/N 使用時は発信プロフィールでマーケティング受信同意を有効化および 080 受信拒否番号が必要<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | メッセージプッシュ通知送信の有無（デフォルト: true）<br>デフォルト値: true |
 | options.unsubscribePhoneNumber | String | X | 080 無料受信拒否電話番号。targeting が M/N の場合に必要。形式: 080-XXX-XXXX、080-XXXX-XXXX、080XXXXXXX、080XXXXXXXX。省略時は発信プロフィールに登録された値が自動適用 |
-| options.unsubscribeAuthNumber | String | X | 受信拒否認証番号（数字、最大 9 文字）。必須ではありません。unsubscribePhoneNumber なしでの単独入力は不可。省略時は発信プロフィールに登録された値が自動適用 |
+| options.unsubscribeAuthNumber | String | X | 受信拒否認証番号（数字、最大10文字）。必須ではありません。unsubscribePhoneNumber なしの単独入力は不可。省略した場合、送信プロフィールに登録された値が自動適用されます |
 | statsKeyId | String | X | 統計キー ID |
 | scheduledDateTime | String | X | 予約送信日時 |
 | confirmBeforeSend | Boolean | X | 確認後発送の有無 |
@@ -2234,8 +2205,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-
-### ブランドメッセージ テンプレート送信
+### ブランドメッセージテンプレートメッセージ送信
 
 POST {{endpoint}}/message/v1.0/BRANDMESSAGE/template-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
@@ -2262,7 +2232,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2314,7 +2284,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2369,10 +2339,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -2547,10 +2514,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を要求しない場合は「この API はリクエスト本文を要求しません」と入力します。-->
@@ -2747,14 +2711,13 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 予約発送の場合は `scheduledDateTime` を設定します。
 確認後送信の場合は `confirmBeforeSend` を true に設定します。
 
-イメージレイアウトと連携した MMS テンプレートを送信する際は、次の点に注意してください。
+画像レイアウトが連携されたMMSテンプレートを送信する際は、次の事項に注意してください。
 * **必須テンプレートパラメーター**: cardNumber、scratchNumber を必ず含める必要があります。
-  * cardNumber: バーコード生成に使用され、必ず 16 桁の数字で構成する必要があります。
-  * scratchNumber: 特別な制約条件はありません。
-* **イメージレイアウト Override**: リクエスト本文に content.imageLayoutId または content.imageLayoutName を含めることで、テンプレートに設定されたイメージレイアウトを変更できます。
-  * content.imageLayoutId と content.imageLayoutName のいずれか一方のみ使用する必要があります。
-  * 両フィールドが含まれない場合は、テンプレート作成時に連携したデフォルトのイメージレイアウトが使用されます。
-
+    * cardNumber: バーコード生成に使用され、必ず16桁の数字で構成される必要があります。
+    * scratchNumber: 特別な制約条件はありません。
+* **画像レイアウトのOverride**: リクエスト本文に content.imageLayoutId または content.imageLayoutName を含めることで、テンプレートに設定された画像レイアウトを変更できます。
+    * content.imageLayoutId と content.imageLayoutName のいずれか一方のみ使用する必要があります。
+    * 両方のフィールドが含まれていない場合は、テンプレート作成時に連携したデフォルトの画像レイアウトが使用されます。
 
 **リクエスト**
 
@@ -2766,10 +2729,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -2959,10 +2919,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
-| messagePurpose | Path | Enum | O | メッセージ目的 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -3001,8 +2958,13 @@ X-NHN-Authorization: Bearer {accessToken}
         "body" : "本文"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3033,7 +2995,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
 | flow.steps[].sender | Object | X | 送信者情報です。送信者情報はメッセージチャンネルによって異なる構成になる場合があります。<br> |
 | flow.steps[].content | Object | X | メッセージ内容です。メッセージ内容はメッセージチャンネルによって異なる構成になる場合があります。<br> |
-| flow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージチャンネルによって異なる構成になる場合があります。<br> |
+| flow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージチャネルによって異なる構成になる場合があります。<br>- **BRANDMESSAGE**: audienceType(必須, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080番号), unsubscribeAuthNumber(認証番号)<br>- **RCS**: expiryOption(有効期限オプション), groupId(グループID)<br> |
 | flow.steps[].nextSteps | Array | X | 次のステップです。次のステップがない場合、メッセージ送信が終了します。<br> |
 
 
@@ -3072,8 +3034,7 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-
-### フローメッセージの送信
+### フローメッセージ送信
 
 POST {{endpoint}}/message/v1.0/flow-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
@@ -3110,8 +3071,13 @@ X-NHN-Authorization: Bearer {accessToken}
         "body" : "本文"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3161,8 +3127,13 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
         "body" : "本文"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3195,10 +3166,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | メッセージ目的です。 |
-
-
-
+| messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「このAPIはリクエスト本文を必要としません」と入力します。-->
@@ -3235,8 +3203,13 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
         "body" : "本文"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3264,7 +3237,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
 | instantFlow.steps[].sender | Object | X | 発信者情報です。発信者情報はメッセージチャンネルによって異なる構成になる場合があります。<br> |
 | instantFlow.steps[].content | Object | X | メッセージ内容です。メッセージ内容はメッセージチャンネルによって異なる構成になる場合があります。<br> |
-| instantFlow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージチャンネルによって異なる構成になる場合があります。<br> |
+| instantFlow.steps[].options | Object | X | 送信オプションです。送信オプションはメッセージチャネルによって異なる場合があります。<br>- **BRANDMESSAGE**: audienceType(必須, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080番号), unsubscribeAuthNumber(認証番号)<br>- **RCS**: expiryOption(有効期限オプション), groupId(グループID)<br> |
 | instantFlow.steps[].templateId | String | X | テンプレートIDです。テンプレートIDを設定した場合、リクエスト時に発信者情報（sender）とメッセージ内容（content）は適用されません。<br>インスタントフローメッセージでテンプレートIDを設定しない場合、発信者情報（sender）とメッセージ内容（content）が必須です。<br> |
 | instantFlow.steps[].nextSteps | Array | X | 次のステップです。次のステップがない場合、メッセージ送信が終了します。<br> |
 
@@ -3304,8 +3277,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-
-### インスタントフローメッセージの送信
+### インスタントフローメッセージ送信
 
 POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 {
@@ -3338,8 +3310,13 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
         "body" : "本文"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3384,8 +3361,13 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
         "body" : "本文"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
