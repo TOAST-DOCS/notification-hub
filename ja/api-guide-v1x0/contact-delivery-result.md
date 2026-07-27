@@ -15,11 +15,6 @@
 
 ## 連絡先別受信結果リスト照会
 
-送信リクエストされたメッセージの送信と受信結果を受信者の連絡先単位で照会します。
-
-例えば、電子メールと電話番号を持つ受信者10人に電子メール、SMSテンプレートで構成された2つのフローメッセージを送信する場合、連絡先別受信結果リストを照会すると、40個の項目が照会されます。 (連絡先2個X受信者10人Xフローメッセージ2個=連絡先別受信結果40個)
-様々な検索条件で連絡先別受信結果を照会できます。
-
 <!-- !!! tip 「知っておくべきこと」-->
 <!-- APIを使用する際、ユーザーが知っておくと良い注意事項や追加情報を提供する際に使用します。 -->
 
@@ -46,17 +41,15 @@ X-NHN-Authorization: Bearer {accessToken}
 | templateId | Query | String | N  | テンプレートID |
 | flowId | Query | String | N  | フローID |
 | statsKeyId | Query | String | N  | 統計キーID |
-| sender | Query | String | N  | 発信者 |
-| contact | Query | String | N  | 連絡先 |
-| messageChannel | Query | String | N  | メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
+| messageChannel | Query | Enum | X | メッセージチャンネルです。<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messagePurpose | Query | Enum | X | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+| statuses | Query | Enum | X | メッセージのステータスです。送信結果として確認できます。<br> メッセージ送信リクエストを受信すると、メッセージステータスがREQUESTEDに設定されます。<br> <br>[REQUESTED(リクエスト済み), SCHEDULED(スケジュール済み), READY(準備完了), CONFIRM_WAITED(確認待機中), WAITED(待機中), IN_PROGRESS(送信中), SENT(送信済み), SEND_FAILED(送信失敗), DELIVERED(受信済み), DELIVERY_FAILED(受信失敗), CANCELED(キャンセル済み)] |
 | messagePurpose | Query | String | N  | メッセージの目的 |
 | status | Query | String | N  | 状態 |
 | scheduled | Query | Boolean | N  | 予約送信かどうか |
 | confirmBeforeSend | Query | Boolean | N  | 送信前に確認するかどうか |
 | limit | Query | Integer | N  | 照会数 |
 | offset | Query | Integer | N  | 照会開始位置 |
-
-* **createdDateTimeFrom**と**createdDateTimeTo**の最大照会期間は7日です。
 
 **リクエスト本文**
 
@@ -71,106 +64,124 @@ X-NHN-Authorization: Bearer {accessToken}
 <!--レスポンス本文を返さない場合は、「このAPIは応答本文を返しません」と入力します。 -->
 
 
-```json
+```
 {
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": "SUCCESS"
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
   },
-  "contactDeliveryResults": [
-    {
-      "messageId": "メッセージのID",
-      "recipientIndex": 0,
-      "contactIndex": 0,
-      "contactType": "PHONE_NUMBER",
-      "contact": "01012345678",
-      "sender": {
-        "senderKey": "発信_キー",
-        "senderProfileId": "@nhnCloud",
-        "senderProfileType": "GROUP",
-        "senderPhoneNumber": "01012341234",
-        "senderMailAddress": "abcde@nhn.com",
-        "brandId": "AR.lj0eOjEI7Y",
-        "chatbotId": "01012341234"
-      },
-      "templateId": "Tj3nE8dq",
-      "flowId": "R2m9Kv0x",
-      "statsKeyId": "aA123456",
+  "contactDeliveryResults" : [ {
+    "messageId" : "メッセージのID",
+    "recipientIndex" : 0,
+    "contactIndex" : 0,
+    "contactType" : "PHONE_NUMBER",
+    "contact" : "01012345678",
+    "sender" : {
+      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a8b3c",
+      "senderProfileId" : "@nhnCloud",
+      "senderProfileType" : "GROUP",
+      "senderPhoneNumber" : "01012341234",
+      "senderMailAddress" : "abcde@nhn.com",
+      "brandId" : "AR.lj0eOjEI7Y",
+      "chatbotId" : "01012341234"
+    },
+    "templateId" : "Tj3nE8dq",
+    "flowId" : "R2m9Kv0x",
+    "statsKeyId" : "aA123456",
+    "clientReference" : "ユーザー定義フィールド",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
     "options" : {
       "expiryOption" : 1,
-      "groupId" : "groupId"
-    },      
-      "messageChannel": "SMS",
-      "messagePurpose": "NORMAL",
-      "confirmBeforeSend": false,
-      "confirmedDateTime": "2023-01-01T00:00:00Z",
-      "scheduled": false,
-      "scheduledDateTime": "2024-10-26T07:52:12.728Z",
-      "status": "REQUESTED",
-      "resultCode": "5.0.0",
-      "resultMessage": "Success",
-      "templateParameters": {
-        "key1": "value1",
-        "key2": "value2"
-      },
-      "additionalProperty": {
-        
-      },
-      "createdDateTime": "2023-01-01T00:00:00Z",
-      "sentDateTime": "2023-01-01T00:00:00Z",
-      "deliveredDateTime": "2023-01-01T00:00:00Z",
-      "openedDateTime": "2023-01-01T00:00:00Z",
-      "updatedDateTime": "2023-01-01T00:00:00Z"
-    }
-  ],
-  "totalCount": 1
+      "groupId" : "20240814125609swLmoZTsGr0"
+    },
+    "confirmBeforeSend" : false,
+    "confirmedDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "scheduled" : false,
+    "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "status" : "REQUESTED",
+    "resultCode" : "5.0.0",
+    "resultMessage" : "Success",
+    "templateParameters" : {
+      "key1" : "value1",
+      "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
+    },
+    "additionalProperty" : { },
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "sentDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "deliveredDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "openedDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ],
+  "totalCount" : 1
 }
 ```
-
-
 
 <!--レスポンス本文のフィールドを説明します。-->
 
 | 名前 | タイプ | 説明 |
 | --- | --- | --- |
-| header.isSuccessful | Boolean | APIリクエスト成否 |
-| header.resultCode | Integer | 結果コード |
-| header.resultMessage | String | 結果メッセージ |
-| contactDeliveryResults | Object Array | 連絡先別の受信結果リスト |
-| contactDeliveryResults[].messageId | String| メッセージのID |
-| contactDeliveryResults[].recipientIndex | Number| 受信者インデックス|
-| contactDeliveryResults[].contactIndex | Number| 連絡先インデックス|
-| contactDeliveryResults[].contactType | String| 連絡先タイプ |
-| contactDeliveryResults[].contact | String| 連絡先|
-| contactDeliveryResults[].sender | Object| 発信者|
-| contactDeliveryResults[].sender.senderPhoneNumber | String| 発信者電話番号、SMSのみ表示|
-| contactDeliveryResults[].sender.senderMailAddress | String| 発信者メールアドレス、メールのみ表示|
-| contactDeliveryResults[].sender.brandId | String| ブランドID, RCSのみ表示 |
-| contactDeliveryResults[].sender.chatbotId | String| チャットルームID, RCSのみ表示 |
-| contactDeliveryResults[].templateId | String| テンプレートのID、テンプレートメッセージのみ表示|
-| contactDeliveryResults[].flowId | String| フローのID、テンプレートメッセージのみ表示|
-| contactDeliveryResults[].statsKeyId | String| 統計キーのID|
-| contactDeliveryResults[].options | Object | 送信オプション |
-| contactDeliveryResults[].options.expiryOption | Integer | (RCS) RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
-| contactDeliveryResults[].options.groupId | String | (RCS) RCS BizCenter統計連動のためのグループID |
-| contactDeliveryResults[].messageChannel | String| メッセージチャンネル<br>SMS, RCS, ALIMTALK, EMAIL, PUSH |
-| contactDeliveryResults[].messagePurpose | String| メッセージの目的 |
-| contactDeliveryResults[].confirmBeforeSend | Boolean | 承認後送信を使用するかどうか|
-| contactDeliveryResults[].confirmedDateTime | DateTime(ISO 86091) | 承認日時(例：2024-10-29T06:09:00+09:00)|
-| contactDeliveryResults[].scheduled | Boolean | 予約送信かどうか |
-| contactDeliveryResults[].scheduledDateTime | DateTime(ISO 86091) | 予約送信日時 |
-| contactDeliveryResults[].status | String| 状態 |
-| contactDeliveryResults[].resultCode | String| 結果コード|
-| contactDeliveryResults[].resultMessage | String| 結果メッセージ |
-| contactDeliveryResults[].templateParameters | Object| テンプレートパラメータ |
-| contactDeliveryResults[].additionalProperty | Object| 追加プロパティ、お知らせトーク、 RCSのみ提供|
-| contactDeliveryResults[].createdDateTime | DateTime(ISO 86091) | 作成日時(例：2024-10-29T06:09:00+09:00)|
-| contactDeliveryResults[].sentDateTime | DateTime(ISO 86091) | 送信日時、送信イベントが収集されるまで値はnull|
-| contactDeliveryResults[].deliveredDateTime | DateTime(ISO 86091) | 受信日時、受信イベントが収集されるまで値はnull|
-| contactDeliveryResults[].openedDateTime | DateTime(ISO 86091) | 閲覧日時、閲覧イベントが収集されるまで値はnull、プッシュとメールのみ提供 |
-| contactDeliveryResults[].updatedDateTime | DateTime(ISO 86091) | 最終アップデート日時|
-| totalCount | Number| 全体数|
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| contactDeliveryResults | Array | O | メッセージ送信結果です。 |
+| contactDeliveryResults[].messageId | String | O | メッセージID |
+| contactDeliveryResults[].recipientIndex | Integer | O | 受信者インデックスです。 |
+| contactDeliveryResults[].contactIndex | Integer | O | 連絡先インデックスです。 |
+| contactDeliveryResults[].contactType | String | O | 連絡先タイプ<br>[PHONE_NUMBER(電話番号)、EMAIL_ADDRESS(メールアドレス)、TOKEN_ADM(Amazon Device Messagingトークン)、TOKEN_FCM(Firebase Cloud Messagingトークン)、TOKEN_APNS(Apple Push Notificationサービストークン)、TOKEN_APNS_SANDBOX(APNSサンドボックストークン)、TOKEN_APNS_SANDBOX_VOIP(APNSサンドボックスVoIPトークン)、TOKEN_APNS_VOIP(APNS VoIPトークン)] |
+| contactDeliveryResults[].contact | String | O | 連絡先です。 |
+| contactDeliveryResults[].sender | Object | X | チャンネル別の送信者情報です。<br>- ALIMTALK : senderKey, senderProfileId, senderProfileType<br>- SMS : senderPhoneNumber<br>- EMAIL : senderMailAddress<br>- RCS : brandId, chatbotId<br> |
+| contactDeliveryResults[].sender.senderKey | String | X | 発信プロフィール発信キー |
+| contactDeliveryResults[].sender.senderProfileId | String | X | KakaoTalkチャンネル名 |
+| contactDeliveryResults[].sender.senderProfileType | String | X | 発信プロフィールタイプ<br>[GROUP(グループ発信プロフィール)、NORMAL(一般発信プロフィール)] |
+| contactDeliveryResults[].sender.senderPhoneNumber | String | X | 発信番号 |
+| contactDeliveryResults[].sender.senderMailAddress | String | X | 発信メールアドレス |
+| contactDeliveryResults[].sender.brandId | String | X | ブランドID |
+| contactDeliveryResults[].sender.chatbotId | String | X | チャットルーム(チャットボット)ID |
+| contactDeliveryResults[].templateId | String | X | テンプレートID |
+| contactDeliveryResults[].flowId | String | X | フローID |
+| contactDeliveryResults[].statsKeyId | String | X | 統計キーID |
+| contactDeliveryResults[].clientReference | String | X | ユーザー定義フィールド |
+| contactDeliveryResults[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| contactDeliveryResults[].messagePurpose | String | O | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
+| contactDeliveryResults[].options | Object | X | チャンネル別オプションです。 |
+| contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) キャリアからデバイスへの送信試行時間(1: 1日、2: 40秒、3: 3分、4: 1時間)<br>デフォルト値: 1 |
+| contactDeliveryResults[].options.groupId | String | X | (RCS) RCS Biz Center統計連動のためのgroup ID [ガイド](../console-guide/send-a-message/#RCS) (最大20 Byte) |
+| contactDeliveryResults[].confirmBeforeSend | Boolean | O | 確認後送信かどうかです。 |
+| contactDeliveryResults[].confirmedDateTime | String | X | メッセージ送信確認日時です。 |
+| contactDeliveryResults[].scheduled | Boolean | O | 予約送信かどうかです。 |
+| contactDeliveryResults[].scheduledDateTime | String | X | 予約送信日時です。 |
+| contactDeliveryResults[].status | String | O | 送信/受信ステータス<br>[REQUESTED(リクエスト済み)、CONFIRM_WAITED(確認待ち)、WAITED(待機中)、SCHEDULED(スケジュール済み)、IN_PROGRESS(送信中)、SENT(送信済み)、SEND_FAILED(送信失敗)、DELIVERED(受信済み)、DELIVERY_FAILED(受信失敗)、CANCELED(キャンセル済み)] |
+| contactDeliveryResults[].resultCode | String | X | 送信結果コードです。メッセージチャンネルによって値が異なります。 |
+| contactDeliveryResults[].resultMessage | String | X | 送信結果メッセージです。 |
+| contactDeliveryResults[].templateParameters | Object | X | テンプレートパラメーターです。キー(Key、置換子)と値(Value)のペアで構成されています。<br><br>グループ送信では、受信者ごとのテンプレートパラメーターを指定できません。<br><br>受信者に設定されたテンプレートパラメーターは、メッセージテンプレートパラメーターより優先されます。<br><br> |
+| contactDeliveryResults[].imageParameters | Array | X | 受信者別の画像パラメーターです。ブランドメッセージでのみ使用されます。 |
+| contactDeliveryResults[].imageParameters[].attachmentId | String | X | 添付ファイルID |
+| contactDeliveryResults[].imageParameters[].imageUrl | String | X | 画像URL |
+| contactDeliveryResults[].imageParameters[].imageLink | String | X | 画像クリック時に移動するURL |
+| contactDeliveryResults[].videoParameter | Object | X | 受信者別のビデオパラメーターです。ブランドメッセージでのみ使用されます。 |
+| contactDeliveryResults[].videoParameter.videoUrl | String | X | カカオTV動画URL |
+| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | サムネイル画像添付ファイルID |
+| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | 動画サムネイルイメージURL |
+| contactDeliveryResults[].additionalProperty | Object | X | メッセージチャンネルの追加プロパティです。 |
+| contactDeliveryResults[].createdDateTime | String | O | メッセージが作成された日時です。 |
+| contactDeliveryResults[].sentDateTime | String | X | メッセージが送信された日時です。 |
+| contactDeliveryResults[].deliveredDateTime | String | X | メッセージが受信された日時です。 |
+| contactDeliveryResults[].openedDateTime | String | X | メッセージが開封された日時です。 |
+| contactDeliveryResults[].updatedDateTime | String | X | メッセージが更新された日時です。 |
+| totalCount | Integer | O | 照会されたメッセージ送信結果の総件数です。 |
 
 
 
@@ -210,15 +221,14 @@ X-NHN-Authorization: {{authorizationToken}}
 
 </details>
 
-<details>
-  <summary><strong>cURL</strong></summary>
-
 ```curl
 curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results" \
      -H "Content-Type: application/json" \
      -H "X-NC-APP-KEY: ${APP_KEY}" \
      -H "X-NHN-Authorization: ${ACCESS_TOKEN}"
 ```
+
+</details>
 
 </details>
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
@@ -251,8 +261,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | Query  | String | N | 統計キーIDです。 |
 | sender | Query  | String | N | 発信者情報です。 |
 | contact | Query  | String | N | 連絡先です。 |
-| messageChannel | Query  | String | N | メッセージチャンネルです。 |
-| messagePurpose | Query  | String | N | メッセージの目的です。 |
+| messageChannel | Query | Enum | X | メッセージチャンネルです。<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messagePurpose | Query | Enum | X | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
 | scheduled | Query  | Boolean | N | 予約送信なのかどうかを示します。 |
 | confirmBeforeSend | Query  | Boolean | N | 承認後に送信するかどうかを示します。 |
 | updatedDateTimeFrom | Query  | Date | N | 送信ステータスアップデート開始日時です。デフォルト値は7日前です。 |
@@ -299,13 +309,13 @@ X-NHN-Authorization: Bearer {accessToken}
     "templateId" : "Tj3nE8dq",
     "flowId" : "R2m9Kv0x",
     "statsKeyId" : "aA123456",
-    "clientReference" : "ユーザー指定フィールド",
-    "options" : {
-      "expiryOption" : 1,
-      "groupId" : "groupId"
-    },
+    "clientReference" : "ユーザー定義フィールド",
     "messageChannel" : "SMS",
     "messagePurpose" : "NORMAL",
+    "options" : {
+      "expiryOption" : 1,
+      "groupId" : "20240814125609swLmoZTsGr0"
+    },
     "confirmBeforeSend" : false,
     "confirmedDateTime" : "2024-10-29T06:00:01.000+09:00",
     "scheduled" : false,
@@ -316,6 +326,16 @@ X-NHN-Authorization: Bearer {accessToken}
     "templateParameters" : {
       "key1" : "value1",
       "key2" : "value2"
+    },
+    "imageParameters" : [ {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    } ],
+    "videoParameter" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     },
     "additionalProperty" : { },
     "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -342,7 +362,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].contactIndex | Integer | 連絡先インデックスです。 |
 | contactDeliveryResults[].contactType | Object | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | contactDeliveryResults[].contact | String | 連絡先です。 |
-| contactDeliveryResults[].sender | Object |  |
+| contactDeliveryResults[].sender | Object | X | チャンネル別の送信者情報です。<br>- ALIMTALK : senderKey, senderProfileId, senderProfileType<br>- SMS : senderPhoneNumber<br>- EMAIL : senderMailAddress<br>- RCS : brandId, chatbotId<br> |
 | contactDeliveryResults[].sender.senderKey | String | 発信プロフィール発信キー |
 | contactDeliveryResults[].sender.senderProfileId | String | カカオトークチャンネル名 |
 | contactDeliveryResults[].sender.senderProfileType | String | 送信元プロフィールタイプ<br>[GROUP(グループ送信元プロフィール)、NORMAL(一般送信元プロフィール)] |
@@ -354,9 +374,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | フローID |
 | contactDeliveryResults[].statsKeyId | String | 統計キーID |
 | contactDeliveryResults[].clientReference | String | ユーザー指定フィールド |
-| contactDeliveryResults[].options | Object | 送信オプション |
+| contactDeliveryResults[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
 | contactDeliveryResults[].options.expiryOption | Integer | (RCS) RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
-| contactDeliveryResults[].options.groupId | String | (RCS) RCS BizCenter統計連動のためのグループID |
+| contactDeliveryResults[].options | Object | X | チャンネル別オプションです。 |
 | contactDeliveryResults[].messageChannel | Object | メッセージチャンネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | Object | 送信内容タイプ(NORMAL:一般、 AD:広告、 AUTH:認証、 default: NORMAL)<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 確認後に送信するかどうかを示します。 |
@@ -367,7 +387,15 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].resultCode | String | 送信結果コードです。メッセージチャンネルによって値が異なります。 |
 | contactDeliveryResults[].resultMessage | String | 送信結果メッセージです。 |
 | contactDeliveryResults[].templateParameters | Object | テンプレートパラメータです。キー(Key、置換子)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータはメッセージテンプレートパラメータより優先されます。<br><br> |
-| contactDeliveryResults[].additionalProperty | Object |  |
+| contactDeliveryResults[].imageParameters | Array | X | 受信者別のイメージパラメーターです。ブランドメッセージでのみ使用されます。 |
+| contactDeliveryResults[].imageParameters[].attachmentId | String | X | 添付ファイルID |
+| contactDeliveryResults[].imageParameters[].imageUrl | String | X | 画像URL |
+| contactDeliveryResults[].imageParameters[].imageLink | String | X | 画像クリック時に移動する URL |
+| contactDeliveryResults[].videoParameter | Object | X | 受信者別のビデオパラメーターです。ブランドメッセージでのみ使用されます。 |
+| contactDeliveryResults[].videoParameter.videoUrl | String | X | カカオTV動画URL |
+| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | サムネイル画像添付ファイルID |
+| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | 動画サムネイル画像 URL |
+| contactDeliveryResults[].additionalProperty | Object | X | メッセージチャンネルの追加プロパティです。 |
 | contactDeliveryResults[].createdDateTime | String | メッセージが作成された時刻です。 |
 | contactDeliveryResults[].sentDateTime | String | メッセージが送信された時刻です。 |
 | contactDeliveryResults[].deliveredDateTime | String | メッセージを受信した時刻です。 |
@@ -394,9 +422,6 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 
 </details>
-
-<details>
-    <summary><strong>cURL</strong></summary>
 
 ```http
 curl -X GET "${endpoint}/message/v1.0/final-contact-delivery-results" \
