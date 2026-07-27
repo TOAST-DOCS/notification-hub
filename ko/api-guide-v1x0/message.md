@@ -1,5 +1,3 @@
-<!-- pre-align:aligned sig=bfbbe9a63c62 -->
-
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -39,7 +37,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -261,7 +259,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -288,10 +286,9 @@ X-NHN-Authorization: Bearer {accessToken}
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -427,15 +424,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | content | Object | X |  |
-| content.chatBubbleType | String | X | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| content.messageType | String | O | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
 | content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
 | content.content | String | X | 메시지 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
-| content.attachmentId | String | X | 첨부 파일 아이디. IMAGE/WIDE: attachmentId 또는 image.imageUrl 중 하나 필수 |
-| content.image | Object | X |  |
+| content.image | Object | X | 브랜드 메시지 이미지. IMAGE/WIDE/COMMERCE: attachmentId 또는 imageUrl 중 하나 필수 |
 | content.image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
 | content.image.imageUrl | String | X | 이미지 URL. attachmentId와 택1 |
 | content.image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
-| content.video | Object | X |  |
+| content.video | Object | X | 브랜드 메시지 비디오. PREMIUM_VIDEO 타입 필수 |
 | content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
 | content.video.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디. thumbnailUrl과 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능 |
 | content.video.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL. thumbnailAttachmentId와 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능. 미설정 시 카카오TV 기본 썸네일 사용 |
@@ -450,21 +446,21 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].chatExtra | String | X | BC(상담톡 전환), BT(챗봇 전환) 타입 버튼의 메타 정보 |
 | content.buttons[].chatEvent | String | X | BT(챗봇 전환) 타입 버튼의 봇 이벤트명 |
 | content.header | String | X | 메시지 제목. WIDE_ITEM_LIST: 필수(최대 20자), PREMIUM_VIDEO: 선택(최대 20자). 그 외 타입: 사용 불가 |
-| content.item | Object | X |  |
+| content.item | Object | X | 와이드 아이템리스트형(WIDE_ITEM_LIST) 아이템 정보. WIDE_ITEM_LIST 타입 필수 |
 | content.item.list | Array | O | 아이템 목록. 최소 3개, 최대 4개 |
 | content.item.list[].title | String | X | 아이템 제목(줄바꿈 최대 1개). 첫 번째 아이템: 선택(최대 25자), 2~4번째 아이템: 필수(최대 30자) |
-| content.item.list[].image | Object | O |  |
+| content.item.list[].image | Object | O | 이미지 정보. attachmentId 또는 imageUrl 중 하나 필수 |
 | content.item.list[].image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
 | content.item.list[].image.imageUrl | String | X | 이미지 URL. attachmentId와 택1 |
 | content.item.list[].linkMo | String | O | 아이템 클릭 시 이동할 모바일 웹 링크(http/https). 필수 |
 | content.item.list[].linkPc | String | X | 아이템 클릭 시 이동할 PC 웹 링크(http/https). 선택 |
 | content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크. 선택 |
 | content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
-| content.carousel | Object | X |  |
+| content.carousel | Object | X | 캐러셀 메시지 정보. CAROUSEL_FEED/CAROUSEL_COMMERCE 타입 필수 |
 | content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, image 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
 | content.carousel.head.header | String | O | 인트로 헤더. head 사용 시 필수(최대 20자) |
 | content.carousel.head.content | String | O | 인트로 내용. head 사용 시 필수(최대 50자) |
-| content.carousel.head.image | Object | O |  |
+| content.carousel.head.image | Object | O | 이미지 정보. attachmentId 또는 imageUrl 중 하나 필수 |
 | content.carousel.head.image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
 | content.carousel.head.image.imageUrl | String | X | 이미지 URL. attachmentId와 택1 |
 | content.carousel.head.linkMo | String | X | 인트로 클릭 시 이동할 모바일 웹 링크. 다른 링크(linkPc/schemeIos/schemeAndroid) 입력 시 필수 |
@@ -485,35 +481,35 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.carousel.list[].buttons[].bizFormKey | String | X | 비즈니스폼 키. BF 타입 필수 |
 | content.carousel.list[].buttons[].chatExtra | String | X | BC(상담톡 전환), BT(챗봇 전환) 타입 버튼의 메타 정보 |
 | content.carousel.list[].buttons[].chatEvent | String | X | BT(챗봇 전환) 타입 버튼의 봇 이벤트명 |
-| content.carousel.list[].image | Object | O |  |
+| content.carousel.list[].image | Object | O | 브랜드 메시지 이미지. IMAGE/WIDE/COMMERCE: attachmentId 또는 imageUrl 중 하나 필수 |
 | content.carousel.list[].image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1 |
 | content.carousel.list[].image.imageUrl | String | X | 이미지 URL. attachmentId와 택1 |
 | content.carousel.list[].image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
-| content.carousel.list[].commerce | Object | X |  |
+| content.carousel.list[].commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
 | content.carousel.list[].commerce.title | String | O | 상품 제목(최대 30자). 필수 |
 | content.carousel.list[].commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
 | content.carousel.list[].commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
 | content.carousel.list[].commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
 | content.carousel.list[].commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
-| content.carousel.list[].coupon | Object | X |  |
+| content.carousel.list[].coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
 | content.carousel.list[].coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
 | content.carousel.list[].coupon.description | String | O | 쿠폰 상세 설명. 필수. TEXT/IMAGE/COMMERCE: 최대 12자, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 최대 18자 |
 | content.carousel.list[].coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https). 채널 쿠폰 URL이 아닌 경우 필수 |
 | content.carousel.list[].coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크. 선택 |
 | content.carousel.list[].coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크. 채널 쿠폰 URL(alimtalk=coupon://) 사용 시 schemeAndroid와 함께 하나 이상 필수 |
 | content.carousel.list[].coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크. 채널 쿠폰 URL(alimtalk=coupon://) 사용 시 schemeIos와 함께 하나 이상 필수 |
-| content.carousel.tail | Object | X |  |
+| content.carousel.tail | Object | X | 캐러셀 더보기 버튼 링크 정보. 선택. 사용 시 linkMo 필수 |
 | content.carousel.tail.linkMo | String | O | 더보기 버튼 클릭 시 이동할 모바일 웹 링크(http/https). tail 사용 시 필수 |
 | content.carousel.tail.linkPc | String | X | 더보기 버튼 클릭 시 이동할 PC 웹 링크. 선택 |
 | content.carousel.tail.schemeIos | String | X | 더보기 버튼 클릭 시 실행할 iOS 앱 링크. 선택 |
 | content.carousel.tail.schemeAndroid | String | X | 더보기 버튼 클릭 시 실행할 안드로이드 앱 링크. 선택 |
-| content.commerce | Object | X |  |
+| content.commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
 | content.commerce.title | String | O | 상품 제목(최대 30자). 필수 |
 | content.commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
 | content.commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
 | content.commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
 | content.commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
-| content.coupon | Object | X |  |
+| content.coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
 | content.coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
 | content.coupon.description | String | O | 쿠폰 상세 설명. 필수. TEXT/IMAGE/COMMERCE: 최대 12자, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 최대 18자 |
 | content.coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https). 채널 쿠폰 URL이 아닌 경우 필수 |
@@ -526,7 +522,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | 메시지 대상 타입. M: 마케팅 수신 동의 유저, N: 친구가 아닌 마케팅 수신 동의 유저, O: 친구인 유저. M/N 사용 시 발신 프로필에 마케팅 수신 동의 활성화 및 080 수신거부 번호 필요<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | 메시지 푸시 알람 발송 여부(default: true)<br>기본값: true |
 | options.unsubscribePhoneNumber | String | X | 080 무료수신거부 전화번호. targeting이 M/N인 경우 필요. 형식: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
-| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 9자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
+| options.unsubscribeAuthNumber | String | X | 수신거부 인증 번호(숫자, 최대 10자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -589,10 +585,9 @@ X-NHN-Authorization: Bearer {accessToken}
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -739,10 +734,9 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -889,7 +883,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -1063,7 +1057,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -1195,11 +1189,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | 본문 3 |
 | content.cards[].buttons | Array | X | RCS 버튼 리스트 |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | content.buttons | Array | X | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | options | Object | X |  |
 | options.expiryOption | Integer | X | 통신사에서 디바이스로 발송 시도하는 시간(1: 1일, 2: 40초, 3: 3분, 4: 1시간)<br>기본값: 1 |
@@ -1443,7 +1437,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -1740,8 +1734,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messageChannel | Path | Enum | O | 메시지 채널입니다. |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messageChannel | Path | Enum | O | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -1922,7 +1916,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2114,7 +2108,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2146,7 +2140,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2180,14 +2174,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contact | String | O | 연락처입니다. 수신자를 지정하지 않고 연락처를 직접 입력하여 메시지를 발송할 수 있습니다. |
 | recipients[].contacts[].clientReference | String | X | 수신자 별로 부여할 수 있는 사용자 지정 필드 입니다 |
 | recipients[].templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
-| recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터. 템플릿에 포함된 이미지를 수신자별로 치환합니다. 배열의 순서가 템플릿 내 이미지 위치와 매핑됩니다(첫 번째 요소가 템플릿의 첫 번째 이미지를 치환). 단건 수신자(recipients) 발송에서만 사용 가능하며, 대량 발송(id 사용) 시에는 수신자별 이미지 치환을 지원하지 않습니다. |
-| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1. 이미지 업로드 API로 등록한 첨부 파일 아이디 사용 |
-| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL. attachmentId와 택1. 카카오 CDN에 등록된 이미지만 허용. 이미지 업로드 API로 등록 후 발급된 URL 사용 |
-| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용. attachmentId/imageUrl 없이 imageLink만 단독 입력 시 템플릿 원본 이미지를 유지하면서 클릭 링크만 변경 |
-| recipients[].videoParameter | Object | X |  |
-| recipients[].videoParameter.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
-| recipients[].videoParameter.thumbnailAttachmentId | String | X | 썸네일 이미지 첨부 파일 아이디. thumbnailUrl과 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능 |
-| recipients[].videoParameter.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL. thumbnailAttachmentId와 택1. 일반 이미지 업로드 API로 등록한 이미지만 사용 가능. 미설정 시 카카오TV 기본 썸네일 사용 |
+| recipients[].imageParameters | Array | X | 수신자별 이미지 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
+| recipients[].imageParameters[].attachmentId | String | X | 첨부 파일 아이디 |
+| recipients[].imageParameters[].imageUrl | String | X | 이미지 URL |
+| recipients[].imageParameters[].imageLink | String | X | 이미지 클릭 시 이동할 URL |
+| recipients[].videoParameter | Object | X | 수신자별 비디오 파라미터입니다. 브랜드 메시지에서만 사용됩니다. |
+| recipients[].videoParameter.videoUrl | String | X | 카카오TV 동영상 URL |
+| recipients[].videoParameter.thumbnailAttachmentId | String | X | 섬네일 이미지 첨부 파일 아이디 |
+| recipients[].videoParameter.thumbnailUrl | String | X | 동영상 섬네일 이미지 URL |
 | id | String | X | 대량 수신자 목록 및 파일 업로드 성공 시 생성되는 아이디 |
 | templateId | String | X | 템플릿 ID |
 | templateParameters | Object | X | 템플릿 파라미터입니다. 키(Key, 치환자)와 값(Value)의 쌍으로 구성되어 있습니다.<br><br>그룹 발송에서는 수신자별 템플릿 파라미터를 지정할 수 없습니다.<br><br>수신자에 설정되는 템플릿 파라미터는 메시지 템플릿 파라미터보다 우선시됩니다.<br><br> |
@@ -2196,7 +2190,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | 메시지 대상 타입. M: 마케팅 수신 동의 유저, N: 친구가 아닌 마케팅 수신 동의 유저, O: 친구인 유저. M/N 사용 시 발신 프로필에 마케팅 수신 동의 활성화 및 080 수신거부 번호 필요<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | 메시지 푸시 알람 발송 여부(default: true)<br>기본값: true |
 | options.unsubscribePhoneNumber | String | X | 080 무료수신거부 전화번호. targeting이 M/N인 경우 필요. 형식: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
-| options.unsubscribeAuthNumber | String | X | 수신거부 인증번호(숫자, 최대 9자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
+| options.unsubscribeAuthNumber | String | X | 수신거부 인증 번호(숫자, 최대 10자). 필수 아님. unsubscribePhoneNumber 없이 단독 입력 불가. 생략 시 발신 프로필에 등록된 값이 자동 적용 |
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
@@ -2264,7 +2258,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2316,7 +2310,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2371,7 +2365,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2548,7 +2542,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2749,11 +2743,11 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 이미지 레이아웃이 연동된 MMS 템플릿 발송 시 다음 사항을 유의해야 합니다.
 * **필수 템플릿 파라미터**: cardNumber, scratchNumber를 반드시 포함해야 합니다.
-  * cardNumber: 바코드 생성에 사용되며, 반드시 16자리 숫자로 구성되어야 합니다.
-  * scratchNumber: 별도 제약 조건이 없습니다.
+    * cardNumber: 바코드 생성에 사용되며, 반드시 16자리 숫자로 구성되어야 합니다.
+    * scratchNumber: 별도 제약 조건이 없습니다.
 * **이미지 레이아웃 Override**: 요청 본문에 content.imageLayoutId 또는 content.imageLayoutName을 포함하여 템플릿에 설정된 이미지 레이아웃을 변경할 수 있습니다.
-  * content.imageLayoutId와 content.imageLayoutName 중 하나만 사용해야 합니다.
-  * 두 필드 모두 포함되지 않으면 템플릿 생성 시 연동한 기본 이미지 레이아웃이 사용됩니다.
+    * content.imageLayoutId와 content.imageLayoutName 중 하나만 사용해야 합니다.
+    * 두 필드 모두 포함되지 않으면 템플릿 생성 시 연동한 기본 이미지 레이아웃이 사용됩니다.
 
 
 **요청**
@@ -2766,7 +2760,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -2958,7 +2952,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | 앱키 |
 | X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -3000,8 +2994,13 @@ X-NHN-Authorization: Bearer {accessToken}
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3032,7 +3031,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | flow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | flow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| flow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| flow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br>- **BRANDMESSAGE**: audienceType(필수, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080번호), unsubscribeAuthNumber(인증 번호)<br>- **RCS**: expiryOption(만료 옵션), groupId(그룹 ID)<br> |
 | flow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
 
 
@@ -3108,8 +3107,13 @@ X-NHN-Authorization: Bearer {accessToken}
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3159,8 +3163,13 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3193,7 +3202,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | 이름 | 구분 | 타입 | 필수 | 설명 |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | 메시지 목적입니다. |
+| messagePurpose | Path | Enum | O | 메시지 목적입니다.<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 
 
 
@@ -3233,8 +3242,13 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3262,7 +3276,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | instantFlow.steps[].sender | Object | X | 발신자 정보입니다. 발신자 정보는 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
 | instantFlow.steps[].content | Object | X | 메시지 내용입니다. 메시지 내용은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
-| instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br> |
+| instantFlow.steps[].options | Object | X | 발송 옵션입니다. 발송 옵션은 메시지 채널에 따라 다르게 구성될 수 있습니다.<br>- **BRANDMESSAGE**: audienceType(필수, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080번호), unsubscribeAuthNumber(인증 번호)<br>- **RCS**: expiryOption(만료 옵션), groupId(그룹 ID)<br> |
 | instantFlow.steps[].templateId | String | X | 템플릿 아이디입니다. 템플릿 아이디를 설정한 경우, 요청 시 발신자 정보(sender)와 메시지 내용(content)가 적용되지 않습니다.<br>인스턴트 플로우 메시지에서 템플릿 아이디를 설정하지 않는 경우, 발신자 정보(sender)와 메시지 내용(content)이 반드시 필요합니다.<br> |
 | instantFlow.steps[].nextSteps | Array | X | 다음 단계입니다. 다음 단계가 없는 경우, 메시지 발송이 종료됩니다.<br> |
 
@@ -3335,8 +3349,13 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3381,8 +3400,13 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
         "body" : "본문"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]

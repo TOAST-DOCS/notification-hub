@@ -1,5 +1,3 @@
-<!-- pre-align:aligned sig=8780bb7cdba0 -->
-
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -643,7 +641,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -758,7 +756,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | X | 템플릿 이름 |
 | template.categoryId | String | X | 카테고리 아이디 |
-| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -1475,7 +1473,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -1585,7 +1583,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -1770,11 +1768,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | O | 템플릿 이름 |
 | template.categoryId | String | O | 카테고리 아이디 |
-| template.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | O |  |
 | template.templateLanguage | String | O | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
-| template.sender | Object | O |  |
+| template.sender | Object | X |  |
 | template.sender.senderKey | String | O | 발신프로필 발신키 |
 | template.sender.senderProfileId | String | O | 카카오톡 채널명 |
 | template.sender.senderProfileType | String | O | 발신프로필 타입<br>[GROUP, NORMAL] |
@@ -2856,7 +2854,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | X | 템플릿 이름 |
 | template.categoryId | String | X | 카테고리 아이디 |
-| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -2971,7 +2969,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -3362,11 +3360,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | 본문 3 |
 | content.cards[].buttons | Array | X | RCS 버튼 리스트 |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | content.buttons | Array | X | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.buttons[].buttonJson.action | Object | X | 버튼 액션 |
 
 
@@ -3628,7 +3626,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -3797,7 +3795,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | X | 템플릿 이름 |
 | template.categoryId | String | X | 카테고리 아이디 |
-| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | X |  |
 | template.templateLanguage | String | X | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -3828,11 +3826,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.cards[].description3 | String | X | 본문 3 |
 | template.content.cards[].buttons | Array | X | RCS 버튼 리스트 |
 | template.content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| template.content.cards[].buttons[].buttonJson | Object | X |  |
+| template.content.cards[].buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | template.content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | template.content.buttons | Array | X | RCS 버튼 리스트 |
 | template.content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| template.content.buttons[].buttonJson | Object | X |  |
+| template.content.buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | template.content.buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | template.additionalProperty | Object | X |  |
 | template.additionalProperty.status | String | X | 템플릿 상태<br>- SAVE: 저장<br>- APPROVE_WAIT: 승인 대기<br>- INSPECTION_START: 검수 시작<br>- INSPECTION_FINISH: 검수 완료<br>- APPROVE: 승인<br>- REJECT: 거부<br>- MODIFY_APPROVE_WAIT: 수정 승인 대기<br>- MODIFY_INSPECTION_START: 수정 검수 시작<br>- MODIFY_INSPECTION_FINISH: 수정 검수 완료<br>- MODIFY_REJECT: 수정 거부<br><br>[SAVE, APPROVE_WAIT, INSPECTION_START, INSPECTION_FINISH, APPROVE, REJECT, MODIFY_APPROVE_WAIT, MODIFY_INSPECTION_START, MODIFY_INSPECTION_FINISH, MODIFY_REJECT] |
@@ -3999,11 +3997,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | 본문 3 |
 | content.cards[].buttons | Array | X | RCS 버튼 리스트 |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.cards[].buttons[].buttonJson.action | Object | X | 버튼 액션 |
 | content.buttons | Array | X | (Deprecated, content.cards[].buttons 사용) RCS 버튼 리스트 |
 | content.buttons[].buttonType | String | X | COMPOSE(대화방 열기), CLIPBOARD(복사하기), DIALER(전화 걸기), MAP_SHOW(지도 보여주기), MAP_QUERY(지도 검색하기), MAP_SHARE(현재 위치 공유하기), URL(URL 연결하기), CALENDAR(일정 등록하기)<br>※ 통합 메시지 유형에 CLIPBOARD(복사하기) 버튼을 사용하면 iOS 기기에서는 수신이 불가능합니다.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | 버튼 내용 JSON 객체 |
 | content.buttons[].buttonJson.action | Object | X | 버튼 액션 |
 
 
@@ -4606,7 +4604,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿명 |
 | templates[].categoryId | String | O | 카테고리 아이디 |
-| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
@@ -4759,7 +4757,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | template.templateName | String | O | 템플릿 이름 |
 | template.categoryId | String | O | 카테고리 아이디 |
-| template.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
 | template.messagePurpose | String | O | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
 | template.messagePurposes | Array | O |  |
 | template.templateLanguage | String | O | 템플릿 언어 유형<br>기본값: PLAIN_TEXT<br>[PLAIN_TEXT(일반 텍스트), FREEMARKER(FreeMarker 템플릿)] |
@@ -5135,23 +5133,109 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 </details>
 
-<span id="templateV1x0036CreateBrandmessageTemplate"></span>
+<span id="templateV1x0035ReadTemplateParameters"></span>
 
-<a id="create-brand-message-template"></a>
+<a id="retrieve-template-parameters"></a>
+
+## 템플릿 파라미터 조회
+
+템플릿이 포함하고 있는 파라미터 목록을 조회합니다.
+
+**요청**
+
+```
+GET /template/v1.0/{messageChannel}/templates/{templateId}/parameters
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+
+**요청 파라미터**
+
+| 이름 | 구분 | 타입 | 필수 | 설명 |
+| - | - | - | - | - |
+| X-NC-APP-KEY | Header | String | O | 앱키 |
+| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
+| messageChannel | Path | Enum | O | 메시지 채널입니다.<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), RCS(RCS), EMAIL(이메일), PUSH(푸시)] |
+| templateId | Path | String | O | 템플릿 아이디 |
+
+
+
+**요청 본문**
+
+<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+
+이 API는 요청 본문을 요구하지 않습니다.
+
+
+
+**응답 본문**
+
+<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+
+```
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "templateParameter" : {
+    "validateTimestamp" : "",
+    "timestamp" : "",
+    "validateFailDomainList" : [ {
+      "domain" : "",
+      "verifyYn" : "",
+      "spfYn" : "",
+      "dkimVerifyYn" : "",
+      "dmarcYn" : ""
+    } ]
+  }
+}
+```
+
+<!--응답 본문의 필드를 설명합니다.-->
+
+| 경로 | 타입 | Not Null | 설명 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: `true` |
+| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
+| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
+| templateParameter | Object | X | 템플릿 파라미터 결과 JSON |
+
+
+
+**요청 예시**
+
+
+<details>
+    <summary><strong>IntelliJ HTTP</strong></summary>
+
+```http
+### 템플릿 파라미터 조회
+
+GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{{templateId}}/parameters
+X-NC-APP-KEY: {appKey}
+X-NHN-Authorization: Bearer {accessToken}
+```
+</details>
+
+<details>
+    <summary><strong>cURL</strong></summary>
+
+```http
+curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}/parameters" \
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
+```
+
+</details>
+
+<span id="templateV1x0036CreateBrandmessageTemplate"></span>
 
 ## 브랜드 메시지 템플릿 등록
 
-브랜드 메시지 템플릿을 등록합니다.
-
-브랜드 메시지는 다양한 메시지 유형을 지원합니다.
-- TEXT: 텍스트형
-- IMAGE: 이미지형
-- WIDE: 와이드 이미지형
-- WIDE_ITEM_LIST: 와이드 아이템리스트형
-- CAROUSEL_FEED: 캐러셀 피드형
-- CAROUSEL_COMMERCE: 캐러셀 커머스형
-- COMMERCE: 커머스형
-- PREMIUM_VIDEO: 프리미엄 비디오형
+템플릿을 등록합니다.
 
 **요청**
 
@@ -5179,16 +5263,16 @@ X-NHN-Authorization: Bearer {accessToken}
 {
   "templateName" : "브랜드 메시지 템플릿",
   "categoryId" : "20230131070811m2fDe1rXx80",
-  "messagePurpose" : "AD",
+  "messagePurpose" : "NORMAL",
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
     "senderProfileType" : "NORMAL"
   },
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "header" : "헤더",
-    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "content" : null,
     "additionalContent" : "가격 정보",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
@@ -5198,9 +5282,11 @@ X-NHN-Authorization: Bearer {accessToken}
     "carousel" : {
       "head" : {
         "header" : "인트로 헤더",
-        "content" : "인트로 내용",
-        "attachmentId" : "20230131070811m2fDe1rXx80",
-        "imageUrl" : "https://example.com/image.jpg",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
         "linkMo" : "https://m.example.com",
         "linkPc" : "https://www.example.com",
         "schemeIos" : "example://ios",
@@ -5210,9 +5296,11 @@ X-NHN-Authorization: Bearer {accessToken}
         "header" : "Carousel Header",
         "message" : "Carousel Message",
         "additionalContent" : "가격 정보",
-        "attachmentId" : "20230131070811m2fDe1rXx80",
-        "imageUrl" : "https://example.com/image.jpg",
-        "imageLink" : "https://www.example.com",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
         "commerce" : {
           "title" : "상품 제목",
           "regularPrice" : 50000,
@@ -5221,8 +5309,8 @@ X-NHN-Authorization: Bearer {accessToken}
           "discountFixed" : 5000
         },
         "buttons" : [ {
-          "type" : "WL",
           "name" : "버튼명",
+          "type" : "WL",
           "linkMo" : "https://m.example.com",
           "linkPc" : "https://www.example.com",
           "schemeIos" : "example://ios",
@@ -5248,8 +5336,10 @@ X-NHN-Authorization: Bearer {accessToken}
     "item" : {
       "list" : [ {
         "title" : "아이템 제목",
-        "attachmentId" : "20230131070811m2fDe1rXx80",
-        "imageUrl" : "https://example.com/image.jpg",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
         "linkMo" : "https://m.example.com",
         "linkPc" : "https://www.example.com",
         "schemeIos" : "example://ios",
@@ -5268,8 +5358,8 @@ X-NHN-Authorization: Bearer {accessToken}
       "discountFixed" : 5000
     },
     "buttons" : [ {
-      "type" : "WL",
       "name" : "버튼명",
+      "type" : "WL",
       "linkMo" : "https://m.example.com",
       "linkPc" : "https://www.example.com",
       "schemeIos" : "example://ios",
@@ -5292,28 +5382,29 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| templateName | String | O | 템플릿 이름(최대 200자) |
+| templateName | String | O | 템플릿 이름 |
 | categoryId | String | X | 카테고리 아이디 |
-| messagePurpose | String | X | 발송 내용 유형<br>[AD(광고)] |
-| sender | Object | O |  |
-| sender.senderKey | String | O | 발신프로필 발신 키(40자). 그룹 발신 키는 사용 불가 |
-| sender.senderProfileType | String | O | 발신프로필 타입<br>[NORMAL(일반), GROUP(그룹)] |
-| content | Object | O |  |
-| content.chatBubbleType | String | X | 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
+| sender | Object | O | 발신자 정보 |
+| sender.senderKey | String | O | 발신프로필 발신 키(40자) |
+| sender.senderProfileType | String | O | 발신프로필 타입(NORMAL: 일반, GROUP: 그룹)<br>[GROUP, NORMAL] |
+| content | Object | O | 브랜드 메시지 콘텐츠 |
+| content.messageType | String | O | 브랜드 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
 | content.adult | Boolean | X | 성인용 메시지 여부(default: false). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: false |
 | content.header | String | X | 메시지 제목. WIDE_ITEM_LIST: 필수(최대 20자), PREMIUM_VIDEO: 선택(최대 20자). 그 외 타입: 사용 불가 |
 | content.content | String | X | 템플릿 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
 | content.additionalContent | String | X | 부가 콘텐츠. COMMERCE 타입에서만 사용(선택, 최대 34자). CAROUSEL_COMMERCE는 캐러셀 아이템 내 additionalContent 사용 |
-| content.image | Object | X |  |
-| content.image.attachmentId | String | X | 첨부 파일 아이디. imageUrl과 택1. IMAGE/WIDE: attachmentId 또는 imageUrl 중 하나 필수 |
-| content.image.imageUrl | String | X | 이미지 URL(최대 500자). attachmentId와 택1 |
-| content.image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https, 최대 500자). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
+| content.image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| content.image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| content.image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| content.image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
 | content.carousel | Object | X | 캐러셀 메시지 정보. CAROUSEL_FEED/CAROUSEL_COMMERCE 타입 필수 |
-| content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, 이미지(attachmentId 또는 imageUrl) 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
-| content.carousel.head.header | String | O | 인트로 헤더. head 사용 시 필수(최대 20자) |
-| content.carousel.head.content | String | O | 인트로 내용. head 사용 시 필수(최대 50자) |
-| content.carousel.head.attachmentId | String | X | 첨부 파일 아이디. head 사용 시 attachmentId와 imageUrl 중 택1 필수 |
-| content.carousel.head.imageUrl | String | X | 인트로 이미지 URL(최대 500자). head 사용 시 attachmentId와 imageUrl 중 택1 필수 |
+| content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, 이미지(image.attachmentId 또는 image.imageUrl) 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
+| content.carousel.head.header | String | X | 인트로 헤더. head 사용 시 필수(최대 20자) |
+| content.carousel.head.content | String | X | 인트로 내용. head 사용 시 필수(최대 50자) |
+| content.carousel.head.image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| content.carousel.head.image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| content.carousel.head.image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
 | content.carousel.head.linkMo | String | X | 인트로 클릭 시 이동할 모바일 웹 링크. 다른 링크(linkPc/schemeIos/schemeAndroid) 입력 시 필수 |
 | content.carousel.head.linkPc | String | X | 인트로 클릭 시 이동할 PC 웹 링크. 선택 |
 | content.carousel.head.schemeIos | String | X | 인트로 클릭 시 실행할 iOS 앱 링크. 선택 |
@@ -5322,47 +5413,49 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.carousel.list[].header | String | X | 캐러셀 아이템 제목. CAROUSEL_FEED: 필수(최대 20자). CAROUSEL_COMMERCE: 사용 불가 |
 | content.carousel.list[].message | String | X | 캐러셀 아이템 메시지. CAROUSEL_FEED: 필수(최대 180자). CAROUSEL_COMMERCE: 사용 불가 |
 | content.carousel.list[].additionalContent | String | X | 부가 콘텐츠. CAROUSEL_COMMERCE: 선택(최대 34자). CAROUSEL_FEED: 사용 불가 |
-| content.carousel.list[].attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 필수 |
-| content.carousel.list[].imageUrl | String | X | 캐러셀 아이템 이미지 URL(최대 500자). attachmentId와 imageUrl 중 택1 필수 |
-| content.carousel.list[].imageLink | String | X | 캐러셀 이미지 클릭 시 이동할 URL(http/https, 최대 500자). 선택 |
-| content.carousel.list[].buttons | Array | O | 캐러셀 아이템 버튼. 최소 1개, 최대 2개 필수. AC 버튼은 마지막 위치 |
-| content.carousel.list[].buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
-| content.carousel.list[].buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
-| content.carousel.list[].buttons[].linkMo | String | X | 모바일 웹 링크(http/https, 최대 500자). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
-| content.carousel.list[].buttons[].linkPc | String | X | PC 웹 링크(http/https, 최대 500자). WL/AL 타입 선택 |
-| content.carousel.list[].buttons[].schemeIos | String | X | iOS 앱 링크(최대 500자). AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
-| content.carousel.list[].buttons[].schemeAndroid | String | X | 안드로이드 앱 링크(최대 500자). AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
-| content.carousel.list[].buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
-| content.carousel.list[].commerce | Object | X |  |
+| content.carousel.list[].image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| content.carousel.list[].image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| content.carousel.list[].image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| content.carousel.list[].image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
+| content.carousel.list[].commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
 | content.carousel.list[].commerce.title | String | O | 상품 제목(최대 30자). 필수 |
 | content.carousel.list[].commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
 | content.carousel.list[].commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
 | content.carousel.list[].commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
 | content.carousel.list[].commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
-| content.carousel.list[].coupon | Object | X |  |
+| content.carousel.list[].buttons | Array | O | 캐러셀 아이템 버튼. 최소 1개, 최대 2개 필수. AC 버튼은 마지막 위치 |
+| content.carousel.list[].buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
+| content.carousel.list[].buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| content.carousel.list[].buttons[].linkMo | String | X | 모바일 웹 링크(http/https). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
+| content.carousel.list[].buttons[].linkPc | String | X | PC 웹 링크(http/https). WL/AL 타입 선택 |
+| content.carousel.list[].buttons[].schemeIos | String | X | iOS 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.carousel.list[].buttons[].schemeAndroid | String | X | 안드로이드 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.carousel.list[].buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
+| content.carousel.list[].coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
 | content.carousel.list[].coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
-| content.carousel.list[].coupon.description | String | O | 쿠폰 상세 설명. 필수(최대 18자) |
-| content.carousel.list[].coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). 채널 쿠폰 URL이 아닌 경우 필수 |
-| content.carousel.list[].coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크(최대 500자). 선택 |
-| content.carousel.list[].coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크(최대 500자). 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
-| content.carousel.list[].coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
+| content.carousel.list[].coupon.description | String | O | 쿠폰 상세 설명. 필수. TEXT/IMAGE/COMMERCE: 최대 12자, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 최대 18자 |
+| content.carousel.list[].coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https). 채널 쿠폰 URL이 아닌 경우 필수 |
+| content.carousel.list[].coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크. 선택 |
+| content.carousel.list[].coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크. 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
+| content.carousel.list[].coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크. 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
 | content.carousel.tail | Object | X | 캐러셀 더보기 버튼 링크 정보. 선택. 사용 시 linkMo 필수 |
-| content.carousel.tail.linkMo | String | O | 더보기 버튼 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). tail 사용 시 필수 |
-| content.carousel.tail.linkPc | String | X | 더보기 버튼 클릭 시 이동할 PC 웹 링크(최대 500자). 선택 |
-| content.carousel.tail.schemeIos | String | X | 더보기 버튼 클릭 시 실행할 iOS 앱 링크(최대 500자). 선택 |
-| content.carousel.tail.schemeAndroid | String | X | 더보기 버튼 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 선택 |
+| content.carousel.tail.linkMo | String | X | 더보기 버튼 클릭 시 이동할 모바일 웹 링크(http/https). tail 사용 시 필수 |
+| content.carousel.tail.linkPc | String | X | 더보기 버튼 클릭 시 이동할 PC 웹 링크. 선택 |
+| content.carousel.tail.schemeIos | String | X | 더보기 버튼 클릭 시 실행할 iOS 앱 링크. 선택 |
+| content.carousel.tail.schemeAndroid | String | X | 더보기 버튼 클릭 시 실행할 안드로이드 앱 링크. 선택 |
 | content.item | Object | X | 와이드 아이템리스트형(WIDE_ITEM_LIST) 아이템 정보. WIDE_ITEM_LIST 타입 필수 |
-| content.item.list | Array | O | 와이드 아이템 목록. 첫 번째가 메인(1개), 나머지가 서브(최대 4개) |
+| content.item.list | Array | O | 와이드 아이템 목록. 최소 3개, 최대 4개 |
 | content.item.list[].title | String | X | 아이템 제목(줄바꿈 최대 1개). 첫 번째 아이템: 선택(최대 25자), 2~4번째 아이템: 필수(최대 30자) |
-| content.item.list[].attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 필수 |
-| content.item.list[].imageUrl | String | X | 아이템 이미지 URL(최대 500자). attachmentId와 imageUrl 중 택1 필수 |
-| content.item.list[].linkMo | String | O | 아이템 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). 필수 |
-| content.item.list[].linkPc | String | X | 아이템 클릭 시 이동할 PC 웹 링크(http/https, 최대 500자). 선택 |
-| content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크(최대 500자). 선택 |
-| content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 선택 |
-| content.video | Object | X |  |
-| content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작, 최대 500자). PREMIUM_VIDEO 타입 필수 |
-| content.video.thumbnailUrl | String | X | 동영상 썸네일 이미지 URL(최대 500자). 선택. 미설정 시 카카오TV 기본 썸네일 사용 |
+| content.item.list[].image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| content.item.list[].image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| content.item.list[].image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| content.item.list[].linkMo | String | O | 아이템 클릭 시 이동할 모바일 웹 링크(http/https). 필수 |
+| content.item.list[].linkPc | String | X | 아이템 클릭 시 이동할 PC 웹 링크(http/https). 선택 |
+| content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크. 선택 |
+| content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
+| content.video | Object | X | 동영상 정보. PREMIUM_VIDEO 타입 필수 |
+| content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
+| content.video.thumbnailUrl | String | X | 동영상 섬네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 섬네일 사용 |
 | content.commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
 | content.commerce.title | String | O | 상품 제목(최대 30자). 필수 |
 | content.commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
@@ -5370,20 +5463,20 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
 | content.commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
 | content.buttons | Array | X | 메시지 버튼 목록. TEXT/IMAGE: 최대 5개(쿠폰 적용 시 최대 4개), WIDE/WIDE_ITEM_LIST: 최대 2개, PREMIUM_VIDEO: 최대 1개, COMMERCE: 필수(최소 1개, 최대 2개). CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 buttons 사용 |
-| content.buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, BK, MD, BC, BT, BF, AC] |
 | content.buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
-| content.buttons[].linkMo | String | X | 모바일 웹 링크(http/https, 최대 500자). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
-| content.buttons[].linkPc | String | X | PC 웹 링크(http/https, 최대 500자). WL/AL 타입 선택 |
-| content.buttons[].schemeIos | String | X | iOS 앱 링크(최대 500자). AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
-| content.buttons[].schemeAndroid | String | X | 안드로이드 앱 링크(최대 500자). AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| content.buttons[].linkMo | String | X | 모바일 웹 링크(http/https). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
+| content.buttons[].linkPc | String | X | PC 웹 링크(http/https). WL/AL 타입 선택 |
+| content.buttons[].schemeIos | String | X | iOS 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.buttons[].schemeAndroid | String | X | 안드로이드 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
 | content.buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
 | content.coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
 | content.coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
-| content.coupon.description | String | O | 쿠폰 상세 설명. 필수(최대 18자) |
-| content.coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https, 최대 500자). 채널 쿠폰 URL이 아닌 경우 필수 |
-| content.coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크(최대 500자). 선택 |
-| content.coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크(최대 500자). 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
-| content.coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크(최대 500자). 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
+| content.coupon.description | String | O | 쿠폰 상세 설명. 필수. TEXT/IMAGE/COMMERCE: 최대 12자, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 최대 18자 |
+| content.coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https). 채널 쿠폰 URL이 아닌 경우 필수 |
+| content.coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크. 선택 |
+| content.coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크. 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
+| content.coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크. 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
 
 
 
@@ -5428,20 +5521,118 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 {
   "templateName" : "브랜드 메시지 템플릿",
-  "messagePurpose" : "AD",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
     "senderProfileType" : "NORMAL"
   },
   "content" : {
-    "chatBubbleType" : "TEXT",
-    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "헤더",
+    "content" : null,
+    "additionalContent" : "가격 정보",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "인트로 헤더",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "가격 정보",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "상품 제목",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "버튼명",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5000원 할인 쿠폰",
+          "description" : "첫 구매 고객 전용",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "아이템 제목",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "상품 제목",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
     "buttons" : [ {
-      "type" : "WL",
       "name" : "버튼명",
+      "type" : "WL",
       "linkMo" : "https://m.example.com",
-      "linkPc" : "https://www.example.com"
-    } ]
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5000원 할인 쿠폰",
+      "description" : "첫 구매 고객 전용",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
   }
 }
 ```
@@ -5456,20 +5647,118 @@ curl -X POST "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
 -H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "브랜드 메시지 템플릿",
-  "messagePurpose" : "AD",
+  "categoryId" : "20230131070811m2fDe1rXx80",
+  "messagePurpose" : "NORMAL",
   "sender" : {
     "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
     "senderProfileType" : "NORMAL"
   },
   "content" : {
-    "chatBubbleType" : "TEXT",
-    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "헤더",
+    "content" : null,
+    "additionalContent" : "가격 정보",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "인트로 헤더",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "가격 정보",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "상품 제목",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "버튼명",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5000원 할인 쿠폰",
+          "description" : "첫 구매 고객 전용",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "아이템 제목",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "상품 제목",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
     "buttons" : [ {
-      "type" : "WL",
       "name" : "버튼명",
+      "type" : "WL",
       "linkMo" : "https://m.example.com",
-      "linkPc" : "https://www.example.com"
-    } ]
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5000원 할인 쿠폰",
+      "description" : "첫 구매 고객 전용",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
   }
 }'
 ```
@@ -5478,11 +5767,9 @@ curl -X POST "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
 
 <span id="templateV1x0037ReadBrandmessageTemplateList"></span>
 
-<a id="list-brand-message-templates"></a>
-
 ## 브랜드 메시지 템플릿 리스트 조회
 
-브랜드 메시지 템플릿 리스트를 조회합니다.
+템플릿 리스트를 조회합니다.
 
 **요청**
 
@@ -5524,21 +5811,17 @@ X-NHN-Authorization: Bearer {accessToken}
     "resultCode" : 0,
     "resultMessage" : "SUCCESS"
   },
+  "totalCount" : 1,
   "templates" : [ {
     "templateId" : "A9z0A9z0",
-    "templateName" : "브랜드 메시지 템플릿",
-    "messageChannel" : "BRANDMESSAGE",
-    "messagePurpose" : "AD",
-    "sender" : {
-      "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
-      "senderProfileId" : "@nhnCloud",
-      "senderProfileType" : "NORMAL"
-    },
-    "status" : "A",
-    "createdDateTime" : "2023-01-01T00:00:00.000+09:00",
-    "updatedDateTime" : "2023-01-01T00:00:00.000+09:00"
-  } ],
-  "totalCount" : 1
+    "templateName" : "배송 완료",
+    "categoryId" : "20230131070811m2fDe1rXx80",
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
+  } ]
 }
 ```
 
@@ -5550,19 +5833,16 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| templates | Array | O | 템플릿 리스트 |
-| templates[].templateId | String | O | 템플릿 아이디 |
+| totalCount | Integer | O | 총 건수 |
+| templates | Array | O |  |
+| templates[].templateId | String | O | 템플릿 등록 시, 발급된 템플릿 아이디 |
 | templates[].templateName | String | O | 템플릿 이름 |
-| templates[].messageChannel | String | O | 메시지 채널 |
-| templates[].messagePurpose | String | X | 발송 내용 유형 |
-| templates[].sender | Object | O |  |
-| templates[].sender.senderKey | String | O | 발신프로필 발신 키 |
-| templates[].sender.senderProfileId | String | X | 카카오톡 채널명 |
-| templates[].sender.senderProfileType | String | O | 발신프로필 타입<br>[NORMAL(일반), GROUP(그룹)] |
-| templates[].status | String | O | 템플릿 상태. A: 등록(Active), S: 차단(Stopped) |
+| templates[].categoryId | String | O | 카테고리 아이디 |
+| templates[].messageChannel | String | O | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| templates[].messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
+| templates[].messagePurposes | Array | O |  |
 | templates[].createdDateTime | String | O | 템플릿 생성 시각 |
-| templates[].updatedDateTime | String | O | 템플릿 수정 시각 |
-| totalCount | Integer | O | 총 개수 |
+| templates[].updatedDateTime | String | O | 템플릿 수정된 시각 |
 
 
 
@@ -5592,13 +5872,11 @@ curl -X GET "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
 
 </details>
 
-<span id="templateV1x0038ReadBrandmessageTemplateDetail"></span>
-
-<a id="get-brand-message-template-details"></a>
+<span id="templateV1x0038ReadBrandmessageTemplate"></span>
 
 ## 브랜드 메시지 템플릿 상세 조회
 
-브랜드 메시지 템플릿을 상세 조회합니다.
+템플릿을 상세 조회합니다.
 
 **요청**
 
@@ -5642,19 +5920,19 @@ X-NHN-Authorization: Bearer {accessToken}
     "templateCode" : "TMPL_001",
     "templateName" : "브랜드 메시지 템플릿",
     "categoryId" : "20230131070811m2fDe1rXx80",
-    "messageChannel" : "BRANDMESSAGE",
-    "messagePurpose" : "AD",
-    "messagePurposes" : [ "AD" ],
+    "messageChannel" : "SMS",
+    "messagePurpose" : "NORMAL",
+    "messagePurposes" : [ "NORMAL" ],
     "sender" : {
       "senderKey" : "3f8a6b1c5d9e2f7a0b4c8d3e6f1a9b2c5d7e0f4a",
       "senderProfileId" : "@nhnCloud",
       "senderProfileType" : "NORMAL"
     },
     "content" : {
-      "chatBubbleType" : "TEXT",
+      "messageType" : "TEXT",
       "adult" : false,
       "header" : "헤더",
-      "content" : "#{이름}님의 주문이 완료되었습니다.",
+      "content" : null,
       "additionalContent" : "가격 정보",
       "image" : {
         "attachmentId" : "20230131070811m2fDe1rXx80",
@@ -5664,9 +5942,11 @@ X-NHN-Authorization: Bearer {accessToken}
       "carousel" : {
         "head" : {
           "header" : "인트로 헤더",
-          "content" : "인트로 내용",
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg",
+          "content" : null,
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg"
+          },
           "linkMo" : "https://m.example.com",
           "linkPc" : "https://www.example.com",
           "schemeIos" : "example://ios",
@@ -5676,9 +5956,11 @@ X-NHN-Authorization: Bearer {accessToken}
           "header" : "Carousel Header",
           "message" : "Carousel Message",
           "additionalContent" : "가격 정보",
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg",
-          "imageLink" : "https://www.example.com",
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg",
+            "imageLink" : "https://www.example.com"
+          },
           "commerce" : {
             "title" : "상품 제목",
             "regularPrice" : 50000,
@@ -5687,30 +5969,41 @@ X-NHN-Authorization: Bearer {accessToken}
             "discountFixed" : 5000
           },
           "buttons" : [ {
-            "type" : "WL",
             "name" : "버튼명",
+            "type" : "WL",
             "linkMo" : "https://m.example.com",
-            "linkPc" : "https://www.example.com"
+            "linkPc" : "https://www.example.com",
+            "schemeIos" : "example://ios",
+            "schemeAndroid" : "example://android",
+            "bizFormId" : 12345
           } ],
           "coupon" : {
             "title" : "5000원 할인 쿠폰",
             "description" : "첫 구매 고객 전용",
             "linkMo" : "https://m.example.com",
-            "linkPc" : "https://www.example.com"
+            "linkPc" : "https://www.example.com",
+            "schemeIos" : "example://ios",
+            "schemeAndroid" : "example://android"
           }
         } ],
         "tail" : {
           "linkMo" : "https://m.example.com",
-          "linkPc" : "https://www.example.com"
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
         }
       },
       "item" : {
         "list" : [ {
           "title" : "아이템 제목",
-          "attachmentId" : "20230131070811m2fDe1rXx80",
-          "imageUrl" : "https://example.com/image.jpg",
+          "image" : {
+            "attachmentId" : "20230131070811m2fDe1rXx80",
+            "imageUrl" : "https://example.com/image.jpg"
+          },
           "linkMo" : "https://m.example.com",
-          "linkPc" : "https://www.example.com"
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
         } ]
       },
       "video" : {
@@ -5725,21 +6018,26 @@ X-NHN-Authorization: Bearer {accessToken}
         "discountFixed" : 5000
       },
       "buttons" : [ {
-        "type" : "WL",
         "name" : "버튼명",
+        "type" : "WL",
         "linkMo" : "https://m.example.com",
-        "linkPc" : "https://www.example.com"
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android",
+        "bizFormId" : 12345
       } ],
       "coupon" : {
         "title" : "5000원 할인 쿠폰",
         "description" : "첫 구매 고객 전용",
         "linkMo" : "https://m.example.com",
-        "linkPc" : "https://www.example.com"
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
       }
     },
     "status" : "A",
-    "createdDateTime" : "2023-01-01T00:00:00.000+09:00",
-    "updatedDateTime" : "2023-01-01T00:00:00.000+09:00"
+    "createdDateTime" : "2024-10-29T06:00:01.000+09:00",
+    "updatedDateTime" : "2024-10-29T06:00:01.000+09:00"
   }
 }
 ```
@@ -5748,26 +6046,114 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | Not Null | 설명 |
 | - | - | - | - |
-| header | Object | O |  |
+| header | Object | X |  |
 | header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
 | header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
 | header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| template | Object | O |  |
-| template.templateId | String | O | 템플릿 아이디 |
-| template.templateCode | String | O | 카카오 템플릿 코드 |
-| template.templateName | String | O | 템플릿 이름 |
+| template | Object | X |  |
+| template.templateId | String | X | 템플릿 아이디 |
+| template.templateCode | String | X | 카카오 템플릿 코드 |
+| template.templateName | String | X | 템플릿 이름 |
 | template.categoryId | String | X | 카테고리 아이디 |
-| template.messageChannel | String | O | 메시지 채널 |
-| template.messagePurpose | String | X | 발송 내용 유형 |
-| template.messagePurposes | Array | X | 발송 내용 유형 목록 |
-| template.sender | Object | O |  |
-| template.sender.senderKey | String | O | 발신프로필 발신 키 |
+| template.messageChannel | String | X | 메시지 채널<br>[SMS(SMS), ALIMTALK(알림톡), BRANDMESSAGE(브랜드 메시지), EMAIL(이메일), RCS(RCS), PUSH(푸시)] |
+| template.messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
+| template.messagePurposes | Array | X |  |
+| template.sender | Object | X | 브랜드 메시지 발신자 정보 |
+| template.sender.senderKey | String | O | 발신프로필 발신 키(40자). 그룹 발신 키는 사용 불가 |
 | template.sender.senderProfileId | String | X | 카카오톡 채널명 |
-| template.sender.senderProfileType | String | O | 발신프로필 타입<br>[NORMAL(일반), GROUP(그룹)] |
-| template.content | Object | O | 템플릿 콘텐츠. 등록 요청의 content 필드와 동일한 구조 |
-| template.status | String | O | 템플릿 상태. A: 등록(Active), S: 차단(Stopped) |
-| template.createdDateTime | String | O | 템플릿 생성 시각 |
-| template.updatedDateTime | String | O | 템플릿 수정 시각 |
+| template.sender.senderProfileType | String | X | 발신프로필 타입(NORMAL: 일반, GROUP: 그룹)<br>[GROUP, NORMAL] |
+| template.content | Object | X | 브랜드 메시지 콘텐츠 |
+| template.content.messageType | String | O | 브랜드 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
+| template.content.adult | Boolean | X | 성인용 메시지 여부(default: `false`). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: `false` |
+| template.content.header | String | X | 메시지 제목. WIDE_ITEM_LIST: 필수(최대 20자), PREMIUM_VIDEO: 선택(최대 20자). 그 외 타입: 사용 불가 |
+| template.content.content | String | X | 템플릿 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
+| template.content.additionalContent | String | X | 부가 콘텐츠. COMMERCE 타입에서만 사용(선택, 최대 34자). CAROUSEL_COMMERCE는 캐러셀 아이템 내 additionalContent 사용 |
+| template.content.image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| template.content.image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| template.content.image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| template.content.image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
+| template.content.carousel | Object | X | 캐러셀 메시지 정보. CAROUSEL_FEED/CAROUSEL_COMMERCE 타입 필수 |
+| template.content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, 이미지(image.attachmentId 또는 image.imageUrl) 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
+| template.content.carousel.head.header | String | X | 인트로 헤더. head 사용 시 필수(최대 20자) |
+| template.content.carousel.head.content | String | X | 인트로 내용. head 사용 시 필수(최대 50자) |
+| template.content.carousel.head.image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| template.content.carousel.head.image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| template.content.carousel.head.image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| template.content.carousel.head.linkMo | String | X | 인트로 클릭 시 이동할 모바일 웹 링크. 다른 링크(linkPc/schemeIos/schemeAndroid) 입력 시 필수 |
+| template.content.carousel.head.linkPc | String | X | 인트로 클릭 시 이동할 PC 웹 링크. 선택 |
+| template.content.carousel.head.schemeIos | String | X | 인트로 클릭 시 실행할 iOS 앱 링크. 선택 |
+| template.content.carousel.head.schemeAndroid | String | X | 인트로 클릭 시 실행할 안드로이드 앱 링크. 선택 |
+| template.content.carousel.list | Array | O | 캐러셀 아이템 목록. head 사용 시 1~5개, 미사용 시 2~6개 |
+| template.content.carousel.list[].header | String | X | 캐러셀 아이템 제목. CAROUSEL_FEED: 필수(최대 20자). CAROUSEL_COMMERCE: 사용 불가 |
+| template.content.carousel.list[].message | String | X | 캐러셀 아이템 메시지. CAROUSEL_FEED: 필수(최대 180자). CAROUSEL_COMMERCE: 사용 불가 |
+| template.content.carousel.list[].additionalContent | String | X | 부가 콘텐츠. CAROUSEL_COMMERCE: 선택(최대 34자). CAROUSEL_FEED: 사용 불가 |
+| template.content.carousel.list[].image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| template.content.carousel.list[].image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| template.content.carousel.list[].image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| template.content.carousel.list[].image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
+| template.content.carousel.list[].commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
+| template.content.carousel.list[].commerce.title | String | O | 상품 제목(최대 30자). 필수 |
+| template.content.carousel.list[].commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
+| template.content.carousel.list[].commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
+| template.content.carousel.list[].commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
+| template.content.carousel.list[].commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
+| template.content.carousel.list[].buttons | Array | O | 캐러셀 아이템 버튼. 최소 1개, 최대 2개 필수. AC 버튼은 마지막 위치 |
+| template.content.carousel.list[].buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
+| template.content.carousel.list[].buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| template.content.carousel.list[].buttons[].linkMo | String | X | 모바일 웹 링크(http/https). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
+| template.content.carousel.list[].buttons[].linkPc | String | X | PC 웹 링크(http/https). WL/AL 타입 선택 |
+| template.content.carousel.list[].buttons[].schemeIos | String | X | iOS 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| template.content.carousel.list[].buttons[].schemeAndroid | String | X | 안드로이드 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| template.content.carousel.list[].buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
+| template.content.carousel.list[].coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
+| template.content.carousel.list[].coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
+| template.content.carousel.list[].coupon.description | String | O | 쿠폰 상세 설명. 필수. TEXT/IMAGE/COMMERCE: 최대 12자, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 최대 18자 |
+| template.content.carousel.list[].coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https). 채널 쿠폰 URL이 아닌 경우 필수 |
+| template.content.carousel.list[].coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크. 선택 |
+| template.content.carousel.list[].coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크. 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
+| template.content.carousel.list[].coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크. 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
+| template.content.carousel.tail | Object | X | 캐러셀 더보기 버튼 링크 정보. 선택. 사용 시 linkMo 필수 |
+| template.content.carousel.tail.linkMo | String | X | 더보기 버튼 클릭 시 이동할 모바일 웹 링크(http/https). tail 사용 시 필수 |
+| template.content.carousel.tail.linkPc | String | X | 더보기 버튼 클릭 시 이동할 PC 웹 링크. 선택 |
+| template.content.carousel.tail.schemeIos | String | X | 더보기 버튼 클릭 시 실행할 iOS 앱 링크. 선택 |
+| template.content.carousel.tail.schemeAndroid | String | X | 더보기 버튼 클릭 시 실행할 안드로이드 앱 링크. 선택 |
+| template.content.item | Object | X | 와이드 아이템리스트형(WIDE_ITEM_LIST) 아이템 정보. WIDE_ITEM_LIST 타입 필수 |
+| template.content.item.list | Array | O | 와이드 아이템 목록. 최소 3개, 최대 4개 |
+| template.content.item.list[].title | String | X | 아이템 제목(줄바꿈 최대 1개). 첫 번째 아이템: 선택(최대 25자), 2~4번째 아이템: 필수(최대 30자) |
+| template.content.item.list[].image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| template.content.item.list[].image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| template.content.item.list[].image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| template.content.item.list[].linkMo | String | O | 아이템 클릭 시 이동할 모바일 웹 링크(http/https). 필수 |
+| template.content.item.list[].linkPc | String | X | 아이템 클릭 시 이동할 PC 웹 링크(http/https). 선택 |
+| template.content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크. 선택 |
+| template.content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
+| template.content.video | Object | X | 동영상 정보. PREMIUM_VIDEO 타입 필수 |
+| template.content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
+| template.content.video.thumbnailUrl | String | X | 동영상 섬네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 섬네일 사용 |
+| template.content.commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
+| template.content.commerce.title | String | O | 상품 제목(최대 30자). 필수 |
+| template.content.commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
+| template.content.commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
+| template.content.commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
+| template.content.commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
+| template.content.buttons | Array | X | 메시지 버튼 목록. TEXT/IMAGE: 최대 5개(쿠폰 적용 시 최대 4개), WIDE/WIDE_ITEM_LIST: 최대 2개, PREMIUM_VIDEO: 최대 1개, COMMERCE: 필수(최소 1개, 최대 2개). CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 buttons 사용 |
+| template.content.buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
+| template.content.buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| template.content.buttons[].linkMo | String | X | 모바일 웹 링크(http/https). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
+| template.content.buttons[].linkPc | String | X | PC 웹 링크(http/https). WL/AL 타입 선택 |
+| template.content.buttons[].schemeIos | String | X | iOS 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| template.content.buttons[].schemeAndroid | String | X | 안드로이드 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| template.content.buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
+| template.content.coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
+| template.content.coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
+| template.content.coupon.description | String | O | 쿠폰 상세 설명. 필수. TEXT/IMAGE/COMMERCE: 최대 12자, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 최대 18자 |
+| template.content.coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https). 채널 쿠폰 URL이 아닌 경우 필수 |
+| template.content.coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크. 선택 |
+| template.content.coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크. 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
+| template.content.coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크. 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
+| template.status | String | X | 템플릿 상태. A: 등록(Active), S: 차단(Stopped)<br>[A, S] |
+| template.createdDateTime | String | X | 템플릿 생성 시각 |
+| template.updatedDateTime | String | X | 템플릿 수정 시각 |
 
 
 
@@ -5799,11 +6185,9 @@ curl -X GET "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
 
 <span id="templateV1x0039UpdateBrandmessageTemplate"></span>
 
-<a id="update-brand-message-template"></a>
-
 ## 브랜드 메시지 템플릿 수정
 
-브랜드 메시지 템플릿을 수정합니다. 발신자(sender)는 수정할 수 없습니다.
+템플릿을 수정합니다.
 
 **요청**
 
@@ -5831,16 +6215,113 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 {
   "templateName" : "브랜드 메시지 템플릿 수정",
-  "messagePurpose" : "AD",
+  "messagePurpose" : "NORMAL",
   "content" : {
-    "chatBubbleType" : "TEXT",
-    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "헤더",
+    "content" : null,
+    "additionalContent" : "가격 정보",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "인트로 헤더",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "가격 정보",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "상품 제목",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "버튼명",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5000원 할인 쿠폰",
+          "description" : "첫 구매 고객 전용",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "아이템 제목",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "상품 제목",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
     "buttons" : [ {
-      "type" : "WL",
       "name" : "버튼명",
+      "type" : "WL",
       "linkMo" : "https://m.example.com",
-      "linkPc" : "https://www.example.com"
-    } ]
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5000원 할인 쿠폰",
+      "description" : "첫 구매 고객 전용",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
   }
 }
 ```
@@ -5849,9 +6330,97 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 경로 | 타입 | 필수 | 설명 |
 | - | - | - | - |
-| templateName | String | O | 템플릿 이름(최대 200자) |
-| messagePurpose | String | X | 발송 내용 유형<br>[AD(광고)] |
-| content | Object | O | 템플릿 콘텐츠. 등록 요청의 content 필드와 동일한 구조 |
+| templateName | String | O | 템플릿 이름 |
+| messagePurpose | String | X | 발송 내용 유형<br>기본값: NORMAL<br>[NORMAL(일반), AD(광고), AUTH(인증)] |
+| content | Object | O | 브랜드 메시지 콘텐츠 |
+| content.messageType | String | O | 브랜드 메시지 말풍선 타입. TEXT: 텍스트형, IMAGE: 이미지형, WIDE: 와이드 이미지형, WIDE_ITEM_LIST: 와이드 아이템리스트형, CAROUSEL_FEED: 캐러셀 피드형, CAROUSEL_COMMERCE: 캐러셀 커머스형, COMMERCE: 커머스형, PREMIUM_VIDEO: 프리미엄 비디오형<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, PREMIUM_VIDEO, COMMERCE, CAROUSEL_COMMERCE] |
+| content.adult | Boolean | X | 성인용 메시지 여부(default: `false`). 성인용 설정 시 성인 인증을 완료한 수신자에게만 노출<br>기본값: `false` |
+| content.header | String | X | 메시지 제목. WIDE_ITEM_LIST: 필수(최대 20자), PREMIUM_VIDEO: 선택(최대 20자). 그 외 타입: 사용 불가 |
+| content.content | String | X | 템플릿 본문. TEXT: 필수(최대 1,300자, 줄바꿈 최대 99개), IMAGE: 필수(최대 1,300자), WIDE: 필수(최대 76자, 줄바꿈 최대 5개), PREMIUM_VIDEO: 선택(최대 76자, 줄바꿈 최대 5개). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: 사용 불가. URL 입력 가능 |
+| content.additionalContent | String | X | 부가 콘텐츠. COMMERCE 타입에서만 사용(선택, 최대 34자). CAROUSEL_COMMERCE는 캐러셀 아이템 내 additionalContent 사용 |
+| content.image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| content.image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| content.image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| content.image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
+| content.carousel | Object | X | 캐러셀 메시지 정보. CAROUSEL_FEED/CAROUSEL_COMMERCE 타입 필수 |
+| content.carousel.head | Object | X | 캐러셀 인트로 영역. CAROUSEL_COMMERCE만 사용 가능(선택). 사용 시 header, content, 이미지(image.attachmentId 또는 image.imageUrl) 필수. head 사용 시 list는 1~5개, 미사용 시 2~6개 |
+| content.carousel.head.header | String | X | 인트로 헤더. head 사용 시 필수(최대 20자) |
+| content.carousel.head.content | String | X | 인트로 내용. head 사용 시 필수(최대 50자) |
+| content.carousel.head.image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| content.carousel.head.image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| content.carousel.head.image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| content.carousel.head.linkMo | String | X | 인트로 클릭 시 이동할 모바일 웹 링크. 다른 링크(linkPc/schemeIos/schemeAndroid) 입력 시 필수 |
+| content.carousel.head.linkPc | String | X | 인트로 클릭 시 이동할 PC 웹 링크. 선택 |
+| content.carousel.head.schemeIos | String | X | 인트로 클릭 시 실행할 iOS 앱 링크. 선택 |
+| content.carousel.head.schemeAndroid | String | X | 인트로 클릭 시 실행할 안드로이드 앱 링크. 선택 |
+| content.carousel.list | Array | O | 캐러셀 아이템 목록. head 사용 시 1~5개, 미사용 시 2~6개 |
+| content.carousel.list[].header | String | X | 캐러셀 아이템 제목. CAROUSEL_FEED: 필수(최대 20자). CAROUSEL_COMMERCE: 사용 불가 |
+| content.carousel.list[].message | String | X | 캐러셀 아이템 메시지. CAROUSEL_FEED: 필수(최대 180자). CAROUSEL_COMMERCE: 사용 불가 |
+| content.carousel.list[].additionalContent | String | X | 부가 콘텐츠. CAROUSEL_COMMERCE: 선택(최대 34자). CAROUSEL_FEED: 사용 불가 |
+| content.carousel.list[].image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| content.carousel.list[].image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| content.carousel.list[].image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| content.carousel.list[].image.imageLink | String | X | 이미지 클릭 시 이동할 URL(http/https). 선택. 미설정 시 카카오톡 이미지 뷰어 사용 |
+| content.carousel.list[].commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
+| content.carousel.list[].commerce.title | String | O | 상품 제목(최대 30자). 필수 |
+| content.carousel.list[].commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
+| content.carousel.list[].commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
+| content.carousel.list[].commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
+| content.carousel.list[].commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
+| content.carousel.list[].buttons | Array | O | 캐러셀 아이템 버튼. 최소 1개, 최대 2개 필수. AC 버튼은 마지막 위치 |
+| content.carousel.list[].buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
+| content.carousel.list[].buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| content.carousel.list[].buttons[].linkMo | String | X | 모바일 웹 링크(http/https). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
+| content.carousel.list[].buttons[].linkPc | String | X | PC 웹 링크(http/https). WL/AL 타입 선택 |
+| content.carousel.list[].buttons[].schemeIos | String | X | iOS 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.carousel.list[].buttons[].schemeAndroid | String | X | 안드로이드 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.carousel.list[].buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
+| content.carousel.list[].coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
+| content.carousel.list[].coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
+| content.carousel.list[].coupon.description | String | O | 쿠폰 상세 설명. 필수. TEXT/IMAGE/COMMERCE: 최대 12자, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 최대 18자 |
+| content.carousel.list[].coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https). 채널 쿠폰 URL이 아닌 경우 필수 |
+| content.carousel.list[].coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크. 선택 |
+| content.carousel.list[].coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크. 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
+| content.carousel.list[].coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크. 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
+| content.carousel.tail | Object | X | 캐러셀 더보기 버튼 링크 정보. 선택. 사용 시 linkMo 필수 |
+| content.carousel.tail.linkMo | String | X | 더보기 버튼 클릭 시 이동할 모바일 웹 링크(http/https). tail 사용 시 필수 |
+| content.carousel.tail.linkPc | String | X | 더보기 버튼 클릭 시 이동할 PC 웹 링크. 선택 |
+| content.carousel.tail.schemeIos | String | X | 더보기 버튼 클릭 시 실행할 iOS 앱 링크. 선택 |
+| content.carousel.tail.schemeAndroid | String | X | 더보기 버튼 클릭 시 실행할 안드로이드 앱 링크. 선택 |
+| content.item | Object | X | 와이드 아이템리스트형(WIDE_ITEM_LIST) 아이템 정보. WIDE_ITEM_LIST 타입 필수 |
+| content.item.list | Array | O | 와이드 아이템 목록. 최소 3개, 최대 4개 |
+| content.item.list[].title | String | X | 아이템 제목(줄바꿈 최대 1개). 첫 번째 아이템: 선택(최대 25자), 2~4번째 아이템: 필수(최대 30자) |
+| content.item.list[].image | Object | X | 브랜드 메시지 이미지. attachmentId와 imageUrl 중 하나 필수 |
+| content.item.list[].image.attachmentId | String | X | 첨부 파일 아이디. attachmentId와 imageUrl 중 택1 |
+| content.item.list[].image.imageUrl | String | X | 이미지 URL. attachmentId와 imageUrl 중 택1 |
+| content.item.list[].linkMo | String | O | 아이템 클릭 시 이동할 모바일 웹 링크(http/https). 필수 |
+| content.item.list[].linkPc | String | X | 아이템 클릭 시 이동할 PC 웹 링크(http/https). 선택 |
+| content.item.list[].schemeIos | String | X | 아이템 클릭 시 실행할 iOS 앱 링크. 선택 |
+| content.item.list[].schemeAndroid | String | X | 아이템 클릭 시 실행할 안드로이드 앱 링크. 선택 |
+| content.video | Object | X | 동영상 정보. PREMIUM_VIDEO 타입 필수 |
+| content.video.videoUrl | String | O | 카카오TV 동영상 URL(https://tv.kakao.com/으로 시작). PREMIUM_VIDEO 타입 필수 |
+| content.video.thumbnailUrl | String | X | 동영상 섬네일 이미지 URL. 선택. 미설정 시 카카오TV 기본 섬네일 사용 |
+| content.commerce | Object | X | 커머스 정보. COMMERCE/CAROUSEL_COMMERCE 타입 필수 |
+| content.commerce.title | String | O | 상품 제목(최대 30자). 필수 |
+| content.commerce.regularPrice | Integer | O | 정상 가격(0~99,999,999). 필수 |
+| content.commerce.discountPrice | Integer | X | 할인 후 가격(0~99,999,999). 선택. 사용 시 discountRate 또는 discountFixed 중 하나 필수 |
+| content.commerce.discountRate | Integer | X | 할인율(0~100). discountPrice 존재 시 discountFixed와 택1 |
+| content.commerce.discountFixed | Integer | X | 정액 할인 가격(0~999,999). discountPrice 존재 시 discountRate와 택1 |
+| content.buttons | Array | X | 메시지 버튼 목록. TEXT/IMAGE: 최대 5개(쿠폰 적용 시 최대 4개), WIDE/WIDE_ITEM_LIST: 최대 2개, PREMIUM_VIDEO: 최대 1개, COMMERCE: 필수(최소 1개, 최대 2개). CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 buttons 사용 |
+| content.buttons[].name | String | X | 버튼 이름. TEXT/IMAGE: 최대 14자, 그 외: 최대 8자. AC 타입: 값 없이 전송. BF 타입: "설문 참여하기", "신청하기", "응모하기" 중 택1 |
+| content.buttons[].type | String | O | 버튼 타입. WL: 웹 링크, AL: 앱 링크, BK: 봇 키워드, MD: 메시지 전달, BC: 상담톡 전환, BT: 챗봇 전환, BF: 비즈니스폼, AC: 채널 추가<br>[WL, AL, MD, BT, AC, BK, BF, BC] |
+| content.buttons[].linkMo | String | X | 모바일 웹 링크(http/https). WL 타입 필수, AL 타입 선택(schemeIos/schemeAndroid 중 하나와 함께 입력 시 필요) |
+| content.buttons[].linkPc | String | X | PC 웹 링크(http/https). WL/AL 타입 선택 |
+| content.buttons[].schemeIos | String | X | iOS 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.buttons[].schemeAndroid | String | X | 안드로이드 앱 링크. AL 타입: linkMo, schemeAndroid, schemeIos 중 2개 이상 필수 |
+| content.buttons[].bizFormId | Integer | X | 비즈니스폼 ID. BF 타입 필수 |
+| content.coupon | Object | X | 쿠폰 정보. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: 선택. CAROUSEL_FEED/CAROUSEL_COMMERCE: 캐러셀 아이템 내 사용 |
+| content.coupon.title | String | O | 쿠폰 제목. 필수. 형식: "{N}원 할인 쿠폰"(N: 1~99,999,999), "{N}% 할인 쿠폰"(N: 1~100), "배송비 할인 쿠폰", "{상품명} 무료 쿠폰"(상품명 최대 7자), "{상품명} UP 쿠폰"(상품명 최대 7자) 중 택1 |
+| content.coupon.description | String | O | 쿠폰 상세 설명. 필수. TEXT/IMAGE/COMMERCE: 최대 12자, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: 최대 18자 |
+| content.coupon.linkMo | String | X | 쿠폰 클릭 시 이동할 모바일 웹 링크(http/https). 채널 쿠폰 URL이 아닌 경우 필수 |
+| content.coupon.linkPc | String | X | 쿠폰 클릭 시 이동할 PC 웹 링크. 선택 |
+| content.coupon.schemeIos | String | X | 쿠폰 클릭 시 실행할 iOS 앱 링크. 채널 쿠폰 URL 사용 시 schemeAndroid와 함께 하나 이상 필수 |
+| content.coupon.schemeAndroid | String | X | 쿠폰 클릭 시 실행할 안드로이드 앱 링크. 채널 쿠폰 URL 사용 시 schemeIos와 함께 하나 이상 필수 |
 
 
 
@@ -5894,16 +6463,113 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 {
   "templateName" : "브랜드 메시지 템플릿 수정",
-  "messagePurpose" : "AD",
+  "messagePurpose" : "NORMAL",
   "content" : {
-    "chatBubbleType" : "TEXT",
-    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "헤더",
+    "content" : null,
+    "additionalContent" : "가격 정보",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "인트로 헤더",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "가격 정보",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "상품 제목",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "버튼명",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5000원 할인 쿠폰",
+          "description" : "첫 구매 고객 전용",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "아이템 제목",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "상품 제목",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
     "buttons" : [ {
-      "type" : "WL",
       "name" : "버튼명",
+      "type" : "WL",
       "linkMo" : "https://m.example.com",
-      "linkPc" : "https://www.example.com"
-    } ]
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5000원 할인 쿠폰",
+      "description" : "첫 구매 고객 전용",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
   }
 }
 ```
@@ -5918,16 +6584,113 @@ curl -X PUT "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
 -H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "templateName" : "브랜드 메시지 템플릿 수정",
-  "messagePurpose" : "AD",
+  "messagePurpose" : "NORMAL",
   "content" : {
-    "chatBubbleType" : "TEXT",
-    "content" : "#{이름}님의 주문이 완료되었습니다.",
+    "messageType" : "TEXT",
+    "adult" : false,
+    "header" : "헤더",
+    "content" : null,
+    "additionalContent" : "가격 정보",
+    "image" : {
+      "attachmentId" : "20230131070811m2fDe1rXx80",
+      "imageUrl" : "https://example.com/image.jpg",
+      "imageLink" : "https://www.example.com"
+    },
+    "carousel" : {
+      "head" : {
+        "header" : "인트로 헤더",
+        "content" : null,
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      },
+      "list" : [ {
+        "header" : "Carousel Header",
+        "message" : "Carousel Message",
+        "additionalContent" : "가격 정보",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg",
+          "imageLink" : "https://www.example.com"
+        },
+        "commerce" : {
+          "title" : "상품 제목",
+          "regularPrice" : 50000,
+          "discountPrice" : 45000,
+          "discountRate" : 10,
+          "discountFixed" : 5000
+        },
+        "buttons" : [ {
+          "name" : "버튼명",
+          "type" : "WL",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android",
+          "bizFormId" : 12345
+        } ],
+        "coupon" : {
+          "title" : "5000원 할인 쿠폰",
+          "description" : "첫 구매 고객 전용",
+          "linkMo" : "https://m.example.com",
+          "linkPc" : "https://www.example.com",
+          "schemeIos" : "example://ios",
+          "schemeAndroid" : "example://android"
+        }
+      } ],
+      "tail" : {
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      }
+    },
+    "item" : {
+      "list" : [ {
+        "title" : "아이템 제목",
+        "image" : {
+          "attachmentId" : "20230131070811m2fDe1rXx80",
+          "imageUrl" : "https://example.com/image.jpg"
+        },
+        "linkMo" : "https://m.example.com",
+        "linkPc" : "https://www.example.com",
+        "schemeIos" : "example://ios",
+        "schemeAndroid" : "example://android"
+      } ]
+    },
+    "video" : {
+      "videoUrl" : "https://tv.kakao.com/v/123456789",
+      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+    },
+    "commerce" : {
+      "title" : "상품 제목",
+      "regularPrice" : 50000,
+      "discountPrice" : 45000,
+      "discountRate" : 10,
+      "discountFixed" : 5000
+    },
     "buttons" : [ {
-      "type" : "WL",
       "name" : "버튼명",
+      "type" : "WL",
       "linkMo" : "https://m.example.com",
-      "linkPc" : "https://www.example.com"
-    } ]
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android",
+      "bizFormId" : 12345
+    } ],
+    "coupon" : {
+      "title" : "5000원 할인 쿠폰",
+      "description" : "첫 구매 고객 전용",
+      "linkMo" : "https://m.example.com",
+      "linkPc" : "https://www.example.com",
+      "schemeIos" : "example://ios",
+      "schemeAndroid" : "example://android"
+    }
   }
 }'
 ```
@@ -5936,11 +6699,9 @@ curl -X PUT "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
 
 <span id="templateV1x0040DeleteBrandmessageTemplate"></span>
 
-<a id="delete-brand-message-template"></a>
-
 ## 브랜드 메시지 템플릿 삭제
 
-브랜드 메시지 템플릿을 삭제합니다.
+템플릿을 삭제합니다.
 
 **요청**
 
@@ -6013,104 +6774,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X DELETE "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
--H "X-NC-APP-KEY: {appKey}" \
--H "X-NHN-Authorization: Bearer {accessToken}"
-```
-
-</details>
-
-<span id="templateV1x0035ReadTemplateParameters"></span>
-
-<a id="retrieve-template-parameters"></a>
-
-## 템플릿 파라미터 조회
-
-템플릿이 포함하고 있는 파라미터 목록을 조회합니다.
-
-**요청**
-
-```
-GET /template/v1.0/{messageChannel}/templates/{templateId}/parameters
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-
-**요청 파라미터**
-
-| 이름 | 구분 | 타입 | 필수 | 설명 |
-| - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | O | 앱키 |
-| X-NHN-Authorization | Header | String | O | 액세스 토큰 |
-| messageChannel | Path | Enum | O | 메시지 채널입니다. |
-| templateId | Path | String | O | 템플릿 아이디 |
-
-
-
-**요청 본문**
-
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
-
-이 API는 요청 본문을 요구하지 않습니다.
-
-
-
-**응답 본문**
-
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
-
-```
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 0,
-    "resultMessage" : "SUCCESS"
-  },
-  "templateParameter" : {
-    "validateTimestamp" : "",
-    "timestamp" : "",
-    "validateFailDomainList" : [ {
-      "domain" : "",
-      "verifyYn" : "",
-      "spfYn" : "",
-      "dkimVerifyYn" : "",
-      "dmarcYn" : ""
-    } ]
-  }
-}
-```
-
-<!--응답 본문의 필드를 설명합니다.-->
-
-| 경로 | 타입 | Not Null | 설명 |
-| - | - | - | - |
-| header | Object | O |  |
-| header.isSuccessful | Boolean | O | 요청이 성공했는지 여부를 나타냅니다.<br>기본값: true |
-| header.resultCode | Integer | O | 요청의 결과 코드입니다.<br>기본값: 0 |
-| header.resultMessage | String | O | 요청의 결과 메시지입니다.<br>기본값: SUCCESS |
-| templateParameter | Object | X | 템플릿 파라미터 결과 JSON |
-
-
-
-**요청 예시**
-
-
-<details>
-    <summary><strong>IntelliJ HTTP</strong></summary>
-
-```http
-### 템플릿 파라미터 조회
-
-GET {{endpoint}}/template/v1.0/{{messageChannel}}/templates/{{templateId}}/parameters
-X-NC-APP-KEY: {appKey}
-X-NHN-Authorization: Bearer {accessToken}
-```
-</details>
-
-<details>
-    <summary><strong>cURL</strong></summary>
-
-```http
-curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}/parameters" \
 -H "X-NC-APP-KEY: {appKey}" \
 -H "X-NHN-Authorization: Bearer {accessToken}"
 ```
