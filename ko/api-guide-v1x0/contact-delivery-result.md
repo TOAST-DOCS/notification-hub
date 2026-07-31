@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=8c77b572b6aa -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -15,8 +17,7 @@
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-received-results-by-contacts"></a>
-
-## 연락처별 수신 결과 목록 조회
+## 연락처별 수신 결과 목록 조회 { #retrieve-a-list-of-received-results-by-contacts }
 
 발송 요청된 메시지의 발송과 수신 결과를 수신자의 연락처 단위로 조회합니다.
 
@@ -219,8 +220,7 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-the-final-send-status-messages"></a>
-
-## 최종 발송 상태 메시지 목록 조회
+## 최종 발송 상태 메시지 목록 조회 { #retrieve-a-list-of-the-final-send-status-messages }
 
 발송 과정이 끝난 메시지 결과 목록을 조회합니다.<br>
 최종 발송 상태에는 "SEND_FAILED(발송 실패)", "DELIVERED(수신 성공)", "DELIVERY_FAILED(수신 실패)", "CANCELED(취소)"가 있습니다.

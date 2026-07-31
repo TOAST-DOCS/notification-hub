@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=8c77b572b6aa -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -15,8 +17,7 @@
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-received-results-by-contacts"></a>
-
-## Retrieve a List of Received Results by Contacts
+## Retrieve a List of Received Results by Contacts { #retrieve-a-list-of-received-results-by-contacts }
 
 Retrieve the sending and reception results of requested messages by recipient contact.
 
@@ -222,8 +223,7 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-the-final-send-status-messages"></a>
-
-## Retrieve a List of the Final Send Status Messages
+## Retrieve a List of the Final Send Status Messages { #retrieve-a-list-of-the-final-send-status-messages }
 
 View a list of message results after the sending process has completed.<br>
 Final sending statuses include "SEND_FAILED (Delivery Failed)," "DELIVERED (Delivery Successful)," "DELIVERY_FAILED (Delivery Failed)," and "CANCELED (Canceled)."

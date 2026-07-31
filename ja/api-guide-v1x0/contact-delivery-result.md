@@ -12,8 +12,7 @@
 <span id="read-contact-delivery-results"></span>
 
 <a id="retrieve-a-list-of-received-results-by-contacts"></a>
-
-## 連絡先別受信結果リスト照会
+## 連絡先別受信結果リスト照会 { #retrieve-a-list-of-received-results-by-contacts }
 
 <!-- !!! tip 「知っておくべきこと」-->
 <!-- APIを使用する際、ユーザーが知っておくと良い注意事項や追加情報を提供する際に使用します。 -->
@@ -234,8 +233,7 @@ curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results" \
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-the-final-send-status-messages"></a>
-
-## 最終送信ステータスメッセージリスト照会
+## 最終送信ステータスメッセージリスト照会 { #retrieve-a-list-of-the-final-send-status-messages }
 
 送信プロセスが終了したメッセージ結果リストを照会します。<br>
 最終送信ステータスには「SEND_FAILED(送信失敗)」、「DELIVERED(受信成功)」、「DELIVERY_FAILED(受信失敗)」、「CANCELED(キャンセル)」があります。
