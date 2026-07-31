@@ -12,6 +12,8 @@
 
 <span id="contact-delivery-result"></span>
 
+<a id="view-send"></a>
+
 ## 발송 조회
 
 발송된 메시지의 수신 결과를 수신자의 연락처 단위로 조회할 수 있습니다.

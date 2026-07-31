@@ -15,6 +15,8 @@
 
 <span id="kakaobizcenterV10GroupTagsGet"></span>
 
+<a id="list-all-group-tags"></a>
+
 ## List All Group Tags
 
 Retrieves the full list of group tags in KakaoBizCenter.

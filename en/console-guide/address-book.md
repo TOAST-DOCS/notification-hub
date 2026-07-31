@@ -11,6 +11,8 @@
 
 
 
+<a id="address-book"></a>
+
 ## Address Book
 
 You can register and manage the receiver's contacts.

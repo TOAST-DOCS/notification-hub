@@ -16,6 +16,8 @@
 
 <span id="imageLayoutV1x0003GetImageLayout"></span>
 
+<a id="retrieve-image-layout"></a>
+
 ## Retrieve Image Layout
 
 Retrieves a single image layout based on its ID.

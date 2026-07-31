@@ -16,6 +16,8 @@
 
 <span id="imageLayoutV1x0003GetImageLayout"></span>
 
+<a id="retrieve-image-layout"></a>
+
 ## 이미지 레이아웃 단건 조회
 
 이미지 레이아웃을 ID 기반으로 단건 조회합니다.

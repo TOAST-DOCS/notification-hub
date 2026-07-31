@@ -16,6 +16,8 @@ The push services supported by Notification Hub are as follows.
 * APNS(apple push notification service): iPhone
 * ADM(amazon device messaging): Amazon Kindle, Fire etc.
 
+<a id="how-to-issue-push-credentials"></a>
+
 ## How to issue push Credentials
 
 <span id="get-fcm-service-account-credential"></span>

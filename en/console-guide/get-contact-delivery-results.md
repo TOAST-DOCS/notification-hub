@@ -12,6 +12,8 @@
 
 <span id="contact-delivery-result"></span>
 
+<a id="view-send"></a>
+
 ## View Send
 
 You can view the reception results of the delivered message by receiver contacts.

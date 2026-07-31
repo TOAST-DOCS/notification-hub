@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > 利用ポリシー及び事前設定案内 > Email**
 
+<a id="register-sending-domain-and-dns-txt-record"></a>
+
 ## 発信ドメインとDNS TXTレコードの登録
 
 Notification Hubでメールを送信するには、自分が所有している送信ドメインが必要です。各ユーザーが自分のドメインを通じて送信者の身元を認証し、メールがスパムに分類されないようにするためです。送信ドメインを通じてSPF、DKIM、DMARCなどの認証設定を適用して、メールの信頼性を高めることができます。これにより、メールが受信者のメールボックスに安全に届き、フィッシングやなりすましを防止できます。Notification Hubのメール送信(SMTP)サーバーを通じて、ユーザー所有のドメインが含まれたメールアドレスとともにメールが受信サーバー(SMTP)に送信されます。メール受信サーバーがNotification Hubメール送信サーバーを信頼するためには、ユーザー所有のドメインがサービスされているDNSにSPF、DKIM、DMARC TXTレコードの設定が必要です。

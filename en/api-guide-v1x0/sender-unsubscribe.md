@@ -16,6 +16,8 @@
 
 <span id="senderV1x0001RegisterExternalUnsubscribePhoneNumber"></span>
 
+<a id="request-to-register-external-080-opt-out-number"></a>
+
 ## Request to Register External 080 Opt-out Number
 
 Request to register the external 080 opt-out number.

@@ -18,6 +18,8 @@
 
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
 
+<a id="delete-a-template-category"></a>
+
 ## テンプレートカテゴリーの削除
 
 テンプレートカテゴリーを削除します。

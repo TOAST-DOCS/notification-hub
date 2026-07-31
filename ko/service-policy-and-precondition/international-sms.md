@@ -9,6 +9,8 @@
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 국제 SMS**
 
+<a id="country-specific-sender-number"></a>
+
 ## 국제 SMS 국가별 발송 정책
  국가별 상세 발송 정책은 [국가별 SMS 발송 상세 가이드]를 참고하십시오.
  [국가별 SMS 발송 상세 가이드 바로 가기](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)

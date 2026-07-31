@@ -11,6 +11,8 @@
 
 <span id="sms-delivery-failure"></span>
 
+<a id="you-cannot-proceed-with-identity-verification"></a>
+
 ## 본인 인증을 진행할 수 없습니다.
 
 Notification Hub는 사업자 회원만 본인 인증을 통해 사용할 수 있습니다. 개인 회원인 경우 본인 인증을 진행할 수 없습니다. 사업자 회원으로 재가입 후 본인 인증을 진행하세요.
