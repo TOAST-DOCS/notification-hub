@@ -17,7 +17,6 @@
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-received-results-by-contacts"></a>
-
 ## Retrieve a List of Received Results by Contacts { #retrieve-a-list-of-received-results-by-contacts }
 
 Retrieve the sending and reception results of requested messages by recipient contact.
@@ -219,7 +218,6 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-the-final-send-status-messages"></a>
-
 ## Retrieve a List of the Final Send Status Messages { #retrieve-a-list-of-the-final-send-status-messages }
 
 View a list of message results after the sending process has completed.<br>
