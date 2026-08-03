@@ -17,7 +17,6 @@
 <span id="contactDeliveryResultV1x0001ReadContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-received-results-by-contacts"></a>
-
 ## 連絡先別受信結果リスト照会 { #retrieve-a-list-of-received-results-by-contacts }
 
 発送リクエストされたメッセージの発送と受信結果を、受信者の連絡先単位で照会します。
@@ -214,7 +213,6 @@ curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
 <span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-the-final-send-status-messages"></a>
-
 ## 最終送信ステータスメッセージリスト照会 { #retrieve-a-list-of-the-final-send-status-messages }
 
 送信プロセスが終了したメッセージ結果リストを照会します。<br>
