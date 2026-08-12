@@ -23,7 +23,7 @@ To use the RCS Bizmessage service, you have to register your brand after signing
     * RCS manager will approve and it will take 2 business days to process your membership.
 2. An RCS brand is a corporate profile. After you create a brand, you request approval.
     * You can find related guides by clicking **Brand Guide**at the top of the Create a brand page.
-      * [Brand Opening Guide Shortcut](https://www.rcsbizcenter.com/GuideBrand)
+      * [Brand Opening Guide Shortcut](https://docs.rcsbizcenter.com/useguide/readme/brandopen)
     * RCS manager will approve, which can take about 2 business days for brand creation approval.
 
 <a id="set-up-a-brand-agency"></a>

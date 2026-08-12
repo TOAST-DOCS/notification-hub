@@ -23,7 +23,7 @@ RCS Bizmessageサービスを利用するためには、RCS Biz Centerに登録�
     * RCS担当者が承認し、会員登録処理まで2営業日程度かかります。
 2. RCSブランドは企業プロフィールです。ブランドを開設した後、承認をリクエストします。
     * **ブランド開設ガイド**をクリックすると、関連ガイドを参照できます。
-      * [ブランド開設ガイド](https://www.rcsbizcenter.com/GuideBrand)
+      * [ブランド開設ガイド](https://docs.rcsbizcenter.com/useguide/readme/brandopen)
     * RCS担当者が承認し、ブランド作成承認まで2営業日程度かかります。
 
 <a id="set-up-a-brand-agency"></a>
