@@ -17,6 +17,8 @@
 * 国際SMSメッセージは、国別の発信番号ポリシーに基づいて送信され、そのポリシーに従わない場合、スパムとして処理されることがあります。
 * 顧客が設定した発信番号は、受信端末への表示を保証することができず、国際SMSメッセージを正常に送信するために、ランダムな数字や文字、NHNcorpなどに変更されて送信される場合があります。
 
+<a id="country-specific-sender-number"></a>
+
 ## 国際SMS送信
 * 国別の詳細ポリシーは、下記の**国別SMS送信詳細ガイド**を参照してください。
   * [国別SMS送信詳細ガイド](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)

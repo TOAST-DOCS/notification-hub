@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bfbbe9a63c62 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -15,8 +17,7 @@
 <span id="messageV1x0001SmsFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---sms"></a>
-
-## Free-form message sending request - SMS
+## Free-form message sending request - SMS { #free-form-message-sending-request---sms }
 
 Requests free-form message sending for SMS. Enter the message content in the request body and request the sending.
 
@@ -101,8 +102,7 @@ X-NHN-Authorization: Bearer {accessToken}
 * You can't set up a scheduled sending and a post-approval sending at the same time.
 
 <a id="sender-fields-by-message-channel"></a>
-
-### Sender Fields by Message Channel
+### Sender Fields by Message Channel { #sender-fields-by-message-channel }
 
 | Message Channel | Field | Description |
 | --- | --- | --- |
@@ -224,8 +224,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---brand-message-brandmessage"></a>
-
-## Free-Form Message Sending Request - Brand Message (BRANDMESSAGE)
+## Free-Form Message Sending Request - Brand Message (BRANDMESSAGE) { #free-form-message-sending-request---brand-message-brandmessage }
 
 Requests free-form message sending for Brand Message (BRANDMESSAGE).
 
@@ -847,8 +846,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 <span id="messageV1x0003EmailFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---email"></a>
-
-## Free-form message sending request - Email (EMAIL)
+## Free-form message sending request - Email (EMAIL) { #request-to-send-a-free-form-message---email }
 
 Requests free-form message sending for Email (EMAIL).
 
@@ -1019,8 +1017,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 <span id="messageV1x0004RcsFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---rcs"></a>
-
-## Free-form message sending request - RCS
+## Free-form message sending request - RCS { #request-to-send-a-free-form-message---rcs }
 
 Requests free-form message sending for RCS.
 
@@ -1397,8 +1394,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---push"></a>
-
-## Free-form message sending request - PUSH
+## Free-form message sending request - PUSH { #request-to-send-a-free-form-message---push }
 
 Requests free-form message sending for PUSH.
 
@@ -1684,8 +1680,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 <span id="messageV1x0006TemplateMessages"></span>
 
 <a id="request-template-message-sending"></a>
-
-## Template Message Sending Request
+## Template Message Sending Request { #request-template-message-sending }
 
 Sends a message using a registered template.<br>
 If no template has been registered, register a template first before sending.<br>
@@ -1863,8 +1858,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 <a id="send-alimtalk-template-message"></a>
-
-## Send Alim Talk Template Messages
+## Send Alim Talk Template Messages { #send-alimtalk-template-message }
 
 Send messages using registered templates.<br>
 If no template is registered, register a template first before sending.<br>
@@ -2053,8 +2047,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
 
 <a id="send-a-brand-message-template-message"></a>
-
-## Send a Brand Message Template Message
+## Send a Brand Message Template Message { #send-a-brand-message-template-message }
 
 Send a brand message by using a registered template.<br>
 If no template has been registered, register one first and then send the message.<br>
@@ -2306,8 +2299,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 <span id="messageV1x0008EmailTemplateMessages"></span>
 
 <a id="send-email-template-message"></a>
-
-## Send an Email Template Message
+## Send an Email Template Message { #send-email-template-message }
 
 Sends a message using a registered template.<br>
 If no template has been registered, register a template first and then send the message.<br>
@@ -2485,8 +2477,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 <span id="messageV1x0008RcsTemplateMessages"></span>
 
 <a id="send-rcs-template-message"></a>
-
-## Send RCS Template Messages
+## Send RCS Template Messages { #send-rcs-template-message }
 
 Send messages using a registered template.<br>
 If no template is registered, register a template first before sending.<br>
@@ -2692,8 +2683,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
 <a id="send-sms-template-message"></a>
-
-## Send SMS Template Message
+## Send SMS Template Message { #send-sms-template-message }
 
 Sends a message using a registered template.
 If no template has been registered, register one first before sending.
@@ -2885,8 +2875,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 <span id="messageV1x0009FlowMessages"></span>
 
 <a id="send-flow-message"></a>
-
-## Send Flow Messages
+## Send Flow Messages { #send-flow-message }
 
 Send messages using a registered flow.<br>
 If you have not registered a flow, you must register one before sending.<br>
@@ -3140,8 +3129,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 <span id="messageV1x0010InstantFlowMessages"></span>
 
 <a id="send-an-instant-flow-message"></a>
-
-## Send Instant Flow Messages
+## Send Instant Flow Messages { #send-an-instant-flow-message }
 
 Request that a message be sent by defining a flow when sending a message.<br>
 <br>
@@ -3372,8 +3360,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
 <a id="cancel-sending-message"></a>
-
-## Cancel Sending Message
+## Cancel Sending Message { #cancel-sending-message }
 
 Enter the message ID you wish to cancel the message.<br>
 You can cancel the message using the message ID received in response to the message you sent.<br>
@@ -3461,8 +3448,7 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 <span id="messageV1x0101MessageIdDoConfirm"></span>
 
 <a id="confirm-message-delivery"></a>
-
-## Confirm Message Delivery
+## Confirm Message Delivery { #confirm-message-delivery }
 
 After confirmation, check the message you requested to send.<br>
 

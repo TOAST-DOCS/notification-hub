@@ -16,6 +16,8 @@
 
 <span id="imageLayoutV1x0003GetImageLayout"></span>
 
+<a id="retrieve-image-layout"></a>
+
 ## 画像レイアウトの個別照会
 
 画像レイアウトをIDベースで個別照会します。

@@ -16,6 +16,8 @@ Notification Hubでサポートするプッシュサービスは次のとおり�
 * APNS(apple push notification service): iPhone
 * ADM(amazon device messaging): Amazon Kindle, Fireなど
 
+<a id="how-to-issue-push-credentials"></a>
+
 ## プッシュ認証情報の発行方法
 
 <span id="get-fcm-service-account-credential"></span>

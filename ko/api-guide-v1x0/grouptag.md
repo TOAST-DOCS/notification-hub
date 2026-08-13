@@ -15,6 +15,8 @@
 
 <span id="kakaobizcenterV10GroupTagsGet"></span>
 
+<a id="list-all-group-tags"></a>
+
 ## 그룹태그 전체 목록 조회
 
 카카오 비즈센터 그룹태그 전체 목록을 조회합니다.

@@ -12,6 +12,8 @@
 
 <span id="contact-delivery-result"></span>
 
+<a id="view-send"></a>
+
 ## 送信照会
 
 送信されたメッセージの受信結果を受信者の連絡先単位で照会できます。

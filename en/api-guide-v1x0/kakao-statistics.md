@@ -23,6 +23,8 @@ MONTHLY: Only data within the last 3 months can be retrieved, with a maximum ret
 * Click counts are duplicated for the same message.
 * If the number of successful sends is 10 or fewer, valid read counts and click counts are not provided.
 
+<a id="delivery-statistics"></a>
+
 ### Delivery Statistics
 
 Retrieves the daily send count, valid read count, and click count by sender profile. You can filter by period, send identifier, message type, and more.

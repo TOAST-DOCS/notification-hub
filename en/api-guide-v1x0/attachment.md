@@ -16,6 +16,8 @@
 
 <span id="attachmentV1x0001UploadAttachments"></span>
 
+<a id="upload-attachments"></a>
+
 ## Upload Attachments
 
 Upload attachments. If specifying a FileType, you can upload the attachment for each product.

@@ -11,6 +11,8 @@
 
 <span id="sms-delivery-failure"></span>
 
+<a id="you-cannot-proceed-with-identity-verification"></a>
+
 ## You cannot proceed with identity verification.
 
 Only business members can use Notification Hub through identity verification. If you are an individual member, you cannot proceed with self-authentication. Re-register as a business member and proceed with Identity verification.
