@@ -17,7 +17,7 @@ RCS Bizmessage 서비스를 이용하기 위해서는 RCS Biz Center 가입 후 
     * RCS 담당자가 승인하며 회원가입 처리까지 2 영업일 정도 소요됩니다.
 2. RCS 브랜드는 기업 프로필입니다. 브랜드를 개설한 뒤 승인을 요청합니다.
     * **브랜드 개설 가이드**를 클릭해 관련 가이드를 참고할 수 있습니다.
-      * [브랜드 개설 가이드 바로 가기](https://www.rcsbizcenter.com/GuideBrand)
+      * [브랜드 개설 가이드 바로 가기](https://docs.rcsbizcenter.com/useguide/readme/brandopen)
     * RCS 담당자가 승인하며 브랜드 생성 승인까지 2 영업일 정도 소요됩니다.
 
 ### 브랜드 대행사 설정
@@ -32,7 +32,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
 
 1. **기업 대시보드 > 브랜드 대시보드 > 대화방 등록**으로 이동하여, 발신 번호로 대화방을 등록합니다.
     * **대화방 등록 가이드**에서 관련 가이드를 참고할 수 있습니다.
-      * [RCS Biz Center - 대화방 등록 가이드 바로 가기](https://www.rcsbizcenter.com/Chatbot#section01)
+      * [RCS Biz Center - 대화방 등록 가이드 바로 가기](https://docs.rcsbizcenter.com/useguide/readme/chatbot#id-1)
     * 최근 1개월 이내 발행된 통신서비스 이용증명원이 필요합니다.
     * RCS 기업 메시지는 010 번호를 지원하지 않습니다.
     * RCS 담당자가 승인하며 대화방 승인까지 2 영업일 정도 소요됩니다.
@@ -45,7 +45,7 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔이치엔클라우드’로 
 
 1. **기업 대시보드 > 브랜드 대시보드 > 템플릿 등록**으로 이동하여, 템플릿을 등록합니다.
     * **템플릿 가이드**를 클릭해 관련 가이드를 참고할 수 있습니다.
-      * [RCS Biz Center - 템플릿 가이드 바로 가기](https://www.rcsbizcenter.com/RcsMessageType#section04)
+      * [RCS Biz Center - 템플릿 가이드 바로 가기](https://docs.rcsbizcenter.com/useguide/readme/msg#id-1)
     * 텍스트/이미지 템플릿 한해서 등록이 가능합니다. 아래 **지원하는 발송 유형** 항목을 참고하세요.
     * RCS 담당자가 승인하며 대화방 승인까지 2 영업일 정도 소요됩니다.
 

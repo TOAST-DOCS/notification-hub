@@ -23,7 +23,7 @@ To use the RCS Bizmessage service, you have to register your brand after signing
     * RCS manager will approve and it will take 2 business days to process your membership.
 2. An RCS brand is a corporate profile. After you create a brand, you request approval.
     * You can find related guides by clicking **Brand Guide**at the top of the Create a brand page.
-      * [Brand Opening Guide Shortcut](https://www.rcsbizcenter.com/GuideBrand)
+      * [Brand Opening Guide Shortcut](https://docs.rcsbizcenter.com/useguide/readme/brandopen)
     * RCS manager will approve, which can take about 2 business days for brand creation approval.
 
 <a id="set-up-a-brand-agency"></a>
@@ -42,7 +42,7 @@ You can receive and view messages in chats in the Messages app. You can send and
 
 1. Go to **Business Dashboard > Brand Dashboard > Register Chat Room**, and register a chat room with a caller ID.
     * **You can refer to the relevant guide in Chat Room Registration Guide**.
-      * [RCS Biz Center - Chat Room Registration Guide Shortcut](https://www.rcsbizcenter.com/Chatbot#section01)
+      * [RCS Biz Center - Chat Room Registration Guide Shortcut](https://docs.rcsbizcenter.com/useguide/readme/chatbot#id-1)
     * A certificate of use of communication services issued within the last month is required.
     * RCS business messaging does not support 010 numbers.
     * RCS manager will approve and it will take 2 business days to approve your chatroom.
@@ -57,7 +57,7 @@ To send a template message, you need to register the template in RCS Biz Center.
 
 1. Go to **Business Dashboard > Brand Dashboard > Register Template**, and register the template.
     * You can find related guides by clicking **Template Guide**at the top of the Create a brand page.
-      * [RCS Biz Center - Template Guide Shortcut](https://www.rcsbizcenter.com/RcsMessageType#section04)
+      * [RCS Biz Center - Template Guide Shortcut](https://docs.rcsbizcenter.com/useguide/readme/msg#id-1)
     * Only text/image templates can be registered. See **Supported delivery types** below.
     * RCS manager will approve and it will take 2 business days to approve your chatroom.
 

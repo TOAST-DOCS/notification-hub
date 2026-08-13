@@ -23,7 +23,7 @@ RCS Bizmessageサービスを利用するためには、RCS Biz Centerに登録�
     * RCS担当者が承認し、会員登録処理まで2営業日程度かかります。
 2. RCSブランドは企業プロフィールです。ブランドを開設した後、承認をリクエストします。
     * **ブランド開設ガイド**をクリックすると、関連ガイドを参照できます。
-      * [ブランド開設ガイド](https://www.rcsbizcenter.com/GuideBrand)
+      * [ブランド開設ガイド](https://docs.rcsbizcenter.com/useguide/readme/brandopen)
     * RCS担当者が承認し、ブランド作成承認まで2営業日程度かかります。
 
 <a id="set-up-a-brand-agency"></a>
@@ -42,7 +42,7 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
 
 1. **企業ダッシュボード > ブランドダッシュボード > チャットルーム登録**に移動して、発信番号でチャットルームを登録します。
     * **チャットルーム登録ガイド**で関連ガイドを参照できます。
-      * [RCS Biz Center - チャットルーム登録ガイド](https://www.rcsbizcenter.com/Chatbot#section01)
+      * [RCS Biz Center - チャットルーム登録ガイド](https://docs.rcsbizcenter.com/useguide/readme/chatbot#id-1)
     * 最近1か月以内に発行された通信サービス利用証明書が必要です。
     * RCS企業メッセージは010番号をサポートしません。
     * RCS担当者が承承認し、チャットルームの承認まで2営業日程度かかります。
@@ -57,7 +57,7 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
 
 1. **企業ダッシュボード > ブランドダッシュボード > テンプレート登録**に移動して、テンプレートを登録します。
     * **テンプレートガイド**をクリックして関連ガイドを参考できます。
-      * [RCS Biz Center - テンプレートガイド](https://www.rcsbizcenter.com/RcsMessageType#section04)
+      * [RCS Biz Center - テンプレートガイド](https://docs.rcsbizcenter.com/useguide/readme/msg#id-1)
     * テキスト/画像テンプレートのみ登録が可能です。下記の**サポートする送信タイプ**項目を参照してください。
     * RCS担当者が承認し、チャットルーム承認まで2営業日程度かかります。
 
