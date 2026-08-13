@@ -50,10 +50,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | statuses | Query | Enum | X | Message status. You can view it as a send result.<br> When a message sending request is received, the message status is set to REQUESTED.<br> <br>[REQUESTED(Requested), SCHEDULED(Scheduled), READY(Ready), CONFIRM_WAITED(Confirm Waited), WAITED(Waited), IN_PROGRESS(In Progress), SENT(Sent), SEND_FAILED(Send Failed), DELIVERED(Delivered), DELIVERY_FAILED(Delivery Failed), CANCELED(Canceled)] |
 | scheduled | Query | Boolean | N | Whether to schedule sending. |
 | confirmBeforeSend | Query | Boolean | N | Whether to send after approval. |
-| createdDateTimeFrom | Query | Date | N | The request start date and time. The default is 7 days ago. |
-| createdDateTimeTo | Query | Date | N | The request end date and time. The default is the current date and time. |
-| limit | Query | Integer | N | The number of messages to retrieve. The default is 10. |
-| offset | Query | Integer | N | The starting position of the messages to retrieve. The default is 0. |
+| createdDateTimeFrom | Query | DateTime | N | The request start date and time. The default is 7 days ago. |
+| createdDateTimeTo | Query | DateTime | N | The request end date and time. The default is the current date and time. |
+| limit | Query | Number | N | The number of messages to retrieve. The default is 10. |
+| offset | Query | Number | N | The starting position of the messages to retrieve. The default is 0. |
 
 * The maximum query period for **createdDateTimeFrom** and **createdDateTimeTo** is 7 days.
 
@@ -136,60 +136,58 @@ This API does not request a request body.
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| Path | Type | Description |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | Indicates whether the request was successful.<br>Default: true |
-| header.resultCode | Integer | The result code of the request.<br>Default: 0 |
-| header.resultMessage | String | The result message of the request.<br>Default: SUCCESS |
-| contactDeliveryResults | Array | The result of sending the message. |
-| contactDeliveryResults[].messageId | String | The message ID. |
-| contactDeliveryResults[].recipientIndex | Integer | The recipient index. |
-| contactDeliveryResults[].contactIndex | Integer | The contact index. |
-| contactDeliveryResults[].contactType | String | Contact Type<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| contactDeliveryResults[].contact | String | Contact information. |
-| contactDeliveryResults[].sender | Object | Sender information by channel.<br>- ALIMTALK : senderKey, senderProfileId, senderProfileType<br>- SMS : senderPhoneNumber<br>- EMAIL : senderMailAddress<br>- RCS : brandId, chatbotId<br> |
-| contactDeliveryResults[].sender.senderKey | String | Sender profile sender key |
-| contactDeliveryResults[].sender.senderProfileId | String | KakaoTalk channel name |
-| contactDeliveryResults[].sender.senderProfileType | String | Sender profile type<br>[GROUP (group sender profile), NORMAL (normal sender profile)] |
-| contactDeliveryResults[].sender.senderPhoneNumber | String | Sender number |
-| contactDeliveryResults[].sender.senderMailAddress | String | Sender email address |
-| contactDeliveryResults[].sender.brandId | String | Brand ID |
-| contactDeliveryResults[].sender.chatbotId | String | Chat room (chatbot) ID |
-| contactDeliveryResults[].templateId | String | Template ID |
-| contactDeliveryResults[].flowId | String | Flow ID |
-| contactDeliveryResults[].statsKeyId | String | Statistics key ID |
-| contactDeliveryResults[].clientReference | String | Custom field |
-| contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS(SMS), ALIMTALK(AlimTalk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
-| contactDeliveryResults[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| contactDeliveryResults[].options | Object | Options by channel. |
-| contactDeliveryResults[].options.expiryOption | Integer | (RCS) The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
-| contactDeliveryResults[].options.groupId | String | (RCS) Group ID for RCS Biz Center statistics integration |
-| contactDeliveryResults[].confirmBeforeSend | Boolean | Whether to send after confirmation. |
-| contactDeliveryResults[].confirmedDateTime | String | The time the message sending was confirmed. |
-| contactDeliveryResults[].scheduled | Boolean | Whether to schedule sending. |
-| contactDeliveryResults[].scheduledDateTime | String | Scheduled delivery time. |
-| contactDeliveryResults[].status | String | Delivery/reception status. <br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, CANCELED] |
-| contactDeliveryResults[].resultCode | String | Delivery result code. The value varies depending on the message channel. |
-| contactDeliveryResults[].resultMessage | String | Delivery result message. |
-| contactDeliveryResults[].templateParameters | Object | Template parameters. It consists of a pair of keys (key, placeholder) and values ​​(value).<br><br>You cannot specify template parameters for each recipient in group delivery.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| contactDeliveryResults[].imageParameters | Array | Image parameters per recipient. Used only for Brand Message. |
-| contactDeliveryResults[].imageParameters[].attachmentId | String | Attachment ID |
-| contactDeliveryResults[].imageParameters[].imageUrl | String | Image URL |
-| contactDeliveryResults[].imageParameters[].imageLink | String | URL to navigate to when the image is clicked |
-| contactDeliveryResults[].videoParameter | Object | Video parameters per recipient. Used only for Brand Message. |
-| contactDeliveryResults[].videoParameter.videoUrl | String | KakaoTV video URL |
-| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | Thumbnail image attachment ID |
-| contactDeliveryResults[].videoParameter.thumbnailUrl | String | Video thumbnail image URL |
-| contactDeliveryResults[].additionalProperty | Object | Additional properties of the message channel. |
-| contactDeliveryResults[].createdDateTime | String | The time the message was created. |
-| contactDeliveryResults[].sentDateTime | String | The time the message was sent. |
-| contactDeliveryResults[].deliveredDateTime | String | The time the message was received. |
-| contactDeliveryResults[].openedDateTime | String | The time the message was opened. |
-| contactDeliveryResults[].updatedDateTime | String | The time the message was modified. |
-| totalCount | Integer | The total number of message delivery results retrieved. |
-
-
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | The result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | The result message of the request.<br>Default: SUCCESS |
+| contactDeliveryResults | Array | O | The result of sending the message. |
+| contactDeliveryResults[].messageId | String | O | The message ID. |
+| contactDeliveryResults[].recipientIndex | Integer | O | The recipient index. |
+| contactDeliveryResults[].contactIndex | Integer | O | The contact index. |
+| contactDeliveryResults[].contactType | String | O | Contact Type<br>[PHONE_NUMBER(Phone number), EMAIL_ADDRESS(Email address), TOKEN_ADM(Amazon Device Messaging token), TOKEN_FCM(Firebase Cloud Messaging token), TOKEN_APNS(Apple Push Notification service token), TOKEN_APNS_SANDBOX(APNS Sandbox token), TOKEN_APNS_SANDBOX_VOIP(APNS Sandbox VoIP token), TOKEN_APNS_VOIP(APNS VoIP token)] |
+| contactDeliveryResults[].contact | String | O | Contact information. |
+| contactDeliveryResults[].sender | Object | X | Sender information by channel.<br>- ALIMTALK : senderKey, senderProfileId, senderProfileType<br>- SMS : senderPhoneNumber<br>- EMAIL : senderMailAddress<br>- RCS : brandId, chatbotId<br> |
+| contactDeliveryResults[].sender.senderKey | String | X | Sender profile sender key |
+| contactDeliveryResults[].sender.senderProfileId | String | X | KakaoTalk channel name |
+| contactDeliveryResults[].sender.senderProfileType | String | X | Sender profile type<br>[GROUP (group sender profile), NORMAL (normal sender profile)] |
+| contactDeliveryResults[].sender.senderPhoneNumber | String | X | Sender number |
+| contactDeliveryResults[].sender.senderMailAddress | String | X | Sender email address |
+| contactDeliveryResults[].sender.brandId | String | X | Brand ID |
+| contactDeliveryResults[].sender.chatbotId | String | X | Chat room (chatbot) ID |
+| contactDeliveryResults[].templateId | String | X | Template ID |
+| contactDeliveryResults[].flowId | String | X | Flow ID |
+| contactDeliveryResults[].statsKeyId | String | X | Statistics key ID |
+| contactDeliveryResults[].clientReference | String | X | Custom field |
+| contactDeliveryResults[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(AlimTalk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
+| contactDeliveryResults[].messagePurpose | String | O | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
+| contactDeliveryResults[].options | Object | X | Options by channel. |
+| contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
+| contactDeliveryResults[].options.groupId | String | X | (RCS) Group ID for RCS Biz Center statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
+| contactDeliveryResults[].confirmBeforeSend | Boolean | O | Whether to send after confirmation. |
+| contactDeliveryResults[].confirmedDateTime | String | X | The time the message sending was confirmed. |
+| contactDeliveryResults[].scheduled | Boolean | O | Whether to schedule sending. |
+| contactDeliveryResults[].scheduledDateTime | String | X | Scheduled delivery time. |
+| contactDeliveryResults[].status | String | O | Delivery/reception status. <br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, DELIVERY_FAILED, CANCELED] |
+| contactDeliveryResults[].resultCode | String | X | Delivery result code. The value varies depending on the message channel. |
+| contactDeliveryResults[].resultMessage | String | X | Delivery result message. |
+| contactDeliveryResults[].templateParameters | Object | X | Template parameters. It consists of a pair of keys (key, placeholder) and values ​​(value).<br><br>You cannot specify template parameters for each recipient in group delivery.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| contactDeliveryResults[].imageParameters | Array | X | Image parameters per recipient. Used only for Brand Message. |
+| contactDeliveryResults[].imageParameters[].attachmentId | String | X | Attachment ID |
+| contactDeliveryResults[].imageParameters[].imageUrl | String | X | Image URL |
+| contactDeliveryResults[].imageParameters[].imageLink | String | X | URL to navigate to when the image is clicked |
+| contactDeliveryResults[].videoParameter | Object | X | Video parameters per recipient. Used only for Brand Message. |
+| contactDeliveryResults[].videoParameter.videoUrl | String | X | KakaoTV video URL |
+| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | Thumbnail image attachment ID |
+| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | Video thumbnail image URL |
+| contactDeliveryResults[].additionalProperty | Object | X | Additional properties of the message channel. |
+| contactDeliveryResults[].createdDateTime | String | O | The time the message was created. |
+| contactDeliveryResults[].sentDateTime | String | X | The time the message was sent. |
+| contactDeliveryResults[].deliveredDateTime | String | X | The time the message was received. |
+| contactDeliveryResults[].openedDateTime | String | X | The time the message was opened. |
+| contactDeliveryResults[].updatedDateTime | String | X | The time the message was modified. |
+| totalCount | Integer | O | The total number of message delivery results retrieved. |
 
 **Request Example**
 
@@ -203,10 +201,7 @@ This API does not request a request body.
 GET {{endpoint}}/message/v1.0/contact-delivery-results
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -214,8 +209,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/message/v1.0/contact-delivery-results" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
@@ -253,10 +248,10 @@ X-NHN-Authorization: Bearer {accessToken}
 | messagePurpose | Query | Enum | X | The message purpose.<br>[NORMAL(Normal), AD(Ad), AUTH(Auth)] |
 | scheduled | Query | Boolean | N | Whether to schedule sending. |
 | confirmBeforeSend | Query | Boolean | N | Whether to send after approval. |
-| updatedDateTimeFrom | Query | Date | N | The start date and time of sending status updates. The default is 7 days ago. |
-| updatedDateTimeTo | Query | Date | N | The end date and time of sending status updates. The default is the current date and time. |
-| limit | Query | Integer | N | The number of messages to retrieve. The default is 10. |
-| offset | Query | Integer | N | The starting position of the messages to retrieve. The default is 0. |
+| updatedDateTimeFrom | Query | DateTime | N | The start date and time of sending status updates. The default is 7 days ago. |
+| updatedDateTimeTo | Query | DateTime | N | The end date and time of sending status updates. The default is the current date and time. |
+| limit | Query | Number | N | The number of messages to retrieve. The default is 10. |
+| offset | Query | Number | N | The starting position of the messages to retrieve. The default is 0. |
 
 
 
@@ -338,63 +333,60 @@ This API does not request a request body.
 
 <!--응답 본문의 필드를 설명합니다.-->
 
-| Path | Type | Description |
-| - | - | - |
-| header | Object | |
-| header.isSuccessful | Boolean | Indicates whether the request was successful.<br>Default: true |
-| header.resultCode | Integer | The result code of the request.<br>Default: 0 |
-| header.resultMessage | String | The result message of the request.<br>Default: SUCCESS |
-| contactDeliveryResults | Array | The result of sending the message. |
-| contactDeliveryResults[].messageId | String | The message ID. |
-| contactDeliveryResults[].recipientIndex | Integer | The recipient index. |
-| contactDeliveryResults[].contactIndex | Integer | The contact index. |
-| contactDeliveryResults[].contactType | String | Contact Type<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
-| contactDeliveryResults[].contact | String | Contact information. |
-| contactDeliveryResults[].sender | Object | Sender information by channel.<br>- ALIMTALK : senderKey, senderProfileId, senderProfileType<br>- SMS : senderPhoneNumber<br>- EMAIL : senderMailAddress<br>- RCS : brandId, chatbotId<br> |
-| contactDeliveryResults[].sender.senderKey | String | Sender profile sender key |
-| contactDeliveryResults[].sender.senderProfileId | String | KakaoTalk channel name |
-| contactDeliveryResults[].sender.senderProfileType | String | Sender profile type<br>[GROUP, NORMAL] |
-| contactDeliveryResults[].sender.senderPhoneNumber | String | Sender number |
-| contactDeliveryResults[].sender.senderMailAddress | String | Sender email address |
-| contactDeliveryResults[].sender.brandId | String | Brand ID |
-| contactDeliveryResults[].sender.chatbotId | String | Chat room (chatbot) ID |
-| contactDeliveryResults[].templateId | String | Template ID |
-| contactDeliveryResults[].flowId | String | Flow ID |
-| contactDeliveryResults[].statsKeyId | String | Statistics key ID |
-| contactDeliveryResults[].clientReference | String | Custom field |
-| contactDeliveryResults[].messageChannel | String | Message channel <br>[SMS(SMS), ALIMTALK(AlimTalk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
-| contactDeliveryResults[].messagePurpose | String | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
-| contactDeliveryResults[].options | Object | Options by channel. |
-| contactDeliveryResults[].options.expiryOption | Integer | (RCS) The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
-| contactDeliveryResults[].options.groupId | String | (RCS) Group ID for RCS Biz Center statistics integration |
-| contactDeliveryResults[].confirmBeforeSend | Boolean | Whether to send after confirmation. |
-| contactDeliveryResults[].confirmedDateTime | String | The time the message sending was confirmed. |
-| contactDeliveryResults[].scheduled | Boolean | Whether to schedule sending. |
-| contactDeliveryResults[].scheduledDateTime | String | Scheduled delivery time. |
-| contactDeliveryResults[].status | String | Delivery/reception status. <br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, OPENED, DELIVERY_FAILED, CANCELED] |
-| contactDeliveryResults[].resultCode | String | Delivery result code. The value varies depending on the message channel. |
-| contactDeliveryResults[].resultMessage | String | Delivery result message. |
-| contactDeliveryResults[].templateParameters | Object | Template parameters. It consists of a pair of keys (key, placeholder) and values ​​(value).<br><br>You cannot specify template parameters for each recipient in group delivery.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
-| contactDeliveryResults[].imageParameters | Array | Image parameters per recipient. Used only for Brand Message. |
-| contactDeliveryResults[].imageParameters[].attachmentId | String | Attachment ID |
-| contactDeliveryResults[].imageParameters[].imageUrl | String | Image URL |
-| contactDeliveryResults[].imageParameters[].imageLink | String | URL to navigate to when the image is clicked |
-| contactDeliveryResults[].videoParameter | Object | Video parameters per recipient. Used only for Brand Message. |
-| contactDeliveryResults[].videoParameter.videoUrl | String | KakaoTV video URL |
-| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | Thumbnail image attachment ID |
-| contactDeliveryResults[].videoParameter.thumbnailUrl | String | Video thumbnail image URL |
-| contactDeliveryResults[].additionalProperty | Object | Additional properties of the message channel. |
-| contactDeliveryResults[].createdDateTime | String | The time the message was created. |
-| contactDeliveryResults[].sentDateTime | String | The time the message was sent. |
-| contactDeliveryResults[].deliveredDateTime | String | The time the message was received. |
-| contactDeliveryResults[].openedDateTime | String | The time the message was opened. |
-| contactDeliveryResults[].updatedDateTime | String | The time the message was modified. |
-| totalCount | Integer | The total number of message delivery results retrieved. |
-
-
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | The result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | The result message of the request.<br>Default: SUCCESS |
+| contactDeliveryResults | Array | O | The result of sending the message. |
+| contactDeliveryResults[].messageId | String | O | The message ID. |
+| contactDeliveryResults[].recipientIndex | Integer | O | The recipient index. |
+| contactDeliveryResults[].contactIndex | Integer | O | The contact index. |
+| contactDeliveryResults[].contactType | String | O | Contact Type<br>[PHONE_NUMBER(Phone number), EMAIL_ADDRESS(Email address), TOKEN_ADM(Amazon Device Messaging token), TOKEN_FCM(Firebase Cloud Messaging token), TOKEN_APNS(Apple Push Notification service token), TOKEN_APNS_SANDBOX(APNS Sandbox token), TOKEN_APNS_SANDBOX_VOIP(APNS Sandbox VoIP token), TOKEN_APNS_VOIP(APNS VoIP token)] |
+| contactDeliveryResults[].contact | String | O | Contact information. |
+| contactDeliveryResults[].sender | Object | X | Sender information by channel.<br>- ALIMTALK : senderKey, senderProfileId, senderProfileType<br>- SMS : senderPhoneNumber<br>- EMAIL : senderMailAddress<br>- RCS : brandId, chatbotId<br> |
+| contactDeliveryResults[].sender.senderKey | String | X | Sender profile sender key |
+| contactDeliveryResults[].sender.senderProfileId | String | X | KakaoTalk channel name |
+| contactDeliveryResults[].sender.senderProfileType | String | X | Sender profile type<br>[GROUP (group sender profile), NORMAL (normal sender profile)] |
+| contactDeliveryResults[].sender.senderPhoneNumber | String | X | Sender number |
+| contactDeliveryResults[].sender.senderMailAddress | String | X | Sender email address |
+| contactDeliveryResults[].sender.brandId | String | X | Brand ID |
+| contactDeliveryResults[].sender.chatbotId | String | X | Chat room (chatbot) ID |
+| contactDeliveryResults[].templateId | String | X | Template ID |
+| contactDeliveryResults[].flowId | String | X | Flow ID |
+| contactDeliveryResults[].statsKeyId | String | X | Statistics key ID |
+| contactDeliveryResults[].clientReference | String | X | Custom field |
+| contactDeliveryResults[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(AlimTalk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
+| contactDeliveryResults[].messagePurpose | String | O | Sent content type<br>Default: NORMAL<br>[NORMAL, AD, AUTH] |
+| contactDeliveryResults[].options | Object | X | Options by channel. |
+| contactDeliveryResults[].options.expiryOption | Integer | X | (RCS) The time the carrier attempts to send to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
+| contactDeliveryResults[].options.groupId | String | X | (RCS) Group ID for RCS Biz Center statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
+| contactDeliveryResults[].confirmBeforeSend | Boolean | O | Whether to send after confirmation. |
+| contactDeliveryResults[].confirmedDateTime | String | X | The time the message sending was confirmed. |
+| contactDeliveryResults[].scheduled | Boolean | O | Whether to schedule sending. |
+| contactDeliveryResults[].scheduledDateTime | String | X | Scheduled delivery time. |
+| contactDeliveryResults[].status | String | O | Delivery/reception status. <br>[REQUESTED, CONFIRM_WAITED, WAITED, SCHEDULED, IN_PROGRESS, SENT, SEND_FAILED, DELIVERED, DELIVERY_FAILED, CANCELED] |
+| contactDeliveryResults[].resultCode | String | X | Delivery result code. The value varies depending on the message channel. |
+| contactDeliveryResults[].resultMessage | String | X | Delivery result message. |
+| contactDeliveryResults[].templateParameters | Object | X | Template parameters. It consists of a pair of keys (key, placeholder) and values ​​(value).<br><br>You cannot specify template parameters for each recipient in group delivery.<br><br>Template parameters set for recipients take precedence over message template parameters.<br><br> |
+| contactDeliveryResults[].imageParameters | Array | X | Image parameters per recipient. Used only for Brand Message. |
+| contactDeliveryResults[].imageParameters[].attachmentId | String | X | Attachment ID |
+| contactDeliveryResults[].imageParameters[].imageUrl | String | X | Image URL |
+| contactDeliveryResults[].imageParameters[].imageLink | String | X | URL to navigate to when the image is clicked |
+| contactDeliveryResults[].videoParameter | Object | X | Video parameters per recipient. Used only for Brand Message. |
+| contactDeliveryResults[].videoParameter.videoUrl | String | X | KakaoTV video URL |
+| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | Thumbnail image attachment ID |
+| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | Video thumbnail image URL |
+| contactDeliveryResults[].additionalProperty | Object | X | Additional properties of the message channel. |
+| contactDeliveryResults[].createdDateTime | String | O | The time the message was created. |
+| contactDeliveryResults[].sentDateTime | String | X | The time the message was sent. |
+| contactDeliveryResults[].deliveredDateTime | String | X | The time the message was received. |
+| contactDeliveryResults[].openedDateTime | String | X | The time the message was opened. |
+| contactDeliveryResults[].updatedDateTime | String | X | The time the message was modified. |
+| totalCount | Integer | O | The total number of message delivery results retrieved. |
 
 **Request Example**
-
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
@@ -405,10 +397,7 @@ This API does not request a request body.
 GET {{endpoint}}/message/v1.0/final-contact-delivery-results
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
 ```
-
 </details>
 
 <details>
@@ -416,8 +405,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X GET "${endpoint}/message/v1.0/final-contact-delivery-results" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}"
 ```
 
 </details>
