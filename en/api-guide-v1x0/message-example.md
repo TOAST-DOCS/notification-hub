@@ -12,6 +12,8 @@
 
 <span id="sms"></span>
 
+<a id="sms-example"></a>
+
 ## SMS
 
 <span id="sms-sms"></span>

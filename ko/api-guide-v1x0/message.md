@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bfbbe9a63c62 -->
+
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
     .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -15,8 +17,7 @@
 <span id="messageV1x0001SmsFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---sms"></a>
-
-## 자유 양식 메시지 발송 요청 - SMS
+## 자유 양식 메시지 발송 요청 - SMS { #free-form-message-sending-request---sms }
 
 SMS에 대한 자유 양식 메시지 발송을 요청합니다. 메시지 내용을 요청 본문에 입력한 뒤 발송을 요청합니다.
 
@@ -104,8 +105,7 @@ X-NHN-Authorization: Bearer {accessToken}
 * 예약 발송과 승인 후 발송은 동시에 설정할 수 없습니다.
 
 <a id="sender-fields-by-message-channel"></a>
-
-### 메시지 채널별 sender 필드
+### 메시지 채널별 sender 필드 { #sender-fields-by-message-channel }
 
 | 메시지 채널 | 필드 | 설명 |
 | --- | --- | --- |
@@ -229,8 +229,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---brand-message-brandmessage"></a>
-
-## 자유 양식 메시지 발송 요청 - 브랜드 메시지(BRANDMESSAGE)
+## 자유 양식 메시지 발송 요청 - 브랜드 메시지(BRANDMESSAGE) { #free-form-message-sending-request---brand-message-brandmessage }
 
 브랜드 메시지(BRANDMESSAGE)에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -863,8 +862,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 <span id="messageV1x0003EmailFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---email"></a>
-
-## 자유 양식 메시지 발송 요청 - 이메일(EMAIL)
+## 자유 양식 메시지 발송 요청 - 이메일(EMAIL) { #request-to-send-a-free-form-message---email }
 
 이메일(EMAIL)에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -1037,8 +1035,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 <span id="messageV1x0004RcsFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---rcs"></a>
-
-## 자유 양식 메시지 발송 요청 - RCS
+## 자유 양식 메시지 발송 요청 - RCS { #request-to-send-a-free-form-message---rcs }
 
 RCS에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -1417,8 +1414,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---push"></a>
-
-## 자유 양식 메시지 발송 요청 - PUSH
+## 자유 양식 메시지 발송 요청 - PUSH { #request-to-send-a-free-form-message---push }
 
 PUSH에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -1706,8 +1702,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 <span id="messageV1x0006TemplateMessages"></span>
 
 <a id="request-template-message-sending"></a>
-
-## 템플릿 메시지 발송 요청
+## 템플릿 메시지 발송 요청 { #request-template-message-sending }
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
@@ -1888,8 +1883,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 <a id="send-alimtalk-template-message"></a>
-
-## 알림톡 템플릿 메시지 발송
+## 알림톡 템플릿 메시지 발송 { #send-alimtalk-template-message }
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
@@ -2080,8 +2074,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
 
 <a id="send-a-brand-message-template-message"></a>
-
-## 브랜드 메시지 템플릿 메시지 발송
+## 브랜드 메시지 템플릿 메시지 발송 { #send-a-brand-message-template-message }
 
 등록한 템플릿을 이용해 브랜드 메시지를 발송합니다.<br>
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
@@ -2337,8 +2330,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 <span id="messageV1x0008EmailTemplateMessages"></span>
 
 <a id="send-email-template-message"></a>
-
-## 이메일 템플릿 메시지 발송
+## 이메일 템플릿 메시지 발송 { #send-email-template-message }
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
@@ -2518,8 +2510,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 <span id="messageV1x0008RcsTemplateMessages"></span>
 
 <a id="send-rcs-template-message"></a>
-
-## RCS 템플릿 메시지 발송
+## RCS 템플릿 메시지 발송 { #send-rcs-template-message }
 
 등록한 템플릿을 이용해 메시지를 발송합니다.<br>
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
@@ -2728,8 +2719,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
 <a id="send-sms-template-message"></a>
-
-## SMS 템플릿 메시지 발송
+## SMS 템플릿 메시지 발송 { #send-sms-template-message }
 
 등록한 템플릿을 이용해 메시지를 발송합니다.
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.
@@ -2924,8 +2914,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 <span id="messageV1x0009FlowMessages"></span>
 
 <a id="send-flow-message"></a>
-
-## 플로우 메시지 발송
+## 플로우 메시지 발송 { #send-flow-message }
 
 등록한 플로우를 이용해 메시지를 발송합니다.<br>
 플로우를 등록하지 않았다면, 플로우를 등록하고 발송해야 합니다.<br>
@@ -3222,8 +3211,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 <span id="messageV1x0010InstantFlowMessages"></span>
 
 <a id="send-an-instant-flow-message"></a>
-
-## 인스턴트 플로우 메시지 발송
+## 인스턴트 플로우 메시지 발송 { #send-an-instant-flow-message }
 
 메시지 발송 요청 시 플로우를 정의해 메시지를 발송 요청합니다.<br>
 <br>
@@ -3496,8 +3484,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
 <a id="cancel-sending-message"></a>
-
-## 메시지 발송 취소
+## 메시지 발송 취소 { #cancel-sending-message }
 
 발송 취소할 메시지 아이디를 입력해 발송 취소합니다.<br>
 메시지 발송 시 응답 받은 메시지 아이디를 이용해 발송을 취소할 수 있습니다.<br>
@@ -3584,8 +3571,7 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 <span id="messageV1x0101MessageIdDoConfirm"></span>
 
 <a id="confirm-message-delivery"></a>
-
-## 메시지 발송 확인
+## 메시지 발송 확인 { #confirm-message-delivery }
 
 확인 후 발송 요청한 메시지를 확인합니다.<br>
 

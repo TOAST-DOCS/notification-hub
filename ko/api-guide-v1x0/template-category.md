@@ -15,6 +15,8 @@
 
 <span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
 
+<a id="delete-a-template-category"></a>
+
 ## 템플릿 카테고리 삭제
 
 템플릿 카테고리를 삭제합니다.

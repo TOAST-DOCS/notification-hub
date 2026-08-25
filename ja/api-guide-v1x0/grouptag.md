@@ -15,6 +15,8 @@
 
 <span id="kakaobizcenterV10GroupTagsGet"></span>
 
+<a id="list-all-group-tags"></a>
+
 ## グループタグの全一覧照会
 
 Kakao Biz Centerのグループタグの全一覧を照会します。

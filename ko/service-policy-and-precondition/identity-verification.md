@@ -11,6 +11,8 @@
 
 <span id="identity-verification"></span>
 
+<a id="identity-verification-method"></a>
+
 ## 본인 인증 방법
 
 * Notification Hub를 이용하려면 **Notification Hub** > **본인 인증**에서 본인 인증 후 사용할 수 있습니다. (전기통신사업법 관련 고시 준수)

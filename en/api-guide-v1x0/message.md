@@ -17,8 +17,7 @@
 <span id="messageV1x0001SmsFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---sms"></a>
-
-## Free-form message sending request - SMS
+## Free-form message sending request - SMS { #free-form-message-sending-request---sms }
 
 Requests free-form message sending for SMS. Enter the message content in the request body and request the sending.
 
@@ -39,10 +38,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -106,8 +102,7 @@ X-NHN-Authorization: Bearer {accessToken}
 * You can't set up a scheduled sending and a post-approval sending at the same time.
 
 <a id="sender-fields-by-message-channel"></a>
-
-### Sender Fields by Message Channel
+### Sender Fields by Message Channel { #sender-fields-by-message-channel }
 
 | Message Channel | Field | Description |
 | --- | --- | --- |
@@ -147,9 +142,6 @@ X-NHN-Authorization: Bearer {accessToken}
 | header.resultCode | Integer | The result code of the request. <br>Default: 0 |
 | header.resultMessage | String | The result message of the request. <br>Default: SUCCESS |
 | messageId | String | The message ID. This value is generated when a message sending request is received. |
-
-An additional description to be added to the response.
-
 
 **Request Example**
 
@@ -232,8 +224,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 <span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---brand-message-brandmessage"></a>
-
-## Free-Form Message Sending Request - Brand Message (BRANDMESSAGE)
+## Free-Form Message Sending Request - Brand Message (BRANDMESSAGE) { #free-form-message-sending-request---brand-message-brandmessage }
 
 Requests free-form message sending for Brand Message (BRANDMESSAGE).
 
@@ -261,8 +252,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose |
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -285,10 +275,9 @@ X-NHN-Authorization: Bearer {accessToken}
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -340,7 +329,7 @@ X-NHN-Authorization: Bearer {accessToken}
       "list" : [ {
         "header" : "Carousel Header",
         "message" : "Carousel Message",
-        "additionalContent" : "Price information",
+        "additionalContent" : "Pricing information",
         "buttons" : [ {
           "type" : "WL",
           "name" : "Button name",
@@ -365,7 +354,7 @@ X-NHN-Authorization: Bearer {accessToken}
           "discountFixed" : 5000
         },
         "coupon" : {
-          "title" : "5,000 won discount coupon",
+          "title" : "5,000 KRW discount coupon",
           "description" : "For first-time customers only",
           "linkMo" : "https://m.example.com",
           "linkPc" : "https://www.example.com",
@@ -388,14 +377,14 @@ X-NHN-Authorization: Bearer {accessToken}
       "discountFixed" : 5000
     },
     "coupon" : {
-      "title" : "5,000 won discount coupon",
+      "title" : "5,000 KRW discount coupon",
       "description" : "For first-time customers only",
       "linkMo" : "https://m.example.com",
       "linkPc" : "https://www.example.com",
       "schemeIos" : "example://ios",
       "schemeAndroid" : "example://android"
     },
-    "additionalContent" : "Price information"
+    "additionalContent" : "Pricing information"
   },
   "options" : {
     "audienceType" : "CUSTOMER",
@@ -424,15 +413,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].templateParameters | Object | X | Template parameters. Consists of key (placeholder) and value pairs.<br><br>In group sending, template parameters cannot be specified per recipient.<br><br>Template parameters set for a recipient take priority over message template parameters.<br><br> |
 | id | String | X | ID generated when a bulk recipient list and file upload succeed. |
 | content | Object | X |  |
-| content.chatBubbleType | String | X | Message bubble type. TEXT: text type, IMAGE: image type, WIDE: wide image type, WIDE_ITEM_LIST: wide item list type, CAROUSEL_FEED: carousel feed type, CAROUSEL_COMMERCE: carousel commerce type, COMMERCE: commerce type, PREMIUM_VIDEO: premium video type<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
+| content.messageType | String | O | Message bubble type. TEXT: Text type, IMAGE: Image type, WIDE: Wide image type, WIDE_ITEM_LIST: Wide item list type, CAROUSEL_FEED: Carousel feed type, CAROUSEL_COMMERCE: Carousel commerce type, COMMERCE: Commerce type, PREMIUM_VIDEO: Premium video type<br>[TEXT, IMAGE, WIDE, WIDE_ITEM_LIST, CAROUSEL_FEED, CAROUSEL_COMMERCE, COMMERCE, PREMIUM_VIDEO] |
 | content.adult | Boolean | X | Whether the message is for adults (default: false). If set to adult, it is only displayed to recipients who have completed adult verification.<br>Default: false |
 | content.content | String | X | Message body. TEXT: required (up to 1,300 characters, up to 99 line breaks), IMAGE: required (up to 1,300 characters), WIDE: required (up to 76 characters, up to 5 line breaks), PREMIUM_VIDEO: optional (up to 76 characters, up to 5 line breaks). WIDE_ITEM_LIST/CAROUSEL_FEED/CAROUSEL_COMMERCE: not available. URLs can be entered. |
-| content.attachmentId | String | X | Attachment ID. IMAGE/WIDE: either attachmentId or image.imageUrl is required. |
-| content.image | Object | X |  |
+| content.image | Object | X | Brand message image. IMAGE/WIDE/COMMERCE: one of attachmentId or imageUrl is required |
 | content.image.attachmentId | String | X | Attachment ID. Choose one of attachmentId or imageUrl. |
 | content.image.imageUrl | String | X | Image URL. Choose one of imageUrl or attachmentId. |
 | content.image.imageLink | String | X | URL to navigate to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used. |
-| content.video | Object | X |  |
+| content.video | Object | X | Brand message video. Required for PREMIUM_VIDEO type |
 | content.video.videoUrl | String | O | KakaoTV video URL (must start with https://tv.kakao.com/). Required for the PREMIUM_VIDEO type. |
 | content.video.thumbnailAttachmentId | String | X | Thumbnail image attachment ID. Choose one of thumbnailAttachmentId or thumbnailUrl. Only images registered via the general image upload API can be used. |
 | content.video.thumbnailUrl | String | X | Video thumbnail image URL. Choose one of thumbnailUrl or thumbnailAttachmentId. Only images registered via the general image upload API can be used. If not set, the default KakaoTV thumbnail is used. |
@@ -447,21 +435,21 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.buttons[].chatExtra | String | X | Meta information for BC (Bot for Consultation) and BT (Bot Transfer) type buttons. |
 | content.buttons[].chatEvent | String | X | Bot event name for BT (Bot Transfer) type buttons. |
 | content.header | String | X | Message title. WIDE_ITEM_LIST: required (up to 20 characters), PREMIUM_VIDEO: optional (up to 20 characters). Not available for other types. |
-| content.item | Object | X |  |
+| content.item | Object | X | Wide item list (WIDE_ITEM_LIST) item information. Required for the WIDE_ITEM_LIST type |
 | content.item.list | Array | O | List of items. At least 3, up to 4. |
 | content.item.list[].title | String | X | Item title (up to 1 line break). First item: optional (up to 25 characters), items 2–4: required (up to 30 characters). |
-| content.item.list[].image | Object | O |  |
+| content.item.list[].image | Object | O | Image information. Either attachmentId or imageUrl is required |
 | content.item.list[].image.attachmentId | String | X | Attachment ID. Choose one of attachmentId or imageUrl. |
 | content.item.list[].image.imageUrl | String | X | Image URL. Choose one of imageUrl or attachmentId. |
 | content.item.list[].linkMo | String | O | Mobile web link to navigate to when the item is clicked (http/https). Required. |
 | content.item.list[].linkPc | String | X | PC web link to navigate to when the item is clicked (http/https). Optional. |
 | content.item.list[].schemeIos | String | X | iOS app link to open when the item is clicked. Optional. |
 | content.item.list[].schemeAndroid | String | X | Android app link to open when the item is clicked. Optional. |
-| content.carousel | Object | X |  |
+| content.carousel | Object | X | Carousel message information. Required for CAROUSEL_FEED/CAROUSEL_COMMERCE type |
 | content.carousel.head | Object | X |  |
 | content.carousel.head.header | String | O | Intro header. Required when using head (up to 20 characters). |
 | content.carousel.head.content | String | O | Intro content. Required when using head (up to 50 characters). |
-| content.carousel.head.image | Object | O |  |
+| content.carousel.head.image | Object | O | Image information. Either attachmentId or imageUrl is required. |
 | content.carousel.head.image.attachmentId | String | X | Attachment ID. Choose one of attachmentId or imageUrl. |
 | content.carousel.head.image.imageUrl | String | X | Image URL. Choose one of imageUrl or attachmentId. |
 | content.carousel.head.linkMo | String | X | Mobile web link to navigate to when the intro is clicked. Required when another link (linkPc/schemeIos/schemeAndroid) is entered. |
@@ -482,35 +470,35 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.carousel.list[].buttons[].bizFormKey | String | X | Business form key. Required for the BF type. |
 | content.carousel.list[].buttons[].chatExtra | String | X | Meta information for BC (Bot for Consultation) and BT (Bot Transfer) type buttons. |
 | content.carousel.list[].buttons[].chatEvent | String | X | Bot event name for BT (Bot Transfer) type buttons. |
-| content.carousel.list[].image | Object | O |  |
+| content.carousel.list[].image | Object | O | Brand message image. IMAGE/WIDE/COMMERCE: one of attachmentId or imageUrl is required |
 | content.carousel.list[].image.attachmentId | String | X | Attachment ID. Choose one of attachmentId or imageUrl. |
 | content.carousel.list[].image.imageUrl | String | X | Image URL. Choose one of imageUrl or attachmentId. |
 | content.carousel.list[].image.imageLink | String | X | URL to navigate to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used. |
-| content.carousel.list[].commerce | Object | X |  |
+| content.carousel.list[].commerce | Object | X | Commerce information. Required for COMMERCE/CAROUSEL_COMMERCE types |
 | content.carousel.list[].commerce.title | String | O | Product title (up to 30 characters). Required. |
 | content.carousel.list[].commerce.regularPrice | Integer | O | Regular price (0–99,999,999). Required. |
 | content.carousel.list[].commerce.discountPrice | Integer | X | Discounted price (0–99,999,999). Optional. When used, either discountRate or discountFixed is required. |
 | content.carousel.list[].commerce.discountRate | Integer | X | Discount rate (0–100). If discountPrice is present, choose one of discountRate or discountFixed. |
 | content.carousel.list[].commerce.discountFixed | Integer | X | Fixed discount amount (0–999,999). If discountPrice is present, choose one of discountFixed or discountRate. |
-| content.carousel.list[].coupon | Object | X |  |
+| content.carousel.list[].coupon | Object | X | Coupon information. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: Optional. CAROUSEL_FEED/CAROUSEL_COMMERCE: Used within a carousel item |
 | content.carousel.list[].coupon.title | String | O | Coupon title. Required. Format: choose one of "{N}원 할인 쿠폰" (N: 1–99,999,999), "{N}% 할인 쿠폰" (N: 1–100), "배송비 할인 쿠폰", "{product name} 무료 쿠폰" (product name up to 7 characters), or "{product name} UP 쿠폰" (product name up to 7 characters). |
 | content.carousel.list[].coupon.description | String | O | Coupon description. Required. TEXT/IMAGE/COMMERCE: up to 12 characters, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: up to 18 characters. |
 | content.carousel.list[].coupon.linkMo | String | X | Mobile web link to navigate to when the coupon is clicked (http/https). Required if not using a channel coupon URL. |
 | content.carousel.list[].coupon.linkPc | String | X | PC web link to navigate to when the coupon is clicked. Optional. |
 | content.carousel.list[].coupon.schemeIos | String | X | iOS app link to open when the coupon is clicked. At least one of schemeIos or schemeAndroid is required when using a channel coupon URL (alimtalk=coupon://). |
 | content.carousel.list[].coupon.schemeAndroid | String | X | Android app link to open when the coupon is clicked. At least one of schemeAndroid or schemeIos is required when using a channel coupon URL (alimtalk=coupon://). |
-| content.carousel.tail | Object | X |  |
+| content.carousel.tail | Object | X | Carousel more button link information. Optional. linkMo is required when used. |
 | content.carousel.tail.linkMo | String | O | Mobile web link to navigate to when the More button is clicked (http/https). Required when using tail. |
 | content.carousel.tail.linkPc | String | X | PC web link to navigate to when the More button is clicked. Optional. |
 | content.carousel.tail.schemeIos | String | X | iOS app link to open when the More button is clicked. Optional. |
 | content.carousel.tail.schemeAndroid | String | X | Android app link to open when the More button is clicked. Optional. |
-| content.commerce | Object | X |  |
+| content.commerce | Object | X | Commerce information. Required for COMMERCE/CAROUSEL_COMMERCE type |
 | content.commerce.title | String | O | Product title (up to 30 characters). Required. |
 | content.commerce.regularPrice | Integer | O | Regular price (0–99,999,999). Required. |
 | content.commerce.discountPrice | Integer | X | Discounted price (0–99,999,999). Optional. When used, either discountRate or discountFixed is required. |
 | content.commerce.discountRate | Integer | X | Discount rate (0–100). If discountPrice is present, choose one of discountRate or discountFixed. |
 | content.commerce.discountFixed | Integer | X | Fixed discount amount (0–999,999). If discountPrice is present, choose one of discountFixed or discountRate. |
-| content.coupon | Object | X |  |
+| content.coupon | Object | X | Coupon information. TEXT/IMAGE/WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO/COMMERCE: optional. CAROUSEL_FEED/CAROUSEL_COMMERCE: used within carousel items |
 | content.coupon.title | String | O | Coupon title. Required. Format: choose one of "{N}원 할인 쿠폰" (N: 1–99,999,999), "{N}% 할인 쿠폰" (N: 1–100), "배송비 할인 쿠폰", "{product name} 무료 쿠폰" (product name up to 7 characters), or "{product name} UP 쿠폰" (product name up to 7 characters). |
 | content.coupon.description | String | O | Coupon description. Required. TEXT/IMAGE/COMMERCE: up to 12 characters, WIDE/WIDE_ITEM_LIST/PREMIUM_VIDEO: up to 18 characters. |
 | content.coupon.linkMo | String | X | Mobile web link to navigate to when the coupon is clicked (http/https). Required if not using a channel coupon URL. |
@@ -523,7 +511,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | Message target type. M: users who have consented to receive marketing messages, N: users who are not friends but have consented to receive marketing messages, O: users who are friends. When using M/N, the sender profile must have marketing consent enabled and an 080 opt-out number registered<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | Whether to send a push notification for the message (default: true)<br>Default: true |
 | options.unsubscribePhoneNumber | String | X | 080 toll-free opt-out phone number. Required when targeting is M/N. Format: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. If omitted, the value registered in the sender profile is applied automatically |
-| options.unsubscribeAuthNumber | String | X | Opt-out authentication number (numeric, up to 9 characters). Not required. Cannot be entered alone without unsubscribePhoneNumber. If omitted, the value registered in the sender profile is applied automatically |
+| options.unsubscribeAuthNumber | String | X | Opt-out authentication number (numeric, up to 10 characters). Not required. Cannot be entered alone without unsubscribePhoneNumber. If omitted, the value registered in the sender profile is applied automatically. |
 | statsKeyId | String | X | Statistics key ID |
 | scheduledDateTime | String | X | Scheduled delivery time |
 | confirmBeforeSend | Boolean | X | Whether to send after confirmation |
@@ -559,7 +547,6 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-
 ### Free-form message sending request - Brand message (BRANDMESSAGE)
 
 POST {{endpoint}}/message/v1.0/BRANDMESSAGE/free-form-messages/{{messagePurpose}}
@@ -582,10 +569,9 @@ X-NHN-Authorization: Bearer {accessToken}
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -706,7 +692,6 @@ X-NHN-Authorization: Bearer {accessToken}
   "confirmBeforeSend" : false
 }
 ```
-</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -732,10 +717,9 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
   } ],
   "id" : "alpha123",
   "content" : {
-    "chatBubbleType" : "TEXT",
+    "messageType" : "TEXT",
     "adult" : false,
     "content" : null,
-    "attachmentId" : "20230131070811m2fDe1rXx80",
     "image" : {
       "attachmentId" : "20230131070811m2fDe1rXx80",
       "imageUrl" : "https://example.com/image.jpg",
@@ -862,8 +846,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 <span id="messageV1x0003EmailFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---email"></a>
-
-## Free-form message sending request - Email (EMAIL)
+## Free-form message sending request - Email (EMAIL) { #request-to-send-a-free-form-message---email }
 
 Requests free-form message sending for Email (EMAIL).
 
@@ -882,10 +865,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose |
-
-
-
+| messagePurpose | Path | Enum | O | The purpose of the message.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -1037,8 +1017,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 <span id="messageV1x0004RcsFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---rcs"></a>
-
-## Free-form message sending request - RCS
+## Free-form message sending request - RCS { #request-to-send-a-free-form-message---rcs }
 
 Requests free-form message sending for RCS.
 
@@ -1057,10 +1036,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -1189,11 +1165,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | content.cards[].description3 | String | X | Body 3 |
 | content.cards[].buttons | Array | X | RCS button list |
 | content.cards[].buttons[].buttonType | String | X | COMPOSE (open chat room), CLIPBOARD (copy), DIALER (make a call), MAP_SHOW (show map), MAP_QUERY (search map), MAP_SHARE (share current location), URL (link to URL), CALENDAR (add event)<br>※ If a CLIPBOARD (copy) button is used with a unified message type, it cannot be received on iOS devices.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.cards[].buttons[].buttonJson | Object | X |  |
+| content.cards[].buttons[].buttonJson | Object | X | Button content JSON object |
 | content.cards[].buttons[].buttonJson.action | Object | X | Button action |
 | content.buttons | Array | X | (Deprecated, use content.cards[].buttons) RCS button list |
 | content.buttons[].buttonType | String | X | COMPOSE (open chat room), CLIPBOARD (copy), DIALER (make a call), MAP_SHOW (show map), MAP_QUERY (search map), MAP_SHARE (share current location), URL (link to URL), CALENDAR (add event)<br>※ If a CLIPBOARD (copy) button is used with a unified message type, it cannot be received on iOS devices.<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
-| content.buttons[].buttonJson | Object | X |  |
+| content.buttons[].buttonJson | Object | X | Button content JSON object |
 | content.buttons[].buttonJson.action | Object | X | Button action |
 | options | Object | X |  |
 | options.expiryOption | Integer | X | Duration during which the carrier attempts to deliver to the device (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour)<br>Default: 1 |
@@ -1418,8 +1394,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 <span id="messageV1x0005PushFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---push"></a>
-
-## Free-form message sending request - PUSH
+## Free-form message sending request - PUSH { #request-to-send-a-free-form-message---push }
 
 Requests free-form message sending for PUSH.
 
@@ -1438,10 +1413,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose. |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -1708,8 +1680,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 <span id="messageV1x0006TemplateMessages"></span>
 
 <a id="request-template-message-sending"></a>
-
-## Template Message Sending Request
+## Template Message Sending Request { #request-template-message-sending }
 
 Sends a message using a registered template.<br>
 If no template has been registered, register a template first before sending.<br>
@@ -1736,11 +1707,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messageChannel | Path | Enum | O | Message channel |
-| messagePurpose | Path | Enum | O | Message purpose |
-
-
-
+| messageChannel | Path | Enum | O | Message channel.<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Branded Message), RCS(RCS), EMAIL(Email), PUSH(Push)] |
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request Body**
 
 <!--If no request body is required, enter "This API does not require a request body."-->
@@ -1857,9 +1825,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 </details>
 
-<details>
-    <summary><strong>cURL</strong></summary>
-
 ```http
 curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
@@ -1893,8 +1858,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 <span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 <a id="send-alimtalk-template-message"></a>
-
-## Send Alim Talk Template Messages
+## Send Alim Talk Template Messages { #send-alimtalk-template-message }
 
 Send messages using registered templates.<br>
 If no template is registered, register a template first before sending.<br>
@@ -1921,10 +1885,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2086,8 +2047,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 <span id="messageV1x0007BrandmessageTemplateMessages"></span>
 
 <a id="send-a-brand-message-template-message"></a>
-
-## Send a Brand Message Template Message
+## Send a Brand Message Template Message { #send-a-brand-message-template-message }
 
 Send a brand message by using a registered template.<br>
 If no template has been registered, register one first and then send the message.<br>
@@ -2114,10 +2074,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2146,7 +2103,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2180,14 +2137,14 @@ X-NHN-Authorization: Bearer {accessToken}
 | recipients[].contacts[].contact | String | O | Contact. You can send a message by entering a contact directly without specifying a recipient. |
 | recipients[].contacts[].clientReference | String | X | A custom field that can be assigned per recipient. |
 | recipients[].templateParameters | Object | X | Template parameters. Consists of key (placeholder) and value pairs.<br><br>Template parameters cannot be specified per recipient in group sending.<br><br>Template parameters set on a recipient take precedence over message-level template parameters.<br><br> |
-| recipients[].imageParameters | Array | X | Image parameters per recipient. Overrides message-level image parameters. |
-| recipients[].imageParameters[].attachmentId | String | X | Attachment ID. Choose one of attachmentId or imageUrl. |
-| recipients[].imageParameters[].imageUrl | String | X | Image URL. Choose one of imageUrl or attachmentId. |
-| recipients[].imageParameters[].imageLink | String | X | URL to navigate to when the image is clicked (http/https). Optional. If not set, the KakaoTalk image viewer is used. |
-| recipients[].videoParameter | Object | X |  |
-| recipients[].videoParameter.videoUrl | String | O | KakaoTV video URL (must start with https://tv.kakao.com/). Required for the PREMIUM_VIDEO type. |
-| recipients[].videoParameter.thumbnailAttachmentId | String | X | Thumbnail image attachment ID. Choose one of thumbnailAttachmentId or thumbnailUrl. Only images registered via the standard image upload API can be used. |
-| recipients[].videoParameter.thumbnailUrl | String | X | Video thumbnail image URL. Choose one of thumbnailUrl or thumbnailAttachmentId. Only images registered via the standard image upload API can be used. If not set, the default KakaoTV thumbnail is used. |
+| recipients[].imageParameters | Array | X | Image parameters per recipient. Used only for brand messages. |
+| recipients[].imageParameters[].attachmentId | String | X | Attachment ID |
+| recipients[].imageParameters[].imageUrl | String | X | Image URL |
+| recipients[].imageParameters[].imageLink | String | X | URL to go to when the image is clicked |
+| recipients[].videoParameter | Object | X | Video parameter per recipient. Used only in brand messages. |
+| recipients[].videoParameter.videoUrl | String | X | KakaoTV video URL |
+| recipients[].videoParameter.thumbnailAttachmentId | String | X | Thumbnail image attachment ID |
+| recipients[].videoParameter.thumbnailUrl | String | X | Thumbnail image URL of the video |
 | id | String | X | ID generated when a bulk recipient list file is uploaded successfully. |
 | templateId | String | X | Template ID |
 | templateParameters | Object | X | Template parameters. Consists of key (placeholder) and value pairs.<br><br>Template parameters cannot be specified per recipient in group sending.<br><br>Template parameters set on a recipient take precedence over message-level template parameters.<br><br> |
@@ -2196,7 +2153,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | options.targeting | String | X | Message target type. M: users who have agreed to receive marketing messages, N: non-friend users who have agreed to receive marketing messages, O: friend users. When using M/N, marketing message consent must be enabled on the sender profile and an 080 opt-out number is required.<br>[M, N, O] |
 | options.pushAlarm | Boolean | X | Whether to send a push notification for the message (default: true)<br>Default: true |
 | options.unsubscribePhoneNumber | String | X | 080 toll-free opt-out phone number. Required when targeting is M/N. Format: 080-XXX-XXXX, 080-XXXX-XXXX, 080XXXXXXX, 080XXXXXXXX. If omitted, the value registered on the sender profile is applied automatically. |
-| options.unsubscribeAuthNumber | String | X | Opt-out authentication number (numeric, up to 9 characters). Not required. Cannot be entered alone without unsubscribePhoneNumber. If omitted, the value registered on the sender profile is applied automatically. |
+| options.unsubscribeAuthNumber | String | X | Opt-out authentication number (numeric, up to 10 characters). Not required. Cannot be entered alone without unsubscribePhoneNumber. If omitted, the value registered in the sender's profile is applied automatically. |
 | statsKeyId | String | X | Statistics key ID |
 | scheduledDateTime | String | X | Scheduled sending time |
 | confirmBeforeSend | Boolean | X | Whether to send after confirmation |
@@ -2237,7 +2194,6 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-
 ### Send a brand message template message
 
 POST {{endpoint}}/message/v1.0/BRANDMESSAGE/template-messages/{{messagePurpose}}
@@ -2265,7 +2221,7 @@ X-NHN-Authorization: Bearer {accessToken}
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2286,7 +2242,6 @@ X-NHN-Authorization: Bearer {accessToken}
   "confirmBeforeSend" : false
 }
 ```
-</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -2317,7 +2272,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
     "videoParameter" : {
       "videoUrl" : "https://tv.kakao.com/v/123456789",
       "thumbnailAttachmentId" : "20230131070811m2fDe1rXx80",
-      "thumbnailUrl" : "https://www.example.com/thumbnail.jpg"
+      "thumbnailUrl" : "https://example.com/thumbnail.jpg"
     }
   } ],
   "id" : "alpha123",
@@ -2344,8 +2299,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 <span id="messageV1x0008EmailTemplateMessages"></span>
 
 <a id="send-email-template-message"></a>
-
-## Send an Email Template Message
+## Send an Email Template Message { #send-email-template-message }
 
 Sends a message using a registered template.<br>
 If no template has been registered, register a template first and then send the message.<br>
@@ -2372,10 +2326,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2526,8 +2477,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 <span id="messageV1x0008RcsTemplateMessages"></span>
 
 <a id="send-rcs-template-message"></a>
-
-## Send RCS Template Messages
+## Send RCS Template Messages { #send-rcs-template-message }
 
 Send messages using a registered template.<br>
 If no template is registered, register a template first before sending.<br>
@@ -2550,10 +2500,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 
 | Name | Type | Format | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | Message purpose. |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2695,9 +2642,6 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
 
 </details>
 
-<details>
-    <summary><strong>cURL</strong></summary>
-
 ```http
 curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" \
 -d '{
@@ -2739,8 +2683,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 <span id="messageV1x0008SmsTemplateMessages"></span>
 
 <a id="send-sms-template-message"></a>
-
-## Send SMS Template Message
+## Send SMS Template Message { #send-sms-template-message }
 
 Sends a message using a registered template.
 If no template has been registered, register one first before sending.
@@ -2752,14 +2695,13 @@ You must configure recipient settings by selecting one of the following: single 
 For scheduled sending, set `scheduledDateTime`.
 For send after confirmation, set `confirmBeforeSend` to true.
 
-When sending an MMS template with an image layout linked, note the following:
-* **Required template parameters**: Must include cardNumber and scratchNumber.
-  * cardNumber: Used to generate a barcode, and must consist of exactly 16 digits.
-  * scratchNumber: No specific constraints.
-* **Image layout override**: You can override the image layout configured in the template by including content.imageLayoutId or content.imageLayoutName in the request body.
-  * Use only one of content.imageLayoutId or content.imageLayoutName.
-  * If neither field is included, the default image layout linked when the template was created is used.
-
+When sending an MMS template with a linked image layout, note the following:
+* **Required template parameters**: You must include cardNumber and scratchNumber.
+    * cardNumber: Used to generate a barcode. Must consist of exactly 16 digits.
+    * scratchNumber: No additional constraints.
+* **Image layout override**: You can change the image layout set in the template by including content.imageLayoutId or content.imageLayoutName in the request body.
+    * Use only one of content.imageLayoutId or content.imageLayoutName.
+    * If neither field is included, the default image layout linked when the template was created is used.
 
 **Request**
 
@@ -2771,10 +2713,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 
 | Name | Type | Format | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | Message purpose. |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2898,8 +2837,6 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
 }
 ```
 
-</details>
-
 <details>
     <summary><strong>cURL</strong></summary>
 
@@ -2938,8 +2875,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 <span id="messageV1x0009FlowMessages"></span>
 
 <a id="send-flow-message"></a>
-
-## Send Flow Messages
+## Send Flow Messages { #send-flow-message }
 
 Send messages using a registered flow.<br>
 If you have not registered a flow, you must register one before sending.<br>
@@ -2966,10 +2902,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - | - |
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
-| messagePurpose | Path | Enum | O | Message purpose |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request Body**
 
 <!--If this API does not require a request body, enter "This API does not require a request body."-->
@@ -3008,8 +2941,13 @@ X-NHN-Authorization: Bearer {accessToken}
         "body" : "Body"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3040,7 +2978,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | flow.steps[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | flow.steps[].sender | Object | X | Sender information. Sender information may vary depending on the message channel.<br> |
 | flow.steps[].content | Object | X | Message content. Message content may vary depending on the message channel.<br> |
-| flow.steps[].options | Object | X | Delivery options. Delivery options may vary depending on the message channel.<br> |
+| flow.steps[].options | Object | X | Sending options. Sending options can be configured differently depending on the message channel.<br>- **BRANDMESSAGE**: audienceType(required, CUSTOMER/FRIEND), targeting(M/N/O), pushAlarm(boolean), unsubscribePhoneNumber(080 number), unsubscribeAuthNumber(authentication number)<br>- **RCS**: expiryOption(expiry option), groupId(group ID)<br> |
 | flow.steps[].nextSteps | Array | X | Next steps. If there are no next steps, message delivery ends.<br> |
 
 
@@ -3079,13 +3017,11 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-
-### Send Flow Message
+### Send a flow message
 
 POST {{endpoint}}/message/v1.0/flow-messages/{{messagePurpose}}
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
 {
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
@@ -3118,8 +3054,13 @@ X-NHN-Authorization: Bearer {accessToken}
         "body" : "Body"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3131,13 +3072,10 @@ X-NHN-Authorization: Bearer {accessToken}
 
 </details>
 
-<details>
-    <summary><strong>cURL</strong></summary>
-
 ```http
 curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}"  \ 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
 -d '{
   "statsKeyId" : "aA123456",
   "flowId" : "aA123456",
@@ -3170,8 +3108,13 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
         "body" : "Body"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "nextSteps" : [ {
         "messageChannel" : "RCS"
@@ -3186,8 +3129,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 <span id="messageV1x0010InstantFlowMessages"></span>
 
 <a id="send-an-instant-flow-message"></a>
-
-## Send Instant Flow Messages
+## Send Instant Flow Messages { #send-an-instant-flow-message }
 
 Request that a message be sent by defining a flow when sending a message.<br>
 <br>
@@ -3204,10 +3146,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 
 | Name | Type | Format | Required | Description |
 | - | - | - | - | - |
-| messagePurpose | Path | Enum | O | Message purpose. |
-
-
-
+| messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -3244,8 +3183,13 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
         "body" : "Body"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3273,7 +3217,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | instantFlow.steps[].messageChannel | String | O | Message channel<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Brand Message), EMAIL(Email), RCS(RCS), PUSH(Push)] |
 | instantFlow.steps[].sender | Object | X | Sender information. Sender information may vary depending on the message channel.<br> |
 | instantFlow.steps[].content | Object | X | Message content. Message content may vary depending on the message channel.<br> |
-| instantFlow.steps[].options | Object | X | Send options. Send options may vary depending on the message channel.<br> |
+| instantFlow.steps[].options | Object | X | Delivery options. Delivery options can vary depending on the message channel.<br>- **BRANDMESSAGE**: audienceType (required, CUSTOMER/FRIEND), targeting (M/N/O), pushAlarm (boolean), unsubscribePhoneNumber (080 number), unsubscribeAuthNumber (authentication number)<br>- **RCS**: expiryOption (expiry option), groupId (group ID)<br> |
 | instantFlow.steps[].templateId | String | X | Template ID. If a template ID is set, the sender information (sender) and message content (content) in the request are not applied.<br>If a template ID is not set in an instant flow message, sender information (sender) and message content (content) are required.<br> |
 | instantFlow.steps[].nextSteps | Array | X | Next steps. If there are no next steps, message sending ends.<br> |
 
@@ -3313,11 +3257,9 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-
-### Send an Instant Flow Message
+### Send Instant Flow Message
 
 POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
-
 {
   "statsKeyId" : "aA123456",
   "scheduledDateTime" : "2024-10-29T06:00:01.000+09:00",
@@ -3348,8 +3290,13 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
         "body" : "Body"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3357,11 +3304,9 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
   }
 }
 ```
-
 </details>
 
-<details>
-    <summary><strong>cURL</strong></summary>
+</details>
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
@@ -3395,8 +3340,13 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
         "body" : "Body"
       },
       "options" : {
-        "expiryOption:" : 1,
-        "groupId\"" : "groupId"
+        "audienceType" : "CUSTOMER",
+        "targeting" : "M",
+        "pushAlarm" : true,
+        "unsubscribePhoneNumber" : "0801234567",
+        "unsubscribeAuthNumber" : "1234",
+        "expiryOption" : 1,
+        "groupId" : "20240814125609swLmoZTsGr0"
       },
       "templateId" : "Tj3nE8dq",
       "nextSteps" : [ ]
@@ -3410,8 +3360,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 <span id="messageV1x0100MessageIdDoCancel"></span>
 
 <a id="cancel-sending-message"></a>
-
-## Cancel Sending Message
+## Cancel Sending Message { #cancel-sending-message }
 
 Enter the message ID you wish to cancel the message.<br>
 You can cancel the message using the message ID received in response to the message you sent.<br>
@@ -3485,8 +3434,6 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```
 
-</details>
-
 <details>
     <summary><strong>cURL</strong></summary>
 
@@ -3501,8 +3448,7 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 <span id="messageV1x0101MessageIdDoConfirm"></span>
 
 <a id="confirm-message-delivery"></a>
-
-## Confirm Message Delivery
+## Confirm Message Delivery { #confirm-message-delivery }
 
 After confirmation, check the message you requested to send.<br>
 

@@ -11,6 +11,8 @@
 
 **Main Guidance**
 
+<a id="country-specific-sender-number"></a>
+
 ## Country-specific sender number
 Check the main points below when sending international SMS messages.
 

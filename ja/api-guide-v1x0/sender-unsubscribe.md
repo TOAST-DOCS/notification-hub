@@ -16,6 +16,8 @@
 
 <span id="senderV1x0001RegisterExternalUnsubscribePhoneNumber"></span>
 
+<a id="request-to-register-external-080-opt-out-number"></a>
+
 ## 080受信拒否外部番号の登録申請
 
 080受信拒否外部番号の登録を申請します。

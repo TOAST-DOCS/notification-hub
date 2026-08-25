@@ -11,6 +11,8 @@
 
 <span id="sms-delivery-failure"></span>
 
+<a id="you-cannot-proceed-with-identity-verification"></a>
+
 ## 本人認証を進行できません。
 
 Notification Hubは事業者会員のみ本人認証を行うことで使用できます。個人会員の場合、本人認証を行うことができません。事業者会員として再入会後、本人認証を行ってください。

@@ -16,6 +16,8 @@
 
 <span id="attachmentV1x0001UploadAttachments"></span>
 
+<a id="upload-attachments"></a>
+
 ## 添付ファイルのアップロード
 
 添付ファイルをアップロードします。FileTypeを指定した場合、個別商品に対する添付ファイルのアップロードを実行します。
