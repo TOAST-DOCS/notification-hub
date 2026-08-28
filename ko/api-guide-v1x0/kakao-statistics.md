@@ -24,13 +24,11 @@ MONTHLY: 최근 3개월 이내 데이터만 조회 가능하며, 조회 범위�
 * 발송 성공 건수가 10건 이하이면 유효 읽음 수와 클릭 수를 제공하지 않습니다.
 
 <a id="delivery-statistics"></a>
-
 ### 발송 통계
 
 발신 프로필을 기준으로 일별 발송 수, 유효 읽음 수, 클릭 수를 조회합니다. 기간, 발송 식별자, 메시지 타입 등을 설정해 조회할 수 있습니다.
 
 <a id="template-statistics"></a>
-
 ### 템플릿 통계
 
 템플릿 및 그룹 태그를 기준으로 일별 발송 수, 유효 읽음 수, 클릭 수를 조회합니다. 기간, 메시지 타입 등을 설정해 조회할 수 있습니다.
@@ -40,7 +38,6 @@ MONTHLY: 최근 3개월 이내 데이터만 조회 가능하며, 조회 범위�
 
 
 <a id="retrieve-alimtalk-delivery-statistics"></a>
-
 ## 알림톡 발송 통계 조회
 
 알림톡 발송 통계를 조회합니다.
@@ -151,7 +148,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 </details>
 
 <a id="retrieve-alimtalk-template-statistics"></a>
-
 ## 알림톡 템플릿 통계 조회
 
 알림톡 템플릿 통계를 조회합니다.
@@ -262,7 +258,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/template-statistic
 </details>
 
 <a id="retrieve-brand-message-delivery-statistics"></a>
-
 ## 브랜드 메시지 발송 통계 조회
 
 브랜드 메시지 발송 통계를 조회합니다.
@@ -384,7 +379,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 </details>
 
 <a id="retrieve-brand-message-template-statistics"></a>
-
 ## 브랜드 메시지 템플릿 통계 조회
 
 브랜드 메시지 템플릿 통계를 조회합니다.

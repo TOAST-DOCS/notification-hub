@@ -14,7 +14,6 @@
 
 
 <a id="delete-a-template-category"></a>
-
 ## Delete a Template Category
 
 Delete a template category.
@@ -101,7 +100,6 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 </details>
 
 <a id="retrieve-template-category-details"></a>
-
 ## Retrieve Template Category Details
 
 Retrieve a template category.
@@ -203,7 +201,6 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 </details>
 
 <a id="modify-a-template-category"></a>
-
 ## Modify a Template Category
 
 Modify a template category.
@@ -310,7 +307,6 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 </details>
 
 <a id="add-a-template-to-a-category"></a>
-
 ## Add a Template to a Category
 
 Add a template to a category.
@@ -413,7 +409,6 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 </details>
 
 <a id="list-template-categories"></a>
-
 ## List Template Categories
 
 List template categories.
@@ -513,7 +508,6 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 </details>
 
 <a id="register-template-categories"></a>
-
 ## Register Template Categories
 
 Register template categories.
@@ -621,7 +615,6 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 </details>
 
 <a id="retrieve-a-template-category-hierarchy"></a>
-
 ## Retrieve a Template Category Hierarchy
 
 Retrieve a template category hierarchy.

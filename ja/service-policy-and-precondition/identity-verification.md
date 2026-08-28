@@ -22,13 +22,11 @@ Notification Hubを利用するには**Notification Hub** > **本人認証**で�
 * 在職証明書は**発行日が表記されており、印鑑が押印された書類**のみ可能です。在職証明書内の住民登録番号の後ろ6桁は**必ずマスキング(非表示)処理**してください。例：000000-0\*\*\*\*\*\*
 
 <a id="identity-verification-method"></a>
-
 ## 本人認証方法
 
 <!-- TODO: translate body -->
 
 <a id="identity-verification-status"></a>
-
 ### 本人認証状態
 
 | 状態    | 説明 |

@@ -10,7 +10,6 @@
 **Notification > Notification Hub > 오류 코드**
 
 <a id="list-of-error-codes"></a>
-
 ## 오류 코드 목록
 
 | 카테고리 | 성공 여부(isSuccessful) | 결과 코드(resultCode) | 결과 메시지(resultMessage) |
@@ -342,7 +341,6 @@
 | 메시지 발송 | false | 500002 | 잘못된 상태 서버 오류 |
 
 <a id="delivery-result-code"></a>
-
 ## 수신 결과 코드
 
 | 카테고리 | 성공 여부(isSuccessful) | 결과 코드(resultCode) | 결과 메시지(resultMessage) |

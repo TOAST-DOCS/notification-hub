@@ -10,19 +10,16 @@
 **Notifications > Notification Hub > Troubleshooting Guide**
 
 <a id="you-cannot-proceed-with-identity-verification"></a>
-
 ## You cannot proceed with identity verification.
 
 Only business members can use Notification Hub through identity verification. If you are an individual member, you cannot proceed with self-authentication. Re-register as a business member and proceed with Identity verification.
 
 <a id="despite-joining-as-a-business-member-you-cannot-proceed-with-your-identity-verification"></a>
-
 ## Despite joining as a business member, you cannot proceed with your Identity Verification.
 
 In Notification Hub, the criteria for business membership follow the type of organization (OWNER) member of the project you activated. If the organization's owner member is an individual member, you cannot proceed with Identity verification as a business member. Change the organization's individual owner member to a business member and proceed with Identity verification.
 
 <a id="sent-characters-are-not-received-by-some-receiver-devices"></a>
-
 ## Sent characters are not received by some receiver devices.
 
 If texts are not received from the receiver device, the receiver's number may be subscribed to the **Stolen Number Text Message Blocking Service’** or the **Mobile Carrier spam blocking service**. Resend the text after terminating the service. For more information about **Stolen Number Text Message Blocking Service’** and **Mobile Carrier spam blocking service**, check the link below.
@@ -31,7 +28,6 @@ If texts are not received from the receiver device, the receiver's number may be
 * [Mobile Carrier Spam Blocking Service Guide](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 
 <a id="iphone-will-not-receive-push-messages-and-the-registered-token-will-be-deleted"></a>
-
 ## iPhone will not receive push messages, and the registered token will be deleted.
 
 If registered your token in iPhone App and sent a push message, but don't receive a push message and the registered token is deleted, check the below.
@@ -49,7 +45,6 @@ If registered your token in iPhone App and sent a push message, but don't receiv
     * TOKEN_APNS_SANDBOX_VOIP: APNS_SANDBOXVOIP
 
 <a id="push-messages-are-not-received-on-an-android-device-and-the-registered-token-has-been-deleted"></a>
-
 ## Push messages are not received on an Android device and the registered token has been deleted.
   
 If you have registered your token in Android App and sent a push message, but don't receive a push message and the registered token is deleted, check the below.

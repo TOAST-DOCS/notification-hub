@@ -15,7 +15,6 @@
 
 
 <a id="upload-attachments"></a>
-
 ## 첨부 파일 업로드
 
 첨부 파일을 업로드합니다. FileType을 지정할 경우, 개별 상품에 대한 첨부 파일 업로드를 수행합니다.
@@ -118,7 +117,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 </details>
 
 <a id="retrieve-attachment-lists"></a>
-
 ## 첨부 파일 목록 조회
 
 첨부 파일의 목록을 반환합니다.
@@ -224,7 +222,6 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 </details>
 
 <a id="view-attachment-details"></a>
-
 ## 첨부 파일 단건 조회
 
 첨부 파일 아이디로 첨부 파일을 조회합니다.
@@ -327,7 +324,6 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 </details>
 
 <a id="validate-attachments-before-upload"></a>
-
 ## 업로드 전 첨부 파일 유효성 검사
 
 업로드 할 첨부 파일의 유효성을 검사합니다. 파일 유형, 파일 포맷, 파일 크기, 해상도, 가로 길이, 세로 길이를 통해 설정한 파일 유형의 유효성을 검사합니다. 첨부 파일 업로드 전 파일 유형에 대한 유효성을 검사할 수 있습니다.
@@ -429,7 +425,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 </details>
 
 <a id="validate-attachments-after-upload"></a>
-
 ## 업로드된 첨부 파일 유효성 검사
 
 업로드된 첨부 파일에 대해 새로운 파일 유형의 유효성을 검사합니다. 파일 유형 수정 API 호출 전 파일 유형에 대한 유효성을 검사할 수 있습니다.
@@ -539,7 +534,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 </details>
 
 <a id="update-uploaded-attachment-file-type"></a>
-
 ## 업로드된 첨부 파일의 파일 유형 수정
 
 업로드된 첨부 파일의 파일 유형을 수정합니다.
@@ -649,7 +643,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 </details>
 
 <a id="list-attachment-file-types"></a>
-
 ## 첨부 파일 유형 목록 조회
 
 지원 중인 첨부 파일 유형의 목록을 조회합니다. 메시지 채널을 설정하면 해당 메시지 채널에서 제공하는 파일 유형 목록을 조회할 수 있습니다.

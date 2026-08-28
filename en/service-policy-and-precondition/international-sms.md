@@ -12,7 +12,6 @@
 **Main Guidance**
 
 <a id="country-specific-sender-number"></a>
-
 ## Country-specific sender number
 Check the main points below when sending international SMS messages.
 
@@ -31,7 +30,6 @@ Check the main points below when sending international SMS messages.
 * Country-specific transmission quality is affected by your country's network and infrastructure environment and may differ from your domestic environment.
 
 <a id="international-sms-billing"></a>
-
 ## International SMS Billing
 * The cost of sending international SMS messages will be charged depending on the success or failure of data transmission to overseas carriers.
 * The terminal reception result means successful data transmission to an overseas communication service provider and may differ from the actual terminal reception result. Even if the actual user did not receive the message, it may be included in the billing list.
@@ -47,7 +45,6 @@ Check the main points below when sending international SMS messages.
 | GSM-7bit | 160 characters | 306 characters<br>(=153*2) | 459 characters<br>(=153*3) | 612 characters<br>(=153*4) | 765 characters<br>(=153*5) |
 
 <a id="precautions---international-sms-mass-volume-pumping"></a>
-
 ## Precautions - International SMS Mass Volume Pumping
 * Some overseas mobile carriers (MNOs) artificially induce message sending to increase sales.
 * On pages such as requesting a membership authentication number, a bot or abuser requests a large volume of messages to be sent.
@@ -60,13 +57,11 @@ Check the main points below when sending international SMS messages.
 
 
 <a id="international-sms-volume-pumping-phenomenon"></a>
-
 ### International SMS Volume Pumping Phenomenon
 
 <!-- TODO: translate body -->
 
 <a id="available-countries"></a>
-
 ## Available Countries 
 
 | Country name | Country code |

@@ -14,7 +14,6 @@
 
 
 <a id="list-all-group-tags"></a>
-
 ## 그룹태그 전체 목록 조회
 
 카카오 비즈센터 그룹태그 전체 목록을 조회합니다.
@@ -104,7 +103,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" 
 </details>
 
 <a id="delete-a-group-tag"></a>
-
 ## 그룹태그 삭제
 
 카카오 비즈센터 그룹태그를 삭제합니다.
@@ -188,7 +186,6 @@ curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?sender
 </details>
 
 <a id="get-a-group-tag"></a>
-
 ## 그룹태그 한 건 조회
 
 카카오 비즈센터 그룹태그 한 건을 조회합니다.
@@ -279,7 +276,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey
 </details>
 
 <a id="modify-a-group-tag"></a>
-
 ## 그룹태그 수정
 
 카카오 비즈센터 그룹태그를 수정합니다.
@@ -390,7 +386,6 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 </details>
 
 <a id="register-a-group-tag"></a>
-
 ## 그룹태그 등록
 
 카카오 비즈센터 그룹태그를 등록합니다.

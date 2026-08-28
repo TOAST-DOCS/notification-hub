@@ -14,7 +14,6 @@
 
 
 <a id="list-all-group-tags"></a>
-
 ## List All Group Tags
 
 Retrieves the full list of group tags in KakaoBizCenter.
@@ -104,7 +103,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" 
 </details>
 
 <a id="delete-a-group-tag"></a>
-
 ## Delete a Group Tag
 
 Deletes a group tag in KakaoBizCenter.
@@ -188,7 +186,6 @@ curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?sender
 </details>
 
 <a id="get-a-group-tag"></a>
-
 ## Get a Group Tag
 
 Retrieves a group tag in KakaoBizCenter.
@@ -279,7 +276,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey
 </details>
 
 <a id="modify-a-group-tag"></a>
-
 ## Modify a Group Tag
 
 Modifies a group tag in KakaoBizCenter.
@@ -390,7 +386,6 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 </details>
 
 <a id="register-a-group-tag"></a>
-
 ## Register a Group Tag
 
 Registers a group tag in KakaoBizCenter.

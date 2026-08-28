@@ -11,11 +11,9 @@
 
 
 <a id="sms-example"></a>
-
 ## SMS
 
 <a id="sms-short"></a>
-
 ### SMS(短文)
 
 ```json
@@ -53,7 +51,6 @@
 | content.body | String | Y | 内容 |
 
 <a id="lms-long"></a>
-
 ### LMS(長文)
 
 ```json
@@ -93,7 +90,6 @@
 | content.body | String | Y | 内容 |
 
 <a id="mms-long-media"></a>
-
 ### MMS(メディア長文)
 
 ```json
@@ -137,11 +133,9 @@
 
 
 <a id="rcs"></a>
-
 ## RCS
 
 <a id="sms"></a>
-
 ### SMS
 
 ```json
@@ -213,7 +207,6 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="lms-standard"></a>
-
 ### LMSスタンダード
 
 ```json
@@ -285,7 +278,6 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="lms-format-basic-and-format-title-emphasis"></a>
-
 ### LMSフォーマット基本型及びフォーマットタイトル強調型
 * mTitleMediaアイコンファイルIDリスト
   * プロモーション: LT-messagebase.common-jFBCKu
@@ -368,7 +360,6 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="lms-format-paragraph-type"></a>
-
 ### LMSフォーマット段落型タイプ
 * mTitleMediaアイコンファイルIDリスト
   * プロモーション: LT-messagebase.common-jFBCKu
@@ -489,7 +480,6 @@
 
 
 <a id="mms-horizontal-vertical"></a>
-
 ### MMS横型、縦型
 
 ```json
@@ -564,7 +554,6 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="mms-carousel"></a>
-
 ### MMSカルーセル
 
 ```json
@@ -672,25 +661,21 @@
 
 
 <a id="integrated-sms-card"></a>
-
 ### 統合SMSカード
 
 <!-- TODO: translate body -->
 
 <a id="integrated-lms-card"></a>
-
 ### 統合LMSカード
 
 <!-- TODO: translate body -->
 
 <a id="integrated-mms-card-horizontal-vertical"></a>
-
 ### 統合MMSカード横型、縦型
 
 <!-- TODO: translate body -->
 
 <a id="email"></a>
-
 ## Email
 
 ```json
@@ -735,7 +720,6 @@
 * **recipients[].contacts[].contact** フィールドには受信者メールアドレスを入力します。
 
 <a id="push"></a>
-
 ## Push
 
 ```json

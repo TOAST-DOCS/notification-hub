@@ -10,7 +10,6 @@
 **Notification > Notification Hub > Console User Guide > Flow**
 
 <a id="flow-overview"></a>
-
 ## Flow
 
 Flow is the feature of sending messages to various message channels according to their reception results. For example, you can increase reception rates while saving money by sending notifications according to their reception results, such as push, email, and text.

@@ -15,7 +15,6 @@
 
 
 <a id="retrieve-image-layout"></a>
-
 ## Retrieve Image Layout
 
 Retrieves a single image layout based on its ID.
@@ -132,7 +131,6 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 </details>
 
 <a id="create-image-layout"></a>
-
 ## Create Image Layout
 
 Creates an image layout.
@@ -239,7 +237,6 @@ curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 </details>
 
 <a id="delete-image-layout"></a>
-
 ## Delete Image Layout
 
 Deletes an image layout.
@@ -325,7 +322,6 @@ curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 </details>
 
 <a id="retrieve-image-layout-list"></a>
-
 ## Retrieve Image Layout List
 
 Retrieves a list of image layouts.
@@ -433,7 +429,6 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 </details>
 
 <a id="update-image-layout"></a>
-
 ## Update Image Layout
 
 Updates an image layout. Partial updates are possible by entering only the fields that need modification.

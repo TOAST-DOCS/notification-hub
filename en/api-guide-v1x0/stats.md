@@ -15,7 +15,6 @@
 
 
 <a id="section-1"></a>
-
 ## Query Statistics
 
 Retrieve statistical events based on the event timestamp.<br>

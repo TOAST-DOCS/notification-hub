@@ -24,13 +24,11 @@ MONTHLY：直近3か月以内のデータのみ照会可能であり、照会範
 * 送信成功件数が10件以下の場合は、有効既読数とクリック数を提供しません。
 
 <a id="delivery-statistics"></a>
-
 ### 送信統計
 
 送信元プロフィールを基準として、日別の送信数、有効既読数、クリック数を照会します。期間、送信識別子、メッセージタイプなどを設定して照会できます。
 
 <a id="template-statistics"></a>
-
 ### テンプレート統計
 
 テンプレート及びグループタグを基準として、日別の送信数、有効既読数、クリック数を照会します。期間、メッセージタイプなどを設定して照会できます。
@@ -40,7 +38,6 @@ MONTHLY：直近3か月以内のデータのみ照会可能であり、照会範
 
 
 <a id="retrieve-alimtalk-delivery-statistics"></a>
-
 ## お知らせトーク送信統計の照会
 
 お知らせトークの送信統計を照会します。
@@ -151,7 +148,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 </details>
 
 <a id="retrieve-alimtalk-template-statistics"></a>
-
 ## お知らせトークテンプレート統計の照会
 
 お知らせトークテンプレートの統計を照会します。
@@ -262,7 +258,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/template-statistic
 </details>
 
 <a id="retrieve-brand-message-delivery-statistics"></a>
-
 ## ブランドメッセージ送信統計の照会
 
 ブランドメッセージの送信統計を照会します。
@@ -384,7 +379,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 </details>
 
 <a id="retrieve-brand-message-template-statistics"></a>
-
 ## ブランドメッセージテンプレート統計の照会
 
 ブランドメッセージテンプレートの統計を照会します。

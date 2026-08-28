@@ -15,7 +15,6 @@
 
 
 <a id="upload-attachments"></a>
-
 ## Upload Attachments
 
 Upload attachments. If specifying a FileType, you can upload the attachment for each product.
@@ -114,7 +113,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 </details>
 
 <a id="retrieve-attachment-lists"></a>
-
 ## Retrieve Attachment Lists
 
 Retrieve attachment lists.
@@ -223,7 +221,6 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 </details>
 
 <a id="view-attachment-details"></a>
-
 ## View Attachment Details
 
 View attachments with attachment IDs.
@@ -329,7 +326,6 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 </details>
 
 <a id="validate-attachments-before-upload"></a>
-
 ## Validate Attachments before Upload
 
 Validates attachments before they are uploaded. The system checks the file type, format, size, resolution, and dimensions (width/height) to ensure they meet the defined criteria.
@@ -424,7 +420,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 </details>
 
 <a id="validate-attachments-after-upload"></a>
-
 ## Validate Attachments after Upload
 
 Validates existing attachments against a new file type. This allows you to verify compatibility before calling the File Type Update API.
@@ -536,7 +531,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 </details>
 
 <a id="update-uploaded-attachment-file-type"></a>
-
 ## Update Uploaded Attachment File Type
 
 Updates the file type of an uploaded attachment.
@@ -648,7 +642,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 </details>
 
 <a id="list-attachment-file-types"></a>
-
 ## List Attachment File Types
 
 Views the list of supported attachment types. Select a message channel to see the specific file types available for that channel.

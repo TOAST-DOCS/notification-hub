@@ -11,7 +11,6 @@
 
 
 <a id="view-send"></a>
-
 ## View Send
 
 You can view the reception results of the delivered message by receiver contacts.
@@ -24,7 +23,6 @@ You can view the reception results of the delivered message by receiver contacts
     * message ID, template name, flow name, statistics key name, delivery information, receiver information
 
 <a id="contact-receipt-results"></a>
-
 ### Contact Receipt Results
 
 * By default, message ID, message channel, request date and time, delivery time, delivery information, delivery status, delivery purpose, receiver information, and receiving status are displayed.
@@ -36,7 +34,6 @@ You can view the reception results of the delivered message by receiver contacts
 * If delivery status of the searched contact received result is Awaiting Approval, click **Approval** at the time of delivery to approve the delivery.
 
 <a id="download-search-results"></a>
-
 ### Download search results
 You can download the reception results of the searched contacts as a file.
 

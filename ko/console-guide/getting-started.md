@@ -10,7 +10,6 @@
 **Notification > Notification Hub > 콘솔 사용 가이드 > Notification Hub 시작하기**
 
 <a id="identity-verification"></a>
-
 ## 본인 인증하기
 
 Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 있습니다. 본인 인증에 대한 자세한 내용은 **이용 정책 및 사전 설정 안내 > 본인 인증** 항목을 확인 부탁드립니다.
@@ -19,11 +18,9 @@ Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 �
 
 
 <a id="sender-information-management"></a>
-
 ## 발신 정보 관리
 
 <a id="sender-number-management"></a>
-
 ### 발신 번호 관리
 
 SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 합니다. 발신 번호 등록 심사를 요청하고 심사가 승인되면 발신 번호가 등록됩니다.
@@ -37,7 +34,6 @@ SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 
 * [발신번호 사전 등록제 시행 바로 가기](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
 
 <a id="brand-management"></a>
-
 ### 브랜드 관리
 
 RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS Biz Center에서 사전 등록 사항이 완료(브랜드 승인)되었다면, NHN Cloud 콘솔과 연동을 진행합니다. RCS Biz Center에서 브랜드 생성은 **이용 정책 및 사전 설정 안내** > **RCS**를 참고하세요.
@@ -50,7 +46,6 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 * **+ 브랜드 연동**을 클릭하면 동기화가 완료됩니다.
 
 <a id="manage-domains"></a>
-
 ### 도메인 관리
 
 이메일을 보내려면 자신이 소유한 도메인, SPF 인증, DKIM 인증, DMARC 인증이 필요합니다.
@@ -60,7 +55,6 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 * [이용 정책 및 사전 설정 안내 > 이메일 바로가기](../service-policy-and-precondition/email)
 
 <a id="email-domain-registration-and-ownership-authentication"></a>
-
 #### 이메일 도메인 등록 및 소유권 인증
 
 도메인을 등록하고 도메인 소유권을 확인해야 합니다. Notification Hub에서 제공한 값을 이메일 도메인 DNS TXT 레코드에 등록합니다. 제공된 값이 등록한 도메인의 TXT 레코드와 일치 여부로 소유권을 인증합니다.
@@ -73,7 +67,6 @@ RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번
 도메인 소유 인증에 성공하면 도메인 인증 상태가 '완료'로 변경됩니다.
 
 <a id="spf-authentication"></a>
-
 #### SPF 인증
 
 SPF(sender policy framework, 발신자 정책 프레임워크)는 이메일 발신자와 발송 서버의 신뢰성을 검증하기 위한 메커니즘으로, 이메일 수신 서버가 특정 도메인에서 발송된 메일이 실제로 허가된 이메일 발송 서버에서 왔는지 확인합니다. 메일 수신 서버는 발신자의 이메일 도메인 DNS에 등록된 SPF 레코드를 확인하여 등록되지 않은 IP 주소에서 보낸 메일을 스팸 메일로 처리합니다.
@@ -99,7 +92,6 @@ SPF에 대한 자세한 설명은 아래 문서를 참고하세요.
 * [RFC 4408 - 10.1 Processing Limits 바로 가기](https://datatracker.ietf.org/doc/html/rfc4408#section-10.1)
 
 <a id="dkim-authentication"></a>
-
 #### DKIM 인증
 
 DKIM(domainkeys identified mail, 도메인 키 식별 메일)은 이메일 발송 서버가 이메일을 디지털 서명하고 이메일 수신 서버는 발신자 진위 여부를 확인하여 전송 중에 메시지가 위조, 변조되지 않았는지 확인하는 이메일 검증 방법입니다. DKIM을 통해 스팸 발송자 및 기타 악의적인 공격자가 이메일을 위조, 변조하는 것을 방지할 수 있습니다.
@@ -116,7 +108,6 @@ DKIM에 대한 자세한 설명은 아래 문서를 참고하세요.
 
 
 <a id="dmarc-authentication"></a>
-
 #### DMARC 인증
 
 DMARC(domain-based message authentication reporting and conformance)는 이메일 보안 강화 가능의 마지막 단계입니다. 이메일 스푸핑을 이용한 피싱, 사기 등을 막기 위한 도메인 기반 메시지 인증에 대한 보고 및 준수 정책입니다. 이메일 수신 서버는 발송자 주소 (From) 도메인의 DNS에서 DMARC 레코드를 조회합니다. DMARC 레코드에 정의된 정책에 따라 수신 서버는 수신된 메일을 인증합니다.
@@ -143,7 +134,6 @@ DMARC에 대한 자세한 설명은 아래 문서를 참고하세요.
     도메인 보호를 비활성화하면 다른 프로젝트에서 임의로 도메인을 사용할 수 있습니다. 모든 인증을 완료한 도메인의 경우 다른 프로젝트에서 발송하는 이메일도 동일하게 이메일 수신 서버에서 정상적으로 수신됩니다. 이렇게 발송된 이메일이 스팸이거나 피싱인 경우 수신자에게 피해가 발생할 수 있고 도메인의 평판이 하락해 수신 이메일 서버에서 수신을 거부할 수 있습니다.
 
 <a id="push-authentication-management"></a>
-
 ### Push 인증 관리
 
 Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > Push**를 확인하세요.
@@ -151,14 +141,12 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 * [이용 정책 및 사전 설정 안내 > Push 바로 가기](../service-policy-and-precondition/push)
 
 <a id="fcm-authentication-settings"></a>
-
 #### FCM 인증 설정
 1. **서비스 계정 키 등록**을 활성화합니다.
 2. 서비스 계정 키(JSON)에 발급 받은 FCM Service Account Credential 파일의 내용을 복사해 붙여 넣습니다.
 3. **검증 > 저장**을 클릭해 설정을 완료합니다.
 
 <a id="pns-authentication-settings"></a>
-
 #### APNS 인증 설정
 1. **APNS JWT 인증서 등록**을 활성화합니다.
 2. **팀 아이디**와 **키 아이디**를 입력합니다.
@@ -167,14 +155,12 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 5. **검증 > 저장**을 클릭해 설정을 완료합니다.
 
 <a id="adm-authentication-settings"></a>
-
 #### ADM 인증 설정
 1. **자격 증명 등록**을 활성화합니다.
 2. **클라이언트 아이디**와 **클라이언트 키**를 입력합니다.
 3. **검증 > 저장**을 클릭해 설정을 완료합니다.
 
 <a id="manage-outgoing-profiles"></a>
-
 ### 발신 프로필 관리
 
 알림톡, 브랜드 메시지 발송을 위해서는 발신 프로필 생성 및 등록이 필요합니다.
@@ -191,13 +177,11 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 
 
 <a id="manage-opt-out-numbers"></a>
-
 ### 080 수신 거부 번호 관리
 
 080 수신 거부 번호는 광고 문자 발송 시, 수신자에게 수신 거부를 제공하는 서비스입니다. 광고성 정보 전송 시, 수신자가 수신 거부나 수신 동의의 철회를 무료로 할 수 있도록 무료 수신 거부 방법을 반드시 기재해야 합니다.
 
 <a id="apply-subscription"></a>
-
 #### 가입 신청
 
 * **+ 080 수신 거부 번호 신청**을 클릭하고 회사명을 입력합니다. 입력한 회사명은 080 수신 거부 번호로 전화를 걸 때, 안내되는 업체명입니다.
@@ -205,7 +189,6 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 * 개통이 완료되면, 사용 시작 일시와 상태를 확인할 수 있습니다. 080 수신 거부 서비스 등록 예약, 사용 중 상태에서 SMS 상품 이용 종료를 할 수 없습니다. 해지 후, 상품 이용 종료가 가능합니다. 해지하려면 **해지**를 클릭하세요.
 
 <a id="set-080-unsubscription-number-when-advertising-texts"></a>
-
 #### 광고성 문자 발송 시 080 수신 거부 번호 설정
 
 * 080 수신 거부 번호가 개통된 상태에서만 광고 문자를 발송할 수 있습니다.

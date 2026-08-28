@@ -11,11 +11,9 @@
 
 
 <a id="sms-example"></a>
-
 ## SMS
 
 <a id="sms-short"></a>
-
 ### SMS (Short)
 
 ```json
@@ -53,7 +51,6 @@
 | content.body | String | Y | Content |
 
 <a id="lms-long"></a>
-
 ### LMS (Long)
 
 ```json
@@ -93,7 +90,6 @@
 | content.body | String | Y | Content |
 
 <a id="mms-long-media"></a>
-
 ### MMS (Long Media)
 
 ```json
@@ -137,11 +133,9 @@
 
 
 <a id="rcs"></a>
-
 ## RCS
 
 <a id="sms"></a>
-
 ### SMS
 
 ```json
@@ -213,7 +207,6 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <a id="lms-standard"></a>
-
 ### LMS Standard
 
 ```json
@@ -285,7 +278,6 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <a id="lms-format-basic-and-format-title-emphasis"></a>
-
 ### LMS Format Basic and Format Title Emphasis
   * List of mTitleMedia Icon File IDs
   * Promotion: LT-messagebase.common-jFBCKu
@@ -368,7 +360,6 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <a id="lms-format-paragraph-type"></a>
-
 ### LMS Format Paragraph Type
 * List of mTitleMedia Icon File IDs
 * Promotion: LT-messagebase.common-jFBCKu
@@ -487,7 +478,6 @@
 | options.groupId | String | N | Group ID for RCS BizCenter Statistics Integration |
 
 <a id="mms-horizontal-vertical"></a>
-
 ### MMS Horizontal, Vertical
 
 ```json
@@ -562,7 +552,6 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <a id="mms-carousel"></a>
-
 ### MMS Carousel
 
 ```json
@@ -669,7 +658,6 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
 <a id="integrated-sms-card"></a>
-
 ### Integrated SMS Card
 
 ```json
@@ -741,7 +729,6 @@
 ---
 
 <a id="integrated-lms-card"></a>
-
 ### Integrated LMS Card
 
 ```json
@@ -813,7 +800,6 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
 <a id="integrated-mms-card-horizontal-vertical"></a>
-
 ### Integrated MMS Card Horizontal, Vertical
 
 ```json
@@ -888,7 +874,6 @@
 
 
 <a id="email"></a>
-
 ## Email
 
 ```json
@@ -932,7 +917,6 @@
 * Enter the recipient's email address in the **recipients[].contacts[].contact** field.
 
 <a id="push"></a>
-
 ## Push
 
 ```json
