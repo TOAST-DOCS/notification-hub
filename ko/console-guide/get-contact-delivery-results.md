@@ -10,8 +10,6 @@
 **Notification > Notification Hub > 콘솔 사용 가이드 > 발송 조회**
 
 
-<span id="contact-delivery-result"></span>
-
 <a id="view-send"></a>
 
 ## 발송 조회

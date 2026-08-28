@@ -9,8 +9,6 @@
 
 **Notification > Notification Hub > API v1.0使用ガイド > 連絡先別受信結果**
 
-<span id="read-contact-delivery-results"></span>
-
 <a id="retrieve-a-list-of-received-results-by-contacts"></a>
 ## 連絡先別受信結果リスト照会 { #retrieve-a-list-of-received-results-by-contacts }
 
@@ -230,7 +228,6 @@ curl -X GET "${ENDPOINT}/message/v1.0/contact-delivery-results" \
 </details>
 
 </details>
-<span id="contactDeliveryResultV1x0002ReadFinalContactDeliveryResults"></span>
 
 <a id="retrieve-a-list-of-the-final-send-status-messages"></a>
 ## 最終送信ステータスメッセージリスト照会 { #retrieve-a-list-of-the-final-send-status-messages }

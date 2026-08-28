@@ -39,8 +39,6 @@ MONTHLY：直近3か月以内のデータのみ照会可能であり、照会範
 
 
 
-<span id="kakaobizcenterV1x0001ReadAlimtalkDeliveryStatistics"></span>
-
 <a id="retrieve-alimtalk-delivery-statistics"></a>
 
 ## お知らせトーク送信統計の照会
@@ -152,8 +150,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 
 </details>
 
-<span id="kakaobizcenterV1x0002ReadAlimtalkTemplateStatistics"></span>
-
 <a id="retrieve-alimtalk-template-statistics"></a>
 
 ## お知らせトークテンプレート統計の照会
@@ -264,8 +260,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/template-statistic
 ```
 
 </details>
-
-<span id="kakaobizcenterV1x0003ReadBrandmessageDeliveryStatistics"></span>
 
 <a id="retrieve-brand-message-delivery-statistics"></a>
 
@@ -388,8 +382,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 ```
 
 </details>
-
-<span id="kakaobizcenterV1x0004ReadBrandmessageTemplateStatistics"></span>
 
 <a id="retrieve-brand-message-template-statistics"></a>
 

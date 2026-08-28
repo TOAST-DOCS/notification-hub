@@ -20,8 +20,6 @@ The push services supported by Notification Hub are as follows.
 
 ## How to issue push Credentials
 
-<span id="get-fcm-service-account-credential"></span>
-
 <a id="fcm-service-account-credential"></a>
 
 ### FCM Service Account Credential
@@ -45,7 +43,7 @@ The push services supported by Notification Hub are as follows.
 2. Open the downloaded JSON file and copy the content.
 3. Paste the copy into the **FCM Service Account Credential** entry and click **Register**.
 
-<span id="get-apns-jwt"></span>
+<a id="get-apns-jwt"></a>
 
 <a id="obtain-apns-jwt-credentials"></a>
 
@@ -84,8 +82,6 @@ For authentication using JWT, Topic is required, and the topic is the Bundle ID 
 
 * [Communicating with APNs using authentication tokens](https://developer.apple.com/kr/help/account/configure-app-capabilities/communicate-with-apns-using-authentication-tokens)
 
-
-<span id="get-adm-credential"></span>
 
 <a id="adm-credentials"></a>
 

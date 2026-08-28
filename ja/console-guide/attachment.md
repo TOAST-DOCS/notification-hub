@@ -11,8 +11,6 @@
 
 添付ファイルと画像レイアウトを管理します。
 
-<span id="attachment-management"></span>
-
 <a id="attachment-management"></a>
 
 ## 添付ファイルの管理

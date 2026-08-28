@@ -14,8 +14,6 @@
 
 
 
-<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesGet"></span>
-
 <a id="list-kakao-templates-for-alimtalk-template"></a>
 ## List Kakao Templates for AlimTalk Template { #list-kakao-templates-for-alimtalk-template }
 
@@ -237,8 +235,6 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-te
 
 </details>
 
-<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesDoWithFilePost"></span>
-
 <a id="submit-an-alimtalk-template-inquiry-with-file-attachment"></a>
 ## Submit an AlimTalk Template Inquiry with File Attachment { #submit-an-alimtalk-template-inquiry-with-file-attachment }
 
@@ -321,7 +317,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 </details>
 
-<span id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></span>
+<a id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></a>
 
 <a id="submit-an-alimtalk-template-inquiry"></a>
 ## Submit an AlimTalk Template Inquiry { #submit-an-alimtalk-template-inquiry }
@@ -415,7 +411,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 </details>
 
-<span id="templateV1x0001CreateSmsTemplate"></span>
+<a id="templateV1x0001CreateSmsTemplate"></a>
 
 <a id="register-sms-template"></a>
 ## Register SMS Template { #register-sms-template }
@@ -567,8 +563,6 @@ curl -X POST "${endpoint}/template/v1.0/SMS/templates" \
 
 </details>
 
-<span id="templateV1x0002ReadSmsTemplateList"></span>
-
 <a id="list-sms-templates"></a>
 ## List SMS Templates { #list-sms-templates }
 
@@ -673,8 +667,6 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates" \
 ```
 
 </details>
-
-<span id="templateV1x0003ReadSmsTemplate"></span>
 
 <a id="get-sms-template-details"></a>
 ## Get SMS Template Details { #get-sms-template-details }
@@ -796,8 +788,6 @@ curl -X GET "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0004UpdateSmsTemplate"></span>
 
 <a id="update-sms-template"></a>
 ## Update SMS Template { #update-sms-template }
@@ -944,8 +934,6 @@ curl -X PUT "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 
 </details>
 
-<span id="templateV1x0005DeleteSmsTemplate"></span>
-
 <a id="delete-sms-template"></a>
 ## Delete SMS Template { #delete-sms-template }
 
@@ -1027,8 +1015,6 @@ curl -X DELETE "${endpoint}/template/v1.0/SMS/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0006CreateAlimtalkTemplate"></span>
 
 <a id="register-alimtalk-template"></a>
 ## Register AlimTalk Template { #register-alimtalk-template }
@@ -1392,8 +1378,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates" \
 
 </details>
 
-<span id="templateV1x0007ReadAlimtalkTemplateList"></span>
-
 <a id="list-alimtalk-templates"></a>
 ## List AlimTalk Templates { #list-alimtalk-templates }
 
@@ -1501,8 +1485,6 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates" \
 
 </details>
 
-<span id="templateV1x0008ReadAlimtalkSenderTemplates"></span>
-
 <a id="list-templates-by-alimtalk-sender"></a>
 ## List Templates by AlimTalk Sender { #list-templates-by-alimtalk-sender }
 
@@ -1609,8 +1591,6 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/senders/${senderKey}/templates" 
 ```
 
 </details>
-
-<span id="templateV1x0009ReadAlimtalkTemplate"></span>
 
 <a id="get-alimtalk-template-details"></a>
 ## Get AlimTalk Template Details { #get-alimtalk-template-details }
@@ -1862,8 +1842,6 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0010UpdateAlimtalkTemplate"></span>
 
 <a id="update-alimtalk-template"></a>
 ## Update AlimTalk Template { #update-alimtalk-template }
@@ -2199,8 +2177,6 @@ curl -X PUT "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 
 </details>
 
-<span id="templateV1x0011DeleteAlimtalkTemplate"></span>
-
 <a id="delete-alimtalk-template"></a>
 ## Delete AlimTalk Template { #delete-alimtalk-template }
 
@@ -2282,8 +2258,6 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0012InquireAlimtalkTemplate"></span>
 
 <a id="submit-an-alimtalk-template-inquiry---deprecated"></a>
 ## Submit an AlimTalk Template Inquiry - Deprecated { #submit-an-alimtalk-template-inquiry---deprecated }
@@ -2370,8 +2344,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 </details>
 
-<span id="templateV1x0013InquireAlimtalkTemplateWithFile"></span>
-
 <a id="submit-an-alimtalk-template-inquiry-with-file-attachment---deprecated"></a>
 ## Submit an AlimTalk Template Inquiry with File Attachment - Deprecated { #submit-an-alimtalk-template-inquiry-with-file-attachment---deprecated }
 
@@ -2447,8 +2419,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 
 </details>
 
-<span id="templateV1x0014ReadAlimtalkTemplateModifications"></span>
-
 <a id="list-alimtalk-template-updates"></a>
 ## List AlimTalk Template Updates { #list-alimtalk-template-updates }
 
@@ -2514,8 +2484,6 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/modifica
 ```
 
 </details>
-
-<span id="templateV1x0015ReadAlimtalkTemplateCategories"></span>
 
 <a id="list-alimtalk-template-categories"></a>
 ## List AlimTalk Template Categories { #list-alimtalk-template-categories }
@@ -2615,8 +2583,6 @@ curl -X GET "${endpoint}/template/v1.0/ALIMTALK/template-categories" \
 ```
 
 </details>
-
-<span id="templateV1x0021CreateEmailTemplate"></span>
 
 <a id="register-email-template"></a>
 ## Register Email Template { #register-email-template }
@@ -2760,8 +2726,6 @@ curl -X POST "${endpoint}/template/v1.0/EMAIL/templates" \
 
 </details>
 
-<span id="templateV1x0022ReadEmailTemplate"></span>
-
 <a id="get-email-template-details"></a>
 ## Get Email Template Details { #get-email-template-details }
 
@@ -2879,8 +2843,6 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 
 </details>
 
-<span id="templateV1x0022ReadEmailTemplateList"></span>
-
 <a id="list-email-templates"></a>
 ## List Email Templates { #list-email-templates }
 
@@ -2985,8 +2947,6 @@ curl -X GET "${endpoint}/template/v1.0/EMAIL/templates" \
 ```
 
 </details>
-
-<span id="templateV1x0023UpdateEmailTemplate"></span>
 
 <a id="update-email-template"></a>
 ## Update Email Template { #update-email-template }
@@ -3125,8 +3085,6 @@ curl -X PUT "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 
 </details>
 
-<span id="templateV1x0024DeleteEmailTemplate"></span>
-
 <a id="delete-email-template"></a>
 ## Delete Email Template { #delete-email-template }
 
@@ -3208,8 +3166,6 @@ curl -X DELETE "${endpoint}/template/v1.0/EMAIL/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0025CreateRcsTemplate"></span>
 
 <a id="register-rcs-template"></a>
 ## Register RCS Template { #register-rcs-template }
@@ -3532,8 +3488,6 @@ curl -X POST "${endpoint}/template/v1.0/RCS/templates" \
 
 </details>
 
-<span id="templateV1x0026ReadRcsTemplateList"></span>
-
 <a id="list-rcs-templates"></a>
 ## List RCS Templates { #list-rcs-templates }
 
@@ -3638,8 +3592,6 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates" \
 ```
 
 </details>
-
-<span id="templateV1x0027ReadRcsTemplate"></span>
 
 <a id="get-rcs-template-details"></a>
 ## Get RCS Template Details { #get-rcs-template-details }
@@ -3843,8 +3795,6 @@ curl -X GET "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0028UpdateRcsTemplate"></span>
 
 <a id="update-rcs-template"></a>
 ## Update RCS Template { #update-rcs-template }
@@ -4162,8 +4112,6 @@ curl -X PUT "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 
 </details>
 
-<span id="templateV1x0029DeleteRcsTemplate"></span>
-
 <a id="delete-rcs-template"></a>
 ## Delete RCS Template { #delete-rcs-template }
 
@@ -4245,8 +4193,6 @@ curl -X DELETE "${endpoint}/template/v1.0/RCS/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0030CreatePushTemplate"></span>
 
 <a id="register-push-template"></a>
 ## Register Push Template { #register-push-template }
@@ -4505,8 +4451,6 @@ curl -X POST "${endpoint}/template/v1.0/PUSH/templates" \
 
 </details>
 
-<span id="templateV1x0031ReadPushTemplateList"></span>
-
 <a id="list-push-templates"></a>
 ## List Push Templates { #list-push-templates }
 
@@ -4611,8 +4555,6 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates" \
 ```
 
 </details>
-
-<span id="templateV1x0032ReadPushTemplate"></span>
 
 <a id="get-push-template-details"></a>
 ## Get Push Template Details { #get-push-template-details }
@@ -4765,8 +4707,6 @@ curl -X GET "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0033UpdatePushTemplate"></span>
 
 <a id="update-push-template"></a>
 ## Update Push Template { #update-push-template }
@@ -5020,8 +4960,6 @@ curl -X PUT "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 
 </details>
 
-<span id="templateV1x0034DeletePushTemplate"></span>
-
 <a id="delete-push-template"></a>
 ## Delete Push Template { #delete-push-template }
 
@@ -5103,8 +5041,6 @@ curl -X DELETE "${endpoint}/template/v1.0/PUSH/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0035ReadTemplateParameters"></span>
 
 <a id="retrieve-template-parameters"></a>
 ## Get Template Parameters { #retrieve-template-parameters }
@@ -5200,8 +5136,6 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/templates/${templateId}
 ```
 
 </details>
-
-<span id="templateV1x0036CreateBrandmessageTemplate"></span>
 
 <a id="register-brand-message-template"></a>
 ## Register Brand Message Template { #register-brand-message-template }
@@ -5728,8 +5662,6 @@ curl -X POST "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
 
 </details>
 
-<span id="templateV1x0037ReadBrandmessageTemplateList"></span>
-
 <a id="list-brand-message-templates"></a>
 ## List Brand Message Templates { #list-brand-message-templates }
 
@@ -5835,8 +5767,6 @@ curl -X GET "${endpoint}/template/v1.0/BRANDMESSAGE/templates" \
 ```
 
 </details>
-
-<span id="templateV1x0038ReadBrandmessageTemplate"></span>
 
 <a id="get-brand-message-template-details"></a>
 ## Get Brand Message Template Details { #get-brand-message-template-details }
@@ -6140,8 +6070,6 @@ curl -X GET "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0039UpdateBrandmessageTemplate"></span>
 
 <a id="modify-brand-message-template"></a>
 ## Modify Brand Message Template { #modify-brand-message-template }
@@ -6647,8 +6575,6 @@ curl -X PUT "${endpoint}/template/v1.0/BRANDMESSAGE/templates/${templateId}" \
 ```
 
 </details>
-
-<span id="templateV1x0040DeleteBrandmessageTemplate"></span>
 
 <a id="delete-brand-message-template"></a>
 ## Delete Brand Message Template { #delete-brand-message-template }

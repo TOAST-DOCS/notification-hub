@@ -9,10 +9,6 @@
 
 **Notification > Notification Hub > API v1.0使用ガイド > 共通情報**
 
-<span id="notification-hub-api-common-information"></span>
-
-<span id="api-endpoint"></span>
-
 <a id="api-endpoints"></a>
 
 ## APIエンドポイント
@@ -23,15 +19,11 @@
 
 * Notification Hubはリージョン区分なくGlobalエンドポイントを使用します。
 
-<span id="authentication-and-permissions"></span>
-
 <a id="authentication-and-authorization"></a>
 
 ## 認証及び権限
 
 Notification Hubは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](../../../../nhncloud/ja/public-api/user-access-key-token)を参照してください。
-
-<span id="date-time-format"></span>
 
 <a id="date-and-time-formats"></a>
 
@@ -79,13 +71,11 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
       ``` 
     * 検索結果:広告-1、一般-1、告知-1など
     
-<span id="response"></span>
+<a id="response"></a>
 
 <a id="response-common-information"></a>
 
 ## レスポンス共通情報
-
-<span id="succeed-response"></span>
 
 <a id="failure-response-body"></a>
 
@@ -102,8 +92,6 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
     }
 }
 ```
-
-<span id="failed-response"></span>
 
 <a id="failure-response-body-2"></a>
 
@@ -132,8 +120,6 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
 * 結果メッセージは**Accept-Language** リクエストヘッダに基づいて韓国語、英語、日本語で提供されます。
 * API呼び出し時、**X-NC-ALWAYS-200-OK** リクエストヘッダに値を**true**に設定すると、失敗レスポンスにもHTTPステータスコード **200 OK**でレスポンスします。
 
-<span id="rate-limit"></span>
-
 <a id="request-number-limit"></a>
 
 ## リクエスト数制限
@@ -145,8 +131,6 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
     * 300RPSを超えると、サーバーはHTTPステータスコード429(Too Many Requests)レスポンスでクライアントのリクエストを拒否します。
     * リクエストが拒否された場合、クライアントが即時再試行すると、サーバーのリクエスト拒否が長い時間維持されることがあります。
     * クライアントは、リクエストが拒否されたら、指数バックオフ(Exponential Backoff)のように再試行間隔を増やして呼び出すことを推奨します。
-
-<span id="example-api-calls"></span>
 
 <a id="example-of-api-calls"></a>
 

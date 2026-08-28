@@ -13,8 +13,6 @@
 
 
 
-<span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
-
 <a id="delete-a-template-category"></a>
 
 ## 템플릿 카테고리 삭제
@@ -98,8 +96,6 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 ```
 
 </details>
-
-<span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
 <a id="retrieve-template-category-details"></a>
 
@@ -199,8 +195,6 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
-
-<span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
 
 <a id="modify-a-template-category"></a>
 
@@ -307,8 +301,6 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
-
 <a id="add-a-template-to-a-category"></a>
 
 ## 카테고리에 템플릿 추가
@@ -410,8 +402,6 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesGet"></span>
-
 <a id="list-template-categories"></a>
 
 ## 템플릿 카테고리 리스트 조회
@@ -505,8 +495,6 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
-
-<span id="templateV10MessageChannelCategoriesPost"></span>
 
 <a id="register-template-categories"></a>
 
@@ -613,8 +601,6 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
-
-<span id="templateV10MessageChannelCategoryTreesGet"></span>
 
 <a id="retrieve-a-template-category-hierarchy"></a>
 

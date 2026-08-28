@@ -10,8 +10,6 @@
 **Notification > Notification Hub > 콘솔 사용 가이드 > 템플릿**
 
 
-<span id="template"></span>
-
 <a id="template-2"></a>
 
 ## 템플릿

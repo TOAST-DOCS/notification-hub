@@ -39,8 +39,6 @@ MONTHLY: 최근 3개월 이내 데이터만 조회 가능하며, 조회 범위�
 
 
 
-<span id="kakaobizcenterV1x0001ReadAlimtalkDeliveryStatistics"></span>
-
 <a id="retrieve-alimtalk-delivery-statistics"></a>
 
 ## 알림톡 발송 통계 조회
@@ -152,8 +150,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 
 </details>
 
-<span id="kakaobizcenterV1x0002ReadAlimtalkTemplateStatistics"></span>
-
 <a id="retrieve-alimtalk-template-statistics"></a>
 
 ## 알림톡 템플릿 통계 조회
@@ -264,8 +260,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/template-statistic
 ```
 
 </details>
-
-<span id="kakaobizcenterV1x0003ReadBrandmessageDeliveryStatistics"></span>
 
 <a id="retrieve-brand-message-delivery-statistics"></a>
 
@@ -388,8 +382,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 ```
 
 </details>
-
-<span id="kakaobizcenterV1x0004ReadBrandmessageTemplateStatistics"></span>
 
 <a id="retrieve-brand-message-template-statistics"></a>
 

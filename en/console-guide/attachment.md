@@ -11,8 +11,6 @@
 
 Manage attachments and image layouts.
 
-<span id="attachment-management"></span>
-
 <a id="attachment-management"></a>
 
 ## Attachment Management

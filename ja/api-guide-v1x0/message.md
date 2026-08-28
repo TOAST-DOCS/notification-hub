@@ -14,8 +14,6 @@
 
 
 
-<span id="messageV1x0001SmsFreeFormMessages"></span>
-
 <a id="free-form-message-sending-request---sms"></a>
 ## 自由形式メッセージ送信リクエスト - SMS { #free-form-message-sending-request---sms }
 
@@ -222,8 +220,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
-
-<span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---brand-message-brandmessage"></a>
 ## 自由形式メッセージ送信リクエスト - ブランドメッセージ (BRANDMESSAGE) { #free-form-message-sending-request---brand-message-brandmessage }
@@ -846,8 +842,6 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 
 </details>
 
-<span id="messageV1x0003EmailFreeFormMessages"></span>
-
 <a id="request-to-send-a-free-form-message---email"></a>
 ## 自由形式メッセージ送信リクエスト - メール(EMAIL) { #request-to-send-a-free-form-message---email }
 
@@ -1016,8 +1010,6 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 ```
 
 </details>
-
-<span id="messageV1x0004RcsFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---rcs"></a>
 ## 自由形式メッセージ送信リクエスト - RCS { #request-to-send-a-free-form-message---rcs }
@@ -1394,8 +1386,6 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 </details>
 
-<span id="messageV1x0005PushFreeFormMessages"></span>
-
 <a id="request-to-send-a-free-form-message---push"></a>
 ## 自由形式メッセージ送信リクエスト - PUSH { #request-to-send-a-free-form-message---push }
 
@@ -1680,8 +1670,6 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 
 </details>
 
-<span id="messageV1x0006TemplateMessages"></span>
-
 <a id="request-template-message-sending"></a>
 ## テンプレート送信リクエスト { #request-template-message-sending }
 
@@ -1858,8 +1846,6 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 ```
 
 </details>
-
-<span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 <a id="send-alimtalk-template-message"></a>
 ## お知らせトークテンプレートメッセージ送信 { #send-alimtalk-template-message }
@@ -2047,8 +2033,6 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 ```
 
 </details>
-
-<span id="messageV1x0007BrandmessageTemplateMessages"></span>
 
 <a id="send-a-brand-message-template-message"></a>
 ## ブランドメッセージ テンプレートメッセージ送信 { #send-a-brand-message-template-message }
@@ -2301,8 +2285,6 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 
 </details>
 
-<span id="messageV1x0008EmailTemplateMessages"></span>
-
 <a id="send-email-template-message"></a>
 ## メールテンプレートメッセージ送信 { #send-email-template-message }
 
@@ -2478,8 +2460,6 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 ```
 
 </details>
-
-<span id="messageV1x0008RcsTemplateMessages"></span>
 
 <a id="send-rcs-template-message"></a>
 ## RCS テンプレート送信 { #send-rcs-template-message }
@@ -2686,8 +2666,6 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 </details>
 
-<span id="messageV1x0008SmsTemplateMessages"></span>
-
 <a id="send-sms-template-message"></a>
 ## SMS テンプレート送信 { #send-sms-template-message }
 
@@ -2877,8 +2855,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 ```
 
 </details>
-
-<span id="messageV1x0009FlowMessages"></span>
 
 <a id="send-flow-message"></a>
 ## フロー送信 { #send-flow-message }
@@ -3134,8 +3110,6 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 
 </details>
 
-<span id="messageV1x0010InstantFlowMessages"></span>
-
 <a id="send-an-instant-flow-message"></a>
 ## インスタントフローメッセージ送信 { #send-an-instant-flow-message }
 
@@ -3366,8 +3340,6 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 
 </details>
 
-<span id="messageV1x0100MessageIdDoCancel"></span>
-
 <a id="cancel-sending-message"></a>
 ## メッセージの送信キャンセル { #cancel-sending-message }
 
@@ -3452,8 +3424,6 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 ```
 
 </details>
-
-<span id="messageV1x0101MessageIdDoConfirm"></span>
 
 <a id="confirm-message-delivery"></a>
 ## メッセージの送信確認 { #confirm-message-delivery }

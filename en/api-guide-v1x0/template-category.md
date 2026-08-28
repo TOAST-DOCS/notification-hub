@@ -13,8 +13,6 @@
 
 
 
-<span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
-
 <a id="delete-a-template-category"></a>
 
 ## Delete a Template Category
@@ -101,8 +99,6 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 ```
 
 </details>
-
-<span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
 
 <a id="retrieve-template-category-details"></a>
 
@@ -205,8 +201,6 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 ```
 
 </details>
-
-<span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
 
 <a id="modify-a-template-category"></a>
 
@@ -315,8 +309,6 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
-
 <a id="add-a-template-to-a-category"></a>
 
 ## Add a Template to a Category
@@ -420,8 +412,6 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesGet"></span>
-
 <a id="list-template-categories"></a>
 
 ## List Template Categories
@@ -521,8 +511,6 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
-
-<span id="templateV10MessageChannelCategoriesPost"></span>
 
 <a id="register-template-categories"></a>
 
@@ -631,8 +619,6 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 ```
 
 </details>
-
-<span id="templateV10MessageChannelCategoryTreesGet"></span>
 
 <a id="retrieve-a-template-category-hierarchy"></a>
 

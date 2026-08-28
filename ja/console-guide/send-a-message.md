@@ -9,13 +9,9 @@
 
 **Notification > Notification Hub > コンソール使用ガイド > 送信**
 
-<span id="message"></span>
-
 !!! danger "注意"
  送信前に、送信するメッセージチャンネルの送信情報が登録されている必要があります。送信情報の詳細については、 **Notification** > **Notification Hub** > **コンソール使用ガイド** > **はじめる** > **発信情報管理**をご確認ください。
 
-
-<span id="send-flow-message"></span>
 
 <a id="send-flow-messages"></a>
 

@@ -11,8 +11,6 @@
 
 첨부 파일과 이미지 레이아웃을 관리합니다. 
 
-<span id="attachment-management"></span>
-
 <a id="attachment-management"></a>
 
 ## 첨부 파일 관리

@@ -9,7 +9,7 @@
 
 **Notification > Notification Hub > Usage Policy and Preset Guide > Identity verification**
 
-<span id="identity-verification"></span>
+<a id="identity-verification"></a>
 
 To use the Notification Hub, you can use it after Identity verification at **Notification Hub** > ** Identity verification ** (compliance with notification related to the Telecommunications Business Act)
 

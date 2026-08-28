@@ -14,8 +14,6 @@
 
 
 
-<span id="attachmentV1x0001UploadAttachments"></span>
-
 <a id="upload-attachments"></a>
 
 ## 添付ファイルのアップロード
@@ -114,8 +112,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 ```
 
 </details>
-
-<span id="attachmentV1x0002ReadAttachments"></span>
 
 <a id="retrieve-attachment-lists"></a>
 
@@ -226,8 +222,6 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 
 </details>
 
-<span id="attachmentV1x0003ReadAttachment"></span>
-
 <a id="view-attachment-details"></a>
 
 ## 添付ファイル単件照会
@@ -334,8 +328,6 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 
 </details>
 
-<span id="attachmentV1x0004DoValidateAttachments"></span>
-
 <a id="validate-attachments-before-upload"></a>
 
 ## アップロード前の添付ファイル検証
@@ -430,8 +422,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 ```
 
 </details>
-
-<span id="attachmentV1x0005DoValidateAttachment"></span>
 
 <a id="validate-attachments-after-upload"></a>
 
@@ -545,8 +535,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 
 </details>
 
-<span id="attachmentV1x0006UpdateFileType"></span>
-
 <a id="update-uploaded-attachment-file-type"></a>
 
 ## アップロード済み添付ファイルのファイルタイプ修正
@@ -658,8 +646,6 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 ```
 
 </details>
-
-<span id="attachmentV1x0007ReadFileTypes"></span>
 
 <a id="list-attachment-file-types"></a>
 

@@ -9,8 +9,6 @@
 
 **Notification > Notification Hub > 문제 해결 가이드**
 
-<span id="sms-delivery-failure"></span>
-
 <a id="you-cannot-proceed-with-identity-verification"></a>
 
 ## 본인 인증을 진행할 수 없습니다.

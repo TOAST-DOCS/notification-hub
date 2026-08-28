@@ -39,8 +39,6 @@ Retrieves the daily send count, valid read count, and click count by template an
 
 
 
-<span id="kakaobizcenterV1x0001ReadAlimtalkDeliveryStatistics"></span>
-
 <a id="retrieve-alimtalk-delivery-statistics"></a>
 
 ## Retrieve AlimTalk Delivery Statistics
@@ -152,8 +150,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 
 </details>
 
-<span id="kakaobizcenterV1x0002ReadAlimtalkTemplateStatistics"></span>
-
 <a id="retrieve-alimtalk-template-statistics"></a>
 
 ## Retrieve AlimTalk Template Statistics
@@ -264,8 +260,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/template-statistic
 ```
 
 </details>
-
-<span id="kakaobizcenterV1x0003ReadBrandmessageDeliveryStatistics"></span>
 
 <a id="retrieve-brand-message-delivery-statistics"></a>
 
@@ -388,8 +382,6 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 ```
 
 </details>
-
-<span id="kakaobizcenterV1x0004ReadBrandmessageTemplateStatistics"></span>
 
 <a id="retrieve-brand-message-template-statistics"></a>
 

@@ -9,8 +9,6 @@
 
 **Notification > Notification Hub > Console User Guide > Get Started with Notification Hub **
 
-<span id="identity-verification"></span>
-
 <a id="identity-verification"></a>
 
 ## Identity verification
@@ -20,13 +18,9 @@ The Notification Hub is available after it is activated and Identity verificatio
 * [Go to Identity verification Guide](./2-service-policy#identity-verification)
 
 
-<span id="manage-sender-info"></span>
-
 <a id="sender-information-management"></a>
 
 ## Sender Information Management
-
-<span id="manage-sender-phone-number"></span>
 
 <a id="sender-number-management"></a>
 
@@ -42,8 +36,6 @@ For more information on the Sender Number Pre-Registration System, see **Service
 
 * [Sender Number Pre-Registration System Shortcut](./preconditions#sender-phone-number-pre-registration)
 
-<span id="manage-sender-brand"></span>
-
 <a id="brand-management"></a>
 
 ### Brand Management
@@ -56,8 +48,6 @@ To send the RCS message, you must complete the brand linkage. If the pre-registr
 When the RCS Biz Center has created a brand and set up an agency, registered a chat room (sender number), and registered a template (approved), the console will link the brand.
 
 * Click **+ Brand linkage ** to complete the connection.
-
-<span id="manage-sender-domain"></span>
 
 <a id="manage-domains"></a>
 
@@ -152,8 +142,6 @@ Domains with domain protection enabled cannot be used by other projects. To use 
 !!! danger " Precautions "
     If you disable domain protection, you can use the domain arbitrarily for other projects. For all authenticated domains, email from other projects will also be received as normal by the email receiving server. If the email is spam or phishing, the receiver can be harmed and the domain's reputation can be degraded causing the receiving email server to refuse reception.
 
-<span id="manage-sender-push-authorization"></span>
-
 <a id="push-authentication-management"></a>
 
 ### Push Authentication Management
@@ -185,8 +173,6 @@ For more information on issuing Push Credentials, check **Service Policy & Preco
 2. Enter **Client ID** and **Client Key**.
 3. Click **Authenticate > Save** to complete the setup.
 
-<span id="manage-sender-profile"></span>
-
 <a id="manage-outgoing-profiles"></a>
 
 ### Manage Sender Profiles
@@ -203,8 +189,6 @@ After the sender profile is created in Kakao Business, register it by following 
 1. Click **+ Register Sender Profile**, set the sender profile ID, administrator mobile number, and category, then click **Request Token**.
 2. Enter the token sent to the administrator's mobile phone, then click **Confirm > Register** to complete sender profile registration.
 
-
-<span id="manage-080-unsubscription-number"></span>
 
 <a id="manage-opt-out-numbers"></a>
 

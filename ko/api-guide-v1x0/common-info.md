@@ -9,10 +9,6 @@
 
 **Notification > Notification Hub > API v1.0 사용 가이드 > 공통 정보**
 
-<span id="notification-hub-api-common-information"></span>
-
-<span id="api-endpoint"></span>
-
 <a id="api-endpoints"></a>
 
 ## API 엔드포인트
@@ -23,15 +19,11 @@
 
 * Notification Hub는 리전 구분 없이 Global 엔드포인트를 사용합니다.
 
-<span id="authentication-and-permissions"></span>
-
 <a id="authentication-and-authorization"></a>
 
 ## 인증 및 권한
 
 Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](../../../../nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
-
-<span id="date-time-format"></span>
 
 <a id="date-and-time-formats"></a>
 
@@ -80,13 +72,11 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
       ``` 
     * 검색 결과: 광고-1, 일반-1, 공지-1 등
 
-<span id="response"></span>
+<a id="response"></a>
 
 <a id="response-common-information"></a>
 
 ## 응답 공통 정보
-
-<span id="succeed-response"></span>
 
 <a id="failure-response-body"></a>
 
@@ -103,8 +93,6 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
     }
 }
 ```
-
-<span id="failed-response"></span>
 
 <a id="failure-response-body-2"></a>
 
@@ -133,8 +121,6 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 * 결과 메시지는 **Accept-Language** 요청 헤더에 따라 한국어, 영어, 일본어로 제공됩니다.
 * API 호출 시 **X-NC-ALWAYS-200-OK** 요청 헤더에 값을 **true**로 설정하면, 실패 응답에도 HTTP 상태 코드 **200 OK**로 응답합니다.
 
-<span id="rate-limit"></span>
-
 <a id="request-number-limit"></a>
 
 ## 요청 수 제한
@@ -146,8 +132,6 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
     * 300RPS가 넘으면 서버는 HTTP 상태 코드 429(Too Many Requests) 응답으로 클라이언트의 요청을 거부합니다.
     * 요청이 거부되었을 때 클라이언트가 즉시 재시도하면 서버의 요청 거부가 오랜 시간 동안 유지될 수 있습니다.
     * 클라이언트는 요청이 거부되면 지수 백오프(Exponential Backoff) 처럼 재시도 간격을 늘려가며 호출하는 것을 권장합니다.
-
-<span id="example-api-calls"></span>
 
 <a id="example-of-api-calls"></a>
 

@@ -9,8 +9,6 @@
 
 **Notifications > Notification Hub > Troubleshooting Guide**
 
-<span id="sms-delivery-failure"></span>
-
 <a id="you-cannot-proceed-with-identity-verification"></a>
 
 ## You cannot proceed with identity verification.

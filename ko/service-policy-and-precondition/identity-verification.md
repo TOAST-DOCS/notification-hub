@@ -9,7 +9,7 @@
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 본인 인증**
 
-<span id="identity-verification"></span>
+<a id="identity-verification"></a>
 
 <a id="identity-verification-method"></a>
 

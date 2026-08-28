@@ -10,8 +10,6 @@
 **Notification > Notification Hub > コンソール使用ガイド > 送信照会**
 
 
-<span id="contact-delivery-result"></span>
-
 <a id="view-send"></a>
 
 ## 送信照会

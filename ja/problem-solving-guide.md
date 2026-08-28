@@ -9,8 +9,6 @@
 
 **Notification > Notification Hub > トラブルシューティング**
 
-<span id="sms-delivery-failure"></span>
-
 <a id="you-cannot-proceed-with-identity-verification"></a>
 
 ## 本人認証を進行できません。

@@ -9,7 +9,7 @@
 
 **Notification > Notification Hub > 利用ポリシー及び事前設定案内 > 本人認証**
 
-<span id="identity-verification"></span>
+<a id="identity-verification"></a>
 
 Notification Hubを利用するには**Notification Hub** > **本人認証**で本人認証を行います。 (電気通信事業法関連告示遵守)
 

@@ -9,13 +9,9 @@
 
 **Notification > Notification Hub > Console User Guide > Send **
 
-<span id="message"></span>
-
 !!! danger "Precaution"
 The sender information for the message channel must be registered before sending. For more information about sender information, see **Notification** > **Notification Hub** > ** Console User Guide** > **Start** > **Managing sender information**.
 
-
-<span id="send-flow-message"></span>
 
 <a id="send-flow-messages"></a>
 

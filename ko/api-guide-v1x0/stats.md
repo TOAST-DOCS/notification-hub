@@ -14,8 +14,6 @@
 
 
 
-<span id="statsV1x0001ReadStats"></span>
-
 <a id="section-1"></a>
 
 ## 통계 조회

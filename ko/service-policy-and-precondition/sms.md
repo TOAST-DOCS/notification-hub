@@ -10,7 +10,7 @@
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > SMS**
 
 
-<span id="sender-phone-number-pre-registration"></span>
+<a id="sender-phone-number-pre-registration"></a>
 
 <a id="enforce-pre-registration-of-sender-numbers"></a>
 ## 발신 번호 사전등록제 시행 { #enforce-pre-registration-of-sender-numbers }
@@ -22,8 +22,6 @@
     * 사업자와 타사 간 관계 확인 문서는 업무위수탁 계약서, 본점-지점 증빙 서류 등이 될 수 있습니다.
     * 통신서비스 이용증명원은 마스킹(숨김) 처리된 부분이 없고, 최근 3개월 이내 발급된 서류만 가능합니다.
     * 재직증명서는 발급일이 표기되어 있고, 직인이 날인된 서류만 가능합니다. 재직증명서 내 주민번호 뒤 6자리는 반드시 마스킹(숨김) 처리해 주세요. 예) 000000-0\*\*\*\*\*\*
-
-<span id='fabrication-number'></span>
 
 <a id="prohibition-of-alterationfalsification-of-the-sender-number"></a>
 ## 발신 번호 변작(변조) 금지 { #prohibition-of-alterationfalsification-of-the-sender-number }
@@ -74,8 +72,6 @@
 ### 수신거부 요청 수신자에게 결과 고지 { #notify-recipients-of-opt-out-requests }
 * 전송자의 명칭, 수신거부 또는 수신동의 철회 사실, 해당 의사를 표시한 날짜, 처리 결과를 모두 안내합니다.
 
-<span id="rejection-of-receiving-080"></span>
-
 <a id="advertisement-texting-sending-guidance"></a>
 ## 080 수신 거부 서비스 안내 { #advertisement-texting-sending-guidance }
 
@@ -115,7 +111,7 @@
 | LMS | 80 시간 | 재시도하지 않음. 수신 실패 결과 업데이트(결과 코드: 2000) |
 | MMS | 80 시간 | 재시도하지 않음. 수신 실패 결과 업데이트(결과 코드: 2000) |
 
-<span id="about-phone-scam-blocking-services"></span>
+<a id="about-phone-scam-blocking-services"></a>
 
 <a id="guide-of-stolen-number-text-message-blocking-service"></a>
 ## 번호 도용 문자 차단 서비스 안내 { #guide-of-stolen-number-text-message-blocking-service }
@@ -138,7 +134,7 @@
     * 휴대폰 114 * 통화 버튼
     * SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
 
-<span id="about-carrier-spam-text-blocking-services"></span>
+<a id="about-carrier-spam-text-blocking-services"></a>
 
 <a id="mobile-carrier-spam-blocking-service-guide"></a>
 ## 통신사 스팸 차단 서비스 안내 { #mobile-carrier-spam-blocking-service-guide }

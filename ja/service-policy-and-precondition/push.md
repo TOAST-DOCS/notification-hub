@@ -20,8 +20,6 @@ Notification Hubでサポートするプッシュサービスは次のとおり�
 
 ## プッシュ認証情報の発行方法
 
-<span id="get-fcm-service-account-credential"></span>
-
 <a id="fcm-service-account-credential"></a>
 
 ### FCM Service Account Credential
@@ -45,7 +43,7 @@ Android端末にプッシュ通知メッセージを送信するためには、*
 2. ダウンロードしたJSONファイルを開いて内容をコピーします。
 3. コピーした内容を**FCM Service Account Credential** 項目に貼り付けて**登録**をクリックします。
 
-<span id="get-apns-jwt"></span>
+<a id="get-apns-jwt"></a>
 
 <a id="obtain-apns-jwt-credentials"></a>
 
@@ -84,8 +82,6 @@ JWTを利用した認証のためにはトピック(Topic)が必要ですが、�
 
 * [認証トークンを使用してAPNsとコミュニケーションする](https://developer.apple.com/kr/help/account/configure-app-capabilities/communicate-with-apns-using-authentication-tokens)
 
-
-<span id="get-adm-credential"></span>
 
 <a id="adm-credentials"></a>
 

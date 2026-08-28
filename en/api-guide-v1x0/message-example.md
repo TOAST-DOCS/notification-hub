@@ -10,13 +10,9 @@
 **Notification > Notification Hub > API v1.0 User Guide > Message - Example of Sending Request Body**
 
 
-<span id="sms"></span>
-
 <a id="sms-example"></a>
 
 ## SMS
-
-<span id="sms-sms"></span>
 
 <a id="sms-short"></a>
 
@@ -140,13 +136,9 @@
 | content.attachmentIds | String Array | Y | Attachment File ID<br>Attached Image Restrictions.<br>Supported Codecs: .jpg, .jpeg<br>Number of Attached Images: 3 or less.<br>Attached Image Size: 300KB or less per image. However, if there are 3 attached images, the total size of the images must be 800KB or less.<br>Attached Image Resolution: 1,000×1,000 or less. |
 
 
-<span id="rcs"></span>
-
 <a id="rcs"></a>
 
 ## RCS
-
-<span id="rcs-sms"></span>
 
 <a id="sms"></a>
 
@@ -220,8 +212,6 @@
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting value (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
-<span id="free-form-message-request-body-rcs-lms-standalone"></span>
-
 <a id="lms-standard"></a>
 
 ### LMS Standard
@@ -293,8 +283,6 @@
 | options | Object | N | Sending Options |
 | options.expiryOption | Integer | N | RCS message reception wait expiration setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
-
-<span id="free-form-message-request-body-rcs-lms-format-basic"></span>
 
 <a id="lms-format-basic-and-format-title-emphasis"></a>
 
@@ -680,8 +668,6 @@
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
-<span id="free-form-message-request-body-rcs-unified-sms"></span>
-
 <a id="integrated-sms-card"></a>
 
 ### Integrated SMS Card
@@ -826,8 +812,6 @@
 | options.expiryOption | Integer | N | RCS message reception wait expiration period setting (1: 1 day, 2: 40 seconds, 3: 3 minutes, 4: 1 hour) |
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
-<span id="free-form-message-request-body-rcs-unified-mms"></span>
-
 <a id="integrated-mms-card-horizontal-vertical"></a>
 
 ### Integrated MMS Card Horizontal, Vertical
@@ -903,8 +887,6 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
 
-<span id="free-form-message-request-body-email"></span>
-
 <a id="email"></a>
 
 ## Email
@@ -948,8 +930,6 @@
 * The total size of attachments cannot exceed 30MB. * You can attach up to 30MB, but depending on the attachment limit policy of the receiving email system (e.g., gmail.com, naver.com), it may be rejected as 'exceeding the limit' or may increase the spam rating, so we recommend keeping attachments under 10MB.
 * Only **EMAIL_ADDRESS** can be used in the **recipients[].contacts[].contactType** field.
 * Enter the recipient's email address in the **recipients[].contacts[].contact** field.
-
-<span id="free-form-message-request-body-push"></span>
 
 <a id="push"></a>
 

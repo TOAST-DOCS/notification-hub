@@ -14,8 +14,6 @@
 
 
 
-<span id="flowV1x0001CreateFlow"></span>
-
 <a id="create-a-flow"></a>
 
 ## Create a Flow
@@ -208,8 +206,6 @@ curl -X POST "${endpoint}/flow/v1.0/flows" \
 
 </details>
 
-<span id="flowV1x0002ReadFlows"></span>
-
 <a id="list-flows"></a>
 
 ## List Flows
@@ -352,8 +348,6 @@ curl -X GET "${endpoint}/flow/v1.0/flows" \
 
 </details>
 
-<span id="flowV1x0003ReadFlow"></span>
-
 <a id="get-a-flow"></a>
 
 ## Get a Flow
@@ -491,8 +485,6 @@ curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}" \
 
 </details>
 
-<span id="flowV1x0004UpdateFlow"></span>
-
 <a id="update-a-flow"></a>
 
 ## Update a Flow
@@ -623,8 +615,6 @@ curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}" \
 
 </details>
 
-<span id="flowV1x0005DeleteFlow"></span>
-
 <a id="delete-a-flow"></a>
 
 ## Delete a Flow
@@ -708,8 +698,6 @@ curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}" \
 ```
 
 </details>
-
-<span id="flowV1x0006DeleteFlows"></span>
 
 <a id="delete-flows"></a>
 

@@ -9,8 +9,6 @@
 
 **Notification > Notification Hub > Console User Guide > Flow**
 
-<span id="flow"></span>
-
 <a id="flow-overview"></a>
 
 ## Flow

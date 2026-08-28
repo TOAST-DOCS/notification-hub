@@ -9,8 +9,6 @@
 
 **Notification > Notification Hub > コンソール使用ガイド > Notification Hubを始める**
 
-<span id="identity-verification"></span>
-
 <a id="identity-verification"></a>
 
 ## 本人認証する
@@ -20,13 +18,9 @@ Notification Hubを有効にした後、本人認証を完了しないと使用�
 * [本人認証ガイドへ](../service-policy-and-precondition/identity-verification)
 
 
-<span id="manage-sender-info"></span>
-
 <a id="sender-information-management"></a>
 
 ## 発信情報管理
-
-<span id="manage-sender-phone-number"></span>
 
 <a id="sender-number-management"></a>
 
@@ -42,8 +36,6 @@ SMS、LMS、MMSメッセージを送信するためには発信番号を登録�
 
 * [発信番号事前登録制](./preconditions#sender-phone-number-pre-registration)
 
-<span id="manage-sender-brand"></span>
-
 <a id="brand-management"></a>
 
 ### ブランド管理
@@ -56,8 +48,6 @@ RCSメッセージを送信するには、ブランド連動を完了する必�
 RCS Biz Centerでブランド作成及び代理店設定、チャットルーム(発信番号)登録、テンプレート登録が完了(承認)したら、コンソールでブランドを連動します。
 
 * **+ ブランド連動**をクリックすると同期が完了します。
-
-<span id="manage-sender-domain"></span>
 
 <a id="manage-domains"></a>
 
@@ -152,8 +142,6 @@ DMARCの詳しい説明は、以下の文書を参照してください。
 !!! danger 「注意事項」
 ドメイン保護を無効にすると、他のプロジェクトで自由にドメインを使用できます。全ての認証を完了したドメインの場合、他のプロジェクトで送信するメールも同じようにメール受信サーバーで正常に受信されます。このように送信されたメールがスパムやフィッシングである場合、受信者に被害が発生する可能性があり、ドメインの評判が下がって受信メールサーバーから受信を拒否される可能性があります。
 
-<span id="manage-sender-push-authorization"></span>
-
 <a id="push-authentication-management"></a>
 
 ### Push認証管理
@@ -185,8 +173,6 @@ Push認証情報の発行方法は**利用ポリシー及び事前設定案内 >
 2. **クライアントID**と**クライアントキー**を入力します。
 3. **検証 > 保存**をクリックして設定を完了します。
 
-<span id="manage-sender-profile"></span>
-
 <a id="manage-outgoing-profiles"></a>
 
 ### 発信プロフィール管理
@@ -203,8 +189,6 @@ Push認証情報の発行方法は**利用ポリシー及び事前設定案内 >
 1. **[+ 発信プロフィール登録]** をクリックし、発信プロフィール ID、管理者の携帯電話番号、カテゴリを設定してから **[トークンリクエスト]** をクリックします。
 2. 管理者の携帯電話に送信されたトークンを入力し、**[確認] > [登録]** をクリックすると、発信プロフィールの登録が完了します。
 
-
-<span id="manage-080-unsubscription-number"></span>
 
 <a id="manage-opt-out-numbers"></a>
 

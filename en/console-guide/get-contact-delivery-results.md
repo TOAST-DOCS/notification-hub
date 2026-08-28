@@ -10,8 +10,6 @@
 **Notification > Notification Hub > Console User Guide > View Send **
 
 
-<span id="contact-delivery-result"></span>
-
 <a id="view-send"></a>
 
 ## View Send

@@ -9,10 +9,6 @@
 
 **Notification > Notification Hub > API v1.0 User Guide > Common Information**
 
-<span id="notification-hub-api-common-information"></span>
-
-<span id="api-endpoint"></span>
-
 <a id="api-endpoints"></a>
 
 ## API Endpoint
@@ -23,15 +19,11 @@
 
 * Notification Hub uses global endpoints regardless of regions.
 
-<span id="authentication-and-permissions"></span>
-
 <a id="authentication-and-authorization"></a>
 
 ## Authentication and Authorization
 
 Notification Hub uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key. For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](../../../../nhncloud/en/public-api/user-access-key-token).
-
-<span id="date-time-format"></span>
 
 <a id="date-and-time-formats"></a>
 
@@ -80,13 +72,11 @@ List lookups support prefix and single character wildcard searches for non-perso
       ``` 
     * Search results: Ads-1, General-1, Announcements-1, etc.
 
-<span id="response"></span>
+<a id="response"></a>
 
 <a id="response-common-information"></a>
 
 ## Response Common Information
-
-<span id="succeed-response"></span>
 
 <a id="failure-response-body"></a>
 
@@ -103,8 +93,6 @@ The HTTP status code for a successful response is **200 OK**.
     }
 }
 ```
-
-<span id="failed-response"></span>
 
 <a id="failure-response-body-2"></a>
 
@@ -133,8 +121,6 @@ The HTTP status codes for the failure response are **4xx** and **5xx**.
 * The result message is available in Korean, English, and Japanese, depending on the **Accept-Language** request header.
 * If you set the value to** true** in the **X-NC-ALWAYS-200-OK** request header when calling the API, it will respond with HTTP status code **200 OK** on failure responses.
 
-<span id="rate-limit"></span>
-
 <a id="request-number-limit"></a>
 
 ## Request Number Limit
@@ -146,8 +132,6 @@ The HTTP status codes for the failure response are **4xx** and **5xx**.
     * If the number of requests exceeds 300 RPS, the server will reject the client's request with an HTTP status code 429 (Too Many Requests) response.
     * If the client retries immediately when a request is rejected, the server's rejection of the request might persist for a long time.
     * It is recommended that the client invoke an increasing retry interval, such as an exponential backoff, when a request is rejected.
-
-<span id="example-api-calls"></span>
 
 <a id="example-of-api-calls"></a>
 

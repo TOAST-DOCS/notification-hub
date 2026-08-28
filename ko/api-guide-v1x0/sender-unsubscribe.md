@@ -14,8 +14,6 @@
 
 
 
-<span id="senderV1x0001RegisterExternalUnsubscribePhoneNumber"></span>
-
 <a id="request-to-register-external-080-opt-out-number"></a>
 
 ## 080 수신 거부 외부 번호 등록 신청
@@ -121,8 +119,6 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 
 </details>
 
-<span id="senderV1x0002TerminateExternalUnsubscribePhoneNumber"></span>
-
 <a id="deregister-external-080-opt-out-number"></a>
 
 ## 080 수신 거부 외부 등록 번호 해지
@@ -206,8 +202,6 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 ```
 
 </details>
-
-<span id="senderV1x0003ReadUnsubscribePhoneNumbers"></span>
 
 <a id="view-080-opt-out-number-list"></a>
 
@@ -317,8 +311,6 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 ```
 
 </details>
-
-<span id="senderV1x0004ReadUnsubscribePhoneNumber"></span>
 
 <a id="search-single-080-opt-out-number"></a>
 

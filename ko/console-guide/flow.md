@@ -9,8 +9,6 @@
 
 **Notification > Notification Hub > 콘솔 사용 가이드 > 플로우**
 
-<span id="flow"></span>
-
 <a id="flow-overview"></a>
 
 ## 플로우

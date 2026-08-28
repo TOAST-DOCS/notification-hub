@@ -9,13 +9,9 @@
 
 **Notification > Notification Hub > 콘솔 사용 가이드 > 발송**
 
-<span id="message"></span>
-
 !!! danger "주의"
     발송 전 발송할 메시지 채널에 대한 발신 정보가 등록되어 있어야 합니다. 발신 정보에 대한 자세한 내용은 **Notification** > **Notification Hub** > **콘솔 사용 가이드** > **시작하기** > **발신 정보 관리**를 확인하세요.
 
-
-<span id="send-flow-message"></span>
 
 <a id="send-flow-messages"></a>
 

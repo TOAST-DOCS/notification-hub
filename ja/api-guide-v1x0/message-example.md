@@ -10,13 +10,9 @@
 **Notification > Notification Hub > API v1.0使用ガイド > メッセージ - 送信リクエスト本文例**
 
 
-<span id="sms"></span>
-
 <a id="sms-example"></a>
 
 ## SMS
-
-<span id="sms-sms"></span>
 
 <a id="sms-short"></a>
 
@@ -140,13 +136,9 @@
 | content.attachmentIds | String Array | Y | 添付ファイルID<br>添付画像の制限事項。<br>サポートコーデック: .jpg, .jpeg<br>添付画像数: 3個以下。<br>添付画像サイズ: 1枚あたり300KB以下。ただし、添付した画像の数が3枚の場合、合計800KB以下。<br>添付画像解像度: 1000*1000以下。 |
 
 
-<span id="rcs"></span>
-
 <a id="rcs"></a>
 
 ## RCS
-
-<span id="rcs-sms"></span>
 
 <a id="sms"></a>
 
@@ -220,8 +212,6 @@
 | options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
-<span id="free-form-message-request-body-rcs-lms-standalone"></span>
-
 <a id="lms-standard"></a>
 
 ### LMSスタンダード
@@ -293,8 +283,6 @@
 | options | Object | N | 送信オプション |
 | options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
-
-<span id="free-form-message-request-body-rcs-lms-format-basic"></span>
 
 <a id="lms-format-basic-and-format-title-emphasis"></a>
 
@@ -683,8 +671,6 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 
-<span id="free-form-message-request-body-email"></span>
-
 <a id="integrated-sms-card"></a>
 
 ### 統合SMSカード
@@ -747,8 +733,6 @@
 * 最大30MBまで添付可能ですが、受信するメールシステム(gmail.com, naver.comなど)の添付ファイル制限ポリシーにより、**制限超過**として拒否されたり、スパム判定率が高くなる可能性があるため、10MB以内で添付することを推奨します。
 * **recipients[].contacts[].contactType**フィールドには**EMAIL_ADDRESS**のみ使用可能です。
 * **recipients[].contacts[].contact** フィールドには受信者メールアドレスを入力します。
-
-<span id="free-form-message-request-body-push"></span>
 
 <a id="push"></a>
 

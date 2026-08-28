@@ -10,8 +10,6 @@
 **Notification > Notification Hub > コンソール使用ガイド > テンプレート**
 
 
-<span id="template"></span>
-
 <a id="template-2"></a>
 
 ## テンプレート

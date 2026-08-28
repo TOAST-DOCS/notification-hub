@@ -9,8 +9,6 @@
 
 **Notification > Notification Hub > 콘솔 사용 가이드 > Notification Hub 시작하기**
 
-<span id="identity-verification"></span>
-
 <a id="identity-verification"></a>
 
 ## 본인 인증하기
@@ -20,13 +18,9 @@ Notification Hub가 활성화 후 본인 인증을 완료해야 사용할 수 �
 * [본인 인증 가이드 바로 가기](../service-policy-and-precondition/identity-verification)
 
 
-<span id="manage-sender-info"></span>
-
 <a id="sender-information-management"></a>
 
 ## 발신 정보 관리
-
-<span id="manage-sender-phone-number"></span>
 
 <a id="sender-number-management"></a>
 
@@ -42,8 +36,6 @@ SMS, LMS, MMS 메시지를 보내기 위해서는 발신 번호를 등록해야 
 
 * [발신번호 사전 등록제 시행 바로 가기](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
 
-<span id="manage-sender-brand"></span>
-
 <a id="brand-management"></a>
 
 ### 브랜드 관리
@@ -56,8 +48,6 @@ RCS 메시지를 발송하려면 브랜드 연동을 완료해야 합니다. RCS
 RCS Biz Center에서 브랜드 생성 및 대행사 설정, 대화방(발신 번호) 등록, 템플릿 등록이 완료(승인)되었으면 콘솔에서 브랜드를 연동합니다.
 
 * **+ 브랜드 연동**을 클릭하면 동기화가 완료됩니다.
-
-<span id="manage-sender-domain"></span>
 
 <a id="manage-domains"></a>
 
@@ -152,8 +142,6 @@ DMARC에 대한 자세한 설명은 아래 문서를 참고하세요.
 !!! danger "주의 사항"
     도메인 보호를 비활성화하면 다른 프로젝트에서 임의로 도메인을 사용할 수 있습니다. 모든 인증을 완료한 도메인의 경우 다른 프로젝트에서 발송하는 이메일도 동일하게 이메일 수신 서버에서 정상적으로 수신됩니다. 이렇게 발송된 이메일이 스팸이거나 피싱인 경우 수신자에게 피해가 발생할 수 있고 도메인의 평판이 하락해 수신 이메일 서버에서 수신을 거부할 수 있습니다.
 
-<span id="manage-sender-push-authorization"></span>
-
 <a id="push-authentication-management"></a>
 
 ### Push 인증 관리
@@ -185,8 +173,6 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 2. **클라이언트 아이디**와 **클라이언트 키**를 입력합니다.
 3. **검증 > 저장**을 클릭해 설정을 완료합니다.
 
-<span id="manage-sender-profile"></span>
-
 <a id="manage-outgoing-profiles"></a>
 
 ### 발신 프로필 관리
@@ -203,8 +189,6 @@ Push 인증 정보 발급 방법은 **이용 정책 및 사전 설정 안내 > P
 1. **+ 발신 프로필 등록**을 클릭하고 발신 프로필 아이디, 관리자 휴대폰 번호, 카테고리를 설정한 뒤 **토큰 요청**을 클릭합니다.
 2. 관리자 휴대폰으로 전송된 토큰을 입력하고 **확인 > 등록**을 클릭하면 발신 프로필 등록이 완료됩니다.
 
-
-<span id="manage-080-unsubscription-number"></span>
 
 <a id="manage-opt-out-numbers"></a>
 

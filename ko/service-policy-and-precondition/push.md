@@ -20,8 +20,6 @@ Notification Hub에서 지원하는 푸시 서비스는 다음과 같습니다.
 
 ## 푸시 인증 정보 발급 방법
 
-<span id="get-fcm-service-account-credential"></span>
-
 <a id="fcm-service-account-credential"></a>
 
 ### FCM Service Account Credential
@@ -45,7 +43,7 @@ Android 기기에 푸시 알림 메시지를 전송하기 위해서는 **Service
 2. 다운로드 받은 JSON 파일을 열어 내용을 복사합니다.
 3. 복사한 내용을 **FCM Service Account Credential** 항목에 붙여 넣고 **등록**을 클릭합니다.
 
-<span id="get-apns-jwt"></span>
+<a id="get-apns-jwt"></a>
 
 <a id="obtain-apns-jwt-credentials"></a>
 
@@ -84,8 +82,6 @@ JWT를 이용한 인증을 위해서는 토픽(Topic)이 필요한데, 토픽은
 
 * [인증 토큰을 사용하여 APNs와 커뮤니케이션하기](https://developer.apple.com/kr/help/account/configure-app-capabilities/communicate-with-apns-using-authentication-tokens)
 
-
-<span id="get-adm-credential"></span>
 
 <a id="adm-credentials"></a>
 
