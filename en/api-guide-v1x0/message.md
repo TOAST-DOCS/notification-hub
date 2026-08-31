@@ -1814,6 +1814,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 </details>
 
+<details>
+    <summary><strong>cURL</strong></summary>
+
 ```http
 curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
@@ -1841,6 +1844,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
   "id" : "alpha123"
 }'
 ```
+</details>
 
 
 <a id="send-alimtalk-template-message"></a>
@@ -2623,6 +2627,9 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
 
 </details>
 
+<details>
+    <summary><strong>cURL</strong></summary>
+
 ```http
 curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" \
 -d '{
@@ -2658,6 +2665,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
   }
 }'
 ```
+</details>
 
 
 <a id="send-sms-template-message"></a>
@@ -3049,6 +3057,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 </details>
 
+<details>
+    <summary><strong>cURL</strong></summary>
+
 ```http
 curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
@@ -3100,6 +3111,7 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
   }
 }'
 ```
+</details>
 
 
 <a id="send-an-instant-flow-message"></a>
@@ -3280,6 +3292,8 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 ```
 </details>
 
+<details>
+    <summary><strong>cURL</strong></summary>
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
@@ -3327,6 +3341,7 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
   }
 }'
 ```
+</details>
 
 
 <a id="cancel-sending-message"></a>
