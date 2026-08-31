@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=bfbbe9a63c62 -->
+<!-- pre-align:aligned sig=6163a3d1f2e9 -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -840,8 +840,8 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 
 </details>
 
-<a id="request-to-send-a-free-form-message---email"></a>
-## Free-form message sending request - Email (EMAIL) { #request-to-send-a-free-form-message---email }
+<a id="free-form-message-sending-request---email-email"></a>
+## Free-form message sending request - Email (EMAIL) { #free-form-message-sending-request---email-email }
 
 Requests free-form message sending for Email (EMAIL).
 
@@ -1009,8 +1009,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 </details>
 
-<a id="request-to-send-a-free-form-message---rcs"></a>
-## Free-form message sending request - RCS { #request-to-send-a-free-form-message---rcs }
+<a id="free-form-message-sending-request---rcs"></a>
+## Free-form message sending request - RCS { #free-form-message-sending-request---rcs }
 
 Requests free-form message sending for RCS.
 
@@ -1384,8 +1384,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 </details>
 
-<a id="request-to-send-a-free-form-message---push"></a>
-## Free-form message sending request - PUSH { #request-to-send-a-free-form-message---push }
+<a id="free-form-message-sending-request---push"></a>
+## Free-form message sending request - PUSH { #free-form-message-sending-request---push }
 
 Requests free-form message sending for PUSH.
 

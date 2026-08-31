@@ -14,7 +14,7 @@
 
 
 <a id="list-all-group-tags"></a>
-## グループタグの全一覧照会
+## グループタグの全一覧照会 { #list-all-group-tags }
 
 Kakao Biz Centerのグループタグの全一覧を照会します。
 
@@ -103,7 +103,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags?senderKey=${senderKey}" 
 </details>
 
 <a id="delete-a-group-tag"></a>
-## グループタグの削除
+## グループタグの削除 { #delete-a-group-tag }
 
 Kakao Biz Centerのグループタグを削除します。
 
@@ -186,7 +186,7 @@ curl -X DELETE "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?sender
 </details>
 
 <a id="get-a-group-tag"></a>
-## グループタグの1件照会
+## グループタグの1件照会 { #get-a-group-tag }
 
 Kakao Biz Centerのグループタグを1件照会します。
 
@@ -276,7 +276,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}?senderKey
 </details>
 
 <a id="modify-a-group-tag"></a>
-## グループタグの変更
+## グループタグの変更 { #modify-a-group-tag }
 
 Kakao Biz Centerのグループタグを変更します。
 
@@ -386,7 +386,7 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 </details>
 
 <a id="register-a-group-tag"></a>
-## グループタグの登録
+## グループタグの登録 { #register-a-group-tag }
 
 Kakao Biz Centerのグループタグを登録します。
 

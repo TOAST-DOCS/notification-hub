@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=959b92ddae3f -->
+<!-- pre-align:aligned sig=602453141308 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,7 +10,7 @@
 **Notification > Notification Hub > API v1.0 User Guide > Common Information**
 
 <a id="api-endpoints"></a>
-## API Endpoint
+## API Endpoint { #api-endpoints }
 
 | Region     | Endpoint |
 |--------| ----- |
@@ -19,12 +19,12 @@
 * Notification Hub uses global endpoints regardless of regions.
 
 <a id="authentication-and-authorization"></a>
-## Authentication and Authorization
+## Authentication and Authorization { #authentication-and-authorization }
 
 Notification Hub uses User Access Key tokens for authentication and authorization when making API calls. The User Access Key token is a temporary, Bearer-type access token issued from a User Access Key. For more information on issuing and using User Access Key tokens, please refer to the [User Access Key Token](../../../../nhncloud/en/public-api/user-access-key-token).
 
 <a id="date-and-time-formats"></a>
-## Date and Time Formats
+## Date and Time Formats { #date-and-time-formats }
 
 * Dates and times use the **ISO 8601 extended** format.
     * [ISO 8601 - Date and time notation](https://ko.wikipedia.org/wiki/ISO_8601)
@@ -41,12 +41,12 @@ Notification Hub uses User Access Key tokens for authentication and authorizatio
 * In the API response, the date and time are represented in the format **YYYY-MM-DDThh:mm:ss.sss+09:000**.
 
 <a id="prefix-and-single-character-wildcard-search"></a>
-## Prefix and Single-Character Wildcard Search
+## Prefix and Single-Character Wildcard Search { #prefix-and-single-character-wildcard-search }
 
 List lookups support prefix and single character wildcard searches for non-personal information lookup criteria.
 
 <a id="prefix-search"></a>
-### Prefix Search
+### Prefix Search { #prefix-search }
 
 * **Prefix search** searches for values that begin with a specific string.
 * Request Example
@@ -57,7 +57,7 @@ List lookups support prefix and single character wildcard searches for non-perso
     * Search results: Ad-1, Ad-2, Ad-3, etc.
 
 <a id="single-character-wildcard-search"></a>
-### Single Character Wildcard Search
+### Single Character Wildcard Search { #single-character-wildcard-search }
 * **A single-character wildcard search** searches for any character in a specific location.
 * Request Example
     * Search for templates with template names ending in `-1`.
@@ -67,10 +67,10 @@ List lookups support prefix and single character wildcard searches for non-perso
     * Search results: Ads-1, General-1, Announcements-1, etc.
 
 <a id="response"></a>
-## Response Common Information
+## Response Common Information { #response }
 
 <a id="failure-response-body"></a>
-### [Failure response body]
+### [Failure response body] { #failure-response-body }
 
 The HTTP status code for a successful response is **200 OK**.
 
@@ -84,8 +84,8 @@ The HTTP status code for a successful response is **200 OK**.
 }
 ```
 
-<a id="failure-response-body-2"></a>
-### [Failure response body]
+<a id="response-common-information-failure-response-body"></a>
+### [Failure response body] { #response-common-information-failure-response-body }
 
 The HTTP status codes for the failure response are **4xx** and **5xx**.
 
@@ -111,7 +111,7 @@ The HTTP status codes for the failure response are **4xx** and **5xx**.
 * If you set the value to** true** in the **X-NC-ALWAYS-200-OK** request header when calling the API, it will respond with HTTP status code **200 OK** on failure responses.
 
 <a id="request-number-limit"></a>
-## Request Number Limit
+## Request Number Limit { #request-number-limit }
 * Notification Hub limits the number of API requests to prevent certain clients from taking up excessive resources and to ensure the reliability of the service.
 * The number of API requests per second. It is limited to 300 Requests Per Second (RPS).
 
@@ -122,12 +122,12 @@ The HTTP status codes for the failure response are **4xx** and **5xx**.
     * It is recommended that the client invoke an increasing retry interval, such as an exponential backoff, when a request is rejected.
 
 <a id="example-of-api-calls"></a>
-## Example of API Calls
+## Example of API Calls { #example-of-api-calls }
 
 The Notification Hub API User Guide provides examples of API calls with **IntelliJ HTTP** and **cURL**.
 
 <a id="intellij-http"></a>
-### IntelliJ HTTP
+### IntelliJ HTTP { #intellij-http }
 * IntelliJ HTTP is an HTTP client plugin for IntelliJ IDEA that can be run from JetBrains IDEs or from the command line.
     * [JetBrains - IntelliJ HTTP Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
         * Guide on how to use the IntelliJ HTTP Client, grammar.
@@ -154,7 +154,7 @@ The Notification Hub API User Guide provides examples of API calls with **Intell
 ```
 
 <a id="curl"></a>
-### cURL
+### cURL { #curl }
 
 * cURL is a command-line tool that can be run from the command line and supports a variety of protocols.
     * [cURL](https://curl.se/)

@@ -11,10 +11,10 @@
 
 
 <a id="sms-example"></a>
-## SMS
+## SMS { #sms-example }
 
 <a id="sms-short"></a>
-### SMS (Short)
+### SMS (Short) { #sms-short }
 
 ```json
 {
@@ -51,7 +51,7 @@
 | content.body | String | Y | Content |
 
 <a id="lms-long"></a>
-### LMS (Long)
+### LMS (Long) { #lms-long }
 
 ```json
 {
@@ -90,7 +90,7 @@
 | content.body | String | Y | Content |
 
 <a id="mms-long-media"></a>
-### MMS (Long Media)
+### MMS (Long Media) { #mms-long-media }
 
 ```json
 {
@@ -133,10 +133,10 @@
 
 
 <a id="rcs"></a>
-## RCS
+## RCS { #rcs }
 
 <a id="sms"></a>
-### SMS
+### SMS { #sms }
 
 ```json
 {
@@ -207,7 +207,7 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <a id="lms-standard"></a>
-### LMS Standard
+### LMS Standard { #lms-standard }
 
 ```json
 {
@@ -278,7 +278,7 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <a id="lms-format-basic-and-format-title-emphasis"></a>
-### LMS Format Basic and Format Title Emphasis
+### LMS Format Basic and Format Title Emphasis { #lms-format-basic-and-format-title-emphasis }
   * List of mTitleMedia Icon File IDs
   * Promotion: LT-messagebase.common-jFBCKu
   * Coupon: LT-messagebase.common-LbshOv
@@ -360,7 +360,7 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <a id="lms-format-paragraph-type"></a>
-### LMS Format Paragraph Type
+### LMS Format Paragraph Type { #lms-format-paragraph-type }
 * List of mTitleMedia Icon File IDs
 * Promotion: LT-messagebase.common-jFBCKu
 * Coupon: LT-messagebase.common-LbshOv
@@ -478,7 +478,7 @@
 | options.groupId | String | N | Group ID for RCS BizCenter Statistics Integration |
 
 <a id="mms-horizontal-vertical"></a>
-### MMS Horizontal, Vertical
+### MMS Horizontal, Vertical { #mms-horizontal-vertical }
 
 ```json
 {
@@ -552,7 +552,7 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration |
 
 <a id="mms-carousel"></a>
-### MMS Carousel
+### MMS Carousel { #mms-carousel }
 
 ```json
 {
@@ -658,7 +658,7 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
 <a id="integrated-sms-card"></a>
-### Integrated SMS Card
+### Integrated SMS Card { #integrated-sms-card }
 
 ```json
 {
@@ -729,7 +729,7 @@
 ---
 
 <a id="integrated-lms-card"></a>
-### Integrated LMS Card
+### Integrated LMS Card { #integrated-lms-card }
 
 ```json
 {
@@ -800,7 +800,7 @@
 | options.groupId | String | N | Group ID for RCS BizCenter statistics integration [Guide](../console-guide/send-a-message/#RCS) (up to 20 bytes) |
 
 <a id="integrated-mms-card-horizontal-vertical"></a>
-### Integrated MMS Card Horizontal, Vertical
+### Integrated MMS Card Horizontal, Vertical { #integrated-mms-card-horizontal-vertical }
 
 ```json
 {
@@ -874,7 +874,7 @@
 
 
 <a id="email"></a>
-## Email
+## Email { #email }
 
 ```json
 {
@@ -917,7 +917,7 @@
 * Enter the recipient's email address in the **recipients[].contacts[].contact** field.
 
 <a id="push"></a>
-## Push
+## Push { #push }
 
 ```json
 {

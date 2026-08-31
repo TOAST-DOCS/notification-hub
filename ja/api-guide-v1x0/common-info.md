@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=959b92ddae3f -->
+<!-- pre-align:aligned sig=602453141308 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,7 +10,7 @@
 **Notification > Notification Hub > API v1.0使用ガイド > 共通情報**
 
 <a id="api-endpoints"></a>
-## APIエンドポイント
+## APIエンドポイント { #api-endpoints }
 
 | リージョン   | エンドポイント |
 |--------| ----- |
@@ -19,12 +19,12 @@
 * Notification Hubはリージョン区分なくGlobalエンドポイントを使用します。
 
 <a id="authentication-and-authorization"></a>
-## 認証及び権限
+## 認証及び権限 { #authentication-and-authorization }
 
 Notification Hubは、API呼び出し時の認証/認可のためにUser Access Keyトークンを使用します。User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyトークンの発行及び使用に関する詳細は、[User Access Keyトークン](../../../../nhncloud/ja/public-api/user-access-key-token)を参照してください。
 
 <a id="date-and-time-formats"></a>
-## 日付と時間形式
+## 日付と時間形式 { #date-and-time-formats }
 
 * 日付と時間は **ISO 8601拡張形式**を使用します。
     * [ISO 8601 - 日付と時間表記法](https://ko.wikipedia.org/wiki/ISO_8601)
@@ -41,12 +41,12 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
 * APIレスポンスで日付と時間は **YYYY-MM-DDThh:mm:ss.sss+09:000**形式で表記します。
 
 <a id="prefix-and-single-character-wildcard-search"></a>
-## プレフィックス及び単一文字ワイルドカード検索
+## プレフィックス及び単一文字ワイルドカード検索 { #prefix-and-single-character-wildcard-search }
 
 リスト照会では個人情報以外の照会条件に対して、プレフィックス及び単一文字ワイルドカード検索がサポートされます。
 
 <a id="prefix-search"></a>
-### プレフィックス(Prefix)検索
+### プレフィックス(Prefix)検索 { #prefix-search }
 
 * **プレフィックス検索**は特定文字列で始まる値を検索します。
 * リクエスト例
@@ -55,8 +55,9 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
       GET /message/v1.0/templates?templateName=広告
       ``` 
     * 検索結果:広告-1、広告-2、広告-3など
+
 <a id="single-character-wildcard-search"></a>
-### 単一文字ワイルドカード(Single Character Wildcard)検索
+### 単一文字ワイルドカード(Single Character Wildcard)検索 { #single-character-wildcard-search }
 * **単一文字ワイルドカード検索**は特定位置にどんな文字でも関係なく検索します。
 * リクエスト例
     * テンプレート名が`-1`で終わるテンプレートを検索します。
@@ -66,10 +67,10 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
     * 検索結果:広告-1、一般-1、告知-1など
     
 <a id="response"></a>
-## レスポンス共通情報
+## レスポンス共通情報 { #response }
 
 <a id="failure-response-body"></a>
-### 失敗レスポンス本文
+### 失敗レスポンス本文 { #failure-response-body }
 
 成功レスポンスのHTTPステータスコードは**200 OK**です。
 
@@ -83,8 +84,8 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
 }
 ```
 
-<a id="failure-response-body-2"></a>
-### 失敗レスポンス本文
+<a id="response-common-information-failure-response-body"></a>
+### 失敗レスポンス本文 { #response-common-information-failure-response-body }
 
 失敗レスポンスのHTTPステータスコードは**4xx**と **5xx**です。
 
@@ -110,7 +111,7 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
 * API呼び出し時、**X-NC-ALWAYS-200-OK** リクエストヘッダに値を**true**に設定すると、失敗レスポンスにもHTTPステータスコード **200 OK**でレスポンスします。
 
 <a id="request-number-limit"></a>
-## リクエスト数制限
+## リクエスト数制限 { #request-number-limit }
 * Notification Hubでは、特定のクライアントによる過度のリソース占有を防ぎ、サービスの安定性を確保するため、APIリクエスト数を制限しています。
 * APIリクエスト数は1秒あたりのリクエスト数。300RPS(Requests Per Second)に制限されます。
 
@@ -121,12 +122,12 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
     * クライアントは、リクエストが拒否されたら、指数バックオフ(Exponential Backoff)のように再試行間隔を増やして呼び出すことを推奨します。
 
 <a id="example-of-api-calls"></a>
-## 呼び出し例
+## 呼び出し例 { #example-of-api-calls }
 
 Notification Hub API使用ガイドでは、**IntelliJ HTTP**、**cURL**でのAPI呼び出し例を提供します。
 
 <a id="intellij-http"></a>
-### IntelliJ HTTP
+### IntelliJ HTTP { #intellij-http }
 * IntelliJ HTTPはIntelliJ IDEAのHTTPクライアントプラグインで、JetBrains IDEsまたはコマンドラインから実行できます。
     * [JetBrains - IntelliJ HTTP Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
         * IntelliJ HTTP Clientの使い方、文法についてのガイド文書です。
@@ -153,7 +154,7 @@ Notification Hub API使用ガイドでは、**IntelliJ HTTP**、**cURL**でのAP
 ```
 
 <a id="curl"></a>
-### cURL
+### cURL { #curl }
 
 * cURLはコマンドラインで実行できるコマンドラインツールで、様々なプロトコルをサポートします。
     * [cURL](https://curl.se/)

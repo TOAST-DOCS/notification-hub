@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=73a6a04843d4 -->
+<!-- pre-align:aligned sig=a2724235f4f7 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -11,12 +11,12 @@
 
 
 <a id="statistics"></a>
-## Statistics
+## Statistics { #statistics }
 
 You can collect various events that occur in Notification Hub and query them with statistical data.
 
 <a id="query-statistics"></a>
-### Query Statistics
+### Query Statistics { #query-statistics }
 
 You can view the reception results of the delivered message by receiver contacts.
 
@@ -30,7 +30,7 @@ You can view the reception results of the delivered message by receiver contacts
 * Check statistical data by setting a combination of message channels, statistical criteria, statistical keys, and message IDs.
 * Depending on the message channel you set, the statistical criteria you set can be varied.
 
-<a id="message-channel-statistical-events-by-statistical-criteria"></a>
+<a id="query-statistics-message-channel-statistical-events-by-statistical-criteria"></a>
 #### Message Channel, Statistical Events by Statistical Criteria
 
 | Message Channel | Statistical Criteria | Events                                                                                                       | Remarks | 
@@ -45,7 +45,7 @@ You can view the reception results of the delivered message by receiver contacts
 | SMS | International Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive(DELIVERY_FAILED  | |
 
 <a id="manage-statistical-keys"></a>
-### Manage Statistical Keys
+### Manage Statistical Keys { #manage-statistical-keys }
 
 If you set a statistics key when sending message, you can set the statistics key as a query condition in a statistics query to view the statistical data of messages sent with the same statistics key.
 

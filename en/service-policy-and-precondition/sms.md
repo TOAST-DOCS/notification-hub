@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=a62b38bb217c -->
+<!-- pre-align:aligned sig=102423eead10 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -114,14 +114,14 @@ In accordance with Article 50 of the Act on Promotion of Information and Communi
 ## Guide of Stolen Number Text Message Blocking Service { #about-phone-scam-blocking-services }
 ‘Stolen Number Text Message Blocking Service’ prevents others from arbitrarily abusing one’s mobile number for text crimes or sending spam. If the sender number is subscribed to this service, the delivery may fail. To use the problematic number as the sender number, cancellation is required through the mobile carrier.
 
-<a id="how-to-use"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-how-to-use"></a>
 #### How to use
 * It is provided free of charge by mobile carriers (including SKT, KT, LG U+ and MVNO operators), so you can register if you agree to join.
 * After sending a text message, if the text sending result is confirmed as 'Failed' on the site even though it is a normal number, check whether you have subscribed to the 'Stolen Number Text Message Blocking Service'.
 * Send after cancelling 'Stolen Number Text Message Blocking Service'.
 * It takes about 7 days for cancellation to take effect after application.
 
-<a id="guide-about-cancellation"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-guide-about-cancellation"></a>
 #### Guide about cancellation
 * Mobile carrier website
     * [SKT Stolen Number Text Message Blocking Service  shortcut ](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)
@@ -135,14 +135,14 @@ In accordance with Article 50 of the Act on Promotion of Information and Communi
 ## Mobile Carrier Spam Blocking Service Guide { #about-carrier-spam-text-blocking-services }
 It is a service that automatically blocks cumbersome advertising spam texts from mobile carriers. According to the combination standards of each mobile carrier, text messages that are judged to be spam are sent to the spam storage box rather than to the text inbox of the mobile phone. If it has been sent normally but fails to receive, the receiving number may be subscribed to the carrier spam blocking service.
 
-<a id="how-to-use-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-how-to-use"></a>
 #### How to use
 * If the delivery result is confirmed to be successful but the text is not received, check the mobile carrier’s spam blocking service.
 * Korea Internet & Security Agency's Illegal Spams Response Center has established the comprehensive countermeasure against spams, and each mobile carrier is currently operating the 'Spam blocking service'.
 * If the message has been stored as spam instead of being stored in the text message inbox, please proceed after canceling the Spam blocking service.
 * Due to the privacy policy, no one other than you can check it, so you must check it yourself.
 
-<a id="guide-about-cancellation-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-guide-about-cancellation"></a>
 #### Guide about cancellation
 * Mobile carrier website
     * [SKT Spam Filtering Cancel service now](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)

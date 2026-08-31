@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ba2299609acb -->
+<!-- pre-align:aligned sig=8d810f1e6e05 -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -14,8 +14,8 @@
 
 
 
-<a id="section-1"></a>
-## 통계 조회
+<a id="query-statistics"></a>
+## 통계 조회 { #query-statistics }
 
 통계 이벤트를 이벤트가 발생한 시간 기준으로 조회합니다.<br>
 

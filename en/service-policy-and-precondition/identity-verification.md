@@ -20,12 +20,12 @@ To use the Notification Hub, you can use it after Identity verification at **Not
 * The certificate of employment is marked with **issuance date and only documents with seal ** are allowed. The 6 digits after the resident registration number in the certificate of employment **must be masked (hidden)**. For example, 000000-0\*\*\*\*\**
 
 <a id="identity-verification"></a>
-## Identity Verification Method
+## Identity Verification Method { #identity-verification }
 
 <!-- TODO: translate body -->
 
 <a id="identity-verification-status"></a>
-### Identity Verification Status
+### Identity Verification Status { #identity-verification-status }
 
 | Status       | Description |
 |----------| --- |
