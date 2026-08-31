@@ -688,6 +688,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "confirmBeforeSend" : false
 }
 ```
+</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -1841,7 +1842,6 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 }'
 ```
 
-</details>
 
 <a id="send-alimtalk-template-message"></a>
 ## Send Alim Talk Template Messages { #send-alimtalk-template-message }
@@ -2226,6 +2226,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "confirmBeforeSend" : false
 }
 ```
+</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -2658,7 +2659,6 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 }'
 ```
 
-</details>
 
 <a id="send-sms-template-message"></a>
 ## Send SMS Template Message { #send-sms-template-message }
@@ -2814,6 +2814,7 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
   "id" : "alpha123"
 }
 ```
+</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -3100,7 +3101,6 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 }'
 ```
 
-</details>
 
 <a id="send-an-instant-flow-message"></a>
 ## Send Instant Flow Messages { #send-an-instant-flow-message }
@@ -3280,7 +3280,6 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 ```
 </details>
 
-</details>
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
@@ -3329,7 +3328,6 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 }'
 ```
 
-</details>
 
 <a id="cancel-sending-message"></a>
 ## Cancel Sending Message { #cancel-sending-message }
@@ -3405,6 +3403,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
+</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
