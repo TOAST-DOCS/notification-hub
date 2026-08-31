@@ -10,16 +10,10 @@
 **Notification > Notification Hub > API v1.0 사용 가이드 > 메시지 - 발송 요청 본문 예시**
 
 
-<span id="sms"></span>
-
 <a id="sms-example"></a>
-
 ## SMS
 
-<span id="sms-sms"></span>
-
 <a id="sms-short"></a>
-
 ### SMS(단문)
 
 ```json
@@ -57,7 +51,6 @@
 | content.body | String | Y | 내용 |
 
 <a id="lms-long"></a>
-
 ### LMS(장문)
 
 ```json
@@ -97,7 +90,6 @@
 | content.body | String | Y | 내용 |
 
 <a id="mms-long-media"></a>
-
 ### MMS(미디어 장문)
 
 ```json
@@ -140,16 +132,10 @@
 | content.attachmentIds | String Array | Y | 첨부 파일 아이디<br>첨부 이미지 제한 사항.<br>지원 형식: .jpg, .jpeg<br>첨부 이미지 개수: 3개 이하.<br>첨부 이미지 크기: 1개당 300KB 이하. 단, 첨부한 이미지의 개수가 3개일 경우 합산 800KB 이하.<br>첨부 이미지 해상도: 1000×1000 이하. |
 
 
-<span id="rcs"></span>
-
 <a id="rcs"></a>
-
 ## RCS
 
-<span id="rcs-sms"></span>
-
 <a id="sms"></a>
-
 ### SMS
 
 ```json
@@ -220,10 +206,7 @@
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
-<span id="free-form-message-request-body-rcs-lms-standalone"></span>
-
 <a id="lms-standard"></a>
-
 ### LMS 스탠다드
 
 ```json
@@ -294,10 +277,7 @@
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
-<span id="free-form-message-request-body-rcs-lms-format-basic"></span>
-
 <a id="lms-format-basic-and-format-title-emphasis"></a>
-
 ### LMS 포맷 기본형 및 포맷 타이틀 강조형
 * mTitleMedia 아이콘 파일 ID 목록
   * 프로모션: LT-messagebase.common-jFBCKu
@@ -380,7 +360,6 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="lms-format-paragraph-type"></a>
-
 ### LMS 포맷 문단형 타입
 * mTitleMedia 아이콘 파일 ID 목록
   * 프로모션: LT-messagebase.common-jFBCKu
@@ -501,7 +480,6 @@
 
 
 <a id="mms-horizontal-vertical"></a>
-
 ### MMS 가로형, 세로형
 
 ```json
@@ -576,7 +554,6 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="mms-carousel"></a>
-
 ### MMS 캐러셀
 
 ```json
@@ -682,10 +659,7 @@
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
-<span id="free-form-message-request-body-rcs-unified-sms"></span>
-
 <a id="integrated-sms-card"></a>
-
 ### 통합 SMS 카드
 
 ```json
@@ -755,10 +729,7 @@
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
-<span id="free-form-message-request-body-rcs-unified-lms"></span>
-
 <a id="integrated-lms-card"></a>
-
 ### 통합 LMS 카드
 
 ```json
@@ -830,10 +801,7 @@
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
-<span id="free-form-message-request-body-rcs-unified-mms"></span>
-
 <a id="integrated-mms-card-horizontal-vertical"></a>
-
 ### 통합 MMS 카드 가로형, 세로형
 
 ```json
@@ -907,10 +875,7 @@
 | options.expiryOption | Integer | N | RCS 메시지 수신 대기 만료 기간 설정값(1: 1일, 2: 40초, 3: 3분, 4: 1시간) |
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
-<span id="free-form-message-request-body-email"></span>
-
 <a id="email"></a>
-
 ## Email
 
 ```json
@@ -954,10 +919,7 @@
 * **recipients[].contacts[].contactType** 필드에는 **EMAIL_ADDRESS**만 사용 가능합니다. 
 * **recipients[].contacts[].contact** 필드에는 수신자 이메일 주소를 입력합니다.
 
-<span id="free-form-message-request-body-push"></span>
-
 <a id="push"></a>
-
 ## Push
 
 ```json

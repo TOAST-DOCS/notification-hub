@@ -14,10 +14,7 @@
 
 
 
-<span id="imageLayoutV1x0003GetImageLayout"></span>
-
 <a id="retrieve-image-layout"></a>
-
 ## 画像レイアウトの個別照会
 
 画像レイアウトをIDベースで個別照会します。
@@ -133,10 +130,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 
 </details>
 
-<span id="imageLayoutV1x0CreateImageLayout"></span>
-
 <a id="create-image-layout"></a>
-
 ## 画像レイアウトの登録
 
 画像レイアウトを登録します。
@@ -242,10 +236,7 @@ curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 
 </details>
 
-<span id="imageLayoutV1x0DeleteImageLayout"></span>
-
 <a id="delete-image-layout"></a>
-
 ## 画像レイアウトの削除
 
 画像レイアウトを削除します。
@@ -330,10 +321,7 @@ curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 
 </details>
 
-<span id="imageLayoutV1x0GetImageLayoutList"></span>
-
 <a id="retrieve-image-layout-list"></a>
-
 ## 画像レイアウトのリスト照会
 
 画像レイアウトをリストで照会します。
@@ -440,10 +428,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 
 </details>
 
-<span id="imageLayoutV1x0UpdateImageLayout"></span>
-
 <a id="update-image-layout"></a>
-
 ## 画像レイアウトの修正
 
 画像レイアウトを修正します。修正が必要なフィールドのみ入力して部分修正が可能です。

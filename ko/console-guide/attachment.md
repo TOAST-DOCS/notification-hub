@@ -11,10 +11,7 @@
 
 첨부 파일과 이미지 레이아웃을 관리합니다. 
 
-<span id="attachment-management"></span>
-
 <a id="attachment-management"></a>
-
 ## 첨부 파일 관리
 
 메시지 발송 시 첨부할 파일을 사전에 등록하여 관리할 수 있습니다.
@@ -30,7 +27,6 @@
 
 
 <a id="attachment-specifications-by-message-channel"></a>
-
 ### 메시지 채널별 첨부 파일 명세
 
 | 메시지 채널 | 유형             | 파일 형식                                               | 파일 최대 크기 | 해상도                           | 비율                          |
@@ -48,7 +44,6 @@
 | Email       | -                | .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr 제외한 모든 형식 | 30MB          |                                  |                               |
 
 <a id="image-layout-management"></a>
-
 ## 이미지 레이아웃 관리
 
 이미지 레이아웃을 이용하면 SMS의 MMS 발송 시 이미지를 개인화 할 수 있습니다. 이미지 레이아웃은 배경 이미지, 이미지, 내용, 바코드로 구성됩니다. SMS - MMS 유형 템플릿 생성 시 이미지 레이아웃 기능을 이용할 수 있습니다.

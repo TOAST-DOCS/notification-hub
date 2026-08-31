@@ -14,8 +14,6 @@
 
 
 
-<span id="messageV1x0001SmsFreeFormMessages"></span>
-
 <a id="free-form-message-sending-request---sms"></a>
 ## Free-form message sending request - SMS { #free-form-message-sending-request---sms }
 
@@ -220,8 +218,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
-
-<span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---brand-message-brandmessage"></a>
 ## Free-Form Message Sending Request - Brand Message (BRANDMESSAGE) { #free-form-message-sending-request---brand-message-brandmessage }
@@ -843,8 +839,6 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 
 </details>
 
-<span id="messageV1x0003EmailFreeFormMessages"></span>
-
 <a id="request-to-send-a-free-form-message---email"></a>
 ## Free-form message sending request - Email (EMAIL) { #request-to-send-a-free-form-message---email }
 
@@ -1013,8 +1007,6 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 ```
 
 </details>
-
-<span id="messageV1x0004RcsFreeFormMessages"></span>
 
 <a id="request-to-send-a-free-form-message---rcs"></a>
 ## Free-form message sending request - RCS { #request-to-send-a-free-form-message---rcs }
@@ -1391,8 +1383,6 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 </details>
 
-<span id="messageV1x0005PushFreeFormMessages"></span>
-
 <a id="request-to-send-a-free-form-message---push"></a>
 ## Free-form message sending request - PUSH { #request-to-send-a-free-form-message---push }
 
@@ -1677,8 +1667,6 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 
 </details>
 
-<span id="messageV1x0006TemplateMessages"></span>
-
 <a id="request-template-message-sending"></a>
 ## Template Message Sending Request { #request-template-message-sending }
 
@@ -1854,8 +1842,6 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 ```
 
 </details>
-
-<span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 <a id="send-alimtalk-template-message"></a>
 ## Send Alim Talk Template Messages { #send-alimtalk-template-message }
@@ -2043,8 +2029,6 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 ```
 
 </details>
-
-<span id="messageV1x0007BrandmessageTemplateMessages"></span>
 
 <a id="send-a-brand-message-template-message"></a>
 ## Send a Brand Message Template Message { #send-a-brand-message-template-message }
@@ -2296,8 +2280,6 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 
 </details>
 
-<span id="messageV1x0008EmailTemplateMessages"></span>
-
 <a id="send-email-template-message"></a>
 ## Send an Email Template Message { #send-email-template-message }
 
@@ -2473,8 +2455,6 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 ```
 
 </details>
-
-<span id="messageV1x0008RcsTemplateMessages"></span>
 
 <a id="send-rcs-template-message"></a>
 ## Send RCS Template Messages { #send-rcs-template-message }
@@ -2680,8 +2660,6 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 </details>
 
-<span id="messageV1x0008SmsTemplateMessages"></span>
-
 <a id="send-sms-template-message"></a>
 ## Send SMS Template Message { #send-sms-template-message }
 
@@ -2871,8 +2849,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 ```
 
 </details>
-
-<span id="messageV1x0009FlowMessages"></span>
 
 <a id="send-flow-message"></a>
 ## Send Flow Messages { #send-flow-message }
@@ -3126,8 +3102,6 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 
 </details>
 
-<span id="messageV1x0010InstantFlowMessages"></span>
-
 <a id="send-an-instant-flow-message"></a>
 ## Send Instant Flow Messages { #send-an-instant-flow-message }
 
@@ -3357,8 +3331,6 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 
 </details>
 
-<span id="messageV1x0100MessageIdDoCancel"></span>
-
 <a id="cancel-sending-message"></a>
 ## Cancel Sending Message { #cancel-sending-message }
 
@@ -3444,8 +3416,6 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 ```
 
 </details>
-
-<span id="messageV1x0101MessageIdDoConfirm"></span>
 
 <a id="confirm-message-delivery"></a>
 ## Confirm Message Delivery { #confirm-message-delivery }

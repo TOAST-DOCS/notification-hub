@@ -10,7 +10,6 @@
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 국제 SMS**
 
 <a id="country-specific-sender-number"></a>
-
 ## 국제 SMS 국가별 발송 정책
  국가별 상세 발송 정책은 [국가별 SMS 발송 상세 가이드]를 참고하십시오.
  [국가별 SMS 발송 상세 가이드 바로 가기](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)
@@ -28,7 +27,6 @@
 * 국가별 전송 품질은 해당 국가의 네트워크 및 인프라 환경의 영향을 받으며, 국내 환경과 차이가 있을 수 있습니다.
 
 <a id="international-sms-billing"></a>
-
 ## 국제 SMS 과금 정책
 * 국제 SMS 메시지 발송 비용은 해외 통신 사업자로의 데이터 전송 성공 여부에 따라 과금됩니다.
 * 단말기 수신 결과는 해외 통신 사업자로의 데이터 전송 성공을 의미하며, 실제 단말기의 수신 결과와 상이할 수 있습니다. 실제 사용자가 메시지를 수신하지 못했더라도 과금 대상에 포함될 수 있습니다.
@@ -44,11 +42,9 @@
 | GSM-7bit | 160자 | 306자<br>(=153*2) | 459자<br>(=153*3) | 612자<br>(=153*4) | 765자<br>(=153*5) |
 
 <a id="precautions---international-sms-mass-volume-pumping"></a>
-
 ## 주의 사항 
 
 <a id="international-sms-volume-pumping-phenomenon"></a>
-
 ### 국제 SMS 물량 펌핑 현상
 * 일부 해외 이동통신사업자(MNO)에서 매출을 올리기 위해 인위적으로 메시지 발송을 유도하는 경우가 있습니다.
 * 회원가입 인증 번호 요청 등의 페이지에서 봇 또는 어뷰저가 메시지 발송을 대량 요청합니다.
@@ -61,7 +57,6 @@
 
 
 <a id="available-countries"></a>
-
 ## 전송 가능 국가
 
 | 국가명 | 국가 코드 |

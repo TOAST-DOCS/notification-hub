@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=f447ffcec440 -->
+<!-- pre-align:aligned sig=959b92ddae3f -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -9,12 +9,7 @@
 
 **Notification > Notification Hub > API v1.0 사용 가이드 > 공통 정보**
 
-<span id="notification-hub-api-common-information"></span>
-
-<span id="api-endpoint"></span>
-
 <a id="api-endpoints"></a>
-
 ## API 엔드포인트
 
 | 리전     | 엔드포인트 |
@@ -23,18 +18,12 @@
 
 * Notification Hub는 리전 구분 없이 Global 엔드포인트를 사용합니다.
 
-<span id="authentication-and-permissions"></span>
-
 <a id="authentication-and-authorization"></a>
-
 ## 인증 및 권한
 
 Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토큰을 사용합니다. User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰입니다. User Access Key 토큰 발급 및 사용에 대한 자세한 내용은 [User Access Key 토큰](../../../../nhncloud/ko/public-api/user-access-key-token)을 참고하세요.
 
-<span id="date-time-format"></span>
-
 <a id="date-and-time-formats"></a>
-
 ## 날짜와 시간 형식
 
 * 날짜와 시간은 **ISO 8601 확장 형식**을 사용합니다.
@@ -52,13 +41,11 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 * API 응답에서 날짜와 시간은 **YYYY-MM-DDThh:mm:ss.sss+09:00** 형식으로 표기합니다.
 
 <a id="prefix-and-single-character-wildcard-search"></a>
-
 ## 접두사 및 단일 문자 와일드카드 검색
 
 목록 조회에서는 개인정보가 아닌 조회 조건에 대해서 접두사 및 단일 문자 와일드카드 검색이 지원됩니다.
 
 <a id="prefix-search"></a>
-
 ### 접두사(Prefix) 검색
 
 * **접두사 검색**은 특정 문자열로 시작하는 값을 검색합니다.
@@ -70,7 +57,6 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
     * 검색 결과: 광고-1, 광고-2, 광고-3 등
 
 <a id="single-character-wildcard-search"></a>
-
 ### 단일 문자 와일드카드(Single Character Wildcard) 검색
 * **단일 문자 와일드카드 검색**은 특정 위치에 어떤 문자든지 상관없이 검색합니다.
 * 요청 예시
@@ -80,16 +66,10 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
       ``` 
     * 검색 결과: 광고-1, 일반-1, 공지-1 등
 
-<span id="response"></span>
-
-<a id="response-common-information"></a>
-
+<a id="response"></a>
 ## 응답 공통 정보
 
-<span id="succeed-response"></span>
-
 <a id="failure-response-body"></a>
-
 ### 성공 응답 본문
 
 성공 응답의 HTTP 상태 코드는 **200 OK**입니다.
@@ -104,10 +84,7 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 }
 ```
 
-<span id="failed-response"></span>
-
 <a id="failure-response-body-2"></a>
-
 ### 실패 응답 본문
 
 실패 응답의 HTTP 상태 코드는 **4xx**와 **5xx**입니다.
@@ -133,10 +110,7 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
 * 결과 메시지는 **Accept-Language** 요청 헤더에 따라 한국어, 영어, 일본어로 제공됩니다.
 * API 호출 시 **X-NC-ALWAYS-200-OK** 요청 헤더에 값을 **true**로 설정하면, 실패 응답에도 HTTP 상태 코드 **200 OK**로 응답합니다.
 
-<span id="rate-limit"></span>
-
 <a id="request-number-limit"></a>
-
 ## 요청 수 제한
 * Notification Hub에서는 특정 클라이언트가 과도한 리소스 점유를 막고 서비스의 안정성을 보장하기 위해 API 요청 수를 제한합니다.
 * API 요청 수는 초당 요청 수. 300RPS(Requests Per Second)으로 제한됩니다.
@@ -147,16 +121,12 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
     * 요청이 거부되었을 때 클라이언트가 즉시 재시도하면 서버의 요청 거부가 오랜 시간 동안 유지될 수 있습니다.
     * 클라이언트는 요청이 거부되면 지수 백오프(Exponential Backoff) 처럼 재시도 간격을 늘려가며 호출하는 것을 권장합니다.
 
-<span id="example-api-calls"></span>
-
 <a id="example-of-api-calls"></a>
-
 ## 호출 예시
 
 Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 API 호출 예시를 제공합니다.
 
 <a id="intellij-http"></a>
-
 ### IntelliJ HTTP
 * IntelliJ HTTP는 IntelliJ IDEA의 HTTP 클라이언트 플러그인으로 JetBrains IDEs 또는 명령줄에서 실행할 수 있습니다.
     * [JetBrains - IntelliJ HTTP Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
@@ -184,7 +154,6 @@ Notification Hub API 사용 가이드에서는 **IntelliJ HTTP**, **cURL**로 AP
 ```
 
 <a id="curl"></a>
-
 ### cURL
 
 * cURL은 명령줄에서 실행할 수 있는 커맨드 라인 도구로, 다양한 프로토콜을 지원합니다.

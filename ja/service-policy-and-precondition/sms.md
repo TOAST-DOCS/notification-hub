@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ba3168402b40 -->
+<!-- pre-align:aligned sig=a62b38bb217c -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,10 +10,8 @@
 **Notification > Notification Hub > 利用ポリシーおよび事前設定のご案内 > SMS**
 
 
-<span id="sender-phone-number-pre-registration"></span>
-
-<a id="enforce-pre-registration-of-sender-numbers"></a>
-## 発信番号事前登録制施行 { #enforce-pre-registration-of-sender-numbers }
+<a id="sender-phone-number-pre-registration"></a>
+## 発信番号事前登録制施行 { #sender-phone-number-pre-registration }
 
 <b>電気通信事業法関連告示に基づき、発信番号登録の際、発信番号の名義人認証が必要です</b>
 
@@ -23,8 +21,6 @@
 * 事業者と他社間の関係確認文書は業務委受託契約書、本店・支店証明書類などがあります。
 * 通信サービス利用証明書は**マスキング(非表示)処理された部分がなく、最近3か月以内に発行された書類**のみ可能です。
 * 在職証明書は**発行日が表記されており、印鑑が押印された書類**のみ可能です。在職証明書内の住民番号の後ろ6桁は**必ずマスキング(非表示)処理**してください。例) 000000-0\*\*\*\*\*\*
-
-<span id='fabrication-number'></span>
 
 <a id="prohibition-of-alterationfalsification-of-the-sender-number"></a>
 ## 発信番号の変作（改ざん）禁止 { #prohibition-of-alterationfalsification-of-the-sender-number }
@@ -77,8 +73,6 @@
 ### 受信拒否リクエスト受信者への結果通知 { #notify-recipients-of-opt-out-requests }
 * 送信者の名称、受信拒否または受信同意撤回の事実、その意思を表示した日付、処理結果をすべて案内します。
 
-<span id="rejection-of-receiving-080"></span>
-
 <a id="advertisement-texting-sending-guidance"></a>
 ## 広告性メール送信案内 { #advertisement-texting-sending-guidance }
 [韓国]情報通信網利用促進及び情報保護などに関する法律第50条に基づき、営利目的の広告性情報を送信する場合、受信者の明示的な事前同意を受けなければならず、送信表記義務事項を遵守する必要があります。 <br/>
@@ -116,10 +110,8 @@
 | LMS | 80時間 | 再試行しない。受信失敗結果アップデート(結果コード: 2000) |
 | MMS | 80時間 | 再試行しない。受信失敗結果アップデート(結果コード: 2000) |
 
-<span id="about-phone-scam-blocking-services"></span>
-
-<a id="guide-of-stolen-number-text-message-blocking-service"></a>
-## 番号盗用メールブロックサービス案内 { #guide-of-stolen-number-text-message-blocking-service }
+<a id="about-phone-scam-blocking-services"></a>
+## 番号盗用メールブロックサービス案内 { #about-phone-scam-blocking-services }
 「番号盗用テキストブロックサービス」は、他人が勝手に自分の携帯電話番号をテキスト犯罪に悪用したり、スパムを送信できないようにするサービスです。発信番号がこのサービスに加入している場合、送信に失敗する可能性があります。問題のある番号を発信番号として使用するためには、通信会社を通じて解約する必要があります。
 
 <a id="how-to-use"></a>
@@ -139,10 +131,8 @@
     * 携帯電話114 * 通話ボタン
     * SKTサポート(1599-0011), KTオレサポート(100), LG U+ サポート(1544-0010)
 
-<span id="about-carrier-spam-text-blocking-services"></span>
-
-<a id="mobile-carrier-spam-blocking-service-guide"></a>
-## サービスプロバイダースパムブロックサービス案内 { #mobile-carrier-spam-blocking-service-guide }
+<a id="about-carrier-spam-text-blocking-services"></a>
+## サービスプロバイダースパムブロックサービス案内 { #about-carrier-spam-text-blocking-services }
 迷惑な広告性スパムメールを通信事業者で自動的にブロックしてくれるサービスです。携帯電話会社別の組み合わせ基準により、スパムと判断されたメールを携帯電話のメール受信箱ではなく、スパム保管箱に送信します。正常に送信されたが、受信に失敗した場合、受信番号が通信会社の迷惑メールブロックサービスに加入している可能性があります。
 
 <a id="how-to-use-2"></a>

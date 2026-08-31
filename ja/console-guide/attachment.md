@@ -11,10 +11,7 @@
 
 添付ファイルと画像レイアウトを管理します。
 
-<span id="attachment-management"></span>
-
 <a id="attachment-management"></a>
-
 ## 添付ファイルの管理
 
 メッセージ発送時に添付するファイルを事前に登録して管理できます。
@@ -30,7 +27,6 @@
 
 
 <a id="attachment-specifications-by-message-channel"></a>
-
 ### メッセージチャンネル別添付ファイル仕様
 
 | メッセージチャンネル | タイプ             | ファイル形式                                               | ファイル最大サイズ | 解像度                           | 比率                          |
@@ -48,7 +44,6 @@
 | Eメール       | -                | .js、.exe、.bat、.cmd、.com、.cpl、.scr、.vbs、.wsrを除くすべての形式 | 30MB          |                                  |                               |
 
 <a id="image-layout-management"></a>
-
 ## 画像レイアウトの管理
 
 画像レイアウトを利用すると、SMSのMMS発送時に画像をパーソナライズできます。画像レイアウトは、背景画像、画像、内容、バーコードで構成されます。SMS - MMSタイプテンプレート作成時に画像レイアウト機能を利用できます。

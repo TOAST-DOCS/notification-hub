@@ -14,10 +14,7 @@
 
 
 
-<span id="flowV1x0001CreateFlow"></span>
-
 <a id="create-a-flow"></a>
-
 ## Create a Flow
 
 Creates a flow.<br>
@@ -107,10 +104,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | flowId | String | O | Flow ID. |
 
 <a id="flow-definition-examples"></a>
-
 ### Flow definition examples
 <a id="flow-with-linear-order"></a>
-
 #### Flow with linear order
 ```
 {
@@ -137,7 +132,6 @@ X-NHN-Authorization: Bearer {accessToken}
 ```
 
 <a id="simultaneous-send-flow"></a>
-
 #### Simultaneous send flow
 ```
 {
@@ -208,10 +202,7 @@ curl -X POST "${endpoint}/flow/v1.0/flows" \
 
 </details>
 
-<span id="flowV1x0002ReadFlows"></span>
-
 <a id="list-flows"></a>
-
 ## List Flows
 
 Retrieves a list of flows.<br>
@@ -352,10 +343,7 @@ curl -X GET "${endpoint}/flow/v1.0/flows" \
 
 </details>
 
-<span id="flowV1x0003ReadFlow"></span>
-
 <a id="get-a-flow"></a>
-
 ## Get a Flow
 
 Retrieves a flow.<br>
@@ -491,10 +479,7 @@ curl -X GET "${endpoint}/flow/v1.0/flows/${flowId}" \
 
 </details>
 
-<span id="flowV1x0004UpdateFlow"></span>
-
 <a id="update-a-flow"></a>
-
 ## Update a Flow
 
 Updates a flow.<br>
@@ -623,10 +608,7 @@ curl -X PUT "${endpoint}/flow/v1.0/flows/${flowId}" \
 
 </details>
 
-<span id="flowV1x0005DeleteFlow"></span>
-
 <a id="delete-a-flow"></a>
-
 ## Delete a Flow
 
 Deletes a flow.<br>
@@ -709,10 +691,7 @@ curl -X DELETE "${endpoint}/flow/v1.0/flows/${flowId}" \
 
 </details>
 
-<span id="flowV1x0006DeleteFlows"></span>
-
 <a id="delete-flows"></a>
-
 ## Delete Flows
 
 Deletes flows.<br>

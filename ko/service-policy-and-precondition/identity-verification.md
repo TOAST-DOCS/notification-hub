@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=bc1d75536ea1 -->
+<!-- pre-align:aligned sig=75402ddddaf2 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -9,10 +9,7 @@
 
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 본인 인증**
 
-<span id="identity-verification"></span>
-
-<a id="identity-verification-method"></a>
-
+<a id="identity-verification"></a>
 ## 본인 인증 방법
 
 * Notification Hub를 이용하려면 **Notification Hub** > **본인 인증**에서 본인 인증 후 사용할 수 있습니다. (전기통신사업법 관련 고시 준수)
@@ -25,7 +22,6 @@
 * 재직증명서는 **발급일이 표기되어 있고, 직인이 날인된 서류**만 가능합니다. 재직증명서 내 주민등록번호 뒤 6자리는 **반드시 마스킹(숨김) 처리**하세요. 예: 000000-0\*\*\*\*\*\*
 
 <a id="identity-verification-status"></a>
-
 ### 본인 인증 상태
 
 | 상태       | 설명 |
