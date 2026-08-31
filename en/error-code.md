@@ -10,7 +10,7 @@
 **Notification > Notification Hub > Error Codes**
 
 <a id="list-of-error-codes"></a>
-## List of Error Codes
+## List of Error Codes { #list-of-error-codes }
 
 | Category | Is Successful (isSuccessful) | Result Code (resultCode) | Result Message (resultMessage) |
 | --- | --- | --- | --- |
@@ -341,7 +341,7 @@
 | Message sending | false | 500002 | Invalid status server error. |
 
 <a id="delivery-result-code"></a>
-## Received Results Code
+## Received Results Code { #delivery-result-code }
 
 | Category | Success (isSuccessful) | Result Code (resultCode) | Result Message (resultMessage) |
 | --- | --- | --- | --- |

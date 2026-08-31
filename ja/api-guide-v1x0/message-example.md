@@ -11,10 +11,10 @@
 
 
 <a id="sms-example"></a>
-## SMS
+## SMS { #sms-example }
 
 <a id="sms-short"></a>
-### SMS(短文)
+### SMS(短文) { #sms-short }
 
 ```json
 {
@@ -51,7 +51,7 @@
 | content.body | String | Y | 内容 |
 
 <a id="lms-long"></a>
-### LMS(長文)
+### LMS(長文) { #lms-long }
 
 ```json
 {
@@ -90,7 +90,7 @@
 | content.body | String | Y | 内容 |
 
 <a id="mms-long-media"></a>
-### MMS(メディア長文)
+### MMS(メディア長文) { #mms-long-media }
 
 ```json
 {
@@ -133,10 +133,10 @@
 
 
 <a id="rcs"></a>
-## RCS
+## RCS { #rcs }
 
 <a id="sms"></a>
-### SMS
+### SMS { #sms }
 
 ```json
 {
@@ -207,7 +207,7 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="lms-standard"></a>
-### LMSスタンダード
+### LMSスタンダード { #lms-standard }
 
 ```json
 {
@@ -278,7 +278,7 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="lms-format-basic-and-format-title-emphasis"></a>
-### LMSフォーマット基本型及びフォーマットタイトル強調型
+### LMSフォーマット基本型及びフォーマットタイトル強調型 { #lms-format-basic-and-format-title-emphasis }
 * mTitleMediaアイコンファイルIDリスト
   * プロモーション: LT-messagebase.common-jFBCKu
   * クーポン: LT-messagebase.common-LbshOv
@@ -360,7 +360,7 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="lms-format-paragraph-type"></a>
-### LMSフォーマット段落型タイプ
+### LMSフォーマット段落型タイプ { #lms-format-paragraph-type }
 * mTitleMediaアイコンファイルIDリスト
   * プロモーション: LT-messagebase.common-jFBCKu
   * クーポン: LT-messagebase.common-LbshOv
@@ -480,7 +480,7 @@
 
 
 <a id="mms-horizontal-vertical"></a>
-### MMS横型、縦型
+### MMS横型、縦型 { #mms-horizontal-vertical }
 
 ```json
 {
@@ -554,7 +554,7 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="mms-carousel"></a>
-### MMSカルーセル
+### MMSカルーセル { #mms-carousel }
 
 ```json
 {
@@ -661,22 +661,22 @@
 
 
 <a id="integrated-sms-card"></a>
-### 統合SMSカード
+### 統合SMSカード { #integrated-sms-card }
 
 <!-- TODO: translate body -->
 
 <a id="integrated-lms-card"></a>
-### 統合LMSカード
+### 統合LMSカード { #integrated-lms-card }
 
 <!-- TODO: translate body -->
 
 <a id="integrated-mms-card-horizontal-vertical"></a>
-### 統合MMSカード横型、縦型
+### 統合MMSカード横型、縦型 { #integrated-mms-card-horizontal-vertical }
 
 <!-- TODO: translate body -->
 
 <a id="email"></a>
-## Email
+## Email { #email }
 
 ```json
 {
@@ -720,7 +720,7 @@
 * **recipients[].contacts[].contact** フィールドには受信者メールアドレスを入力します。
 
 <a id="push"></a>
-## Push
+## Push { #push }
 
 ```json
 {

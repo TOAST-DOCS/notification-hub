@@ -14,8 +14,8 @@
 
 
 
-<a id="section-1"></a>
-## 통계 조회
+<a id="query-statistics"></a>
+## 통계 조회 { #query-statistics }
 
 통계 이벤트를 이벤트가 발생한 시간 기준으로 조회합니다.<br>
 

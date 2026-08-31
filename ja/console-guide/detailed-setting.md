@@ -12,10 +12,10 @@
 各メッセージチャネルの設定と添付ファイルを管理します。設定後、実際の反映までおおよそ数分かかる場合があります。
 
 <a id="sms"></a>
-## SMS
+## SMS { #sms }
 
 <a id="international-sms-send-settings"></a>
-### 国際SMSメッセージ送信設定
+### 国際SMSメッセージ送信設定 { #international-sms-send-settings }
 * 国際SMS送信機能を利用する前に必ず[[国際SMSサービスポリシー]](./preconditions/preconditions-international-sms)を確認します。
 * 国際SMS送信機能を使用しない場合は、**使用しない**に設定します。**使用**になっている場合、国際SMS量ポンピングによる事故が発生し、追加料金が請求される場合があります。
 * 国際SMSの月間送信件数は、最小1件から最大10,000件まで設定できます。10,000件以上の送信が必要な場合は、[[サポート]](https://www.nhncloud.com/kr/support/inquiry)にお問い合わせください。
@@ -33,9 +33,9 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 
 
 <a id="message-settings"></a>
-### メッセージ設定
+### メッセージ設定 { #message-settings }
 
-<a id="set-time-to-block-message-delivery-in-duplication"></a>
+<a id="message-settings-set-time-to-block-message-delivery-in-duplication"></a>
 #### メッセージ重複送信ブロック時間設定
 * 設定した時間の間、同じ内容のメッセージが送信されないように設定できます。
 * 重複送信ブロック設定をした場合、設定した時間(単位：分)の間、同じリクエストに対して送信失敗処理されます。
@@ -43,7 +43,7 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 * 重複判断基準は次のとおりです。
     * メッセージタイプ(SMS/LMS/MMS/AUTH)、発信番号、受信番号、タイトル、本文、添付ファイル
 
-<a id="alternative-characters-settings"></a>
+<a id="message-settings-alternative-characters-settings"></a>
 #### 代替文字設定
 * 送信要求の本文/件名にEUC-KR文字セットに含まれない、送信不可能な文字が含まれている場合、送信可能な文字に変換するように設定できます。
     * 代表的に絵文字はEUC-KR文字セットに含まれていません。
@@ -51,8 +51,9 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 * 代替文字設定を使用に設定すると、送信できない文字が設定した代替文字に変換されて表示されます。
 
 <a id="ad-message-settings"></a>
-### 広告性メッセージ設定
-<a id="set-time-to-restrict-to-deliver-ad-message"></a>
+### 広告性メッセージ設定 { #ad-message-settings }
+
+<a id="ad-message-settings-set-time-to-restrict-to-deliver-ad-message"></a>
 #### 広告性メッセージ送信時間制限設定
 * 広告メッセージの送信時間を制限できます。
 * 設定された広告送信制限時間中は、広告送信は行われません。
@@ -65,13 +66,14 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 
 
 <a id="rcs"></a>
-## RCS
+## RCS { #rcs }
 
 <!-- TODO: translate body -->
 
-<a id="ad-message-settings-2"></a>
-### 広告性メッセージ設定
-<a id="set-time-to-restrict-to-deliver-ad-message-2"></a>
+<a id="rcs-ad-message-settings"></a>
+### 広告性メッセージ設定 { #rcs-ad-message-settings }
+
+<a id="rcs-ad-message-settings-set-time-to-restrict-to-deliver-ad-message"></a>
 #### 広告性メッセージ送信時間制限設定
 * 広告メッセージの送信時間を制限できます。
 * 設定された広告送信制限時間中は、広告送信は行われません。
@@ -82,12 +84,12 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 * SMS, RCSの広告性メッセージ送信時間制限設定は個別設定が必要です。
 
 <a id="brand-message"></a>
-## ブランドメッセージ
+## ブランドメッセージ { #brand-message }
 
-<a id="ad-message-settings-3"></a>
-### 広告メール設定
+<a id="brand-message-ad-message-settings"></a>
+### 広告メール設定 { #brand-message-ad-message-settings }
 
-<a id="limit-advertising-messages-delivery-time"></a>
+<a id="brand-message-ad-message-settings-limit-advertising-messages-delivery-time"></a>
 #### 広告メッセージの送信時間制限設定
 * ブランドメッセージは広告メール性メッセージのみ送信でき、情報通信망법に基づき夜間時間帯の送信が制限されます。
 * 設定された広告送信制限時間中は、広告の送信は行われません。
@@ -98,11 +100,12 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
     * 制限時間解除後に再送信
 
 <a id="push"></a>
-## Push
+## Push { #push }
 
 <a id="token-settings"></a>
-### トークン設定
-<a id="set-token-expiry-period"></a>
+### トークン設定 { #token-settings }
+
+<a id="token-settings-set-token-expiry-period"></a>
 #### トークン有効期限設定
 * 設定した期間中に登録リクエストがないトークンをアドレス帳から削除します。
 * 長期間無効のトークンにメッセージが届く可能性は極めて低いです。
@@ -114,7 +117,7 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 * 無効化されたトークンは送信対象から除外され、送信料金を節約できます。
 * 無効化されたトークンを整理して、送信率、受信率の精度を上げることができます。
 
-<a id="set-app-type"></a>
+<a id="token-settings-set-app-type"></a>
 #### アプリタイプ設定
 * 連動されたアプリの種類に応じてトークンを管理します。
 * 複数のトークン
@@ -124,13 +127,14 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 * 単一トークン
     - ユーザーが一度に1つのデバイスでアプリを使用できます。1人のユーザーは1つのトークンしか持てません。
     - 例えば、ユーザーが携帯電話とタブレットを使用している場合、1つのトークンしか持てず、どちらか一方にプッシュメッセージを送信します。
+
 <a id="webhook"></a>
-## ウェブフック
+## ウェブフック { #webhook }
 
 <!-- TODO: translate body -->
 
 <a id="backup"></a>
-## バックアップ
+## バックアップ { #backup }
 
 <!-- TODO: translate body -->
 

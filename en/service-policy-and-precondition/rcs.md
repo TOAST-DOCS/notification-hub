@@ -10,12 +10,12 @@
 **Notification > Notification Hub > Usage Policy and Preset Guide > RCS**
 
 <a id="brand-creation-and-registration"></a>
-## Brand Creation and Registration
+## Brand Creation and Registration { #brand-creation-and-registration }
 
 To use the RCS Bizmessage service, you have to register your brand after signing up for the RCS Biz Center. [[Shortcut to the RCS Biz Center](https://www.rcsbizcenter.com/main)]
 
 <a id="create-a-brand"></a>
-### Create a Brand
+### Create a Brand { #create-a-brand }
 1. In RCS Biz Center, click **Sign up** > **Sign up as Business Representative** to sign up and get approved.
     * A copy of your business license is required when you sign up.
     * RCS manager will approve and it will take 2 business days to process your membership.
@@ -25,7 +25,7 @@ To use the RCS Bizmessage service, you have to register your brand after signing
     * RCS manager will approve, which can take about 2 business days for brand creation approval.
 
 <a id="set-up-a-brand-agency"></a>
-### Set up a Brand Agency
+### Set up a Brand Agency { #set-up-a-brand-agency }
 After completing the RCS brand approval, set the agency to "NHN Cloud".
 
 1. In RCS Biz Center, go to **Business Dashboard > Brand Dashboard > Brand Operations Management**.
@@ -33,7 +33,7 @@ After completing the RCS brand approval, set the agency to "NHN Cloud".
 2. Click **Add Agency Permissions**, then search for and select "NHN Cloud" in the agency name.
 
 <a id="register-chat-room-sender-number"></a>
-### Register Chat Room (sender number)
+### Register Chat Room (sender number) { #register-chat-room-sender-number }
 You can receive and view messages in chats in the Messages app. You can send and view messages on a per-chat basis.
 
 1. Go to **Business Dashboard > Brand Dashboard > Register Chat Room**, and register a chat room with a caller ID.
@@ -46,7 +46,7 @@ You can receive and view messages in chats in the Messages app. You can send and
 2. If the chat room registration is complete (approved), brand linkage is possible on **Notification Hub**>**Sender Information**>**Brand Management** tab.
 
 <a id="register-templates"></a>
-### Register Templates
+### Register Templates { #register-templates }
 Templates are RCS business messages that have pre-registered message content and style for your brand.
 To send a template message, you need to register the template in RCS Biz Center. (You do not need to register a separate template for sending with RCS SMS/LMS/MMS messages).
 
@@ -59,28 +59,28 @@ To send a template message, you need to register the template in RCS Biz Center.
 2. If your template registration is complete (approved), you can link it to the NHN Cloud Console in **Notification** > **RCS Bizmessage** > **Manage RCS Bizmessage** > **Brand Management** tab.
 
 <a id="link-branding-in-notification-hub-console"></a>
-### Link Branding in Notification Hub Console
+### Link Branding in Notification Hub Console { #link-branding-in-notification-hub-console }
 Once you have created a brand and set up an agency, registered a chat room (sender number), and registered a template, connect the brand to the console.
 
 The **Notification Hub**>**Sender Information**>**Brand Management** tab enables  linkage if there are any changes after the integration, press **+Brand Interworking** button.
 
 <a id="introduction-to-integrated-rcs"></a>
-## Introduction to Integrated RCS
+## Introduction to Integrated RCS { #introduction-to-integrated-rcs }
 
 <!-- TODO: translate body -->
 
 <a id="android-rcs-vs-integrated-rcs"></a>
-### Android RCS vs Integrated RCS
+### Android RCS vs Integrated RCS { #android-rcs-vs-integrated-rcs }
 
 <!-- TODO: translate body -->
 
 <a id="notes"></a>
-### Notes
+### Notes { #notes }
 
 <!-- TODO: translate body -->
 
 <a id="send-type-that-supports"></a>
-## Supported Sending Types
+## Supported Sending Types { #send-type-that-supports }
 - Sending types marked "O" in the "Unified RCS" column of the table below are unified RCS types that can be received on both Android and iPhone devices. (Sending types marked "X" are Android RCS types that can only be received on Android devices.)
 
 <table class="custom-table" style="text-align: center">

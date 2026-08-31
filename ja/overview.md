@@ -14,36 +14,36 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
 ![全体構造](../img/overview_800.png)
 
 <a id="key-features"></a>
-## 主な機能
+## 主な機能 { #key-features }
 
 <a id="multichannel-messaging"></a>
-### マルチチャンネルメッセージング
+### マルチチャンネルメッセージング { #multichannel-messaging }
 
 * SMS、お知らせトーク、ブランドメッセージ、RCS、Email、Push の 6 つのメッセージチャンネルでメッセージを送信できます。
     * さまざまなメッセージチャンネルを 1 つの API で統合管理し、簡単にメッセージを送信できます。
 
 <a id="address-book"></a>
-### アドレス帳
+### アドレス帳 { #address-book }
 
 * 受信者の連絡先(メール、携帯電話番号、トークン)を体系的に管理できます。
     * 受信者をグループで管理できます。
     * 受信者が受信拒否した履歴を管理し、不要なメッセージの送信を防止できます。
 
 <a id="template"></a>
-### テンプレート
+### テンプレート { #template }
 
 * 全てのメッセージチャンネルのテンプレートを登録及び管理できます。
     * テンプレートを使用することで、反復的なメッセージの作成を減らし、一貫性のあるメッセージを簡単に送信できます。
 
 <a id="flow"></a>
-### フロー
+### フロー { #flow }
 
 * 事前に登録したテンプレートでフローを作成できます。
 * フローを利用して最大6つのチャンネルに同時にメッセージを送信することができ、端末の状態によりメッセージの受信に失敗した場合、事前に設定した送信順序に従って次の順番のチャンネルに自動送信できます。
     * メッセージチャンネルの優先順位の設定方法により、受信率を高めたり、送信コストを節約するなど、様々な目的に使用できます。
 
 <a id="mass-delivery"></a>
-### 大量送信
+### 大量送信 { #mass-delivery }
 
 * メッセージを複数の受信者に一度に送信できます。
     * 受信者ファイルアップロード
@@ -51,7 +51,7 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
         * アップロードされたExcelファイルの有効な受信者と有効ではない受信者を区分します。
 
 <a id="guide-to-sharing-resource-and-feature-settings-between-notification-services"></a>
-## Notificationサービス間のリソースと機能設定の共有案内
+## Notificationサービス間のリソースと機能設定の共有案内 { #guide-to-sharing-resource-and-feature-settings-between-notification-services }
 
 * NHN Cloud NotificationのPush, SMS, RCS Bizmessage, KakaoTalk Bizmessage, Emailサービスのリソース及び機能設定履歴がNotification Hubサービスと共有されます。 (例：SMSサービスで発信番号を登録すると、 Notification Hubサービスでその発信番号が共有される)
  既存NHN Cloud NotificationユーザーはNotification Hubサービスに簡単に切り替えて利用できます。
@@ -65,7 +65,7 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
         * (メッセージチャンネル別)詳細設定
 
 <a id="delivery-volume-limit-guidance"></a>
-## 送信量制限案内
+## 送信量制限案内 { #delivery-volume-limit-guidance }
 
 * 一部のメッセージチャンネルで送信量を制限しています。
     * SMS
@@ -81,7 +81,7 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
     * [リソース提供ポリシー](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
 
 <a id="information-on-processing-of-personal-information"></a>
-## 個人情報処理に関するご案内
+## 個人情報処理に関するご案内 { #information-on-processing-of-personal-information }
 
 Notification Hubサービスを利用する過程で、顧客は利用者の個人情報を収集できます。したがって、本サービスを利用する顧客は、個人情報保護法に基づき、利用者に法的告知事項を通知し、同意を得なければなりません。
 また、この過程で、顧客とNHN Cloudの間で個人情報処理に関する業務委託関係が発生する場合があります。委託者の地位にある顧客は、受託者であるNHN Cloudと別途書面による委託契約を締結することができ、顧客が運営する個人情報処理方針に以下の内容を参考にして告知できます。
@@ -90,6 +90,6 @@ Notification Hubサービスを利用する過程で、顧客は利用者の個�
 * 委託業務の内容: Notification Hubサービス提供業務
 
 <a id="terms-and-conditions"></a>
-## 利用規約
+## 利用規約 { #terms-and-conditions }
 
 * [Notification利用規約](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)

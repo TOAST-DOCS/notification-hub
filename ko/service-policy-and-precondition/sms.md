@@ -113,14 +113,14 @@
 ## 번호 도용 문자 차단 서비스 안내 { #about-phone-scam-blocking-services }
 ‘번호 도용 문자 차단 서비스’ 서비스는 타인이 임의로 내 휴대전화 번호를 문자 범죄에 악용하거나 스팸을 발송할 수 없게 지켜주는 서비스입니다. 발신 번호가 이 서비스에 가입되어 있다면 발송이 실패할 수 있습니다. 문제가 되는 번호를 발신 번호로 사용하기 위해서는 통신사를 통해 해지가 필요합니다.
 
-<a id="how-to-use"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-how-to-use"></a>
 #### 이용 안내
 * 이동통신사(SKT, KT, LG U+ 및 MVNO 사업자 포함)에서 무료로 제공되고 있어 가입 시 동의하면 등록할 수 있습니다.
 * 문자 발송 후 정상적인 번호인데도 사이트에서 문자 전송 결과가 '실패'로 확인되면 '번호 도용 문자 차단 서비스' 가입 여부를 확인하세요.
 * '번호 도용 문자 차단 서비스'를 해지한 후 전송하세요.
 * 해지 신청 후 적용까지는 약 7일이 소요됩니다.
 
-<a id="guide-about-cancellation"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-guide-about-cancellation"></a>
 #### 해지 안내
 * 통신사 홈페이지
     * [SKT 번호 도용 문자 차단 해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)
@@ -134,14 +134,14 @@
 ## 통신사 스팸 차단 서비스 안내 { #about-carrier-spam-text-blocking-services }
 귀찮은 광고성 스팸 문자를 이동통신사에서 자동으로 차단해주는 서비스입니다. 이동통신사별 조합 기준에 따라 스팸으로 판단되는 문자를 휴대폰 문자 수신함이 아닌 스팸 보관함으로 전송합니다. 정상적으로 발송이 되었지만 수신에 실패한 경우 수신 번호가 통신사 스팸 차단 서비스에 가입되어 있을 수 있습니다.
 
-<a id="how-to-use-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-how-to-use"></a>
 #### 이용 안내
 * 전송 결과가 성공으로 확인되었으나 문자 수신을 못 하는 경우 통신사 스팸 차단 서비스를 확인하세요.
 * 한국인터넷진흥원 불법스팸대응센터에서 스팸 종합 대책을 마련함에 따라, 각 통신사에서 ‘스팸 차단 서비스’를 시행하고 있습니다.
 * 문자 수신함이 아닌 스팸 문자로 저장된 것이 확인되었다면, 스팸 차단 서비스를 해제하고 이용하세요.
 * 개인 정보 보호 정책으로 본인 이외 타인은 확인할 수 없으므로 본인이 직접 확인해야 합니다.
 
-<a id="guide-about-cancellation-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-guide-about-cancellation"></a>
 #### 해지 안내
 * 통신사 홈페이지
     * [SKT 스팸 필터링 해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)

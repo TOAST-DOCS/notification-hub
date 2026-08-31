@@ -11,12 +11,12 @@
 
 
 <a id="statistics"></a>
-## 통계
+## 통계 { #statistics }
 
 Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 데이터로 조회할 수 있습니다.
 
 <a id="query-statistics"></a>
-### 통계 조회
+### 통계 조회 { #query-statistics }
 
 발송된 메시지의 수신 결과를 수신자의 연락처 단위로 조회할 수 있습니다.
 
@@ -30,7 +30,7 @@ Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 �
 * 메시지 채널, 통계 기준, 통계 키, 메시지 아이디를 복합적으로 설정해 통계 데이터를 조회합니다.
 * 설정한 메시지 채널에 따라 설정할 수 있는 통계 기준이 달라집니다.
 
-<a id="message-channel-statistical-events-by-statistical-criteria"></a>
+<a id="query-statistics-message-channel-statistical-events-by-statistical-criteria"></a>
 #### 메시지 채널, 통계 기준에 따른 통계 이벤트
 
 | 메시지 채널 | 통계 기준 | 이벤트                                                                                                                 | 비고                     |
@@ -45,7 +45,7 @@ Notification Hub에서 발생하는 다양한 이벤트를 수집하고 통계 �
 | SMS | 국제 SMS 메시지 | 요청(REQUESTED), 요청 취소(CANCELED), 발송(SENT), 발송 실패(SEND_FAILED), 수신(DELIVERED), 수신 실패(DELIVERY_FAILED), 실발송(CONCAT) | 실발송 : 국제 SMS 메시지에 한해 Concatenated message(연결) 기능을 통해 발송된 실제 메시지 발송 건수|
 
 <a id="manage-statistical-keys"></a>
-### 통계 키 관리
+### 통계 키 관리 { #manage-statistical-keys }
 
 메시지 발송 시 통계 키를 설정하면 통계 조회에서 통계 키를 조회 조건으로 설정해 같은 통계 키로 발송된 메시지들의 통계 데이터를 조회할 수 있습니다.
 

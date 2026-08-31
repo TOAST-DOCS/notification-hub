@@ -14,7 +14,7 @@
 
 
 <a id="send-flow-messages"></a>
-## フローメッセージ送信
+## フローメッセージ送信 { #send-flow-messages }
 
 フロー送信をするためには、登録されたフローが必要です。
 
@@ -33,7 +33,7 @@
 
 
 <a id="send-individual-message-channels"></a>
-## 個別メッセージチャンネル送信
+## 個別メッセージチャンネル送信 { #send-individual-message-channels }
 
 1. テンプレートの有無を選択し、テンプレートを使用する場合は、テンプレートを選択します。
     * お知らせトークは発信プロフィールを選択し、発信プロフィールに登録されたテンプレートを選択します。
@@ -50,9 +50,9 @@
 **入力値コピー(JSON)** ボタンを利用して送信設定をJSON形式でコピーできます。
 
 <a id="how-to-set-up-receivers"></a>
-### 受信者の設定方法
+### 受信者の設定方法 { #how-to-set-up-receivers }
 
-<a id="select-receivers-from-direct-receiver-input-and-address-book"></a>
+<a id="how-to-set-up-receivers-select-receivers-from-direct-receiver-input-and-address-book"></a>
 #### 受信者直接入力とアドレス帳から受信者選択
 
 * フロー送信は、フローに設定されたメッセージチャネルの連絡先が全て入力されている場合にのみ送信が可能です。
@@ -61,7 +61,7 @@
 * 個別メッセージチャンネル送信の場合メッセージチャンネルに該当する連絡先を入力します。
 * プッシュトークンはプッシュタイプと端末で作成されたトークンを入力します。
 
-<a id="upload-file"></a>
+<a id="how-to-set-up-receivers-upload-file"></a>
 #### ファイルアップロード
 
 * 受信者連絡先リストファイルのテンプレートをダウンロードします。
@@ -76,9 +76,9 @@
 | 受信者の携帯電話番号 | 受信者のメールアドレス | {"contactType": "連絡先_タイプ", "token": "プッシュ_トークン" } |
 
 <a id="how-to-write-a-message-title-and-content"></a>
-### メッセージのタイトルと内容作成方法
+### メッセージのタイトルと内容作成方法 { #how-to-write-a-message-title-and-content }
 
-<a id="sms"></a>
+<a id="how-to-write-a-message-title-and-content-sms"></a>
 #### SMS
 * 発信番号、送信目的を選択します。送信目的が広告の場合、080受信拒否番号を選択します。
 * 送信タイプを選択します。送信タイプはSMS(短文)、LMS(長文)、MMS(メディア長文)があります。
@@ -100,7 +100,7 @@
 * MMSサポート規格: 1つにつき300KB以下、画像の数が3つの場合、合計800KB以下/ .jpg, .jpegファイル
 
 
-<a id="international-sms"></a>
+<a id="how-to-write-a-message-title-and-content-international-sms"></a>
 #### 国際SMS
 国際SMSはエンコードと文字数によって連結されたメッセージ(Concatenated Message)で送信されます。
 
@@ -116,7 +116,7 @@
 | GSM-7bit | 160文字 | 306文字<br>(=153*2) | 459文字<br>(=153*3) | 612文字<br>(=153*4) | 765文字<br>(=153*5) |
 
 
-<a id="rcs"></a>
+<a id="how-to-write-a-message-title-and-content-rcs"></a>
 #### RCS
 
 1. 発信ブランドとチャットルーム(発信番号)を選択します。
@@ -168,14 +168,14 @@
     * スケジュールタイトルとスケジュール内容を入力します。
 
 
-<a id="alimtalk"></a>
+<a id="how-to-write-a-message-title-and-content-alimtalk"></a>
 #### お知らせトーク
 
 * 発信プロフィールと、発信プロフィールに登録されたテンプレートを選択します。
 * お知らせトークはテンプレート送信のみ可能なため、内容の入力は不要です。
 * 共用お知らせトークテンプレートも送信時に発信プロフィールを選択する必要があります。共用お知らせトークテンプレートは特定の発信プロフィールに帰属しないため、選択した発信プロフィールで送信されます。
 
-<a id="brand-message"></a>
+<a id="how-to-write-a-message-title-and-content-brand-message"></a>
 #### ブランドメッセージ
 
 ブランドメッセージは、広告メッセージのみ送信できます。
@@ -224,7 +224,7 @@
 | ビジネスフォーム | 設定したビジネスフォームが呼び出されます。 |
 | チャンネル追加 | 送信チャンネルを追加します。最後のボタン位置にのみ使用できます。 |
 
-<a id="email"></a>
+<a id="how-to-write-a-message-title-and-content-email"></a>
 #### メール
 
 1. 送信目的を選択します。
@@ -275,7 +275,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 
 
 <a id="push"></a>
-### Push
+### Push { #push }
 
 1. 送信目的を選択します。
 2. 送信目的を広告に選択した場合、追加入力が必要です。
@@ -293,7 +293,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
         * [iOS SDK](https://docs.nhncloud.com/ko/nhncloud/ko/nhncloud-sdk/push-ios/)
 
 
-<a id="button"></a>
+<a id="push-button"></a>
 #### ボタン
 
 |名前| 内容                                                            |
@@ -304,7 +304,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 | リンク | ボタンを押したときに移動または実行するリンクです。ボタンタイプが「URLを開く」の場合、該当します。                |
 | ヒント | ボタンの説明です。                                                    |
 
-<a id="type-of-buttons"></a>
+<a id="push-type-of-buttons"></a>
 #### ボタンのタイプ
 - レスポンス
     - ダイレクト返信機能を実行します。
@@ -319,7 +319,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 - 閉じる
     - 該当通知を閉じます。
 
-<a id="media"></a>
+<a id="push-media"></a>
 #### メディア
 
 |名前| 内容                                             |
@@ -330,7 +330,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 | 拡張子 | メディアの拡張子                                       | .png, .aviなどメディアの拡張子です。 |
 | 展開 | メディア展開機能、 Androidのみ可能です。                      |
 
-<a id="specify-media-files"></a>
+<a id="push-specify-media-files"></a>
 #### メディアファイル指定
 - 外部
     - 入力したURLに該当するメディアファイルをダウンロードして使用します。
@@ -353,7 +353,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
         - バンドルリソースでアクセスするため、拡張子を含めた完全なファイル名が必要です。
         - メッセージ作成時'richMessage.media.source'に追加したファイル名を入力します。
 
-<a id="media-type"></a>
+<a id="push-media-type"></a>
 #### メディアタイプ
 - 画像
 
@@ -378,7 +378,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 | サポート形式 | サポートしない | WaveAudio, MP3, MPEG4Audio |
 | ファイルサイズ | サポートしない | 5MB |
 
-<a id="big-icon"></a>
+<a id="push-big-icon"></a>
 #### 大きなアイコン
 Androidのみ提供する機能です。通知に大きなアイコンを指定します。ファイルの指定方法は、メディアファイルの指定方法と同じです。
 
@@ -387,7 +387,7 @@ Androidのみ提供する機能です。通知に大きなアイコンを指定�
 | 位置 | 位置する場所、'REMOTE'または'LOCAL'         |
 | アドレス | 画像が位置するアドレス、 URL, URIなど。 |
 
-<a id="groups"></a>
+<a id="push-groups"></a>
 #### グループ
 Androidのみ提供する機能です。通知にグループを設定し、グループキーが同じ通知はまとめて表現します。
 
@@ -396,7 +396,7 @@ Androidのみ提供する機能です。通知にグループを設定し、グ�
 | キー | グループのキー   |
 | 説明 | グループの説明 |
 
-<a id="notification-sound"></a>
+<a id="push-notification-sound"></a>
 #### 通知音
 | | Android | iOS |
 | - | - | - |

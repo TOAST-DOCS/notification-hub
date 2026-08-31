@@ -12,12 +12,12 @@
 
 
 <a id="address-book"></a>
-## Address Book
+## Address Book { #address-book }
 
 You can register and manage the receiver's contacts.
 
 <a id="contact"></a>
-### Contact
+### Contact { #contact }
 
 * Click **+ Add Contacts**.
 * You can enter your contact information directly or upload a file to register it.
@@ -27,7 +27,7 @@ You can register and manage the receiver's contacts.
 * You can register up to 6 tokens.
 * You can register up to 16 groups.
 
-<a id="download-contacts"></a>
+<a id="contact-download-contacts"></a>
 #### Download contacts
 All saved contacts can be downloaded as a file.
 
@@ -35,7 +35,7 @@ All saved contacts can be downloaded as a file.
 * Click **Download Request List** to view the requested list and download the completed file.
 
 <a id="groups"></a>
-### Groups
+### Groups { #groups }
 
 You can create groups to add group receivers.
 
@@ -43,7 +43,7 @@ You can create groups to add group receivers.
 * Enter a group name and click **Confirm** to create a group.
 * You can add receivers to a group by clicking the created group and clicking **+ Add Group Contacts** on the **Manage Group Contacts** tab.
 
-<a id="download-group-contact"></a>
+<a id="groups-download-group-contact"></a>
 #### Download Group Contact
 You can download a contact that belongs to a group as a file.
 
@@ -52,31 +52,31 @@ You can download a contact that belongs to a group as a file.
 
 
 <a id="manage-unsubscribes"></a>
-### Manage Unsubscribes
+### Manage Unsubscribes { #manage-unsubscribes }
 
 You can look up and manage mobile phone numbers, email addresses, and tokens that have unsubscribed.
 
-<a id="mobile-phone-number"></a>
+<a id="manage-unsubscribes-mobile-phone-number"></a>
 #### Mobile Phone Number
 
 * Click the drop-down list under the **+ Add Unsubscribed Number** button to select the 080 Unsubscribed Number and query the unsubscribed mobile phone number with the selected 080 Unsubscribed Number.
 * Click **+ Add Unsubscribed Number** to manually add it to the Unsubscription List.
 
-<a id="email"></a>
+<a id="manage-unsubscribes-email"></a>
 #### Email
 
 * Click the drop-down list under the **+ Add Unsubscribed Email** button to select email domain and query the unsubscribed email address with the selected Unsubscribed email domain.
 * Click **+ Add Unsubscribed Email ** to manually add it to the Unsubscription List.
 
 
-<a id="token"></a>
+<a id="manage-unsubscribes-token"></a>
 #### Token
 
 * You can immediately look up the list of tokens that you have refused to receive immediately.
 * Click the drop-down list under the **+ Add Unsubscribed token** button to select email domain and query the unsubscribed email address with the selected Unsubscribed email domain.
 * Click **+ Add Unsubscribed token** to manually add it to the Unsubscription List.
 
-<a id="unsubscribed-numberemailtoken-download"></a>
+<a id="manage-unsubscribes-unsubscribed-numberemailtoken-download"></a>
 #### Unsubscribed Number/Email/Token Download
 You can download a Unsubscription List as a file.
 

@@ -14,8 +14,8 @@
 
 
 
-<a id="section-1"></a>
-## 統計照会
+<a id="query-statistics"></a>
+## 統計照会 { #query-statistics }
 
 統計イベントをイベント発生時間基準で照会します。<br>
 

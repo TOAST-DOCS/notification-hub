@@ -11,10 +11,10 @@
 
 
 <a id="sms-example"></a>
-## SMS
+## SMS { #sms-example }
 
 <a id="sms-short"></a>
-### SMS(단문)
+### SMS(단문) { #sms-short }
 
 ```json
 {
@@ -51,7 +51,7 @@
 | content.body | String | Y | 내용 |
 
 <a id="lms-long"></a>
-### LMS(장문)
+### LMS(장문) { #lms-long }
 
 ```json
 {
@@ -90,7 +90,7 @@
 | content.body | String | Y | 내용 |
 
 <a id="mms-long-media"></a>
-### MMS(미디어 장문)
+### MMS(미디어 장문) { #mms-long-media }
 
 ```json
 {
@@ -133,10 +133,10 @@
 
 
 <a id="rcs"></a>
-## RCS
+## RCS { #rcs }
 
 <a id="sms"></a>
-### SMS
+### SMS { #sms }
 
 ```json
 {
@@ -207,7 +207,7 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="lms-standard"></a>
-### LMS 스탠다드
+### LMS 스탠다드 { #lms-standard }
 
 ```json
 {
@@ -278,7 +278,7 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="lms-format-basic-and-format-title-emphasis"></a>
-### LMS 포맷 기본형 및 포맷 타이틀 강조형
+### LMS 포맷 기본형 및 포맷 타이틀 강조형 { #lms-format-basic-and-format-title-emphasis }
 * mTitleMedia 아이콘 파일 ID 목록
   * 프로모션: LT-messagebase.common-jFBCKu
   * 쿠폰: LT-messagebase.common-LbshOv
@@ -360,7 +360,7 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="lms-format-paragraph-type"></a>
-### LMS 포맷 문단형 타입
+### LMS 포맷 문단형 타입 { #lms-format-paragraph-type }
 * mTitleMedia 아이콘 파일 ID 목록
   * 프로모션: LT-messagebase.common-jFBCKu
   * 쿠폰: LT-messagebase.common-LbshOv
@@ -480,7 +480,7 @@
 
 
 <a id="mms-horizontal-vertical"></a>
-### MMS 가로형, 세로형
+### MMS 가로형, 세로형 { #mms-horizontal-vertical }
 
 ```json
 {
@@ -554,7 +554,7 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="mms-carousel"></a>
-### MMS 캐러셀
+### MMS 캐러셀 { #mms-carousel }
 
 ```json
 {
@@ -660,7 +660,7 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="integrated-sms-card"></a>
-### 통합 SMS 카드
+### 통합 SMS 카드 { #integrated-sms-card }
 
 ```json
 {
@@ -730,7 +730,7 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="integrated-lms-card"></a>
-### 통합 LMS 카드
+### 통합 LMS 카드 { #integrated-lms-card }
 
 ```json
 {
@@ -802,7 +802,7 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="integrated-mms-card-horizontal-vertical"></a>
-### 통합 MMS 카드 가로형, 세로형
+### 통합 MMS 카드 가로형, 세로형 { #integrated-mms-card-horizontal-vertical }
 
 ```json
 {
@@ -876,7 +876,7 @@
 | options.groupId | String | N | RCS Biz Center 통계 연동을 위한 group ID [가이드](../console-guide/send-a-message/#RCS) (최대 20 Byte) |
 
 <a id="email"></a>
-## Email
+## Email { #email }
 
 ```json
 {
@@ -920,7 +920,7 @@
 * **recipients[].contacts[].contact** 필드에는 수신자 이메일 주소를 입력합니다.
 
 <a id="push"></a>
-## Push
+## Push { #push }
 
 ```json
 {

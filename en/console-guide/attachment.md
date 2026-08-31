@@ -12,7 +12,7 @@
 Manage attachments and image layouts.
 
 <a id="attachment-management"></a>
-## Attachment Management
+## Attachment Management { #attachment-management }
 
 You can pre-register and manage files to attach when sending messages.
 
@@ -27,7 +27,7 @@ You can also manage attachments uploaded when registering templates and sending 
 
 
 <a id="attachment-specifications-by-message-channel"></a>
-### Attachment Specifications by Message Channel
+### Attachment Specifications by Message Channel { #attachment-specifications-by-message-channel }
 
 | Message Channel | Type             | File Format                                               | Max File Size | Resolution                           | Ratio                          |
 | ----------- | ---------------- | ------------------------------------------------------- | ------------- | -------------------------------- | ----------------------------- |
@@ -44,7 +44,7 @@ You can also manage attachments uploaded when registering templates and sending 
 | Email       | -                | All formats except .js, .exe, .bat, .cmd, .com, .cpl, .scr, .vbs, .wsr | 30MB          |                                  |                               |
 
 <a id="image-layout-management"></a>
-## Image Layout Management
+## Image Layout Management { #image-layout-management }
 
 You can use image layouts to personalize images when sending MMS messages via SMS. An image layout consists of a background image, an image, content, and a barcode. You can use the image layout feature when creating SMS - MMS type templates.
 
