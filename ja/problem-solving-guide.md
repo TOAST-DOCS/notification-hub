@@ -10,17 +10,17 @@
 **Notification > Notification Hub > トラブルシューティング**
 
 <a id="you-cannot-proceed-with-identity-verification"></a>
-## 本人認証を進行できません。
+## 本人認証を進行できません。 { #you-cannot-proceed-with-identity-verification }
 
 Notification Hubは事業者会員のみ本人認証を行うことで使用できます。個人会員の場合、本人認証を行うことができません。事業者会員として再入会後、本人認証を行ってください。
 
 <a id="despite-joining-as-a-business-member-you-cannot-proceed-with-your-identity-verification"></a>
-## 事業者会員として登録しましたが、本人認証ができません。
+## 事業者会員として登録しましたが、本人認証ができません。 { #despite-joining-as-a-business-member-you-cannot-proceed-with-your-identity-verification }
 
 Notification Hubで事業者会員の基準は、有効化したプロジェクトの組織のオーナー(OWNER)会員のタイプに従います。組織のオーナー会員が個人会員の場合、事業者会員として本人認証を行うことができません。組織のオーナー会員を事業者会員に変更した後、本人認証を行ってください。
 
 <a id="sent-characters-are-not-received-by-some-receiver-devices"></a>
-## 送信したメールが一部の受信者端末で受信されません。
+## 送信したメールが一部の受信者端末で受信されません。 { #sent-characters-are-not-received-by-some-receiver-devices }
 
 受信者の端末でメールが届かない場合、受信者の番号が**番号盗用メールブロックサービス**または**通信会社の迷惑メールブロックサービス**に加入している可能性があります。サービスを解除して再度送信してください。**番号盗用メールブロックサービス**と**通信会社の迷惑メールブロックサービス**の詳細については、以下のリンクをご確認ください。
 
@@ -28,7 +28,7 @@ Notification Hubで事業者会員の基準は、有効化したプロジェク�
 * [サービスプロバイダースパムブロックサービス案内](service-policy-and-precondition/sms#about-phone-scam-blocking-services)
 
 <a id="iphone-will-not-receive-push-messages-and-the-registered-token-will-be-deleted"></a>
-## iPhoneでプッシュメッセージが受信されず、登録したトークンが削除されます。
+## iPhoneでプッシュメッセージが受信されず、登録したトークンが削除されます。 { #iphone-will-not-receive-push-messages-and-the-registered-token-will-be-deleted }
 
 iPhoneアプリでトークンを登録し、プッシュメッセージを送信したが、プッシュメッセージが受信されず、登録されたトークンが削除される場合は、以下の事項をご確認ください。
 
@@ -45,7 +45,7 @@ iPhoneアプリでトークンを登録し、プッシュメッセージを送�
         * TOKEN_APNS_SANDBOX_VOIP: APNS_SANDBOXVOIP
 
 <a id="push-messages-are-not-received-on-an-android-device-and-the-registered-token-has-been-deleted"></a>
-## Android端末でプッシュメッセージが受信されず、登録されたトークンが削除されます。
+## Android端末でプッシュメッセージが受信されず、登録されたトークンが削除されます。 { #push-messages-are-not-received-on-an-android-device-and-the-registered-token-has-been-deleted }
   
 Androidアプリでトークンを登録し、プッシュメッセージを送信したが、プッシュメッセージが受信されず、登録されたトークンが削除される場合は、以下の事項を確認してください。
 

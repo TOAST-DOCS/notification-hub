@@ -15,7 +15,7 @@
 
 
 <a id="request-to-register-external-080-opt-out-number"></a>
-## 080 수신 거부 외부 번호 등록 신청
+## 080 수신 거부 외부 번호 등록 신청 { #request-to-register-external-080-opt-out-number }
 
 080 수신 거부 외부 번호 등록 신청을 합니다.
 
@@ -119,7 +119,7 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 </details>
 
 <a id="deregister-external-080-opt-out-number"></a>
-## 080 수신 거부 외부 등록 번호 해지
+## 080 수신 거부 외부 등록 번호 해지 { #deregister-external-080-opt-out-number }
 
 080 수신 거부 외부 등록 번호를 해지합니다.
 
@@ -202,7 +202,7 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 </details>
 
 <a id="view-080-opt-out-number-list"></a>
-## 080 수신 거부 번호 목록 조회
+## 080 수신 거부 번호 목록 조회 { #view-080-opt-out-number-list }
 
 080 수신 거부 번호 목록을 조회합니다.
 
@@ -310,7 +310,7 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 </details>
 
 <a id="search-single-080-opt-out-number"></a>
-## 080 수신 거부 번호 단건 조회
+## 080 수신 거부 번호 단건 조회 { #search-single-080-opt-out-number }
 
 080 수신 거부 번호 단건을 조회합니다.
 

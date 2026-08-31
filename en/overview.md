@@ -14,38 +14,38 @@ It is a cloud-based integrated messaging platform that sends and manages push, e
 ![Overall structure](../img/overview_800.png)
 
 <a id="key-features"></a>
-## Key Features
+## Key Features { #key-features }
 
 <!-- TODO: translate body -->
 
 <a id="multichannel-messaging"></a>
-### Multi-Channel Messaging
+### Multi-Channel Messaging { #multichannel-messaging }
 
 * Sends messages to six messaging channels: SMS, Alim Talk, Brand Message, RCS, Email, and Push.
     * Uses a single API to integrate and manage multiple message channels for easy sending.
 
 <a id="address-book"></a>
-### Address Book
+### Address Book { #address-book }
 
 * Organizes your receivers' contacts (email, phone number, token).
   * Categorizes receivers by group
   * You can prevent unnecessary sending of messages by managing receiver's Unsubscription history.
 
 <a id="template"></a>
-### Template
+### Template { #template }
 
 * Adds and manages templates for all message channels.
   * With templates, you can reduce repetitive message creation and easily send out messages consistently.
 
 <a id="flow"></a>
-### Flow
+### Flow { #flow }
 
 * Creates a flow with pre-defined templates
   * Sends messages simultaneously to maximum 6 channels with a flow, and automatically sends messages to the next channel in the preset send order when a message fails to be received due to device status.
   * Depending on how the message channel is prioritized, it can be used for a variety of purposes, such as increasing reception ratio or saving delivery costs.
 
 <a id="mass-delivery"></a>
-### Mass Delivery
+### Mass Delivery { #mass-delivery }
 
 * Sends messages to multiple receivers at once.
   * Uploads a receiver file
@@ -53,7 +53,7 @@ It is a cloud-based integrated messaging platform that sends and manages push, e
   * Distinguishes between valid and invalid receivers of an uploaded Excel file.
 
 <a id="guide-to-sharing-resource-and-feature-settings-between-notification-services"></a>
-## Guide to sharing resource and feature settings between Notification Services
+## Guide to sharing resource and feature settings between Notification Services { #guide-to-sharing-resource-and-feature-settings-between-notification-services }
 
 * The resource and feature settings of NHN Cloud Notification's Push, SMS, RCS Bizmessage, KakaoTalk Bizmessage, and Email services are shared with the Notification Hub service. (For example, when SMS service registers a sender number, the sender number is shared by Notification Hub service.)
 Existing NHN Cloud Notification users can easily switch to and use the Notification Hub service.
@@ -67,7 +67,7 @@ Existing NHN Cloud Notification users can easily switch to and use the Notificat
       * Detailed settings (by message channel)
 
 <a id="delivery-volume-limit-guidance"></a>
-## Delivery volume Limit Guidance
+## Delivery volume Limit Guidance { #delivery-volume-limit-guidance }
 
 * Some message channels limit the volume of delivery.
   * SMS
@@ -83,7 +83,7 @@ Existing NHN Cloud Notification users can easily switch to and use the Notificat
   * [ Resource Provision Policy Shortcut ](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
 
 <a id="information-on-processing-of-personal-information"></a>
-## Information on Processing of Personal Information
+## Information on Processing of Personal Information { #information-on-processing-of-personal-information }
 
 In the process of using the Notification Hub service, customers can collect the user's personal information. Therefore, customers who use this service must inform users of legal notices and obtain consent in accordance with the Personal Information Protection Act.
 In addition, this process may result in a consignment relationship between the customer and NHN Cloud regarding the processing of personal information. Customers in the position of a consignor can enter into a separate written consignment contract with the consignee, NHN Cloud, and can refer to the following information to notify the personal information processing policy operated by the customer.
@@ -92,6 +92,6 @@ In addition, this process may result in a consignment relationship between the c
 * Contents of consignment work: Notification Hub service provision work
 
 <a id="terms-and-conditions"></a>
-## Terms and Conditions
+## Terms and Conditions { #terms-and-conditions }
 
 * [Notification Terms and Conditions Shortcut](https://kr1-0lodw5frr5-real.api.nhncloudservice.com/popup/terms)

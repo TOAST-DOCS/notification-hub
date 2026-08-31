@@ -10,14 +10,14 @@
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 알림톡/브랜드 메시지**
 
 <a id="create-sender-profile"></a>
-## 발신 프로필 생성
+## 발신 프로필 생성 { #create-sender-profile }
 카카오 정책에 따라 카카오톡 비즈 메시지를 발송하려면 먼저 카카오톡채널 관리자센터에서 비즈니스 인증을 받은 채널을 개설해야 합니다.
 
 * [카카오 비즈니스 바로 가기](https://business.kakao.com/)
 * [카카오 비즈니스 - 카카오 채널 생성 및 비즈니스 인증 가이드 바로 가기](https://kakaobusiness.gitbook.io/main/channel/start)
 
 <a id="creating-accounts-and-channels"></a>
-### 계정 및 채널 생성
+### 계정 및 채널 생성 { #creating-accounts-and-channels }
 
 다음 항목을 참고해 계정 생성 및 로그인을 진행합니다.
 
@@ -31,7 +31,7 @@
 * 프로필 사진은 채널 등록 이후에도 설정하실 수 있습니다.
 
 <a id="set-kakao-talk-channel"></a>
-### 카카오톡 채널 설정
+### 카카오톡 채널 설정 { #set-kakao-talk-channel }
 채널 개설 완료 후 아래 항목을 참고해 채널 정보를 설정하고 비즈니스 채널을 신청합니다.
 
 1. 카카오톡 채널 관리자센터에서 개설된 채널을 선택합니다. 채널 공개와 검색 허용을 'ON'으로 설정합니다.
@@ -44,11 +44,11 @@
 
 
 <a id="register-kakaotalk-channel"></a>
-### 카카오톡 채널 등록
+### 카카오톡 채널 등록 { #register-kakaotalk-channel }
 비즈니스 채널 전환이 완료(승인)되었다면, **Notification Hub** > **발신 정보** > **발신 프로필 관리** 탭에서 발신 프로필(카카오톡 채널)을 등록합니다. 발신 프로필 등록에 대한 자세한 내용은 **콘솔 사용 가이드** > **발신 정보** > **발신 프로필 관리**에서 확인할 수 있습니다.
 
 <a id="precautions"></a>
-## 주의 사항
+## 주의 사항 { #precautions }
 알림톡 이용 시 고객사는 다음과 같은 서비스 이용 유의 사항을 수신자에게 안내해야 합니다.
 
 * 알림톡을 수신하는 과정에서 와이파이 환경이 아닌 경우, 데이터 통신 요금이 발생할 수 있습니다.
@@ -67,17 +67,17 @@
 * 브랜드 메시지 발송 실패 시 문자 메시지로 대체 발송이 가능합니다.
 
 <a id="create-a-sender-profile"></a>
-## 발신 프로필 생성
+## 발신 프로필 생성 { #create-a-sender-profile }
 
 브랜드 메시지는 알림톡과 동일한 카카오톡 발신 프로필을 사용합니다. 발신 프로필 생성은 위 **알림톡 > 발신 프로필 생성**을 참고하세요.
 
 <a id="delivery-targets-and-targeting"></a>
-## 발송 대상 및 타겟팅
+## 발송 대상 및 타겟팅 { #delivery-targets-and-targeting }
 
 브랜드 메시지는 발송 대상 유형에 따라 고객 대상 발송과 친구 대상 발송으로 나뉩니다.
 
 <a id="customer-targeted-delivery"></a>
-### 고객 대상 발송
+### 고객 대상 발송 { #customer-targeted-delivery }
 
 고객 대상 발송은 광고주의 마수동 사용자를 대상으로 메시지를 발송합니다. 고객 대상 발송을 사용하려면 사전에 **고객 대상 발송 사용 신청**을 완료해야 합니다. 발신 프로필에 080 수신거부번호 등록이 필요합니다. 타겟팅 유형에 따라 발송 가능 대상이 달라집니다.
 
@@ -87,7 +87,7 @@
 * **N**: 마케팅 수신 동의 사용자 중 채널 친구를 제외하고 광고성 메시지를 발송합니다.
 * **O**: 마케팅 수신 동의 사용자 중 채널 친구를 대상으로 광고성 메시지를 발송합니다.
 
-<a id="conditions-for-sending-messages-to-non-friends"></a>
+<a id="customer-targeted-delivery-conditions-for-sending-messages-to-non-friends"></a>
 #### 비친구 메시지 발송 조건
 
 비친구 대상 메시지 발송(타겟팅 M, N)은 다음 조건을 모두 만족해야 합니다.
@@ -99,12 +99,12 @@
 * 3개월 내 알림톡 발송 성공 이력 보유
 
 <a id="friend-targeted-delivery"></a>
-### 친구 대상 발송
+### 친구 대상 발송 { #friend-targeted-delivery }
 
 친구 대상 발송은 카카오톡 채널 친구 전체를 대상으로 메시지를 발송합니다. 080 수신거부번호 등록이 필요하지 않습니다.
 
 <a id="register-080-opt-out-number"></a>
-## 080 수신거부 등록
+## 080 수신거부 등록 { #register-080-opt-out-number }
 
 고객 대상 발송(타겟팅 M, N, O) 시, 발신 프로필에 080 수신거부번호를 등록해야 합니다.
 
@@ -112,7 +112,7 @@
 * NHN Cloud SMS 서비스와 연계하여 080 수신거부번호의 수신거부 관리를 할 수 있습니다.
 
 <a id="nighttime-delivery-restrictions"></a>
-## 야간 발송 제한
+## 야간 발송 제한 { #nighttime-delivery-restrictions }
 
 브랜드 메시지는 광고성 메시지이므로 정보통신망법에 의거해 야간 시간에 발송이 제한됩니다.
 
@@ -120,7 +120,7 @@
 * 야간 시간에 발송을 요청한 경우, 상세 설정에 따라 실패 처리되거나 제한 시간 해제 후 재발송됩니다.
 
 <a id="caution"></a>
-## 주의 사항
+## 주의 사항 { #caution }
 
 브랜드 메시지는 광고성 메시지이므로 다음 사항을 준수해야 합니다.
 

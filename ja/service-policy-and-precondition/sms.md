@@ -114,14 +114,14 @@
 ## 番号盗用メールブロックサービス案内 { #about-phone-scam-blocking-services }
 「番号盗用テキストブロックサービス」は、他人が勝手に自分の携帯電話番号をテキスト犯罪に悪用したり、スパムを送信できないようにするサービスです。発信番号がこのサービスに加入している場合、送信に失敗する可能性があります。問題のある番号を発信番号として使用するためには、通信会社を通じて解約する必要があります。
 
-<a id="how-to-use"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-how-to-use"></a>
 #### 利用案内
 * 通信事業者(SKT、KT、LG U+、MVNO事業者を含む)で無料提供されており、加入時に同意すれば登録できます。
 * メール送信後、正常な番号であるにもかかわらず、サイトでメール送信結果が「失敗」であることが確認された場合、「番号盗用メールブロックサービス」加入の有無を確認してください。
 * 「番号盗用メールブロックサービス」を解除してから送信してください。
 * 解除申請後、適用まで約7日かかります。
 
-<a id="guide-about-cancellation"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-guide-about-cancellation"></a>
 #### 解除案内
 * サービスプロバイダーWebサイト
     * [SKT番号盗用メールブロックの解除](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)
@@ -135,14 +135,14 @@
 ## サービスプロバイダースパムブロックサービス案内 { #about-carrier-spam-text-blocking-services }
 迷惑な広告性スパムメールを通信事業者で自動的にブロックしてくれるサービスです。携帯電話会社別の組み合わせ基準により、スパムと判断されたメールを携帯電話のメール受信箱ではなく、スパム保管箱に送信します。正常に送信されたが、受信に失敗した場合、受信番号が通信会社の迷惑メールブロックサービスに加入している可能性があります。
 
-<a id="how-to-use-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-how-to-use"></a>
 #### 利用案内
 * 送信結果が成功と確認されたが、メール受信ができない場合は、通信会社のスパムブロックサービスをご確認ください。
 * 韓国インターネット振興院違法スパム対応センターがスパム総合対策を策定したため、各通信会社で「スパムブロックサービス」を実施しています。
 * メール受信箱ではなく、スパムメールとして保存されていることが確認された場合は、スパムブロックサービスを解除してご利用ください。
 * 個人情報保護ポリシーにより、本人以外は確認することができないため、本人が直接確認する必要があります。
 
-<a id="guide-about-cancellation-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-guide-about-cancellation"></a>
 #### 解除案内
 * サービスプロバイダーWebサイト
     * [SKTスパムフィルタリングの解除](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)

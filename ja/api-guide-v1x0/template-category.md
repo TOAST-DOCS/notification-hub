@@ -17,7 +17,7 @@
 
 
 <a id="delete-a-template-category"></a>
-## テンプレートカテゴリーの削除
+## テンプレートカテゴリーの削除 { #delete-a-template-category }
 
 テンプレートカテゴリーを削除します。
 
@@ -103,7 +103,7 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 </details>
 
 <a id="retrieve-template-category-details"></a>
-## テンプレートカテゴリー単件照会
+## テンプレートカテゴリー単件照会 { #retrieve-template-category-details }
 
 テンプレートカテゴリーを単件照会します。
 
@@ -204,7 +204,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 </details>
 
 <a id="modify-a-template-category"></a>
-## テンプレートカテゴリーの修正
+## テンプレートカテゴリーの修正 { #modify-a-template-category }
 
 テンプレートカテゴリーを修正します。
 
@@ -310,7 +310,7 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 </details>
 
 <a id="add-a-template-to-a-category"></a>
-## カテゴリーにテンプレートを追加
+## カテゴリーにテンプレートを追加 { #add-a-template-to-a-category }
 
 カテゴリーにテンプレートを追加します。
 
@@ -412,7 +412,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 </details>
 
 <a id="list-template-categories"></a>
-## テンプレートカテゴリー一覧照会
+## テンプレートカテゴリー一覧照会 { #list-template-categories }
 
 テンプレートカテゴリー一覧を照会します。
 
@@ -512,7 +512,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 </details>
 
 <a id="register-template-categories"></a>
-## テンプレートカテゴリーの登録
+## テンプレートカテゴリーの登録 { #register-template-categories }
 
 テンプレートカテゴリーを登録します。
 
@@ -619,7 +619,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 </details>
 
 <a id="retrieve-a-template-category-hierarchy"></a>
-## テンプレートカテゴリーツリー一覧照会
+## テンプレートカテゴリーツリー一覧照会 { #retrieve-a-template-category-hierarchy }
 
 テンプレートカテゴリーのツリー一覧を照会します。
 

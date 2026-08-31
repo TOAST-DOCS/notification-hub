@@ -855,8 +855,8 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 
 </details>
 
-<a id="request-to-send-a-free-form-message---email"></a>
-## 자유 양식 메시지 발송 요청 - 이메일(EMAIL) { #request-to-send-a-free-form-message---email }
+<a id="free-form-message-sending-request---email-email"></a>
+## 자유 양식 메시지 발송 요청 - 이메일(EMAIL) { #free-form-message-sending-request---email-email }
 
 이메일(EMAIL)에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -1026,8 +1026,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 </details>
 
-<a id="request-to-send-a-free-form-message---rcs"></a>
-## 자유 양식 메시지 발송 요청 - RCS { #request-to-send-a-free-form-message---rcs }
+<a id="free-form-message-sending-request---rcs"></a>
+## 자유 양식 메시지 발송 요청 - RCS { #free-form-message-sending-request---rcs }
 
 RCS에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -1403,8 +1403,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 </details>
 
-<a id="request-to-send-a-free-form-message---push"></a>
-## 자유 양식 메시지 발송 요청 - PUSH { #request-to-send-a-free-form-message---push }
+<a id="free-form-message-sending-request---push"></a>
+## 자유 양식 메시지 발송 요청 - PUSH { #free-form-message-sending-request---push }
 
 PUSH에 대한 자유 양식 메시지 발송을 요청합니다.
 
