@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ba3168402b40 -->
+<!-- pre-align:aligned sig=a62b38bb217c -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -11,9 +11,7 @@
 
 
 <a id="sender-phone-number-pre-registration"></a>
-
-<a id="enforce-pre-registration-of-sender-numbers"></a>
-## 発信番号事前登録制施行 { #enforce-pre-registration-of-sender-numbers }
+## 発信番号事前登録制施行 { #sender-phone-number-pre-registration }
 
 <b>電気通信事業法関連告示に基づき、発信番号登録の際、発信番号の名義人認証が必要です</b>
 
@@ -113,9 +111,7 @@
 | MMS | 80時間 | 再試行しない。受信失敗結果アップデート(結果コード: 2000) |
 
 <a id="about-phone-scam-blocking-services"></a>
-
-<a id="guide-of-stolen-number-text-message-blocking-service"></a>
-## 番号盗用メールブロックサービス案内 { #guide-of-stolen-number-text-message-blocking-service }
+## 番号盗用メールブロックサービス案内 { #about-phone-scam-blocking-services }
 「番号盗用テキストブロックサービス」は、他人が勝手に自分の携帯電話番号をテキスト犯罪に悪用したり、スパムを送信できないようにするサービスです。発信番号がこのサービスに加入している場合、送信に失敗する可能性があります。問題のある番号を発信番号として使用するためには、通信会社を通じて解約する必要があります。
 
 <a id="how-to-use"></a>
@@ -136,9 +132,7 @@
     * SKTサポート(1599-0011), KTオレサポート(100), LG U+ サポート(1544-0010)
 
 <a id="about-carrier-spam-text-blocking-services"></a>
-
-<a id="mobile-carrier-spam-blocking-service-guide"></a>
-## サービスプロバイダースパムブロックサービス案内 { #mobile-carrier-spam-blocking-service-guide }
+## サービスプロバイダースパムブロックサービス案内 { #about-carrier-spam-text-blocking-services }
 迷惑な広告性スパムメールを通信事業者で自動的にブロックしてくれるサービスです。携帯電話会社別の組み合わせ基準により、スパムと判断されたメールを携帯電話のメール受信箱ではなく、スパム保管箱に送信します。正常に送信されたが、受信に失敗した場合、受信番号が通信会社の迷惑メールブロックサービスに加入している可能性があります。
 
 <a id="how-to-use-2"></a>

@@ -90,7 +90,7 @@
     * 자세한 내용은 [콘솔 사용 가이드 > 발송](./console-guide/image-layout), [API v1.0 사용 가이드 > 메시지 > 이미지 레이아웃](./api-guide-v1x0/image-layout)을 참고하세요.
 * [API/콘솔] MMS 템플릿에 이미지 레이아웃을 연동할 수 있습니다.
     * MMS 템플릿 생성 시 첨부 파일 섹션에서 이미지 레이아웃을 선택할 수 있습니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > 템플릿](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0 사용 가이드 > 메시지 > MMS 템플릿](./api-guide-v1x0/template/#templateV1x0001CreateSmsTemplate)을 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > 템플릿](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0 사용 가이드 > 메시지 > MMS 템플릿](./api-guide-v1x0/template/#register-sms-template)을 참고하세요.
 * [콘솔] 국제 SMS 발송 시, 발송 상세 조회에서 인코딩, 실 발송 건수를 확인할 수 있습니다.
 * [콘솔] "첨부 파일 관리" 메뉴의 위치가 변경되었습니다.
     * "상세 설정" 메뉴 하위에 있던 첨부 파일 관리 메뉴가 상단 메뉴로 이동되었습니다.

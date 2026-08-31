@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=f447ffcec440 -->
+<!-- pre-align:aligned sig=959b92ddae3f -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -67,8 +67,6 @@ List lookups support prefix and single character wildcard searches for non-perso
     * Search results: Ads-1, General-1, Announcements-1, etc.
 
 <a id="response"></a>
-
-<a id="response-common-information"></a>
 ## Response Common Information
 
 <a id="failure-response-body"></a>

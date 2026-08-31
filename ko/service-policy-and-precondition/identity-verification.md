@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=bc1d75536ea1 -->
+<!-- pre-align:aligned sig=75402ddddaf2 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,8 +10,6 @@
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > 본인 인증**
 
 <a id="identity-verification"></a>
-
-<a id="identity-verification-method"></a>
 ## 본인 인증 방법
 
 * Notification Hub를 이용하려면 **Notification Hub** > **본인 인증**에서 본인 인증 후 사용할 수 있습니다. (전기통신사업법 관련 고시 준수)

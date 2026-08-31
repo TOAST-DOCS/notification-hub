@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ca5cda4b60fd -->
+<!-- pre-align:aligned sig=716af4ac0ad7 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -40,8 +40,6 @@ Android 기기에 푸시 알림 메시지를 전송하기 위해서는 **Service
 3. 복사한 내용을 **FCM Service Account Credential** 항목에 붙여 넣고 **등록**을 클릭합니다.
 
 <a id="get-apns-jwt"></a>
-
-<a id="obtain-apns-jwt-credentials"></a>
 ### APNS JWT 인증 정보 얻기
 iOS 기기에 푸시 알림 메시지를 전송하기 위해서는 Apple Developer 사이트에서 발급 받은 암호 키와 키 ID(Key ID), 팀 ID(Team ID, App ID Prefix), 토픽(Topic)이 필요합니다.
 

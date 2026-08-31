@@ -83,7 +83,7 @@
     * For detailed information, please refer to [Console User Guide > Send](./console-guide/image-layout) and [API v1.0 User Guide > Messages > Image Layout](./api-guide-v1x0/image-layout).
 * [API/Console] Image layouts can be associated with MMS templates.
     * An image layout can be selected in the attachment section during MMS template creation.
-    * For detailed information, please refer to [Console User Guide > Templates](./console-guide/template/#templateV1x0001CreateSmsTemplate) and [API v1.0 User Guide > Messages > MMS Templates](./api-guide-v1x0/template/#templateV1x0001CreateSmsTemplate).
+    * For detailed information, please refer to [Console User Guide > Templates](./console-guide/template/#templateV1x0001CreateSmsTemplate) and [API v1.0 User Guide > Messages > MMS Templates](./api-guide-v1x0/template/#register-sms-template).
 * [Console] Encoding and message count information is now available in send details when sending international SMS messages.
 * [Console] The "Attachment File" menu has been relocated.
     * The attachment file management menu, previously located under the "Detailed Settings" menu, has been moved to the top-level menu.

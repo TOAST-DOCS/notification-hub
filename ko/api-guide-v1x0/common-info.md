@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=f447ffcec440 -->
+<!-- pre-align:aligned sig=959b92ddae3f -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -67,8 +67,6 @@ Notification Hub는 API 호출 시 인증/인가를 위해 User Access Key 토�
     * 검색 결과: 광고-1, 일반-1, 공지-1 등
 
 <a id="response"></a>
-
-<a id="response-common-information"></a>
 ## 응답 공통 정보
 
 <a id="failure-response-body"></a>

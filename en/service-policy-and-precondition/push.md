@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ca5cda4b60fd -->
+<!-- pre-align:aligned sig=716af4ac0ad7 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -40,8 +40,6 @@ The push services supported by Notification Hub are as follows.
 3. Paste the copy into the **FCM Service Account Credential** entry and click **Register**.
 
 <a id="get-apns-jwt"></a>
-
-<a id="obtain-apns-jwt-credentials"></a>
 ### Obtain APNS JWT credentials
 To send push notification messages to iOS devices, you need an encryption key and key ID (Key ID), Team ID (App ID Prefix), and Topic issued by the Apple Developer site.
 

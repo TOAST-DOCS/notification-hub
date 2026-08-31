@@ -317,8 +317,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 </details>
 
-<a id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></a>
-
 <a id="submit-an-alimtalk-template-inquiry"></a>
 ## 카카오 알림톡 템플릿 문의하기 { #submit-an-alimtalk-template-inquiry }
 
@@ -410,8 +408,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 ```
 
 </details>
-
-<a id="templateV1x0001CreateSmsTemplate"></a>
 
 <a id="register-sms-template"></a>
 ## SMS 템플릿 등록 { #register-sms-template }
@@ -2263,7 +2259,7 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ## 알림톡 템플릿 문의하기 - Deprecated { #submit-an-alimtalk-template-inquiry---deprecated }
 
 !!! danger 더 이상 지원하지 않는 API입니다.
-* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고하세요.
+* [카카오 알림톡 템플릿 문의하기](#submit-an-alimtalk-template-inquiry) 를 참고하세요.
 
 알림톡 템플릿을 문의합니다.
 
@@ -2348,7 +2344,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## 알림톡 템플릿 문의하기(파일 첨부) - Deprecated { #submit-an-alimtalk-template-inquiry-with-file-attachment---deprecated }
 
 !!! danger 더 이상 지원하지 않는 API입니다.
-* [카카오 알림톡 템플릿 문의하기](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) 를 참고하세요.
+* [카카오 알림톡 템플릿 문의하기](#submit-an-alimtalk-template-inquiry) 를 참고하세요.
 
 알림톡 템플릿을 문의할 때 파일을 첨부해 문의합니다.
 

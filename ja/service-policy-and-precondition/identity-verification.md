@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=bc1d75536ea1 -->
+<!-- pre-align:aligned sig=75402ddddaf2 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -8,8 +8,6 @@
 <h1>本人認証</h1>
 
 **Notification > Notification Hub > 利用ポリシー及び事前設定案内 > 本人認証**
-
-<a id="identity-verification"></a>
 
 Notification Hubを利用するには**Notification Hub** > **本人認証**で本人認証を行います。 (電気通信事業法関連告示遵守)
 
@@ -21,7 +19,7 @@ Notification Hubを利用するには**Notification Hub** > **本人認証**で�
   * 招待されたNHN Cloudアカウント、 IAMアカウントは、本人認証承認時に会員タイプが事業者に区分されます。
 * 在職証明書は**発行日が表記されており、印鑑が押印された書類**のみ可能です。在職証明書内の住民登録番号の後ろ6桁は**必ずマスキング(非表示)処理**してください。例：000000-0\*\*\*\*\*\*
 
-<a id="identity-verification-method"></a>
+<a id="identity-verification"></a>
 ## 本人認証方法
 
 <!-- TODO: translate body -->

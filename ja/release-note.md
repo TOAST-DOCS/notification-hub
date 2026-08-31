@@ -84,7 +84,7 @@
     * 詳細については、[コンソール使用ガイド > 送信](./console-guide/image-layout)、[API v1.0使用ガイド > メッセージ > 画像レイアウト](./api-guide-v1x0/image-layout)をご参照ください。
 * [API/Console] MMSテンプレートに画像レイアウトを連携できます。
     * MMSテンプレート作成時に添付ファイルセクションで画像レイアウトを選択できます。
-    * 詳細については、[コンソール使用ガイド > テンプレート](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0使用ガイド > メッセージ > MMSテンプレート](./api-guide-v1x0/template/#templateV1x0001CreateSmsTemplate)をご参照ください。
+    * 詳細については、[コンソール使用ガイド > テンプレート](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0使用ガイド > メッセージ > MMSテンプレート](./api-guide-v1x0/template/#register-sms-template)をご参照ください。
 * [Console] 国際SMS送信時、送信詳細照会でエンコーディング、実際の送信件数を確認できます。
 * [Console] 「添付ファイル管理」メニューの位置が変更されました。
     * 「詳細設定」メニューの下位にあった添付ファイル管理メニューが上部メニューに移動されました。

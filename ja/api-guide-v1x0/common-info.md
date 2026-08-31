@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=f447ffcec440 -->
+<!-- pre-align:aligned sig=959b92ddae3f -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -66,8 +66,6 @@ Notification Hubは、API呼び出し時の認証/認可のためにUser Access 
     * 検索結果:広告-1、一般-1、告知-1など
     
 <a id="response"></a>
-
-<a id="response-common-information"></a>
 ## レスポンス共通情報
 
 <a id="failure-response-body"></a>

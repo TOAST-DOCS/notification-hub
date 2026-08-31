@@ -317,8 +317,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 </details>
 
-<a id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></a>
-
 <a id="submit-an-alimtalk-template-inquiry"></a>
 ## Submit an AlimTalk Template Inquiry { #submit-an-alimtalk-template-inquiry }
 
@@ -410,8 +408,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 ```
 
 </details>
-
-<a id="templateV1x0001CreateSmsTemplate"></a>
 
 <a id="register-sms-template"></a>
 ## Register SMS Template { #register-sms-template }
@@ -2263,7 +2259,7 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ## Submit an AlimTalk Template Inquiry - Deprecated { #submit-an-alimtalk-template-inquiry---deprecated }
 
 !!! danger This API is no longer supported.
-* See [Submit an AlimTalk Template Inquiry](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost).
+* See [Submit an AlimTalk Template Inquiry](#submit-an-alimtalk-template-inquiry).
 
 Submits an inquiry for a Kakao AlimTalk template.
 
@@ -2348,7 +2344,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## Submit an AlimTalk Template Inquiry with File Attachment - Deprecated { #submit-an-alimtalk-template-inquiry-with-file-attachment---deprecated }
 
 !!! danger This API is no longer supported.
-* See [Submit an AlimTalk Template Inquiry](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost).
+* See [Submit an AlimTalk Template Inquiry](#submit-an-alimtalk-template-inquiry).
 
 Submits an inquiry for a Kakao AlimTalk template with a file attachment.
 

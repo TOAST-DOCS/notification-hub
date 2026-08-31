@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ca5cda4b60fd -->
+<!-- pre-align:aligned sig=716af4ac0ad7 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -40,8 +40,6 @@ Android端末にプッシュ通知メッセージを送信するためには、*
 3. コピーした内容を**FCM Service Account Credential** 項目に貼り付けて**登録**をクリックします。
 
 <a id="get-apns-jwt"></a>
-
-<a id="obtain-apns-jwt-credentials"></a>
 ### APNS JWT認証情報を取得する
 iOS端末にプッシュ通知メッセージを送信するためには、Apple Developerサイトで発行された暗号鍵とキーID(Key ID)、チームID(Team ID, App ID Prefix)、トピック(Topic)が必要です。
 

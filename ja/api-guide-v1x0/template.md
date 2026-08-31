@@ -317,8 +317,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 
 </details>
 
-<a id="templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost"></a>
-
 <a id="submit-an-alimtalk-template-inquiry"></a>
 ## カカオお知らせトークテンプレートへのお問い合わせ { #submit-an-alimtalk-template-inquiry }
 
@@ -410,8 +408,6 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/kakao-t
 ```
 
 </details>
-
-<a id="templateV1x0001CreateSmsTemplate"></a>
 
 <a id="register-sms-template"></a>
 ## SMS テンプレート登録 { #register-sms-template }
@@ -2240,7 +2236,7 @@ curl -X DELETE "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}" \
 ## お知らせトークテンプレートのお問い合わせ - Deprecated { #submit-an-alimtalk-template-inquiry---deprecated }
 
 !!! danger このAPIはサポートされていません。
-* [カカオお知らせトークテンプレートのお問い合わせ](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) を参照してください。
+* [カカオお知らせトークテンプレートのお問い合わせ](#submit-an-alimtalk-template-inquiry) を参照してください。
 
 お知らせトークテンプレートのお問い合わせを行います。
 
@@ -2325,7 +2321,7 @@ curl -X POST "${endpoint}/template/v1.0/ALIMTALK/templates/${templateId}/inquiri
 ## お知らせトーク テンプレートの問い合わせ（ファイル添付） - Deprecated { #submit-an-alimtalk-template-inquiry-with-file-attachment---deprecated }
 
 !!! danger このAPIはサポートが終了しました。
-* [カカオ お知らせトーク テンプレートの問い合わせ](#templateV10ALIMTALKTemplatesTemplateIdKakaoTemplatesKakaoTemplateCodeInquiriesPost) を参照してください。
+* [カカオ お知らせトーク テンプレートの問い合わせ](#submit-an-alimtalk-template-inquiry) を参照してください。
 
 お知らせトーク テンプレートに問い合わせる際、ファイルを添付して問い合わせます。
 
