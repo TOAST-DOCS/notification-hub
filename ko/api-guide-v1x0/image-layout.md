@@ -14,10 +14,7 @@
 
 
 
-<span id="imageLayoutV1x0003GetImageLayout"></span>
-
 <a id="retrieve-image-layout"></a>
-
 ## 이미지 레이아웃 단건 조회
 
 이미지 레이아웃을 ID 기반으로 단건 조회합니다.
@@ -130,10 +127,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 
 </details>
 
-<span id="imageLayoutV1x0CreateImageLayout"></span>
-
 <a id="create-image-layout"></a>
-
 ## 이미지 레이아웃 등록
 
 이미지 레이아웃을 등록합니다.
@@ -235,10 +229,7 @@ curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 
 </details>
 
-<span id="imageLayoutV1x0DeleteImageLayout"></span>
-
 <a id="delete-image-layout"></a>
-
 ## 이미지 레이아웃 삭제
 
 이미지 레이아웃을 삭제합니다.
@@ -320,10 +311,7 @@ curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 
 </details>
 
-<span id="imageLayoutV1x0GetImageLayoutList"></span>
-
 <a id="retrieve-image-layout-list"></a>
-
 ## 이미지 레이아웃 리스트 조회
 
 이미지 레이아웃을 리스트로 조회합니다.
@@ -428,10 +416,7 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 
 </details>
 
-<span id="imageLayoutV1x0UpdateImageLayout"></span>
-
 <a id="update-image-layout"></a>
-
 ## 이미지 레이아웃 수정
 
 이미지 레이아웃을 수정합니다.

@@ -16,10 +16,7 @@
 **Notification > Notification Hub > API v1.0 使用ガイド > テンプレートカテゴリー**
 
 
-<span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
-
 <a id="delete-a-template-category"></a>
-
 ## テンプレートカテゴリーの削除
 
 テンプレートカテゴリーを削除します。
@@ -105,10 +102,7 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
-
 <a id="retrieve-template-category-details"></a>
-
 ## テンプレートカテゴリー単件照会
 
 テンプレートカテゴリーを単件照会します。
@@ -209,10 +203,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
-
 <a id="modify-a-template-category"></a>
-
 ## テンプレートカテゴリーの修正
 
 テンプレートカテゴリーを修正します。
@@ -318,10 +309,7 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
-
 <a id="add-a-template-to-a-category"></a>
-
 ## カテゴリーにテンプレートを追加
 
 カテゴリーにテンプレートを追加します。
@@ -423,10 +411,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesGet"></span>
-
 <a id="list-template-categories"></a>
-
 ## テンプレートカテゴリー一覧照会
 
 テンプレートカテゴリー一覧を照会します。
@@ -526,10 +511,7 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesPost"></span>
-
 <a id="register-template-categories"></a>
-
 ## テンプレートカテゴリーの登録
 
 テンプレートカテゴリーを登録します。
@@ -636,10 +618,7 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 
 </details>
 
-<span id="templateV10MessageChannelCategoryTreesGet"></span>
-
 <a id="retrieve-a-template-category-hierarchy"></a>
-
 ## テンプレートカテゴリーツリー一覧照会
 
 テンプレートカテゴリーのツリー一覧を照会します。

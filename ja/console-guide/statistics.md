@@ -11,13 +11,11 @@
 
 
 <a id="statistics"></a>
-
 ## 統計
 
 Notification Hubで発生する様々なイベントを収集し、統計データとして照会できます。
 
 <a id="query-statistics"></a>
-
 ### 統計照会
 
 送信されたメッセージの受信結果を受信者の連絡先単位で照会できます。
@@ -33,7 +31,6 @@ Notification Hubで発生する様々なイベントを収集し、統計デー�
 * 設定したメッセージチャンネルによって設定できる統計基準が異なります。
 
 <a id="message-channel-statistical-events-by-statistical-criteria"></a>
-
 #### メッセージチャンネル、統計基準に基づく統計イベント
 
 | メッセージチャンネル | 統計基準 | イベント                                                                                                   | 備考 |
@@ -48,7 +45,6 @@ Notification Hubで発生する様々なイベントを収集し、統計デー�
 | SMS | 国際SMSメッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)  | |
 
 <a id="manage-statistical-keys"></a>
-
 ### 統計キー管理
 
 メッセージ送信時に統計キーを設定すると、統計照会で統計キーを照会条件として設定し、同じ統計キーで送信されたメッセージの統計データを照会できます。

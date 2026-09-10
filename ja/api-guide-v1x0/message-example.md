@@ -10,16 +10,10 @@
 **Notification > Notification Hub > API v1.0使用ガイド > メッセージ - 送信リクエスト本文例**
 
 
-<span id="sms"></span>
-
 <a id="sms-example"></a>
-
 ## SMS
 
-<span id="sms-sms"></span>
-
 <a id="sms-short"></a>
-
 ### SMS(短文)
 
 ```json
@@ -57,7 +51,6 @@
 | content.body | String | Y | 内容 |
 
 <a id="lms-long"></a>
-
 ### LMS(長文)
 
 ```json
@@ -97,7 +90,6 @@
 | content.body | String | Y | 内容 |
 
 <a id="mms-long-media"></a>
-
 ### MMS(メディア長文)
 
 ```json
@@ -140,16 +132,10 @@
 | content.attachmentIds | String Array | Y | 添付ファイルID<br>添付画像の制限事項。<br>サポートコーデック: .jpg, .jpeg<br>添付画像数: 3個以下。<br>添付画像サイズ: 1枚あたり300KB以下。ただし、添付した画像の数が3枚の場合、合計800KB以下。<br>添付画像解像度: 1000*1000以下。 |
 
 
-<span id="rcs"></span>
-
 <a id="rcs"></a>
-
 ## RCS
 
-<span id="rcs-sms"></span>
-
 <a id="sms"></a>
-
 ### SMS
 
 ```json
@@ -220,10 +206,7 @@
 | options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
-<span id="free-form-message-request-body-rcs-lms-standalone"></span>
-
 <a id="lms-standard"></a>
-
 ### LMSスタンダード
 
 ```json
@@ -294,10 +277,7 @@
 | options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
-<span id="free-form-message-request-body-rcs-lms-format-basic"></span>
-
 <a id="lms-format-basic-and-format-title-emphasis"></a>
-
 ### LMSフォーマット基本型及びフォーマットタイトル強調型
 * mTitleMediaアイコンファイルIDリスト
   * プロモーション: LT-messagebase.common-jFBCKu
@@ -380,7 +360,6 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="lms-format-paragraph-type"></a>
-
 ### LMSフォーマット段落型タイプ
 * mTitleMediaアイコンファイルIDリスト
   * プロモーション: LT-messagebase.common-jFBCKu
@@ -501,7 +480,6 @@
 
 
 <a id="mms-horizontal-vertical"></a>
-
 ### MMS横型、縦型
 
 ```json
@@ -576,7 +554,6 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="mms-carousel"></a>
-
 ### MMSカルーセル
 
 ```json
@@ -683,28 +660,22 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 
-<span id="free-form-message-request-body-email"></span>
-
 <a id="integrated-sms-card"></a>
-
 ### 統合SMSカード
 
 <!-- TODO: translate body -->
 
 <a id="integrated-lms-card"></a>
-
 ### 統合LMSカード
 
 <!-- TODO: translate body -->
 
 <a id="integrated-mms-card-horizontal-vertical"></a>
-
 ### 統合MMSカード横型、縦型
 
 <!-- TODO: translate body -->
 
 <a id="email"></a>
-
 ## Email
 
 ```json
@@ -748,10 +719,7 @@
 * **recipients[].contacts[].contactType**フィールドには**EMAIL_ADDRESS**のみ使用可能です。
 * **recipients[].contacts[].contact** フィールドには受信者メールアドレスを入力します。
 
-<span id="free-form-message-request-body-push"></span>
-
 <a id="push"></a>
-
 ## Push
 
 ```json

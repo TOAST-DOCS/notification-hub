@@ -11,13 +11,11 @@
 
 
 <a id="statistics"></a>
-
 ## Statistics
 
 You can collect various events that occur in Notification Hub and query them with statistical data.
 
 <a id="query-statistics"></a>
-
 ### Query Statistics
 
 You can view the reception results of the delivered message by receiver contacts.
@@ -33,7 +31,6 @@ You can view the reception results of the delivered message by receiver contacts
 * Depending on the message channel you set, the statistical criteria you set can be varied.
 
 <a id="message-channel-statistical-events-by-statistical-criteria"></a>
-
 #### Message Channel, Statistical Events by Statistical Criteria
 
 | Message Channel | Statistical Criteria | Events                                                                                                       | Remarks | 
@@ -48,7 +45,6 @@ You can view the reception results of the delivered message by receiver contacts
 | SMS | International Message | Request (REQUESTED), Cancel Request (CANCED), Send (SENT), Fail to Send (SEND_FAILED), received (DELIVERED) Fail to Receive(DELIVERY_FAILED  | |
 
 <a id="manage-statistical-keys"></a>
-
 ### Manage Statistical Keys
 
 If you set a statistics key when sending message, you can set the statistics key as a query condition in a statistics query to view the statistical data of messages sent with the same statistics key.

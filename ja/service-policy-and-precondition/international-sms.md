@@ -18,7 +18,6 @@
 * 顧客が設定した発信番号は、受信端末への表示を保証することができず、国際SMSメッセージを正常に送信するために、ランダムな数字や文字、NHNcorpなどに変更されて送信される場合があります。
 
 <a id="country-specific-sender-number"></a>
-
 ## 国際SMS送信
 * 国別の詳細ポリシーは、下記の**国別SMS送信詳細ガイド**を参照してください。
   * [国別SMS送信詳細ガイド](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)
@@ -31,7 +30,6 @@
 * 国別の送信品質は、その国のネットワークやインフラ環境の影響を受け、国内環境と異なる場合があります。
 
 <a id="international-sms-billing"></a>
-
 ## 国際SMS課金
 * 国際SMSメッセージの送信費用は、海外通信事業者へのデータ送信成否に基づいて課金されます。
 * 端末の受信結果は、海外通信事業者へのデータ送信の成功を意味し、実際の端末の受信結果とは異なる場合があります。実際のユーザーがメッセージを受信できなかった場合でも、課金対象に含まれる場合があります。
@@ -47,7 +45,6 @@
 | GSM-7bit | 160文字 | 306文字<br>(=153*2) | 459文字<br>(=153*3) | 612文字<br>(=153*4) | 765文字<br>(=153*5) |
 
 <a id="precautions---international-sms-mass-volume-pumping"></a>
-
 ## 注意事項 - 国際SMS量ポンピング現象
 * 一部の海外通信事業者(MNO)が売上を上げるために人為的にメッセージ送信を誘導する場合があります。
 * 会員登録認証番号リクエストなどのページでBotまたは不正行為者がメッセージ送信を大量リクエストします。
@@ -60,13 +57,11 @@
 
 
 <a id="international-sms-volume-pumping-phenomenon"></a>
-
 ### 国際SMS量ポンピング現象
 
 <!-- TODO: translate body -->
 
 <a id="available-countries"></a>
-
 ## 送信可能国
 
 | 国家名 | 国コード |

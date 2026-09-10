@@ -10,13 +10,11 @@
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > RCS**
 
 <a id="brand-creation-and-registration"></a>
-
 ## 브랜드 생성 및 등록
 
 RCS Bizmessage 서비스를 이용하려면 RCS Biz Center 가입 후 브랜드를 등록해야 합니다. [RCS Biz Center 바로 가기](https://www.rcsbizcenter.com/main)
 
 <a id="create-a-brand"></a>
-
 ### 브랜드 생성
 1. RCS Biz Center에서 **회원가입** > **기업 담당자 회원가입**을 클릭해 회원 가입 후 승인을 받습니다.
     * 회원가입 시 사업자등록증 사본이 필요합니다.
@@ -27,7 +25,6 @@ RCS Bizmessage 서비스를 이용하려면 RCS Biz Center 가입 후 브랜드�
     * RCS 담당자가 승인하며 브랜드 생성 승인까지 2 영업일 정도 소요됩니다.
 
 <a id="set-up-a-brand-agency"></a>
-
 ### 브랜드 대행사 설정
 RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’로 설정합니다.
 
@@ -36,7 +33,6 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
 2. **대행사 권한 추가**를 클릭한 뒤 대행사명에서 '엔에이치엔클라우드'를 검색해 선택합니다.
 
 <a id="register-chat-room-sender-number"></a>
-
 ### 대화방(발신 번호) 등록
 메시지 앱의 대화방에서 메시지를 받고 확인할 수 있습니다. 대화방 단위로 메시지를 보내고, 확인할 수 있습니다.
 
@@ -50,7 +46,6 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
 2. 대화방 등록이 완료(승인)되었다면, **Notification Hub** > **발신 정보** > **브랜드 관리** 탭에서 브랜드 연동이 가능합니다.
 
 <a id="register-templates"></a>
-
 ### 템플릿 등록
 템플릿은 브랜드별로 메시지의 내용 및 스타일을 미리 등록해 두고 사용할 수 있는 RCS 기업 메시지입니다.
 템플릿 메시지를 발송하려면 RCS Biz Center에서 템플릿을 등록해야 합니다. (RCS SMS/LMS/MMS 메시지로 발송하는 경우에는 별도의 템플릿을 등록하지 않아도 됩니다.)
@@ -64,20 +59,17 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
 2. 템플릿 등록이 완료(승인)되었다면, **Notification** > **RCS Bizmessage** > **RCS Bizmessage 관리** > **브랜드 관리** 탭에서 NHN Cloud 콘솔에 연동이 가능합니다.
 
 <a id="link-branding-in-notification-hub-console"></a>
-
 ### Notification Hub 콘솔에서 브랜드 연동
 브랜드 생성 및 대행사 설정, 대화방(발신 번호) 등록, 템플릿 등록이 완료(승인)되었으면 콘솔에서 브랜드를 연동합니다.
 
 **Notification Hub** > **발신 정보** > **브랜드 관리** 탭에서 연동이 가능합니다. 연동 후에 변경 사항이 있으면 **+ 브랜드 연동** 버튼을 누르면 동기화가 진행됩니다.
 
 <a id="introduction-to-integrated-rcs"></a>
-
 ## 통합 RCS 소개
 
 통합 RCS는 단말 제조사 상관없이 국내 이통 3사에서 제공하는 RCS 표준 규격입니다.
 
 <a id="android-rcs-vs-integrated-rcs"></a>
-
 ### 안드로이드 RCS vs 통합 RCS
 
 | 구분 | (기존) 안드로이드 RCS 유형 | 통합 RCS 유형 |
@@ -91,13 +83,11 @@ RCS 브랜드 승인 완료 후, 대행사를 ‘엔에이치엔클라우드’�
 | 오픈리치카드 | 지원 | 미지원 |
 
 <a id="notes"></a>
-
 ### 참고사항
 - 2025년 8월 기준 사용중인 Biz RCS 유형은 모두 안드로이드 RCS 유형으로 정의합니다.
 - 기존에 사용하던 안드로이드 RCS 유형의 메시지도 계속 이용 가능합니다.
 
 <a id="send-type-that-supports"></a>
-
 ## 지원하는 발송 유형
 - 아래 표의 '통합 RCS 여부'가 'O'인 발송 유형은 통합 RCS 유형으로, 안드로이드뿐 아니라 아이폰 단말에서도 수신할 수 있습니다. ('X'인 발송 유형은 안드로이드 RCS 유형으로 안드로이드 단말에서만 수신할 수 있습니다.)
 

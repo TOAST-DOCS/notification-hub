@@ -14,10 +14,7 @@
 
 
 
-<span id="statsV1x0001ReadStats"></span>
-
 <a id="section-1"></a>
-
 ## 統計照会
 
 統計イベントをイベント発生時間基準で照会します。<br>

@@ -10,7 +10,6 @@
 **Notification > Notification Hub > エラーコード**
 
 <a id="list-of-error-codes"></a>
-
 ## エラーコード一覧
 
 | カテゴリ | 成功可否(isSuccessful) | 結果コード(resultCode) | 結果メッセージ(resultMessage) |
@@ -342,7 +341,6 @@
 | メッセージ送信 | false | 500002 | 不正なステータスのサーバーエラー |
 
 <a id="delivery-result-code"></a>
-
 ## 受信結果コード
 
 | カテゴリ | 成功可否(isSuccessful) | 結果コード(resultCode) | 結果メッセージ(resultMessage) |

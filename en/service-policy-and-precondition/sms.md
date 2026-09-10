@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ba3168402b40 -->
+<!-- pre-align:aligned sig=a62b38bb217c -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,10 +10,8 @@
 **Notification > Notification Hub > Service Policy and Prerequisites > SMS**
 
 
-<span id="sender-phone-number-pre-registration"></span>
-
-<a id="enforce-pre-registration-of-sender-numbers"></a>
-## Enforce pre-registration of sender numbers { #enforce-pre-registration-of-sender-numbers }
+<a id="sender-phone-number-pre-registration"></a>
+## Enforce pre-registration of sender numbers { #sender-phone-number-pre-registration }
 
 <b>In accordance with the Telecommunications Business Act, the registration of a sender number requires the authentication of the owner of the sender number.</b>
 
@@ -23,8 +21,6 @@
 * Documents confirming the relationship between the business and the third party can be consignment agreements, proof of headquarters and branch offices, etc.
 * There are no **masked (hidden) parts of the communication service use certificate, and only documents issued within the last 3 months** are accepted.
 * The certificate of employment is marked with **issuance date and only documents with seal ** are allowed. The 6 digits after the resident registration number in the certificate of employment  **masked (hidden)**. Example) 000000-0\*\*\*\*\**
-
-<span id='fabrication-number'></span>
 
 <a id="prohibition-of-alterationfalsification-of-the-sender-number"></a>
 ## Prohibition on Sender Number Spoofing (Falsification) { #prohibition-of-alterationfalsification-of-the-sender-number }
@@ -77,8 +73,6 @@ Toll-free opt-out 080-****-****
 ### Notify recipients of opt-out requests { #notify-recipients-of-opt-out-requests }
 * Notifies recipients of the sender's name, the fact of opt-out or withdrawal of consent, the date on which the request was made, and the result of the processing.
 
-<span id="rejection-of-receiving-080"></span>
-
 <a id="advertisement-texting-sending-guidance"></a>
 ## Advertisement Texting Sending Guidance { #advertisement-texting-sending-guidance }
 In accordance with Article 50 of the Act on Promotion of Information and Communication Network Utilization and Information Protection, explicit prior consent from the receiver must be obtained when sending commercial information for commercial purposes, and also must comply with the obligations regarding delivery notation <br/>
@@ -116,10 +110,8 @@ In accordance with Article 50 of the Act on Promotion of Information and Communi
 | LMS | 80 hours | No retries. Failed to receive result update (result code: 2000) |
 | MMS | 80 hours | No retries. Failed to receive result update (result code: 2000) |
 
-<span id="about-phone-scam-blocking-services"></span>
-
-<a id="guide-of-stolen-number-text-message-blocking-service"></a>
-## Guide of Stolen Number Text Message Blocking Service { #guide-of-stolen-number-text-message-blocking-service }
+<a id="about-phone-scam-blocking-services"></a>
+## Guide of Stolen Number Text Message Blocking Service { #about-phone-scam-blocking-services }
 ‘Stolen Number Text Message Blocking Service’ prevents others from arbitrarily abusing one’s mobile number for text crimes or sending spam. If the sender number is subscribed to this service, the delivery may fail. To use the problematic number as the sender number, cancellation is required through the mobile carrier.
 
 <a id="how-to-use"></a>
@@ -139,10 +131,8 @@ In accordance with Article 50 of the Act on Promotion of Information and Communi
     * Mobile phone 114 * Call button
     * SKT Customer Center1599-0011, KT Olleh Customer Center100, LG U+ Customer Center1544-0010
 
-<span id="about-carrier-spam-text-blocking-services"></span>
-
-<a id="mobile-carrier-spam-blocking-service-guide"></a>
-## Mobile Carrier Spam Blocking Service Guide { #mobile-carrier-spam-blocking-service-guide }
+<a id="about-carrier-spam-text-blocking-services"></a>
+## Mobile Carrier Spam Blocking Service Guide { #about-carrier-spam-text-blocking-services }
 It is a service that automatically blocks cumbersome advertising spam texts from mobile carriers. According to the combination standards of each mobile carrier, text messages that are judged to be spam are sent to the spam storage box rather than to the text inbox of the mobile phone. If it has been sent normally but fails to receive, the receiving number may be subscribed to the carrier spam blocking service.
 
 <a id="how-to-use-2"></a>

@@ -14,10 +14,7 @@
 
 
 
-<span id="attachmentV1x0001UploadAttachments"></span>
-
 <a id="upload-attachments"></a>
-
 ## 添付ファイルのアップロード
 
 添付ファイルをアップロードします。FileTypeを指定した場合、個別商品に対する添付ファイルのアップロードを実行します。
@@ -115,10 +112,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments" \
 
 </details>
 
-<span id="attachmentV1x0002ReadAttachments"></span>
-
 <a id="retrieve-attachment-lists"></a>
-
 ## 添付ファイル一覧照会
 
 添付ファイルの一覧を返します。
@@ -226,10 +220,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments" \
 
 </details>
 
-<span id="attachmentV1x0003ReadAttachment"></span>
-
 <a id="view-attachment-details"></a>
-
 ## 添付ファイル単件照会
 
 添付ファイルIDで添付ファイルを照会します。
@@ -334,10 +325,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 
 </details>
 
-<span id="attachmentV1x0004DoValidateAttachments"></span>
-
 <a id="validate-attachments-before-upload"></a>
-
 ## アップロード前の添付ファイル検証
 
 アップロードする添付ファイルの有効性を検証します。ファイルタイプ、ファイルフォーマット、ファイルサイズ、解像度、横幅、縦幅を通じて、設定したファイルタイプの有効性を検証します。添付ファイルのアップロード前に、ファイルタイプに対する有効性を検証できます。
@@ -431,10 +419,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
 
 </details>
 
-<span id="attachmentV1x0005DoValidateAttachment"></span>
-
 <a id="validate-attachments-after-upload"></a>
-
 ## アップロード済み添付ファイル検証
 
 アップロード済みの添付ファイルに対して、新しいファイルタイプの有効性を検証します。ファイルタイプ修正APIの呼び出し前に、ファイルタイプに対する有効性を検証できます。
@@ -545,10 +530,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/do-validat
 
 </details>
 
-<span id="attachmentV1x0006UpdateFileType"></span>
-
 <a id="update-uploaded-attachment-file-type"></a>
-
 ## アップロード済み添付ファイルのファイルタイプ修正
 
 アップロード済みの添付ファイルのファイルタイプを修正します。
@@ -659,10 +641,7 @@ curl -X POST "${endpoint}/attachment/v1.0/attachments/${attachmentId}/file-types
 
 </details>
 
-<span id="attachmentV1x0007ReadFileTypes"></span>
-
 <a id="list-attachment-file-types"></a>
-
 ## 添付ファイルタイプ一覧照会
 
 サポート中の添付ファイルタイプの一覧を照会します。メッセージチャネルを設定すると、該当のメッセージチャネルで提供するファイルタイプ一覧を照会できます。
