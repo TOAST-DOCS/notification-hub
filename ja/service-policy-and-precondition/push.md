@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=716af4ac0ad7 -->
+<!-- pre-align:aligned sig=8287b047824b -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -17,14 +17,14 @@ Notification Hubでサポートするプッシュサービスは次のとおり�
 * ADM(amazon device messaging): Amazon Kindle, Fireなど
 
 <a id="how-to-issue-push-credentials"></a>
-## プッシュ認証情報の発行方法
+## プッシュ認証情報の発行方法 { #how-to-issue-push-credentials }
 
 <a id="fcm-service-account-credential"></a>
-### FCM Service Account Credential
+### FCM Service Account Credential { #fcm-service-account-credential }
 Android端末にプッシュ通知メッセージを送信するためには、**Service Account Credential**が必要です。
 **Service Account**(サービスアカウント)は、一般的にGoogle CloudとA2A(Application to Application)通信時に使用する特別なタイプのアカウントです。
 
-<a id="obtain-fcm-service-account-credential-json-file"></a>
+<a id="fcm-service-account-credential-obtain-fcm-service-account-credential-json-file"></a>
 #### FCM Service Account Credential JSONファイルを取得
 1. [Google Firebase Console](https://console.firebase.google.com)に接続します。
 2. プロジェクトの追加で新しいプロジェクトを作成します。
@@ -33,17 +33,17 @@ Android端末にプッシュ通知メッセージを送信するためには、*
 5. **サービスアカウント**を選択します。
 6. Firebase Admin SDK項目で**新しい秘密鍵の作成**をクリックして、新しい**Service Account Credential**JSONファイルをダウンロードします。
 
-<a id="register-fcm-service-account-credential-json-file"></a>
+<a id="fcm-service-account-credential-register-fcm-service-account-credential-json-file"></a>
 #### FCM Service Account Credential JSONファイル登録
 1. コンソールで**Notification > Push > 証明書**をクリックします。
 2. ダウンロードしたJSONファイルを開いて内容をコピーします。
 3. コピーした内容を**FCM Service Account Credential** 項目に貼り付けて**登録**をクリックします。
 
 <a id="get-apns-jwt"></a>
-### APNS JWT認証情報を取得する
+### APNS JWT認証情報を取得する { #get-apns-jwt }
 iOS端末にプッシュ通知メッセージを送信するためには、Apple Developerサイトで発行された暗号鍵とキーID(Key ID)、チームID(Team ID, App ID Prefix)、トピック(Topic)が必要です。
 
-<a id="getting-an-apns-encryption-key"></a>
+<a id="obtain-apns-jwt-credentials-getting-an-apns-encryption-key"></a>
 #### APNS暗号鍵を取得する
 1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
 2. **Keys**を選択します。
@@ -52,19 +52,19 @@ iOS端末にプッシュ通知メッセージを送信するためには、Apple
 5. 内容を確認した後、**Register**を選択します。
 6. **Download**を選択し、パスワードキーファイルを取得します。
 
-<a id="obtain-key-id"></a>
+<a id="obtain-apns-jwt-credentials-obtain-key-id"></a>
 #### キーIDを取得する
 1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
 2. 発行されたキー(Key)を選択します。
 3. **View Key Details**項目で確認できます。
 
-<a id="obtain-team-id"></a>
+<a id="obtain-apns-jwt-credentials-obtain-team-id"></a>
 #### チームIDを取得する
 1. **Apple Developerコンソール**で**Certificates, IDs & Profiles**に移動します。
 2. **Identifiers**を選択します。
 3. **Edit your App ID Configuration** 項目で確認できます。
 
-<a id="topic"></a>
+<a id="obtain-apns-jwt-credentials-topic"></a>
 #### トピック
 JWTを利用した認証のためにはトピック(Topic)が必要ですが、トピックはアプリのバンドルID(Bundle ID)です。
 
@@ -73,11 +73,11 @@ JWTを利用した認証のためにはトピック(Topic)が必要ですが、�
 
 
 <a id="adm-credentials"></a>
-### ADM認証情報
+### ADM認証情報 { #adm-credentials }
 
 Kindle Fireアプリにプッシュ通知メッセージを送信するためには、アプリのClient IDとClient Secretが必要です。
 
-<a id="register-adm-application-and-profile-clientid-obtain-client-secret"></a>
+<a id="adm-credentials-register-adm-application-and-profile-clientid-obtain-client-secret"></a>
 #### ADMアプリケーション及びプロファイルの登録(Client Id, Client Secret取得)
 1. [ADM開発者コンソール](https://developer.amazon.com/home.html)に接続します。
 2. ページ右上の**APP & SERVICES**をクリックした後、下部にある**Add a New App**をクリックします。
@@ -85,7 +85,7 @@ Kindle Fireアプリにプッシュ通知メッセージを送信するために
 4. プロフィール作成完了後、中央のタブにある**Security Profiles > View Security Profile**をクリックします。
 5. **General**タブでClient IDとClient Secret値を確認できます。
 
-<a id="register-adm-kindle-setting-information-acquire-api-key"></a>
+<a id="adm-credentials-register-adm-kindle-setting-information-acquire-api-key"></a>
 #### ADM Kindle設定情報登録(API key取得)
 1. **Security Profiles**タブをクリックした後、中央にある**Android/Kindle Setting**タブをクリックします。
 2. App Key Name, Package, MD5 Signature, SHA256 Signature情報を入力します。

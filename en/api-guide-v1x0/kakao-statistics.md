@@ -24,12 +24,12 @@ MONTHLY: Only data within the last 3 months can be retrieved, with a maximum ret
 * If the number of successful sends is 10 or fewer, valid read counts and click counts are not provided.
 
 <a id="delivery-statistics"></a>
-### Delivery Statistics
+### Delivery Statistics { #delivery-statistics }
 
 Retrieves the daily send count, valid read count, and click count by sender profile. You can filter by period, send identifier, message type, and more.
 
 <a id="template-statistics"></a>
-### Template Statistics
+### Template Statistics { #template-statistics }
 
 Retrieves the daily send count, valid read count, and click count by template and group tag. You can filter by period, message type, and more.
 
@@ -38,7 +38,7 @@ Retrieves the daily send count, valid read count, and click count by template an
 
 
 <a id="retrieve-alimtalk-delivery-statistics"></a>
-## Retrieve AlimTalk Delivery Statistics
+## Retrieve AlimTalk Delivery Statistics { #retrieve-alimtalk-delivery-statistics }
 
 Retrieves AlimTalk delivery statistics.
 Retrieves the daily send count, valid read count, and click count by sender profile. You can filter by period, send identifier, message type, and more.
@@ -148,7 +148,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 </details>
 
 <a id="retrieve-alimtalk-template-statistics"></a>
-## Retrieve AlimTalk Template Statistics
+## Retrieve AlimTalk Template Statistics { #retrieve-alimtalk-template-statistics }
 
 Retrieves AlimTalk template statistics.
 Retrieves the daily send count, valid read count, and click count by template and group tag. You can filter by period, message type, and more.
@@ -258,7 +258,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/template-statistic
 </details>
 
 <a id="retrieve-brand-message-delivery-statistics"></a>
-## Retrieve Brand Message Delivery Statistics
+## Retrieve Brand Message Delivery Statistics { #retrieve-brand-message-delivery-statistics }
 
 Retrieves brand message delivery statistics.
 Retrieves the daily send count, valid read count, and click count by sender profile. You can filter by period, send identifier, message type, and more.
@@ -379,7 +379,7 @@ curl -X GET "${endpoint}/kakaobizcenter/v1.0/kakao-statistics/delivery-statistic
 </details>
 
 <a id="retrieve-brand-message-template-statistics"></a>
-## Retrieve Brand Message Template Statistics
+## Retrieve Brand Message Template Statistics { #retrieve-brand-message-template-statistics }
 
 Retrieves brand message template statistics.
 Retrieves the daily send count, valid read count, and click count by template and group tag. You can filter by period, message type, and more.

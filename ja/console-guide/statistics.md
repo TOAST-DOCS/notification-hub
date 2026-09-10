@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=73a6a04843d4 -->
+<!-- pre-align:aligned sig=a2724235f4f7 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -11,12 +11,12 @@
 
 
 <a id="statistics"></a>
-## 統計
+## 統計 { #statistics }
 
 Notification Hubで発生する様々なイベントを収集し、統計データとして照会できます。
 
 <a id="query-statistics"></a>
-### 統計照会
+### 統計照会 { #query-statistics }
 
 送信されたメッセージの受信結果を受信者の連絡先単位で照会できます。
 
@@ -30,7 +30,7 @@ Notification Hubで発生する様々なイベントを収集し、統計デー�
 * メッセージチャンネル、統計基準、統計キー、メッセージIDを複合的に設定して統計データを照会します。
 * 設定したメッセージチャンネルによって設定できる統計基準が異なります。
 
-<a id="message-channel-statistical-events-by-statistical-criteria"></a>
+<a id="query-statistics-message-channel-statistical-events-by-statistical-criteria"></a>
 #### メッセージチャンネル、統計基準に基づく統計イベント
 
 | メッセージチャンネル | 統計基準 | イベント                                                                                                   | 備考 |
@@ -45,7 +45,7 @@ Notification Hubで発生する様々なイベントを収集し、統計デー�
 | SMS | 国際SMSメッセージ | リクエスト(REQUESTED)、リクエストキャンセル(CANCELED)、送信(SENT)、送信失敗(SEND_FAILED)、受信(DELIVERED)、受信失敗(DELIVERY_FAILED)  | |
 
 <a id="manage-statistical-keys"></a>
-### 統計キー管理
+### 統計キー管理 { #manage-statistical-keys }
 
 メッセージ送信時に統計キーを設定すると、統計照会で統計キーを照会条件として設定し、同じ統計キーで送信されたメッセージの統計データを照会できます。
 

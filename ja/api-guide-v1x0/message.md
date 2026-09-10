@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=bfbbe9a63c62 -->
+<!-- pre-align:aligned sig=6163a3d1f2e9 -->
 
 <!-- 新しいフォーマットのために追加されたstyleです。 -->
 <style>
@@ -842,8 +842,8 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 
 </details>
 
-<a id="request-to-send-a-free-form-message---email"></a>
-## 自由形式メッセージ送信リクエスト - メール(EMAIL) { #request-to-send-a-free-form-message---email }
+<a id="free-form-message-sending-request---email-email"></a>
+## 自由形式メッセージ送信リクエスト - メール(EMAIL) { #free-form-message-sending-request---email-email }
 
 メール(EMAIL)の自由形式メッセージ送信をリクエストします。
 
@@ -1011,8 +1011,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 </details>
 
-<a id="request-to-send-a-free-form-message---rcs"></a>
-## 自由形式メッセージ送信リクエスト - RCS { #request-to-send-a-free-form-message---rcs }
+<a id="free-form-message-sending-request---rcs"></a>
+## 自由形式メッセージ送信リクエスト - RCS { #free-form-message-sending-request---rcs }
 
 RCS に対する自由形式メッセージの送信をリクエストします。
 
@@ -1386,8 +1386,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 </details>
 
-<a id="request-to-send-a-free-form-message---push"></a>
-## 自由形式メッセージ送信リクエスト - PUSH { #request-to-send-a-free-form-message---push }
+<a id="free-form-message-sending-request---push"></a>
+## 自由形式メッセージ送信リクエスト - PUSH { #free-form-message-sending-request---push }
 
 PUSH に対する自由形式メッセージ送信をリクエストします。
 

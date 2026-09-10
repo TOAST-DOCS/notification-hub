@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ba2299609acb -->
+<!-- pre-align:aligned sig=8d810f1e6e05 -->
 
 <!-- 新しい書式のために追加されたstyleです。 -->
 <style>
@@ -14,8 +14,8 @@
 
 
 
-<a id="section-1"></a>
-## 統計照会
+<a id="query-statistics"></a>
+## 統計照会 { #query-statistics }
 
 統計イベントをイベント発生時間基準で照会します。<br>
 

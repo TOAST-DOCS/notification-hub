@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ac986523a7a8 -->
+<!-- pre-align:aligned sig=8a278ac54642 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -9,10 +9,11 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
-<a id="06-23"></a>
-## 2026. 06. 23.
-<a id="added-features-4"></a>
-### 기능 추가
+<a id="2026-06-23"></a>
+## 2026. 06. 23. { #2026-06-23 }
+
+<a id="added-features"></a>
+### 기능 추가 { #added-features }
 * [콘솔] 알림톡 공용 템플릿 기능 추가
     * 주문, 결제, 배송 등 업종과 관계없이 범용적으로 사용 가능한 메시지 템플릿을 제공합니다. 별도의 검수 과정 없이 사용 가능합니다.
 * [콘솔, API] 브랜드 메시지 채널 출시
@@ -23,18 +24,20 @@
         * 고객사 회원 대상 메시지는 카카오톡 25.4.0 이상 사용자만 수신 가능
 
 <a id="may-27-2026"></a>
-## 2026. 05. 27.
-<a id="added-features"></a>
-### 기능 추가
+## 2026. 05. 27. { #may-27-2026 }
+
+<a id="may-27-2026-added-features"></a>
+### 기능 추가 { #may-27-2026-added-features }
 * [API] 카카오 비즈센터 통계 조회 API 추가
     * 카카오 비즈센터에서 제공하는 알림톡, 브랜드 메시지의 발송 통계 및 템플릿 통계를 조회할 수 있는 API가 추가되었습니다.
     * 발신 키 기준으로 일별(DAILY) 또는 월별(MONTHLY) 통계 데이터를 조회할 수 있습니다.
     * 자세한 내용은 [API v1.0 사용 가이드 > 카카오 통계](./api-guide-v1x0/kakao-statistics)를 참고하세요.
 
 <a id="march-24-2026"></a>
-## 2026. 03. 24.
-<a id="added-features-2"></a>
-### 기능 추가
+## 2026. 03. 24. { #march-24-2026 }
+
+<a id="march-24-2026-added-features"></a>
+### 기능 추가 { #march-24-2026-added-features }
 * [API, 콘솔] 통합 RCS 메시지 지원
     * Android, iOS 기기 모두 수신 가능한 통합 RCS 메시지 발송을 지원합니다.
     * 발송 가능한 통합 RCS 메시지 유형은 [이용 정책 및 사전 설정 안내 > RCS](./service-policy-and-precondition/rcs)를 참고하세요.
@@ -47,9 +50,10 @@
     * **프로젝트 대시보드 > 알림 관리**에서 설정할 수 있습니다.
 
 <a id="january-27-2026"></a>
-## 2026. 01. 27.
-<a id="added-features-3"></a>
-### 기능 추가
+## 2026. 01. 27. { #january-27-2026 }
+
+<a id="january-27-2026-added-features"></a>
+### 기능 추가 { #january-27-2026-added-features }
 * [API] 알림톡 템플릿 API 신규 제공 및 일부 API 지원 종료
     * 알림톡 템플릿 관리 구조 변경에 따라 일부 기존 템플릿 API가 신규 API로 대체되었습니다. 자세한 내용은 [API v1.0 사용 가이드 > 템플릿](./api-guide-v1x0/template)을 참고하세요.
 * [API] 외부 080 수신 거부 번호 관리 API 신규 제공
@@ -57,33 +61,37 @@
 * [콘솔] 발송 요청 본문 JSON 추출 기능
     * 발송 메뉴에서 설정된 정보의 JSON 추출 기능이 제공됩니다. 자세한 내용은 [콘솔 사용 가이드 > 발송](./console-guide/send-a-message)을 참고하세요.
 
-<a id="12-31"></a>
-## 2025. 12. 31.
+<a id="2025-12-31"></a>
+## 2025. 12. 31. { #2025-12-31 }
+
 <a id="feature-removal"></a>
-### 기능 제거
+### 기능 제거 { #feature-removal }
 * [API, 콘솔] 친구톡 서비스 지원 종료
     * 2025년 12월 31일(수) 친구톡 서비스가 종료됩니다.
     * 콘솔에서 친구톡 관련 기능을 사용할 수 없고, 친구톡 API를 사용할 수 없습니다.
 
-<a id="12-04"></a>
-## 2025. 12. 04.
+<a id="2025-12-04"></a>
+## 2025. 12. 04. { #2025-12-04 }
+
 <a id="feature-improvements"></a>
-### 기능 개선
+### 기능 개선 { #feature-improvements }
 * [API] 이미지 레이아웃 목록 조회 API에 `exact` 요청 파라미터가 추가되었습니다.
     * 기존에는 `name` 파라미터로 이름을 지정할 경우 부분 일치(LIKE) 검색이 적용되었습니다.
     * 이제 `exact` 파라미터를 `true`로 설정하면 이름이 정확히 일치하는 이미지 레이아웃만 조회됩니다.
 
-<a id="08-26"></a>
-## 2025. 08. 26.
-<a id="feature-improvements-2"></a>
-### 기능 개선
+<a id="2025-08-26"></a>
+## 2025. 08. 26. { #2025-08-26 }
+
+<a id="2025-08-26-feature-improvements"></a>
+### 기능 개선 { #2025-08-26-feature-improvements }
 * [API/콘솔] RCS 금융준법고지 필드 포함 이미지 템플릿 지원
     * RCS 채널에서 금융준법고지 필드가 포함된 이미지 템플릿의 연동 및 발송을 지원합니다.
 
-<a id="07-29"></a>
-## 2025. 07. 29.
+<a id="2025-07-29"></a>
+## 2025. 07. 29. { #2025-07-29 }
+
 <a id="new-features"></a>
-### 기능 추가
+### 기능 추가 { #new-features }
 * [API/콘솔] 이미지 레이아웃 기능이 추가되었습니다.
     * 이미지 레이아웃은 개인화된 MMS 첨부 이미지를 생성하기 위한 기능입니다.
     * 이미지 레이아웃은 MMS 템플릿 생성 시 선택할 수 있으며, MMS 템플릿에 연동된 이미지 레이아웃을 통해 개인화된 이미지를 생성할 수 있습니다.
@@ -95,19 +103,21 @@
 * [콘솔] "첨부 파일 관리" 메뉴의 위치가 변경되었습니다.
     * "상세 설정" 메뉴 하위에 있던 첨부 파일 관리 메뉴가 상단 메뉴로 이동되었습니다.
 
-<a id="05-27"></a>
-## 2025. 05. 27.
-<a id="new-features-2"></a>
-### 기능 추가
+<a id="2025-05-27"></a>
+## 2025. 05. 27. { #2025-05-27 }
+
+<a id="2025-05-27-new-features"></a>
+### 기능 추가 { #2025-05-27-new-features }
 * [콘솔] 지정한 이벤트 발생 시 URL을 지정하여 웹훅 이벤트를 받을 수 있습니다.
     * 자세한 내용은 [콘솔 사용 가이드 > 상세 설정 > 웹훅](./console-guide/detailed-setting/#webhook)을 참고하세요.
 * [콘솔] 지난 메시지 발송 내역을 백업할 수 있습니다.
     * 자세한 내용은 [콘솔 사용 가이드 > 상세 설정 > 백업](./console-guide/detailed-setting/#backup)을 참고하세요.
 
-<a id="04-15"></a>
-## 2025. 04. 15.
-<a id="new-features-3"></a>
-### 기능 추가
+<a id="2025-04-15"></a>
+## 2025. 04. 15. { #2025-04-15 }
+
+<a id="2025-04-15-new-features"></a>
+### 기능 추가 { #2025-04-15-new-features }
 * [API/콘솔] 서비스에서 발생하는 다양한 이벤트 이력을 CloudTrail에서 확인할 수 있습니다.
     * 확인 가능한 이벤트 목록은 [CloudTrail > 수집되는 이벤트 목록](../../../Governance%20&%20Audit/CloudTrail/ko/event-list)을 참고하세요.
 * [API/콘솔] RCS 인증용 메시지 발송이 추가되었습니다.
@@ -118,21 +128,22 @@
     * 템플릿 생성 시 LMS 포맷형을 선택할 수 있습니다.
 
 <a id="enhancements"></a>
-### 기능 개선
+### 기능 개선 { #enhancements }
 * [API/콘솔] Push 채널의 수신, 열림 이벤트가 통계에 수집되도록 개선되었습니다.
 
-<a id="03-25"></a>
-## 2025. 03. 25.
-<a id="new-features-4"></a>
-### 기능 추가
+<a id="2025-03-25"></a>
+## 2025. 03. 25. { #2025-03-25 }
+
+<a id="2025-03-25-new-features"></a>
+### 기능 추가 { #2025-03-25-new-features }
 * [API] 첨부 파일/통계 API가 추가되었습니다.
     * 자세한 내용은 [API v1.0 사용 가이드 > 첨부 파일](./api-guide-v1x0/attachment), [API v1.0 사용 가이드 > 통계](./api-guide-v1x0/stats)를 참고하세요.
 
-<a id="03-11"></a>
-## 2025. 03. 11.
+<a id="2025-03-11"></a>
+## 2025. 03. 11. { #2025-03-11 }
 
-<a id="new-features-5"></a>
-### 기능 추가
+<a id="2025-03-11-new-features"></a>
+### 기능 추가 { #2025-03-11-new-features }
 * [API] RCS BizCenter 브랜드 메시지 통계 연동
     * 메시지 발송 시 그룹 ID를 추가하여 RCS BizCenter 가 제공하는 메시지 통계를 사용할 수 있습니다.
 * [API] RCS 메시지 수신 대기 만료 기간 설정값 추가
@@ -142,29 +153,29 @@
     * 템플릿 생성 시 LMS 포맷형을 선택할 수 있습니다.
 * 자세한 내용은 [API v1.0 사용 가이드 > 메시지](./api-guide-v1x0/message)를 참고하세요.
 
-<a id="enhancements-2"></a>
-### 기능 개선
+<a id="2025-03-11-enhancements"></a>
+### 기능 개선 { #2025-03-11-enhancements }
 * [콘솔] RCS 템플릿 기능 개선
     * 이제 RCS BizCenter 템플릿 연동 시 브랜드 연동 버튼을 클릭할 필요가 없으며, RCS BizCenter 템플릿의 변경 사항이 자동으로 반영됩니다.
 
-<a id="02-25"></a>
-## 2025. 02. 25.
+<a id="2025-02-25"></a>
+## 2025. 02. 25. { #2025-02-25 }
 
-<a id="new-features-6"></a>
-### 기능 추가
+<a id="2025-02-25-new-features"></a>
+### 기능 추가 { #2025-02-25-new-features }
 * [API] 연락처별 최종 발송 결과 목록 조회 API가 추가되었습니다.
     * 자세한 내용은 [API v1.0 사용 가이드 > 연락처별 수신 결과 > 연락처별 최종 발송 결과 목록 조회](./api-guide-v1x0/contact-delivery-result/#_2)를 참고하세요.
 * [API] RCS Bizcenter 템플릿 발송 시 대화방 아이디, 수신 거부번호를 추가할 수 있도록 개선되었습니다.
 
-<a id="enhancements-3"></a>
-### 기능 개선
+<a id="2025-02-25-enhancements"></a>
+### 기능 개선 { #2025-02-25-enhancements }
 * [콘솔] 발송 조회 시 상세 결과 코드 및 메시지를 확인할 수 있도록 개선되었습니다.
 
-<a id="02-11"></a>
-## 2025. 02. 11.
+<a id="2025-02-11"></a>
+## 2025. 02. 11. { #2025-02-11 }
 
-<a id="new-features-7"></a>
-### 기능 추가
+<a id="2025-02-11-new-features"></a>
+### 기능 추가 { #2025-02-11-new-features }
 * [콘솔/API] RCS BizCenter LMS 템플릿 발송 지원
     * RCS BizCenter LMS 템플릿 타입들도 발송할 수 있습니다.
 * [API] Instant Flow Message API 추가
@@ -180,32 +191,32 @@
     * 발송 API 요청 시 사용자 커스텀 필드를 포함하여 요청할 수 있도록 추가되었습니다.
     * 자세한 내용은 [API v1.0 사용 가이드 > 메시지](./api-guide-v1x0/message)를 참고하세요.
 
-<a id="enhancements-4"></a>
-### 기능 개선
+<a id="2025-02-11-enhancements"></a>
+### 기능 개선 { #2025-02-11-enhancements }
 * [콘솔/API] RCS 템플릿 기능 개선
     * RCS BizCenter에 등록한 템플릿을 다시 등록하지 않아도 연동되도록 개선되었습니다.
         * 브랜드 연동 시 템플릿에 자동으로 연동됩니다.
         * RCS BizCenter 템플릿은 수동 등록/수정/삭제는 불가합니다.
         * RCS BizCenter 템플릿은 챗봇, 수신 거부 번호는 공란으로 등록이 되며, 발송 시에 챗봇은 가장 최근 등록한 챗봇으로 발송됩니다.
 
-<a id="11-12"></a>
-## 2024. 11. 12.
+<a id="2024-11-12"></a>
+## 2024. 11. 12. { #2024-11-12 }
 
 <a id="notification-hub-beta-release"></a>
-### Notification Hub 베타(beta) 출시
+### Notification Hub 베타(beta) 출시 { #notification-hub-beta-release }
 
 <a id="bug-fixes"></a>
-### 오류 수정
+### 오류 수정 { #bug-fixes }
 * [콘솔] 오류 수정
     * 발송, 플로우, 템플릿, 통계 기능의 오류를 수정했습니다.
 * [API] 인증 오류 수정
     * 일부 API 요청 시 인증이 정상적으로 처리되지 않는 문제를 수정했습니다.
 
-<a id="10-29"></a>
-## 2024. 10. 29.
+<a id="2024-10-29"></a>
+## 2024. 10. 29. { #2024-10-29 }
 
 <a id="notification-hub-alpha-release"></a>
-### Notification Hub 알파(alpha) 출시
+### Notification Hub 알파(alpha) 출시 { #notification-hub-alpha-release }
 * 사용 방법 안내
     * 알파로 출시된 상품은 **고객지원 > 문의하기**를 통해 사용할 수 있습니다.
 * [콘솔] 콘솔 공개
