@@ -2427,10 +2427,6 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 
 <!--リクエストボディのフィールドを説明します。-->
 
-| パス | タイプ | 必須 | 説明 |
-| - | - | - | - |
-| comment | String | Y | お問い合わせ内容 |
-
 
 
 **レスポンスボディ**
@@ -2448,13 +2444,6 @@ POST /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates/{kakaoTempla
 ```
 
 <!--レスポンスボディのフィールドを説明します。-->
-
-| パス | タイプ | 説明 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
-| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値: 0 |
-| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
 
 
@@ -3285,7 +3274,40 @@ X-NHN-Authorization: Bearer {accessToken}
 | - | - | - | - |
 | templateName | String | O | テンプレート名 |
 | categoryId | String | X | カテゴリーID |
-| パス | タイプ | 必須 | 説明 |
+| messagePurpose | String | X | 送信内容タイプ<br>デフォルト: NORMAL<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+| templateLanguage | String | X | テンプレート言語タイプ<br>デフォルト: PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト), FREEMARKER(FreeMarkerテンプレート)] |
+| sender | Object | O |  |
+| sender.brandId | String | O | ブランドID |
+| sender.chatbotId | String | O | 会話ルーム(チャットボット)ID |
+| content | Object | O |  |
+| content.messageType | String | X | RCS送信メッセージタイプ<br>[SMS(ショートメッセージ), LMS(ロングメッセージ), MMS(マルチメディアメッセージ), RBC_TEMPLATE(RCS Biz Centerテンプレート)] |
+| content.title | String | X | (Deprecated、content.cards[].title 使用) メッセージタイトル |
+| content.body | String | X | (Deprecated、content.cards[].description 使用) メッセージ本文 |
+| content.smsType | String | X | SMSタイプ<br>[STANDALONE(スタンドアロン), UNIFIED_STANDALONE(統合スタンドアロン)] |
+| content.lmsType | String | X | LMSタイプ<br>[STANDALONE(スタンドアロン), FORMAT_BASIC(基本フォーマット), FORMAT_TITLE_HIGHLIGHT(タイトル強調フォーマット), FORMAT_PARAGRAPH(段落フォーマット), UNIFIED_STANDALONE(統合スタンドアロン)] |
+| content.mmsType | String | X | MMSタイプ(MMS送信の場合は必須)<br>[HORIZONTAL(横型), VERTICAL(縦型), CAROUSEL_MEDIUM(カルーセル中型), CAROUSEL_SMALL(カルーセル小型), UNIFIED_HORIZONTAL(統合横型), UNIFIED_VERTICAL(統合縦型)] |
+| content.messagebaseId | String | X | RCS Biz CenterテンプレートID |
+| content.unsubscribePhoneNumber | String | X | 受信拒否番号(広告送信の場合は必須) |
+| content.cards | Array | X | RCSカード |
+| content.cards[].title | String | X | タイトル |
+| content.cards[].description | String | X | 本文 |
+| content.cards[].attachmentId | String | X | 添付ファイルID<br>※ 統合MMSカードにGIF画像を添付すると、iOSデバイスでは受信できません。 |
+| content.cards[].mTitle | String | X | メインタイトル |
+| content.cards[].mTitleMedia | String | X | メインタイトルロゴファイルID |
+| content.cards[].title1 | String | X | タイトル 1 |
+| content.cards[].title2 | String | X | タイトル 2 |
+| content.cards[].title3 | String | X | タイトル 3 |
+| content.cards[].description1 | String | X | 本文 1 |
+| content.cards[].description2 | String | X | 本文 2 |
+| content.cards[].description3 | String | X | 本文 3 |
+| content.cards[].buttons | Array | X | RCSボタンリスト |
+| content.cards[].buttons[].buttonType | String | X | COMPOSE(会話ルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(地図を表示する), MAP_QUERY(地図を検索する), MAP_SHARE(現在地を共有する), URL(URLに接続する), CALENDAR(スケジュールを登録する)<br>※ 統合メッセージタイプにCLIPBOARD(コピーする)ボタンを使用すると、iOSデバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.cards[].buttons[].buttonJson | Object | X | ボタン内容JSONオブジェクト |
+| content.cards[].buttons[].buttonJson.action | Object | X | ボタンアクション |
+| content.buttons | Array | X | (Deprecated、content.cards[].buttons 使用) RCSボタンリスト |
+| content.buttons[].buttonType | String | X | COMPOSE(会話ルームを開く), CLIPBOARD(コピーする), DIALER(電話をかける), MAP_SHOW(地図を表示する), MAP_QUERY(地図を検索する), MAP_SHARE(現在地を共有する), URL(URLに接続する), CALENDAR(スケジュールを登録する)<br>※ 統合メッセージタイプにCLIPBOARD(コピーする)ボタンを使用すると、iOSデバイスでは受信できません。<br><br>[COMPOSE, CLIPBOARD, DIALER, MAP_SHOW, MAP_QUERY, MAP_SHARE, URL, CALENDAR] |
+| content.buttons[].buttonJson | Object | X | ボタン内容JSONオブジェクト |
+| content.buttons[].buttonJson.action | Object | X | ボタンアクション |
 | - | - | - | - |
 | templateName | String | Y | テンプレート名 |
 | categoryId | String | N | カテゴリーID |
