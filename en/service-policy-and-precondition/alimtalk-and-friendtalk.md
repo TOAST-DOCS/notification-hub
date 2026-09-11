@@ -45,7 +45,7 @@ After the channel is opened, set up the channel information and apply for the bu
 
 <a id="register-kakaotalk-channel"></a>
 ### Register Kakaotalk Channel { #register-kakaotalk-channel }
-If the business channel conversion has been completed (approved), register the sender profile (Kakao Talk Channel) on the **Notification Hub** >**Sender Information** >**Sender Profile Management** tab. More information about registering Sender Profiles can be found in the ** Console User Guide**>**Sender Information** >**Sender Profile Management**
+If the business channel conversion has been completed (approved), register the sender profile (Kakao Talk Channel) on the **Notification Hub** >**Sender Information** >**Sender Profile Management** tab. More information about registering Sender Profiles can be found in the **Console User Guide**>**Sender Information** >**Sender Profile Management**
 
 <a id="precautions"></a>
 ## Precautions { #precautions }

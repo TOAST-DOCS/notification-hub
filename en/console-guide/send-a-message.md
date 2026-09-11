@@ -7,10 +7,10 @@
 </style>
 <h1>Send</h1>
 
-**Notification > Notification Hub > Console User Guide > Send **
+**Notification > Notification Hub > Console User Guide > Send**
 
 !!! danger "Precaution"
-The sender information for the message channel must be registered before sending. For more information about sender information, see **Notification** > **Notification Hub** > ** Console User Guide** > **Start** > **Managing sender information**.
+The sender information for the message channel must be registered before sending. For more information about sender information, see **Notification** > **Notification Hub** > **Console User Guide** > **Start** > **Managing sender information**.
 
 
 <a id="send-flow-messages"></a>
