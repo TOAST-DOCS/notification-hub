@@ -7,12 +7,12 @@
 </style>
 <h1>Get Started With Notification Hub</h1>
 
-**Notification > Notification Hub > Console User Guide > Get Started with Notification Hub **
+**Notification > Notification Hub > Console User Guide > Get Started with Notification Hub**
 
 <a id="identity-verification"></a>
 ## Identity verification { #identity-verification }
 
-The Notification Hub is available after it is activated and Identity verification is completed. For more information on Identity verification, please check the ** Usage Policy and Preset Guide > Identity verification**.
+The Notification Hub is available after it is activated and Identity verification is completed. For more information on Identity verification, please check the **Usage Policy and Preset Guide > Identity verification**.
 
 * [Go to Identity verification Guide](./2-service-policy#identity-verification)
 
@@ -43,7 +43,7 @@ To send the RCS message, you must complete the brand linkage. If the pre-registr
 
 When the RCS Biz Center has created a brand and set up an agency, registered a chat room (sender number), and registered a template (approved), the console will link the brand.
 
-* Click **+ Brand linkage ** to complete the connection.
+* Click **+ Brand linkage** to complete the connection.
 
 <a id="manage-domains"></a>
 ### Manage Domains { #manage-domains }

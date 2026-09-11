@@ -7,7 +7,7 @@
 </style>
 <h1>View Delivery</h1>
 
-**Notification > Notification Hub > Console User Guide > View Send **
+**Notification > Notification Hub > Console User Guide > View Send**
 
 
 <a id="view-send"></a>
@@ -29,8 +29,8 @@ You can view the reception results of the delivered message by receiver contacts
 * You can check by selecting the scheduled delivery date, delivery date, receiving date, template name, flow name, statistical key name, query status, and viewing date in the additional settings of the inquiry field.
 * You can click **Confirm** on **Send Purpose** to view the results of the delivery in detail for the selected receiver's contacts.
 * If delivery status of the searched contact reception result is Scheduled for delivery, Waiting for delivery, Waiting for Approval, click **Deselect**, **Deselect all** to cancel the delivery.
-    * Contact received result with delivery status ** scheduled delivery ** is a pending message because scheduled delivery time is not yet reached.
-    * Contact received result with status ** Waiting for Approval ** is pending because it has not been approved for delivery.
+    * Contact received result with delivery status **scheduled delivery** is a pending message because scheduled delivery time is not yet reached.
+    * Contact received result with status **Waiting for Approval** is pending because it has not been approved for delivery.
 * If delivery status of the searched contact received result is Awaiting Approval, click **Approval** at the time of delivery to approve the delivery.
 
 <a id="download-search-results"></a>
