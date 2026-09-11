@@ -328,7 +328,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 <a id="validate-attachments-before-upload"></a>
 ## Validate Attachments before Upload { #validate-attachments-before-upload }
 
-Validates attachments before they are uploaded. The system checks the file type, format, size, resolution, and dimensions (width/height) to ensure they meet the defined criteria.
+Validates the attachment file to be uploaded. Validates the configured file type based on the file type, file format, file size, resolution, width, and height. You can validate the file type before uploading the attachment.
 
 
 **Request**
@@ -339,26 +339,30 @@ X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
 ```
 
-**Request Parameter**
+**Request Parameters**
 
-| Name | Category | Type | Required | Description |
+| Name | Type | Format | Required | Description |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header  | String | Y | Appkey |
-| X-NHN-Authorization | Header  | String | Y | Access token |
+| X-NC-APP-KEY | Header | String | O | App Key |
+| X-NHN-Authorization | Header | String | O | Access token |
 
 
 
 **Request Body**
 
-<!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
+<!--If this API does not require a request body, enter "This API does not require a request body."-->
 
-This API does not require a request body.
+| Path | Type | Required | Description |
+| - | - | - | - |
+| file | File | O | The attachment file. |
+| fileName | String | O | The name of the attachment file. |
+| fileTypes | Array | X | The type of the attachment file to upload. You can select multiple file types in which the attachment can be used. The upload succeeds only if the file passes validation for the configured file types. |
 
 
 
 **Response Body**
 
-<!--응답 본문을 반환하지 않는다면 "이 API는 응답 본문을 반환하지 않습니다"로 입력합니다.-->
+<!--If this API does not return a response body, enter "This API does not return a response body."-->
 
 ```
 {
@@ -375,37 +379,37 @@ This API does not require a request body.
 }
 ```
 
-<!--응답 본문의 필드를 설명합니다.-->
+<!--Describes the fields in the response body.-->
 
-| Path | Type | Description |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | Indicates whether the operation was successful.<br>Default: true |
-| header.resultCode | Integer | The result code of the request.<br>Default: 0 |
-| header.resultMessage | String | The result message of the request.<br>Default: SUCCESS |
-| results | Array |  |
-| results[].isSuccessful | Boolean | Indicates whether the operation was successful.<br>Default: true |
-| results[].resultCode | Integer | The result code of the request.<br>Default: 0 |
-| results[].resultMessage | String | The result message of the request.<br>Default: SUCCESS |
+| Path | Type | Not Null | Description |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| header.resultCode | Integer | O | The result code of the request.<br>Default: 0 |
+| header.resultMessage | String | O | The result message of the request.<br>Default: SUCCESS |
+| results | Array | O |  |
+| results[].isSuccessful | Boolean | O | Indicates whether the request was successful.<br>Default: true |
+| results[].resultCode | Integer | O | The result code of the request.<br>Default: 0 |
+| results[].resultMessage | String | O | The result message of the request.<br>Default: SUCCESS |
 
 
 
-**Request Example**
+**Request Examples**
 
 
 <details>
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### Validate Attachments before Upload
+### Validate attachments before upload
 
 POST {{endpoint}}/attachment/v1.0/attachments/do-validate
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
+fileName=fileName_example
+fileTypes=
+file=@BINARY_DATA_PATH
 ```
-
 </details>
 
 <details>
@@ -413,8 +417,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-F "fileName=fileName_example" \
+-F "fileTypes=" \
+-F "file=@BINARY_DATA_PATH"
 ```
 
 </details>

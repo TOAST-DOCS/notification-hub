@@ -328,7 +328,7 @@ curl -X GET "${endpoint}/attachment/v1.0/attachments/${attachmentId}" \
 <a id="validate-attachments-before-upload"></a>
 ## アップロード前の添付ファイル検証 { #validate-attachments-before-upload }
 
-アップロードする添付ファイルの有効性を検証します。ファイルタイプ、ファイルフォーマット、ファイルサイズ、解像度、横幅、縦幅を通じて、設定したファイルタイプの有効性を検証します。添付ファイルのアップロード前に、ファイルタイプに対する有効性を検証できます。
+アップロードする添付ファイルの有効性を検証します。ファイルの種類、ファイルフォーマット、ファイルサイズ、解像度、横幅、縦幅を通じて、設定したファイルの種類の有効性を検証します。添付ファイルのアップロード前に、ファイルの種類に対する有効性を検証できます。
 
 
 **リクエスト**
@@ -343,22 +343,26 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
-| X-NC-APP-KEY | Header | String | Y | Appkey |
-| X-NHN-Authorization | Header | String | Y | アクセストークン |
+| X-NC-APP-KEY | Header | String | O | アプリキー |
+| X-NHN-Authorization | Header | String | O | アクセストークン |
 
 
 
 **リクエスト本文**
 
-<!-- リクエスト本文を要求しない場合は「このAPIはリクエスト本文を要求しません」と入力します。-->
+<!--リクエスト本文を必要としない場合は「このAPIはリクエスト本文を必要としません」と入力します。-->
 
-このAPIはリクエスト本文を要求しません。
+| パス | タイプ | 必須 | 説明 |
+| - | - | - | - |
+| file | File | O | 添付ファイルです。 |
+| fileName | String | O | 添付ファイルの名前です。 |
+| fileTypes | Array | X | アップロードする添付ファイルの種類です。添付ファイルが使用できるファイルの種類を複数選択できます。設定されたファイルの種類に対する有効性検証を通過する必要があります。 |
 
 
 
 **レスポンス本文**
 
-<!-- レスポンス本文を返却しない場合は「このAPIはレスポンス本文を返却しません」と入力します。-->
+<!--レスポンス本文を返さない場合は「このAPIはレスポンス本文を返しません」と入力します。-->
 
 ```
 {
@@ -375,18 +379,18 @@ X-NHN-Authorization: Bearer {accessToken}
 }
 ```
 
-<!-- レスポンス本文のフィールドを説明します。-->
+<!--レスポンス本文のフィールドを説明します。-->
 
-| パス | タイプ | 説明 |
-| - | - | - |
-| header | Object |  |
-| header.isSuccessful | Boolean | 作業の成否を示します。<br>デフォルト値：true |
-| header.resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
-| header.resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
-| results | Array |  |
-| results[].isSuccessful | Boolean | 作業の成否を示します。<br>デフォルト値：true |
-| results[].resultCode | Integer | リクエストの結果コードです。<br>デフォルト値：0 |
-| results[].resultMessage | String | リクエストの結果メッセージです。<br>デフォルト値：SUCCESS |
+| パス | タイプ | Not Null | 説明 |
+| - | - | - | - |
+| header | Object | O |  |
+| header.isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| header.resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| header.resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
+| results | Array | O |  |
+| results[].isSuccessful | Boolean | O | リクエストが成功したかどうかを示します。<br>デフォルト値: true |
+| results[].resultCode | Integer | O | リクエストの結果コードです。<br>デフォルト値: 0 |
+| results[].resultMessage | String | O | リクエストの結果メッセージです。<br>デフォルト値: SUCCESS |
 
 
 
@@ -397,15 +401,15 @@ X-NHN-Authorization: Bearer {accessToken}
     <summary><strong>IntelliJ HTTP</strong></summary>
 
 ```http
-### アップロード前の添付ファイル検証
+### アップロード前添付ファイル有効性検査
 
 POST {{endpoint}}/attachment/v1.0/attachments/do-validate
 X-NC-APP-KEY: {appKey}
 X-NHN-Authorization: Bearer {accessToken}
-
-
+fileName=fileName_example
+fileTypes=
+file=@BINARY_DATA_PATH
 ```
-
 </details>
 
 <details>
@@ -413,8 +417,11 @@ X-NHN-Authorization: Bearer {accessToken}
 
 ```http
 curl -X POST "${endpoint}/attachment/v1.0/attachments/do-validate" \
--H "X-NC-APP-KEY: {appKey}"  \ 
--H "X-NHN-Authorization: Bearer {accessToken}" 
+-H "X-NC-APP-KEY: {appKey}" \
+-H "X-NHN-Authorization: Bearer {accessToken}" \
+-F "fileName=fileName_example" \
+-F "fileTypes=" \
+-F "file=@BINARY_DATA_PATH"
 ```
 
 </details>

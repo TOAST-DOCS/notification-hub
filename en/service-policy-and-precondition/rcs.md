@@ -72,7 +72,15 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
 <a id="android-rcs-vs-integrated-rcs"></a>
 ### Android RCS vs Integrated RCS { #android-rcs-vs-integrated-rcs }
 
-<!-- TODO: translate body -->
+| Category | (Existing) Android RCS Type | Unified RCS Type |
+|---|---|---|
+| Supported Devices | Android Chat+ supported devices (e.g., Samsung Galaxy) | All devices connected to domestic carriers via RCS |
+| (Ad) Notation | Send messages by setting "header" in the message API | Send messages by entering the notation directly in the message title or body (included in character count) |
+| Free Opt-Out Notation | Send messages by setting "footer" in the message API | Send messages by entering the notation directly at the end of the message body (included in character count) |
+| CopyAllowed | Supported (configurable per message whether users can copy) | Not supported (copy functionality is provided according to device policy) |
+| KISA Safety Mark / Verified Sender Number | Displayed on Samsung devices only | Displayed on Samsung devices only |
+| Chat Room Menu | Supported | Available on Samsung devices only (planned to expand to other manufacturers within the year) |
+| Open Rich Card | Supported | Not supported |
 
 <a id="notes"></a>
 ### Notes { #notes }

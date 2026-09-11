@@ -240,8 +240,8 @@ X-NHN-Authorization: Bearer {accessToken}
 
 | Path | Type | Required | Description |
 | - | - | - | - |
-| Name | String | Y | Category name |
-| ParentCategoryId | String | N | Parent category ID |
+| name | String | O | Category name |
+| parentCategoryId | String | X | Parent category ID |
 
 
 
