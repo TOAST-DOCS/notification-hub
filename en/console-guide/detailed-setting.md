@@ -128,10 +128,30 @@ NHN Cloud is not responsible for any international SMS sent through abusing.
 <a id="webhook"></a>
 ## Webhook { #webhook }
 
-<!-- TODO: translate body -->
+You can receive a webhook event by specifying a URL when a specified event occurs.
+
+1. Click the **Add Webhook** button.
+2. Select the event type to register.
+3. Enter the URL address where data to be sent via webhook can be received.
+4. Enter the webhook signature to register (not required).
+5. After verification, click **Add** to register the webhook.
+
+Registered webhooks can be checked in the webhook registration list.
 
 <a id="backup"></a>
 ## Backup { #backup }
 
-<!-- TODO: translate body -->
+Depending on the message retention period policy, you can back up message sending history older than 180 days.
+
+* By default, this feature is disabled. When you enter storage information and enable it, backups are performed on a daily basis.
+* Supported storage options are [NHN Cloud Object Storage](../../../../Storage/Object%20Storage/en/Overview/) and AWS S3.
+    * **Access Key** and **Secret Key** can be found by registering and retrieving EC2 credentials using the [AWS S3 API](../../../../Storage/Object%20Storage/en/s3-api-guide/#_1).
+    * **Bucket Name** is the name of the Object Storage container where logs will be stored.
+    * **Endpoint** and **Region** are the information used to manage the Object Storage where logs will be stored, and can be found in the [Amazon S3-compatible API guide - AWS SDK](../../../../Storage/Object%20Storage/en/s3-api-guide/#aws-sdk).
+* You can specify up to 5 storage locations, and the same file is backed up to each storage location.
+* For the message body, up to 10,000 characters are backed up.
+* The storage permissions required for backup are as follows:
+    1. ListBucket - Validate bucket (check for upload availability)
+    2. deleteObject - Create and delete a temporary file (checks for upload availability)
+    3. putObject - Upload backup file
 

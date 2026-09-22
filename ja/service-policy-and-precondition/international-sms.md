@@ -46,6 +46,10 @@
 
 <a id="precautions---international-sms-mass-volume-pumping"></a>
 ## 注意事項 - 国際SMS量ポンピング現象 { #precautions---international-sms-mass-volume-pumping }
+
+<a id="international-sms-volume-pumping-phenomenon"></a>
+### 国際SMS量ポンピング現象 { #international-sms-volume-pumping-phenomenon }
+
 * 一部の海外通信事業者(MNO)が売上を上げるために人為的にメッセージ送信を誘導する場合があります。
 * 会員登録認証番号リクエストなどのページでBotまたは不正行為者がメッセージ送信を大量リクエストします。
 * ほとんどのBotまたは不正行為者は認証リクエスト後、実際の認証は行いません。アビューズが発生すると、認証番号リクエストは増加しますが、認証を行い、変換される割合は減少します。
@@ -54,12 +58,6 @@
     * アビューズやこれによるブロックで被害が発生しても、NHN Cloudは一切の責任を負いません。機密情報の流出やアビューズに注意してください。
 * 推奨措置事項
     * **国際SMSメッセージ送信設定**で送信を許可する国を選択し、最大月間送信量を設定します。
-
-
-<a id="international-sms-volume-pumping-phenomenon"></a>
-### 国際SMS量ポンピング現象 { #international-sms-volume-pumping-phenomenon }
-
-<!-- TODO: translate body -->
 
 <a id="available-countries"></a>
 ## 送信可能国 { #available-countries }

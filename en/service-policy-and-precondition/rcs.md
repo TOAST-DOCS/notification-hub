@@ -67,17 +67,26 @@ The **Notification Hub**>**Sender Information**>**Brand Management** tab enables
 <a id="introduction-to-integrated-rcs"></a>
 ## Introduction to Integrated RCS { #introduction-to-integrated-rcs }
 
-<!-- TODO: translate body -->
+Unified RCS is the RCS standard specification provided by the three major domestic mobile carriers, regardless of device manufacturer.
 
 <a id="android-rcs-vs-integrated-rcs"></a>
 ### Android RCS vs Integrated RCS { #android-rcs-vs-integrated-rcs }
 
-<!-- TODO: translate body -->
+| Category | (Legacy) Android RCS Type | Integrated RCS Type |
+|---|---|---|
+| Supported Devices | Devices that support Android Chat+ (e.g., Samsung Galaxy) | All devices connected to domestic carriers via RCS |
+| (Ad) Notation | Send messages by setting "header" in the message API | Send messages by including the notation directly in the message title or body (counted toward character limit) |
+| Free Opt-Out Notation | Send messages by setting "footer" in the message API | Send messages by including the notation directly at the end of the message body (counted toward character limit) |
+| CopyAllowed | Supported (configurable per message to allow or disallow user copying) | Not supported (copy functionality is provided according to device policy) |
+| KISA Safety Mark / Verified Sender Number | Displayed on Samsung devices only | Displayed on Samsung devices only |
+| Chatroom Menu | Supported | Available on Samsung devices only (planned for expansion to other manufacturers within the year) |
+| Open Rich Card | Supported | Not supported |
 
 <a id="notes"></a>
 ### Notes { #notes }
 
-<!-- TODO: translate body -->
+- As of August 2025, all Biz RCS types in use are defined as the Android RCS type.
+- Messages using the existing Android RCS type can continue to be used.
 
 <a id="send-type-that-supports"></a>
 ## Supported Sending Types { #send-type-that-supports }

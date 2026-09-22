@@ -16,8 +16,6 @@ It is a cloud-based integrated messaging platform that sends and manages push, e
 <a id="key-features"></a>
 ## Key Features { #key-features }
 
-<!-- TODO: translate body -->
-
 <a id="multichannel-messaging"></a>
 ### Multi-Channel Messaging { #multichannel-messaging }
 

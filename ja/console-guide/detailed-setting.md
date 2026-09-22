@@ -68,8 +68,6 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 <a id="rcs"></a>
 ## RCS { #rcs }
 
-<!-- TODO: translate body -->
-
 <a id="rcs-ad-message-settings"></a>
 ### 広告性メッセージ設定 { #rcs-ad-message-settings }
 
@@ -131,10 +129,30 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 <a id="webhook"></a>
 ## ウェブフック { #webhook }
 
-<!-- TODO: translate body -->
+指定したイベントが発生した際に URL を指定してWebhookイベントを受け取ることができます。
+
+1. **[Webhook追加]** ボタンをクリックします。
+2. 登録するイベントタイプを選択します。
+3. Webhookで送信されるデータを受信できる URL アドレスを入力します。
+4. 登録するWebhook署名を入力します。（必須ではありません）
+5. 検証を受けた後、**[追加]** をクリックしてWebhookを登録します。
+
+登録が完了したWebhookは、Webhook登録リストで確認できます。
 
 <a id="backup"></a>
 ## バックアップ { #backup }
 
-<!-- TODO: translate body -->
+メッセージ保管期間ポリシーに従い、180日が経過したメッセージ送信履歴をバックアップできます。
+
+* 基本的に無効に設定されており、ストレージ情報を入力して有効に設定すると、1日単位でバックアップされます。
+* サポートするストレージは[NHN Cloud Object Storage](../../../../Storage/Object%20Storage/ja/Overview/)とAWS S3です。
+    * **アクセスキー**、**シークレットキー**は[AWS S3 API](../../../../Storage/Object%20Storage/ja/s3-api-guide/#_1)を使用したEC2認証情報の登録および照会で確認できます。
+    * **バケット名**はログが保存されるObject Storageコンテナの名前です。
+    * **エンドポイント**、**リージョン**はログを保存するObject Storageを管理するための情報であり、[Amazon S3互換APIガイド - AWS SDK](../../../../Storage/Object%20Storage/ja/s3-api-guide/#aws-sdk)で確認できます。
+* 最大5つのストレージを指定でき、各ストレージに同じファイルがバックアップされます。
+* 本文は最大1万文字までバックアップされます。
+* バックアップに必要なストレージ権限は次のとおりです。
+    1. ListBucket - バケットの有効性判断（アップロード可否の確認）
+    2. deleteObject - 一時ファイルの作成後削除（アップロード可否の確認）
+    3. putObject - バックアップファイルのアップロード
 
