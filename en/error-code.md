@@ -162,179 +162,179 @@
 | Common | false | 400389 | Replacement parameters cannot be included in the quick reply name. |
 | Common | false | 400390 | The format of the button or quick reply is invalid. |
 | Common | false | 400391 | The Friend Talk wide item must have a title. |
-| 공통 | false | 400392 | A FriendTalk wide item must have an image. |
-| 공통 | false | 400393 | A FriendTalk wide item must have a linkMo. |
-| 공통 | false | 400394 | A FriendTalk wide entry should have three or four lists and a header. |
-| 공통 | false | 400395 | A FriendTalk carousel must have a header. |
-| 공통 | false | 400396 | A FriendTalk carousel must have a message. |
-| 공통 | false | 400397 | A FriendTalk carousel must have an attachment. |
-| 공통 | false | 400398 | A FriendTalk carousel must have an image. |
-| 공통 | false | 400399 | A FriendTalk carousel must have between 2 and 10 items. |
-| 공통 | false | 400400 | A FriendTalk carousel tail must have a linkMo. |
-| 공통 | false | 400401 | A FriendTalk coupon must have a title and a description. |
-| 공통 | false | 400402 | For FriendTalk text/image type messages, the length of the FriendTalk coupon description cannot exceed 12 characters. |
-| 공통 | false | 400403 | The FriendTalk coupon title is not valid. |
-| 공통 | false | 400404 | FriendTalk must have a mobile link or a channel link in iOS/Android format. |
-| 공통 | false | 400405 | FriendTalk wide items/carousels can only be sent as the AD type. |
-| 공통 | false | 400406 | The subject length of the first wide item in a FriendTalk cannot exceed 25 characters, and the subject length of the second through fourth wide items cannot exceed 30 characters. |
-| 공통 | false | 400407 | The FriendTalk button size is not valid. |
-| 공통 | false | 400408 | The FriendTalk video URL is not valid. |
-| 공통 | false | 400409 | 'content' is too long. |
-| 공통 | false | 400410 | 'header' is too long. |
-| 공통 | false | 400411 | The FriendTalk carousel feed type cannot have a 'head' field. |
-| 공통 | false | 400412 | The FriendTalk carousel feed type cannot have an 'additionalContent' field. |
-| 공통 | false | 400413 | The FriendTalk carousel feed type cannot have a 'commerce' field. |
-| 공통 | false | 400414 | The FriendTalk Carousel commerce type cannot have 'header' and 'message' fields. |
-| 공통 | false | 400415 | The FriendTalk carousel button size is not valid. |
-| 공통 | false | 400416 | If you have a 'Discounted price' field in your commerce, then you need to have a 'Discount percentage' or 'Discount fixed amount' field. |
-| 공통 | false | 400417 | The parameter is not valid. |
-| 공통 | false | 400418 | The app key is already activated. |
-| 공통 | false | 400419 | The app key is not activated. |
-| 공통 | false | 400420 | Search is only available within the last 31 days. |
-| 공통 | false | 400421 | The app key is in a deactivated state. |
-| 공통 | false | 400422 | The app key does not have a sender key. |
-| 공통 | false | 400423 | The file size is less than {}. |
-| 공통 | false | 400424 | The file size is less than 20 MB. |
-| 공통 | false | 400425 | Check the file extension. |
-| 공통 | false | 400426 | The maximum recipient list size has been exceeded. |
-| 공통 | false | 400427 | Only jpg/jpeg file extensions can be uploaded. |
-| 공통 | false | 400428 | The file does not have a recipient number header. |
-| 공통 | false | 400429 | The requestId is not valid. |
-| 공통 | false | 400430 | Messages older than 90 days cannot be retrieved. |
-| 공통 | false | 400431 | A file upload error has occurred. |
-| 공통 | false | 400432 | The recipient number is not valid. |
-| 공통 | false | 400433 | Failed to read the file. |
-| 공통 | false | 400434 | The file size is less than 10 MB. |
-| 공통 | false | 400435 | Failed to export data. |
-| 공통 | false | 400436 | To deactivate the product, you must delete all senders. |
-| 공통 | false | 400437 | Failed to reactivate the dormant template. |
-| 공통 | false | 400438 | You can upload a maximum of 20 templates at a time. |
-| 공통 | false | 400439 | The header of the uploaded template is not valid. |
-| 공통 | false | 400440 | Failed to convert to AD/MI type. |
-| 공통 | false | 400441 | Failed to convert to AD/MI type. |
-| 공통 | false | 400442 | The search parameter is not valid. |
-| 공통 | false | 400443 | The RequestId or the start/end request date is not valid. |
-| 공통 | false | 400444 | RequestId is empty. |
-| 공통 | false | 400445 | The resend message is not valid. |
-| 공통 | false | 400446 | The recipient number is not valid. |
-| 공통 | false | 400447 | The vendor API request failed. |
-| 공통 | false | 400448 | 'imageSeq' is empty. |
-| 공통 | false | 400449 | The uploaded image is not valid. |
-| 공통 | false | 400450 | Failed to delete the image. |
-| 공통 | false | 400451 | 'createUser' is too long. |
-| 공통 | false | 400452 | Authentication-related content must be included. |
-| 공통 | false | 400453 | The storage configuration cannot be empty. |
-| 공통 | false | 400454 | The content contains prohibited words. |
-| 공통 | false | 400455 | This project has already been shared. |
-| 공통 | false | 400456 | Failed to upload the image file due to an encoding error. |
-| 공통 | false | 400457 | A required part of the request is missing. |
-| 공통 | false | 400458 | The type of the method argument does not match what was expected. |
-| 공통 | false | 400459 | This version is deprecated. |
-| 공통 | false | 400460 | Only the application/json content type is supported. |
-| 공통 | false | 400461 | A client error has occurred. |
-| 공통 | false | 400462 | templateMessageType (AD/MI) must include an AC type button.<br>A system error has occurred. |
-| 공통 | false | 400500 | The parameter is not valid. |
-| 공통 | false | 400501 | The parameter format is not valid. |
-| 공통 | false | 400502 | The parameter is empty or null. |
-| 공통 | false | 400503 | The certificate is not valid. |
-| 공통 | false | 400504 | The certificate is a duplicate. |
-| 공통 | false | 400505 | The certificate has expired. |
-| 공통 | false | 400506 | The certificate is already registered. |
-| 공통 | false | 400507 | The maximum limit has been exceeded. |
-| 공통 | false | 400508 | The certificate has already been completed. |
-| 공통 | false | 400509 | Too many. |
-| 공통 | false | 400510 | The API version is not supported. |
-| 공통 | false | 400511 | The deletion guide is empty. |
-| 공통 | false | 400512 | The contact is empty. |
-| 공통 | false | 400513 | The contact format is not valid ([0-9-]+). |
-| 공통 | false | 400514 | The APNS certificate does not support VoIP. |
-| 공통 | false | 400515 | The HTTP method is not supported. |
-| 공통 | false | 400516 | There is no channel available to receive messages. |
-| 공통 | false | 400517 | 'target |
-| 공통 | false | 400518 | The push type is not valid. |
-| 공통 | false | 400519 | The channel is an empty string. |
-| 공통 | false | 400520 | Access is not allowed. |
-| 공통 | false | 400521 | The key cannot be used. |
-| 공통 | false | 400600 | The SMS project is in a deactivated state. |
-| 공통 | false | 400601 | The SMS project cannot be used. |
-| 공통 | false | 400602 | The button parameter is not valid. |
-| 공통 | false | 400603 | An opt-out number is required when sending advertising messages. |
-| 공통 | false | 400604 | Only one card can be registered for horizontal and vertical types. |
-| 공통 | false | 400605 | The brand status is not valid. |
-| 공통 | false | 400606 | The chatbot status is not valid. |
-| 공통 | false | 400607 | The template status is not valid. |
-| 공통 | false | 400608 | The template is not supported. |
-| 공통 | false | 400609 | The advertising template cannot be used. |
-| 공통 | false | 400610 | The media has expired. |
-| 공통 | false | 400611 | The media type is not valid. |
-| 공통 | false | 400612 | The maximum file size has been exceeded. |
-| 공통 | false | 400613 | The media format is not valid. |
-| 공통 | false | 400614 | An empty media file was uploaded. |
-| 공통 | false | 400615 | The blocking service status is not valid. |
-| 공통 | false | 400616 | The recipient number is blocked. |
-| 공통 | false | 400617 | The sender number does not exist. |
-| 공통 | false | 400618 | The type is not supported. |
-| 공통 | false | 400619 | Failed to call the opt-out list retrieval API. |
-| 공통 | false | 400620 | Failed to call the opt-out list retrieval API. |
-| 공통 | false | 400621 | Failed to call the sender number retrieval API. |
-| 공통 | false | 400622 | Failed to call the project retrieval API. |
-| 공통 | false | 400623 | Failed to call the SMS project activation API. |
-| 공통 | false | 400624 | Failed to call the SMS sending API. |
-| 공통 | false | 400700 | There is no identity verification history. |
-| 공통 | false | 404000 | {0} not found.<br>The contact was not found.<br>The recipient was not found.<br>The self-authentication was not found.<br>The identity verification record was not found.<br>The content was not found.<br>The attachment was not found.<br>The category was not found.<br>The project was not found.<br>The recipient set was not found.<br>The result of sending to the recipient (messageId: {0}, recipientIndex: {1}) does not exist.<br>Contact sending result (messageId: {0}, recipientIndex: {1}, contactIndex: {2}) does not exist. |
-| 공통 | false | 404100 | Failed to retrieve the template. |
-| 공통 | false | 404101 | The opt-out information was not found. |
-| 공통 | false | 404102 | The category information was not found. |
-| 공통 | false | 404103 | The Excel file was not found. |
-| 공통 | false | 404104 | The app key does not exist. |
+| Common | false | 400392 | A FriendTalk wide item must have an image. |
+| Common | false | 400393 | A FriendTalk wide item must have a linkMo. |
+| Common | false | 400394 | A FriendTalk wide entry should have three or four lists and a header. |
+| Common | false | 400395 | A FriendTalk carousel must have a header. |
+| Common | false | 400396 | A FriendTalk carousel must have a message. |
+| Common | false | 400397 | A FriendTalk carousel must have an attachment. |
+| Common | false | 400398 | A FriendTalk carousel must have an image. |
+| Common | false | 400399 | A FriendTalk carousel must have between 2 and 10 items. |
+| Common | false | 400400 | A FriendTalk carousel tail must have a linkMo. |
+| Common | false | 400401 | A FriendTalk coupon must have a title and a description. |
+| Common | false | 400402 | For FriendTalk text/image type messages, the length of the FriendTalk coupon description cannot exceed 12 characters. |
+| Common | false | 400403 | The FriendTalk coupon title is not valid. |
+| Common | false | 400404 | FriendTalk must have a mobile link or a channel link in iOS/Android format. |
+| Common | false | 400405 | FriendTalk wide items/carousels can only be sent as the AD type. |
+| Common | false | 400406 | The subject length of the first wide item in a FriendTalk cannot exceed 25 characters, and the subject length of the second through fourth wide items cannot exceed 30 characters. |
+| Common | false | 400407 | The FriendTalk button size is not valid. |
+| Common | false | 400408 | The FriendTalk video URL is not valid. |
+| Common | false | 400409 | 'content' is too long. |
+| Common | false | 400410 | 'header' is too long. |
+| Common | false | 400411 | The FriendTalk carousel feed type cannot have a 'head' field. |
+| Common | false | 400412 | The FriendTalk carousel feed type cannot have an 'additionalContent' field. |
+| Common | false | 400413 | The FriendTalk carousel feed type cannot have a 'commerce' field. |
+| Common | false | 400414 | The FriendTalk Carousel commerce type cannot have 'header' and 'message' fields. |
+| Common | false | 400415 | The FriendTalk carousel button size is not valid. |
+| Common | false | 400416 | If you have a 'Discounted price' field in your commerce, then you need to have a 'Discount percentage' or 'Discount fixed amount' field. |
+| Common | false | 400417 | The parameter is not valid. |
+| Common | false | 400418 | The app key is already activated. |
+| Common | false | 400419 | The app key is not activated. |
+| Common | false | 400420 | Search is only available within the last 31 days. |
+| Common | false | 400421 | The app key is in a deactivated state. |
+| Common | false | 400422 | The app key does not have a sender key. |
+| Common | false | 400423 | The file size is less than {}. |
+| Common | false | 400424 | The file size is less than 20 MB. |
+| Common | false | 400425 | Check the file extension. |
+| Common | false | 400426 | The maximum recipient list size has been exceeded. |
+| Common | false | 400427 | Only jpg/jpeg file extensions can be uploaded. |
+| Common | false | 400428 | The file does not have a recipient number header. |
+| Common | false | 400429 | The requestId is not valid. |
+| Common | false | 400430 | Messages older than 90 days cannot be retrieved. |
+| Common | false | 400431 | A file upload error has occurred. |
+| Common | false | 400432 | The recipient number is not valid. |
+| Common | false | 400433 | Failed to read the file. |
+| Common | false | 400434 | The file size is less than 10 MB. |
+| Common | false | 400435 | Failed to export data. |
+| Common | false | 400436 | To deactivate the product, you must delete all senders. |
+| Common | false | 400437 | Failed to reactivate the dormant template. |
+| Common | false | 400438 | You can upload a maximum of 20 templates at a time. |
+| Common | false | 400439 | The header of the uploaded template is not valid. |
+| Common | false | 400440 | Conversion to AD/MI type failed. |
+| Common | false | 400441 | Conversion to AD/MI type failed. |
+| Common | false | 400442 | The search parameter is not valid. |
+| Common | false | 400443 | The RequestId or the start/end request date is not valid. |
+| Common | false | 400444 | RequestId is empty. |
+| Common | false | 400445 | The resend message is not valid. |
+| Common | false | 400446 | The recipient number is not valid. |
+| Common | false | 400447 | The vendor API request failed. |
+| Common | false | 400448 | 'imageSeq' is empty. |
+| Common | false | 400449 | The uploaded image is not valid. |
+| Common | false | 400450 | Failed to delete the image. |
+| Common | false | 400451 | 'createUser' is too long. |
+| Common | false | 400452 | Authentication-related content must be included. |
+| Common | false | 400453 | The storage configuration cannot be empty. |
+| Common | false | 400454 | The content contains prohibited words. |
+| Common | false | 400455 | This project has already been shared. |
+| Common | false | 400456 | Failed to upload the image file due to an encoding error. |
+| Common | false | 400457 | A required part of the request is missing. |
+| Common | false | 400458 | The type of the method argument does not match what was expected. |
+| Common | false | 400459 | This version is deprecated. |
+| Common | false | 400460 | Only the application/json content type is supported. |
+| Common | false | 400461 | A client error has occurred. |
+| Common | false | 400462 | templateMessageType (AD/MI) must include an AC type button.<br>A system error has occurred. |
+| Common | false | 400500 | The parameter is not valid. |
+| Common | false | 400501 | The parameter format is not valid. |
+| Common | false | 400502 | The parameter is empty or null. |
+| Common | false | 400503 | The certificate is not valid. |
+| Common | false | 400504 | The certificate is a duplicate. |
+| Common | false | 400505 | The certificate has expired. |
+| Common | false | 400506 | The certificate is already registered. |
+| Common | false | 400507 | The maximum limit has been exceeded. |
+| Common | false | 400508 | The certificate has already been completed. |
+| Common | false | 400509 | Too many. |
+| Common | false | 400510 | The API version is not supported. |
+| Common | false | 400511 | The deletion guide is empty. |
+| Common | false | 400512 | The contact is empty. |
+| Common | false | 400513 | The contact format is not valid ([0-9-]+). |
+| Common | false | 400514 | The APNS certificate does not support VoIP. |
+| Common | false | 400515 | The HTTP method is not supported. |
+| Common | false | 400516 | There is no channel available to receive messages. |
+| Common | false | 400517 | 'target |
+| Common | false | 400518 | The push type is not valid. |
+| Common | false | 400519 | The channel is an empty string. |
+| Common | false | 400520 | Access is not allowed. |
+| Common | false | 400521 | The key cannot be used. |
+| Common | false | 400600 | The SMS project is in a deactivated state. |
+| Common | false | 400601 | The SMS project cannot be used. |
+| Common | false | 400602 | The button parameter is not valid. |
+| Common | false | 400603 | An opt-out number is required when sending advertising messages. |
+| Common | false | 400604 | Only one card can be registered for horizontal and vertical types. |
+| Common | false | 400605 | The brand status is not valid. |
+| Common | false | 400606 | The chatbot status is not valid. |
+| Common | false | 400607 | The template status is not valid. |
+| Common | false | 400608 | The template is not supported. |
+| Common | false | 400609 | The advertising template cannot be used. |
+| Common | false | 400610 | The media has expired. |
+| Common | false | 400611 | The media type is not valid. |
+| Common | false | 400612 | The maximum file size has been exceeded. |
+| Common | false | 400613 | The media format is not valid. |
+| Common | false | 400614 | An empty media file was uploaded. |
+| Common | false | 400615 | The blocking service status is not valid. |
+| Common | false | 400616 | The recipient number is blocked. |
+| Common | false | 400617 | The sender number does not exist. |
+| Common | false | 400618 | The type is not supported. |
+| Common | false | 400619 | Failed to call the opt-out list retrieval API. |
+| Common | false | 400620 | Failed to call the opt-out list retrieval API. |
+| Common | false | 400621 | Failed to call the sender number retrieval API. |
+| Common | false | 400622 | Failed to call the project retrieval API. |
+| Common | false | 400623 | Failed to call the SMS project activation API. |
+| Common | false | 400624 | Failed to call the SMS sending API. |
+| Common | false | 400700 | There is no identity verification history. |
+| Common | false | 404000 | {0} not found.<br>The contact was not found.<br>The recipient was not found.<br>The self-authentication was not found.<br>The identity verification record was not found.<br>The content was not found.<br>The attachment was not found.<br>The category was not found.<br>The project was not found.<br>The recipient set was not found.<br>The result of sending to the recipient (messageId: {0}, recipientIndex: {1}) does not exist.<br>Contact sending result (messageId: {0}, recipientIndex: {1}, contactIndex: {2}) does not exist. |
+| Common | false | 404100 | Failed to retrieve the template. |
+| Common | false | 404101 | The opt-out information was not found. |
+| Common | false | 404102 | The category information was not found. |
+| Common | false | 404103 | The Excel file was not found. |
+| Common | false | 404104 | The app key does not exist. |
 | 공통 | false | 404201 | The service does not exist. |
-| 공통 | false | 404202 | The file has expired or does not exist. |
-| 공통 | false | 404203 | The data does not exist. |
-| 공통 | false | 404204 | The download schedule does not exist. |
-| 공통 | false | 404205 | The template does not exist. |
-| 공통 | false | 404206 | The category does not exist. |
-| 공통 | false | 404207 | The registered sender number request information does not exist. |
-| 공통 | false | 404208 | The data does not exist. |
-| 공통 | false | 404209 | The registered request sender number does not exist. |
-| 공통 | false | 404210 | This common code does not exist. |
-| 공통 | false | 404211 | The AuthCode does not exist. |
-| 공통 | false | 404212 | This URI does not exist. |
-| 공통 | false | 404213 | This IP does not exist. |
-| 공통 | false | 404214 | The search period is not valid. |
-| 공통 | false | 404215 | The authentication information does not exist. |
-| 공통 | false | 404216 | The Excel file was not found. |
-| 공통 | false | 404217 | The configCode does not exist. |
-| 공통 | false | 404218 | The CSV file was not found. |
-| 공통 | false | 404219 | This is not a registered opt-out number. |
-| 공통 | false | 404220 | The number is not registered. |
-| 공통 | false | 404221 | The number is already registered. |
-| 공통 | false | 404222 | The opt-out number is not registered. |
-| 공통 | false | 404300 | The sender profile group does not exist. |
-| 공통 | false | 404301 | No message was found for the requested requestId or recipientSeq. |
+| Common | false | 404202 | The file has expired or does not exist. |
+| Common | false | 404203 | The data does not exist. |
+| Common | false | 404204 | The download schedule does not exist. |
+| Common | false | 404205 | The template does not exist. |
+| Common | false | 404206 | The category does not exist. |
+| Common | false | 404207 | The registered sender number request information does not exist. |
+| Common | false | 404208 | The data does not exist. |
+| Common | false | 404209 | The registered request sender number does not exist. |
+| Common | false | 404210 | This common code does not exist. |
+| Common | false | 404211 | The AuthCode does not exist. |
+| Common | false | 404212 | This URI does not exist. |
+| Common | false | 404213 | This IP does not exist. |
+| Common | false | 404214 | The search period is not valid. |
+| Common | false | 404215 | The authentication information does not exist. |
+| Common | false | 404216 | The Excel file was not found. |
+| Common | false | 404217 | The configCode does not exist. |
+| Common | false | 404218 | The CSV file was not found. |
+| Common | false | 404219 | This is not a registered opt-out number. |
+| Common | false | 404220 | The number is not registered. |
+| Common | false | 404221 | The number is already registered. |
+| Common | false | 404222 | The opt-out number is not registered. |
+| Common | false | 404300 | The sender profile group does not exist. |
+| Common | false | 404301 | No message was found for the requested requestId or recipientSeq. |
 | 공통 | false | 404302 | The sender profile does not exist. |
-| 공통 | false | 404303 | The message to cancel was not found or does not meet the cancellation conditions. |
-| 공통 | false | 404304 | The bulk message request was not found. |
-| 공통 | false | 404305 | The template does not exist. |
-| 공통 | false | 404306 | The button name does not exist. |
-| 공통 | false | 404307 | The template does not have a button or quick reply. |
-| 공통 | false | 404308 | The quick reply name does not exist. |
-| 공통 | false | 404309 | The app key does not exist. |
-| 공통 | false | 404310 | The file was not found. |
-| 공통 | false | 404311 | The recipient list was not found. |
+| Common | false | 404303 | The message to cancel was not found or does not meet the cancellation conditions. |
+| Common | false | 404304 | The bulk message request was not found. |
+| Common | false | 404305 | The template does not exist. |
+| Common | false | 404306 | The button name does not exist. |
+| Common | false | 404307 | The template does not have a button or quick reply. |
+| Common | false | 404308 | The quick reply name does not exist. |
+| Common | false | 404309 | The app key does not exist. |
+| Common | false | 404310 | The file was not found. |
+| Common | false | 404311 | The recipient list was not found. |
 | 공통 | false | 404312 | The data does not exist. |
-| 공통 | false | 404313 | The image was not found. |
-| 공통 | false | 404314 | There is no sender profile registered in your project. |
-| 공통 | false | 404315 | The API does not exist. |
-| 공통 | false | 404600 | The brand is not linked. |
-| 공통 | false | 404601 | The brand does not exist. |
-| 공통 | false | 404602 | The chatbot does not exist. |
-| 공통 | false | 404603 | The template does not exist. |
-| 공통 | false | 404604 | The media does not exist. |
-| 공통 | false | 404605 | The opt-out list does not exist. |
-| 공통 | false | 404606 | The message ID does not exist. |
-| 공통 | false | 409000 | Group recipient (groupId: {0}, recipientId: {1}) already exists.<br>The recipient alias is already registered.<br>Message recipient ({0}, messageRecipientSetId: {1}, index: {2}) already exists.<br>{0} already exists. |
-| 공통 | false | 500001 | An internal server error has occurred. |
-| 공통 | false | 500002 | Invalid status server error. |
+| Common | false | 404313 | The image was not found. |
+| Common | false | 404314 | There is no sender profile registered in your project. |
+| Common | false | 404315 | The API does not exist. |
+| Common | false | 404600 | The brand is not linked. |
+| Common | false | 404601 | The brand does not exist. |
+| Common | false | 404602 | The chatbot does not exist. |
+| Common | false | 404603 | The template does not exist. |
+| Common | false | 404604 | The media does not exist. |
+| Common | false | 404605 | The opt-out list does not exist. |
+| Common | false | 404606 | The message ID does not exist. |
+| Common | false | 409000 | Group recipient (groupId: {0}, recipientId: {1}) already exists.<br>The recipient alias is already registered.<br>Message recipient ({0}, messageRecipientSetId: {1}, index: {2}) already exists.<br>{0} already exists. |
+| Common | false | 500001 | An internal server error has occurred. |
+| Common | false | 500002 | Invalid status server error. |
 | Message sending | false | 400001 | The number of contacts has been exceeded.<br>The flow sending order is empty.<br>The initial flow sending channel is empty.<br>The flow sending order is invalid.<br>Duplicate message channel.<br>Unable to add message recipients.<br>Invalid phone number pattern.<br>Invalid email address pattern.<br>Invalid token pattern.<br>{0} is an invalid Alim Talk template status.<br>The email local part length has been exceeded.<br>The email address length has been exceeded.<br>The email domain length has been exceeded.<br>The phone number is empty.<br>The phone number {0} contains a non-numeric value.<br>Invalid phone number. {0}<br>Invalid date format. {0}<br>{0} is an invalid file type.<br>{0} is not supported.<br>Contact sending result lookup fields (messageId: {0}, templateId: {1}, flowId: {2}, statsKeyId: {3}, sender: {4}, contact: {5}) One of them must have a value.<br>The creation date start and creation date end must have values.<br>The creation date start must be earlier than the creation date end.<br>A message channel is required when a sender is provided.<br>Invalid contact type {1} for message channel {0}.<br>Message recipient set ID and recipient are mutually exclusive.<br>A message recipient set ID or recipient is required.<br>The message recipient set is incomplete.<br>The recipient set is currently invalid.<br>The recipient set type is not a file. {0}<br>The content is empty.<br>The attachment is empty.<br>The Alim Talk template item highlight is empty.<br>The Alim Talk template image URL is empty.<br>The Alim Talk image URL is empty.<br>The body must contain an authentication phrase.<br>A sender key is required for a group template.<br>The Friend Talk wide item list items are empty.<br>The Friend Talk carousel is empty.<br>The type of FriendTalk template you entered can't have coupons.<br>The Friend Talk coupon title is invalid.<br>A category with subcategories cannot be deleted.<br>A category with templates cannot be deleted.<br>The user access key is empty.<br>The SecretKey is empty.<br>The user UUID is empty.<br>The AppKey is empty.<br>The body is empty.<br>The title is empty.<br>The RCS brand ID is empty.<br>The RCS chatbot ID is empty.<br>The RCS chatbot ID is invalid.<br>The RCS unsubscribe number is empty.<br>The RCS body is too long.<br>The RCS title is too long.<br>The RCS MMS type is empty.<br>The RCS message default ID is empty.<br>Too many buttons.<br>The button JSON is invalid.<br>The RCS card is empty.<br>The RCS card size is invalid.<br>The RCS description is empty.<br>The RCS description is too long.<br>The SecretKey cannot be found.<br>Not available at {0}. {1}<br>The {0} value is invalid.<br>Unsupported message channel.<br>The statsId length must be 8 characters or fewer.<br>The sender's ({0}) domain is not authenticated, please authenticate your domain. |
 | Message sending | false | 403000 | You do not have permission. |
 | Message sending | false | 500001 | An internal server error has occurred. |

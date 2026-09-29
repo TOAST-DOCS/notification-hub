@@ -196,7 +196,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 | templates[].content.quickReplies[].schemeIos | String | X | テンプレートクイックリプライ iOS アプリリンク |
 | templates[].content.quickReplies[].schemeAndroid | String | X | テンプレートクイックリプライ Android アプリリンク |
 | templates[].content.quickReplies[].bizFormId | Integer | X | テンプレートクイックリプライビジネスフォームID（BF タイプの場合は必須） |
-| templates[].reviewStatus | String | O | REGISTERED: リクエスト、REQUESTED: 審査中、APPROVED: 承認、REJECTED: 反려<br>[REGISTERED, REQUESTED, APPROVED, REJECTED] |
+| templates[].reviewStatus | String | O | REGISTERED: リクエスト、REQUESTED: 審査中、APPROVED: 承認、REJECTED: 差し戻し<br>[REGISTERED, REQUESTED, APPROVED, REJECTED] |
 | templates[].comments | Array | O | テンプレート問い合わせリスト |
 | templates[].comments[].id | Integer | O | 問い合わせID |
 | templates[].comments[].content | String | X | 問い合わせ内容 |
@@ -205,7 +205,7 @@ GET /template/v1.0/ALIMTALK/templates/{templateId}/kakao-templates
 | templates[].comments[].attachments | Array | O | 問い合わせ添付ファイル |
 | templates[].comments[].attachments[].originalFileName | String | O | 添付ファイル名 |
 | templates[].comments[].attachments[].filePath | String | O | 添付ファイルパス |
-| templates[].comments[].status | String | O | 問い合わせステータス（REQ: リクエスト、INQ: 問い合わせ、APR: 承認、REJ: 反려、REP: 回答）<br>[REQ, INQ, APR, REJ, REP] |
+| templates[].comments[].status | String | O | 問い合わせステータス（REQ: リクエスト、INQ: 問い合わせ、APR: 承認、REJ: 否認、REP: 回答）<br>[REQ, INQ, APR, REJ, REP] |
 | templates[].block | Boolean | O | テンプレートブロック有無 |
 | templates[].dormant | Boolean | O | テンプレート休眠有無 |
 | templates[].createdDateTime | String | O | テンプレート作成日時 |
