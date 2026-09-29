@@ -46,6 +46,10 @@ Check the main points below when sending international SMS messages.
 
 <a id="precautions---international-sms-mass-volume-pumping"></a>
 ## Precautions - International SMS Mass Volume Pumping { #precautions---international-sms-mass-volume-pumping }
+
+<a id="international-sms-volume-pumping-phenomenon"></a>
+### International SMS Volume Pumping Phenomenon { #international-sms-volume-pumping-phenomenon }
+
 * Some overseas mobile carriers (MNOs) artificially induce message sending to increase sales.
 * On pages such as requesting a membership authentication number, a bot or abuser requests a large volume of messages to be sent.
 * Most bots or abusers do not perform actual verification after a verification request. When abusing occurs, verification number requests increase, but the rate at which authentication is performed and converted is reduced.
@@ -54,12 +58,6 @@ Check the main points below when sending international SMS messages.
     * NHN Cloud is not responsible for any damage caused by abuse or blocking. Be careful about confidential information leakage and abuse.
 * Recommended Measures
     * Select the country you want to allow and set the maximum monthly shipment through**Send international SMS messages setting**.
-
-
-<a id="international-sms-volume-pumping-phenomenon"></a>
-### International SMS Volume Pumping Phenomenon { #international-sms-volume-pumping-phenomenon }
-
-<!-- TODO: translate body -->
 
 <a id="available-countries"></a>
 ## Available Countries { #available-countries }

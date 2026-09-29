@@ -67,17 +67,26 @@ RCSブランド承認完了後、代理店を「엔이치엔클라우드」に�
 <a id="introduction-to-integrated-rcs"></a>
 ## 統合RCSの紹介 { #introduction-to-integrated-rcs }
 
-<!-- TODO: translate body -->
+統合RCSは、端末メーカーを問わず、国内の移動体通信大手3社が提供するRCS標準仕様です。
 
 <a id="android-rcs-vs-integrated-rcs"></a>
 ### Android RCS vs 統合RCS { #android-rcs-vs-integrated-rcs }
 
-<!-- TODO: translate body -->
+| 区分 | (従来) Android RCS タイプ | 統合 RCS タイプ |
+|---|---|---|
+| 受信可能端末 | Android チャット+ 対応端末 (例: Samsung Galaxy) | 国内通信キャリアと RCS 連携されたすべての端末 |
+| (広告) 表記 | message API 内の「header」を設定してメッセージ送信 | メッセージタイトルまたは本文に直接表記してメッセージ送信 (文字数に含む) |
+| 無料受信拒否表記 | message API 内の「footer」を設定してメッセージ送信 | メッセージ本文末尾に直接表記してメッセージ送信 (文字数に含む) |
+| CopyAllowed | サポート (メッセージごとにユーザーのコピー可否を設定可能) | 非サポート (端末ポリシーに従いコピー機能が提供されます) |
+| KISA 安心マーク / 確認済み発信番号 | Samsung 端末のみ表示 | Samsung 端末のみ表示 |
+| チャットルームメニュー | サポート | Samsung 端末のみ提供 (年内に他メーカーへ拡大予定) |
+| オープンリッチカード | サポート | 非サポート |
 
 <a id="notes"></a>
 ### 参考事項 { #notes }
 
-<!-- TODO: translate body -->
+- 2025年8月時点で使用中のBiz RCSタイプは、すべてAndroid RCSタイプとして定義します。
+- 既存のAndroid RCSタイプのメッセージも引き続き利用できます。
 
 <a id="send-type-that-supports"></a>
 ## サポートする送信タイプ { #send-type-that-supports }
