@@ -99,7 +99,7 @@
     * 詳細については、[コンソール使用ガイド > 送信](./console-guide/image-layout)、[API v1.0使用ガイド > メッセージ > 画像レイアウト](./api-guide-v1x0/image-layout)をご参照ください。
 * [API/Console] MMSテンプレートに画像レイアウトを連携できます。
     * MMSテンプレート作成時に添付ファイルセクションで画像レイアウトを選択できます。
-    * 詳細については、[コンソール使用ガイド > テンプレート](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0使用ガイド > メッセージ > MMSテンプレート](./api-guide-v1x0/template/#register-sms-template)をご参照ください。
+    * 詳細については、[コンソール使用ガイド > テンプレート](./console-guide/template/#template) [API v1.0使用ガイド > メッセージ > MMSテンプレート](./api-guide-v1x0/template/#register-sms-template)をご参照ください。
 * [Console] 国際SMS送信時、送信詳細照会でエンコーディング、実際の送信件数を確認できます。
 * [Console] 「添付ファイル管理」メニューの位置が変更されました。
     * 「詳細設定」メニューの下位にあった添付ファイル管理メニューが上部メニューに移動されました。
@@ -120,10 +120,10 @@
 <a id="2025-04-15-new-features"></a>
 ### 機能追加 { #2025-04-15-new-features }
 * [API/Console] サービスで発生する様々なイベント履歴をCloudTrailで確認できます。
-    * 確認可能なイベント一覧は[[CloudTrail > 収集されるイベント一覧]](../../../Governance%20&%20Audit/CloudTrail/ja/event-list)をご参照ください。
+    * 確認可能なイベント一覧は[[CloudTrail > 収集されるイベント一覧]](/Governance%20%26%20Audit/CloudTrail/ja/event-list/)をご参照ください。
 * [API/Console] RCS認証用メッセージ送信が追加されました。
 * [API] 連絡先別受信結果一覧照会APIに応答フィールドが追加されました。
-    * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別受信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#_1)をご参照ください。
+    * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別受信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#retrieve-a-list-of-received-results-by-contacts)をご参照ください。
 * [Console] RCS BizCenter LMSフォーマットをサポート
     * RCSメッセージ送信時にLMSフォーマットで送信できます。
     * テンプレート作成時にLMSフォーマットを選択できます。
@@ -169,7 +169,7 @@
 <a id="2025-02-25-new-features"></a>
 ### 機能追加 { #2025-02-25-new-features }
 * [API] 連絡先別最終送信結果一覧照会APIが追加されました。
-    * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別最終送信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#_2)をご参照ください。
+    * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別最終送信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#retrieve-a-list-of-the-final-send-status-messages)をご参照ください。
 * [API] RCS Bizcenterテンプレート送信時にチャットルームID、受信拒否番号を追加できるように改善されました。
 
 <a id="2025-02-25-enhancements"></a>
@@ -185,7 +185,7 @@
     * RCS BizCenter LMSテンプレートタイプも送信できます。
 * [API] Instant Flow Message API追加
     * 事前にフローやテンプレートを登録しなくても、リクエスト時点でメッセージを即時生成・送信できるAPIが追加されました。
-    * 詳細については、[[API v1.0使用ガイド > メッセージ > インスタントフローメッセージ送信]](./api-guide-v1x0/message/#_6)をご参照ください。
+    * 詳細については、[[API v1.0使用ガイド > メッセージ > インスタントフローメッセージ送信]](./api-guide-v1x0/message/#send-an-instant-flow-message)をご参照ください。
 * [Console/API] 送信受信者の重複チェック機能
     * 受信者リストに重複した連絡先が存在する場合、送信前にこれを確認して重複送信を防止できます。
 * [Console] フローテンプレートプレビュー機能追加

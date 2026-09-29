@@ -43,7 +43,7 @@
 * テンプレートコード/テンプレート名
     * 1つの発信プロフィール/グループに同じテンプレートコードとテンプレート名を重複して登録することはできません。
 * テンプレート内容
-    * お知らせトークは、全角/半角の区別なく変数及びURL、空白、ボタン名を含めて1,000文字まで作成可能です。変数を入力して登録する場合、置換される内容も考慮してテンプレートを作成してください。<br/> 文字数の詳細ガイドは[お知らせトークテンプレートの注意事項](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3)でご確認ください。
+    * お知らせトークは、全角/半角の区別なく変数及びURL、空白、ボタン名を含めて1,000文字まで作成可能です。変数を入力して登録する場合、置換される内容も考慮してテンプレートを作成してください。<br/> 文字数の詳細ガイドは[お知らせトークテンプレートの注意事項](/Notification/KakaoTalk%20Bizmessage/ja/alimtalk-overview/#alimtalk-template-precautions)でご確認ください。
     * 変数を #{変数}の形で作成します。 (例：#{ホン・ギルドン}さんの荷物が本日(#{09:50})お届け予定です。)
     * ボタン登録時、ボタン名には変数入力はできませんが、ボタンURLには変数入力が可能です。 (例 http://kakao.com/#{変数})
     * ボタンurl登録時、url_mobile, url_pcリンクには'http://', 'https://''が含まれている必要があり、scheme_ios, scheme_androidリンクはスキーム形態に合わせて登録する必要があります。そうでない場合、テンプレート登録はできません。
@@ -86,7 +86,7 @@
 <a id="template-status"></a>
 #### テンプレート状態
 * テンプレート登録時、**リクエスト > 検収中 > 承認/拒否**状態の順に更新されます。
-* テンプレート登録後、1年間同じ状態が維持されるか、追加送信がない場合、**休眠**状態に切り替わります。関連ガイドは[お知らせトークテンプレート注意事項](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3)でご確認ください。
+* テンプレート登録後、1年間同じ状態が維持されるか、追加送信がない場合、**休眠**状態に切り替わります。関連ガイドは[お知らせトークテンプレート注意事項](/Notification/KakaoTalk%20Bizmessage/ja/alimtalk-overview/#alimtalk-template-precautions)でご確認ください。
 
 <a id="template-2-modify-templates"></a>
 #### テンプレート修正

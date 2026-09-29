@@ -78,7 +78,7 @@ Existing NHN Cloud Notification users can easily switch to and use the Notificat
 * Contact **Customer Center**>**1:1:1 Inquiry** if you need to adjust your monthly delivery volume.
   * [1:1 Inquiry Shortcut](https://www.nhncloud.com/kr/support/inquiry)
 * For resource provision policies, see **User Guide**>**NHN Cloud**>**Resource Provision Policy**.
-  * [ Resource Provision Policy Shortcut ](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
+  * [ Resource Provision Policy Shortcut ](/nhncloud/en/resource-policy/)
 
 <a id="information-on-processing-of-personal-information"></a>
 ## Information on Processing of Personal Information { #information-on-processing-of-personal-information }
