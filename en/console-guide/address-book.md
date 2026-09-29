@@ -66,7 +66,7 @@ You can look up and manage mobile phone numbers, email addresses, and tokens tha
 #### Email
 
 * Click the drop-down list under the **+ Add Unsubscribed Email** button to select email domain and query the unsubscribed email address with the selected Unsubscribed email domain.
-* Click **+ Add Unsubscribed Email ** to manually add it to the Unsubscription List.
+* Click **+ Add Unsubscribed Email** to manually add it to the Unsubscription List.
 
 
 <a id="manage-unsubscribes-token"></a>
