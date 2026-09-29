@@ -44,7 +44,7 @@
     * 하나의 발신 프로필/그룹에 동일한 템플릿 코드와 템플릿 이름을 중복하여 등록할 수 없습니다.
 
 * 템플릿 내용
-    * 알림톡은 한/영 구분 없이 변수 및 URL, 띄어쓰기, 버튼명 모두 포함하여 1,000자까지 작성 가능합니다. 변수를 입력하여 등록할 경우 치환될 내용도 함께 고려하여 템플릿을 작성하세요.<br/> 글자수 상세 가이드는 [알림톡 템플릿 유의사항](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3)에서 확인하세요.
+    * 알림톡은 한/영 구분 없이 변수 및 URL, 띄어쓰기, 버튼명 모두 포함하여 1,000자까지 작성 가능합니다. 변수를 입력하여 등록할 경우 치환될 내용도 함께 고려하여 템플릿을 작성하세요.<br/> 글자수 상세 가이드는 [알림톡 템플릿 유의사항](/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#alimtalk-template-precautions)에서 확인하세요.
     * 변수를 #{변수} 형태로 작성합니다. (예: #{홍길동}님의 택배가 금일 (#{09:50})에 배달될 예정입니다.)
     * 버튼 등록 시 버튼명은 변수 입력이 불가하며, 버튼 url에는 변수 입력이 가능합니다. (예. http://kakao.com/#{변수})
     * 버튼 url 등록 시 url_mobile, url_pc 링크에는 'http://', 'https://'가 포함되어야 하며 scheme_ios, scheme_android 링크는 스킴 형태에 맞게 등록해야 합니다. 그렇지 않을 경우 템플릿 등록이 불가합니다.
@@ -87,7 +87,7 @@
 <a id="template-status"></a>
 #### 템플릿 상태
 * 템플릿 등록 시, **요청 > 검수 중 > 승인/반려** 상태의 순서로 업데이트됩니다.
-* 템플릿 등록 후, 1년간 동일한 상태로 유지되거나 추가 발송이 없는 경우 **휴면** 상태로 전환됩니다. 관련 가이드는 [알림톡 템플릿 유의사항](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3)에서 확인하세요.
+* 템플릿 등록 후, 1년간 동일한 상태로 유지되거나 추가 발송이 없는 경우 **휴면** 상태로 전환됩니다. 관련 가이드는 [알림톡 템플릿 유의사항](/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#alimtalk-template-precautions)에서 확인하세요.
 
 <a id="template-2-modify-templates"></a>
 #### 템플릿 수정

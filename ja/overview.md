@@ -78,7 +78,7 @@ SMS、お知らせトーク、RCS、Email、Pushメッセージを送信・管�
 * 月間送信量の調整が必要な場合、**サポート** > **1:1お問い合わせ**にお問い合わせください。
     * [1:1お問い合わせ](https://www.nhncloud.com/kr/support/inquiry)
 * リソース提供ポリシーは **ユーザーガイド** > **NHN Cloud** > **リソース提供ポリシー**を参照してください。
-    * [リソース提供ポリシー](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
+    * [リソース提供ポリシー](/nhncloud/ja/resource-policy/)
 
 <a id="information-on-processing-of-personal-information"></a>
 ## 個人情報処理に関するご案内 { #information-on-processing-of-personal-information }

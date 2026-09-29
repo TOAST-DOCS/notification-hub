@@ -43,7 +43,7 @@ AlimTalk template can be used only after receiving approval from Kakao's inspect
 * Template Code / Template Name
     * You cannot duplicate the same template code and template name in one outgoing profile/group.
 * Template Content
-    * AlimTalk can be written up to 1,000 characters, including variables, URLs, spaces, and button names, regardless of Korean or English. If you register by entering variables, consider the contents to be replaced and create a template.<br/> See [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3) for a detailed guide on the number of characters.
+    * AlimTalk can be written up to 1,000 characters, including variables, URLs, spaces, and button names, regardless of Korean or English. If you register by entering variables, consider the contents to be replaced and create a template.<br/> See [AlimTalk Template Notes](/Notification/KakaoTalk%20Bizmessage/en/alimtalk-overview/#alimtalk-template-precautions) for a detailed guide on the number of characters.
     * Create a variable in the form of #{variable}. (Example: #{HongGildong}'s package will be delivered today (#{09:50})
     * When registering a button, the button name cannot be entered as a variable, and the button url can be entered as a variable. (Example http://kakao.com/#{변수})
     * When registering a button url, url_mobile, url_pc links must include 'http://' and 'https://'가 and the 'scheme_ios, 'scheme_android links must be registered according to the scheme type. Otherwise, template registration will not be possible.
@@ -86,7 +86,7 @@ The inspection and review of AlimTalk template will be conducted directly by Kak
 <a id="template-status"></a>
 #### Template status
 * When registering a template, it is updated in the order of **Request > Under Inspection > Approval/Return** status.
-* After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3).
+* After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](/Notification/KakaoTalk%20Bizmessage/en/alimtalk-overview/#alimtalk-template-precautions).
 
 <a id="template-2-modify-templates"></a>
 #### Modify Templates

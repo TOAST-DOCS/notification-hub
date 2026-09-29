@@ -145,10 +145,10 @@ NHN Cloudは、アビューズで送信された国際SMSに対して一切の�
 メッセージ保管期間ポリシーに従い、180日が経過したメッセージ送信履歴をバックアップできます。
 
 * 基本的に無効に設定されており、ストレージ情報を入力して有効に設定すると、1日単位でバックアップされます。
-* サポートするストレージは[NHN Cloud Object Storage](../../../../Storage/Object%20Storage/ja/Overview/)とAWS S3です。
-    * **アクセスキー**、**シークレットキー**は[AWS S3 API](../../../../Storage/Object%20Storage/ja/s3-api-guide/#_1)を使用したEC2認証情報の登録および照会で確認できます。
+* サポートするストレージは[NHN Cloud Object Storage](/Storage/Object%20Storage/ja/Overview/)とAWS S3です。
+    * **アクセスキー**、**シークレットキー**は[AWS S3 API](/Storage/Object%20Storage/ja/s3-api-guide/#s3-api-credential)を使用したEC2認証情報の登録および照会で確認できます。
     * **バケット名**はログが保存されるObject Storageコンテナの名前です。
-    * **エンドポイント**、**リージョン**はログを保存するObject Storageを管理するための情報であり、[Amazon S3互換APIガイド - AWS SDK](../../../../Storage/Object%20Storage/ja/s3-api-guide/#aws-sdk)で確認できます。
+    * **エンドポイント**、**リージョン**はログを保存するObject Storageを管理するための情報であり、[Amazon S3互換APIガイド - AWS SDK](/Storage/Object%20Storage/ja/s3-api-guide/#aws-sdk)で確認できます。
 * 最大5つのストレージを指定でき、各ストレージに同じファイルがバックアップされます。
 * 本文は最大1万文字までバックアップされます。
 * バックアップに必要なストレージ権限は次のとおりです。

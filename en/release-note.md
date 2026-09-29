@@ -92,7 +92,7 @@
     * For detailed information, please refer to [Console User Guide > Send](./console-guide/image-layout) and [API v1.0 User Guide > Messages > Image Layout](./api-guide-v1x0/image-layout).
 * [API/Console] Image layouts can be associated with MMS templates.
     * An image layout can be selected in the attachment section during MMS template creation.
-    * For detailed information, please refer to [Console User Guide > Templates](./console-guide/template/#templateV1x0001CreateSmsTemplate) and [API v1.0 User Guide > Messages > MMS Templates](./api-guide-v1x0/template/#register-sms-template).
+    * For detailed information, please refer to [Console User Guide > Templates](./console-guide/template/#template) and [API v1.0 User Guide > Messages > MMS Templates](./api-guide-v1x0/template/#register-sms-template).
 * [Console] Encoding and message count information is now available in send details when sending international SMS messages.
 * [Console] The "Attachment File" menu has been relocated.
     * The attachment file management menu, previously located under the "Detailed Settings" menu, has been moved to the top-level menu.
@@ -113,10 +113,10 @@
 <a id="2025-04-15-new-features"></a>
 ### New Features { #2025-04-15-new-features }
 * [API/Console] Event history from the service can now be monitored through CloudTrail.
-    * For a list of available events, please refer to [[CloudTrail > List of Collected Events]](../../../Governance%20&%20Audit/CloudTrail/en/event-list).
+    * For a list of available events, please refer to [[CloudTrail > List of Collected Events]](/Governance%20%26%20Audit/CloudTrail/en/event-list/).
 * [API/Console] Message sending for RCS authentication purposes has been added.
 * [API] A response field has been added to the API for retrieving the list of delivery results per contact.
-    * For detailed information, please refer to [[API v1.0 User Guide > Delivery Results by Contact > Retrieve List of Delivery Results by Contact]](./api-guide-v1x0/contact-delivery-result/#_1).
+    * For detailed information, please refer to [[API v1.0 User Guide > Delivery Results by Contact > Retrieve List of Delivery Results by Contact]](./api-guide-v1x0/contact-delivery-result/#retrieve-a-list-of-received-results-by-contacts).
 * [Console] Support for RCS BizCenter LMS format has been added.
     * RCS messages can now be sent in LMS format.
     * The LMS format can be selected during template creation.
@@ -158,7 +158,7 @@
 <a id="2025-02-25-new-features"></a>
 ### New Features { #2025-02-25-new-features }
 * [API] An API for retrieving the final list of delivery results per contact has been added.
-    * For detailed information, please refer to [[API v1.0 User Guide > Delivery Results by Contact > Retrieve Final List of Delivery Results by Contact]](./api-guide-v1x0/contact-delivery-result/#_2).
+    * For detailed information, please refer to [[API v1.0 User Guide > Delivery Results by Contact > Retrieve Final List of Delivery Results by Contact]](./api-guide-v1x0/contact-delivery-result/#retrieve-a-list-of-the-final-send-status-messages).
 * [API] The system has been improved to allow the addition of a chat room ID and opt-out number when sending RCS BizCenter template messages.
 
 <a id="2025-02-25-enhancements"></a>
@@ -174,7 +174,7 @@
     * RCS BizCenter LMS template types can now be sent.
 * [API] Instant Flow Message API has been added.
     * This API allows for the immediate creation and dispatch of messages at the time of request, without prior registration of flows or templates.
-    * For detailed information, please refer to [[API v1.0 User Guide > Message > Send Instant Flow Message]](./api-guide-v1x0/message/#_6).
+    * For detailed information, please refer to [[API v1.0 User Guide > Message > Send Instant Flow Message]](./api-guide-v1x0/message/#send-an-instant-flow-message).
 * [Console/API] Duplicate recipient check function.
     * If duplicate contacts exist in the recipient list, this can be checked before sending to prevent duplicate dispatches.
 * [Console] Flow template preview function has been added.

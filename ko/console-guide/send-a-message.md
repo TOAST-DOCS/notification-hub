@@ -300,8 +300,8 @@ NHN Cloud는 정보통신망법을 준수할 수 있도록, '광고 메일'에 �
     * HTML 스타일을 사용해 메시지를 발송하는 경우, Android와 iPhone 메시지를 따로 작성해 발송해야 합니다.
 5. 푸시 메시지에 버튼, 이미지 등을 넣어 다양한 형태로 발송할 수 있습니다.
     * 단말기에서 수신된 푸시 메시지의 버튼, 이미지를 정상적으로 표시하기 위해서는 앱에 SDK 적용이 필요합니다.
-        * [Android SDK 바로 가기](https://docs.nhncloud.com/ko/nhncloud/ko/nhncloud-sdk/push-android/)
-        * [iOS SDK 바로 가기](https://docs.nhncloud.com/ko/nhncloud/ko/nhncloud-sdk/push-ios/)
+        * [Android SDK 바로 가기](/nhncloud/ko/nhncloud-sdk/push-android/)
+        * [iOS SDK 바로 가기](/nhncloud/ko/nhncloud-sdk/push-ios/)
 
 
 <a id="push-button"></a>

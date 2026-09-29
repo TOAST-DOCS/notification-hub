@@ -78,7 +78,7 @@ SMS, 알림톡, RCS, Email, Push 메시지를 발송하고 관리하는 클라�
 * 월 발송량 조정이 필요한 경우 **고객 센터** > **1:1 문의**로 문의하세요.
     * [1:1 문의 바로 가기](https://www.nhncloud.com/kr/support/inquiry)
 * 리소스 제공 정책은 **사용자 가이드** > **NHN Cloud** > **리소스 제공 정책**을 참고하세요.
-    * [리소스 제공 정책 바로 가기](https://docs.nhncloud.com/ko/nhncloud/ko/resource-policy/)
+    * [리소스 제공 정책 바로 가기](/nhncloud/ko/resource-policy/)
 
 <a id="information-on-processing-of-personal-information"></a>
 ## 개인정보 처리에 대한 안내 { #information-on-processing-of-personal-information }

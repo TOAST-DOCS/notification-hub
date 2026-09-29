@@ -98,7 +98,7 @@
     * 자세한 내용은 [콘솔 사용 가이드 > 발송](./console-guide/image-layout), [API v1.0 사용 가이드 > 메시지 > 이미지 레이아웃](./api-guide-v1x0/image-layout)을 참고하세요.
 * [API/콘솔] MMS 템플릿에 이미지 레이아웃을 연동할 수 있습니다.
     * MMS 템플릿 생성 시 첨부 파일 섹션에서 이미지 레이아웃을 선택할 수 있습니다.
-    * 자세한 내용은 [콘솔 사용 가이드 > 템플릿](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0 사용 가이드 > 메시지 > MMS 템플릿](./api-guide-v1x0/template/#register-sms-template)을 참고하세요.
+    * 자세한 내용은 [콘솔 사용 가이드 > 템플릿](./console-guide/template/#template) [API v1.0 사용 가이드 > 메시지 > MMS 템플릿](./api-guide-v1x0/template/#register-sms-template)을 참고하세요.
 * [콘솔] 국제 SMS 발송 시, 발송 상세 조회에서 인코딩, 실 발송 건수를 확인할 수 있습니다.
 * [콘솔] "첨부 파일 관리" 메뉴의 위치가 변경되었습니다.
     * "상세 설정" 메뉴 하위에 있던 첨부 파일 관리 메뉴가 상단 메뉴로 이동되었습니다.
@@ -119,10 +119,10 @@
 <a id="2025-04-15-new-features"></a>
 ### 기능 추가 { #2025-04-15-new-features }
 * [API/콘솔] 서비스에서 발생하는 다양한 이벤트 이력을 CloudTrail에서 확인할 수 있습니다.
-    * 확인 가능한 이벤트 목록은 [CloudTrail > 수집되는 이벤트 목록](../../../Governance%20&%20Audit/CloudTrail/ko/event-list)을 참고하세요.
+    * 확인 가능한 이벤트 목록은 [CloudTrail > 수집되는 이벤트 목록](/Governance%20%26%20Audit/CloudTrail/ko/event-list/)을 참고하세요.
 * [API/콘솔] RCS 인증용 메시지 발송이 추가되었습니다.
 * [API] 연락처별 수신 결과 목록 조회 API에 응답 필드가 추가되었습니다.
-    * 자세한 내용은 [API v1.0 사용 가이드 > 연락처별 수신 결과 > 연락처별 수신 결과 목록 조회](./api-guide-v1x0/contact-delivery-result/#_1)를 참고하세요.
+    * 자세한 내용은 [API v1.0 사용 가이드 > 연락처별 수신 결과 > 연락처별 수신 결과 목록 조회](./api-guide-v1x0/contact-delivery-result/#retrieve-a-list-of-received-results-by-contacts)를 참고하세요.
 * [콘솔] RCS BizCenter LMS 포맷형 지원
     * RCS 메시지 발송 시 LMS 포맷형으로 발송할 수 있습니다.
     * 템플릿 생성 시 LMS 포맷형을 선택할 수 있습니다.
@@ -164,7 +164,7 @@
 <a id="2025-02-25-new-features"></a>
 ### 기능 추가 { #2025-02-25-new-features }
 * [API] 연락처별 최종 발송 결과 목록 조회 API가 추가되었습니다.
-    * 자세한 내용은 [API v1.0 사용 가이드 > 연락처별 수신 결과 > 연락처별 최종 발송 결과 목록 조회](./api-guide-v1x0/contact-delivery-result/#_2)를 참고하세요.
+    * 자세한 내용은 [API v1.0 사용 가이드 > 연락처별 수신 결과 > 연락처별 최종 발송 결과 목록 조회](./api-guide-v1x0/contact-delivery-result/#retrieve-a-list-of-the-final-send-status-messages)를 참고하세요.
 * [API] RCS Bizcenter 템플릿 발송 시 대화방 아이디, 수신 거부번호를 추가할 수 있도록 개선되었습니다.
 
 <a id="2025-02-25-enhancements"></a>
@@ -180,7 +180,7 @@
     * RCS BizCenter LMS 템플릿 타입들도 발송할 수 있습니다.
 * [API] Instant Flow Message API 추가
     * 사전에 플로우나 템플릿을 등록하지 않고도 요청 시점에 메시지를 즉시 생성·발송할 수 있는 API가 추가되었습니다.
-    * 자세한 내용은 [API v1.0 사용 가이드 > 메시지 > 인스턴트 플로우 메시지 발송](./api-guide-v1x0/message/#_6)을 참고하세요.
+    * 자세한 내용은 [API v1.0 사용 가이드 > 메시지 > 인스턴트 플로우 메시지 발송](./api-guide-v1x0/message/#send-an-instant-flow-message)을 참고하세요.
 * [콘솔/API] 발송 수신자 중복 체크 기능
     * 수신자 목록에 중복된 연락처가 존재하면 발송 전에 이를 확인하여 중복 발송을 방지할 수 있습니다.
 * [콘솔] 플로우 템플릿 미리보기 기능 추가
