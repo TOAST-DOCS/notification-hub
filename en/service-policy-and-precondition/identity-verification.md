@@ -9,7 +9,7 @@
 
 **Notification > Notification Hub > Usage Policy and Preset Guide > Identity verification**
 
-To use the Notification Hub, you can use it after Identity verification at **Notification Hub** > ** Identity verification ** (compliance with notification related to the Telecommunications Business Act)
+To use the Notification Hub, you can use it after Identity verification at **Notification Hub** > **Identity verification** (compliance with notification related to the Telecommunications Business Act)
 
 * Business members can use the Notification Hub through Identity verification. Individual members are restricted from conducting Identity verification.
   * [ Article 37-7of the Enforcement Decree of the Telecommunications Business Act](https://www.law.go.kr/LSW//lsInfoP.do?lsId=004708&ancYnChk=0#0000)

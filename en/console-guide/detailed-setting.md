@@ -22,9 +22,9 @@ Manage the settings and attachments for each message channel, which may take app
 * Manage countries allowed to send
     * For initial use, only the specified major countries will be allowed to deliver. Click **Countries Allowed to deliver** box to select the countries to deliver.
 * Notification of Monthly Delivery Count and Threshold
-    * Default of ** Monthly Delivery Count ** is 1,000 per month and can be applied up to 10,000.
-    * **Monthly Delivery Count ** is a secondary feature, and detection of thresholds may not be reflected in real time. NHN Cloud is not responsible for some errors in the secondary feature.
-    * If set **International SMS Delivery** to **Enable**, notification mail will be sent to all project members upon reaching 70% and 100% of the value set to ** Monthly Delivery Count **.
+    * Default of **Monthly Delivery Count** is 1,000 per month and can be applied up to 10,000.
+    * **Monthly Delivery Count** is a secondary feature, and detection of thresholds may not be reflected in real time. NHN Cloud is not responsible for some errors in the secondary feature.
+    * If set **International SMS Delivery** to **Enable**, notification mail will be sent to all project members upon reaching 70% and 100% of the value set to **Monthly Delivery Count**.
 
 > [Caution]
 We're seeing an increase in abuse cases for international SMS globally.
