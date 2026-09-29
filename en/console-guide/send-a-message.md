@@ -275,9 +275,9 @@ NHN Cloud provides the following technical measures for 'advertising mail' to co
 
 | Key | phrase | Use Example | 
 |-------------------------| - |-------------------------------------------------------------------------------------------------------------------------------| 
-| BLOCK_RECEIVER_LINK | [ Unsubscription ](#key-providing-as-unsubscription-link) | If you do not want to receive click ##BLOCK_RECEIVER_LINK##. | 
-| EN_BLOCK_RECEIVER_LINK | [Unsubscription](#key-providing-as-unsubscription-link) | If you no longer wish to receive these emails, please click the ##EN_BLOCK_RECEIVER_LINK##. | 
-| JA_BLOCK_RECEIVER_LINK | [受信拒否](#alimtalk) | メールの受信を希望しない場合、##JA_BLOCK_RECEIVER_LINK##をクリックしてください。 | 
+| BLOCK_RECEIVER_LINK | [ Unsubscription ](#) | If you do not want to receive click ##BLOCK_RECEIVER_LINK##. | 
+| EN_BLOCK_RECEIVER_LINK | [Unsubscription](#) | If you no longer wish to receive these emails, please click the ##EN_BLOCK_RECEIVER_LINK##. | 
+| JA_BLOCK_RECEIVER_LINK | [受信拒否](#) | メールの受信を希望しない場合、##JA_BLOCK_RECEIVER_LINK##をクリックしてください。 | 
 | BLOCK_RECEIVER_LINK_URL | - | If you no longer wish to receive these emails, please `<a href='##BLOCK_RECEIVER_LINK_URL##' target='_blank'>click here</a>`. |
 
 

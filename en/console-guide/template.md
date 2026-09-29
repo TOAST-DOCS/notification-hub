@@ -86,7 +86,7 @@ The inspection and review of AlimTalk template will be conducted directly by Kak
 <a id="template-status"></a>
 #### Template status
 * When registering a template, it is updated in the order of **Request > Under Inspection > Approval/Return** status.
-* After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](/Notification/KakaoTalk%20Bizmessage/en/alimtalk-overview/#alimtalk-template-review-time).
+* After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](/Notification/KakaoTalk%20Bizmessage/en/alimtalk-overview/#alimtalk-template-precautions).
 
 <a id="template-2-modify-templates"></a>
 #### Modify Templates
