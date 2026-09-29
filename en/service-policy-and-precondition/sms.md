@@ -50,8 +50,8 @@ Be aware that violations of applicable laws may result in criminal penalties or 
 
 <a id="advertising-disclosure-requirements"></a>
 ### Advertising Disclosure Requirements { #advertising-disclosure-requirements }
-* Mark '(광고)' (advertisement) at the beginning of the advertising information
-    * Variations such as (광/고), (광 고), ("광고"), [광고] are prohibited
+* Mark '(Ads)' at the beginning of the advertising information
+    * Variations such as (A/d), (A d), ("Ad"), [Ad] are prohibited
     * For LMS/MMS with a subject, mark '(광고)' at the beginning of both the subject and the body
 * Include the sender's information: "company name or service name" and "contact information"
     * If the caller ID and contact number are the same, the contact number may be omitted

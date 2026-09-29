@@ -41,7 +41,7 @@
 [[情報通信網の利用促進および情報保護等に関する法律](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0)] 第50条に基づき、営利目的の広告性情報を送信する際は、受信者から明示的な事前同意を得る必要があり、送信表記に関する義務事項を必ず遵守する必要があります。
 関連法律に違反した場合、違反内容に応じて刑事処罰または過料が課される場合がありますのでご注意ください。
 
-[[한국인터넷진흥원(KISA) 불법스팸 방지를 위한 정보통신망법 안내서](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
+[[韓国インターネット振興院(KISA) 不正スパム防止のための情報通信網法ガイド](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
 
 <a id="consent-to-receive-advertising-information"></a>
 ### 広告受信同意 { #consent-to-receive-advertising-information }

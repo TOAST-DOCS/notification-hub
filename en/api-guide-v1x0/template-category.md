@@ -374,7 +374,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 
-**요청 예시**
+**Request example**
 
 
 <details>
