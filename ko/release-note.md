@@ -9,6 +9,22 @@
 
 **Notification > Notification Hub > 릴리스 노트**
 
+<a id="2026-10-06"></a>
+## 2026. 10. 06. { #2026-10-06 }
+
+<a id="2026-10-06-added-features"></a>
+### 기능 추가 { #2026-10-06-added-features }
+* [콘솔] 발신 번호 등록 개수 제한
+    * 계정당 등록할 수 있는 발신 번호가 최대 5개로 제한됩니다.
+    * 자세한 내용은 [콘솔 사용 가이드 > 발신 정보](./console-guide/sender-info#sender-number-registration-limit)를 참고하세요.
+* [콘솔] 발신 번호 사용 인증
+    * 콘솔에서 메시지를 발송하려면 발신 번호에 대한 조직 관리자의 승인이 필요합니다.
+    * 승인은 조직 관리자에게 발송되는 안내 메일에서 처리할 수 있습니다.
+    * 자세한 내용은 [콘솔 사용 가이드 > 발신 정보](./console-guide/sender-info#sender-number-usage-verification)를 참고하세요.
+* [API, 콘솔] SMS 채널 발송 내용 금칙어 검사
+    * SMS 채널 발송 내용에 금지된 단어가 포함되면 메시지가 발송되지 않으며 발송 결과가 실패로 기록됩니다.
+    * 자세한 내용은 [콘솔 사용 가이드 > 발송](./console-guide/send-a-message#how-to-write-a-message-title-and-content-sms-prohibited-words)을 참고하세요.
+
 <a id="2026-06-23"></a>
 ## 2026. 06. 23. { #2026-06-23 }
 
