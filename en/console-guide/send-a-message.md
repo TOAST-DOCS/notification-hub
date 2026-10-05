@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=d2c29a9ee087 -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=a47a8d213807 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -80,24 +82,44 @@ The template structure of the receiver contact list file is as follows.
 
 <a id="how-to-write-a-message-title-and-content-sms"></a>
 #### SMS
-* Select sender number, purpose of delivery. If purpose of delivery is for advertising, select 080 Unsubscription number.
-* Select the type of delivery. The types of delivery are SMS (short), LMS (long), and MMS (long with media).
-* The character set that can be entered in common for SMS, LMS, and MMS is EUC-KR.
-    * [Wikipedia and EUC-KR Shortcut](https://ko.wikipedia.org/wiki/EUC-KR)
-* SMS is up to 90 bytes, and you can enter up to 45 Korean characters and 90 English characters.
-* LMS and MMS are up to 2,000 bytes, and you can enter up to 1,000 Korean characters and 2,000 English characters.
-* MMS allows attaching images.
-* If sending text fails due to blocking the sender number, check out our 'Stolen Number Text Blocking Service'.
-    * [Stolen Number Text Blocking Service guide shortcut](./preconditions/preconditions-sms#fraud-number)
-* If the delivery result is successful, but the text is not received, check Mobile Carrier Spam Blocking Service.
-    * [ Mobile Carrier Spam Blocking Service shortcuts](./preconditions/preconditions-sms#spam-number)
-* SMS messages for verification must include verification messages.
-      * Verification message: auth, password, verif, にんしょう, 認証, 비밀번호, 인증
+* Select the sender number and purpose of delivery. If the purpose of delivery is advertising, select the 080 unsubscription number.
+* Select the type of delivery. Types of delivery include SMS (short message), LMS (long message), and MMS (media long message).
+* The character set that can be used for SMS, LMS, and MMS is EUC-KR.
+    * [Go to EUC-KR on Wikipedia](https://ko.wikipedia.org/wiki/EUC-KR)
+* SMS supports up to 90 bytes, accepting up to 45 Korean characters or 90 English characters.
+* LMS and MMS support up to 2,000 bytes, accepting up to 1,000 Korean characters or 2,000 English characters.
+* MMS supports image attachments.
+* If sending text fails due to blocking the sender number, check the 'phone scam text blocking service'.
+    * [Go to the phone scam text blocking service guide](../service-policy-and-precondition/sms#about-phone-scam-blocking-services)
+* If the sending is successful but you do not receive the text, check the 'carrier spam blocking service'.
+    * [Go to the carrier spam blocking service guide](../service-policy-and-precondition/sms#about-carrier-spam-text-blocking-services)
+* For authentication SMS messages, authentication phrases must be included.
+      * Authentication phrases: auth, password, verif, にんしょう, 認証, Password, Authentication
 
-##### MMS Attachable Image Specifications
+##### MMS attachment image specifications
 
-* MMS maximum size: files less than 1,000×1,000
-* MMS support specification: 300KB or less per image, if the number of images is 3, a total of 800KB or less/.jpg, .jpeg files
+* MMS maximum size: files 1000×1000 or smaller
+* MMS supported specifications: 300 KB or less per image, 800 KB or less total for 3 images. Only .jpg, .jpeg files.
+
+<a id="how-to-write-a-message-title-and-content-sms-prohibited-words"></a>
+##### Prohibited word check
+
+If the content contains prohibited words, the message will not be sent.
+
+The delivery request is accepted normally and a `messageId` is issued. Since the check is performed just before sending, you can confirm the failure from the delivery results or webhook.
+
+| Result Code (resultCode) | Result Message (resultMessage) |
+| --- | --- |
+| 12000005 | The message failed to send because the content contains prohibited words. |
+
+* The subject and body are checked.
+* The final content after template parameters are replaced is checked. Even if the content and parameters are entered separately, the assembled result is evaluated.
+* Prohibited words are detected even if spacing, capitalization, or invisible characters are changed.
+* The check is performed per receiver. In a single delivery request, only some receivers may fail.
+* Scheduled delivery is checked based on the time of delivery. If a prohibited word is added after scheduling, the message will not be sent.
+* The check is also performed for resending and when switching to SMS after another message channel fails in a flow.
+
+The system does not indicate which words were detected.
 
 
 <a id="how-to-write-a-message-title-and-content-international-sms"></a>

@@ -1,8 +1,31 @@
-<!-- pre-align:aligned sig=8a278ac54642 -->
+<!-- machine_translated: true -->
 
+<!-- pre-align:aligned sig=34a0d3133197 -->
+
+<style>
+.page__rnb .lst_rnb_item .rnb_item:first-of-type a {
+    display: inline !important;
+}
+</style>
 <h1>Notification Hub Release Notes</h1>
 
 **Notification > Notification Hub > Release Notes**
+
+<a id="2026-10-06"></a>
+## October 6, 2026 { #2026-10-06 }
+
+<a id="2026-10-06-added-features"></a>
+### Added Features { #2026-10-06-added-features }
+* [Console] Limit on the number of registered calling numbers
+    * The number of calling numbers that can be registered per account is limited to a maximum of 5.
+    * For more information, see [Console User Guide > Sender Information](./console-guide/sender-info#sender-number-registration-limit).
+* [Console] Calling number usage verification
+    * To send messages from the Console, organization administrator approval of the calling number is required.
+    * Approval can be processed from the notification email sent to the organization administrator.
+    * For more information, see [Console User Guide > Sender Information](./console-guide/sender-info#sender-number-usage-verification).
+* [API, Console] Prohibited word check for SMS channel message content
+    * If the content of an SMS channel message contains prohibited words, the message is not sent and the delivery result is recorded as a failure.
+    * For more information, see [Console User Guide > Send a Message](./console-guide/send-a-message#how-to-write-a-message-title-and-content-sms-prohibited-words).
 
 <a id="2026-06-23"></a>
 ## 2026. 06. 23. { #2026-06-23 }

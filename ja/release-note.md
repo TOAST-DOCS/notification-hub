@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=8a278ac54642 -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=34a0d3133197 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -8,6 +10,22 @@
 <h1>Notification Hubリリースノート</h1>
 
 **Notification > Notification Hub > リリースノート**
+
+<a id="2026-10-06"></a>
+## 2026. 10. 6. { #2026-10-06 }
+
+<a id="2026-10-06-added-features"></a>
+### 新規機能追加 { #2026-10-06-added-features }
+* [コンソール] 発信番号登録数の制限
+    * アカウントあたりに登録できる発信番号は最大 5 件に制限されます。
+    * 詳細については、[コンソール使用ガイド > 発信情報](./console-guide/sender-info#sender-number-registration-limit)を参照してください。
+* [コンソール] 発信番号使用認証
+    * コンソールでメッセージを送信するには、発信番号の組織管理者による承認が必要です。
+    * 承認は、組織管理者に送信される案内メールで処理できます。
+    * 詳細については、[コンソール使用ガイド > 発信情報](./console-guide/sender-info#sender-number-usage-verification)を参照してください。
+* [API、コンソール] SMS チャンネル送信内容の禁止ワードチェック
+    * SMS チャンネルの送信内容に禁止ワードが含まれている場合、メッセージは送信されず、送信結果が失敗として記録されます。
+    * 詳細については、[コンソール使用ガイド > 送信](./console-guide/send-a-message#how-to-write-a-message-title-and-content-sms-prohibited-words)を参照してください。
 
 <a id="2026-06-23"></a>
 ## 2026. 06. 23. { #2026-06-23 }
