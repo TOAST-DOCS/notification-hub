@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=c116be9eeb35 -->
 
 <style>
@@ -28,6 +30,18 @@ For information on the sender number pre-registration system, refer to **Service
 
 * [Go to Sender Number Pre-Registration System](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
 
+<a id="sender-number-registration-limit"></a>
+### Sender Number Registration Limit { #sender-number-registration-limit }
+
+You can register up to 5 sender numbers per account.
+
+* The count includes all sender numbers registered across all projects in all organizations owned by the account. The limit is not 5 per project.
+* If the same sender number is registered in multiple projects, it is counted as one.
+* Only approved sender numbers are counted. Numbers under review or that have been rejected are not counted.
+* Sender numbers belonging to projects where both SMS and Notification Hub are disabled are not counted.
+
+If you have already registered 5 sender numbers, you cannot register additional sender numbers or register them in bulk. Delete any sender numbers that you no longer use before registering new ones.
+
 <a id="account-holder-verification-guide"></a>
 ### Account Holder Verification Guide { #account-holder-verification-guide }
 
@@ -43,6 +57,39 @@ For information on the sender number pre-registration system, refer to **Service
 * There are no masked (hidden) parts of the communication service use certificate, and only documents issued within the last 3 months are accepted.
 * Proof of employment **must be dated and stamped**with a seal.
 * **Be sure to mask (hide) the last 6 digits of your social security number** on your proof of employment. e.g., 000000-0\*\*\*\*\**
+
+<a id="sender-number-usage-verification"></a>
+### Sender Number Usage Verification { #sender-number-usage-verification }
+
+To send messages from the Console, the sender number must be approved by the organization administrator.
+
+**Approval process**
+
+1. If there is a sender number that requires approval, a notification email is sent to the organization administrator.
+2. When the organization administrator opens the approval link in the email, the number of sender numbers to be approved is displayed.
+3. Click **Verify** to complete the approval.
+4. After approval, the user can send messages from the Console using that sender number.
+
+**Approval unit**
+
+Approval is managed by a combination of account, sender number, and user. Even for the same sender number, approval is required separately for each user. If user B wants to use a sender number that user A has been approved for, a separate approval for user B is required.
+
+The organization administrator can use the sender numbers of accounts that they own without approval.
+
+**Validity period**
+
+Approval is valid until the 7th of the month following the month in which the notification email was sent. A renewal notification email is sent starting 7 days before the expiration date.
+
+**When approval is not in place**
+
+The following actions are restricted in the Console:
+
+* Saving templates
+* Saving flows
+* Requesting message sending
+* Approving send after confirmation
+
+Sending via API and already registered scheduled sending are not restricted.
 
 <a id="about-sender-number-input-format"></a>
 ### About Sender Number Input Format { #about-sender-number-input-format }
