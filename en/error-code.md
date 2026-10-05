@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=26433962c314 -->
 
 <style>
@@ -360,6 +362,7 @@
 | SMS | false | 11906001 | Failed to send the message due to an opt-out. |
 | SMS | false | 12000002 | Failed to send the message due to an error while processing sequential flow sending. |
 | SMS | false | 12000003 | Failed to send the message due to an error while preparing to send the message. |
+| SMS | false | 12000005 | The content contains prohibited words and the message failed to send. |
 | SMS | false | 12100911 | Failed to send the message because the attachment has no file extension. |
 | SMS | false | 12100913 | Failed to send the message because the attachment size is 0. |
 | SMS | false | 12909999 | Failed to send the message due to a system error. |
