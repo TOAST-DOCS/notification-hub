@@ -10,17 +10,11 @@
 **Notification > Notification Hub > API v1.0使用ガイド > メッセージ - 送信リクエスト本文例**
 
 
-<span id="sms"></span>
-
 <a id="sms-example"></a>
-
-## SMS
-
-<span id="sms-sms"></span>
+## SMS { #sms-example }
 
 <a id="sms-short"></a>
-
-### SMS(短文)
+### SMS(短文) { #sms-short }
 
 ```json
 {
@@ -57,8 +51,7 @@
 | content.body | String | Y | 内容 |
 
 <a id="lms-long"></a>
-
-### LMS(長文)
+### LMS(長文) { #lms-long }
 
 ```json
 {
@@ -97,8 +90,7 @@
 | content.body | String | Y | 内容 |
 
 <a id="mms-long-media"></a>
-
-### MMS(メディア長文)
+### MMS(メディア長文) { #mms-long-media }
 
 ```json
 {
@@ -140,17 +132,11 @@
 | content.attachmentIds | String Array | Y | 添付ファイルID<br>添付画像の制限事項。<br>サポートコーデック: .jpg, .jpeg<br>添付画像数: 3個以下。<br>添付画像サイズ: 1枚あたり300KB以下。ただし、添付した画像の数が3枚の場合、合計800KB以下。<br>添付画像解像度: 1000*1000以下。 |
 
 
-<span id="rcs"></span>
-
 <a id="rcs"></a>
-
-## RCS
-
-<span id="rcs-sms"></span>
+## RCS { #rcs }
 
 <a id="sms"></a>
-
-### SMS
+### SMS { #sms }
 
 ```json
 {
@@ -220,11 +206,8 @@
 | options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
-<span id="free-form-message-request-body-rcs-lms-standalone"></span>
-
 <a id="lms-standard"></a>
-
-### LMSスタンダード
+### LMSスタンダード { #lms-standard }
 
 ```json
 {
@@ -294,11 +277,8 @@
 | options.expiryOption | Integer | N | RCSメッセージ受信待機有効期限設定値(1: 1日、2: 40秒、3: 3分、4: 1時間) |
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
-<span id="free-form-message-request-body-rcs-lms-format-basic"></span>
-
 <a id="lms-format-basic-and-format-title-emphasis"></a>
-
-### LMSフォーマット基本型及びフォーマットタイトル強調型
+### LMSフォーマット基本型及びフォーマットタイトル強調型 { #lms-format-basic-and-format-title-emphasis }
 * mTitleMediaアイコンファイルIDリスト
   * プロモーション: LT-messagebase.common-jFBCKu
   * クーポン: LT-messagebase.common-LbshOv
@@ -380,8 +360,7 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="lms-format-paragraph-type"></a>
-
-### LMSフォーマット段落型タイプ
+### LMSフォーマット段落型タイプ { #lms-format-paragraph-type }
 * mTitleMediaアイコンファイルIDリスト
   * プロモーション: LT-messagebase.common-jFBCKu
   * クーポン: LT-messagebase.common-LbshOv
@@ -501,8 +480,7 @@
 
 
 <a id="mms-horizontal-vertical"></a>
-
-### MMS横型、縦型
+### MMS横型、縦型 { #mms-horizontal-vertical }
 
 ```json
 {
@@ -576,8 +554,7 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 <a id="mms-carousel"></a>
-
-### MMSカルーセル
+### MMSカルーセル { #mms-carousel }
 
 ```json
 {
@@ -683,29 +660,224 @@
 | options.groupId | String | N | RCS BizCenter統計連動のためのグループID |
 
 
-<span id="free-form-message-request-body-email"></span>
-
 <a id="integrated-sms-card"></a>
+### 統合SMSカード { #integrated-sms-card }
 
-### 統合SMSカード
+```json
+{
+  "statsKeyId": "統計_キー_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "クライアント_リファレンス"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "SMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "smsType": "UNIFIED_STANDALONE",
+    "cards": [
+        {
+          "description":"(広告) こんにちは。NHN Cloud Notification Hubです。無料受信拒否 08012341234",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "ホームページへ移動"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
 
-<!-- TODO: translate body -->
+
+| 名前 | タイプ | 必須 | 説明 |
+| --- | --- | --- | --- |
+| sender | Object | Y | 送信者 |
+| sender.brandId | String | Y | ブランド ID |
+| sender.chatbotId | String | Y | チャットルーム ID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS 内のメッセージタイプ、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080 受信拒否番号、送信目的が広告の場合は必須 |
+| content.smsType | String | Y | SMS タイプ、メッセージタイプが SMS の場合は必須、STANDALONE（スタンダード）、UNIFIED_STANDALONE（統合 SMS カード） |
+| content.cards | Object Array | Y | カード |
+| content.cards[].description | String | Y | 内容<br>統合 SMS カードはタイトルがないため、広告送信時は本文の冒頭に（広告）の文言を含める必要があり、本文の末尾に無料受信拒否の文言および 080 番号を含める必要があります。 |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE（チャットルームを開く）、CLIPBOARD（コピーする）、DIALER（電話をかける）、MAP_SHOW（地図を表示する）、MAP_QUERY（地図を検索する）、MAP_SHARE（現在地を共有する）、URL（URL に接続する）、CALENDAR（スケジュールを登録する）<br><br>※ 統合メッセージタイプに CLIPBOARD（コピーする）ボタンを使用すると、iOS 端末では受信できません。 |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタン JSON、ボタンタイプに合ったフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCS メッセージ受信待機の有効期限設定値（1: 1 日、2: 40 秒、3: 3 分、4: 1 時間） |
+| options.groupId | String | N | RCS Biz Center の統計連携のための group ID [ガイド](../console-guide/send-a-message/#RCS)（最大 20 Byte） |
 
 <a id="integrated-lms-card"></a>
+### 統合LMSカード { #integrated-lms-card }
 
-### 統合LMSカード
+```json
+{
+  "statsKeyId": "統計_キー_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "クライアント_リファレンス"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "LMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "lmsType": "UNIFIED_STANDALONE",
+    "cards": [
+        {
+          "title":"(広告) NHN Cloud お知らせ",
+          "description":"こんにちは。NHN Cloud Notification Hubです。無料受信拒否 08012341234",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "ホームページへ移動"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
 
-<!-- TODO: translate body -->
+
+| 名前 | タイプ | 必須 | 説明 |
+| --- | --- | --- | --- |
+| sender | Object | Y | 送信者 |
+| sender.brandId | String | Y | ブランド ID |
+| sender.chatbotId | String | Y | チャットルーム ID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS 内のメッセージタイプ、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080 受信拒否番号、送信目的が広告の場合は必須 |
+| content.lmsType | String | Y | LMS タイプ、メッセージタイプが LMS の場合は必須、STANDALONE（スタンダード）、FORMAT_BASIC（フォーマット基本型）、FORMAT_TITLE_HIGHLIGHT（フォーマットタイトル強調型）、FORMAT_PARAGRAPH（フォーマット段落型）、UNIFIED_STANDALONE（統合 LMS カード） |
+| content.cards | Object Array | Y | カード |
+| content.cards[].title | String | N | タイトル<br>広告送信時はタイトルの先頭に（広告）の文言を含める必要があります。 |
+| content.cards[].description | String | Y | 内容<br>広告送信時は本文末尾に無料受信拒否の文言および 080 番号を含める必要があります。 |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE（チャットルームを開く）、CLIPBOARD（コピーする）、DIALER（電話をかける）、MAP_SHOW（地図を表示する）、MAP_QUERY（地図を検索する）、MAP_SHARE（現在地を共有する）、URL（URL に接続する）、CALENDAR（スケジュールを登録する）<br><br>※ 統合メッセージタイプで CLIPBOARD（コピーする）ボタンを使用すると、iOS 端末では受信できません。 |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタン JSON、ボタンタイプに応じたフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCS メッセージの受信待機有効期限設定値（1: 1 日、2: 40 秒、3: 3 分、4: 1 時間） |
+| options.groupId | String | N | RCS Biz Center 統計連携用の group ID [ガイド](../console-guide/send-a-message/#RCS)（最大 20 Byte） |
 
 <a id="integrated-mms-card-horizontal-vertical"></a>
+### 統合MMSカード横型、縦型 { #integrated-mms-card-horizontal-vertical }
 
-### 統合MMSカード横型、縦型
+```json
+{
+  "statsKeyId": "統計_キー_ID",
+  "scheduledDateTime": "2024-10-24T06:29:00+09:00",
+  "confirmBeforeSend": false,
+  "sender": {
+    "brandId": "ブランド_ID",
+    "chatbotId": "チャットルーム_ID"
+  },
+  "recipients": [
+    {
+      "contacts": [
+        {
+          "contactType": "PHONE_NUMBER",
+          "contact": "01012345678",
+          "clientReference": "クライアント_リファレンス"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "messageType": "MMS",
+    "unsubscribePhoneNumber": "08012341234",
+    "mmsType": "UNIFIED_HORIZONTAL",
+    "cards": [
+        {
+          "title":"(広告) NHN Cloud お知らせ",
+          "description":"こんにちは。NHN Cloud Notification Hubです。受信拒否無料 08012341234",
+          "attachmentId":"添付ファイルID",
+          "buttons" : [
+            {
+              "buttonType" : "URL",
+              "buttonJson" : {
+                "action": {
+                  "urlAction": { "openUrl": { "url": "http://www.test.com" } },
+                  "displayText": "ホームページへ移動"
+                }
+              }
+            }
+          ]
+        }
+    ]
+  },
+  "options": {
+    "expiryOption": 1,
+    "groupId":"groupId"
+  }
+}
+```
 
-<!-- TODO: translate body -->
+
+| 名前 | タイプ | 必須 | 説明 |
+| --- | --- | --- | --- |
+| sender | Object | Y | 送信者 |
+| sender.brandId | String | Y | ブランドID |
+| sender.chatbotId | String | Y | 対話ルームID |
+| content | Object | Y | メッセージ内容 |
+| content.messageType | String | Y | RCS内メッセージ種類、SMS、LMS、MMS、RBC_TEMPLATE |
+| content.unsubscribePhoneNumber | String | N | 080受信拒否番号、送信目的が広告の場合は必須 |
+| content.mmsType | String | Y | MMSタイプ、メッセージ種類がMMSの場合は必須、HORIZONTAL（横型）、VERTICAL（縦型）、CAROUSEL_MEDIUM（カルーセル中）、CAROUSEL_SMALL（カルーセル小）、UNIFIED_HORIZONTAL（統合MMSカード横型）、UNIFIED_VERTICAL（統合MMSカード縦型） |
+| content.cards | Object Array | Y | カード |
+| content.cards[].title | String | N | タイトル<br>広告送信時、タイトルの先頭に（広告）の文言を含める必要があります。 |
+| content.cards[].description | String | Y | 内容<br>広告送信時、本文末尾に無料受信拒否の文言および080番号を含める必要があります。 |
+| content.cards[].attachmentId | String | Y | 添付ファイルID<br>※ GIF画像を添付した場合、iOSデバイスでは受信できません。 |
+| content.cards[].buttons | Object Array | N | ボタン |
+| content.cards[].buttons[].buttonType | String | Y | ボタンタイプ<br>COMPOSE（対話ルームを開く）、CLIPBOARD（コピーする）、DIALER（電話をかける）、MAP_SHOW（地図を表示する）、MAP_QUERY（地図を検索する）、MAP_SHARE（現在地を共有する）、URL（URLに接続する）、CALENDAR（スケジュールを登録する）<br><br>※ 統合メッセージ種類でCLIPBOARD（コピーする）ボタンを使用した場合、iOSデバイスでは受信できません。 |
+| content.cards[].buttons[].buttonJson | Object | Y | ボタンJSON、ボタンタイプに対応するフォーマットを確認 |
+| options | Object | N | 送信オプション |
+| options.expiryOption | Integer | N | RCSメッセージの受信待機有効期限設定値（1：1日、2：40秒、3：3分、4：1時間） |
+| options.groupId | String | N | RCS Biz Center統計連携用グループID [ガイド](../console-guide/send-a-message/#RCS)（最大20バイト） |
 
 <a id="email"></a>
-
-## Email
+## Email { #email }
 
 ```json
 {
@@ -748,11 +920,8 @@
 * **recipients[].contacts[].contactType**フィールドには**EMAIL_ADDRESS**のみ使用可能です。
 * **recipients[].contacts[].contact** フィールドには受信者メールアドレスを入力します。
 
-<span id="free-form-message-request-body-push"></span>
-
 <a id="push"></a>
-
-## Push
+## Push { #push }
 
 ```json
 {

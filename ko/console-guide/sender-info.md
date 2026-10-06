@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=e8b03b463453 -->
+<!-- pre-align:aligned sig=0f18c92d63cb -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -11,19 +11,13 @@
 
 메시지 채널별 발신 정보를 등록하고 관리합니다. 메시지를 발송하려면 각 메시지 채널에 맞는 발신 정보가 사전에 등록되어 있어야 합니다.
 
-<span id="manage-sender-phone-number"></span>
-
 <a id="manage-sender-numbers"></a>
-
-## 발신 번호 관리
+## 발신 번호 관리 { #manage-sender-numbers }
 
 SMS, LMS, MMS 메시지를 발송하려면 발신 번호를 등록해야 합니다. 전기통신사업법 관련 고시에 따라 발신 번호 등록 시 명의자 인증이 필요합니다. 명의자 인증 시 회원 및 발신 번호 유형에 따라 인증 방법과 필요한 서류가 결정됩니다.
 
-<span id="register-sender-phone-number"></span>
-
 <a id="register-a-sender-number"></a>
-
-### 발신 번호 등록
+### 발신 번호 등록 { #register-a-sender-number }
 
 1. **+ 발신 번호 등록**을 클릭하고 **개인정보 수집 이용 동의서**에 동의합니다.
 2. 등록할 발신 번호 유형을 선택하고 발신 번호를 입력합니다.
@@ -34,11 +28,20 @@ SMS, LMS, MMS 메시지를 발송하려면 발신 번호를 등록해야 합니�
 
 * [발신 번호 사전 등록제 시행 바로 가기](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
 
-<span id="sender-phone-number-verification"></span>
+<a id="sender-number-registration-limit"></a>
+### 발신 번호 등록 개수 제한 { #sender-number-registration-limit }
+
+계정당 등록할 수 있는 발신 번호는 최대 5개입니다.
+
+* 계정이 소유한 모든 조직의 모든 프로젝트에 등록된 발신 번호를 합산해 셉니다. 프로젝트별로 5개가 아닙니다.
+* 같은 발신 번호가 여러 프로젝트에 등록되어 있어도 1개로 셉니다.
+* 승인된 발신 번호만 셉니다. 심사 중이거나 거부된 번호는 세지 않습니다.
+* SMS와 Notification Hub가 모두 비활성화된 프로젝트의 발신 번호는 세지 않습니다.
+
+5개를 모두 등록한 상태에서는 발신 번호를 추가로 등록하거나 대량으로 등록할 수 없습니다. 사용하지 않는 발신 번호를 삭제한 뒤 등록하세요.
 
 <a id="account-holder-verification-guide"></a>
-
-### 명의자 인증 안내
+### 명의자 인증 안내 { #account-holder-verification-guide }
 
 | 회원 구분 | 발신 번호 유형 | 인증 방법 | 필요 서류 |
 |---|---|---|---|
@@ -53,11 +56,41 @@ SMS, LMS, MMS 메시지를 발송하려면 발신 번호를 등록해야 합니�
 * 재직증명서는 **발급일이 표기되어 있고, 날인된 서류**만 가능합니다.
 * 재직증명서 내 **주민등록번호 뒤 6자리는 반드시 마스킹(숨김) 처리**하세요. 예: 000000-0\*\*\*\*\*\*
 
-<span id="sender-phone-number-format"></span>
+<a id="sender-number-usage-verification"></a>
+### 발신 번호 사용 인증 { #sender-number-usage-verification }
+
+콘솔에서 메시지를 발송하려면 발신 번호의 조직 관리자 승인이 필요합니다.
+
+**승인 절차**
+
+1. 승인이 필요한 발신 번호가 있으면 조직 관리자에게 안내 메일이 발송됩니다.
+2. 조직 관리자가 메일의 승인 링크를 열면 승인할 발신 번호 건수가 표시됩니다.
+3. **인증하기**를 클릭하면 승인이 완료됩니다.
+4. 승인 후부터 해당 사용자가 그 발신 번호로 콘솔에서 메시지를 발송할 수 있습니다.
+
+**승인 단위**
+
+승인은 계정, 발신 번호, 사용자의 조합으로 관리됩니다. 같은 발신 번호라도 사용자마다 승인이 따로 필요합니다. A 사용자가 승인받은 발신 번호를 B 사용자가 사용하려면 B 사용자의 별도 승인이 있어야 합니다.
+
+조직 관리자 본인은 승인 없이 자신이 소유한 계정의 발신 번호를 사용할 수 있습니다.
+
+**유효 기간**
+
+승인은 안내 메일이 발송된 달의 다음 달 7일까지 유효합니다. 만료 7일 전부터 갱신 안내 메일이 발송됩니다.
+
+**승인이 없는 경우**
+
+콘솔에서 다음 작업이 제한됩니다.
+
+* 템플릿 저장
+* 플로우 저장
+* 메시지 발송 요청
+* 확인 후 발송 승인
+
+API로 발송하는 경우와 이미 등록된 예약 발송은 제한받지 않습니다.
 
 <a id="about-sender-number-input-format"></a>
-
-### 발신 번호 입력 형식 안내
+### 발신 번호 입력 형식 안내 { #about-sender-number-input-format }
 
 * 유선 전화번호: 02-YYY-YYYY(지역 번호 포함하여 등록)
 * 이동통신 전화번호: 010-ABYY-YYYY
@@ -65,30 +98,21 @@ SMS, LMS, MMS 메시지를 발송하려면 발신 번호를 등록해야 합니�
 * 최소 8자리~최대 11자리까지의 발신 번호 입력 가능
 * 존재하지 않는 번호 대역으로 메시지 전송 불가(예: 070-0YYY, 070-1YYY, 010-0YYY, 010-1YYY)
 
-<span id="delete-sender-phone-number"></span>
-
 <a id="delete-an-sender-number"></a>
-
-### 발신 번호 삭제
+### 발신 번호 삭제 { #delete-an-sender-number }
 
 등록된 발신 번호를 삭제할 수 있습니다.
 
 1. 삭제할 발신 번호의 체크박스를 선택합니다.
 2. **발신 번호 삭제**를 클릭합니다.
 
-<span id="manage-brand"></span>
-
 <a id="brand-management"></a>
-
-## 브랜드 관리
+## 브랜드 관리 { #brand-management }
 
 RCS 메시지를 발송하려면 RCS Biz Center에서 브랜드를 등록하고, NHN Cloud 콘솔과 연동해야 합니다.
 
-<span id="brand-prerequisites"></span>
-
 <a id="prerequisites"></a>
-
-### 사전 준비
+### 사전 준비 { #prerequisites }
 
 브랜드 연동 전 RCS Biz Center에서 다음 사항이 완료(승인)되어야 합니다.
 
@@ -101,11 +125,8 @@ RCS Biz Center의 사전 등록 사항은 **이용 정책 및 사전 설정 안�
 * [이용 정책 및 사전 설정 안내 > RCS 바로 가기](../service-policy-and-precondition/rcs)
 * [RCS Biz Center 바로 가기](https://www.rcsbizcenter.com/main)
 
-<span id="brand-sync"></span>
-
 <a id="integrate-a-brand"></a>
-
-### 브랜드 연동
+### 브랜드 연동 { #integrate-a-brand }
 
 브랜드는 본인 인증 시 첨부한 사업자 등록증의 사업자 등록 번호를 기준으로 연동합니다.
 
@@ -113,11 +134,8 @@ RCS Biz Center의 사전 등록 사항은 **이용 정책 및 사전 설정 안�
 * 브랜드 연동이 완료되면 브랜드 목록이 조회됩니다.
 * RCS Biz Center에서 브랜드 정보를 변경한 경우 **브랜드 연동**을 클릭해 업데이트를 진행하세요.
 
-<span id="manage-domain"></span>
-
 <a id="manage-domains"></a>
-
-## 도메인 관리
+## 도메인 관리 { #manage-domains }
 
 이메일을 발송하려면 자신이 소유한 도메인을 등록하고, 도메인 소유권을 인증해야 합니다. 도메인 인증 성공 후 SPF 레코드 인증, DMARC 인증, DKIM 사용 설정을 할 수 있습니다.
 
@@ -125,11 +143,8 @@ RCS Biz Center의 사전 등록 사항은 **이용 정책 및 사전 설정 안�
 
 * [이용 정책 및 사전 설정 안내 > 이메일 바로 가기](../service-policy-and-precondition/email)
 
-<span id="register-domain"></span>
-
 <a id="register-an-email-domain-and-verify-ownership"></a>
-
-### 이메일 도메인 등록 및 소유권 인증
+### 이메일 도메인 등록 및 소유권 인증 { #register-an-email-domain-and-verify-ownership }
 
 도메인을 등록하고 도메인 소유권을 인증해야 합니다. Notification Hub에서 제공한 값을 이메일 도메인 DNS TXT 레코드에 등록합니다. 제공된 값과 등록한 도메인의 TXT 레코드가 일치하는지 확인하여 소유권을 인증합니다.
 
@@ -140,11 +155,8 @@ RCS Biz Center의 사전 등록 사항은 **이용 정책 및 사전 설정 안�
 
 도메인 소유 인증에 성공하면 도메인 인증 상태가 **완료**로 변경됩니다.
 
-<span id="spf-authentication"></span>
-
 <a id="spf-authentication"></a>
-
-### SPF 인증
+### SPF 인증 { #spf-authentication }
 
 SPF(sender policy framework, 발신자 정책 프레임워크)는 이메일 발신자와 발송 서버의 신뢰성을 검증하기 위한 메커니즘입니다. 이메일 수신 서버가 특정 도메인에서 발송된 메일이 실제로 허가된 이메일 발송 서버에서 왔는지 확인합니다.
 
@@ -162,11 +174,8 @@ v=spf1 include:_spfblocka.toast.com ~all
     * 도메인 TXT 레코드에는 하나의 SPF 레코드만 등록해야 합니다. 도메인 TXT 레코드에 2개 이상 SPF 레코드가 등록된 경우, SPF 인증이 실패해 이메일 수신 서버가 수신을 거부할 수 있습니다.
     * SPF 레코드를 검사할 때 DNS 조회를 발생시키는 메커니즘(include)과 수정자(redirect)의 사용은 최대 10개로 제한되며, 이를 초과하면 이메일 수신 서버에서 수신을 거부할 수 있습니다.
 
-<span id="dkim-authentication"></span>
-
 <a id="configure-dkim"></a>
-
-### DKIM 설정
+### DKIM 설정 { #configure-dkim }
 
 DKIM(domainkeys identified mail, 도메인 키 식별 이메일)은 이메일 발송 서버가 이메일을 디지털 서명하고 이메일 수신 서버는 발신자 진위 여부를 확인하여 전송 중에 메시지가 위조, 변조되지 않았는지 확인하는 이메일 검증 방법입니다.
 
@@ -175,11 +184,8 @@ DKIM(domainkeys identified mail, 도메인 키 식별 이메일)은 이메일 �
     * 등록한 도메인이 `example.com`인 경우, `toast._domainkey.example.com` TXT 레코드에 값을 설정해야 합니다.
 3. 인증 완료 후 사용 설정을 하고 **저장**을 클릭해 DKIM 인증을 완료합니다.
 
-<span id="dmarc-authentication"></span>
-
 <a id="dmarc-authentication"></a>
-
-### DMARC 인증
+### DMARC 인증 { #dmarc-authentication }
 
 DMARC(domain-based message authentication reporting and conformance)는 이메일 보안 강화의 마지막 단계입니다. 이메일 스푸핑을 이용한 피싱, 사기 등을 막기 위한 도메인 기반 메시지 인증 보고 및 준수 정책입니다.
 
@@ -193,33 +199,24 @@ v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:${보고서를_수신할_이메
     * 예: 도메인이 `example.com`인 경우 `_dmarc.example.com`의 TXT 레코드에 등록합니다.
 3. **DMARC 인증 상태** 항목의 **상태 확인**을 클릭해 DMARC 인증을 완료합니다.
 
-<span id="domain-protection"></span>
-
 <a id="domain-protection"></a>
-
-### 도메인 보호
+### 도메인 보호 { #domain-protection }
 
 도메인 보호가 활성화된 도메인은 다른 프로젝트에서 사용할 수 없습니다. 보호된 도메인을 다른 프로젝트에서 사용하려면 동일하게 도메인 등록과 소유 인증을 받아야 합니다.
 
 !!! danger "주의 사항"
     도메인 보호를 비활성화하면 다른 프로젝트에서 임의로 도메인을 사용할 수 있습니다. 모든 인증을 완료한 도메인의 경우 다른 프로젝트에서 발송하는 이메일도 동일하게 이메일 수신 서버에서 정상적으로 수신됩니다. 이렇게 발송된 이메일이 스팸이거나 피싱인 경우 수신자에게 피해가 발생할 수 있고 도메인의 평판이 하락해 수신 이메일 서버에서 수신을 거부할 수 있습니다.
 
-<span id="delete-domain"></span>
-
 <a id="delete-a-domain"></a>
-
-### 도메인 삭제
+### 도메인 삭제 { #delete-a-domain }
 
 등록된 도메인을 삭제할 수 있습니다.
 
 1. 삭제할 도메인의 체크박스를 선택합니다.
 2. **도메인 삭제**를 클릭합니다.
 
-<span id="manage-push-authentication"></span>
-
 <a id="manage-push-authentication"></a>
-
-## 푸시 인증 관리
+## 푸시 인증 관리 { #manage-push-authentication }
 
 푸시 메시지를 발송하려면 푸시 서비스에서 발급하는 인증 정보를 등록해야 합니다.
 
@@ -227,11 +224,8 @@ v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:${보고서를_수신할_이메
 
 * [이용 정책 및 사전 설정 안내 > Push 바로 가기](../service-policy-and-precondition/push)
 
-<span id="fcm-authentication"></span>
-
 <a id="configure-fcm-authentication"></a>
-
-### FCM 인증 설정
+### FCM 인증 설정 { #configure-fcm-authentication }
 
 Android 기기에 푸시 메시지를 발송하려면 FCM(Firebase Cloud Messaging) 인증 설정이 필요합니다.
 
@@ -239,11 +233,8 @@ Android 기기에 푸시 메시지를 발송하려면 FCM(Firebase Cloud Messagi
 2. 서비스 계정 키(JSON)에 발급받은 FCM Service Account Credential 파일의 내용을 복사해 붙여 넣습니다.
 3. **검증 > 저장**을 클릭해 설정을 완료합니다.
 
-<span id="apns-authentication"></span>
-
 <a id="configure-apns-authentication"></a>
-
-### APNS 인증 설정
+### APNS 인증 설정 { #configure-apns-authentication }
 
 iPhone에 푸시 메시지를 발송하려면 APNS(Apple Push Notification Service) 인증 설정이 필요합니다.
 
@@ -253,11 +244,8 @@ iPhone에 푸시 메시지를 발송하려면 APNS(Apple Push Notification Servi
 4. **개인 키** 파일의 내용을 복사해 붙여 넣습니다.
 5. **검증 > 저장**을 클릭해 설정을 완료합니다.
 
-<span id="adm-authentication"></span>
-
 <a id="adm-authentication-settings"></a>
-
-### ADM 인증 설정
+### ADM 인증 설정 { #adm-authentication-settings }
 
 Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Amazon Device Messaging) 인증 설정이 필요합니다.
 
@@ -265,19 +253,13 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 2. **클라이언트 ID**와 **클라이언트 키**를 입력합니다.
 3. **검증 > 저장**을 클릭해 설정을 완료합니다.
 
-<span id="manage-sender-profile"></span>
-
 <a id="manage-sender-profiles"></a>
-
-## 발신 프로필 관리
+## 발신 프로필 관리 { #manage-sender-profiles }
 
 알림톡, 브랜드 메시지를 발송하려면 카카오톡 발신 프로필을 등록해야 합니다.
 
-<span id="sender-profile-prerequisites"></span>
-
-<a id="prerequisites-2"></a>
-
-### 사전 준비
+<a id="manage-sender-profiles-prerequisites"></a>
+### 사전 준비 { #manage-sender-profiles-prerequisites }
 
 발신 프로필을 등록하려면 카카오톡 채널이 생성되어야 합니다. 카카오톡 홈페이지에서 카카오톡 채널을 생성하세요.
 
@@ -289,11 +271,8 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 
 * [이용 정책 및 사전 설정 안내 > 알림톡/브랜드 메시지 바로 가기](../service-policy-and-precondition/alimtalk-and-friendtalk)
 
-<span id="register-sender-profile"></span>
-
 <a id="register-sender-profile"></a>
-
-### 발신 프로필 등록
+### 발신 프로필 등록 { #register-sender-profile }
 
 1. **+ 발신 프로필 등록**을 클릭합니다.
 2. 발신 프로필 ID, 관리자 휴대폰 번호, 카테고리를 설정한 뒤 **토큰 요청**을 클릭합니다.
@@ -306,21 +285,15 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 !!! danger "주의 사항"
     브랜드 메시지는 **광고성(AD) 메시지만 발송 가능**합니다. 고객 대상 발송(타겟팅 M, N, O) 시 발신 프로필에 **080 수신거부번호 등록이 필수**입니다.
 
-<span id="manage-sender-profile-group"></span>
-
 <a id="manage-sender-profile-groups"></a>
-
-### 발신 프로필 그룹 관리
+### 발신 프로필 그룹 관리 { #manage-sender-profile-groups }
 
 발신 프로필을 그룹으로 관리할 수 있습니다.
 
 * **발신 프로필 그룹 관리**를 클릭해 그룹을 생성하고 발신 프로필을 그룹에 추가할 수 있습니다.
 
-<span id="kakao-statistics"></span>
-
 <a id="view-kakao-statistics"></a>
-
-### 카카오 통계 조회
+### 카카오 통계 조회 { #view-kakao-statistics }
 
 발신 프로필 상세에서 **카카오 통계 바로가기**를 클릭하면 새 창에서 카카오 통계를 조회할 수 있습니다. 통계 기준은 발송 통계와 템플릿 통계가 있으며, 메시지 채널에 따라 조회 조건이 달라집니다. 조회 결과를 차트와 표로 확인할 수 있습니다.
 
@@ -330,25 +303,20 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 * 클릭 수는 같은 메시지에 대해 중복 집계합니다.
 * 발송 성공 건수가 10건 이하이면 유효 읽음 수와 클릭 수를 제공하지 않습니다.
 
-<a id="delivery-statistics"></a>
-
+<a id="view-kakao-statistics-delivery-statistics"></a>
 #### 발송 통계
 
 발신 프로필을 기준으로 일별 발송 수, 유효 읽음 수, 클릭 수를 조회합니다. 기간, 발송 식별자, 메시지 타입 등을 설정해 조회할 수 있습니다.
 
-<a id="template-statistics"></a>
-
+<a id="view-kakao-statistics-template-statistics"></a>
 #### 템플릿 통계
 
 템플릿 및 그룹태그를 기준으로 일별 발송 수, 유효 읽음 수, 클릭 수를 조회합니다. 기간, 메시지 타입 등을 설정해 조회할 수 있습니다.
 
 * 브랜드 메시지 자유형은 그룹태그를 사용한 경우에만 제공합니다.
 
-<span id="manage-group-tag"></span>
-
 <a id="manage-group-tags"></a>
-
-### 그룹태그 관리
+### 그룹태그 관리 { #manage-group-tags }
 
 그룹태그는 브랜드 메시지의 템플릿 통계 조회 시 사용하는 식별 태그입니다. **카카오 통계 바로가기** 새 창에서 **그룹태그 관리** 탭을 클릭해 관리할 수 있습니다.
 
@@ -358,11 +326,8 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 * **+ 그룹태그 등록**을 클릭해 그룹태그 이름을 입력하고 등록합니다.
 * 수정하거나 삭제할 그룹태그의 체크박스를 선택하고 **그룹태그 수정** 또는 **그룹태그 삭제**를 클릭합니다.
 
-<span id="brandmessage-customer-sending-application"></span>
-
 <a id="apply-to-use-customer-targeted-sending"></a>
-
-### 고객 대상 발송 사용 신청
+### 고객 대상 발송 사용 신청 { #apply-to-use-customer-targeted-sending }
 
 브랜드 메시지의 고객 대상 발송을 사용하려면 사용 신청을 진행해야 합니다. 사용 신청을 하지 않으면 고객 대상 발송(타겟팅 M, N, O)을 사용할 수 없습니다.
 
@@ -380,44 +345,32 @@ Amazon Kindle, Fire 등의 기기에 푸시 메시지를 발송하려면 ADM(Ama
 !!! danger "주의 사항"
     비즈니스 인증이 해제될 경우 고객 대상 발송 사용 권한이 해제됩니다. 비즈니스 인증 재심사 이후 다시 사용 신청을 진행해야 합니다.
 
-<span id="delete-sender-profile"></span>
-
 <a id="delete-a-sender-profile"></a>
-
-### 발신 프로필 삭제
+### 발신 프로필 삭제 { #delete-a-sender-profile }
 
 등록된 발신 프로필을 삭제할 수 있습니다.
 
 1. 삭제할 발신 프로필의 체크박스를 선택합니다.
 2. **발신 프로필 삭제**를 클릭합니다.
 
-<span id="manage-080-unsubscription-number"></span>
-
 <a id="manage-080-opt-out-numbers"></a>
-
-## 080 수신 거부 번호 관리
+## 080 수신 거부 번호 관리 { #manage-080-opt-out-numbers }
 
 080 수신 거부 번호는 광고 문자 발송 시, 수신자에게 수신 거부를 제공하는 서비스입니다. 광고성 메시지 발송 시 수신자가 수신 거부나 수신 동의의 철회를 무료로 할 수 있도록 **무료 수신 거부 방법을 반드시 기재**해야 합니다.
 
 !!! danger "주의 사항"
     이를 어기는 경우 '정보통신망 이용촉진 및 정보보호 등에 관한 법률'에 의거하여 **3,000만 원 이하의 과태료**가 부과될 수 있습니다.
 
-<span id="register-080-number"></span>
-
 <a id="apply-for-an-080-opt-out-number"></a>
-
-### 080 수신 거부 번호 신청
+### 080 수신 거부 번호 신청 { #apply-for-an-080-opt-out-number }
 
 1. **+ 080 수신 거부 번호 신청**을 클릭합니다.
 2. 회사명을 입력합니다. 입력한 회사명은 080 수신 거부 번호로 전화를 걸 때 안내되는 업체명입니다.
 3. 신청을 완료하면 심사 중 상태로 변경됩니다.
 4. 080 수신 거부 서비스 개통은 영업일 기준 3~4일이 소요되고, 개통이 완료되면 사용할 수 있습니다.
 
-<span id="cancel-080-number"></span>
-
 <a id="cancel-080-opt-out-number-service"></a>
-
-### 080 수신 거부 번호 이용 해지
+### 080 수신 거부 번호 이용 해지 { #cancel-080-opt-out-number-service }
 
 * 등록된 080 수신 거부 번호의 체크박스를 선택하고 **080 수신 거부 번호 이용 해지**를 클릭합니다.
 * **사용 중 - 공유 번호** 상태인 080 번호는 이용 해지가 불가합니다.

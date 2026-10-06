@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=bfbbe9a63c62 -->
+<!-- pre-align:aligned sig=6163a3d1f2e9 -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -13,8 +13,6 @@
 **Notification > Notification Hub > API v1.0 User Guide > Message**
 
 
-
-<span id="messageV1x0001SmsFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---sms"></a>
 ## Free-form message sending request - SMS { #free-form-message-sending-request---sms }
@@ -220,8 +218,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
-
-<span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---brand-message-brandmessage"></a>
 ## Free-Form Message Sending Request - Brand Message (BRANDMESSAGE) { #free-form-message-sending-request---brand-message-brandmessage }
@@ -692,6 +688,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "confirmBeforeSend" : false
 }
 ```
+</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -843,10 +840,8 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 
 </details>
 
-<span id="messageV1x0003EmailFreeFormMessages"></span>
-
-<a id="request-to-send-a-free-form-message---email"></a>
-## Free-form message sending request - Email (EMAIL) { #request-to-send-a-free-form-message---email }
+<a id="free-form-message-sending-request---email-email"></a>
+## Free-form message sending request - Email (EMAIL) { #free-form-message-sending-request---email-email }
 
 Requests free-form message sending for Email (EMAIL).
 
@@ -1014,10 +1009,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 </details>
 
-<span id="messageV1x0004RcsFreeFormMessages"></span>
-
-<a id="request-to-send-a-free-form-message---rcs"></a>
-## Free-form message sending request - RCS { #request-to-send-a-free-form-message---rcs }
+<a id="free-form-message-sending-request---rcs"></a>
+## Free-form message sending request - RCS { #free-form-message-sending-request---rcs }
 
 Requests free-form message sending for RCS.
 
@@ -1391,10 +1384,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 </details>
 
-<span id="messageV1x0005PushFreeFormMessages"></span>
-
-<a id="request-to-send-a-free-form-message---push"></a>
-## Free-form message sending request - PUSH { #request-to-send-a-free-form-message---push }
+<a id="free-form-message-sending-request---push"></a>
+## Free-form message sending request - PUSH { #free-form-message-sending-request---push }
 
 Requests free-form message sending for PUSH.
 
@@ -1677,8 +1668,6 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 
 </details>
 
-<span id="messageV1x0006TemplateMessages"></span>
-
 <a id="request-template-message-sending"></a>
 ## Template Message Sending Request { #request-template-message-sending }
 
@@ -1825,6 +1814,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 </details>
 
+<details>
+    <summary><strong>cURL</strong></summary>
+
 ```http
 curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}"  \ 
@@ -1852,10 +1844,8 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
   "id" : "alpha123"
 }'
 ```
-
 </details>
 
-<span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 <a id="send-alimtalk-template-message"></a>
 ## Send Alim Talk Template Messages { #send-alimtalk-template-message }
@@ -2043,8 +2033,6 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 ```
 
 </details>
-
-<span id="messageV1x0007BrandmessageTemplateMessages"></span>
 
 <a id="send-a-brand-message-template-message"></a>
 ## Send a Brand Message Template Message { #send-a-brand-message-template-message }
@@ -2242,6 +2230,7 @@ X-NHN-Authorization: Bearer {accessToken}
   "confirmBeforeSend" : false
 }
 ```
+</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -2295,8 +2284,6 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 ```
 
 </details>
-
-<span id="messageV1x0008EmailTemplateMessages"></span>
 
 <a id="send-email-template-message"></a>
 ## Send an Email Template Message { #send-email-template-message }
@@ -2474,8 +2461,6 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 
 </details>
 
-<span id="messageV1x0008RcsTemplateMessages"></span>
-
 <a id="send-rcs-template-message"></a>
 ## Send RCS Template Messages { #send-rcs-template-message }
 
@@ -2642,6 +2627,9 @@ POST {{endpoint}}/message/v1.0/RCS/template-messages/{{messagePurpose}}
 
 </details>
 
+<details>
+    <summary><strong>cURL</strong></summary>
+
 ```http
 curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" \
 -d '{
@@ -2677,10 +2665,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
   }
 }'
 ```
-
 </details>
 
-<span id="messageV1x0008SmsTemplateMessages"></span>
 
 <a id="send-sms-template-message"></a>
 ## Send SMS Template Message { #send-sms-template-message }
@@ -2836,6 +2822,7 @@ POST {{endpoint}}/message/v1.0/SMS/template-messages/{{messagePurpose}}
   "id" : "alpha123"
 }
 ```
+</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -2871,8 +2858,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 ```
 
 </details>
-
-<span id="messageV1x0009FlowMessages"></span>
 
 <a id="send-flow-message"></a>
 ## Send Flow Messages { #send-flow-message }
@@ -3072,6 +3057,9 @@ X-NHN-Authorization: Bearer {accessToken}
 
 </details>
 
+<details>
+    <summary><strong>cURL</strong></summary>
+
 ```http
 curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 -H "X-NC-APP-KEY: {appKey}" \
@@ -3123,10 +3111,8 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
   }
 }'
 ```
-
 </details>
 
-<span id="messageV1x0010InstantFlowMessages"></span>
 
 <a id="send-an-instant-flow-message"></a>
 ## Send Instant Flow Messages { #send-an-instant-flow-message }
@@ -3306,7 +3292,8 @@ POST {{endpoint}}/message/v1.0/instant-flow-messages/{{messagePurpose}}
 ```
 </details>
 
-</details>
+<details>
+    <summary><strong>cURL</strong></summary>
 
 ```http
 curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" \
@@ -3354,10 +3341,8 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
   }
 }'
 ```
-
 </details>
 
-<span id="messageV1x0100MessageIdDoCancel"></span>
 
 <a id="cancel-sending-message"></a>
 ## Cancel Sending Message { #cancel-sending-message }
@@ -3433,6 +3418,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 
 ```
+</details>
 
 <details>
     <summary><strong>cURL</strong></summary>
@@ -3444,8 +3430,6 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 ```
 
 </details>
-
-<span id="messageV1x0101MessageIdDoConfirm"></span>
 
 <a id="confirm-message-delivery"></a>
 ## Confirm Message Delivery { #confirm-message-delivery }
@@ -3475,7 +3459,7 @@ X-NHN-Authorization: Bearer {accessToken}
 
 <!--요청 본문을 요구하지 않는다면 "이 API는 요청 본문을 요구하지 않습니다"로 입력합니다.-->
 
-이 API는 요청 본문을 요구하지 않습니다.
+This API does not require a request body.
 
 
 

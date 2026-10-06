@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=bfbbe9a63c62 -->
+<!-- pre-align:aligned sig=6163a3d1f2e9 -->
 
 <!-- 새로운 양식을 위해 추가된 style 입니다. -->
 <style>
@@ -13,8 +13,6 @@
 **Notification > Notification Hub > API v1.0 사용 가이드 > 메시지**
 
 
-
-<span id="messageV1x0001SmsFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---sms"></a>
 ## 자유 양식 메시지 발송 요청 - SMS { #free-form-message-sending-request---sms }
@@ -225,8 +223,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 ```
 
 </details>
-
-<span id="messageV1x0002BrandmessageFreeFormMessages"></span>
 
 <a id="free-form-message-sending-request---brand-message-brandmessage"></a>
 ## 자유 양식 메시지 발송 요청 - 브랜드 메시지(BRANDMESSAGE) { #free-form-message-sending-request---brand-message-brandmessage }
@@ -859,10 +855,8 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/free-form-messages/${message
 
 </details>
 
-<span id="messageV1x0003EmailFreeFormMessages"></span>
-
-<a id="request-to-send-a-free-form-message---email"></a>
-## 자유 양식 메시지 발송 요청 - 이메일(EMAIL) { #request-to-send-a-free-form-message---email }
+<a id="free-form-message-sending-request---email-email"></a>
+## 자유 양식 메시지 발송 요청 - 이메일(EMAIL) { #free-form-message-sending-request---email-email }
 
 이메일(EMAIL)에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -1032,10 +1026,8 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/free-form-messages/${messagePurpose
 
 </details>
 
-<span id="messageV1x0004RcsFreeFormMessages"></span>
-
-<a id="request-to-send-a-free-form-message---rcs"></a>
-## 자유 양식 메시지 발송 요청 - RCS { #request-to-send-a-free-form-message---rcs }
+<a id="free-form-message-sending-request---rcs"></a>
+## 자유 양식 메시지 발송 요청 - RCS { #free-form-message-sending-request---rcs }
 
 RCS에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -1411,10 +1403,8 @@ curl -X POST "${endpoint}/message/v1.0/RCS/free-form-messages/${messagePurpose}"
 
 </details>
 
-<span id="messageV1x0005PushFreeFormMessages"></span>
-
-<a id="request-to-send-a-free-form-message---push"></a>
-## 자유 양식 메시지 발송 요청 - PUSH { #request-to-send-a-free-form-message---push }
+<a id="free-form-message-sending-request---push"></a>
+## 자유 양식 메시지 발송 요청 - PUSH { #free-form-message-sending-request---push }
 
 PUSH에 대한 자유 양식 메시지 발송을 요청합니다.
 
@@ -1699,8 +1689,6 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 
 </details>
 
-<span id="messageV1x0006TemplateMessages"></span>
-
 <a id="request-template-message-sending"></a>
 ## 템플릿 메시지 발송 요청 { #request-template-message-sending }
 
@@ -1879,8 +1867,6 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 ```
 
 </details>
-
-<span id="messageV1x0007AlimtalkTemplateMessages"></span>
 
 <a id="send-alimtalk-template-message"></a>
 ## 알림톡 템플릿 메시지 발송 { #send-alimtalk-template-message }
@@ -2070,8 +2056,6 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 ```
 
 </details>
-
-<span id="messageV1x0007BrandmessageTemplateMessages"></span>
 
 <a id="send-a-brand-message-template-message"></a>
 ## 브랜드 메시지 템플릿 메시지 발송 { #send-a-brand-message-template-message }
@@ -2327,8 +2311,6 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 
 </details>
 
-<span id="messageV1x0008EmailTemplateMessages"></span>
-
 <a id="send-email-template-message"></a>
 ## 이메일 템플릿 메시지 발송 { #send-email-template-message }
 
@@ -2506,8 +2488,6 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 ```
 
 </details>
-
-<span id="messageV1x0008RcsTemplateMessages"></span>
 
 <a id="send-rcs-template-message"></a>
 ## RCS 템플릿 메시지 발송 { #send-rcs-template-message }
@@ -2716,8 +2696,6 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 
 </details>
 
-<span id="messageV1x0008SmsTemplateMessages"></span>
-
 <a id="send-sms-template-message"></a>
 ## SMS 템플릿 메시지 발송 { #send-sms-template-message }
 
@@ -2910,8 +2888,6 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 ```
 
 </details>
-
-<span id="messageV1x0009FlowMessages"></span>
 
 <a id="send-flow-message"></a>
 ## 플로우 메시지 발송 { #send-flow-message }
@@ -3208,8 +3184,6 @@ curl -X POST "${endpoint}/message/v1.0/flow-messages/${messagePurpose}" \
 
 </details>
 
-<span id="messageV1x0010InstantFlowMessages"></span>
-
 <a id="send-an-instant-flow-message"></a>
 ## 인스턴트 플로우 메시지 발송 { #send-an-instant-flow-message }
 
@@ -3481,8 +3455,6 @@ curl -X POST "${endpoint}/message/v1.0/instant-flow-messages/${messagePurpose}" 
 
 </details>
 
-<span id="messageV1x0100MessageIdDoCancel"></span>
-
 <a id="cancel-sending-message"></a>
 ## 메시지 발송 취소 { #cancel-sending-message }
 
@@ -3567,8 +3539,6 @@ curl -X POST "${endpoint}/message/v1.0/messages/${messageId}/do-cancel" \
 ```
 
 </details>
-
-<span id="messageV1x0101MessageIdDoConfirm"></span>
 
 <a id="confirm-message-delivery"></a>
 ## 메시지 발송 확인 { #confirm-message-delivery }

@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=54152d26ee35 -->
+<!-- pre-align:aligned sig=7d25a12ba9fc -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,28 +10,22 @@
 **Notification > Notification Hub > 콘솔 사용 가이드 > 템플릿**
 
 
-<span id="template"></span>
-
-<a id="template-2"></a>
-
-## 템플릿
+<a id="template"></a>
+## 템플릿 { #template }
 
 자주 사용하는 메시지나 일정한 형식을 요구하는 메시지를 템플릿으로 저장해 두고 발송 시 저장해 둔 템플릿을 설정해 메시지를 발송할 수 있습니다. 예를 들어, 고객 지원, 공지 사항, 알림 또는 마케팅 메시지와 같이 자주 사용하는 메시지의 형식을 템플릿으로 만들어 놓으면, 매번 같은 내용을 작성할 필요 없이 일부 정보만 수정하여 발송할 수 있습니다.
 
 <a id="category"></a>
-
-### 카테고리
+### 카테고리 { #category }
 * 먼저 루트 카테고리를 선택하고 **+ 카테고리 추가**를 클릭해 카테고리를 생성합니다.
 * 카테고리는 선택된 카테고리 하위에 생성됩니다.
 
-<a id="template"></a>
-
-### 템플릿
+<a id="template-2"></a>
+### 템플릿 { #template-2 }
 1. 템플릿이 속할 카테고리를 선택하고 **+ 템플릿 등록**을 클릭합니다. 템플릿 작성 페이지로 이동하며, 선택된 메시지 채널의 추가 설정들이 표시됩니다.
 2. 제목과 내용 및 각 메시지 채널에서 요구하는 설정을 마치고 **등록**을 클릭합니다.
 
-<a id="alimtalk-template"></a>
-
+<a id="template-2-alimtalk-template"></a>
 #### 알림톡 템플릿
 
 알림톡 템플릿은 등록 요청 후 카카오의 검수 승인을 받아야 사용할 수 있습니다.
@@ -50,7 +44,7 @@
     * 하나의 발신 프로필/그룹에 동일한 템플릿 코드와 템플릿 이름을 중복하여 등록할 수 없습니다.
 
 * 템플릿 내용
-    * 알림톡은 한/영 구분 없이 변수 및 URL, 띄어쓰기, 버튼명 모두 포함하여 1,000자까지 작성 가능합니다. 변수를 입력하여 등록할 경우 치환될 내용도 함께 고려하여 템플릿을 작성하세요.<br/> 글자수 상세 가이드는 [알림톡 템플릿 유의사항](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3)에서 확인하세요.
+    * 알림톡은 한/영 구분 없이 변수 및 URL, 띄어쓰기, 버튼명 모두 포함하여 1,000자까지 작성 가능합니다. 변수를 입력하여 등록할 경우 치환될 내용도 함께 고려하여 템플릿을 작성하세요.<br/> 글자수 상세 가이드는 [알림톡 템플릿 유의사항](/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#alimtalk-template-precautions)에서 확인하세요.
     * 변수를 #{변수} 형태로 작성합니다. (예: #{홍길동}님의 택배가 금일 (#{09:50})에 배달될 예정입니다.)
     * 버튼 등록 시 버튼명은 변수 입력이 불가하며, 버튼 url에는 변수 입력이 가능합니다. (예. http://kakao.com/#{변수})
     * 버튼 url 등록 시 url_mobile, url_pc 링크에는 'http://', 'https://'가 포함되어야 하며 scheme_ios, scheme_android 링크는 스킴 형태에 맞게 등록해야 합니다. 그렇지 않을 경우 템플릿 등록이 불가합니다.
@@ -58,8 +52,7 @@
     * 템플릿 보안 시 모바일 외의 디바이스에서 메시지 내용이 노출되지 않습니다.(‘모바일에서 확인해주세요‘ 문구 노출)
     * 일반 메시지인 경우 검수 시 설정 값이 변경될 수 있으며 OTP, 인증번호, 비밀번호, 신용정보/등급 변경 안내 템플릿은 반드시 보안을 체크하세요.
 
-<a id="alimtalk-template-button"></a>
-
+<a id="template-2-alimtalk-template-button"></a>
 #### 알림톡 템플릿 버튼
 * 템플릿당 최대 5개의 버튼을 등록할 수 있습니다.
 * 바로연결
@@ -82,7 +75,6 @@
 | 비즈니스폼 | - 비즈니스폼을 생성하여 현재 채널과 연결한 경우, 버튼 클릭 시 설정한 비즈니스폼이 호출됩니다.<br/> - 비즈니스폼 생성이 필요합니다. [[비즈니스폼 가이드]](https://business.kakao.com/info/talkbizform/) |
 
 <a id="template-inspection"></a>
-
 #### 템플릿 검수
 알림톡 템플릿의 검수 및 심사는 카카오에서 직접 진행하며, 검수 요청 후 영업일 기준 2일 이내 순차적으로 처리됩니다.
 
@@ -93,28 +85,24 @@
     * 템플릿 반려 시 **문의 등록** 및 **수정**을 클릭해 재검수할 수 있습니다.
 
 <a id="template-status"></a>
-
 #### 템플릿 상태
 * 템플릿 등록 시, **요청 > 검수 중 > 승인/반려** 상태의 순서로 업데이트됩니다.
-* 템플릿 등록 후, 1년간 동일한 상태로 유지되거나 추가 발송이 없는 경우 **휴면** 상태로 전환됩니다. 관련 가이드는 [알림톡 템플릿 유의사항](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3)에서 확인하세요.
+* 템플릿 등록 후, 1년간 동일한 상태로 유지되거나 추가 발송이 없는 경우 **휴면** 상태로 전환됩니다. 관련 가이드는 [알림톡 템플릿 유의사항](/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#alimtalk-template-precautions)에서 확인하세요.
 
-<a id="modify-templates"></a>
-
+<a id="template-2-modify-templates"></a>
 #### 템플릿 수정
 * **승인/반려** 상태의 템플릿만 수정할 수 있습니다.
 * 승인된 템플릿을 수정한 뒤 검수가 완료되면 기존 템플릿 내용이 수정한 내용으로 대체됩니다.
 * 발신 프로필/그룹 및 템플릿 코드는 수정할 수 없습니다.
 * 수정한 템플릿은 **검수 중** 상태부터 다시 검수가 진행됩니다.
 
-<a id="delete-templates"></a>
-
+<a id="template-2-delete-templates"></a>
 #### 템플릿 삭제
 * 요청/반려 상태의 템플릿만 삭제할 수 있습니다.
 * 반려된 템플릿은 **삭제** 후 재등록할 수 있습니다.
 * 삭제된 템플릿 코드는 재사용할 수 있습니다.
 
-<a id="brand-message-templates"></a>
-
+<a id="template-2-brand-message-templates"></a>
 #### 브랜드 메시지 템플릿
 브랜드 메시지 템플릿은 알림톡 템플릿과 달리 검수 과정이 없으며, 생성, 수정, 삭제가 자유롭습니다.
 
@@ -127,8 +115,7 @@
 * 쿠폰을 등록할 수 있습니다.
 * 이미지를 첨부하려면 먼저 이미지를 등록해야 합니다.
 
-<a id="public-alim-talk-templates"></a>
-
+<a id="template-2-public-alim-talk-templates"></a>
 #### 공용 알림톡 템플릿
 공용 알림톡 템플릿은 카카오에서 직접 제작하고 검수하여 공개한 템플릿입니다. 모든 사업자가 공통으로 사용할 수 있으며, 특정 발신 프로필에 귀속되지 않습니다. 카카오 검수가 이미 완료된 상태로 제공되므로 별도의 검수 요청 없이 바로 발송에 사용할 수 있습니다.
 

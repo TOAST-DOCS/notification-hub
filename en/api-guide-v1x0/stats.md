@@ -14,11 +14,8 @@
 
 
 
-<span id="statsV1x0001ReadStats"></span>
-
-<a id="section-1"></a>
-
-## Query Statistics
+<a id="query-statistics"></a>
+## Query Statistics { #query-statistics }
 
 Retrieve statistical events based on the event timestamp.<br>
 

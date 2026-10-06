@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=e4151300f28b -->
+<!-- pre-align:aligned sig=8fd0b25d1c4f -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -12,12 +12,10 @@
 각 메시지 채널의 설정과 첨부 파일을 관리합니다. 설정 후 실제 반영까지 대략 수분이 걸릴 수 있습니다.
 
 <a id="sms"></a>
-
-## SMS
+## SMS { #sms }
 
 <a id="international-sms-send-settings"></a>
-
-### 국제 SMS 메시지 발송 설정
+### 국제 SMS 메시지 발송 설정 { #international-sms-send-settings }
 * 국제 SMS 발송 기능 이용 전 반드시 [[국제 SMS 서비스 정책]](../service-policy-and-precondition/international-sms)을 확인합니다.
 * 국제 SMS 발송 기능을 사용하지 않으려면 **사용 안 함**으로 설정합니다. **사용**으로 되어 있는 경우 국제 SMS 물량 펌핑으로 인한 사고가 발생해 추가적인 요금이 청구될 수 있습니다.
 * 국제 SMS 월 발송 건수는 최소 1건에서 최대 10,000건까지 설정할 수 있습니다.  10,000건 초과 발송이 필요한 경우 [[고객 센터]](https://www.nhncloud.com/kr/support/inquiry)로 문의하세요.
@@ -35,11 +33,9 @@
 
 
 <a id="message-settings"></a>
+### 메시지 설정 { #message-settings }
 
-### 메시지 설정
-
-<a id="set-time-to-block-message-delivery-in-duplication"></a>
-
+<a id="message-settings-set-time-to-block-message-delivery-in-duplication"></a>
 #### 메시지 중복 발송 차단 시간 설정
 * 설정한 시간동안 같은 내용의 메시지가 발송되지 않도록 설정할 수 있습니다.
 * 중복 발송 차단 설정을 한 경우 설정된 시간(단위:분) 동안 동일한 요청에 대해 발송 실패 처리됩니다.
@@ -47,8 +43,7 @@
 * 중복 판단 기준은 다음과 같습니다.
     * 메시지 타입(SMS/LMS/MMS/AUTH), 발신 번호, 수신번호, 제목, 본문, 첨부 파일
 
-<a id="alternative-characters-settings"></a>
-
+<a id="message-settings-alternative-characters-settings"></a>
 #### 대체 문자 설정
 * 발송 요청의 본문/제목에 EUC-KR 문자 집합에 포함되지 않은, 발송 불가능한 문자가 포함된 경우 발송 가능한 문자로 변환하도록 설정할 수 있습니다.
     * 대표적으로 이모지 문자는 EUC-KR 문자 집합에 포함되지 않습니다.
@@ -56,10 +51,9 @@
 * 대체 문자 설정을 사용으로 설정하면 발송 불가능한 문자가 설정한 대체 문자로 변환되어 표시됩니다.
 
 <a id="ad-message-settings"></a>
+### 광고성 메시지 설정 { #ad-message-settings }
 
-### 광고성 메시지 설정
-<a id="set-time-to-restrict-to-deliver-ad-message"></a>
-
+<a id="ad-message-settings-set-time-to-restrict-to-deliver-ad-message"></a>
 #### 광고성 메시지 발송 시간 제한 설정
 * 광고 메시지의 발송 시간을 제한할 수 있습니다.
 * 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.
@@ -71,14 +65,12 @@
 * SMS, RCS의 광고성 메시지 발송 시간 제한 설정은 개별 설정이 필요합니다.
 
 <a id="rcs"></a>
+## RCS { #rcs }
 
-## RCS
+<a id="rcs-ad-message-settings"></a>
+### 광고성 메시지 설정 { #rcs-ad-message-settings }
 
-<a id="ad-message-settings-2"></a>
-
-### 광고성 메시지 설정
-<a id="set-time-to-restrict-to-deliver-ad-message-2"></a>
-
+<a id="rcs-ad-message-settings-set-time-to-restrict-to-deliver-ad-message"></a>
 #### 광고성 메시지 발송 시간 제한 설정
 * 광고 메시지의 발송 시간을 제한할 수 있습니다.
 * 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.
@@ -89,14 +81,12 @@
 * SMS, RCS의 광고성 메시지 발송 시간 제한 설정은 개별 설정이 필요합니다.
 
 <a id="brand-message"></a>
+## 브랜드 메시지 { #brand-message }
 
-## 브랜드 메시지
+<a id="brand-message-ad-message-settings"></a>
+### 광고성 메시지 설정 { #brand-message-ad-message-settings }
 
-<a id="ad-message-settings-3"></a>
-
-### 광고성 메시지 설정
-<a id="limit-advertising-messages-delivery-time"></a>
-
+<a id="brand-message-ad-message-settings-limit-advertising-messages-delivery-time"></a>
 #### 광고성 메시지 발송 시간 제한 설정
 * 브랜드 메시지는 광고성 메시지만 발송할 수 있으며, 정보통신망법에 의거해 야간 시간에 발송이 제한됩니다.
 * 설정된 광고 발송 제한 시간 동안 광고 발송은 진행되지 않습니다.
@@ -107,14 +97,12 @@
     * 제한 시간 해제 후 재발송
 
 <a id="push"></a>
-
-## Push
+## Push { #push }
 
 <a id="token-settings"></a>
+### 토큰 설정 { #token-settings }
 
-### 토큰 설정
-<a id="set-token-expiry-period"></a>
-
+<a id="token-settings-set-token-expiry-period"></a>
 #### 토큰 만료 기간 설정
 * 설정한 기간 동안 등록 요청이 없는 토큰들을 주소록에서 삭제합니다.
 * 오랜 기간 동안 비활성화된 토큰에 메시지가 수신될 가능성은 극히 낮습니다.
@@ -126,8 +114,7 @@
 * 비활성화된 토큰은 발송 대상에서 제외되어 발송 요금을 절약할 수 있습니다.
 * 비활성화된 토큰을 정리해 발송률, 수신율 정확도를 올릴 수 있습니다.
 
-<a id="set-app-type"></a>
-
+<a id="token-settings-set-app-type"></a>
 #### 앱 유형 설정
 * 연동된 앱의 유형에 따라 토큰을 관리합니다.
 * 다중 토큰
@@ -138,11 +125,8 @@
     - 사용자가 한 번에 한 기기에서만 앱을 사용할 수 있습니다. 한 사용자는 하나의 토큰만 가질 수 있습니다.
     - 예를 들어 사용자가 휴대폰과 태블릿을 사용한다면, 한 개의 토큰만 가질 수 있고, 둘 중 한 곳으로 푸시 메시지를 발송합니다.
 
-<span id="webhook"></span>
-
 <a id="webhook"></a>
-
-## 웹훅
+## 웹훅 { #webhook }
 
 지정한 이벤트 발생 시 URL을 지정하여 웹훅 이벤트를 받을 수 있습니다.
 
@@ -154,19 +138,16 @@
  
 등록 완료된 웹훅은 웹훅 등록 목록에서 확인 가능합니다.
 
-<span id="backup"></span>
-
 <a id="backup"></a>
-
-## 백업 
+## 백업 { #backup }
 
 메시지 보관 기간 정책에 따라 180일이 지난 메시지 발송 내역을 백업할 수 있습니다.
 
 * 기본적으로 사용안함으로 설정되어 있으며, 저장소 정보를 입력하여 사용함으로 설정 시 하루 단위로 백업됩니다.
-* 지원하는 저장소는 [NHN Cloud Object Storage](../../../../Storage/Object%20Storage/ko/Overview/)와 AWS S3입니다.
-    * **액세스 키**, **비밀 키**는 [AWS S3 API](../../../../Storage/Object%20Storage/ko/s3-api-guide/#_1)를 이용한 EC2 자격 증명 등록 및 조회로 확인할 수 있습니다.
+* 지원하는 저장소는 [NHN Cloud Object Storage](/Storage/Object%20Storage/ko/Overview/)와 AWS S3입니다.
+    * **액세스 키**, **비밀 키**는 [AWS S3 API](/Storage/Object%20Storage/ko/s3-api-guide/#s3-api-credential)를 이용한 EC2 자격 증명 등록 및 조회로 확인할 수 있습니다.
     * **버킷이름**은 로그가 저장될 Object Storage 컨테이너의 이름입니다.
-    * **엔드포인트**, **리전**은 로그를 저장할 Object Storage를 관리할 정보이며, [Amazon S3 호환 API 가이드 - AWS SDK](../../../../Storage/Object%20Storage/ko/s3-api-guide/#aws-sdk)에서 확인할 수 있습니다.
+    * **엔드포인트**, **리전**은 로그를 저장할 Object Storage를 관리할 정보이며, [Amazon S3 호환 API 가이드 - AWS SDK](/Storage/Object%20Storage/ko/s3-api-guide/#aws-sdk)에서 확인할 수 있습니다.
 * 최대 5개까지 저장소를 지정할 수 있고 각 저장소에는 동일한 파일이 백업됩니다.
 * 본문의 경우 최대 1만자까지 백업됩니다.
 * 백업을 위해 필요한 저장소 권한은 다음과 같습니다.

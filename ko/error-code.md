@@ -10,8 +10,7 @@
 **Notification > Notification Hub > 오류 코드**
 
 <a id="list-of-error-codes"></a>
-
-## 오류 코드 목록
+## 오류 코드 목록 { #list-of-error-codes }
 
 | 카테고리 | 성공 여부(isSuccessful) | 결과 코드(resultCode) | 결과 메시지(resultMessage) |
 | --- | --- | --- | --- |
@@ -342,8 +341,7 @@
 | 메시지 발송 | false | 500002 | 잘못된 상태 서버 오류 |
 
 <a id="delivery-result-code"></a>
-
-## 수신 결과 코드
+## 수신 결과 코드 { #delivery-result-code }
 
 | 카테고리 | 성공 여부(isSuccessful) | 결과 코드(resultCode) | 결과 메시지(resultMessage) |
 | --- | --- | --- | --- |
@@ -362,6 +360,7 @@
 | SMS | false | 11906001 | 수신 거부로 인해 메시지 발송에 실패했습니다. |
 | SMS | false | 12000002 | 플로우 순차 발송 처리 중 오류가 발생하여 메시지 발송에 실패했습니다. |
 | SMS | false | 12000003 | 메시지 발송 준비 중 오류가 발생하여 메시지 발송에 실패했습니다. |
+| SMS | false | 12000005 | 내용에 금지된 단어가 포함되어 메시지 발송에 실패했습니다. |
 | SMS | false | 12100911 | 첨부 파일에 확장자가 없어 메시지 발송에 실패했습니다. |
 | SMS | false | 12100913 | 첨부 파일 크기가 0이어서 메시지 발송에 실패했습니다. |
 | SMS | false | 12909999 | 시스템 오류로 인해 메시지 발송에 실패했습니다. |

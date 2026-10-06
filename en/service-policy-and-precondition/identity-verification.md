@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=bc1d75536ea1 -->
+<!-- pre-align:aligned sig=75402ddddaf2 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -9,27 +9,20 @@
 
 **Notification > Notification Hub > Usage Policy and Preset Guide > Identity verification**
 
-<span id="identity-verification"></span>
+<a id="identity-verification"></a>
+## Identity Verification Method { #identity-verification }
 
-To use the Notification Hub, you can use it after Identity verification at **Notification Hub** > ** Identity verification ** (compliance with notification related to the Telecommunications Business Act)
-
-* Business members can use the Notification Hub through Identity verification. Individual members are restricted from conducting Identity verification.
-  * [ Article 37-7of the Enforcement Decree of the Telecommunications Business Act](https://www.law.go.kr/LSW//lsInfoP.do?lsId=004708&ancYnChk=0#0000)
-* Identity verification basically requires a document review of mobile phone self-authentication, business registration certificate, and employment certificate. 
+* To use Notification Hub, you must complete identity verification in **Notification Hub** > **Identity Verification** before use. (In compliance with the Telecommunications Business Act)
+    * [Article 37-7 of the Enforcement Decree of the Telecommunications Business Act](https://www.law.go.kr/LSW//lsInfoP.do?lsId=004708&ancYnChk=0#0000)
+* Business members can use Notification Hub after completing identity verification. Individual members are not eligible for identity verification.
+* Identity verification basically requires mobile phone identity verification and document screening for a business registration certificate and proof of employment.
 * The name and mobile phone number entered at the time of membership must match the information entered at the time of identity verification to be approved for identity verification.
-* NHN Cloud accounts invited to organizations/projects created by business members or IAM accounts invited to organizations created by business members must conduct identity verification to use services.
-  * Invited NHN Cloud accounts and IAM accounts are classified as business operators when they approve their Identity verification.
-* The certificate of employment is marked with **issuance date and only documents with seal ** are allowed. The 6 digits after the resident registration number in the certificate of employment **must be masked (hidden)**. For example, 000000-0\*\*\*\*\**
-
-<a id="identity-verification-method"></a>
-
-## Identity Verification Method
-
-<!-- TODO: translate body -->
+* NHN Cloud accounts invited to an organization/project created by a business member, or IAM accounts invited to an organization created by a business member, must authenticate to use the service.
+    * Invited NHN Cloud accounts and IAM accounts are classified as business members upon approval of identity verification.
+* Proof of employment **must be dated and stamped with a seal**. **Be sure to mask (hide) the last 6 digits of your social security number** on your proof of employment. e.g., 000000-0\*\*\*\*\*\*
 
 <a id="identity-verification-status"></a>
-
-### Identity Verification Status
+### Identity Verification Status { #identity-verification-status }
 
 | Status       | Description |
 |----------| --- |

@@ -14,11 +14,8 @@
 
 
 
-<span id="senderV1x0001RegisterExternalUnsubscribePhoneNumber"></span>
-
 <a id="request-to-register-external-080-opt-out-number"></a>
-
-## 080受信拒否外部番号の登録申請
+## 080受信拒否外部番号の登録申請 { #request-to-register-external-080-opt-out-number }
 
 080受信拒否外部番号の登録を申請します。
 
@@ -120,11 +117,8 @@ curl -X POST "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external" \
 
 </details>
 
-<span id="senderV1x0002TerminateExternalUnsubscribePhoneNumber"></span>
-
 <a id="deregister-external-080-opt-out-number"></a>
-
-## 080受信拒否外部登録番号の削除
+## 080受信拒否外部登録番号の削除 { #deregister-external-080-opt-out-number }
 
 080受信拒否外部登録番号を削除します。
 
@@ -206,11 +200,8 @@ curl -X DELETE "${endpoint}/sender/v1.0/unsubscribe-phone-numbers/external/${uns
 
 </details>
 
-<span id="senderV1x0003ReadUnsubscribePhoneNumbers"></span>
-
 <a id="view-080-opt-out-number-list"></a>
-
-## 080受信拒否番号リストの照会
+## 080受信拒否番号リストの照会 { #view-080-opt-out-number-list }
 
 080受信拒否番号リストを照会します。
 
@@ -317,11 +308,8 @@ curl -X GET "${endpoint}/sender/v1.0/unsubscribe-phone-numbers" \
 
 </details>
 
-<span id="senderV1x0004ReadUnsubscribePhoneNumber"></span>
-
 <a id="search-single-080-opt-out-number"></a>
-
-## 080受信拒否番号の単件照会
+## 080受信拒否番号の単件照会 { #search-single-080-opt-out-number }
 
 080受信拒否番号の単件を照会します。
 

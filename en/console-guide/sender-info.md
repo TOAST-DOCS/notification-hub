@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=e8b03b463453 -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=0f18c92d63cb -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -11,19 +13,13 @@
 
 Register and manage sender information for each message channel. To send messages, the sender information for each message channel must be registered in advance.
 
-<span id="manage-sender-phone-number"></span>
-
 <a id="manage-sender-numbers"></a>
-
-## Manage Sender Numbers
+## Manage Sender Numbers { #manage-sender-numbers }
 
 To send SMS, LMS, or MMS messages, you must register a sender number. In accordance with the notice related to the Telecommunications Business Act, identity verification of the account holder is required when registering a sender number. The verification method and required documents are determined by the member type and sender number type.
 
-<span id="register-sender-phone-number"></span>
-
 <a id="register-a-sender-number"></a>
-
-### Register a Sender Number
+### Register a Sender Number { #register-a-sender-number }
 
 1. Click **+ Register Sender Number** and agree to **the consent form for the collection and use of personal information**.
 2. Select the sender number type to register and enter the sender number.
@@ -34,11 +30,20 @@ For information on the sender number pre-registration system, refer to **Service
 
 * [Go to Sender Number Pre-Registration System](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
 
-<span id="sender-phone-number-verification"></span>
+<a id="sender-number-registration-limit"></a>
+### Sender Number Registration Limit { #sender-number-registration-limit }
+
+You can register up to 5 sender numbers per account.
+
+* The count includes all sender numbers registered across all projects in all organizations owned by the account. The limit is not 5 per project.
+* If the same sender number is registered in multiple projects, it is counted as one.
+* Only approved sender numbers are counted. Numbers under review or that have been rejected are not counted.
+* Sender numbers belonging to projects where both SMS and Notification Hub are disabled are not counted.
+
+If you have already registered 5 sender numbers, you cannot register additional sender numbers or register them in bulk. Delete any sender numbers that you no longer use before registering new ones.
 
 <a id="account-holder-verification-guide"></a>
-
-### Account Holder Verification Guide
+### Account Holder Verification Guide { #account-holder-verification-guide }
 
 | Member Type | Sender Number Type | Verification Method | Required Document |
 |---|---|---|---|
@@ -53,11 +58,41 @@ For information on the sender number pre-registration system, refer to **Service
 * Proof of employment **must be dated and stamped**with a seal.
 * **Be sure to mask (hide) the last 6 digits of your social security number** on your proof of employment. e.g., 000000-0\*\*\*\*\**
 
-<span id="sender-phone-number-format"></span>
+<a id="sender-number-usage-verification"></a>
+### Sender Number Usage Verification { #sender-number-usage-verification }
+
+To send messages from the Console, the sender number must be approved by the organization administrator.
+
+**Approval process**
+
+1. If there is a sender number that requires approval, a notification email is sent to the organization administrator.
+2. When the organization administrator opens the approval link in the email, the number of sender numbers to be approved is displayed.
+3. Click **Verify** to complete the approval.
+4. After approval, the user can send messages from the Console using that sender number.
+
+**Approval unit**
+
+Approval is managed by a combination of account, sender number, and user. Even for the same sender number, approval is required separately for each user. If user B wants to use a sender number that user A has been approved for, a separate approval for user B is required.
+
+The organization administrator can use the sender numbers of accounts that they own without approval.
+
+**Validity period**
+
+Approval is valid until the 7th of the month following the month in which the notification email was sent. A renewal notification email is sent starting 7 days before the expiration date.
+
+**When approval is not in place**
+
+The following actions are restricted in the Console:
+
+* Saving templates
+* Saving flows
+* Requesting message sending
+* Approving send after confirmation
+
+Sending via API and already registered scheduled sending are not restricted.
 
 <a id="about-sender-number-input-format"></a>
-
-### About Sender Number Input Format
+### About Sender Number Input Format { #about-sender-number-input-format }
 
 * Landline number: 02-YYY-YYYY (register including area code)
 * Mobile number: 010-ABYY-YYYY
@@ -65,30 +100,21 @@ For information on the sender number pre-registration system, refer to **Service
 * Sender numbers between 8 and 11 digits can be entered
 * Messages cannot be sent to non-existent number ranges (e.g., 070-0YYY, 070-1YYY, 010-0YYY, 010-1YYY)
 
-<span id="delete-sender-phone-number"></span>
-
 <a id="delete-an-sender-number"></a>
-
-### Delete an Sender Number
+### Delete an Sender Number { #delete-an-sender-number }
 
 You can delete a registered sender number.
 
 1. Select the checkboxes of the sender numbers you want to delete.
 2. Click **Delete Sender Number**.
 
-<span id="manage-brand"></span>
-
 <a id="brand-management"></a>
-
-## Brand Management
+## Brand Management { #brand-management }
 
 To send RCS messages, you need to register your brand in RCS Biz Center and integrate with NHN Cloud Console.
 
-<span id="brand-prerequisites"></span>
-
 <a id="prerequisites"></a>
-
-### Prerequisites
+### Prerequisites { #prerequisites }
 
 The following must be completed (approved) in RCS Biz Center before integrating a brand:
 
@@ -101,11 +127,8 @@ For prerequisites in RCS Biz Center, refer to **Service Policy and Prerequisites
 * Go to [Service Policy and Prerequisites > RCS](../service-policy-and-precondition/rcs)
 * [Go to RCS Biz Center](https://www.rcsbizcenter.com/main)
 
-<span id="brand-sync"></span>
-
 <a id="integrate-a-brand"></a>
-
-### Integrate a Brand
+### Integrate a Brand { #integrate-a-brand }
 
 Brand is linked based on the business registration number on the attached business registration card when authenticating yourself.
 
@@ -113,11 +136,8 @@ Brand is linked based on the business registration number on the attached busine
 * Once brand integration is complete, the brand list is displayed.
 * If you've changed your brand information in RCS Biz Center, click **Integrate Brand** to proceed with the update.
 
-<span id="manage-domain"></span>
-
 <a id="manage-domains"></a>
-
-## Manage Domains
+## Manage Domains { #manage-domains }
 
 To send emails, you must register a domain you own and verify domain ownership. After successful domain verification, you can configure SPF record verification, DMARC verification, and DKIM settings.
 
@@ -125,11 +145,8 @@ For sender domains and SPF, DKIM, and DMARC, refer to **Service Policy and Prere
 
 * [Go to Service Policy and Prerequisites > Email](../service-policy-and-precondition/email)
 
-<span id="register-domain"></span>
-
 <a id="register-an-email-domain-and-verify-ownership"></a>
-
-### Register an Email Domain and Verify Ownership
+### Register an Email Domain and Verify Ownership { #register-an-email-domain-and-verify-ownership }
 
 You must register a domain and verify domain ownership. Register the value provided by Notification Hub in the email domain DNS TXT record. Verify ownership by checking that the provided value matches the TXT record of the registered domain.
 
@@ -140,11 +157,8 @@ You must register a domain and verify domain ownership. Register the value provi
 
 If domain ownership verification is successful, the domain verification status changes to **Completed**.
 
-<span id="spf-authentication"></span>
-
 <a id="spf-authentication"></a>
-
-### SPF Authentication
+### SPF Authentication { #spf-authentication }
 
 Sender policy framework (SPF) is a mechanism for verifying the reliability of email senders and sending servers. The email receiving server checks whether an email sent from a specific domain actually came from an authorized email sending server.
 
@@ -162,11 +176,8 @@ v=spf1 include:_spfblocka.toast.com ~all
 \* Only one SPF record must be registered in the domain TXT record. If two or more SPF records are registered in the domain TXT record, SPF verification may fail and the email receiving server may reject incoming emails.
 \* The use of mechanisms (include) and modifiers (redirect) that trigger DNS lookups when checking SPF records is limited to a maximum of 10. Exceeding this limit may cause the email receiving server to reject incoming emails.
 
-<span id="dkim-authentication"></span>
-
 <a id="configure-dkim"></a>
-
-### Configure DKIM
+### Configure DKIM { #configure-dkim }
 
 DomainKeys identified mail (DKIM) is an email verification method in which the email sending server digitally signs emails and the email receiving server verifies the authenticity of the sender to ensure that messages have not been forged or altered during transmission.
 
@@ -175,11 +186,8 @@ DomainKeys identified mail (DKIM) is an email verification method in which the e
     * If the registered domain is `example.com`, set the value in the `toast._domainkey.example.com` TXT record.
 3. After verification is complete, enable the setting and click **Save** to complete DKIM configuration.
 
-<span id="dmarc-authentication"></span>
-
 <a id="dmarc-authentication"></a>
-
-### DMARC Authentication
+### DMARC Authentication { #dmarc-authentication }
 
 Domain-based message authentication, reporting and conformance (DMARC) is the final step in enhancing email security. It is a domain-based message authentication, reporting, and conformance policy to prevent phishing and fraud using email spoofing.
 
@@ -193,33 +201,24 @@ v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:${email_address_to_receive_repo
     * e.g., If the domain is `example.com`, register in the TXT record of `_dmarc.example.com`.
 3. Click **Check Status** in the **DMARC Authentication Status** field to complete DMARC authentication.
 
-<span id="domain-protection"></span>
-
 <a id="domain-protection"></a>
-
-### Domain Protection
+### Domain Protection { #domain-protection }
 
 Domains with domain protection enabled cannot be used in other projects. To use a protected domain in another project, domain registration and ownership verification must be completed in the same way.
 
 !!! danger "Caution"
 If domain protection is disabled, other projects can use the domain without restriction. For domains that have completed all verifications, emails sent from other projects are also received normally by the email receiving server. If such emails are spam or phishing, recipients may be harmed and the domain's reputation may decline, causing the email receiving server to reject incoming emails.
 
-<span id="delete-domain"></span>
-
 <a id="delete-a-domain"></a>
-
-### Delete a Domain
+### Delete a Domain { #delete-a-domain }
 
 You can delete a registered domain.
 
 1. Select the checkbox of the domain to delete.
 2. Click **Delete Domain**.
 
-<span id="manage-push-authentication"></span>
-
 <a id="manage-push-authentication"></a>
-
-## Manage Push Authentication
+## Manage Push Authentication { #manage-push-authentication }
 
 To send push messages, you must register the credentials issued by the push service.
 
@@ -227,11 +226,8 @@ For information on how to obtain push authentication information, refer to **Ser
 
 * [Go to Service Policy and Prerequisites > Push](../service-policy-and-precondition/push)
 
-<span id="fcm-authentication"></span>
-
 <a id="configure-fcm-authentication"></a>
-
-### Configure FCM Authentication
+### Configure FCM Authentication { #configure-fcm-authentication }
 
 Firebase cloud messaging (FCM) authentication must be configured to send push messages to Android devices.
 
@@ -239,11 +235,8 @@ Firebase cloud messaging (FCM) authentication must be configured to send push me
 2. Copy and paste the contents of the FCM Service Account Credential file issued to the service account key (JSON).
 3. Click **Verify > Save** to complete the configuration.
 
-<span id="apns-authentication"></span>
-
 <a id="configure-apns-authentication"></a>
-
-### Configure APNS Authentication
+### Configure APNS Authentication { #configure-apns-authentication }
 
 Apple Push Notification Service (APNS) authentication must be configured to send push messages to iPhones.
 
@@ -253,11 +246,8 @@ Apple Push Notification Service (APNS) authentication must be configured to send
 4. Copy and paste the contents of the **private key** file.
 5. Click **Verify > Save** to complete the configuration.
 
-<span id="adm-authentication"></span>
-
 <a id="adm-authentication-settings"></a>
-
-### ADM Authentication Settings
+### ADM Authentication Settings { #adm-authentication-settings }
 
 Amazon device messaging (ADM) authentication must be configured to send push messages to Amazon Kindle, Fire, and other devices.
 
@@ -265,19 +255,13 @@ Amazon device messaging (ADM) authentication must be configured to send push mes
 2. Enter the **Client ID** and **Client Key**.
 3. Click **Verify > Save** to complete the configuration.
 
-<span id="manage-sender-profile"></span>
-
 <a id="manage-sender-profiles"></a>
-
-## Manage Sender Profiles
+## Manage Sender Profiles { #manage-sender-profiles }
 
 To send AlimTalk or brand messages, you must register a KakaoTalk sender profile.
 
-<span id="sender-profile-prerequisites"></span>
-
-<a id="prerequisites-2"></a>
-
-### Prerequisites
+<a id="manage-sender-profiles-prerequisites"></a>
+### Prerequisites { #manage-sender-profiles-prerequisites }
 
 To register a sender profile, a KakaoTalk channel must be created. Create a KakaoTalk channel on the KakaoTalk website.
 
@@ -289,11 +273,8 @@ For information on how to create a sender profile, refer to **Service Policy and
 
 * [Go to Service Policy and Prerequisites > AlimTalk/Brand Messages](../service-policy-and-precondition/alimtalk-and-friendtalk)
 
-<span id="register-sender-profile"></span>
-
 <a id="register-sender-profile"></a>
-
-### Register a Sender Profile
+### Register a Sender Profile { #register-sender-profile }
 
 1. Click **+ Register Sender Profile**.
 2. Set the sender profile ID, administrator mobile number, and category, then click **Request Token**.
@@ -306,21 +287,15 @@ For information on how to create a sender profile, refer to **Service Policy and
 !!! danger "Caution"
     Brand messages can only send **advertising (AD) messages**. When sending to customers (Targeting M, N, O), **registering an 080 opt-out number in the sender profile is required**.
 
-<span id="manage-sender-profile-group"></span>
-
 <a id="manage-sender-profile-groups"></a>
-
-### Manage Sender Profile Groups
+### Manage Sender Profile Groups { #manage-sender-profile-groups }
 
 You can manage sender profiles in groups.
 
 * Click **Manage Sender Profile Groups** to create a group and add sender profiles to the group.
 
-<span id="kakao-statistics"></span>
-
 <a id="view-kakao-statistics"></a>
-
-### View Kakao Statistics
+### View Kakao Statistics { #view-kakao-statistics }
 
 Click **Go to Kakao Statistics** in the sender profile details to view Kakao statistics in a new window. Statistics criteria include delivery statistics and template statistics, and the query conditions vary depending on the message channel. You can view the results in charts and tables.
 
@@ -330,25 +305,20 @@ Click **Go to Kakao Statistics** in the sender profile details to view Kakao sta
 * Clicks are counted multiple times for the same message.
 * If the number of successful deliveries is 10 or fewer, valid opens and clicks are not provided.
 
-<a id="delivery-statistics"></a>
-
+<a id="view-kakao-statistics-delivery-statistics"></a>
 #### Delivery Statistics
 
 Retrieves the daily delivery count, valid opens, and clicks by sender profile. You can query by setting conditions such as period, delivery identifier, and message type.
 
-<a id="template-statistics"></a>
-
+<a id="view-kakao-statistics-template-statistics"></a>
 #### Template Statistics
 
 Retrieves the daily delivery count, valid opens, and clicks by template and group tag. You can query by setting conditions such as period and message type.
 
 * Brand message free format is provided only when a group tag is used.
 
-<span id="manage-group-tag"></span>
-
 <a id="manage-group-tags"></a>
-
-### Manage Group Tags
+### Manage Group Tags { #manage-group-tags }
 
 Group tags are identification tags used when querying template statistics for brand messages. Click the **Group Tag Management** tab in the new **Go to Kakao Statistics** window to manage group tags.
 
@@ -358,11 +328,8 @@ Group tags can only be used for brand messages. AlimTalk is not applicable.
 * Click **+ Register Group Tag** to enter a group tag name and register it.
 * Select the checkbox of the group tag to modify or delete, and click **Modify Group Tag** or **Delete Group Tag**.
 
-<span id="delete-sender-profile"></span>
-
 <a id="apply-to-use-customer-targeted-sending"></a>
-
-### Apply to Use Customer-Targeted Sending
+### Apply to Use Customer-Targeted Sending { #apply-to-use-customer-targeted-sending }
 
 To use customer-targeted sending for brand messages, you must submit an application. Without an approved application, you cannot use customer-targeted sending (targeting M, N, or O).
 
@@ -380,44 +347,32 @@ To use customer-targeted sending for brand messages, you must submit an applicat
 !!! danger "Caution"
     If business verification is revoked, your permission to use customer-targeted sending is also revoked. You must reapply after the business verification re-review is completed.
 
-<span id="delete-sender-profile"></span>
-
 <a id="delete-a-sender-profile"></a>
-
-### Delete a Sender Profile
+### Delete a Sender Profile { #delete-a-sender-profile }
 
 You can delete a registered sender profile.
 
 1. Select the checkbox of the sender profile to delete.
 2. Click **Delete Sender Profile**.
 
-<span id="manage-080-unsubscription-number"></span>
-
 <a id="manage-080-opt-out-numbers"></a>
-
-## Manage 080 Opt-Out Numbers
+## Manage 080 Opt-Out Numbers { #manage-080-opt-out-numbers }
 
 The 080 opt-out number service provides recipients with an opt-out option when sending advertising messages. When sending promotional messages, **a free opt-out method must be included** so that recipients can opt out or withdraw their consent to receive messages free of charge.
 
 !!! danger "Caution"
 Violations may result in **a fine of up to 30,000,000 KRW** under the Act on Promotion of Information and Communications Network Utilization and Information Protection.
 
-<span id="register-080-number"></span>
-
 <a id="apply-for-an-080-opt-out-number"></a>
-
-### Apply for an 080 Opt-Out Number
+### Apply for an 080 Opt-Out Number { #apply-for-an-080-opt-out-number }
 
 1. Click **+ Apply for 080 Opt-Out Number**.
 2. Enter the company name. The company name entered will be announced when a call is made to the 080 opt-out number.
 3. Once the application is complete, the status changes to Under Review.
 4. Activation of the 080 opt-out service takes 3–4 business days, and the service can be used once activation is complete.
 
-<span id="cancel-080-number"></span>
-
 <a id="cancel-080-opt-out-number-service"></a>
-
-### Cancel 080 Opt-Out Number Service
+### Cancel 080 Opt-Out Number Service { #cancel-080-opt-out-number-service }
 
 * Select the checkbox of the registered 080 opt-out number and click **Cancel 080 Opt-Out Number Service**.
 * 080 numbers with the status **In Use - Shared Number** cannot be cancelled.

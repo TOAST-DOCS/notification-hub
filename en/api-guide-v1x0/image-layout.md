@@ -14,11 +14,8 @@
 
 
 
-<span id="imageLayoutV1x0003GetImageLayout"></span>
-
 <a id="retrieve-image-layout"></a>
-
-## Retrieve Image Layout
+## Retrieve Image Layout { #retrieve-image-layout }
 
 Retrieves a single image layout based on its ID.
 
@@ -133,11 +130,8 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 
 </details>
 
-<span id="imageLayoutV1x0CreateImageLayout"></span>
-
 <a id="create-image-layout"></a>
-
-## Create Image Layout
+## Create Image Layout { #create-image-layout }
 
 Creates an image layout.
 
@@ -242,11 +236,8 @@ curl -X POST "${endpoint}/image-layout/v1.0/image-layouts" \
 
 </details>
 
-<span id="imageLayoutV1x0DeleteImageLayout"></span>
-
 <a id="delete-image-layout"></a>
-
-## Delete Image Layout
+## Delete Image Layout { #delete-image-layout }
 
 Deletes an image layout.
 
@@ -330,11 +321,8 @@ curl -X DELETE "${endpoint}/image-layout/v1.0/image-layouts/${id}" \
 
 </details>
 
-<span id="imageLayoutV1x0GetImageLayoutList"></span>
-
 <a id="retrieve-image-layout-list"></a>
-
-## Retrieve Image Layout List
+## Retrieve Image Layout List { #retrieve-image-layout-list }
 
 Retrieves a list of image layouts.
 
@@ -440,11 +428,8 @@ curl -X GET "${endpoint}/image-layout/v1.0/image-layouts" \
 
 </details>
 
-<span id="imageLayoutV1x0UpdateImageLayout"></span>
-
 <a id="update-image-layout"></a>
-
-## Update Image Layout
+## Update Image Layout { #update-image-layout }
 
 Updates an image layout. Partial updates are possible by entering only the fields that need modification.
 

@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=e8b03b463453 -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=0f18c92d63cb -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -11,19 +13,13 @@
 
 メッセージチャネルごとの発信情報を登録して管理します。メッセージを送信するには、各メッセージチャネルに合った発信情報が事前に登録されている必要があります。
 
-<span id="manage-sender-phone-number"></span>
-
 <a id="manage-sender-numbers"></a>
-
-## 発信番号管理
+## 発信番号管理 { #manage-sender-numbers }
 
 SMS、LMS、MMSメッセージを送信するには発信番号を登録する必要があります。電気通信事業法関連告示に基づき、発信番号登録の際に名義人認証が必要です。名義人認証時には、会員及び発信番号タイプに応じて認証方法と必要な書類が決定されます。
 
-<span id="register-sender-phone-number"></span>
-
 <a id="register-a-sender-number"></a>
-
-### 発信番号登録
+### 発信番号登録 { #register-a-sender-number }
 
 1. **+ 発信番号登録**をクリックし、**個人情報収集利用同意書**に同意します。
 2. 登録する発信番号タイプを選択し、発信番号を入力します。
@@ -34,11 +30,20 @@ SMS、LMS、MMSメッセージを送信するには発信番号を登録する�
 
 * [発信番号事前登録制へ](../service-policy-and-precondition/sms#sender-phone-number-pre-registration)
 
-<span id="sender-phone-number-verification"></span>
+<a id="sender-number-registration-limit"></a>
+### 発信番号登録数の制限 { #sender-number-registration-limit }
+
+アカウントごとに登録できる発信番号は最大5件です。
+
+* アカウントが所有するすべての組織のすべてのプロジェクトに登録された発信番号を合算して数えます。プロジェクトごとに5件ではありません。
+* 同じ発信番号が複数のプロジェクトに登録されていても、1件として数えます。
+* 承認済みの発信番号のみ数えます。審査中または拒否された番号は数えません。
+* SMS と Notification Hub がいずれも無効になっているプロジェクトの発信番号は数えません。
+
+5件すべてを登録した状態では、発信番号を追加で登録したり、一括で登録したりすることはできません。使用していない発信番号を削除してから登録してください。
 
 <a id="account-holder-verification-guide"></a>
-
-### 名義人認証の案内
+### 名義人認証の案内 { #account-holder-verification-guide }
 
 | 会員区分 | 発信番号タイプ | 認証方法 | 必要書類 |
 |---|---|---|---|
@@ -53,11 +58,41 @@ SMS、LMS、MMSメッセージを送信するには発信番号を登録する�
 * 在職証明書は、**発行日が表記されており、印鑑が押印された書類**のみ可能です。
 * 在職証明書内の**住民番号の後ろ6桁は必ずマスキング(非表示)処理**してください。例) 000000-0\*\*\*\*\*\*
 
-<span id="sender-phone-number-format"></span>
+<a id="sender-number-usage-verification"></a>
+### 発信番号使用認証 { #sender-number-usage-verification }
+
+コンソールからメッセージを送信するには、発信番号の組織管理者による承認が必要です。
+
+**承認手順**
+
+1. 承認が必要な発信番号がある場合、組織管理者に案内メールが送信されます。
+2. 組織管理者がメールの承認リンクを開くと、承認する発信番号の件数が表示されます。
+3. **[認証する]** をクリックすると、承認が完了します。
+4. 承認後から、該当ユーザーがその発信番号でコンソールからメッセージを送信できます。
+
+**承認単位**
+
+承認はアカウント、発信番号、ユーザーの組み合わせで管理されます。同じ発信番号であっても、ユーザーごとに個別の承認が必要です。ユーザー A が承認を受けた発信番号をユーザー B が使用するには、ユーザー B の別途承認が必要です。
+
+組織管理者本人は、承認なしに自身が所有するアカウントの発信番号を使用できます。
+
+**有効期間**
+
+承認は案内メールが送信された月の翌月 7 日まで有効です。有効期限の 7 日前から更新案内メールが送信されます。
+
+**承認がない場合**
+
+コンソールで次の操作が制限されます。
+
+* テンプレートの保存
+* フローの保存
+* メッセージ送信リクエスト
+* 確認後送信の承認
+
+API で送信する場合と、すでに登録済みの予約送信は制限されません。
 
 <a id="about-sender-number-input-format"></a>
-
-### 発信番号入力形式の案内
+### 発信番号入力形式の案内 { #about-sender-number-input-format }
 
 * 固定電話番号: 02-YYY-YYYY(市外局番を含めて登録)
 * 移動通信電話番号: 010-ABYY-YYYY
@@ -65,30 +100,21 @@ SMS、LMS、MMSメッセージを送信するには発信番号を登録する�
 * 最小8桁～最大11桁までの発信番号を入力可能
 * 存在しない番号帯へのメッセージ送信不可(例: 070-0YYY、070-1YYY、010-0YYY、010-1YYY)
 
-<span id="delete-sender-phone-number"></span>
-
 <a id="delete-an-sender-number"></a>
-
-### 発信番号削除
+### 発信番号削除 { #delete-an-sender-number }
 
 登録された発信番号を削除できます。
 
 1. 削除する発信番号のチェックボックスを選択します。
 2. **発信番号削除**をクリックします。
 
-<span id="manage-brand"></span>
-
 <a id="brand-management"></a>
-
-## ブランド管理
+## ブランド管理 { #brand-management }
 
 RCSメッセージを送信するには、RCS Biz Centerでブランドを登録し、NHN Cloudコンソールと連動する必要があります。
 
-<span id="brand-prerequisites"></span>
-
 <a id="prerequisites"></a>
-
-### 事前準備
+### 事前準備 { #prerequisites }
 
 ブランド連動の前に、RCS Biz Centerで次の事項が完了(承認)している必要があります。
 
@@ -101,11 +127,8 @@ RCS Biz Centerの事前登録事項については、**利用ポリシー及び�
 * [利用ポリシー及び事前設定案内 > RCSへ](../service-policy-and-precondition/rcs)
 * [RCS Biz Centerへ](https://www.rcsbizcenter.com/main)
 
-<span id="brand-sync"></span>
-
 <a id="integrate-a-brand"></a>
-
-### ブランド連動
+### ブランド連動 { #integrate-a-brand }
 
 ブランドは、本人認証時に添付した事業者登録証の事業者登録番号を基準に連動します。
 
@@ -113,11 +136,8 @@ RCS Biz Centerの事前登録事項については、**利用ポリシー及び�
 * ブランド連動が完了すると、ブランドリストが照会されます。
 * RCS Biz Centerでブランド情報を変更した場合は、**ブランド連動**をクリックして更新を行ってください。
 
-<span id="manage-domain"></span>
-
 <a id="manage-domains"></a>
-
-## ドメイン管理
+## ドメイン管理 { #manage-domains }
 
 メールを送信するには、自分が所有するドメインを登録し、ドメインの所有権を認証する必要があります。ドメイン認証に成功した後、SPFレコード認証、DMARC認証、DKIM使用設定を行うことができます。
 
@@ -125,11 +145,8 @@ RCS Biz Centerの事前登録事項については、**利用ポリシー及び�
 
 * [利用ポリシー及び事前設定案内 > メールへ](../service-policy-and-precondition/email)
 
-<span id="register-domain"></span>
-
 <a id="register-an-email-domain-and-verify-ownership"></a>
-
-### メールドメイン登録及び所有権認証
+### メールドメイン登録及び所有権認証 { #register-an-email-domain-and-verify-ownership }
 
 ドメインを登録し、ドメインの所有権を認証する必要があります。Notification Hubで提供された値をメールドメインのDNS TXTレコードに登録します。提供された値と登録したドメインのTXTレコードが一致するかどうかを確認して所有権を認証します。
 
@@ -140,11 +157,8 @@ RCS Biz Centerの事前登録事項については、**利用ポリシー及び�
 
 ドメイン所有認証に成功すると、ドメイン認証のステータスが**完了**に変更されます。
 
-<span id="spf-authentication"></span>
-
 <a id="spf-authentication"></a>
-
-### SPF認証
+### SPF認証 { #spf-authentication }
 
 SPF(sender policy framework、送信者ポリシーフレームワーク)は、メール送信者と送信サーバーの信頼性を検証するためのメカニズムです。メール受信サーバーが、特定のドメインから送信されたメールが実際に許可されたメール送信サーバーから来たかどうかを確認します。
 
@@ -162,11 +176,8 @@ v=spf1 include:_spfblocka.toast.com ~all
     * ドメインTXTレコードには、1つのSPFレコードのみ登録する必要があります。ドメインTXTレコードに2つ以上のSPFレコードが登録されている場合、SPF認証が失敗し、メール受信サーバーが受信を拒否する可能性があります。
     * SPFレコードを検査する際、DNS照会を発生させるメカニズム(include)と修飾子(redirect)の使用は最大10個に制限され、これを超えると、メール受信サーバーから受信を拒否される可能性があります。
 
-<span id="dkim-authentication"></span>
-
 <a id="configure-dkim"></a>
-
-### DKIM設定
+### DKIM設定 { #configure-dkim }
 
 DKIM(domainkeys identified mail、ドメインキー識別メール)は、メール送信サーバーがメールにデジタル署名し、メール受信サーバーは送信者の真正性を確認して、送信中にメッセージが偽造・改ざんされていないことを確認するメール検証方法です。
 
@@ -175,11 +186,8 @@ DKIM(domainkeys identified mail、ドメインキー識別メール)は、メー
     * 登録したドメインが`example.com`の場合、`toast._domainkey.example.com` TXTレコードに値を設定する必要があります。
 3. 認証完了後、使用設定を行い、**保存**をクリックしてDKIM認証を完了します。
 
-<span id="dmarc-authentication"></span>
-
 <a id="dmarc-authentication"></a>
-
-### DMARC認証
+### DMARC認証 { #dmarc-authentication }
 
 DMARC(domain-based message authentication reporting and conformance)は、メールセキュリティ強化の最後の段階です。メールスプーフィングを利用したフィッシング、詐欺などを防止するためのドメインベースのメッセージ認証に対する報告及びコンプライアンスポリシーです。
 
@@ -193,33 +201,24 @@ v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:${レポートを_受信する_
     * 例: ドメインが`example.com`の場合、`_dmarc.example.com`のTXTレコードに登録します。
 3. **DMARC認証ステータス**項目の**ステータス確認**をクリックしてDMARC認証を完了します。
 
-<span id="domain-protection"></span>
-
 <a id="domain-protection"></a>
-
-### ドメイン保護
+### ドメイン保護 { #domain-protection }
 
 ドメイン保護が有効化されたドメインは、他のプロジェクトで使用できません。保護されたドメインを他のプロジェクトで使用するには、同じようにドメイン登録と所有認証を受ける必要があります。
 
 !!! danger 「注意事項」
     ドメイン保護を無効にすると、他のプロジェクトで自由にドメインを使用できます。全ての認証を完了したドメインの場合、他のプロジェクトで送信するメールも同じようにメール受信サーバーで正常に受信されます。このように送信されたメールがスパムやフィッシングである場合、受信者に被害が発生する可能性があり、ドメインの評判が下がって受信メールサーバーから受信を拒否される可能性があります。
 
-<span id="delete-domain"></span>
-
 <a id="delete-a-domain"></a>
-
-### ドメイン削除
+### ドメイン削除 { #delete-a-domain }
 
 登録されたドメインを削除できます。
 
 1. 削除するドメインのチェックボックスを選択します。
 2. **ドメイン削除**をクリックします。
 
-<span id="manage-push-authentication"></span>
-
 <a id="manage-push-authentication"></a>
-
-## Push認証管理
+## Push認証管理 { #manage-push-authentication }
 
 Pushメッセージを送信するには、Pushサービスで発行される認証情報を登録する必要があります。
 
@@ -227,11 +226,8 @@ Push認証情報の発行方法については、**利用ポリシー及び事�
 
 * [利用ポリシー及び事前設定案内 > Pushへ](../service-policy-and-precondition/push)
 
-<span id="fcm-authentication"></span>
-
 <a id="configure-fcm-authentication"></a>
-
-### FCM認証設定
+### FCM認証設定 { #configure-fcm-authentication }
 
 Android端末にPushメッセージを送信するには、FCM(Firebase Cloud Messaging)認証設定が必要です。
 
@@ -239,11 +235,8 @@ Android端末にPushメッセージを送信するには、FCM(Firebase Cloud Me
 2. サービスアカウントキー(JSON)に、発行されたFCM Service Account Credentialファイルの内容をコピーして貼り付けます。
 3. **検証 > 保存**をクリックして設定を完了します。
 
-<span id="apns-authentication"></span>
-
 <a id="configure-apns-authentication"></a>
-
-### APNS認証設定
+### APNS認証設定 { #configure-apns-authentication }
 
 iPhoneにPushメッセージを送信するには、APNS(Apple Push Notification Service)認証設定が必要です。
 
@@ -253,11 +246,8 @@ iPhoneにPushメッセージを送信するには、APNS(Apple Push Notification
 4. **秘密鍵**ファイルの内容をコピーして貼り付けます。
 5. **検証 > 保存**をクリックして設定を完了します。
 
-<span id="adm-authentication"></span>
-
 <a id="adm-authentication-settings"></a>
-
-### ADM認証設定
+### ADM認証設定 { #adm-authentication-settings }
 
 Amazon Kindle、Fireなどの端末にPushメッセージを送信するには、ADM(Amazon Device Messaging)認証設定が必要です。
 
@@ -265,19 +255,13 @@ Amazon Kindle、Fireなどの端末にPushメッセージを送信するには�
 2. **クライアントID**と**クライアントキー**を入力します。
 3. **検証 > 保存**をクリックして設定を完了します。
 
-<span id="manage-sender-profile"></span>
-
 <a id="manage-sender-profiles"></a>
-
-## 発信プロフィール管理
+## 発信プロフィール管理 { #manage-sender-profiles }
 
 お知らせトーク、ブランドメッセージを送信するには、カカオトークの発信プロフィールを登録する必要があります。
 
-<span id="sender-profile-prerequisites"></span>
-
-<a id="prerequisites-2"></a>
-
-### 事前準備
+<a id="manage-sender-profiles-prerequisites"></a>
+### 事前準備 { #manage-sender-profiles-prerequisites }
 
 発信プロフィールを登録するには、カカオトークチャンネルが作成されている必要があります。カカオトークのホームページでカカオトークチャンネルを作成してください。
 
@@ -289,11 +273,8 @@ Amazon Kindle、Fireなどの端末にPushメッセージを送信するには�
 
 * [利用ポリシー及び事前設定案内 > お知らせトーク/ブランドメッセージへ](../service-policy-and-precondition/alimtalk-and-friendtalk)
 
-<span id="register-sender-profile"></span>
-
 <a id="register-sender-profile"></a>
-
-### 発信プロファイルの登録
+### 発信プロファイルの登録 { #register-sender-profile }
 
 1. **[+ 発信プロファイル登録]** をクリックします。
 2. 発信プロファイル ID、管理者の携帯電話番号、カテゴリを設定してから **[トークンリクエスト]** をクリックします。
@@ -306,21 +287,15 @@ Amazon Kindle、Fireなどの端末にPushメッセージを送信するには�
 !!! danger "注意事項"
     ブランドメッセージは**広告性 (AD) メッセージのみ送信可能**です。顧客向け送信 (ターゲティング M、N、O) の際は、発信プロファイルへの **080 受信拒否番号の登録が必須**です。
 
-<span id="manage-sender-profile-group"></span>
-
 <a id="manage-sender-profile-groups"></a>
-
-### 発信プロフィールグループ管理
+### 発信プロフィールグループ管理 { #manage-sender-profile-groups }
 
 発信プロフィールをグループで管理できます。
 
 * **発信プロフィールグループ管理**をクリックして、グループを作成し、発信プロフィールをグループに追加できます。
 
-<span id="kakao-statistics"></span>
-
 <a id="view-kakao-statistics"></a>
-
-### カカオ統計照会
+### カカオ統計照会 { #view-kakao-statistics }
 
 発信プロフィール詳細で**カカオ統計へ**をクリックすると、新しいウィンドウでカカオ統計を照会できます。統計基準には送信統計とテンプレート統計があり、メッセージチャネルによって照会条件が異なります。照会結果はチャートと表で確認できます。
 
@@ -330,25 +305,20 @@ Amazon Kindle、Fireなどの端末にPushメッセージを送信するには�
 * クリック数は、同じメッセージに対して重複集計します。
 * 送信成功件数が10件以下の場合、有効既読数とクリック数は提供されません。
 
-<a id="delivery-statistics"></a>
-
+<a id="view-kakao-statistics-delivery-statistics"></a>
 #### 送信統計
 
 発信プロフィールを基準に、日別の送信数、有効既読数、クリック数を照会します。期間、送信識別子、メッセージタイプなどを設定して照会できます。
 
-<a id="template-statistics"></a>
-
+<a id="view-kakao-statistics-template-statistics"></a>
 #### テンプレート統計
 
 テンプレート及びグループタグを基準に、日別の送信数、有効既読数、クリック数を照会します。期間、メッセージタイプなどを設定して照会できます。
 
 * ブランドメッセージ自由型は、グループタグを使用した場合にのみ提供します。
 
-<span id="manage-group-tag"></span>
-
 <a id="manage-group-tags"></a>
-
-### グループタグ管理
+### グループタグ管理 { #manage-group-tags }
 
 グループタグは、ブランドメッセージのテンプレート統計照会時に使用する識別タグです。**カカオ統計へ**の新しいウィンドウで**グループタグ管理**タブをクリックして管理できます。
 
@@ -358,11 +328,8 @@ Amazon Kindle、Fireなどの端末にPushメッセージを送信するには�
 * **+ グループタグ登録**をクリックして、グループタグ名を入力して登録します。
 * 修正または削除するグループタグのチェックボックスを選択し、**グループタグ修正**または**グループタグ削除**をクリックします。
 
-<span id="delete-sender-profile"></span>
-
 <a id="apply-to-use-customer-targeted-sending"></a>
-
-### 顧客向け送信の利用申請
+### 顧客向け送信の利用申請 { #apply-to-use-customer-targeted-sending }
 
 ブランドメッセージの顧客向け送信を使用するには、利用申請を行う必要があります。利用申請を行わない場合、顧客向け送信（ターゲティング M、N、O）を使用することはできません。
 
@@ -380,44 +347,32 @@ Amazon Kindle、Fireなどの端末にPushメッセージを送信するには�
 !!! danger "注意事項"
     ビジネス認証が解除された場合、顧客向け送信の利用権限が解除されます。ビジネス認証の再審査後、改めて利用申請を行う必要があります。
 
-<span id="delete-sender-profile"></span>
-
 <a id="delete-a-sender-profile"></a>
-
-### 発信プロフィール削除
+### 発信プロフィール削除 { #delete-a-sender-profile }
 
 登録された発信プロフィールを削除できます。
 
 1. 削除する発信プロフィールのチェックボックスを選択します。
 2. **発信プロフィール削除**をクリックします。
 
-<span id="manage-080-unsubscription-number"></span>
-
 <a id="manage-080-opt-out-numbers"></a>
-
-## 080受信拒否番号管理
+## 080受信拒否番号管理 { #manage-080-opt-out-numbers }
 
 080受信拒否番号は、広告メッセージ送信時に受信者へ受信拒否を提供するサービスです。広告性メッセージ送信時には、受信者が受信拒否や受信同意の撤回を無料で行えるよう、**無料受信拒否方法を必ず記載**する必要があります。
 
 !!! danger 「注意事項」
     これに違反した場合、「情報通信網利用促進及び情報保護等に関する法律」に基づき、**3,000万ウォン以下の過怠料**が課される可能性があります。
 
-<span id="register-080-number"></span>
-
 <a id="apply-for-an-080-opt-out-number"></a>
-
-### 080受信拒否番号申請
+### 080受信拒否番号申請 { #apply-for-an-080-opt-out-number }
 
 1. **+ 080受信拒否番号申請**をクリックします。
 2. 会社名を入力します。入力した会社名は、080受信拒否番号に電話をかける際に案内される会社名です。
 3. 申請が完了すると、審査中の状態に変更されます。
 4. 080受信拒否サービスの開通は営業日基準で3～4日かかり、開通が完了すると使用できます。
 
-<span id="cancel-080-number"></span>
-
 <a id="cancel-080-opt-out-number-service"></a>
-
-### 080受信拒否番号の利用解約
+### 080受信拒否番号の利用解約 { #cancel-080-opt-out-number-service }
 
 * 登録された080受信拒否番号のチェックボックスを選択し、**080受信拒否番号の利用解約**をクリックします。
 * **使用中 - 共有番号**状態の080番号は、利用解約ができません。

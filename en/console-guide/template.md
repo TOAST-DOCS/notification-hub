@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=54152d26ee35 -->
+<!-- pre-align:aligned sig=7d25a12ba9fc -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,28 +10,22 @@
 **Notification > Notification Hub > Console User Guide > Template**
 
 
-<span id="template"></span>
-
-<a id="template-2"></a>
-
-## Template
+<a id="template"></a>
+## Template { #template }
 
 You can save frequently used messages or messages that require a certain format as a template and set up the saved template to send messages when you send them. For example, if you template frequently used messages, such as customer support, notice items, notifications, or marketing messages, you only need to modify and send parts of the information without having to write the same thing each time.
 
 <a id="category"></a>
-
-### Category
+### Category { #category }
 * First, select a root category and click **+ Add Category** to create a category.
 * The categories are created under the selected categories.
 
-<a id="template"></a>
-
-### Template
+<a id="template-2"></a>
+### Template { #template-2 }
 1. Select the category to which the template belongs and click **+ Register Template**. Go to the Create Template page and display additional settings for the selected message channel.
 2. Finish the settings required by the subject and content and each message channel and click **Register**.
 
-<a id="alimtalk-template"></a>
-
+<a id="template-2-alimtalk-template"></a>
 #### AlimTalk Template
 
 AlimTalk template can be used only after receiving approval from Kakao's inspection after requesting registration.
@@ -49,7 +43,7 @@ AlimTalk template can be used only after receiving approval from Kakao's inspect
 * Template Code / Template Name
     * You cannot duplicate the same template code and template name in one outgoing profile/group.
 * Template Content
-    * AlimTalk can be written up to 1,000 characters, including variables, URLs, spaces, and button names, regardless of Korean or English. If you register by entering variables, consider the contents to be replaced and create a template.<br/> See [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3) for a detailed guide on the number of characters.
+    * AlimTalk can be written up to 1,000 characters, including variables, URLs, spaces, and button names, regardless of Korean or English. If you register by entering variables, consider the contents to be replaced and create a template.<br/> See [AlimTalk Template Notes](/Notification/KakaoTalk%20Bizmessage/en/alimtalk-overview/#alimtalk-template-precautions) for a detailed guide on the number of characters.
     * Create a variable in the form of #{variable}. (Example: #{HongGildong}'s package will be delivered today (#{09:50})
     * When registering a button, the button name cannot be entered as a variable, and the button url can be entered as a variable. (Example http://kakao.com/#{변수})
     * When registering a button url, url_mobile, url_pc links must include 'http://' and 'https://'가 and the 'scheme_ios, 'scheme_android links must be registered according to the scheme type. Otherwise, template registration will not be possible.
@@ -57,8 +51,7 @@ AlimTalk template can be used only after receiving approval from Kakao's inspect
     * When securing the template, the message content is not exposed on devices other than mobile (expose the phrase 'Please check on mobile')
     * In the case of general messages, the setting values may change during inspection, and be sure to check the security of OTP, authentication number, password, and credit information/grade change guide template.
 
-<a id="alimtalk-template-button"></a>
-
+<a id="template-2-alimtalk-template-button"></a>
 #### AlimTalk Template button
 * You can register **up to 5 buttons** per template.
 * Quick Reply
@@ -81,7 +74,6 @@ AlimTalk template can be used only after receiving approval from Kakao's inspect
 | Business Form | - If you created a business form and connected it to the current channel, the business form you set is called when you click the button.<br/> - Business Form Creation is required: [[Business Form Guide]](https://business.kakao.com/info/talkbizform/) |
 
 <a id="template-inspection"></a>
-
 #### Template inspection
 The inspection and review of AlimTalk template will be conducted directly by Kakao, and will be processed sequentially within 2 business days after the inspection request.
 
@@ -92,28 +84,24 @@ The inspection and review of AlimTalk template will be conducted directly by Kak
     * If you reject the template, you can re-examine it by clicking **Register** and **Modify**.
 
 <a id="template-status"></a>
-
 #### Template status
 * When registering a template, it is updated in the order of **Request > Under Inspection > Approval/Return** status.
-* After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](https://docs.nhncloud.com/ko/Notification/KakaoTalk%20Bizmessage/ko/alimtalk-overview/#_3).
+* After registering the template, it will remain the same for 1 year or transition to **Idle** state if there are no additional deliveries. See the relevant guide at [AlimTalk Template Notes](/Notification/KakaoTalk%20Bizmessage/en/alimtalk-overview/#alimtalk-template-precautions).
 
-<a id="modify-templates"></a>
-
+<a id="template-2-modify-templates"></a>
 #### Modify Templates
-* You can modify only templates in ** Approval/Return ** state.
+* You can modify only templates in **Approval/Return** state.
 * When re-inspection is complete after modifying the approved template, the existing template contents will be replaced with the modified one.
 * Sender profiles/groups and template codes cannot be modified.
-* Modified templates will be inspected again from ** Under Inspection** status.
+* Modified templates will be inspected again from **Under Inspection** status.
 
-<a id="delete-templates"></a>
-
+<a id="template-2-delete-templates"></a>
 #### Delete Templates
 * You can delete only templates with Request/Return status.
 * The returned template can be re-registered after **Delete**.
 * Deleted template code can be reused.
 
-<a id="brand-message-templates"></a>
-
+<a id="template-2-brand-message-templates"></a>
 #### Brand message templates
 Unlike AlimTalk templates, brand message templates do not go through a review process and can be created, modified, and deleted freely.
 
@@ -126,8 +114,7 @@ Unlike AlimTalk templates, brand message templates do not go through a review pr
 * You can register coupons.
 * To attach an image, you must register the image first.
 
-<a id="public-alim-talk-templates"></a>
-
+<a id="template-2-public-alim-talk-templates"></a>
 #### Public Alim Talk Templates
 Public Alim Talk templates are templates created, reviewed, and published directly by Kakao. All businesses can use them in common, and they are not tied to a specific sender profile. Because they are provided with Kakao's review already complete, you can use them for sending immediately without a separate review request.
 

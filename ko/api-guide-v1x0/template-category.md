@@ -13,11 +13,8 @@
 
 
 
-<span id="templateV10MessageChannelCategoriesCategoryIdDelete"></span>
-
 <a id="delete-a-template-category"></a>
-
-## 템플릿 카테고리 삭제
+## 템플릿 카테고리 삭제 { #delete-a-template-category }
 
 템플릿 카테고리를 삭제합니다.
 
@@ -99,11 +96,8 @@ curl -X DELETE "${endpoint}/template/v1.0/${messageChannel}/categories/${categor
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesCategoryIdGet"></span>
-
 <a id="retrieve-template-category-details"></a>
-
-## 템플릿 카테고리 단건 조회
+## 템플릿 카테고리 단건 조회 { #retrieve-template-category-details }
 
 템플릿 카테고리를 단건 조회합니다.
 
@@ -200,11 +194,8 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesCategoryIdPut"></span>
-
 <a id="modify-a-template-category"></a>
-
-## 템플릿 카테고리 수정
+## 템플릿 카테고리 수정 { #modify-a-template-category }
 
 템플릿 카테고리를 수정합니다.
 
@@ -307,11 +298,8 @@ curl -X PUT "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryId
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesCategoryIdTemplatesPost"></span>
-
 <a id="add-a-template-to-a-category"></a>
-
-## 카테고리에 템플릿 추가
+## 카테고리에 템플릿 추가 { #add-a-template-to-a-category }
 
 카테고리에 템플릿을 추가합니다.
 
@@ -410,11 +398,8 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories/${categoryI
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesGet"></span>
-
 <a id="list-template-categories"></a>
-
-## 템플릿 카테고리 리스트 조회
+## 템플릿 카테고리 리스트 조회 { #list-template-categories }
 
 템플릿 카테고리 리스트를 조회합니다.
 
@@ -506,11 +491,8 @@ curl -X GET "${endpoint}/template/v1.0/${messageChannel}/categories" \
 
 </details>
 
-<span id="templateV10MessageChannelCategoriesPost"></span>
-
 <a id="register-template-categories"></a>
-
-## 템플릿 카테고리 등록
+## 템플릿 카테고리 등록 { #register-template-categories }
 
 템플릿 카테고리를 등록합니다.
 
@@ -614,11 +596,8 @@ curl -X POST "${endpoint}/template/v1.0/${messageChannel}/categories" \
 
 </details>
 
-<span id="templateV10MessageChannelCategoryTreesGet"></span>
-
 <a id="retrieve-a-template-category-hierarchy"></a>
-
-## 템플릿 카테고리 트리 리스트 조회
+## 템플릿 카테고리 트리 리스트 조회 { #retrieve-a-template-category-hierarchy }
 
 템플릿 카테고리 트리 리스트를 조회합니다.
 

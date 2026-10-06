@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=d62059bc06da -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=a47a8d213807 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -9,17 +11,12 @@
 
 **Notification > Notification Hub > コンソール使用ガイド > 送信**
 
-<span id="message"></span>
-
 !!! danger "注意"
  送信前に、送信するメッセージチャンネルの送信情報が登録されている必要があります。送信情報の詳細については、 **Notification** > **Notification Hub** > **コンソール使用ガイド** > **はじめる** > **発信情報管理**をご確認ください。
 
 
-<span id="send-flow-message"></span>
-
 <a id="send-flow-messages"></a>
-
-## フローメッセージ送信
+## フローメッセージ送信 { #send-flow-messages }
 
 フロー送信をするためには、登録されたフローが必要です。
 
@@ -38,8 +35,7 @@
 
 
 <a id="send-individual-message-channels"></a>
-
-## 個別メッセージチャンネル送信
+## 個別メッセージチャンネル送信 { #send-individual-message-channels }
 
 1. テンプレートの有無を選択し、テンプレートを使用する場合は、テンプレートを選択します。
     * お知らせトークは発信プロフィールを選択し、発信プロフィールに登録されたテンプレートを選択します。
@@ -56,11 +52,9 @@
 **入力値コピー(JSON)** ボタンを利用して送信設定をJSON形式でコピーできます。
 
 <a id="how-to-set-up-receivers"></a>
+### 受信者の設定方法 { #how-to-set-up-receivers }
 
-### 受信者の設定方法
-
-<a id="select-receivers-from-direct-receiver-input-and-address-book"></a>
-
+<a id="how-to-set-up-receivers-select-receivers-from-direct-receiver-input-and-address-book"></a>
 #### 受信者直接入力とアドレス帳から受信者選択
 
 * フロー送信は、フローに設定されたメッセージチャネルの連絡先が全て入力されている場合にのみ送信が可能です。
@@ -69,8 +63,7 @@
 * 個別メッセージチャンネル送信の場合メッセージチャンネルに該当する連絡先を入力します。
 * プッシュトークンはプッシュタイプと端末で作成されたトークンを入力します。
 
-<a id="upload-file"></a>
-
+<a id="how-to-set-up-receivers-upload-file"></a>
 #### ファイルアップロード
 
 * 受信者連絡先リストファイルのテンプレートをダウンロードします。
@@ -85,34 +78,51 @@
 | 受信者の携帯電話番号 | 受信者のメールアドレス | {"contactType": "連絡先_タイプ", "token": "プッシュ_トークン" } |
 
 <a id="how-to-write-a-message-title-and-content"></a>
+### メッセージのタイトルと内容作成方法 { #how-to-write-a-message-title-and-content }
 
-### メッセージのタイトルと内容作成方法
-
-<a id="sms"></a>
-
+<a id="how-to-write-a-message-title-and-content-sms"></a>
 #### SMS
-* 発信番号、送信目的を選択します。送信目的が広告の場合、080受信拒否番号を選択します。
-* 送信タイプを選択します。送信タイプはSMS(短文)、LMS(長文)、MMS(メディア長文)があります。
-* SMS、LMS、MMSに共通して入力できる文字セットはEUC-KRです。
-    * [ウィキペディアEUC-KR](https://ko.wikipedia.org/wiki/EUC-KR)
-* SMSは最大90bytesで、ハングル45文字、英字90文字まで入力できます。
-* LMSとMMSは最大2,000bytesで、ハングル1,000文字、英字2,000文字まで入力できます。
+* 発信番号、送信目的を選択します。送信目的が広告の場合、080 受信拒否番号を選択します。
+* 送信タイプを選択します。送信タイプは SMS（短文）、LMS（長文）、MMS（メディア長文）があります。
+* SMS、LMS、MMS共通で入力できる文字セットは EUC-KR です。
+    * [ウィキペディア EUC-KR へ移動](https://ko.wikipedia.org/wiki/EUC-KR)
+* SMSは最大 90 bytes で、ハングル 45 文字、英字 90 文字まで入力できます。
+* LMSと MMSは最大 2,000 bytes で、ハングル 1,000 文字、英字 2,000 文字まで入力できます。
 * MMSは画像を添付できます。
-* 発信番号ブロックでメール送信に失敗した場合は、「番号盗用メールブロックサービス」をご確認ください。
-    * [番号盗用メールブロックサービスガイドへ](./preconditions/preconditions-sms#fraud-number)
-* 送信結果は成功だが、メールを受信できない場合は「サービスプロバイダースパムブロックサービス」をご確認ください。
-    * [サービスプロバイダースパムブロックサービスガイドへ](./preconditions/preconditions-sms#spam-number)
-* 認証用SMSメッセージの場合認証文言が必ず含まれている必要があります。
-      * 認証文言: auth, password, verify、にんしょう、認証、パスワード、認証
-      
-##### MMS添付可能な画像規格
+* 発信番号のブロックにより文字の送信に失敗した場合は、「番号盗用文字遮断サービス」を確認してください。
+    * [番号盗用文字遮断サービスガイドへ移動](../service-policy-and-precondition/sms#about-phone-scam-blocking-services)
+* 送信結果は成功だが文字を受信できない場合は、「通信会社スパム遮断サービス」を確認してください。
+    * [通信会社スパム遮断サービスガイドへ移動](../service-policy-and-precondition/sms#about-carrier-spam-text-blocking-services)
+* 認証用 SMSメッセージの場合、認証文言が必須で含まれている必要があります。
+      * 認証文言: auth, password, verif, にんしょう, 認証, パスワード, 認証
 
-* MMS最大サイズ: 1000*1000以下のファイル
-* MMSサポート規格: 1つにつき300KB以下、画像の数が3つの場合、合計800KB以下/ .jpg, .jpegファイル
+##### MMSに添付可能な画像の仕様
+
+* MMS最大サイズ: 1000×1000 以下のファイル
+* MMS対応仕様: 1 件あたり 300KB 以下、画像が 3 件の場合は合計 800KB 以下。.jpg、.jpeg ファイル
+
+<a id="how-to-write-a-message-title-and-content-sms-prohibited-words"></a>
+##### 禁止ワードチェック
+
+送信内容に禁止されたワードが含まれると、メッセージが送信されません。
+
+送信リクエストは正常に受け付けられ、`messageId` が発行されます。チェックは送信直前に実行されるため、送信結果の照会またはウェブフックで失敗として確認できます。
+
+| 結果コード(resultCode) | 結果メッセージ(resultMessage) |
+| --- | --- |
+| 12000005 | 内容に禁止されたワードが含まれているため、メッセージの送信に失敗しました。 |
+
+* タイトルと本文をチェックします。
+* テンプレートパラメーターが置換された最終内容をチェックします。本文とパラメーターに分けて入力しても、組み合わされた結果として判定します。
+* スペースや大文字・小文字を変えたり、非表示文字を挿入しても検出されます。
+* 受信者ごとにチェックします。1 回の送信リクエストで一部の受信者のみ失敗することがあります。
+* 予約送信は送信タイミングを基準にチェックします。予約後に禁止ワードが追加されると送信されません。
+* 再送信とフローで他のメッセージチャンネルが失敗した後 SMSに切り替わる場合もチェックします。
+
+どのワードが含まれているかはお知らせしません。
 
 
-<a id="international-sms"></a>
-
+<a id="how-to-write-a-message-title-and-content-international-sms"></a>
 #### 国際SMS
 国際SMSはエンコードと文字数によって連結されたメッセージ(Concatenated Message)で送信されます。
 
@@ -128,8 +138,7 @@
 | GSM-7bit | 160文字 | 306文字<br>(=153*2) | 459文字<br>(=153*3) | 612文字<br>(=153*4) | 765文字<br>(=153*5) |
 
 
-<a id="rcs"></a>
-
+<a id="how-to-write-a-message-title-and-content-rcs"></a>
 #### RCS
 
 1. 発信ブランドとチャットルーム(発信番号)を選択します。
@@ -181,16 +190,14 @@
     * スケジュールタイトルとスケジュール内容を入力します。
 
 
-<a id="alimtalk"></a>
-
+<a id="how-to-write-a-message-title-and-content-alimtalk"></a>
 #### お知らせトーク
 
 * 発信プロフィールと、発信プロフィールに登録されたテンプレートを選択します。
 * お知らせトークはテンプレート送信のみ可能なため、内容の入力は不要です。
 * 共用お知らせトークテンプレートも送信時に発信プロフィールを選択する必要があります。共用お知らせトークテンプレートは特定の発信プロフィールに帰属しないため、選択した発信プロフィールで送信されます。
 
-<a id="brand-message"></a>
-
+<a id="how-to-write-a-message-title-and-content-brand-message"></a>
 #### ブランドメッセージ
 
 ブランドメッセージは、広告メッセージのみ送信できます。
@@ -239,8 +246,7 @@
 | ビジネスフォーム | 設定したビジネスフォームが呼び出されます。 |
 | チャンネル追加 | 送信チャンネルを追加します。最後のボタン位置にのみ使用できます。 |
 
-<a id="email"></a>
-
+<a id="how-to-write-a-message-title-and-content-email"></a>
 #### メール
 
 1. 送信目的を選択します。
@@ -291,8 +297,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 
 
 <a id="push"></a>
-
-### Push
+### Push { #push }
 
 1. 送信目的を選択します。
 2. 送信目的を広告に選択した場合、追加入力が必要です。
@@ -310,8 +315,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
         * [iOS SDK](https://docs.nhncloud.com/ko/nhncloud/ko/nhncloud-sdk/push-ios/)
 
 
-<a id="button"></a>
-
+<a id="push-button"></a>
 #### ボタン
 
 |名前| 内容                                                            |
@@ -322,8 +326,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 | リンク | ボタンを押したときに移動または実行するリンクです。ボタンタイプが「URLを開く」の場合、該当します。                |
 | ヒント | ボタンの説明です。                                                    |
 
-<a id="type-of-buttons"></a>
-
+<a id="push-type-of-buttons"></a>
 #### ボタンのタイプ
 - レスポンス
     - ダイレクト返信機能を実行します。
@@ -338,8 +341,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 - 閉じる
     - 該当通知を閉じます。
 
-<a id="media"></a>
-
+<a id="push-media"></a>
 #### メディア
 
 |名前| 内容                                             |
@@ -350,8 +352,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 | 拡張子 | メディアの拡張子                                       | .png, .aviなどメディアの拡張子です。 |
 | 展開 | メディア展開機能、 Androidのみ可能です。                      |
 
-<a id="specify-media-files"></a>
-
+<a id="push-specify-media-files"></a>
 #### メディアファイル指定
 - 外部
     - 入力したURLに該当するメディアファイルをダウンロードして使用します。
@@ -374,8 +375,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
         - バンドルリソースでアクセスするため、拡張子を含めた完全なファイル名が必要です。
         - メッセージ作成時'richMessage.media.source'に追加したファイル名を入力します。
 
-<a id="media-type"></a>
-
+<a id="push-media-type"></a>
 #### メディアタイプ
 - 画像
 
@@ -400,8 +400,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 | サポート形式 | サポートしない | WaveAudio, MP3, MPEG4Audio |
 | ファイルサイズ | サポートしない | 5MB |
 
-<a id="big-icon"></a>
-
+<a id="push-big-icon"></a>
 #### 大きなアイコン
 Androidのみ提供する機能です。通知に大きなアイコンを指定します。ファイルの指定方法は、メディアファイルの指定方法と同じです。
 
@@ -410,8 +409,7 @@ Androidのみ提供する機能です。通知に大きなアイコンを指定�
 | 位置 | 位置する場所、'REMOTE'または'LOCAL'         |
 | アドレス | 画像が位置するアドレス、 URL, URIなど。 |
 
-<a id="groups"></a>
-
+<a id="push-groups"></a>
 #### グループ
 Androidのみ提供する機能です。通知にグループを設定し、グループキーが同じ通知はまとめて表現します。
 
@@ -420,8 +418,7 @@ Androidのみ提供する機能です。通知にグループを設定し、グ�
 | キー | グループのキー   |
 | 説明 | グループの説明 |
 
-<a id="notification-sound"></a>
-
+<a id="push-notification-sound"></a>
 #### 通知音
 | | Android | iOS |
 | - | - | - |

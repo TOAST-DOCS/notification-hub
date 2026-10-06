@@ -1,4 +1,6 @@
-<!-- pre-align:aligned sig=ac986523a7a8 -->
+<!-- machine_translated: true -->
+
+<!-- pre-align:aligned sig=34a0d3133197 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -8,12 +10,28 @@
 <h1>Notification Hubリリースノート</h1>
 
 **Notification > Notification Hub > リリースノート**
-<a id="06-23"></a>
 
-## 2026. 06. 23.
-<a id="added-features-4"></a>
+<a id="2026-10-06"></a>
+## 2026. 10. 6. { #2026-10-06 }
 
-### 機能追加
+<a id="2026-10-06-added-features"></a>
+### 新規機能追加 { #2026-10-06-added-features }
+* [コンソール] 発信番号登録数の制限
+    * アカウントあたりに登録できる発信番号は最大 5 件に制限されます。
+    * 詳細については、[コンソール使用ガイド > 発信情報](./console-guide/sender-info#sender-number-registration-limit)を参照してください。
+* [コンソール] 発信番号使用認証
+    * コンソールでメッセージを送信するには、発信番号の組織管理者による承認が必要です。
+    * 承認は、組織管理者に送信される案内メールで処理できます。
+    * 詳細については、[コンソール使用ガイド > 発信情報](./console-guide/sender-info#sender-number-usage-verification)を参照してください。
+* [API、コンソール] SMS チャンネル送信内容の禁止ワードチェック
+    * SMS チャンネルの送信内容に禁止ワードが含まれている場合、メッセージは送信されず、送信結果が失敗として記録されます。
+    * 詳細については、[コンソール使用ガイド > 送信](./console-guide/send-a-message#how-to-write-a-message-title-and-content-sms-prohibited-words)を参照してください。
+
+<a id="2026-06-23"></a>
+## 2026. 06. 23. { #2026-06-23 }
+
+<a id="added-features"></a>
+### 機能追加 { #added-features }
 * [コンソール] お知らせトーク共用テンプレート機能追加
     * 注文、決済、配送など業種に関係なく汎用的に使用可能なメッセージテンプレートを提供します。別途の審査過程なしに使用できます。
 * [コンソール、API] ブランドメッセージチャンネルのリリース
@@ -24,34 +42,37 @@
         * 顧客企業会員向けメッセージはカカオトーク 25.4.0 以上のユーザーのみ受信可能
 
 <a id="may-27-2026"></a>
+## 2026. 05. 27. { #may-27-2026 }
 
-## 2026. 05. 27.
-<a id="added-features"></a>
-
-### 機能追加
+<a id="may-27-2026-added-features"></a>
+### 機能追加 { #may-27-2026-added-features }
 * [API] Kakao Biz Centerの統計照会APIの追加
     * Kakao Biz Centerで提供するお知らせトーク、ブランドメッセージの送信統計及びテンプレート統計を照会できるAPIが追加されました。
     * 送信元キーを基準として、日別(DAILY)または月別(MONTHLY)の統計データを照会できます。
     * 詳細は、[API v1.0 使用ガイド > Kakao統計](./api-guide-v1x0/kakao-statistics)を参照してください。
     
 <a id="march-24-2026"></a>
+## 2026. 03. 24. { #march-24-2026 }
 
-## 2026. 03. 24.
+<a id="march-24-2026-added-features"></a>
+### 機能追加 { #march-24-2026-added-features }
 
-<!-- TODO: translate body -->
-
-<a id="added-features-2"></a>
-
-### 機能追加
-
-<!-- TODO: translate body -->
+* [API, コンソール] 統合 RCS メッセージのサポート
+    * Android、iOS デバイスのいずれでも受信可能な統合 RCS メッセージの発送をサポートします。
+    * 発送可能な統合 RCS メッセージの種類については、[利用ポリシーおよび事前設定案内 > RCS](./service-policy-and-precondition/rcs)を参照してください。
+* [コンソール] カカオビズセンター統計の提供
+    * カカオビズセンターが提供するお知らせトーク、ブランドメッセージの統計データを照会できる機能を提供します。
+* [API, コンソール] カカオビズセンターグループタグ管理機能の提供
+    * カカオビズセンターが提供するグループタグを管理できる機能を提供します。
+* [コンソール] メッセージ発送履歴のバックアップ結果通知の追加
+    * メッセージ保管期間が過ぎたメッセージ発送履歴のバックアップを設定した場合、結果通知を受け取ることができます。
+    * **[プロジェクトダッシュボード] > [通知管理]** で設定できます。
 
 <a id="january-27-2026"></a>
+## 2026. 01. 27. { #january-27-2026 }
 
-## 2026. 01. 27.
-<a id="added-features-3"></a>
-
-### 機能追加
+<a id="january-27-2026-added-features"></a>
+### 機能追加 { #january-27-2026-added-features }
 * [API] お知らせトークテンプレートAPIの新規提供及び一部APIのサポート終了
     * お知らせトークテンプレート管理構造の変更に伴い、一部の既存テンプレートAPIが新規APIに置き換えられました。詳細は[API v1.0使用ガイド > テンプレート](./api-guide-v1x0/template)を参照してください。
 * [API] 外部080受信拒否外部番号管理APIの新規提供
@@ -59,102 +80,93 @@
 * [Console] 送信リクエスト本文のJSON抽出機能
     * 送信メニューで設定された情報のJSON抽出機能が提供されます。詳細は[コンソール使用ガイド > 送信](./console-guide/send-a-message)を参照してください。
     
-<a id="12-31"></a>
+<a id="2025-12-31"></a>
+## 2025. 12. 31. { #2025-12-31 }
 
-## 2025. 12. 31.
 <a id="feature-removal"></a>
-
-### 機能削除
+### 機能削除 { #feature-removal }
 * [API、Console] カカともへのメッセージサービスのサポート終了
     * 2025年12月31日(水)カカともへのメッセージサービスが終了します。
     * コンソールでカカともへのメッセージ関連機能を使用できず、カカともへのメッセージAPIを使用できません。
 
-<a id="12-04"></a>
+<a id="2025-12-04"></a>
+## 2025. 12. 04. { #2025-12-04 }
 
-## 2025. 12. 04.
 <a id="feature-improvements"></a>
-
-### 機能改善
+### 機能改善 { #feature-improvements }
 * [API] 画像レイアウト一覧照会APIに`exact`リクエストパラメータが追加されました。
     * 従来は`name`パラメータで名前を指定する場合、部分一致(LIKE)検索が適用されていました。
     * `exact`パラメータを`true`に設定すると、名前が正確に一致する画像レイアウトのみ照会されます。
 
-<a id="08-26"></a>
+<a id="2025-08-26"></a>
+## 2025. 08. 26. { #2025-08-26 }
 
-## 2025. 08. 26.
-<a id="feature-improvements-2"></a>
-
-### 機能改善
+<a id="2025-08-26-feature-improvements"></a>
+### 機能改善 { #2025-08-26-feature-improvements }
 * [API/Console] RCS 金融順法告知フィールドを含む画像テンプレートのサポート
     * RCSチャネルで金融順法告知フィールドが含まれた画像テンプレートの連携および送信をサポートします。
 
-<a id="07-29"></a>
+<a id="2025-07-29"></a>
+## 2025. 07. 29. { #2025-07-29 }
 
-## 2025. 07. 29.
 <a id="new-features"></a>
-
-### 機能追加
+### 機能追加 { #new-features }
 * [API/Console] 画像レイアウト機能が追加されました。
     * 画像レイアウトは、パーソナライズされたMMS添付画像を生成するための機能です。
     * 画像レイアウトは、MMSテンプレート作成時に選択でき、MMSテンプレートに連携した画像レイアウトを通じてパーソナライズされた画像を生成できます。
     * 詳細については、[コンソール使用ガイド > 送信](./console-guide/image-layout)、[API v1.0使用ガイド > メッセージ > 画像レイアウト](./api-guide-v1x0/image-layout)をご参照ください。
 * [API/Console] MMSテンプレートに画像レイアウトを連携できます。
     * MMSテンプレート作成時に添付ファイルセクションで画像レイアウトを選択できます。
-    * 詳細については、[コンソール使用ガイド > テンプレート](./console-guide/template/#templateV1x0001CreateSmsTemplate) [API v1.0使用ガイド > メッセージ > MMSテンプレート](./api-guide-v1x0/template/#templateV1x0001CreateSmsTemplate)をご参照ください。
+    * 詳細については、[コンソール使用ガイド > テンプレート](./console-guide/template/#template) [API v1.0使用ガイド > メッセージ > MMSテンプレート](./api-guide-v1x0/template/#register-sms-template)をご参照ください。
 * [Console] 国際SMS送信時、送信詳細照会でエンコーディング、実際の送信件数を確認できます。
 * [Console] 「添付ファイル管理」メニューの位置が変更されました。
     * 「詳細設定」メニューの下位にあった添付ファイル管理メニューが上部メニューに移動されました。
 
-<a id="05-27"></a>
+<a id="2025-05-27"></a>
+## 2025. 05. 27. { #2025-05-27 }
 
-## 2025. 05. 27.
-<a id="new-features-2"></a>
-
-### 機能追加
+<a id="2025-05-27-new-features"></a>
+### 機能追加 { #2025-05-27-new-features }
 * [Console] 指定したイベント発生時にURLを指定してウェブフックイベントを受信できます。
     * 詳細については、[コンソール使用ガイド > 詳細設定 > ウェブフック](./console-guide/detailed-setting/#webhook)をご参照ください。
 * [Console] 過去のメッセージ送信履歴をバックアップできます。
     * 詳細については、[コンソール使用ガイド > 詳細設定 > バックアップ](./console-guide/detailed-setting/#backup)をご参照ください。
 
-<a id="04-15"></a>
+<a id="2025-04-15"></a>
+## 2025. 04. 15. { #2025-04-15 }
 
-## 2025. 04. 15.
-<a id="new-features-3"></a>
-
-### 機能追加
+<a id="2025-04-15-new-features"></a>
+### 機能追加 { #2025-04-15-new-features }
 * [API/Console] サービスで発生する様々なイベント履歴をCloudTrailで確認できます。
-    * 確認可能なイベント一覧は[[CloudTrail > 収集されるイベント一覧]](../../../Governance%20&%20Audit/CloudTrail/ja/event-list)をご参照ください。
+    * 確認可能なイベント一覧は[[CloudTrail > 収集されるイベント一覧]](/Governance%20%26%20Audit/CloudTrail/ja/event-list/)をご参照ください。
 * [API/Console] RCS認証用メッセージ送信が追加されました。
 * [API] 連絡先別受信結果一覧照会APIに応答フィールドが追加されました。
-    * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別受信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#_1)をご参照ください。
+    * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別受信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#retrieve-a-list-of-received-results-by-contacts)をご参照ください。
 * [Console] RCS BizCenter LMSフォーマットをサポート
     * RCSメッセージ送信時にLMSフォーマットで送信できます。
     * テンプレート作成時にLMSフォーマットを選択できます。
 
 <a id="enhancements"></a>
-
-### 機能改善
+### 機能改善 { #enhancements }
 * [API/Console] Pushチャンネルの受信、開封イベントが統計に収集されるように改善しました。
 
 
 **機能改善**
 * [API/Console] Pushチャネルの受信、開封イベントが統計に収集されるように改善されました。
 
-<a id="03-25"></a>
+<a id="2025-03-25"></a>
+## 2025. 03. 25. { #2025-03-25 }
 
-## 2025. 03. 25.
-<a id="new-features-4"></a>
-
-### 機能追加
+<a id="2025-03-25-new-features"></a>
+### 機能追加 { #2025-03-25-new-features }
 * [API] 添付ファイル/統計APIが追加されました。
     * 詳細については、[[API v1.0使用ガイド > 添付ファイル]](./api-guide-v1x0/attachment)、[[API v1.0使用ガイド > 統計]](./api-guide-v1x0/stats)をご参照ください。
 
-<a id="03-11"></a>
+<a id="2025-03-11"></a>
+## 2025. 03. 11. { #2025-03-11 }
 
-## 2025. 03. 11.
-<a id="new-features-5"></a>
-
-### 機能追加
+<a id="2025-03-11-new-features"></a>
+### 機能追加 { #2025-03-11-new-features }
 * [API] RCS BizCenterブランドメッセージ統計連携
     * メッセージ送信時にグループIDを追加してRCS BizCenterが提供するメッセージ統計を使用できます。
 * [API] RCSメッセージ受信待機期間の設定値追加
@@ -164,38 +176,34 @@
     * テンプレート作成時にLMSフォーマットを選択できます。
 * 詳細については、[[API v1.0使用ガイド > メッセージ]](./api-guide-v1x0/message)をご参照ください。
 
-<a id="enhancements-2"></a>
-
-### 機能改善
+<a id="2025-03-11-enhancements"></a>
+### 機能改善 { #2025-03-11-enhancements }
 * [Console] RCSテンプレート機能改善
     * RCS BizCenterテンプレート連携時にブランド連携ボタンをクリックする必要がなくなり、RCS BizCenterテンプレートの変更事項が自動的に反映されます。
 
-<a id="02-25"></a>
+<a id="2025-02-25"></a>
+## 2025. 02. 25. { #2025-02-25 }
 
-## 2025. 02. 25.
-<a id="new-features-6"></a>
-
-### 機能追加
+<a id="2025-02-25-new-features"></a>
+### 機能追加 { #2025-02-25-new-features }
 * [API] 連絡先別最終送信結果一覧照会APIが追加されました。
-    * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別最終送信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#_2)をご参照ください。
+    * 詳細については、[[API v1.0使用ガイド > 連絡先別受信結果 > 連絡先別最終送信結果一覧照会]](./api-guide-v1x0/contact-delivery-result/#retrieve-a-list-of-the-final-send-status-messages)をご参照ください。
 * [API] RCS Bizcenterテンプレート送信時にチャットルームID、受信拒否番号を追加できるように改善されました。
 
-<a id="enhancements-3"></a>
-
-### 機能改善
+<a id="2025-02-25-enhancements"></a>
+### 機能改善 { #2025-02-25-enhancements }
 * [Console] 送信照会時に詳細結果コードおよびメッセージを確認できるように改善されました。
 
-<a id="02-11"></a>
+<a id="2025-02-11"></a>
+## 2025. 02. 11. { #2025-02-11 }
 
-## 2025. 02. 11.
-<a id="new-features-7"></a>
-
-### 機能追加
+<a id="2025-02-11-new-features"></a>
+### 機能追加 { #2025-02-11-new-features }
 * [Console/API] RCS BizCenter LMSテンプレート送信をサポート
     * RCS BizCenter LMSテンプレートタイプも送信できます。
 * [API] Instant Flow Message API追加
     * 事前にフローやテンプレートを登録しなくても、リクエスト時点でメッセージを即時生成・送信できるAPIが追加されました。
-    * 詳細については、[[API v1.0使用ガイド > メッセージ > インスタントフローメッセージ送信]](./api-guide-v1x0/message/#_6)をご参照ください。
+    * 詳細については、[[API v1.0使用ガイド > メッセージ > インスタントフローメッセージ送信]](./api-guide-v1x0/message/#send-an-instant-flow-message)をご参照ください。
 * [Console/API] 送信受信者の重複チェック機能
     * 受信者リストに重複した連絡先が存在する場合、送信前にこれを確認して重複送信を防止できます。
 * [Console] フローテンプレートプレビュー機能追加
@@ -206,38 +214,32 @@
     * 送信APIリクエスト時にユーザーカスタムフィールドを含めてリクエストできるように追加されました。
     * 詳細については、[[API v1.0使用ガイド > メッセージ]](./api-guide-v1x0/message)をご参照ください。
 
-<a id="enhancements-4"></a>
-
-### 機能改善
+<a id="2025-02-11-enhancements"></a>
+### 機能改善 { #2025-02-11-enhancements }
 * [Console/API] RCSテンプレート機能改善
     * RCS BizCenterに登録したテンプレートを再度登録しなくても連携されるように改善されました。
         * ブランド連携時にテンプレートに自動的に連携されます。
         * RCS BizCenterテンプレートは手動登録/修正/削除はできません。
         * RCS BizCenterテンプレートはチャットボット、受信拒否番号は空欄で登録され、送信時にはチャットボットは最も最近登録したチャットボットで送信されます。
 
-<a id="11-12"></a>
-
-## 2024. 11. 12.
+<a id="2024-11-12"></a>
+## 2024. 11. 12. { #2024-11-12 }
 
 <a id="notification-hub-beta-release"></a>
-
-### Notification Hubベータ(beta)リリース
+### Notification Hubベータ(beta)リリース { #notification-hub-beta-release }
 
 <a id="bug-fixes"></a>
-
-### バグ修正
+### バグ修正 { #bug-fixes }
 * [Console]エラー修正
     * 送信、フロー、テンプレート、統計機能のエラーを修正しました。
 * [API]認証エラー修正
     * 一部のAPIリクエスト時に認証が正常に処理されない問題を修正しました。
     
-<a id="10-29"></a>
-
-## 2024. 10. 29.
+<a id="2024-10-29"></a>
+## 2024. 10. 29. { #2024-10-29 }
 
 <a id="notification-hub-alpha-release"></a>
-
-### Notification Hubアルファ(alpha)リリース
+### Notification Hubアルファ(alpha)リリース { #notification-hub-alpha-release }
 * 使い方案内
     * アルファでリリースされた商品は**サポート > 1:1お問い合わせ**を通じて使用できます。
 * [Console]コンソール公開

@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ba3168402b40 -->
+<!-- pre-align:aligned sig=102423eead10 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,10 +10,8 @@
 **Notification > Notification Hub > 利用ポリシーおよび事前設定のご案内 > SMS**
 
 
-<span id="sender-phone-number-pre-registration"></span>
-
-<a id="enforce-pre-registration-of-sender-numbers"></a>
-## 発信番号事前登録制施行 { #enforce-pre-registration-of-sender-numbers }
+<a id="sender-phone-number-pre-registration"></a>
+## 発信番号事前登録制施行 { #sender-phone-number-pre-registration }
 
 <b>電気通信事業法関連告示に基づき、発信番号登録の際、発信番号の名義人認証が必要です</b>
 
@@ -23,8 +21,6 @@
 * 事業者と他社間の関係確認文書は業務委受託契約書、本店・支店証明書類などがあります。
 * 通信サービス利用証明書は**マスキング(非表示)処理された部分がなく、最近3か月以内に発行された書類**のみ可能です。
 * 在職証明書は**発行日が表記されており、印鑑が押印された書類**のみ可能です。在職証明書内の住民番号の後ろ6桁は**必ずマスキング(非表示)処理**してください。例) 000000-0\*\*\*\*\*\*
-
-<span id='fabrication-number'></span>
 
 <a id="prohibition-of-alterationfalsification-of-the-sender-number"></a>
 ## 発信番号の変作（改ざん）禁止 { #prohibition-of-alterationfalsification-of-the-sender-number }
@@ -45,7 +41,7 @@
 [[情報通信網の利用促進および情報保護等に関する法律](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0)] 第50条に基づき、営利目的の広告性情報を送信する際は、受信者から明示的な事前同意を得る必要があり、送信表記に関する義務事項を必ず遵守する必要があります。
 関連法律に違反した場合、違反内容に応じて刑事処罰または過料が課される場合がありますのでご注意ください。
 
-[[한국인터넷진흥원(KISA) 불법스팸 방지를 위한 정보통신망법 안내서](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
+[[韓国インターネット振興院(KISA) 不正スパム防止のための情報通信網法ガイド](https://spam.kisa.or.kr/spam/na/ntt/selectNttInfo.do?mi=1020&nttSn=3001&bbsId=1002)]
 
 <a id="consent-to-receive-advertising-information"></a>
 ### 広告受信同意 { #consent-to-receive-advertising-information }
@@ -76,8 +72,6 @@
 <a id="notify-recipients-of-opt-out-requests"></a>
 ### 受信拒否リクエスト受信者への結果通知 { #notify-recipients-of-opt-out-requests }
 * 送信者の名称、受信拒否または受信同意撤回の事実、その意思を表示した日付、処理結果をすべて案内します。
-
-<span id="rejection-of-receiving-080"></span>
 
 <a id="advertisement-texting-sending-guidance"></a>
 ## 広告性メール送信案内 { #advertisement-texting-sending-guidance }
@@ -116,20 +110,18 @@
 | LMS | 80時間 | 再試行しない。受信失敗結果アップデート(結果コード: 2000) |
 | MMS | 80時間 | 再試行しない。受信失敗結果アップデート(結果コード: 2000) |
 
-<span id="about-phone-scam-blocking-services"></span>
-
-<a id="guide-of-stolen-number-text-message-blocking-service"></a>
-## 番号盗用メールブロックサービス案内 { #guide-of-stolen-number-text-message-blocking-service }
+<a id="about-phone-scam-blocking-services"></a>
+## 番号盗用メールブロックサービス案内 { #about-phone-scam-blocking-services }
 「番号盗用テキストブロックサービス」は、他人が勝手に自分の携帯電話番号をテキスト犯罪に悪用したり、スパムを送信できないようにするサービスです。発信番号がこのサービスに加入している場合、送信に失敗する可能性があります。問題のある番号を発信番号として使用するためには、通信会社を通じて解約する必要があります。
 
-<a id="how-to-use"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-how-to-use"></a>
 #### 利用案内
 * 通信事業者(SKT、KT、LG U+、MVNO事業者を含む)で無料提供されており、加入時に同意すれば登録できます。
 * メール送信後、正常な番号であるにもかかわらず、サイトでメール送信結果が「失敗」であることが確認された場合、「番号盗用メールブロックサービス」加入の有無を確認してください。
 * 「番号盗用メールブロックサービス」を解除してから送信してください。
 * 解除申請後、適用まで約7日かかります。
 
-<a id="guide-about-cancellation"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-guide-about-cancellation"></a>
 #### 解除案内
 * サービスプロバイダーWebサイト
     * [SKT番号盗用メールブロックの解除](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)
@@ -139,20 +131,18 @@
     * 携帯電話114 * 通話ボタン
     * SKTサポート(1599-0011), KTオレサポート(100), LG U+ サポート(1544-0010)
 
-<span id="about-carrier-spam-text-blocking-services"></span>
-
-<a id="mobile-carrier-spam-blocking-service-guide"></a>
-## サービスプロバイダースパムブロックサービス案内 { #mobile-carrier-spam-blocking-service-guide }
+<a id="about-carrier-spam-text-blocking-services"></a>
+## サービスプロバイダースパムブロックサービス案内 { #about-carrier-spam-text-blocking-services }
 迷惑な広告性スパムメールを通信事業者で自動的にブロックしてくれるサービスです。携帯電話会社別の組み合わせ基準により、スパムと判断されたメールを携帯電話のメール受信箱ではなく、スパム保管箱に送信します。正常に送信されたが、受信に失敗した場合、受信番号が通信会社の迷惑メールブロックサービスに加入している可能性があります。
 
-<a id="how-to-use-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-how-to-use"></a>
 #### 利用案内
 * 送信結果が成功と確認されたが、メール受信ができない場合は、通信会社のスパムブロックサービスをご確認ください。
 * 韓国インターネット振興院違法スパム対応センターがスパム総合対策を策定したため、各通信会社で「スパムブロックサービス」を実施しています。
 * メール受信箱ではなく、スパムメールとして保存されていることが確認された場合は、スパムブロックサービスを解除してご利用ください。
 * 個人情報保護ポリシーにより、本人以外は確認することができないため、本人が直接確認する必要があります。
 
-<a id="guide-about-cancellation-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-guide-about-cancellation"></a>
 #### 解除案内
 * サービスプロバイダーWebサイト
     * [SKTスパムフィルタリングの解除](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)

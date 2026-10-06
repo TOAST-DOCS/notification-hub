@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=26433962c314 -->
 
 <style>
@@ -10,8 +12,7 @@
 **Notification > Notification Hub > エラーコード**
 
 <a id="list-of-error-codes"></a>
-
-## エラーコード一覧
+## エラーコード一覧 { #list-of-error-codes }
 
 | カテゴリ | 成功可否(isSuccessful) | 結果コード(resultCode) | 結果メッセージ(resultMessage) |
 | --- | --- | --- | --- |
@@ -342,8 +343,7 @@
 | メッセージ送信 | false | 500002 | 不正なステータスのサーバーエラー |
 
 <a id="delivery-result-code"></a>
-
-## 受信結果コード
+## 受信結果コード { #delivery-result-code }
 
 | カテゴリ | 成功可否(isSuccessful) | 結果コード(resultCode) | 結果メッセージ(resultMessage) |
 | --- | --- | --- | --- |
@@ -362,6 +362,7 @@
 | SMS | false | 11906001 | 受信拒否のため、メッセージの送信に失敗しました。 |
 | SMS | false | 12000002 | フロー順次送信処理中にエラーが発生したため、メッセージの送信に失敗しました。 |
 | SMS | false | 12000003 | メッセージ送信準備中にエラーが発生したため、メッセージの送信に失敗しました。 |
+| SMS | false | 12000005 | 禁止されている単語が内容に含まれているため、メッセージ送信に失敗しました。 |
 | SMS | false | 12100911 | 添付ファイルに拡張子がないため、メッセージの送信に失敗しました。 |
 | SMS | false | 12100913 | 添付ファイルのサイズが 0 のため、メッセージの送信に失敗しました。 |
 | SMS | false | 12909999 | システムエラーのため、メッセージの送信に失敗しました。 |
@@ -507,7 +508,7 @@
 | ALIMTALK | false | 21903047 | templateTitleおよびtemplateItemHighlightのtitleが空白で終わっているため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903048 | テンプレートパラメーターの長さが1000文字を超えたため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903049 | テンプレートパラメーターがテンプレートと一致しないため、メッセージ送信に失敗しました。 |
-| ALIMTALK | false | 21903050 | templateMessageType(AD/MI)にACタイプのボタンが必ず含まれる必要がありますが、누락されているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903050 | templateMessageType(AD/MI)にACタイプのボタンが必ず含まれる必要がありますが、欠落しているため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903100 | 登録済み/完了済みのテンプレート状態ではコメントの追加ができないため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903101 | 存在しないquickReply名のため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903102 | quickReply名に置換パラメーターが含まれているため、メッセージ送信に失敗しました。 |
@@ -537,7 +538,7 @@
 | ALIMTALK | false | 21903223 | Friendtalk carousel(feedタイプ)に'commerce'フィールドを含めることはできないため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903224 | Friendtalk carousel(commerceタイプ)に'header'、'message'フィールドを含めることはできないため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903225 | Friendtalk carouselのボタン数(feed最大2個、commerce1〜2個)が合わないため、メッセージ送信に失敗しました。 |
-| ALIMTALK | false | 21903226 | commerceに'discountPrice'がある場合、'discountRate'または'discountFixed'のいずれかが必要ですが、누락されているため、メッセージ送信に失敗しました。 |
+| ALIMTALK | false | 21903226 | commerceに'discountPrice'がある場合、'discountRate'または'discountFixed'のいずれかが必要ですが、不足しているため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903300 | 退会番号が見つからないため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903301 | 退会済みの受信者が見つからないため、メッセージ送信に失敗しました。 |
 | ALIMTALK | false | 21903302 | マーケティング同意メッセージはテキスト/画像/ワイド画像/carousel feed/プレミアムビデオタイプのみ可能なため、メッセージ送信に失敗しました。 |

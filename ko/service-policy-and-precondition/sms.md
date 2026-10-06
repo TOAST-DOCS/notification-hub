@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=ba3168402b40 -->
+<!-- pre-align:aligned sig=102423eead10 -->
 
 <style>
 .page__rnb .lst_rnb_item .rnb_item:first-of-type a {
@@ -10,10 +10,8 @@
 **Notification > Notification Hub > 이용 정책 및 사전 설정 안내 > SMS**
 
 
-<span id="sender-phone-number-pre-registration"></span>
-
-<a id="enforce-pre-registration-of-sender-numbers"></a>
-## 발신 번호 사전등록제 시행 { #enforce-pre-registration-of-sender-numbers }
+<a id="sender-phone-number-pre-registration"></a>
+## 발신 번호 사전등록제 시행 { #sender-phone-number-pre-registration }
 
 <b>전기통신사업법 관련 고시에 따라 발신 번호 등록 시 발신 번호에 대한 명의자 인증이 필요합니다.</b>
 
@@ -22,8 +20,6 @@
     * 사업자와 타사 간 관계 확인 문서는 업무위수탁 계약서, 본점-지점 증빙 서류 등이 될 수 있습니다.
     * 통신서비스 이용증명원은 마스킹(숨김) 처리된 부분이 없고, 최근 3개월 이내 발급된 서류만 가능합니다.
     * 재직증명서는 발급일이 표기되어 있고, 직인이 날인된 서류만 가능합니다. 재직증명서 내 주민번호 뒤 6자리는 반드시 마스킹(숨김) 처리해 주세요. 예) 000000-0\*\*\*\*\*\*
-
-<span id='fabrication-number'></span>
 
 <a id="prohibition-of-alterationfalsification-of-the-sender-number"></a>
 ## 발신 번호 변작(변조) 금지 { #prohibition-of-alterationfalsification-of-the-sender-number }
@@ -74,8 +70,6 @@
 ### 수신거부 요청 수신자에게 결과 고지 { #notify-recipients-of-opt-out-requests }
 * 전송자의 명칭, 수신거부 또는 수신동의 철회 사실, 해당 의사를 표시한 날짜, 처리 결과를 모두 안내합니다.
 
-<span id="rejection-of-receiving-080"></span>
-
 <a id="advertisement-texting-sending-guidance"></a>
 ## 080 수신 거부 서비스 안내 { #advertisement-texting-sending-guidance }
 
@@ -115,20 +109,18 @@
 | LMS | 80 시간 | 재시도하지 않음. 수신 실패 결과 업데이트(결과 코드: 2000) |
 | MMS | 80 시간 | 재시도하지 않음. 수신 실패 결과 업데이트(결과 코드: 2000) |
 
-<span id="about-phone-scam-blocking-services"></span>
-
-<a id="guide-of-stolen-number-text-message-blocking-service"></a>
-## 번호 도용 문자 차단 서비스 안내 { #guide-of-stolen-number-text-message-blocking-service }
+<a id="about-phone-scam-blocking-services"></a>
+## 번호 도용 문자 차단 서비스 안내 { #about-phone-scam-blocking-services }
 ‘번호 도용 문자 차단 서비스’ 서비스는 타인이 임의로 내 휴대전화 번호를 문자 범죄에 악용하거나 스팸을 발송할 수 없게 지켜주는 서비스입니다. 발신 번호가 이 서비스에 가입되어 있다면 발송이 실패할 수 있습니다. 문제가 되는 번호를 발신 번호로 사용하기 위해서는 통신사를 통해 해지가 필요합니다.
 
-<a id="how-to-use"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-how-to-use"></a>
 #### 이용 안내
 * 이동통신사(SKT, KT, LG U+ 및 MVNO 사업자 포함)에서 무료로 제공되고 있어 가입 시 동의하면 등록할 수 있습니다.
 * 문자 발송 후 정상적인 번호인데도 사이트에서 문자 전송 결과가 '실패'로 확인되면 '번호 도용 문자 차단 서비스' 가입 여부를 확인하세요.
 * '번호 도용 문자 차단 서비스'를 해지한 후 전송하세요.
 * 해지 신청 후 적용까지는 약 7일이 소요됩니다.
 
-<a id="guide-about-cancellation"></a>
+<a id="guide-of-stolen-number-text-message-blocking-service-guide-about-cancellation"></a>
 #### 해지 안내
 * 통신사 홈페이지
     * [SKT 번호 도용 문자 차단 해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00004406)
@@ -138,20 +130,18 @@
     * 휴대폰 114 * 통화 버튼
     * SKT 고객 센터(1599-0011), KT올레 고객 센터(100), LG U+ 고객 센터(1544-0010)
 
-<span id="about-carrier-spam-text-blocking-services"></span>
-
-<a id="mobile-carrier-spam-blocking-service-guide"></a>
-## 통신사 스팸 차단 서비스 안내 { #mobile-carrier-spam-blocking-service-guide }
+<a id="about-carrier-spam-text-blocking-services"></a>
+## 통신사 스팸 차단 서비스 안내 { #about-carrier-spam-text-blocking-services }
 귀찮은 광고성 스팸 문자를 이동통신사에서 자동으로 차단해주는 서비스입니다. 이동통신사별 조합 기준에 따라 스팸으로 판단되는 문자를 휴대폰 문자 수신함이 아닌 스팸 보관함으로 전송합니다. 정상적으로 발송이 되었지만 수신에 실패한 경우 수신 번호가 통신사 스팸 차단 서비스에 가입되어 있을 수 있습니다.
 
-<a id="how-to-use-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-how-to-use"></a>
 #### 이용 안내
 * 전송 결과가 성공으로 확인되었으나 문자 수신을 못 하는 경우 통신사 스팸 차단 서비스를 확인하세요.
 * 한국인터넷진흥원 불법스팸대응센터에서 스팸 종합 대책을 마련함에 따라, 각 통신사에서 ‘스팸 차단 서비스’를 시행하고 있습니다.
 * 문자 수신함이 아닌 스팸 문자로 저장된 것이 확인되었다면, 스팸 차단 서비스를 해제하고 이용하세요.
 * 개인 정보 보호 정책으로 본인 이외 타인은 확인할 수 없으므로 본인이 직접 확인해야 합니다.
 
-<a id="guide-about-cancellation-2"></a>
+<a id="mobile-carrier-spam-blocking-service-guide-guide-about-cancellation"></a>
 #### 해지 안내
 * 통신사 홈페이지
     * [SKT 스팸 필터링 해지 바로 가기](http://www.tworld.co.kr/normal.do?serviceId=S_PROD2001&viewId=V_PROD2001&prod_id=NA00002121)
