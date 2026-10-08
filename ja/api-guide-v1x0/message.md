@@ -37,6 +37,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -251,6 +252,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--このAPIはリクエスト本文を必要とする場合、以下のように入力します。-->
@@ -863,6 +865,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「このAPIはリクエスト本文を必要としません」と入力します。-->
@@ -1032,6 +1035,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -1407,6 +1411,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -1700,6 +1705,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messageChannel | Path | Enum | O | メッセージチャネルです。<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), RCS(RCS), EMAIL(Email), PUSH(Push)] |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -1876,6 +1882,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般)、AD(広告)、AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -2063,6 +2070,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -2314,6 +2322,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -2486,6 +2495,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を要求しない場合は「この API はリクエスト本文を要求しません」と入力します。-->
@@ -2698,6 +2708,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -2885,6 +2896,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | アプリキー |
 | X-NHN-Authorization | Header | String | O | アクセストークン |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「この API はリクエスト本文を必要としません」と入力します。-->
@@ -3129,6 +3141,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | 名前 | 区分 | タイプ | 必須 | 説明 |
 | - | - | - | - | - |
 | messagePurpose | Path | Enum | O | メッセージ目的です。<br>[NORMAL(一般), AD(広告), AUTH(認証)] |
+
 **リクエスト本文**
 
 <!--リクエスト本文を必要としない場合は「このAPIはリクエスト本文を必要としません」と入力します。-->

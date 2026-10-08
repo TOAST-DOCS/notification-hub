@@ -37,6 +37,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -249,6 +250,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -861,6 +863,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | The purpose of the message.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -1030,6 +1033,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -1405,6 +1409,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -1698,6 +1703,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NHN-Authorization | Header | String | O | Access token |
 | messageChannel | Path | Enum | O | Message channel.<br>[SMS(SMS), ALIMTALK(Alim Talk), BRANDMESSAGE(Branded Message), RCS(RCS), EMAIL(Email), PUSH(Push)] |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request Body**
 
 <!--If no request body is required, enter "This API does not require a request body."-->
@@ -1876,6 +1882,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2063,6 +2070,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2314,6 +2322,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2486,6 +2495,7 @@ POST /message/v1.0/RCS/template-messages/{messagePurpose}
 | Name | Type | Format | Required | Description |
 | - | - | - | - | - |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2700,6 +2710,7 @@ POST /message/v1.0/SMS/template-messages/{messagePurpose}
 | Name | Type | Format | Required | Description |
 | - | - | - | - | - |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
@@ -2888,6 +2899,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | X-NC-APP-KEY | Header | String | O | Appkey |
 | X-NHN-Authorization | Header | String | O | Access token |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request Body**
 
 <!--If this API does not require a request body, enter "This API does not require a request body."-->
@@ -3133,6 +3145,7 @@ POST /message/v1.0/instant-flow-messages/{messagePurpose}
 | Name | Type | Format | Required | Description |
 | - | - | - | - | - |
 | messagePurpose | Path | Enum | O | Message purpose.<br>[NORMAL (standard), AD (advertising), AUTH (authentication)] |
+
 **Request Body**
 
 <!--If the API does not require a request body, enter "This API does not require a request body."-->
