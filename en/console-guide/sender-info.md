@@ -173,8 +173,8 @@ v=spf1 include:_spfblocka.toast.com ~all
 
 
 !!! danger "Caution"
-\* Only one SPF record must be registered in the domain TXT record. If two or more SPF records are registered in the domain TXT record, SPF verification may fail and the email receiving server may reject incoming emails.
-\* The use of mechanisms (include) and modifiers (redirect) that trigger DNS lookups when checking SPF records is limited to a maximum of 10. Exceeding this limit may cause the email receiving server to reject incoming emails.
+    \* Only one SPF record must be registered in the domain TXT record. If two or more SPF records are registered in the domain TXT record, SPF verification may fail and the email receiving server may reject incoming emails.
+    \* The use of mechanisms (include) and modifiers (redirect) that trigger DNS lookups when checking SPF records is limited to a maximum of 10. Exceeding this limit may cause the email receiving server to reject incoming emails.
 
 <a id="configure-dkim"></a>
 ### Configure DKIM { #configure-dkim }
@@ -207,7 +207,7 @@ v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:${email_address_to_receive_repo
 Domains with domain protection enabled cannot be used in other projects. To use a protected domain in another project, domain registration and ownership verification must be completed in the same way.
 
 !!! danger "Caution"
-If domain protection is disabled, other projects can use the domain without restriction. For domains that have completed all verifications, emails sent from other projects are also received normally by the email receiving server. If such emails are spam or phishing, recipients may be harmed and the domain's reputation may decline, causing the email receiving server to reject incoming emails.
+    If domain protection is disabled, other projects can use the domain without restriction. For domains that have completed all verifications, emails sent from other projects are also received normally by the email receiving server. If such emails are spam or phishing, recipients may be harmed and the domain's reputation may decline, causing the email receiving server to reject incoming emails.
 
 <a id="delete-a-domain"></a>
 ### Delete a Domain { #delete-a-domain }
@@ -323,7 +323,7 @@ Retrieves the daily delivery count, valid opens, and clicks by template and grou
 Group tags are identification tags used when querying template statistics for brand messages. Click the **Group Tag Management** tab in the new **Go to Kakao Statistics** window to manage group tags.
 
 !!! danger "Caution"
-Group tags can only be used for brand messages. AlimTalk is not applicable.
+    Group tags can only be used for brand messages. AlimTalk is not applicable.
 
 * Click **+ Register Group Tag** to enter a group tag name and register it.
 * Select the checkbox of the group tag to modify or delete, and click **Modify Group Tag** or **Delete Group Tag**.
@@ -361,7 +361,7 @@ You can delete a registered sender profile.
 The 080 opt-out number service provides recipients with an opt-out option when sending advertising messages. When sending promotional messages, **a free opt-out method must be included** so that recipients can opt out or withdraw their consent to receive messages free of charge.
 
 !!! danger "Caution"
-Violations may result in **a fine of up to 30,000,000 KRW** under the Act on Promotion of Information and Communications Network Utilization and Information Protection.
+    Violations may result in **a fine of up to 30,000,000 KRW** under the Act on Promotion of Information and Communications Network Utilization and Information Protection.
 
 <a id="apply-for-an-080-opt-out-number"></a>
 ### Apply for an 080 Opt-Out Number { #apply-for-an-080-opt-out-number }

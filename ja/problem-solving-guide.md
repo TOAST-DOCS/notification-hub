@@ -61,6 +61,6 @@ Androidアプリでトークンを登録し、プッシュメッセージを送�
         ```
 
 
-!!! tip 「問題が解決しない場合」
+!!! tip "問題が解決しない場合"
     * オンライン1:1お問い合わせ: [https://www.nhncloud.com/kr/support/inquiry?alias=tab5_03](https://www.nhncloud.com/kr/support/inquiry?alias=tab5_03)
     * 代表電話: 1588-7967 (運営時間:月～金10:00-19:00)
