@@ -167,7 +167,12 @@ Concatenated Message feature is provided or limited depending on the number of b
 
 ##### RCS Group ID
 
-<!-- TODO: translate body -->
+* Message statistics are available in RCS Biz Center only for messages with a group ID.
+* It is recommended to set a group ID for each message you want to analyze.
+* Statistics are aggregated for 4 days (D+3) from the sending date of the same group ID.
+* Statistics are aggregated only when about 500 messages with the same group ID and the same message format are sent successfully (at least 100 successful deliveries per carrier).
+* You can search for up to 31 days within the last 1 year and 6 months. When querying, include the campaign sending start date in the query period.
+* Button clicks by the same customer within 1 day are excluded.
 
 ##### RCS button type
 * Open chat room
