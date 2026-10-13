@@ -369,7 +369,7 @@ NHN Cloud provides the following technical measures for 'advertising mail' to co
 - External
     - Download and use the media file corresponding to the URL you entered.
     - Android
-        - To use HTTP on Android Pie and higher, <a href="http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-android/#android-p">network-security-config</a> must be set.
+        - To use HTTP on Android Pie and higher, <a href="https://docs.nhncloud.com/ko/TOAST/ko/toast-sdk/push-android/#android-p">network-security-config</a> must be set.
     - iOS
         - To use HTTP with iOS 9 and later, you must set app transport security (ATS) within the Info.plist file.
         - You must enter extension information for the actual media file in the extension entry (e.g., jpg, png, mp4, wav, ...)
@@ -381,7 +381,7 @@ NHN Cloud provides the following technical measures for 'advertising mail' to co
         - Android cannot use the same file name even if the extensions are different because the file name is used as an identifier for the resource.
 The supported image formats are png, jpg, and gif. (Currently, media in video and audio formats are not supported.)
     - iOS
-        - Resources must be pre-added to <a href="http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-ios/#notification-service-extension">Notification Service Extension</a> project that generates rich messages.
+        - Resources must be pre-added to <a href="https://docs.nhncloud.com/ko/TOAST/ko/toast-sdk/push-ios/#notification-service-extension">Notification Service Extension</a> project that generates rich messages.
         - In XCode, add a file or directory to the 'NotificationServiceExtension' project.
         - Verify that the file has been added successfully in 'Build Phases > TARGETS'.
         - It is accessed through bundle resources and requires a full filename, including the extension.

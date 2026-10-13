@@ -362,7 +362,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
 - 外部
     - 入力したURLに該当するメディアファイルをダウンロードして使用します。
     - Android
-        - Android Pie以上でHTTPを使用するには <a href="http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-android/#android-p">network-security-config</a>を設定する必要があります。
+        - Android Pie以上でHTTPを使用するには <a href="https://docs.nhncloud.com/ko/TOAST/ko/toast-sdk/push-android/#android-p">network-security-config</a>を設定する必要があります。
     - iOS
         - iOS 9以上でHTTPを使用するにはInfo.plistファイル内にATS(app transport security)を設定する必要があります。
         - 実際のメディアファイルの拡張子情報をextension項目に入力する必要があります。 (例：jpg, png, mp4, wav, ...)
@@ -374,7 +374,7 @@ NHN Cloudは、情報通信網法を遵守できるように、「広告メー�
         - Androidではファイル名がリソースの識別子として使用されるため、拡張子が違っても同じファイル名を使用することはできません。
        サポートする画像フォーマットはpng, jpg, gifです。 (現在ビデオ、オーディオ形式のメディアはサポートしません。)
     - iOS
-        - リソースはリッチメッセージを作成する <a href="http://docs.toast.com/ko/TOAST/ko/toast-sdk/push-ios/#notification-service-extension">Notification Service Extension</a> プロジェクトにあらかじめ追加する必要があります。
+        - リソースはリッチメッセージを作成する <a href="https://docs.nhncloud.com/ko/TOAST/ko/toast-sdk/push-ios/#notification-service-extension">Notification Service Extension</a> プロジェクトにあらかじめ追加する必要があります。
         - Xcodeでファイルまたはディレクトリを'NotificationServiceExtension'プロジェクトに追加します。
         - 'Build Phases > TARGETS'でファイルが正常に追加されたか確認します。
         - バンドルリソースでアクセスするため、拡張子を含めた完全なファイル名が必要です。
