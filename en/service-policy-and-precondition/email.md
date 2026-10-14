@@ -86,6 +86,7 @@ This is a brief guide to Gmail reputation criteria. Learn how Gmail evaluates re
 When sending mail, the ISP (inbox service provider, Gmail, incoming SMPT server) evaluates the reputation of the sending SMTP server to determine whether it is received or not, and classifies spam. If you send mail that does not fit your ISP's reputation evaluation method, it can slow down the sending speed or make it difficult for recipients who use that ISP to receive mail.
 
 Reputation can be largely divided into, IP reputation and domain reputation.
+
 * IP Reputation: IP is the IP of the sending SMTP. It means the reputation of the IP of the sending SMTP.
 * Domain Reputation: The domain is the mail sending domain. The domain of NHN will be 'nhn.com '. It refers to the reputation of the domain that is responsible for sending mail.
 

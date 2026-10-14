@@ -12,6 +12,7 @@
 To send push messages from Notification Hub, you need the Credentials issued by the push service.
 
 The push services supported by Notification Hub are as follows.
+
 * FCM(firebase cloud messaging): Android device 
 * APNS(apple push notification service): iPhone
 * ADM(amazon device messaging): Amazon Kindle, Fire etc.

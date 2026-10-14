@@ -12,6 +12,7 @@
 Notification Hubでプッシュメッセージを送信するためには、プッシュサービスで発行する認証情報が必要です。
 
 Notification Hubでサポートするプッシュサービスは次のとおりです。
+
 * FCM(firebase cloud messaging): Android端末 
 * APNS(apple push notification service): iPhone
 * ADM(amazon device messaging): Amazon Kindle, Fireなど

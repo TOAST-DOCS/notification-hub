@@ -19,6 +19,7 @@ Check the main points below when sending international SMS messages.
 * The sender number set by the customer cannot guarantee exposure to the receiving terminal and may be changed to any number, text, NHN corporation, etc. to send international SMS messages normally.
 
 **Send International SMS**
+
 * For detailed policies by country, please refer to **Detailed SMS Delivery Guide by country** below.
   * [National SMS Delivery Detail Guide Shortcut](https://nhnnotification.imweb.me/Technology/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17226410&t=board)
 * In countries with strict international SMS message policies, such as China and Vietnam, messages can only be sent normally if the message is sent with an Authentication Number (OTP).

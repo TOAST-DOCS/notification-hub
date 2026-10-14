@@ -230,6 +230,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 브랜드 메시지(BRANDMESSAGE)에 대한 자유 양식 메시지 발송을 요청합니다.
 
 브랜드 메시지는 카카오톡 친구톡 업그레이드 상품으로, 기존 친구톡보다 더 다양한 메시지 유형을 지원합니다.
+
 - TEXT: 텍스트형
 - IMAGE: 이미지형
 - WIDE: 와이드 이미지형
@@ -1696,6 +1697,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
+
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
   <br>
@@ -1875,6 +1877,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
+
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
   <br>
@@ -2064,6 +2067,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
+
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
   <br>
@@ -2318,6 +2322,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
+
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
   <br>
@@ -2496,6 +2501,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
+
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
   <br>
@@ -2703,6 +2709,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 등록한 템플릿이 없을 경우 템플릿을 먼저 등록한 뒤 발송합니다.
 
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.
+
 * 단건 수신자(recipient)
 * 대량/그룹 수신자(id)
 
@@ -2710,6 +2717,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 확인 후 발송의 경우 'confirmBeforeSend'를 true로 설정합니다.
 
 이미지 레이아웃이 연동된 MMS 템플릿 발송 시 다음 사항을 유의해야 합니다.
+
 * **필수 템플릿 파라미터**: cardNumber, scratchNumber를 반드시 포함해야 합니다.
     * cardNumber: 바코드 생성에 사용되며, 반드시 16자리 숫자로 구성되어야 합니다.
     * scratchNumber: 별도 제약 조건이 없습니다.
@@ -2896,6 +2904,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 플로우를 등록하지 않았다면, 플로우를 등록하고 발송해야 합니다.<br>
 <br>
 수신 대상 설정은 단건 수신자, 대량 수신자, 그룹 쿼리 중 하나를 선택해 설정해야 합니다.<br>
+
 * 단건 수신자(recipient)<br>
 * 대량/그룹 수신자(id)<br>
   <br>

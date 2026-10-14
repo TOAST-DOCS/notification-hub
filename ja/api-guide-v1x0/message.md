@@ -228,6 +228,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 ブランドメッセージ (BRANDMESSAGE) の自由形式メッセージ送信をリクエストします。
 
 ブランドメッセージは KakaoTalk Bizmessage の友だちトークのアップグレード商品で、従来の友だちトークよりも多様なメッセージタイプをサポートします。
+
 - TEXT: テキスト型
 - IMAGE: イメージ型
 - WIDE_IMAGE: ワイドイメージ型
@@ -1682,6 +1683,7 @@ curl -X POST "${endpoint}/message/v1.0/PUSH/free-form-messages/${messagePurpose}
 登録したテンプレートがない場合は、先にテンプレートを登録してから送信します。<br>
 <br>
 受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+
 * 単件受信者(recipient)<br>
 * 大量/グループ受信者(id)<br>
   <br>
@@ -1860,6 +1862,7 @@ curl -X POST "${endpoint}/message/v1.0/${messageChannel}/template-messages/${mes
 登録済みのテンプレートがない場合は、先にテンプレートを登録してから送信します。<br>
 <br>
 受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+
 * 単件受信者 (recipient)<br>
 * 大量/グループ受信者 (id)<br>
   <br>
@@ -2048,6 +2051,7 @@ curl -X POST "${endpoint}/message/v1.0/ALIMTALK/template-messages/${messagePurpo
 登録済みのテンプレートがない場合は、先にテンプレートを登録してから送信します。<br>
 <br>
 受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+
 * 単件受信者(recipient)<br>
 * 大量/グループ受信者(id)<br>
   <br>
@@ -2300,6 +2304,7 @@ curl -X POST "${endpoint}/message/v1.0/BRANDMESSAGE/template-messages/${messageP
 登録済みのテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
 <br>
 受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+
 * 単件受信者 (recipient)<br>
 * 大量/グループ受信者 (id)<br>
   <br>
@@ -2477,6 +2482,7 @@ curl -X POST "${endpoint}/message/v1.0/EMAIL/template-messages/${messagePurpose}
 登録したテンプレートがない場合は、テンプレートを先に登録してから送信します。<br>
 <br>
 受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+
 * 単件受信者(recipient)<br>
 * 大量/グループ受信者(id)<br>
   <br>
@@ -2683,6 +2689,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 登録済みのテンプレートがない場合は、先にテンプレートを登録してから送信します。
 
 受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。
+
 * 単件受信者 (recipient)
 * 大量/グループ受信者 (id)
 
@@ -2690,6 +2697,7 @@ curl -X POST "${endpoint}/message/v1.0/RCS/template-messages/${messagePurpose}" 
 確認後送信の場合は `confirmBeforeSend` を true に設定します。
 
 画像レイアウトが連携されたMMSテンプレートを送信する際は、次の事項に注意してください。
+
 * **必須テンプレートパラメーター**: cardNumber、scratchNumber を必ず含める必要があります。
     * cardNumber: バーコード生成に使用され、必ず16桁の数字で構成される必要があります。
     * scratchNumber: 特別な制約条件はありません。
@@ -2874,6 +2882,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/template-messages/${messagePurpose}" 
 フローを登録していない場合は、フローを登録してから送信する必要があります。<br>
 <br>
 受信対象の設定は、単件受信者、大量受信者、グループクエリのいずれかを選択して設定する必要があります。<br>
+
 * 単件受信者 (recipient)<br>
 * 大量/グループ受信者 (id)<br>
   <br>

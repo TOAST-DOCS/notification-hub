@@ -12,6 +12,7 @@
 Notification Hub에서 푸시 메시지를 발송하기 위해서는 푸시 서비스에서 발급하는 인증 정보가 필요합니다.
 
 Notification Hub에서 지원하는 푸시 서비스는 다음과 같습니다.
+
 * FCM(firebase cloud messaging): Android 기기 
 * APNS(apple push notification service): iPhone
 * ADM(amazon device messaging): Amazon Kindle, Fire 등
