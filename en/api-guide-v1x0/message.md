@@ -226,6 +226,7 @@ curl -X POST "${endpoint}/message/v1.0/SMS/free-form-messages/${messagePurpose}"
 Requests free-form message sending for Brand Message (BRANDMESSAGE).
 
 Brand Message is an upgraded version of KakaoTalk Friend Talk that supports a wider variety of message types than the standard Friend Talk.
+
 - TEXT: Text type
 - IMAGE: Image type
 - WIDE_IMAGE: Wide image type
@@ -1680,6 +1681,7 @@ Sends a message using a registered template.<br>
 If no template has been registered, register a template first before sending.<br>
 <br>
 You must configure the recipient settings by selecting one of the following: single recipient, bulk recipients, or group query.<br>
+
 * Single recipient (recipient)<br>
 * Bulk/group recipients (id)<br>
   <br>
@@ -1860,6 +1862,7 @@ Send messages using registered templates.<br>
 If no template is registered, register a template first before sending.<br>
 <br>
 You must configure the recipient settings by selecting one of the following: a single recipient, bulk recipients, or a group query.<br>
+
 * Single recipient (recipient)<br>
 * Bulk/group recipients (id)<br>
   <br>
@@ -2048,6 +2051,7 @@ Send a brand message by using a registered template.<br>
 If no template has been registered, register one first and then send the message.<br>
 <br>
 For recipient settings, select one of the following: a single recipient, bulk recipients, or a group query.<br>
+
 * Single recipient (recipient)<br>
 * Bulk/group recipients (id)<br>
   <br>
@@ -2300,6 +2304,7 @@ Sends a message using a registered template.<br>
 If no template has been registered, register a template first and then send the message.<br>
 <br>
 You must configure the recipient settings by selecting one of the following: a single recipient, bulk recipients, or a group query.<br>
+
 * Single recipient (recipient)<br>
 * Bulk/group recipients (id)<br>
   <br>
@@ -2477,6 +2482,7 @@ Send messages using a registered template.<br>
 If no template is registered, register a template first before sending.<br>
 <br>
 You must configure the recipient settings by selecting one of the following: single recipient, bulk recipient, or group query.<br>
+
 * Single recipient (recipient)<br>
 * Bulk/group recipient (id)<br>
   <br>
@@ -2685,6 +2691,7 @@ Sends a message using a registered template.
 If no template has been registered, register one first before sending.
 
 You must configure recipient settings by selecting one of the following: single recipient, bulk recipients, or group query.
+
 * Single recipient (recipient)
 * Bulk/group recipients (id)
 
@@ -2692,6 +2699,7 @@ For scheduled sending, set `scheduledDateTime`.
 For send after confirmation, set `confirmBeforeSend` to true.
 
 When sending an MMS template with a linked image layout, note the following:
+
 * **Required template parameters**: You must include cardNumber and scratchNumber.
     * cardNumber: Used to generate a barcode. Must consist of exactly 16 digits.
     * scratchNumber: No additional constraints.
@@ -2877,6 +2885,7 @@ Send messages using a registered flow.<br>
 If you have not registered a flow, you must register one before sending.<br>
 <br>
 For recipient settings, you must select one of the following: a single recipient, bulk recipients, or a group query.<br>
+
 * Single recipient (recipient)<br>
 * Bulk/group recipients (id)<br>
   <br>
