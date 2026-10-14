@@ -2808,7 +2808,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | テンプレート登録時に発行されたテンプレートID |
 | template.templateName | String | テンプレート名 |
 | template.categoryId | String | カテゴリーID |
-| template.messageChannel | String | X | メッセージチャネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| template.messageChannel | String | X |
 | template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
 | template.templateLanguage | String | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
@@ -2923,7 +2923,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
 | templates[].templateName | String | テンプレート名 |
 | templates[].categoryId | String | カテゴリーID |
-| templates[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| templates[].messageChannel | String | O |
 | templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | テンプレート作成日時 |
@@ -3578,7 +3578,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
 | templates[].templateName | String | テンプレート名 |
 | templates[].categoryId | String | カテゴリーID |
-| templates[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| templates[].messageChannel | String | O |
 | templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | テンプレート作成日時 |
@@ -3747,7 +3747,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | テンプレート登録時に発行されたテンプレートID |
 | template.templateName | String | テンプレート名 |
 | template.categoryId | String | カテゴリーID |
-| template.messageChannel | String | X | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| template.messageChannel | String | X |
 | template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
 | template.templateLanguage | String | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
@@ -3758,9 +3758,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.messageType | String | RCS送信メッセージのタイプ<br>[SMS(ショートメッセージ)、LMS(ロングメッセージ)、MMS(マルチメディアメッセージ)、RBC_TEMPLATE(RCS Biz Centerテンプレート)] |
 | template.content.title | String | メッセージ件名 |
 | template.content.body | String | メッセージ本文 |
-| template.content.smsType | String | X | SMSのタイプ<br>[STANDALONE(スタンドアロン型)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
-| template.content.lmsType | String | X | LMSのタイプ<br>[STANDALONE(スタンドアロン型)、FORMAT_BASIC(基本形式)、FORMAT_TITLE_HIGHLIGHT(タイトル強調形式)、FORMAT_PARAGRAPH(段落形式)、UNIFIED_STANDALONE(統合スタンドアロン型)] |
-| template.content.mmsType | String | X | MMSのタイプ(MMS送信の場合は必須)<br>[HORIZONTAL(横型)、VERTICAL(縦型)、CAROUSEL_MEDIUM(カルーセル中型)、CAROUSEL_SMALL(カルーセル小型)、UNIFIED_HORIZONTAL(統合横型)、UNIFIED_VERTICAL(統合縦型)] |
+| template.content.smsType | String | X |
+| template.content.lmsType | String | X |
+| template.content.mmsType | String | X |
 | template.content.messagebaseId | String | RCS Biz CenterテンプレートID |
 | template.content.messagebaseformId | String | RCS Biz Centerで指定したmessageBase様式<br><br>[SS000000(基本型)、SL000000(基本型)、OL00000001(LMS Format基本型)、OL00000002(LMS Formatタイトル強調型)、OL00000003(LMS Format段落型)、SMwThT00(MMS縦型)、SMwThM00(MMS横型)、CMwMhM0200(MMSスライド中型(2))、CMwMhM0300(MMSスライド中型(3))、CMwMhM0400(MMSスライド中型(4))、CMwMhM0500(MMSスライド中型(5))、CMwMhM0600(MMSスライド中型(6))、CMwShS0200(MMSスライド小型(2))、CMwShS0300(MMSスライド小型(3))、CMwShS0400(MMSスライド小型(4))、CMwShS0500(MMSスライド小型(5))、CMwShS0600(MMSスライド小型(6))、CLI00001(アイテム詳細型)、ITTBNV(サムネイル型(縦))、ITTBNH(サムネイル型(横))、ITHIMS(画像強調型(1:1))、ITHIMV(画像強調型(3:4))、ITSNSS(SNS型)、ITSNSH(SNS型(中間ボタン))、ITHITS(画像＆タイトル強調型(1:1))、ITHITV(画像＆タイトル強調型(3:4))、ITCRM2(スライド型(2))、ITCRM3(スライド型(3))、ITCRM4(スライド型(4))、ITCRM5(スライド型(5))、ITCRM6(スライド型(6))、CLT00001(アイテム強調型 DESC)、CLT00002(アイテム強調型 TABLE)、TATA001C(タイトル自由型 FREE)、TATA001D(タイトル自由型 CELL)、TATA001F(タイトル自由型 DESC)、FF005C(タイトル選択型 FREE)、FF005D(明細書 CELL)、FF004C(明細書 DESC)、FF004D(キャンセル CELL)、GG003C(キャンセル DESC)、GG003D(案内 CELL)、GG002C(案内 DESC)、GG002D(認証 CELL)、GG001C(認証 DESC)、GG001D(会員登録 CELL)、GG000F(会員登録 DESC)、EE001C(予約 CELL)、EE001D(予約 DESC)、CC003C(配送 CELL)、CC003D(配送 DESC)、FF002C(入金 CELL)、FF002D(入金 DESC)、FF001C(承認 CELL)、FF001D(承認 DESC)、CC002C(注文 CELL)、CC002D(注文 DESC)、CC001C(出庫 CELL)、CC001D(出庫 DESC)、FF003C(出金 CELL)、FF003D(出金 DESC)、CLL00001(LMS明細書 A)、CLL00002(LMS段落型)、CLL00003(LMSタイトル強調型)、CLL00004(LMS基本型)、CLL00005(LMS明細書 B)、CLL00006(LMS明細書 C)] |
 | template.content.unsubscribePhoneNumber | String | 配信停止番号(広告送信の場合は必須) |
@@ -3778,11 +3778,11 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.content.cards[].description3 | String | 本文3 |
 | template.content.cards[].buttons | Array |  |
 | template.content.buttons | Array | RCSボタンリスト |
-| template.content.cards[].buttons[].buttonJson | Object | X | ボタン内容 JSON オブジェクト |
+| template.content.cards[].buttons[].buttonJson | Object | X |
 | template.content.buttons[].buttonJson | Object |  |
 | template.content.buttons[].buttonJson.action | Object | ボタンアクション |
 | template.additionalProperty | Object |  |
-| template.content.buttons[].buttonJson | Object | X | ボタン内容の JSON オブジェクト |
+| template.content.buttons[].buttonJson | Object | X |
 | template.additionalProperty.approvedDateTime | String | テンプレート承認日時 |
 | template.createdDateTime | String | テンプレート作成日時 |
 | template.updatedDateTime | String | テンプレート修正日時 |
@@ -4552,7 +4552,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | templates[].templateId | String | テンプレート登録時に発行されたテンプレートID |
 | templates[].templateName | String | テンプレート名 |
 | templates[].categoryId | String | カテゴリーID |
-| templates[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| templates[].messageChannel | String | O |
 | templates[].messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | templates[].messagePurposes | Array |  |
 | templates[].createdDateTime | String | テンプレート作成日時 |
@@ -4705,7 +4705,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | template.templateId | String | テンプレート登録時に発行されたテンプレートID |
 | template.templateName | String | テンプレート名 |
 | template.categoryId | String | カテゴリーID |
-| template.messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| template.messageChannel | String | O |
 | template.messagePurpose | String | 送信内容タイプ<br>デフォルト値: NORMAL<br>[NORMAL, AD, AUTH] |
 | template.messagePurposes | Array |  |
 | template.templateLanguage | String | テンプレート言語のタイプ<br>デフォルト値：PLAIN_TEXT<br>[PLAIN_TEXT(プレーンテキスト)、FREEMARKER(FreeMarkerテンプレート)] |
