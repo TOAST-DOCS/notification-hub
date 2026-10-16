@@ -357,7 +357,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].contactIndex | Integer | 連絡先インデックスです。 |
 | contactDeliveryResults[].contactType | Object | 連絡先タイプ<br>[PHONE_NUMBER, EMAIL_ADDRESS, TOKEN_ADM, TOKEN_FCM, TOKEN_APNS, TOKEN_APNS_SANDBOX, TOKEN_APNS_SANDBOX_VOIP, TOKEN_APNS_VOIP] |
 | contactDeliveryResults[].contact | String | 連絡先です。 |
-| contactDeliveryResults[].sender | Object | X | チャンネル別の送信者情報です。<br>- ALIMTALK : senderKey, senderProfileId, senderProfileType<br>- SMS : senderPhoneNumber<br>- EMAIL : senderMailAddress<br>- RCS : brandId, chatbotId<br> |
+| contactDeliveryResults[].sender | Object | X |
 | contactDeliveryResults[].sender.senderKey | String | 発信プロフィール発信キー |
 | contactDeliveryResults[].sender.senderProfileId | String | カカオトークチャンネル名 |
 | contactDeliveryResults[].sender.senderProfileType | String | 送信元プロフィールタイプ<br>[GROUP(グループ送信元プロフィール)、NORMAL(一般送信元プロフィール)] |
@@ -369,9 +369,9 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].flowId | String | フローID |
 | contactDeliveryResults[].statsKeyId | String | 統計キーID |
 | contactDeliveryResults[].clientReference | String | ユーザー指定フィールド |
-| contactDeliveryResults[].messageChannel | String | O | メッセージチャンネル<br>[SMS(SMS), ALIMTALK(お知らせトーク), BRANDMESSAGE(ブランドメッセージ), EMAIL(メール), RCS(RCS), PUSH(プッシュ)] |
+| contactDeliveryResults[].messageChannel | String | O |
 | contactDeliveryResults[].options.expiryOption | Integer | (RCS) RCSメッセージ受信待機有効期限設定値(1: 1日、 2: 40秒、 3: 3分、 4: 1時間) |
-| contactDeliveryResults[].options | Object | X | チャンネル別オプションです。 |
+| contactDeliveryResults[].options | Object | X |
 | contactDeliveryResults[].messageChannel | Object | メッセージチャンネル<br>[SMS, ALIMTALK, EMAIL, RCS, PUSH] |
 | contactDeliveryResults[].messagePurpose | Object | 送信内容タイプ(NORMAL:一般、 AD:広告、 AUTH:認証、 default: NORMAL)<br>[NORMAL, AD, AUTH] |
 | contactDeliveryResults[].confirmBeforeSend | Boolean | 確認後に送信するかどうかを示します。 |
@@ -382,15 +382,15 @@ X-NHN-Authorization: Bearer {accessToken}
 | contactDeliveryResults[].resultCode | String | 送信結果コードです。メッセージチャンネルによって値が異なります。 |
 | contactDeliveryResults[].resultMessage | String | 送信結果メッセージです。 |
 | contactDeliveryResults[].templateParameters | Object | テンプレートパラメータです。キー(Key、置換子)と値(Value)のペアで構成されています。<br><br>グループ送信では受信者別のテンプレートパラメータを指定できません。<br><br>受信者に設定されるテンプレートパラメータはメッセージテンプレートパラメータより優先されます。<br><br> |
-| contactDeliveryResults[].imageParameters | Array | X | 受信者別のイメージパラメーターです。ブランドメッセージでのみ使用されます。 |
-| contactDeliveryResults[].imageParameters[].attachmentId | String | X | 添付ファイルID |
-| contactDeliveryResults[].imageParameters[].imageUrl | String | X | 画像URL |
-| contactDeliveryResults[].imageParameters[].imageLink | String | X | 画像クリック時に移動する URL |
-| contactDeliveryResults[].videoParameter | Object | X | 受信者別のビデオパラメーターです。ブランドメッセージでのみ使用されます。 |
-| contactDeliveryResults[].videoParameter.videoUrl | String | X | カカオTV動画URL |
-| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X | サムネイル画像添付ファイルID |
-| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X | 動画サムネイル画像 URL |
-| contactDeliveryResults[].additionalProperty | Object | X | メッセージチャンネルの追加プロパティです。 |
+| contactDeliveryResults[].imageParameters | Array | X |
+| contactDeliveryResults[].imageParameters[].attachmentId | String | X |
+| contactDeliveryResults[].imageParameters[].imageUrl | String | X |
+| contactDeliveryResults[].imageParameters[].imageLink | String | X |
+| contactDeliveryResults[].videoParameter | Object | X |
+| contactDeliveryResults[].videoParameter.videoUrl | String | X |
+| contactDeliveryResults[].videoParameter.thumbnailAttachmentId | String | X |
+| contactDeliveryResults[].videoParameter.thumbnailUrl | String | X |
+| contactDeliveryResults[].additionalProperty | Object | X |
 | contactDeliveryResults[].createdDateTime | String | メッセージが作成された時刻です。 |
 | contactDeliveryResults[].sentDateTime | String | メッセージが送信された時刻です。 |
 | contactDeliveryResults[].deliveredDateTime | String | メッセージを受信した時刻です。 |
