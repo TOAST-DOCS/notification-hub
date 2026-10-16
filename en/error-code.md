@@ -1196,8 +1196,10 @@
 | RCS | false | 46053008 | Failed to send the message due to a file size format error. |
 | RCS | false | 46054001 | Failed to send the message due to an invalid contact user number. |
 | RCS | false | 46054002 | Failed to send the message because RCS is not supported. |
-| RCS | false | 46054003 | Failed to send the message because it cannot be delivered to the recipient. |
+| RCS | false | 46054003 | The recipient is a subscriber, but the RCS message cannot be received due to the device being powered off or network conditions. |
 | RCS | false | 46054004 | Failed to send the message due to an internal server error. |
+| RCS | false | 46054005 | Blocked because it was classified as spam. |
+| RCS | false | 46054008 | Delivery blocked due to an invalid number. |
 | RCS | false | 46055001 | Failed to send the message due to a business content error. |
 | RCS | false | 46055002 | Failed to send the message due to an invalid attribute. |
 | RCS | false | 46055101 | Failed to send the message due to an agency content error. |
@@ -1276,6 +1278,7 @@
 | RCS | false | 46055887 | Failed to send the message due to a chatbot that is not allowed for the session message. |
 | RCS | false | 46055900 | Failed to send the message due to a non-retryable error caused by an invalid message. |
 | RCS | false | 46056002 | Failed to send the message due to a cancellation failure. |
+| RCS | false | 46056003 | The message was sent successfully, but delivery could not be confirmed. |
 | RCS | false | 46056007 | Failed to send the message because it expired before the session was established. |
 | RCS | false | 46059001 | Failed to send the message due to a system IO error. |
 | RCS | false | 46059002 | Failed to send the message due to an IO error. |
@@ -1295,6 +1298,7 @@
 | RCS | false | 47041232 | Failed to send the message because the user does not support OPENRICHARD 1.2. |
 | RCS | false | 47041240 | Failed to send the message because the user does not support GEOLOCATION PUSH requests. |
 | RCS | false | 47054006 | Failed to send the message because the device is an RCS subscriber but does not support OPENRICHARD. |
+| RCS | false | 47054007 | The recipient is a subscriber, but the device cannot receive this message type due to device specifications. |
 | EMAIL | false | 51100005 | Failed to send the mail because the recipient refused to receive it. |
 | EMAIL | false | 51100006 | Failed to send the mail because the scheduled send was canceled. |
 | EMAIL | false | 51100007 | Failed to send the mail because the sending domain is not verified. |
