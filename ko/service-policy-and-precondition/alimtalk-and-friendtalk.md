@@ -98,6 +98,16 @@
 * 채널 친구 수 5만 이상
 * 3개월 내 알림톡 발송 성공 이력 보유
 
+<a id="statistics-aggregation-for-targeting-m"></a>
+#### M 타겟팅 발송의 카카오 통계 집계 기준
+
+M 타겟팅으로 요청한 메시지는 수신자의 채널 친구 여부에 따라 채널 친구 대상 메시지 또는 비친구 대상 메시지로 나뉘어 발송됩니다. 카카오 통계는 요청 시 지정한 타겟팅이 아니라 실제 발송된 메시지 타입 기준으로 집계합니다.
+
+* 채널 친구에게 발송된 건은 O 타겟팅으로, 비친구에게 발송된 건은 N 타겟팅으로 집계됩니다. M 타겟팅은 0건으로 표시됩니다.
+* 예: M 타겟팅으로 1,000건을 요청하고 그중 300명이 채널 친구인 경우, 카카오 통계는 M 0건, O 300건, N 700건으로 집계됩니다. 발송 성공 여부에 따라 수치는 달라질 수 있습니다.
+
+![brandmessage-targeting-m-statistics.png](../img/brandmessage-targeting-m-statistics.png)
+
 <a id="friend-targeted-delivery"></a>
 ### 친구 대상 발송 { #friend-targeted-delivery }
 

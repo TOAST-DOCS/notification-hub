@@ -34,6 +34,7 @@ MONTHLY: 최근 3개월 이내 데이터만 조회 가능하며, 조회 범위�
 템플릿 및 그룹 태그를 기준으로 일별 발송 수, 유효 읽음 수, 클릭 수를 조회합니다. 기간, 메시지 타입 등을 설정해 조회할 수 있습니다.
 
 * 브랜드 메시지 자유형은 그룹 태그를 사용한 경우에만 제공합니다.
+* 브랜드 메시지 M 타겟팅 발송은 수신자의 채널 친구 여부에 따라 O 또는 N 메시지로 발송되며, 카카오 통계에는 M이 아닌 O/N 타겟팅 발송 건수로 집계됩니다. 자세한 내용은 [이용 정책 및 사전 설정 안내 > 알림톡/브랜드 메시지](../service-policy-and-precondition/alimtalk-and-friendtalk#statistics-aggregation-for-targeting-m)를 참고하세요.
 
 
 
@@ -344,7 +345,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | brandmessageDeliveryStatistics[].messageSpec | String | O | 발송 타입<br>[BASIC(기본형), FREESTYLE(자유형)] |
 | brandmessageDeliveryStatistics[].chatBubbleType | String | O | 메시지 타입<br>[TEXT(텍스트형), IMAGE(이미지형), WIDE(와이드 이미지형), WIDE_ITEM_LIST(와이드 아이템리스트형), CAROUSEL_FEED(캐러셀 피드형), PREMIUM_VIDEO(프리미엄 비디오형), COMMERCE(커머스형), CAROUSEL_COMMERCE(캐러셀 커머스형)] |
 | brandmessageDeliveryStatistics[].friendType | String | O | 친구 타입<br>[F(친구), N(비친구)] |
-| brandmessageDeliveryStatistics[].targeting | String | O | 발송 타겟팅 여부<br>[M(마케팅 수신 동의 유저 전체), N(채널 친구 제외), I(채널 친구만), F(채널 친구 전체)] |
+| brandmessageDeliveryStatistics[].targeting | String | O | 발송 타겟팅 여부<br>[M(마케팅 수신 동의 유저 전체), N(채널 친구 제외), I(채널 친구만), F(채널 친구 전체), O(마케팅 수신 동의 유저 중 채널 친구)] |
 | brandmessageDeliveryStatistics[].totalSendRequestCount | Integer | O | 총 발송 요청 수 |
 | brandmessageDeliveryStatistics[].validSendRequestCount | Integer | O | 유효 발송 요청 수 |
 | brandmessageDeliveryStatistics[].validReadCount | Integer | O | 유효 읽음 수 |
@@ -467,7 +468,7 @@ X-NHN-Authorization: Bearer {accessToken}
 | brandmessageTemplateStatistics[].messageSpec | String | O | 발송 타입<br>[BASIC(기본형), FREESTYLE(자유형)] |
 | brandmessageTemplateStatistics[].chatBubbleType | String | O | 메시지 타입<br>[TEXT(텍스트형), IMAGE(이미지형), WIDE(와이드 이미지형), WIDE_ITEM_LIST(와이드 아이템리스트형), CAROUSEL_FEED(캐러셀 피드형), PREMIUM_VIDEO(프리미엄 비디오형), COMMERCE(커머스형), CAROUSEL_COMMERCE(캐러셀 커머스형)] |
 | brandmessageTemplateStatistics[].friendType | String | O | 친구 타입<br>[F(친구), N(비친구)] |
-| brandmessageTemplateStatistics[].targeting | String | O | 발송 타겟팅 여부<br>[M(마케팅 수신 동의 유저 전체), N(채널 친구 제외), I(채널 친구만), F(채널 친구 전체)] |
+| brandmessageTemplateStatistics[].targeting | String | O | 발송 타겟팅 여부<br>[M(마케팅 수신 동의 유저 전체), N(채널 친구 제외), I(채널 친구만), F(채널 친구 전체), O(마케팅 수신 동의 유저 중 채널 친구)] |
 | brandmessageTemplateStatistics[].totalSendSuccessCount | Integer | O | 총 발송 성공 수 |
 | brandmessageTemplateStatistics[].validReadCount | Integer | O | 유효 읽음 수 |
 | brandmessageTemplateStatistics[].totalClickCount | Integer | O | 총 클릭 수 |
