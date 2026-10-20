@@ -525,6 +525,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
 
+* 브랜드 메시지 M 타겟팅 발송은 수신자의 채널 친구 여부에 따라 O 또는 N 메시지로 발송되며, 카카오 통계에는 M이 아닌 O/N 타겟팅 발송 건수로 집계됩니다. 자세한 내용은 [이용 정책 및 사전 설정 안내 > 알림톡/브랜드 메시지](../service-policy-and-precondition/alimtalk-and-friendtalk#statistics-aggregation-for-targeting-m)를 참고하세요.
+
 
 
 **응답 본문**
@@ -2179,6 +2181,8 @@ X-NHN-Authorization: Bearer {accessToken}
 | statsKeyId | String | X | 통계 키 아이디 |
 | scheduledDateTime | String | X | 예약 발송 시간 |
 | confirmBeforeSend | Boolean | X | 확인 후 발송 여부 |
+
+* 브랜드 메시지 M 타겟팅 발송은 수신자의 채널 친구 여부에 따라 O 또는 N 메시지로 발송되며, 카카오 통계에는 M이 아닌 O/N 타겟팅 발송 건수로 집계됩니다. 자세한 내용은 [이용 정책 및 사전 설정 안내 > 알림톡/브랜드 메시지](../service-policy-and-precondition/alimtalk-and-friendtalk#statistics-aggregation-for-targeting-m)를 참고하세요.
 
 
 

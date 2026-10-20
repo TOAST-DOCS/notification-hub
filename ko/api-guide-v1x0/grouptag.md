@@ -390,6 +390,8 @@ curl -X PUT "${endpoint}/kakaobizcenter/v1.0/group-tags/${groupTagKey}" \
 
 카카오 비즈센터 그룹태그를 등록합니다.
 
+* 카카오 정책에 따라 발신 프로필 기준 하루 100개, 최대 1,000개까지 등록할 수 있습니다.
+
 **요청**
 
 ```
