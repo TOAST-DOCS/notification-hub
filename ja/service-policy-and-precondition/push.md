@@ -94,27 +94,27 @@ Kindle Fireアプリにプッシュ通知メッセージを送信するために
     ```
     > keytool -list -v -keystore {keystoreFileName}
     
- キーストアパスワード入力:
- キーストアタイプ: JKS
- キーストア提供者: SUN
+    キーストアパスワード入力:
+    キーストアタイプ: JKS
+    キーストア提供者: SUN
     
- キーストアに1つの項目が含まれています。
+    キーストアに1つの項目が含まれています。
     
- エイリアス名: androiddebugkey
- 作成日: 2018. 5. 9
- 項目タイプ: PrivateKeyEntry
- 証明書チェーンの長さ: 1
- 証明書[1]:
- 所有者: C=US, O=Android, CN=Android Debug
- 発行者: C=US, O=Android, CN=Android Debug
-  シリアル番号: 1
-  適切な開始日: Wed May 09 19:59:46 KST 2018終了日: Fri May 01 19:59:46 KST 2048
- 証明書指紋:
+    エイリアス名: androiddebugkey
+    作成日: 2018. 5. 9
+    項目タイプ: PrivateKeyEntry
+    証明書チェーンの長さ: 1
+    証明書[1]:
+    所有者: C=US, O=Android, CN=Android Debug
+    発行者: C=US, O=Android, CN=Android Debug
+    シリアル番号: 1
+    適切な開始日: Wed May 09 19:59:46 KST 2018終了日: Fri May 01 19:59:46 KST 2048
+    証明書指紋:
              MD5:  xxxx
              SHA1: xxxx
              SHA256: xxxx
- 署名アルゴリズム名: SHA1withRSA
- 主体共用鍵アルゴリズム: 1024ビットRSAキー
- バージョン: 1
+    署名アルゴリズム名: SHA1withRSA
+    主体共用鍵アルゴリズム: 1024ビットRSAキー
+    バージョン: 1
     ```
 4. 登録完了後、**Show**をクリックするとAPI key情報を照会できます。
